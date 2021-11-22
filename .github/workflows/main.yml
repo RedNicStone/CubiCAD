@@ -26,8 +26,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@main
     - name: Checkout submodules
-      uses: textbook/git-checkout-submodule-action@master
-        
+      run: git submodule update --init
+      
     - name: Doxygen Action
       uses: mattnotmitt/doxygen-action@v1.1.0
       with:
