@@ -26,7 +26,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@main
     - name: Checkout submodules
-      run: git submodule update --init
+      run: git submodule update ./lib/doxygen-awesome-css
       
     - name: Doxygen Action
       uses: mattnotmitt/doxygen-action@v1.1.0
