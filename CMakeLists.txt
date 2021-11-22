@@ -3,6 +3,10 @@ project(CubiCAD VERSION 0.2.1)
 set(CMAKE_CXX_STANDARD 14)
 
 # configure compile options
+
+# COMPILE_FLAG_USE_UINT32_INDICES -  - accepted value ON or OFF
+# ON  - Compile with 32bit integers
+# OFF - Compile with 64bit integers
 option(COMPILE_FLAG_USE_UINT32_INDICES "Compile using 32 bit integers for indexing voxels. \
                                         Limits the map size and detail. Default is 64 bit" OFF)
 
@@ -10,6 +14,11 @@ option(COMPILE_FLAG_USE_UINT32_INDICES "Compile using 32 bit integers for indexi
 # ON  - Use CMake to auto locate the Vulkan SDK.
 # OFF - Vulkan SDK path can be specified manually. This is helpful to test the build on various Vulkan version.
 option(AUTO_LOCATE_VULKAN "AUTO_LOCATE_VULKAN" ON)
+
+# COMPILE_FLAG_OFFLINE - configure make to build offline
+# ON  - Try to build offline
+# OFF - Build as usual
+option(COMPILE_FLAG_OFFLINE "configure make to build offline" OFF)
 
 if(COMPILE_FLAG_USE_UINT32_INDICES)
     add_compile_definitions(USE_UINT32_INDICES)
@@ -178,6 +187,10 @@ target_link_libraries(
         libmorton
 )
 
+# make
+if(COMPILE_FLAG_OFFLINE)
+    set(CMAKE_MAKE_PROGRAM ${CMAKE_MAKE_PROGRAM} -Dbuiltin_xrootd=OFF)
+endif()
 
 # CPack
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
