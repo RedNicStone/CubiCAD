@@ -82,6 +82,12 @@ target_include_directories(ImGui PUBLIC ${IMGUI_PATH})
 target_link_libraries(CubiCAD PUBLIC ImGui)
 ]]#
 
+# configure shaderc
+
+SET(SHADERC_SKIP_INSTALL ON CACHE BOOL "Disable shaderc tests" FORCE)
+SET(SHADERC_SKIP_TESTS ON CACHE BOOL "Disable shaderc tests" FORCE)
+SET(SHADERC_SKIP_EXAMPLES ON CACHE BOOL "Disable shaderc tests" FORCE)
+
 # find vulkan
 # script source: https://github.com/PacktPublishing/Learning-Vulkan
 
@@ -138,38 +144,59 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/glfw)
 
-# find vma
+# add vma
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/VulkanMemoryAllocator)
 
-# find EventBus
+# add EventBus
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/EventBus/lib)
 
-# find libmorton
+# add libmorton
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/libmorton)
 
 # add documentation targets
 add_subdirectory(${CMAKE_SOURCE_DIR}/docs)
 
 
+# build shaderc
+set(SHADERC_SOURCE ${CMAKE_SOURCE_DIR}/lib/shaderc)
+
+message(STATUS "Downloading shaderc dependencies")
+execute_process(COMMAND ${SHADERC_SOURCE}/utils/git-sync-deps)
+
+add_subdirectory(${SHADERC_SOURCE})
+
+set(GLSLC_EXECUTABLE ${CMAKE_SOURCE_DIR}/../glslc)
+
 # build shaders
 set(SHADERS_SOURCE_DIR ${CMAKE_SOURCE_DIR}/resources/shaders)
+set(SHADERS_BUILD_DIR ${SHADERS_SOURCE_DIR}/compiled)
 
-set(SHADERS_BUILD_GOAL
-        ${SHADERS_SOURCE_DIR}/vert_quad.spv
-        ${SHADERS_SOURCE_DIR}/frag_uv.spv
-        )
-
-add_custom_command(
-        COMMAND ${SHADERS_SOURCE_DIR}/compile.sh
-        WORKING_DIRECTORY ${SHADERS_SOURCE_DIR}
-        OUTPUT ${SHADERS_BUILD_GOAL}
+file(GLOB
+    SHADERS_SOURCE_PATH
+    LIST_DIRECTORIES false
+    RELATIVE ${SHADERS_SOURCE_DIR}
+    "${SHADERS_SOURCE_DIR}/*"
 )
 
-add_custom_target(
-        shaders ALL
-        DEPENDS ${SHADERS_BUILD_GOAL}
+message(STATUS "Detected shaders to build: ${SHADERS_SOURCE_PATH}")
+
+foreach(SHADER_SOURCE_FILE ${SHADERS_SOURCE_PATH})
+    string(REGEX REPLACE "\\..*" ".spv" SHADER_BINARY_FILE ${SHADER_SOURCE_FILE})
+    list(APPEND SHADERS_BUILD_PATH "${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}")
+    add_custom_command(OUTPUT ${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}
+        COMMAND echo "compiling shader: ${SHADER_SOURCE_FILE}" &
+            ${GLSLC_EXECUTABLE} ${SHADERS_SOURCE_DIR}/${SHADER_SOURCE_FILE}
+            -o ${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}
+        DEPENDS ${SHADERS_SOURCE_DIR}/${SHADER_SOURCE_FILE}
+    )
+endforeach()
+
+add_custom_target(shaders
+    ALL
+    DEPENDS ${SHADERS_BUILD_PATH}
 )
 
+add_dependencies(shaders glslc_exe)
 add_dependencies(CubiCAD shaders)
 
 # linking
