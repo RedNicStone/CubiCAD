@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
 project(CubiCAD VERSION 0.2.1)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD     17
+    CXX_STANDARD_REQUIRED  YES)
 
 # configure compile options
 
@@ -137,18 +138,14 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/glfw)
 
-
 # find vma
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/VulkanMemoryAllocator)
-
 
 # find EventBus
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/EventBus/lib)
 
-
 # find libmorton
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/libmorton)
-
 
 # add documentation targets
 add_subdirectory(${CMAKE_SOURCE_DIR}/docs)
@@ -176,9 +173,26 @@ add_custom_target(
 add_dependencies(CubiCAD shaders)
 
 # linking
+target_include_directories(
+        CubiCAD
+        PUBLIC glfw
+        PUBLIC Vulkan::Vulkan
+        PUBLIC VulkanMemoryAllocator
+        PUBLIC Dexode::EventBus
+        PUBLIC libmorton
+)
+
+target_link_directories(
+        CubiCAD
+        PUBLIC glfw
+        PUBLIC Vulkan::Vulkan
+        PUBLIC VulkanMemoryAllocator
+        PUBLIC Dexode::EventBus
+        PUBLIC libmorton
+)
+
 target_link_libraries(
         CubiCAD
-        PUBLIC
 
         glfw
         Vulkan::Vulkan
