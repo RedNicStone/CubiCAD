@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 project(CubiCAD VERSION 0.2.1)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 # configure compile options
 
@@ -55,27 +55,6 @@ set_project_warnings(CubiCAD)
 # sanitizer options if supported by compiler (only debug)
 include(${CMAKE_SOURCE_DIR}/cmake/Sanitizers.cmake)
 enable_sanitizers(CubiCAD)
-
-# build shaders
-set(SHADERS_SOURCE_DIR ${CMAKE_SOURCE_DIR}/resources/shaders)
-
-set(SHADERS_BUILD_GOAL
-        ${SHADERS_SOURCE_DIR}/vert_quad.spv
-        ${SHADERS_SOURCE_DIR}/frag_uv.spv
-        )
-
-add_custom_command(
-        COMMAND ${SHADERS_SOURCE_DIR}/compile.sh
-        WORKING_DIRECTORY ${SHADERS_SOURCE_DIR}
-        OUTPUT ${SHADERS_BUILD_GOAL}
-)
-
-add_custom_target(
-        shaders ALL
-        DEPENDS ${SHADERS_BUILD_GOAL}
-)
-
-add_dependencies(CubiCAD shaders)
 
 # ImGui Library
 #[[
@@ -174,6 +153,27 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/libmorton)
 # add documentation targets
 add_subdirectory(${CMAKE_SOURCE_DIR}/docs)
 
+
+# build shaders
+set(SHADERS_SOURCE_DIR ${CMAKE_SOURCE_DIR}/resources/shaders)
+
+set(SHADERS_BUILD_GOAL
+        ${SHADERS_SOURCE_DIR}/vert_quad.spv
+        ${SHADERS_SOURCE_DIR}/frag_uv.spv
+        )
+
+add_custom_command(
+        COMMAND ${SHADERS_SOURCE_DIR}/compile.sh
+        WORKING_DIRECTORY ${SHADERS_SOURCE_DIR}
+        OUTPUT ${SHADERS_BUILD_GOAL}
+)
+
+add_custom_target(
+        shaders ALL
+        DEPENDS ${SHADERS_BUILD_GOAL}
+)
+
+add_dependencies(CubiCAD shaders)
 
 # linking
 target_link_libraries(
