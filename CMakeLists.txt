@@ -13,12 +13,12 @@ option(COMPILE_FLAG_USE_UINT32_INDICES "Compile using 32 bit integers for indexi
 # AUTO_LOCATE_VULKAN - accepted value ON or OFF
 # ON  - Use CMake to auto locate the Vulkan SDK.
 # OFF - Vulkan SDK path can be specified manually. This is helpful to test the build on various Vulkan version.
-option(AUTO_LOCATE_VULKAN "AUTO_LOCATE_VULKAN" ON)
+option(AUTO_LOCATE_VULKAN "Automatically locate vulkan using CMake" ON)
 
 # COMPILE_FLAG_OFFLINE - configure make to build offline
 # ON  - Try to build offline
 # OFF - Build as usual
-option(COMPILE_FLAG_OFFLINE "configure make to build offline" OFF)
+option(COMPILE_FLAG_OFFLINE "Configure make to build offline" OFF)
 
 if(COMPILE_FLAG_USE_UINT32_INDICES)
     add_compile_definitions(USE_UINT32_INDICES)
