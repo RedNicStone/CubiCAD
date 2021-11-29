@@ -112,8 +112,8 @@ int main() {
         descriptorSets[i].updateUniformBuffer(&frameInfoBuffers[i], 0);
     }
 
-    VertexShader vertexShader = VertexShader(&device, "main", "resources/shaders/vert_quad.spv");
-    FragmentShader fragmentShader = FragmentShader(&device, "main", "resources/shaders/frag_uv.spv");
+    VertexShader vertexShader = VertexShader(&device, "main", "resources/shaders/compiled/quad.vert.spv");
+    FragmentShader fragmentShader = FragmentShader(&device, "main", "resources/shaders/compiled/uv.frag.spv");
     std::vector<GraphicsShader *> shaders = {&vertexShader, &fragmentShader};
 
     GraphicsPipeline pipeline = GraphicsPipeline(&device, &layout, shaders, renderPass, swapChain
@@ -158,6 +158,8 @@ int main() {
 
         std::vector<Semaphore*> signalSemaphores = swapChain.getRenderSignalSemaphores();
         std::vector<Semaphore*> waitSemaphores = swapChain.getRenderWaitSemaphores();
+        std::cout << "submitting using image index: " << swapChain.getCurrentImageIndex() << std::endl;
+        std::cout << "submitting using image: " << swapChain.getCurrentFrame() << std::endl;
         graphicsBuffers[swapChain.getCurrentImageIndex()].submitToQueue(signalSemaphores,
                                                                    { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
                                                                    waitSemaphores,
@@ -190,6 +192,7 @@ int main() {
     publicRenderBus.getBus()->process();
 
     while (true) {
-        publicRenderBus.runRenderLoop(&device);
+        swapChain.doRenderLoop(&graphicsBuffers, graphicsQueue);
+        //publicRenderBus.runRenderLoop(&device);
     }
 }

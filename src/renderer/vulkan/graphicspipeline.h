@@ -18,6 +18,8 @@
 #include <vector>
 
 
+class RenderPass;
+
 class GraphicsPipeline : public PipelineBase {
   private:
     VkQueue graphicsQueue;

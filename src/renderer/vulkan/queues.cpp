@@ -143,8 +143,13 @@ void Queue::submitCommandBuffer(std::vector<VkSubmitInfo> submitInfos, Fence* fe
 
     useLock = true;
 
+    std::cout << "submitting using wait semaphore: " << submitInfos[0].pWaitSemaphores[0] << std::endl;
+    std::cout << "submitting using signal semaphore: " << submitInfos[0].pSignalSemaphores[0] << std::endl;
+    std::cout << "submitting using fence: " << fence->getHandle() << std::endl;
+
     auto submissions = static_cast<uint32_t>(submitInfos.size());
     vkQueueSubmit(handle, submissions, submitInfos.data(), fence->getHandle());
+    vkQueueWaitIdle(handle);
 
     auto lambda = [&]() {
       vkQueueWaitIdle(handle);

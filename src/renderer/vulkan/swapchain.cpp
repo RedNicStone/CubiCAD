@@ -228,6 +228,11 @@ void SwapChain::acquireNextFrame(PreRenderAcquireFrameEvent event) {
     inFlightFences[0].waitForSignal();
     inFlightFences[0].resetState();
 
+    std::cout << "acquiring using image index: " << currentImageIndex << std::endl;
+    std::cout << "acquiring using image: " << currentFrame << std::endl;
+    std::cout << "acquiring using fence: " << inFlightFences[0].getHandle() << std::endl;
+    std::cout << "acquiring using semaphore: " << imageAvailableSemaphores[0].getHandle() << std::endl;
+
     VkResult result = vkAcquireNextImageKHR(device->getHandle(),
                                             swapChain,
                                             UINT32_MAX,
@@ -272,6 +277,10 @@ void SwapChain::presentImage(PostRenderPresentImageEvent event) {
 
     //inFlightFences[0].waitForSignal();
 
+    std::cout << "acquiring using image index: " << currentImageIndex << std::endl;
+    std::cout << "acquiring using image: " << currentFrame << std::endl;
+    std::cout << "acquiring using semaphore: " << renderFinishedSemaphores[0].getHandle() << std::endl;
+
     if (event.device != device)
         return;
 
@@ -294,6 +303,95 @@ void SwapChain::presentImage(PostRenderPresentImageEvent event) {
     while (presentQueue->hasWorkSubmitted()) {
         std::this_thread::sleep_for(std::chrono::nanoseconds(1000));
     }
+
+    if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || window->getResized()) {
+        window->resetResizeFence();
+        recreateSwapChain();
+    } else if (result != VK_SUCCESS) {
+        throw std::runtime_error("failed to present swap chain image!");
+    }
+
+    currentFrame = (currentFrame + 1) % imageCount;
+}
+
+void SwapChain::doRenderLoop(std::vector<CommandBuffer>* comandBuffers, Queue * queue) {
+    std::cout << "acquiring image #" << currentFrame << std::endl;
+
+    inFlightFences[currentFrame].waitForSignal();
+
+    currentImageIndex = 0;
+
+    std::cout << "acquiring using image index: " << currentImageIndex << std::endl;
+    std::cout << "acquiring using image: " << currentFrame << std::endl;
+    std::cout << "acquiring using semaphore: " << imageAvailableSemaphores[currentFrame].getHandle() << std::endl;
+
+    VkResult result = vkAcquireNextImageKHR(device->getHandle(),
+                                            swapChain,
+                                            UINT32_MAX,
+                                            imageAvailableSemaphores[currentFrame].getHandle(),
+                                            VK_NULL_HANDLE,
+                                            &currentImageIndex);
+
+    //if (imagesInFlight[currentImageIndex] != nullptr) {
+    //    imagesInFlight[currentImageIndex]->waitForSignal();
+    //}
+    //imagesInFlight[currentImageIndex] = &inFlightFences[currentFrame];
+
+    if (result == VK_ERROR_OUT_OF_DATE_KHR) {
+        window->setResized(true);
+    } else if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) {
+        throw std::runtime_error("could not acquire image");
+    }
+
+    //swapChain.getPresentFence()->waitForSignal();
+    //swapChain.getPresentFence()->resetState();
+
+    if (imagesInFlight[currentImageIndex] != nullptr) {
+        imagesInFlight[currentImageIndex]->waitForSignal();
+    }
+
+    imagesInFlight[currentImageIndex] = &inFlightFences[currentFrame];
+
+    std::cout << "submitting using image index: " << currentImageIndex << std::endl;
+    std::cout << "submitting using image: " << currentFrame << std::endl;
+    std::cout << "submitting using signal semaphore: " << renderFinishedSemaphores[currentFrame].getHandle() <<
+    std::endl;
+    std::cout << "submitting using wait semaphore: " << imageAvailableSemaphores[currentFrame].getHandle() << std::endl;
+    std::vector<Semaphore*> signalSemaphores = {&renderFinishedSemaphores[currentFrame]};
+    std::vector<Semaphore*> waitSemaphores = { &imageAvailableSemaphores[currentFrame] };
+
+    inFlightFences[currentFrame].resetState();
+
+    comandBuffers->at(currentImageIndex).submitToQueue(signalSemaphores,
+                                                                    { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
+                                                       waitSemaphores,
+                                                   queue,
+                                                                    &inFlightFences[0]);
+
+
+    std::cout << "presenting image #" << currentFrame << std::endl;
+
+    //inFlightFences[0].waitForSignal();
+
+    std::cout << "acquiring using image index: " << currentImageIndex << std::endl;
+    std::cout << "acquiring using image: " << currentFrame << std::endl;
+    std::cout << "acquiring using semaphore: " << renderFinishedSemaphores[currentFrame].getHandle() << std::endl;
+
+    VkSemaphore waitSemaphoress[] = { renderFinishedSemaphores[currentFrame].getHandle() };
+
+    VkPresentInfoKHR presentInfo{};
+    presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+
+    presentInfo.waitSemaphoreCount = 1;
+    presentInfo.pWaitSemaphores = waitSemaphoress;
+
+    VkSwapchainKHR swapchains[] = { swapChain };
+    presentInfo.swapchainCount = 1;
+    presentInfo.pSwapchains = swapchains;
+
+    presentInfo.pImageIndices = &currentImageIndex;
+
+    result = vkQueuePresentKHR(presentQueue->getHandle(), &presentInfo);
 
     if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || window->getResized()) {
         window->resetResizeFence();

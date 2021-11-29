@@ -40,7 +40,7 @@ file(GLOB_RECURSE GRAPHICS_LIB_SRC ${CMAKE_SOURCE_DIR}/src/renderer/*.cpp)
 file(GLOB_RECURSE VOXEL_LIB_SRC ${CMAKE_SOURCE_DIR}/src/voxel/*.cpp)
 
 add_executable(CubiCAD
-        ${CMAKE_SOURCE_DIR}/src/tests/memory_allocation.cpp
+        ${CMAKE_SOURCE_DIR}/src/tests/vulkan_voxel_rasterizer.cpp
         ${GRAPHICS_LIB_SRC}
         ${VOXEL_LIB_SRC})
 
@@ -181,7 +181,8 @@ file(GLOB
 message(STATUS "Detected shaders to build: ${SHADERS_SOURCE_PATH}")
 
 foreach(SHADER_SOURCE_FILE ${SHADERS_SOURCE_PATH})
-    string(REGEX REPLACE "\\..*" ".spv" SHADER_BINARY_FILE ${SHADER_SOURCE_FILE})
+    set(SHADER_BINARY_FILE ${SHADER_SOURCE_FILE})
+    string(APPEND SHADER_BINARY_FILE ".spv")
     list(APPEND SHADERS_BUILD_PATH "${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}")
     add_custom_command(OUTPUT ${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}
         COMMAND echo "compiling shader: ${SHADER_SOURCE_FILE}" &

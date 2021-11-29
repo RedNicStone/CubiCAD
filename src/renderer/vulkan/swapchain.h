@@ -18,7 +18,10 @@
 #include "framebuffer.h"
 #include "../eventbus.h"
 #include "semaphore.h"
+#include "commandbuffer.h"
 
+
+class CommandBuffer;
 
 class SwapChain {
   private:
@@ -72,13 +75,15 @@ class SwapChain {
 
     VkExtent2D getSwapExtent();
 
-    uint32_t getImageCount() const { return imageCount; }
-    uint32_t getCurrentFrame() const { return currentFrame; }
-    uint32_t getCurrentImageIndex() const { return currentImageIndex; }
+    [[nodiscard]] uint32_t getImageCount() const { return imageCount; }
+    [[nodiscard]] uint32_t getCurrentFrame() const { return currentFrame; }
+    [[nodiscard]] uint32_t getCurrentImageIndex() const { return currentImageIndex; }
 
     std::vector<Semaphore*> getRenderSignalSemaphores() { return { &renderFinishedSemaphores[0] }; }
     std::vector<Semaphore*> getRenderWaitSemaphores() { return { &imageAvailableSemaphores[0] }; }
     Fence* getPresentFence() { return &inFlightFences[0]; }
+
+    void doRenderLoop(std::vector<CommandBuffer>* comandBuffers, Queue * queue);
 
     ~SwapChain();
 };

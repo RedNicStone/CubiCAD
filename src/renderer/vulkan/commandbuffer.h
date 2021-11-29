@@ -20,6 +20,9 @@
 #include "descriptorset.h"
 
 
+class GraphicsPipeline;
+class FrameBuffer;
+
 class   CommandBuffer : public VulkanClass<VkCommandBuffer> {
   private:
     CommandPool *commandPool;
