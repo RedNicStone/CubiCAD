@@ -12,7 +12,7 @@ VirtualStackAllocation::VirtualStackAllocation(StackAllocator *allocator,
     size = size_;
     pageSize = page_size;
 
-    for (void* page : pages)
+    for (char* page : pages)
         mappedPages.push_back({page});
 }
 
@@ -21,13 +21,32 @@ char *VirtualStackAllocation::getData(size_t address) {
 }
 
 void VirtualStackAllocation::resize(size_t newSize) {
-    VirtualAllocation::resize(newSize);
+    size_t page_count = (newSize + (1 << pageSize) - 1) >> pageSize;
+    if (page_count > mappedPages.size()) {
+        size_t new_page_count = page_count - mappedPages.size();
+        std::vector<char *> pages = pAllocator->findOrCreatePages(new_page_count);
+        for (char * page : pages) {
+            mappedPages.push_back({page});
+        }
+    } else if (page_count < mappedPages.size()) {
+        size_t discarded_page_count = mappedPages.size() - page_count;
+        std::vector<char *> discarded_pages(discarded_page_count);
+        for (size_t i = 0; i < discarded_page_count; i++) {
+            discarded_pages[i] = {mappedPages.back().pData};
+            mappedPages.pop_back();
+        }
+    }
 }
 
 void StackAllocator::createPages(size_t numberOfPages) {
-    for (size_t i = 0; i < numberOfPages; i++) {
-        char* data = new char[1 << pageSize];
-        physicalAllocations.push_back({data, PAGE_STATUS_USED});
+    size_t chunk_count = (numberOfPages + (1 << allocationChunkSize) - 1) >> allocationChunkSize;
+    size_t current_page_count = physicalAllocations.size();
+    physicalAllocations.reserve(current_page_count + numberOfPages);
+    for (size_t x = 0; x < chunk_count; x++) {
+        char* data = new char[((size_t) 1 << pageSize) << allocationChunkSize];
+        for (size_t y = 0; y < 1 << allocationChunkSize; y++) {
+            physicalAllocations.emplace_back(data + (y * 1 << pageSize));
+        }
     }
 }
 
@@ -35,46 +54,53 @@ std::vector<char *> StackAllocator::findOrCreatePages(size_t numberOfPages) {
     if (numberOfPages <= 0)
         return {};
 
-    std::vector<char *> pages{};
-    size_t currentPage{};
-    for (currentPage = lastFreePage; currentPage < physicalAllocations.size(); currentPage++) {
-        if (physicalAllocations[currentPage].status == PAGE_STATUS_FREE) {
-            pages.push_back(physicalAllocations[currentPage].pData);
-            numberOfPages--;
+    std::vector<char *> pages(numberOfPages);
+    size_t current_page;
+    size_t pages_created = 0;
+    for (current_page = lastFreePage; current_page < physicalAllocations.size(); current_page++) {
+        if (physicalAllocations[current_page].status == PAGE_STATUS_FREE) {
+            pages[pages_created] = physicalAllocations[current_page].pData;
+            pages_created++;
         }
-        if (numberOfPages <= 0)
-            break;
+        if (numberOfPages <= pages_created) {
+            lastFreePage = current_page + 1;
+            return pages;
+        }
     }
 
-    if (numberOfPages > 0) {
-        size_t pageIndex = physicalAllocations.size();
-        createPages(numberOfPages);
-        for (; pageIndex < physicalAllocations.size(); pageIndex++) {
-            pages.push_back(physicalAllocations[pageIndex].pData);
-        }
-        lastFreePage = pages.size() - 1;
-    } else {
-        lastFreePage = currentPage;
+    size_t pageIndex = physicalAllocations.size();
+    createPages(numberOfPages - pages_created);
+    for (; pages_created <= numberOfPages; pages_created++) {
+        physicalAllocations[pageIndex].status = PAGE_STATUS_USED;
+        pages[pages_created] = physicalAllocations[pageIndex].pData;
+        pageIndex++;
     }
 
+    lastFreePage = pageIndex + 1;
     return pages;
 }
 
-StackAllocator::StackAllocator(uint8_t page_size) {
+StackAllocator::StackAllocator(uint8_t page_size, uint8_t allocation_chunk_size) {
     pageSize = page_size;
+    allocationChunkSize = allocation_chunk_size;
 }
 
 VirtualStackAllocation* StackAllocator::makeAllocation(size_t size) {
-    std::vector<char *> pages = findOrCreatePages(size >> pageSize);
+    size_t page_count = (size + (1 << pageSize) - 1) >> pageSize;
+    std::vector<char *> pages = findOrCreatePages(page_count);
     VirtualStackAllocation allocation = VirtualStackAllocation(this, size, pages, pageSize);
     virtualAllocations.push_back(allocation);
     return &virtualAllocations.back();
 }
 
 StackAllocator::~StackAllocator() {
-    for (PhysicalPage page : physicalAllocations) {
-        delete page.pData;
+    for (size_t i = physicalAllocations.size(); 0 < i; i -= 1 << allocationChunkSize) {
+        delete[] physicalAllocations[i - (1 << allocationChunkSize)].pData;
+        for (size_t a = 0; a < 1 << allocationChunkSize; a++)
+            physicalAllocations.pop_back();
     }
+    //physicalAllocations.clear();
+    //std::vector<PhysicalPage>(0).swap(physicalAllocations);
 }
 
 

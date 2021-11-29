@@ -17,7 +17,7 @@ class Allocator;
 class VirtualAllocation {
   protected:
     size_t          size                            {};
-    Allocator*      pAllocator                      {};
+    //Allocator*      pAllocator                      {};
 
   public:
     [[nodiscard]]
@@ -44,9 +44,10 @@ class Allocator {
 class VirtualStackAllocation : public VirtualAllocation {
   private:
     struct MappedPage {    //!< represents a page that has been mapped to a user allocation
-        void*   pData;         //!< pointer to the allocation
+        char*   pData;         //!< pointer to the allocation
     };
 
+    StackAllocator*             pAllocator                  {};
     uint8_t                     pageSize                    {};
     std::vector<MappedPage>     mappedPages                 {};
 
@@ -72,9 +73,16 @@ class StackAllocator : public Allocator {
     struct PhysicalPage {    //!< represents a page that has been allocated
         char* pData;  //!< pointer to the allocation
         PageStatus status;  //!< status of the allocation
+
+        //PhysicalPage(const PhysicalPage&) = delete;
+        PhysicalPage() { pData = nullptr; status = PAGE_STATUS_INVALID; }
+        PhysicalPage(char* data) { pData = data; status = PAGE_STATUS_FREE; }
+
+        //PhysicalPage& operator=(const PhysicalPage&) = delete;
     };
 
     uint8_t               pageSize                    {};
+    uint8_t               allocationChunkSize                    {};
     size_t lastFreePage{};
     std::vector<PhysicalPage>   physicalAllocations {};
     std::vector<VirtualStackAllocation>   virtualAllocations {};
@@ -82,7 +90,7 @@ class StackAllocator : public Allocator {
     void createPages(size_t numberOfPages);
 
   public:
-    explicit StackAllocator(uint8_t page_size);
+    explicit StackAllocator(uint8_t page_size, uint8_t allocation_chunks=1);
 
     VirtualStackAllocation* makeAllocation(size_t size) override;
     std::vector<char*> findOrCreatePages(size_t numberOfPages);

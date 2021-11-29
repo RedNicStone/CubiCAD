@@ -165,7 +165,7 @@ execute_process(COMMAND ${SHADERC_SOURCE}/utils/git-sync-deps)
 
 add_subdirectory(${SHADERC_SOURCE})
 
-set(GLSLC_EXECUTABLE ${CMAKE_SOURCE_DIR}/../glslc)
+set(GLSLC_EXECUTABLE ${CMAKE_SOURCE_DIR}/glslc)
 
 # build shaders
 set(SHADERS_SOURCE_DIR ${CMAKE_SOURCE_DIR}/resources/shaders)
