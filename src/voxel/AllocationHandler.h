@@ -8,6 +8,7 @@
 #define CUBICAD_ALLOCATIONHANDLER_H_
 
 #include <memory>
+#include <utility>
 #include <vector>
 
 #include "VoxelUtils.h"
@@ -44,7 +45,7 @@ class Allocator {
 class VirtualStackAllocation : public VirtualAllocation {
   private:
     struct MappedPage {    //!< represents a page that has been mapped to a user allocation
-        char*   pData;         //!< pointer to the allocation
+        std::shared_ptr<char[]>   pData;         //!< pointer to the allocation
     };
 
     StackAllocator*             pAllocator                  {};
@@ -54,7 +55,7 @@ class VirtualStackAllocation : public VirtualAllocation {
   public:
     VirtualStackAllocation(StackAllocator* allocator,
                            size_t size_,
-                           const std::vector<char*>& pages,
+                           const std::vector<std::shared_ptr<char[]>>& pages,
                            uint8_t page_size);
 
     char*                       getData(size_t address)     override;
@@ -71,12 +72,12 @@ class StackAllocator : public Allocator {
     };
 
     struct PhysicalPage {    //!< represents a page that has been allocated
-        char* pData;  //!< pointer to the allocation
+        std::shared_ptr<char[]> pData;  //!< pointer to the allocation
         PageStatus status;  //!< status of the allocation
 
         //PhysicalPage(const PhysicalPage&) = delete;
         PhysicalPage() { pData = nullptr; status = PAGE_STATUS_INVALID; }
-        PhysicalPage(char* data) { pData = data; status = PAGE_STATUS_FREE; }
+        PhysicalPage(std::shared_ptr<char[]> data) { pData = std::move(data); status = PAGE_STATUS_FREE; }
 
         //PhysicalPage& operator=(const PhysicalPage&) = delete;
     };
@@ -93,7 +94,7 @@ class StackAllocator : public Allocator {
     explicit StackAllocator(uint8_t page_size, uint8_t allocation_chunks=1);
 
     VirtualStackAllocation* makeAllocation(size_t size) override;
-    std::vector<char*> findOrCreatePages(size_t numberOfPages);
+    std::vector<std::shared_ptr<char[]>> findOrCreatePages(size_t numberOfPages);
 
     ~StackAllocator() override;
 };
