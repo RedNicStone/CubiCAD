@@ -64,8 +64,8 @@ var NAVTREEINDEX =
 [
 "_allocation_handler_8cpp.html",
 "class_queue.html#ad761c9df82f8e7af8b1482993657fa95",
-"functions_func_l.html",
-"struct_c_c_a_d___o_t_1_1_ot_node.html#ac5ead1f8746ea9a457766b07f87956f1"
+"functions_func_m.html",
+"struct_c_c_a_d___o_t_1_1_ot_node_info.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

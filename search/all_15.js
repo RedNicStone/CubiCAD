@@ -10,7 +10,7 @@ var searchData=
   ['vertexshader_7',['VertexShader',['../class_vertex_shader.html#a8e267b0f738643f8747fd9d3c87b9d25',1,'VertexShader::VertexShader()'],['../class_vertex_shader.html',1,'VertexShader']]],
   ['vertices_8',['vertices',['../struct_c_c_a_d___o_t_1_1_cube.html#a2fbefe8a2fb7b2675809a6b266b08049',1,'CCAD_OT::Cube']]],
   ['virtualallocation_9',['VirtualAllocation',['../class_virtual_allocation.html',1,'']]],
-  ['virtualstackallocation_10',['VirtualStackAllocation',['../class_virtual_stack_allocation.html#a4060d30691a939ed3cb8546a57ba8fd1',1,'VirtualStackAllocation::VirtualStackAllocation()'],['../class_virtual_stack_allocation.html',1,'VirtualStackAllocation']]],
+  ['virtualstackallocation_10',['VirtualStackAllocation',['../class_virtual_stack_allocation.html#add88314383fa3d876f3159fccd221a2c',1,'VirtualStackAllocation::VirtualStackAllocation()'],['../class_virtual_stack_allocation.html',1,'VirtualStackAllocation']]],
   ['vma_5fimplementation_11',['VMA_IMPLEMENTATION',['../device_8cpp.html#abea80547807da765ebe9fce1c6dd6a8d',1,'device.cpp']]],
   ['voxelcodecbase_12',['VoxelCodecBase',['../class_voxel_codec_base.html',1,'']]],
   ['voxelcodecbase_2eh_13',['VoxelCodecBase.h',['../_voxel_codec_base_8h.html',1,'']]],
