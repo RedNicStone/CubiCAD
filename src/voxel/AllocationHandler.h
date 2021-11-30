@@ -2,6 +2,8 @@
 // Created by nic on 09/10/2021.
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
 #pragma once
 
 #ifndef CUBICAD_ALLOCATIONHANDLER_H_
@@ -13,87 +15,143 @@
 
 #include "VoxelUtils.h"
 
+
 class Allocator;
 
 class VirtualAllocation {
   protected:
-    size_t          size                            {};
+    size_t size{};
     //Allocator*      pAllocator                      {};
 
   public:
+    /** Get the size of the allocation
+     * @return The size in bytes
+     */
     [[nodiscard]]
-    size_t              getSize() const             { return size; }
-    virtual char*       getData(size_t address)     {};
+    size_t getSize() const { return size; }
 
-    virtual void        resize(size_t newSize)      {};
+    /** Get the pointer to the physical memory at virtual address (may be nonlinear)
+     * @param address The virtual address
+     * @return Pointer to the physical memory
+     */
+    virtual char *getData(size_t address) {};
 
-    char* operator      +(size_t address)           { return getData(address); }
-    explicit operator   size_t() const              { return size; }
+    /** Resize the allocation to the new size specified
+     * @param newSize Size which allocation should grow to
+     */
+    virtual void resize(size_t newSize) {};
 
-    virtual             ~VirtualAllocation()        = default;
+    /** Shadow operator of getData
+     * @param address The virtual address
+     * @return Pointer to the physical memory
+     */
+    char *operator+(size_t address) { return getData(address); }
+
+    /** Shadow operator of getSize
+     * @return The size in bytes
+     */
+    explicit operator size_t() const { return size; }
+
+    virtual             ~VirtualAllocation() = default;
 };
 
 class StackAllocator;
 
 class Allocator {
   public:
-    virtual VirtualAllocation*  makeAllocation(size_t size) {};
+    /** Create a virtual allocation with a given size
+     * @param size Initial size of the allocation
+     * @return The virtual allocation
+     */
+    virtual VirtualAllocation *makeAllocation(size_t size) {};
 
-    virtual                     ~Allocator()                = default;
+    virtual                     ~Allocator() = default;
 };
 
 class VirtualStackAllocation : public VirtualAllocation {
   private:
-    struct MappedPage {    //!< represents a page that has been mapped to a user allocation
-        std::shared_ptr<char[]>   pData;         //!< pointer to the allocation
+    struct MappedPage { //!< represents a page that has been mapped to a virtual allocation
+        std::shared_ptr<char[]> pData; //!< pointer to the physical memory
     };
 
-    StackAllocator*             pAllocator                  {};
-    uint8_t                     pageSize                    {};
-    std::vector<MappedPage>     mappedPages                 {};
+    StackAllocator *pAllocator{}; //!< Parent allocator
+    uint8_t pageSize{}; //!< Size of one page
+    std::vector<MappedPage> mappedPages{}; //!< Vector of MappedPage storing all virtual memory pages
 
   public:
-    VirtualStackAllocation(StackAllocator* allocator,
+    /** Constructor for VirtualStackAllocation
+     * Should NOT be called by the user
+     * @param allocator Parent allocator
+     * @param size_ Initial site
+     * @param pages Initial pages
+     * @param page_size Size of one page
+     */
+    VirtualStackAllocation(StackAllocator *allocator,
                            size_t size_,
-                           const std::vector<std::shared_ptr<char[]>>& pages,
+                           const std::vector<std::shared_ptr<char[]>> &pages,
                            uint8_t page_size);
 
-    char*                       getData(size_t address)     override;
+    char *getData(size_t address) override;
 
-    void                        resize(size_t newSize)      override;
+    void resize(size_t newSize) override;
 };
 
 class StackAllocator : public Allocator {
   private:
-    enum PageStatus : uint_fast8_t {           //!< possible use stati of an allocated page
-        PAGE_STATUS_INVALID     = 0b00,
-        PAGE_STATUS_FREE        = 0b01, //!< the page is free
-        PAGE_STATUS_USED        = 0b10, //!< the page is (partially) used
+    enum PageStatus : uint_fast8_t { //!< possible use statuses of an allocated page
+        PAGE_STATUS_INVALID = 0b00, PAGE_STATUS_FREE = 0b01, //!< the page is free
+        PAGE_STATUS_USED = 0b10, //!< the page is (partially) used
     };
 
-    struct PhysicalPage {    //!< represents a page that has been allocated
-        std::shared_ptr<char[]> pData;  //!< pointer to the allocation
-        PageStatus status;  //!< status of the allocation
+    struct PhysicalPage { //!< represents a page that has been allocated
+        std::shared_ptr<char[]> pData; //!< pointer to the allocation
+        PageStatus status; //!< status of the allocation
 
-        //PhysicalPage(const PhysicalPage&) = delete;
-        PhysicalPage() { pData = nullptr; status = PAGE_STATUS_INVALID; }
-        PhysicalPage(std::shared_ptr<char[]> data) { pData = std::move(data); status = PAGE_STATUS_FREE; }
+        /** Default constructor where pData is null and the status is invalid
+         */
+        PhysicalPage() {
+            pData = nullptr;
+            status = PAGE_STATUS_INVALID;
+        }
 
-        //PhysicalPage& operator=(const PhysicalPage&) = delete;
+        /** Constructor where pData is given by data and the status is free
+         * @param data Physical address of the data stored in pData
+         */
+        explicit PhysicalPage(std::shared_ptr<char[]> data) {
+            pData = std::move(data);
+            status = PAGE_STATUS_FREE;
+        }
     };
 
-    uint8_t               pageSize                    {};
-    uint8_t               allocationChunkSize                    {};
-    size_t lastFreePage{};
-    std::vector<PhysicalPage>   physicalAllocations {};
-    std::vector<VirtualStackAllocation>   virtualAllocations {};
+    uint8_t pageSize{}; //!< Size of one page
+    uint8_t allocationChunkSize{}; //!< Size of one chunk
+    size_t lastFreePage{}; //!< Index of last free page
+    std::vector<PhysicalPage> physicalAllocations{}; //!< Vector of all allocated pages
+    std::vector<VirtualStackAllocation> virtualAllocations{}; //!< Vector of all virtual pages
 
+    /** Private function to allocate new pages
+     * @param numberOfPages How many should be allocated
+     */
     void createPages(size_t numberOfPages);
 
   public:
-    explicit StackAllocator(uint8_t page_size, uint8_t allocation_chunks=1);
+    /** Constructor for StackAllocator
+     * @param page_size Size of pages in 2^x
+     * @param allocation_chunks How many pages should be allocated at once in 2^x;
+     * eg bytes = 2^(page_size*allocation_chunks)
+     */
+    explicit StackAllocator(uint8_t page_size, uint8_t allocation_chunks = 1);
 
+    /** Creates an virtual allocation with a give size
+     * @param size Size in bytes
+     * @return Pointer to allocation
+     */
     VirtualStackAllocation* makeAllocation(size_t size) override;
+
+    /** Finds or, if required, creates pages
+     * @param numberOfPages How many pages should be created
+     * @return Vector of pointers to pages
+     */
     std::vector<std::shared_ptr<char[]>> findOrCreatePages(size_t numberOfPages);
 
     ~StackAllocator() override;

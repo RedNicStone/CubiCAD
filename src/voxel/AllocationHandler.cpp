@@ -101,11 +101,11 @@ StackAllocator::~StackAllocator() {
         //delete[] physicalAllocations[i - (1 << allocationChunkSize)].pData.get();
         for (size_t a = 0; a < 1 << allocationChunkSize; a++)
             physicalAllocations.erase(physicalAllocations.end());
-    }*/
+    }
     for (size_t i = 0; i < physicalAllocations.size(); i++) {
         physicalAllocations.erase(physicalAllocations.begin());
-    }
-    //physicalAllocations.clear();
+    }*/
+    physicalAllocations.clear();
     //std::vector<PhysicalPage>(0).swap(physicalAllocations);
 }
 
