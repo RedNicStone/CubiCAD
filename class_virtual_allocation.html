@@ -182,6 +182,13 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Get the pointer to the physical memory at virtual address (may be nonlinear) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>The virtual address </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the physical memory </dd></dl>
 
 <p>Reimplemented in <a class="el" href="class_virtual_stack_allocation.html#a959bc0dc44b7dd2d00b2ad18ca238e8c">VirtualStackAllocation</a>.</p>
 <div class="dynheader">
@@ -215,6 +222,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Get the size of the allocation </p><dl class="section return"><dt>Returns</dt><dd>The size in bytes </dd></dl>
 
 </div>
 </div>
@@ -240,6 +248,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Shadow operator of getSize </p><dl class="section return"><dt>Returns</dt><dd>The size in bytes </dd></dl>
 
 </div>
 </div>
@@ -266,6 +275,13 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Shadow operator of getData </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>The virtual address </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the physical memory </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -298,6 +314,12 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Resize the allocation to the new size specified </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newSize</td><td>Size which allocation should grow to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented in <a class="el" href="class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da">VirtualStackAllocation</a>.</p>
 

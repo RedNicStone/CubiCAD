@@ -160,6 +160,13 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructor for <a class="el" href="class_stack_allocator.html">StackAllocator</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">page_size</td><td>Size of pages in 2^x </td></tr>
+    <tr><td class="paramname">allocation_chunks</td><td>How many pages should be allocated at once in 2^x; eg bytes = 2^(page_size*allocation_chunks) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -204,6 +211,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Finds or, if required, creates pages </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numberOfPages</td><td>How many pages should be created </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of pointers to pages </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -236,6 +250,13 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Creates an virtual allocation with a give size </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Size in bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to allocation </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_allocator.html#ab8ee9af52bca63366cb43e3d5d40276f">Allocator</a>.</p>
 <div class="dynheader">

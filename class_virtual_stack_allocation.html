@@ -174,6 +174,15 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Constructor for <a class="el" href="class_virtual_stack_allocation.html">VirtualStackAllocation</a> Should NOT be called by the user </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">allocator</td><td>Parent allocator </td></tr>
+    <tr><td class="paramname">size_</td><td>Initial site </td></tr>
+    <tr><td class="paramname">pages</td><td>Initial pages </td></tr>
+    <tr><td class="paramname">page_size</td><td>Size of one page </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -201,6 +210,13 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Get the pointer to the physical memory at virtual address (may be nonlinear) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>The virtual address </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the physical memory </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_virtual_allocation.html#ab76ddb317e15ab906a9b801f46cf5de7">VirtualAllocation</a>.</p>
 <div class="dynheader">
@@ -235,6 +251,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Resize the allocation to the new size specified </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newSize</td><td>Size which allocation should grow to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented from <a class="el" href="class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c">VirtualAllocation</a>.</p>
 <div class="dynheader">
