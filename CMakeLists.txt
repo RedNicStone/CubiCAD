@@ -40,7 +40,7 @@ file(GLOB_RECURSE GRAPHICS_LIB_SRC ${CMAKE_SOURCE_DIR}/src/renderer/*.cpp)
 file(GLOB_RECURSE VOXEL_LIB_SRC ${CMAKE_SOURCE_DIR}/src/voxel/*.cpp)
 
 add_executable(CubiCAD
-        ${CMAKE_SOURCE_DIR}/src/tests/vulkan_voxel_rasterizer.cpp
+        ${CMAKE_SOURCE_DIR}/src/tests/vulkan_voxel_rasterizer_2.cpp
         ${GRAPHICS_LIB_SRC}
         ${VOXEL_LIB_SRC})
 
@@ -221,7 +221,7 @@ target_link_directories(
 
 target_link_libraries(
         CubiCAD
-
+        general
         glfw
         Vulkan::Vulkan
         VulkanMemoryAllocator
