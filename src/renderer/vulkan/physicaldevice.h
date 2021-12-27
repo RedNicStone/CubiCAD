@@ -28,15 +28,15 @@ class QueueFamilyHandler;
 
 class PhysicalDevice : public VulkanClass<VkPhysicalDevice> {
   private:
-    Instance *instance;
+    std::shared_ptr<Instance> instance;
     std::shared_ptr<QueueFamilyHandler> queueFamilyHandler;
 
   public:
-    explicit PhysicalDevice(Instance *callingInstance, VkPhysicalDevice device);
+    static std::shared_ptr<PhysicalDevice> create(std::shared_ptr<Instance> callingInstance, VkPhysicalDevice device);
 
-    QueueFamilyHandler *getQueueFamilyHandler() { return queueFamilyHandler.get(); }
+    std::shared_ptr<QueueFamilyHandler> getQueueFamilyHandler() { return queueFamilyHandler; }
 
-    Instance *getInstance();
+    std::shared_ptr<Instance> getInstance() { return instance; }
 
     bool hasRequiredExtensions(const std::vector<std::string> &requiredExtensions);
     std::vector<VkExtensionProperties> getSupportedExtensions();

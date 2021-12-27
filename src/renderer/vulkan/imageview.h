@@ -18,13 +18,17 @@ class Image;
 
 class ImageView : public VulkanClass<VkImageView> {
   private:
-    Image *image;
+    std::shared_ptr<Image> image;
 
   public:
-    ImageView(Image *pImage, VkImageViewType viewType, VkImageSubresourceRange &subresourceRange);
-    ImageView(Image *pImage, VkImageViewType viewType, VkImageAspectFlags aspectFlags);
+    static std::shared_ptr<ImageView> create(std::shared_ptr<Image> pImage,
+                                             VkImageViewType viewType,
+                                             VkImageSubresourceRange &subresourceRange);
+    static std::shared_ptr<ImageView> create(std::shared_ptr<Image> pImage,
+                                             VkImageViewType viewType,
+                                             VkImageAspectFlags aspectFlags);
 
-    Image &getImage() { return *image; }
+    std::shared_ptr<Image> getImage() { return image; }
 
     ~ImageView();
 };

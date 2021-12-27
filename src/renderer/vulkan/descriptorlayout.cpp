@@ -4,17 +4,27 @@
 
 #include "descriptorlayout.h"
 
+#include <utility>
 
-DescriptorSetLayout::DescriptorSetLayout(Device *device, std::vector<VkDescriptorSetLayoutBinding> &bindings_) : device(
-    device) {
+
+std::shared_ptr<DescriptorSetLayout> DescriptorSetLayout::create(std::shared_ptr<Device> pDevice,
+                                                                 std::vector<VkDescriptorSetLayoutBinding> &bindings) {
+    auto descriptorSetLayout = std::make_shared<DescriptorSetLayout>();
+    descriptorSetLayout->device = std::move(pDevice);
+
     VkDescriptorSetLayoutCreateInfo layoutInfo{};
     layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
-    layoutInfo.bindingCount = static_cast<uint32_t>(bindings_.size());
-    layoutInfo.pBindings = bindings_.data();
+    layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
+    layoutInfo.pBindings = bindings.data();
 
-    if (vkCreateDescriptorSetLayout(device->getHandle(), &layoutInfo, nullptr, &handle) != VK_SUCCESS) {
+    if (vkCreateDescriptorSetLayout(descriptorSetLayout->device->getHandle(),
+                                    &layoutInfo,
+                                    nullptr,
+                                    &descriptorSetLayout->handle) != VK_SUCCESS) {
         throw std::runtime_error("failed to createInstance descriptor set layout!");
     }
+
+    return descriptorSetLayout;
 }
 
 DescriptorSetLayout::~DescriptorSetLayout() {

@@ -14,13 +14,16 @@
 
 class BufferView : public VulkanClass<VkBufferView> {
   private:
-    Buffer *buffer;
+    std::shared_ptr<Buffer> buffer;
 
   public:
-    BufferView(Buffer *pBuffer, VkFormat viewFormat, VkDeviceSize offset, VkDeviceSize range);
-    BufferView(Buffer *pBuffer, VkFormat viewFormat);
+    static std::shared_ptr<BufferView> create(const std::shared_ptr<Buffer> &pBuffer,
+                                              VkFormat viewFormat,
+                                              VkDeviceSize offset,
+                                              VkDeviceSize range);
+    static std::shared_ptr<BufferView> create(const std::shared_ptr<Buffer> &pBuffer, VkFormat viewFormat);
 
-    Buffer &getBuffer() { return *buffer; }
+    std::shared_ptr<Buffer> getBuffer() { return buffer; }
 
     ~BufferView();
 };

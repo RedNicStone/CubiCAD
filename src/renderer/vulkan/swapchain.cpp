@@ -4,86 +4,96 @@
 
 #include "swapchain.h"
 
+#include <utility>
+
 #include "imageview.h"
 
 
-SwapChain::SwapChain(Device *pDevice,
-                     Window *pWindow,
-                     Queue *pQueue,
-                     uint32_t imageCount_v,
-                     std::vector<uint32_t> &accessingQueues) : device(pDevice), window(pWindow), presentQueue(pQueue) {
-    vkGetPhysicalDeviceSurfaceCapabilitiesKHR(pDevice->getPhysicalDevice().getHandle(),
-                                              pWindow->getSurface(),
-                                              &capabilities);
+std::shared_ptr<SwapChain> SwapChain::create(const std::shared_ptr<Device> &pDevice,
+                                             const std::shared_ptr<Window> &pWindow,
+                                             std::shared_ptr<Queue> pQueue,
+                                             uint32_t imageCount_v,
+                                             std::vector<uint32_t> &accessingQueues) {
+    auto swapChain = std::make_shared<SwapChain>();
+    swapChain->device = pDevice;
+    swapChain->window = pWindow;
+    swapChain->presentQueue = std::move(pQueue);
 
-    imageCount = std::max(capabilities.minImageCount, imageCount_v);
-    if (capabilities.maxImageCount > 0 && imageCount > capabilities.maxImageCount) {
-        imageCount = capabilities.maxImageCount;
+    vkGetPhysicalDeviceSurfaceCapabilitiesKHR(pDevice->getPhysicalDevice()->getHandle(),
+                                              pWindow->getSurface(),
+                                              &swapChain->capabilities);
+
+    swapChain->imageCount = std::max(swapChain->capabilities.minImageCount, imageCount_v);
+    if (swapChain->capabilities.maxImageCount > 0 && swapChain->imageCount > swapChain->capabilities.maxImageCount) {
+        swapChain->imageCount = swapChain->capabilities.maxImageCount;
     }
 
-    VkSurfaceFormatKHR surfaceFormat = chooseSwapSurfaceFormat();
+    VkSurfaceFormatKHR surfaceFormat = swapChain->chooseSwapSurfaceFormat();
 
     VkSwapchainCreateInfoKHR createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
     createInfo.surface = pWindow->getSurface();
-    createInfo.minImageCount = imageCount;
+    createInfo.minImageCount = swapChain->imageCount;
     createInfo.imageFormat = surfaceFormat.format;
     createInfo.imageColorSpace = surfaceFormat.colorSpace;
     createInfo.imageExtent = pWindow->getSurfaceExtend();
     createInfo.imageArrayLayers = 1;
     createInfo.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
-    createInfo.preTransform = capabilities.currentTransform;
+    createInfo.preTransform = swapChain->capabilities.currentTransform;
     createInfo.compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
-    createInfo.presentMode = chooseSwapPresentMode();
+    createInfo.presentMode = swapChain->chooseSwapPresentMode();
     createInfo.clipped = VK_TRUE;
     createInfo.oldSwapchain = VK_NULL_HANDLE;
+    createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
+    createInfo.pQueueFamilyIndices = accessingQueues.data();
 
     if (accessingQueues.size() >= 2) {
         createInfo.imageSharingMode = VK_SHARING_MODE_CONCURRENT;
-        createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
-        createInfo.pQueueFamilyIndices = accessingQueues.data();
     } else {
         createInfo.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE;
-        createInfo.queueFamilyIndexCount = 0;
-        createInfo.pQueueFamilyIndices = nullptr;
     }
 
-    if (vkCreateSwapchainKHR(pDevice->getHandle(), &createInfo, nullptr, &swapChain) != VK_SUCCESS) {
+    if (vkCreateSwapchainKHR(pDevice->getHandle(), &createInfo, nullptr, &swapChain->swapChain) != VK_SUCCESS) {
         throw std::runtime_error("failed to create swap chain!");
     }
 
-    vkGetSwapchainImagesKHR(pDevice->getHandle(), swapChain, &imageCount, nullptr);
-    swapChainImages.resize(imageCount);
-    vkGetSwapchainImagesKHR(pDevice->getHandle(), swapChain, &imageCount, swapChainImages.data());
+    vkGetSwapchainImagesKHR(pDevice->getHandle(), swapChain->swapChain, &swapChain->imageCount, nullptr);
+    swapChain->swapChainImages.resize(swapChain->imageCount);
+    vkGetSwapchainImagesKHR(pDevice->getHandle(),
+                            swapChain->swapChain,
+                            &swapChain->imageCount,
+                            swapChain->swapChainImages.data());
 
-    imageFormat = surfaceFormat.format;
+    swapChain->imageFormat = surfaceFormat.format;
 
-    swapChainImageViews.resize(swapChainImages.size());
+    swapChain->swapChainImageViews.resize(swapChain->swapChainImages.size());
 
-    for (size_t i = 0; i < swapChainImages.size(); i++) {
+    for (size_t i = 0; i < swapChain->swapChainImages.size(); i++) {
         VkImageViewCreateInfo viewCreateInfo{};
         viewCreateInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
-        viewCreateInfo.image = swapChainImages[i];
+        viewCreateInfo.image = swapChain->swapChainImages[i];
         viewCreateInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
-        viewCreateInfo.format = imageFormat;
+        viewCreateInfo.format = swapChain->imageFormat;
         viewCreateInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
         viewCreateInfo.subresourceRange.baseMipLevel = 0;
         viewCreateInfo.subresourceRange.levelCount = 1;
         viewCreateInfo.subresourceRange.baseArrayLayer = 0;
         viewCreateInfo.subresourceRange.layerCount = 1;
 
-        vkCreateImageView(device->getHandle(), &viewCreateInfo, nullptr, &swapChainImageViews[i]);
+        vkCreateImageView(swapChain->device->getHandle(), &viewCreateInfo, nullptr, &swapChain->swapChainImageViews[i]);
     }
 
-    createSyncObjects();
+    swapChain->createSyncObjects();
 
-    listener.listen<PreRenderAcquireFrameEvent>([this](auto &&PH1) {
-      acquireNextFrame(std::forward<decltype(PH1)>(PH1));
+    swapChain->listener.listen<PreRenderAcquireFrameEvent>([&swapChain](auto &&PH1) {
+      swapChain->acquireNextFrame(std::forward<decltype(PH1)>(PH1));
     });
 
-    listener.listen<PostRenderPresentImageEvent>([this](auto &&PH1) {
-      presentImage(std::forward<decltype(PH1)>(PH1));
+    swapChain->listener.listen<PostRenderPresentImageEvent>([&swapChain](auto &&PH1) {
+      swapChain->presentImage(std::forward<decltype(PH1)>(PH1));
     });
+
+    return swapChain;
 }
 
 VkSurfaceCapabilitiesKHR SwapChain::querySurfaceCapabilities(VkPhysicalDevice *physicalDevice) {
@@ -129,7 +139,7 @@ std::vector<VkPresentModeKHR> SwapChain::queryPresentModes(VkPhysicalDevice *phy
 
 VkSurfaceFormatKHR SwapChain::chooseSwapSurfaceFormat() {
     uint32_t formatCount;
-    vkGetPhysicalDeviceSurfaceFormatsKHR(device->getPhysicalDevice().getHandle(),
+    vkGetPhysicalDeviceSurfaceFormatsKHR(device->getPhysicalDevice()->getHandle(),
                                          window->getSurface(),
                                          &formatCount,
                                          nullptr);
@@ -137,13 +147,13 @@ VkSurfaceFormatKHR SwapChain::chooseSwapSurfaceFormat() {
     std::vector<VkSurfaceFormatKHR> formats;
     if (formatCount != 0) {
         formats.resize(formatCount);
-        vkGetPhysicalDeviceSurfaceFormatsKHR(device->getPhysicalDevice().getHandle(),
+        vkGetPhysicalDeviceSurfaceFormatsKHR(device->getPhysicalDevice()->getHandle(),
                                              window->getSurface(),
                                              &formatCount,
                                              formats.data());
     }
 
-    for (const auto &availableFormat : formats) {
+    for (const auto &availableFormat: formats) {
         if (availableFormat.format == VK_FORMAT_B8G8R8A8_SRGB
             && availableFormat.colorSpace == VK_COLOR_SPACE_SRGB_NONLINEAR_KHR) {
             return availableFormat;
@@ -155,7 +165,7 @@ VkSurfaceFormatKHR SwapChain::chooseSwapSurfaceFormat() {
 
 VkPresentModeKHR SwapChain::chooseSwapPresentMode() {
     uint32_t presentModeCount;
-    vkGetPhysicalDeviceSurfacePresentModesKHR(device->getPhysicalDevice().getHandle(),
+    vkGetPhysicalDeviceSurfacePresentModesKHR(device->getPhysicalDevice()->getHandle(),
                                               window->getSurface(),
                                               &presentModeCount,
                                               nullptr);
@@ -163,13 +173,13 @@ VkPresentModeKHR SwapChain::chooseSwapPresentMode() {
     std::vector<VkPresentModeKHR> presentModes;
     if (presentModeCount != 0) {
         presentModes.resize(presentModeCount);
-        vkGetPhysicalDeviceSurfacePresentModesKHR(device->getPhysicalDevice().getHandle(),
+        vkGetPhysicalDeviceSurfacePresentModesKHR(device->getPhysicalDevice()->getHandle(),
                                                   window->getSurface(),
                                                   &presentModeCount,
                                                   presentModes.data());
     }
 
-    for (const auto availablePresentMode : presentModes) {
+    for (const auto availablePresentMode: presentModes) {
         if (availablePresentMode == VK_PRESENT_MODE_MAILBOX_KHR) {
             return availablePresentMode;
         }
@@ -207,7 +217,7 @@ SwapChain::~SwapChain() {
 }
 
 void SwapChain::recreateSwapChain() {
-    VkExtent2D surfaceExtend{};
+    VkExtent2D surfaceExtend;
     surfaceExtend = window->getSurfaceExtend();
     while (surfaceExtend.height == 0) {
         glfwWaitEvents();
@@ -218,38 +228,33 @@ void SwapChain::recreateSwapChain() {
 
 }
 
-void SwapChain::acquireNextFrame(PreRenderAcquireFrameEvent event) {
-
-    std::cout << "acquiring image #" << currentFrame << std::endl;
-
+void SwapChain::acquireNextFrame(const PreRenderAcquireFrameEvent &event) {
     if (event.device != device)
         return;
 
-    inFlightFences[0].waitForSignal();
-    inFlightFences[0].resetState();
+    inFlightFences[currentFrame]->waitForSignal();
 
-    std::cout << "acquiring using image index: " << currentImageIndex << std::endl;
-    std::cout << "acquiring using image: " << currentFrame << std::endl;
-    std::cout << "acquiring using fence: " << inFlightFences[0].getHandle() << std::endl;
-    std::cout << "acquiring using semaphore: " << imageAvailableSemaphores[0].getHandle() << std::endl;
-
-    VkResult result = vkAcquireNextImageKHR(device->getHandle(),
-                                            swapChain,
-                                            UINT32_MAX,
-                                            imageAvailableSemaphores[0].getHandle(),
-                                            VK_NULL_HANDLE,
-                                            &currentImageIndex);
-
-    //if (imagesInFlight[currentImageIndex] != nullptr) {
-    //    imagesInFlight[currentImageIndex]->waitForSignal();
-    //}
-    //imagesInFlight[currentImageIndex] = &inFlightFences[currentFrame];
+    VkResult
+        result =
+        vkAcquireNextImageKHR(device->getHandle(),
+                              swapChain,
+                              UINT32_MAX,
+                              imageAvailableSemaphores[currentFrame]->getHandle(),
+                              VK_NULL_HANDLE,
+                              &currentImageIndex);
 
     if (result == VK_ERROR_OUT_OF_DATE_KHR) {
         window->setResized(true);
     } else if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) {
         throw std::runtime_error("could not acquire image");
     }
+
+    if (imagesInFlight[currentImageIndex] != nullptr) {
+        imagesInFlight[currentImageIndex]->waitForSignal();
+    }
+    imagesInFlight[currentImageIndex] = inFlightFences[currentFrame];
+
+    inFlightFences[currentFrame]->resetState();
 }
 
 void SwapChain::cleanupSwapChain() {
@@ -257,34 +262,25 @@ void SwapChain::cleanupSwapChain() {
 }
 
 void SwapChain::createSyncObjects() {
-    imageAvailableSemaphores = std::vector<Semaphore>();
-    renderFinishedSemaphores = std::vector<Semaphore>();
-    inFlightFences = std::vector<Fence>();
+    imageAvailableSemaphores = std::vector<std::shared_ptr<Semaphore>>();
+    renderFinishedSemaphores = std::vector<std::shared_ptr<Semaphore>>();
+    inFlightFences = std::vector<std::shared_ptr<Fence>>();
     imageAvailableSemaphores.reserve(imageCount);
     renderFinishedSemaphores.reserve(imageCount);
     inFlightFences.reserve(imageCount);
     for (uint32_t i = 0; i < imageCount; i++) {
-        imageAvailableSemaphores.emplace_back(device);
-        renderFinishedSemaphores.emplace_back(device);
-        inFlightFences.emplace_back(device, true);
+        imageAvailableSemaphores.push_back(Semaphore::create(device));
+        renderFinishedSemaphores.push_back(Semaphore::create(device));
+        inFlightFences.push_back(Fence::create(device, true));
     }
-    imagesInFlight = std::vector<Fence*>(imageCount, nullptr);
+    imagesInFlight = std::vector<std::shared_ptr<Fence>>(imageCount, nullptr);
 }
 
-void SwapChain::presentImage(PostRenderPresentImageEvent event) {
-
-    std::cout << "presenting image #" << currentFrame << std::endl;
-
-    //inFlightFences[0].waitForSignal();
-
-    std::cout << "acquiring using image index: " << currentImageIndex << std::endl;
-    std::cout << "acquiring using image: " << currentFrame << std::endl;
-    std::cout << "acquiring using semaphore: " << renderFinishedSemaphores[0].getHandle() << std::endl;
-
+void SwapChain::presentImage(const PostRenderPresentImageEvent &event) {
     if (event.device != device)
         return;
 
-    VkSemaphore waitSemaphores[] = { renderFinishedSemaphores[0].getHandle() };
+    VkSemaphore waitSemaphores[] = {renderFinishedSemaphores[currentFrame]->getHandle()};
 
     VkPresentInfoKHR presentInfo{};
     presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
@@ -292,106 +288,13 @@ void SwapChain::presentImage(PostRenderPresentImageEvent event) {
     presentInfo.waitSemaphoreCount = 1;
     presentInfo.pWaitSemaphores = waitSemaphores;
 
-    VkSwapchainKHR swapchains[] = { swapChain };
+    VkSwapchainKHR swapchains[] = {swapChain};
     presentInfo.swapchainCount = 1;
     presentInfo.pSwapchains = swapchains;
 
     presentInfo.pImageIndices = &currentImageIndex;
 
     VkResult result = vkQueuePresentKHR(presentQueue->getHandle(), &presentInfo);
-
-    while (presentQueue->hasWorkSubmitted()) {
-        std::this_thread::sleep_for(std::chrono::nanoseconds(1000));
-    }
-
-    if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || window->getResized()) {
-        window->resetResizeFence();
-        recreateSwapChain();
-    } else if (result != VK_SUCCESS) {
-        throw std::runtime_error("failed to present swap chain image!");
-    }
-
-    currentFrame = (currentFrame + 1) % imageCount;
-}
-
-void SwapChain::doRenderLoop(std::vector<CommandBuffer>* comandBuffers, Queue * queue) {
-    std::cout << "acquiring image #" << currentFrame << std::endl;
-
-    inFlightFences[currentFrame].waitForSignal();
-
-    currentImageIndex = 0;
-
-    std::cout << "acquiring using image index: " << currentImageIndex << std::endl;
-    std::cout << "acquiring using image: " << currentFrame << std::endl;
-    std::cout << "acquiring using semaphore: " << imageAvailableSemaphores[currentFrame].getHandle() << std::endl;
-
-    VkResult result = vkAcquireNextImageKHR(device->getHandle(),
-                                            swapChain,
-                                            UINT32_MAX,
-                                            imageAvailableSemaphores[currentFrame].getHandle(),
-                                            VK_NULL_HANDLE,
-                                            &currentImageIndex);
-
-    //if (imagesInFlight[currentImageIndex] != nullptr) {
-    //    imagesInFlight[currentImageIndex]->waitForSignal();
-    //}
-    //imagesInFlight[currentImageIndex] = &inFlightFences[currentFrame];
-
-    if (result == VK_ERROR_OUT_OF_DATE_KHR) {
-        window->setResized(true);
-    } else if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) {
-        throw std::runtime_error("could not acquire image");
-    }
-
-    //swapChain.getPresentFence()->waitForSignal();
-    //swapChain.getPresentFence()->resetState();
-
-    if (imagesInFlight[currentImageIndex] != nullptr) {
-        imagesInFlight[currentImageIndex]->waitForSignal();
-    }
-
-    imagesInFlight[currentImageIndex] = &inFlightFences[currentFrame];
-
-    std::cout << "submitting using image index: " << currentImageIndex << std::endl;
-    std::cout << "submitting using image: " << currentFrame << std::endl;
-    std::cout << "submitting using signal semaphore: " << renderFinishedSemaphores[currentFrame].getHandle() <<
-    std::endl;
-    std::cout << "submitting using wait semaphore: " << imageAvailableSemaphores[currentFrame].getHandle() << std::endl;
-    std::vector<Semaphore*> signalSemaphores = {&renderFinishedSemaphores[currentFrame]};
-    std::vector<Semaphore*> waitSemaphores = { &imageAvailableSemaphores[currentFrame] };
-
-    inFlightFences[currentFrame].resetState();
-
-    comandBuffers->at(currentImageIndex).submitToQueue(signalSemaphores,
-                                                                    { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
-                                                       waitSemaphores,
-                                                   queue,
-                                                                    &inFlightFences[0]);
-
-
-    std::cout << "presenting image #" << currentFrame << std::endl;
-
-    //inFlightFences[0].waitForSignal();
-
-    std::cout << "acquiring using image index: " << currentImageIndex << std::endl;
-    std::cout << "acquiring using image: " << currentFrame << std::endl;
-    std::cout << "acquiring using semaphore: " << renderFinishedSemaphores[currentFrame].getHandle() << std::endl;
-
-    VkSemaphore waitSemaphoress[] = { renderFinishedSemaphores[currentFrame].getHandle() };
-
-    VkPresentInfoKHR presentInfo{};
-    presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
-
-    presentInfo.waitSemaphoreCount = 1;
-    presentInfo.pWaitSemaphores = waitSemaphoress;
-
-    VkSwapchainKHR swapchains[] = { swapChain };
-    presentInfo.swapchainCount = 1;
-    presentInfo.pSwapchains = swapchains;
-
-    presentInfo.pImageIndices = &currentImageIndex;
-
-    result = vkQueuePresentKHR(presentQueue->getHandle(), &presentInfo);
 
     if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || window->getResized()) {
         window->resetResizeFence();

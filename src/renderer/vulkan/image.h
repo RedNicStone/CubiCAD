@@ -20,9 +20,9 @@
 
 class ImageView;
 
-class Image : public VulkanClass<VkImage> {
+class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<Image> {
   private:
-    Device *device;
+    std::shared_ptr<Device> device;
     VmaAllocation allocation;
     VmaAllocationInfo allocationInfo{};
 
@@ -33,32 +33,32 @@ class Image : public VulkanClass<VkImage> {
     uint32_t arrayLayers;
 
   public:
-    Image(Device *device_,
-          VmaMemoryUsage memoryUsage,
-          VkMemoryPropertyFlags preferredFlags,
-          VkImageCreateInfo &createInfo,
-          std::vector<uint32_t> &accessingQueues);
+    static std::shared_ptr<Image> create(std::shared_ptr<Device> pDevice,
+                                         VmaMemoryUsage memoryUsage,
+                                         VkMemoryPropertyFlags preferredFlags,
+                                         VkImageCreateInfo &createInfo,
+                                         std::vector<uint32_t> &accessingQueues);
 
-    Image(Device *device_,
-          const VkExtent2D &size,
-          uint32_t mip_level,
-          VkFormat format,
-          VkImageUsageFlags usage,
-          std::vector<uint32_t> &accessingQueues);
+    static std::shared_ptr<Image> create(const std::shared_ptr<Device>& pDevice,
+                                         const VkExtent2D &size,
+                                         uint32_t mip_level,
+                                         VkFormat format,
+                                         VkImageUsageFlags usage,
+                                         std::vector<uint32_t> &accessingQueues);
 
-    ImageView createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange);
+    std::shared_ptr<ImageView> createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange);
 
-    Device &getDevice() const { return *device; }
+    std::shared_ptr<Device> getDevice() { return device; }
 
-    const VkExtent3D &getExtent() const { return extent; }
+    [[nodiscard]] const VkExtent3D &getExtent() const { return extent; }
 
-    VkImageType getType() const { return type; }
+    [[nodiscard]] VkImageType getType() const { return type; }
 
-    VkFormat getFormat() const { return format; }
+    [[nodiscard]] VkFormat getFormat() const { return format; }
 
-    uint32_t getMipLevels() const { return mipLevels; }
+    [[nodiscard]] uint32_t getMipLevels() const { return mipLevels; }
 
-    uint32_t getArrayLayers() const { return arrayLayers; }
+    [[nodiscard]] uint32_t getArrayLayers() const { return arrayLayers; }
 
     ~Image();
 };

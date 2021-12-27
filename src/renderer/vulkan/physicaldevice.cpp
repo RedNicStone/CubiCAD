@@ -4,22 +4,24 @@
 
 #include "physicaldevice.h"
 
+#include <utility>
 
-PhysicalDevice::PhysicalDevice(Instance *callingInstance, VkPhysicalDevice device) {
-    handle = device;
-    instance = callingInstance;
-    queueFamilyHandler = std::make_shared<QueueFamilyHandler>(QueueFamilyHandler(this));
-}
 
-Instance *PhysicalDevice::getInstance() {
-    return instance;
+std::shared_ptr<PhysicalDevice> PhysicalDevice::create(std::shared_ptr<Instance> callingInstance,
+                                                       VkPhysicalDevice device) {
+    auto physicalDevice = std::make_shared<PhysicalDevice>();
+    physicalDevice->handle = device;
+    physicalDevice->instance = std::move(callingInstance);
+    physicalDevice->queueFamilyHandler = QueueFamilyHandler::create(physicalDevice);
+
+    return physicalDevice;
 }
 
 bool PhysicalDevice::hasRequiredExtensions(const std::vector<std::string> &requiredExtensions) {
     std::vector<VkExtensionProperties> availableExtensions(getSupportedExtensions());
     std::set<std::string> requiredExtensionsSet(requiredExtensions.begin(), requiredExtensions.end());
 
-    for (const auto &extension : availableExtensions) {
+    for (const auto &extension: availableExtensions) {
         requiredExtensionsSet.erase(extension.extensionName);
     }
 

@@ -7,9 +7,16 @@
 #include <utility>
 
 
-Shader::Shader(Device *device, std::string name, const std::string &filename) : name(std::move(name)), device(device) {
-    shaderCode = readFile(filename);
-    loadModule();
+std::shared_ptr<Shader> Shader::create(std::shared_ptr<Device> pDevice,
+                                       std::string nName,
+                                       const std::string &filename) {
+    auto shader = std::make_shared<Shader>();
+    shader->device = std::move(pDevice);
+    shader->name = std::move(nName);
+    shader->shaderCode = readFile(filename);
+    shader->loadModule();
+
+    return shader;
 }
 
 void Shader::loadModule() {

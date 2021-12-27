@@ -4,10 +4,21 @@
 
 #include "semaphore.h"
 
+#include <utility>
 
-Semaphore::Semaphore(Device *pDevice) : device(pDevice) {
+
+std::shared_ptr<Semaphore> Semaphore::create(std::shared_ptr<Device> pDevice) {
+    auto semaphore = std::make_shared<Semaphore>();
+    semaphore->device = std::move(pDevice);
+
     VkSemaphoreCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
 
-    vkCreateSemaphore(device->getHandle(), &createInfo, nullptr, &handle);
+    vkCreateSemaphore(semaphore->device->getHandle(), &createInfo, nullptr, &semaphore->handle);
+
+    return semaphore;
+}
+
+Semaphore::~Semaphore() {
+    vkDestroySemaphore(device->getHandle(), handle, nullptr);
 }

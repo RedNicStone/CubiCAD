@@ -16,11 +16,12 @@
 
 class Semaphore : public VulkanClass<VkSemaphore> {
   private:
-    Device *device;
+    std::shared_ptr<Device> device;
 
   public:
-    Semaphore(Device *pDevice);
+    static std::shared_ptr<Semaphore> create(std::shared_ptr<Device> pDevice);
 
+    ~Semaphore();
 };
 
 #endif //CUBICAD_SEMAPHORE_H

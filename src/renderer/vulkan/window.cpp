@@ -4,6 +4,8 @@
 
 #include "window.h"
 
+#include <utility>
+
 
 void Window::staticResizeCallback(GLFWwindow *window, int width, int height) {
     auto app = reinterpret_cast<Window *>(glfwGetWindowUserPointer(window));
@@ -22,18 +24,25 @@ void Window::initWindows() {
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 }
 
-Window::Window(Instance *pInstance, const std::string &title, int width, int height) {
-    instance = pInstance;
+std::shared_ptr<Window> Window::create(std::shared_ptr<Instance> pInstance,
+                                                        const std::string &title,
+                                                        int width,
+                                                        int height) {
+    auto window = std::make_shared<Window>();
+    window->instance = std::move(pInstance);
 
-    window = glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
-    glfwSetWindowUserPointer(window, this);
-    glfwSetFramebufferSizeCallback(window, staticResizeCallback);
+    window->window = glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
+    glfwSetWindowUserPointer(window->window, window.get());
+    glfwSetFramebufferSizeCallback(window->window, staticResizeCallback);
 
-    glfwGetWindowSize(window, (int *) &extend.width, (int *) &extend.height);
+    glfwGetWindowSize(window->window, (int *) &window->extend.width, (int *) &window->extend.height);
 
-    if (glfwCreateWindowSurface(instance->getHandle(), window, nullptr, &surface) != VK_SUCCESS) {
+    if (glfwCreateWindowSurface(window->instance->getHandle(), window->window, nullptr, &window->surface)
+        != VK_SUCCESS) {
         throw std::runtime_error("failed to create window surface!");
     }
+
+    return window;
 }
 
 Window::~Window() {

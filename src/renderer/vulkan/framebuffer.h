@@ -25,22 +25,22 @@ class SwapChain;
 
 class FrameBuffer {
   private:
-    Device *device;
+    std::shared_ptr<Device> device;
 
-    std::vector<VkFramebuffer> framebuffers;
+    std::vector<VkFramebuffer> frameBuffers;
 
   public:
-    FrameBuffer(Device *device,
-                RenderPass *renderPass,
-                VkExtent2D extent,
-                std::vector<std::vector<ImageView>> &imageViews);
+    static std::shared_ptr<FrameBuffer> create(const std::shared_ptr<Device> &pDevice,
+                                               const std::shared_ptr<RenderPass> &renderPass,
+                                               VkExtent2D extent,
+                                               std::vector<std::vector<std::shared_ptr<ImageView>>> &imageViews);
 
-    FrameBuffer(Device *device,
-                RenderPass *renderPass,
-                SwapChain *swapChain,
-                std::vector<std::vector<ImageView>> &imageViews);
+    static std::shared_ptr<FrameBuffer> create(std::shared_ptr<Device> pDevice,
+                                               const std::shared_ptr<RenderPass> &renderPass,
+                                               const std::shared_ptr<SwapChain> &swapChain,
+                                               std::vector<std::vector<std::shared_ptr<ImageView>>> &imageViews);
 
-    VkFramebuffer getFramebuffer(uint32_t i) { return framebuffers[i]; }
+    VkFramebuffer getFramebuffer(uint32_t i) { return frameBuffers[i]; }
 
     ~FrameBuffer();
 };

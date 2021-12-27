@@ -18,10 +18,11 @@
 
 class DescriptorSetLayout : public VulkanClass<VkDescriptorSetLayout> {
   private:
-    Device *device;
+    std::shared_ptr<Device> device;
 
   public:
-    explicit DescriptorSetLayout(Device *device, std::vector<VkDescriptorSetLayoutBinding> &bindings_);
+    static std::shared_ptr<DescriptorSetLayout> create(std::shared_ptr<Device> pDevice,
+                                                       std::vector<VkDescriptorSetLayoutBinding> &bindings);
 
     ~DescriptorSetLayout();
 };

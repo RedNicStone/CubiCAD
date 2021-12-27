@@ -13,14 +13,15 @@
 #include "vulkanclass.h"
 #include "device.h"
 
+
 class Device;
 
 class Fence : public VulkanClass<VkFence> {
   private:
-    Device* device;
+    std::shared_ptr<Device> device;
 
   public:
-    explicit Fence(Device* pDevice, bool signaled = false);
+    static std::shared_ptr<Fence> create(std::shared_ptr<Device> pDevice, bool signaled = false);
 
     bool getState();
     void resetState();

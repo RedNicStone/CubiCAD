@@ -19,18 +19,18 @@
 
 class PipelineBase : public VulkanClass<VkPipeline> {
   protected:
-    Device *device;
+    std::shared_ptr<Device> device;
 
-    PipelineLayout *layout;
-
-    PipelineBase(Device *device, PipelineLayout *layout) : device(device), layout(layout) {};
+    std::shared_ptr<PipelineLayout> layout;
 
   public:
-    Device &getDevice() { return *device; }
+    std::shared_ptr<Device> getDevice() { return device; }
 
-    PipelineLayout *getLayout() { return layout; }
+    std::shared_ptr<PipelineLayout> getLayout() { return layout; }
 
     virtual VkPipelineBindPoint getBindPoint() = 0;
+
+    virtual ~PipelineBase() = default;
 };
 
 #endif //CUBICAD_PIPELINEBASE_H

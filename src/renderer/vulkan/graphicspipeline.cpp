@@ -4,16 +4,24 @@
 
 #include "graphicspipeline.h"
 
+#include <utility>
 
-GraphicsPipeline::GraphicsPipeline(Device *device,
-                                   PipelineLayout *layout,
-                                   std::vector<GraphicsShader *> &shaders,
-                                   const RenderPass &renderPass,
-                                   VkExtent2D extent) : PipelineBase(device, layout) {
+
+std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Device> pDevice,
+                                                           std::shared_ptr<PipelineLayout> pLayout,
+                                                           std::vector<std::shared_ptr<GraphicsShader>> &shaders,
+                                                           const std::shared_ptr<RenderPass> &renderPass,
+                                                           VkExtent2D extent,
+                                                           VkPrimitiveTopology topology,
+                                                           VkCullModeFlags cullMode,
+                                                           VkFrontFace frontFace) {
+    auto graphicsPipeline = std::make_shared<GraphicsPipeline>();
+    graphicsPipeline->device = std::move(pDevice);
+    graphicsPipeline->layout = std::move(pLayout);
 
     std::vector<VkPipelineShaderStageCreateInfo> shaderStages;
     shaderStages.reserve(shaders.size());
-    for (auto &shader : shaders) {
+    for (auto &shader: shaders) {
         shaderStages.push_back(shader->pipelineStageInfo());
     }
 
@@ -24,7 +32,7 @@ GraphicsPipeline::GraphicsPipeline(Device *device,
 
     VkPipelineInputAssemblyStateCreateInfo inputAssembly{};
     inputAssembly.sType = VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;
-    inputAssembly.topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
+    inputAssembly.topology = topology;
     inputAssembly.primitiveRestartEnable = VK_FALSE;
 
     VkViewport viewport{};
@@ -52,8 +60,8 @@ GraphicsPipeline::GraphicsPipeline(Device *device,
     rasterizer.rasterizerDiscardEnable = VK_FALSE;
     rasterizer.polygonMode = VK_POLYGON_MODE_FILL;
     rasterizer.lineWidth = 1.0f;
-    rasterizer.cullMode = VK_CULL_MODE_BACK_BIT;
-    rasterizer.frontFace = VK_FRONT_FACE_CLOCKWISE;
+    rasterizer.cullMode = cullMode;
+    rasterizer.frontFace = frontFace;
     rasterizer.depthBiasEnable = VK_FALSE;
 
     VkPipelineMultisampleStateCreateInfo multisampling{};
@@ -87,10 +95,21 @@ GraphicsPipeline::GraphicsPipeline(Device *device,
     pipelineInfo.pRasterizationState = &rasterizer;
     pipelineInfo.pMultisampleState = &multisampling;
     pipelineInfo.pColorBlendState = &colorBlending;
-    pipelineInfo.layout = layout->getHandle();
-    pipelineInfo.renderPass = renderPass.getHandle();
+    pipelineInfo.layout = graphicsPipeline->layout->getHandle();
+    pipelineInfo.renderPass = renderPass->getHandle();
     pipelineInfo.subpass = 0;
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
 
-    vkCreateGraphicsPipelines(device->getHandle(), VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &handle);
+    vkCreateGraphicsPipelines(graphicsPipeline->device->getHandle(),
+                              VK_NULL_HANDLE,
+                              1,
+                              &pipelineInfo,
+                              nullptr,
+                              &graphicsPipeline->handle);
+
+    return graphicsPipeline;
+}
+
+GraphicsPipeline::~GraphicsPipeline() {
+    vkDestroyPipeline(device->getHandle(), handle, nullptr);
 }

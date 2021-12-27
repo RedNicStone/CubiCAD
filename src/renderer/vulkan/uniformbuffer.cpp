@@ -5,10 +5,9 @@
 #include "uniformbuffer.h"
 
 
-
 template<class type>
 void UniformBuffer<type>::updateBufferContents() {
-    void* mapDst = buffer.map();
+    void *mapDst = buffer->map();
     memcpy(mapDst, &data, sizeof(type));
-    buffer.unmap();
+    buffer->unmap();
 }

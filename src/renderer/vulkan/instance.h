@@ -28,12 +28,12 @@ static VKAPI_ATTR VKAPI_CALL VkBool32 debugCallback(VkDebugUtilsMessageSeverityF
 
 class PhysicalDevice;
 
-class Instance : public VulkanClass<VkInstance> {
+class Instance : public VulkanClass<VkInstance>, public std::enable_shared_from_this<Instance> {
   private:
     VkDebugUtilsMessengerEXT debugMessenger = VK_NULL_HANDLE;
     VkApplicationInfo appInfo{};
 
-    std::vector<PhysicalDevice> physicalDevices;
+    std::vector<std::shared_ptr<PhysicalDevice>> physicalDevices;
     std::vector<char *, std::allocator<char *>> validationLayers;
 
     bool enableValidationLayers;
@@ -54,13 +54,15 @@ class Instance : public VulkanClass<VkInstance> {
     static std::vector<const char *> getRequiredExtensions(bool validationLayerExtensions);
 
   public:
-    Instance(const char *appName, uint32_t appVersion, bool shouldEnableValidationLayers);
+    static std::shared_ptr<Instance> create(const char *appName,
+                                            uint32_t appVersion,
+                                            bool shouldEnableValidationLayers);
 
-    std::vector<PhysicalDevice> &getPhysicalDevice() { return physicalDevices; }
+    std::vector<std::shared_ptr<PhysicalDevice>> &getPhysicalDevice() { return physicalDevices; }
 
     std::vector<char *> getValidationLayers() { return validationLayers; }
 
-    std::vector<const char *> getExtensions() const { return getRequiredExtensions(enableValidationLayers); }
+    [[nodiscard]] std::vector<const char *> getExtensions() const { return getRequiredExtensions(enableValidationLayers); }
 };
 
 #endif //CUBICAD_INSTANCE_H
