@@ -31,7 +31,8 @@
 
 #include "../renderer/vulkan/window.h"
 #include "../renderer/vulkan/swapchain.h"
-#include "../renderer/mesh.h"
+#include "../renderer/modelloader.h"
+#include "../renderer/mastermaterial.h"
 
 
 using ComplexNum = std::pair<long double, long double>;

@@ -1,10 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(lib)
 
-set(CMAKE_CXX_STANDARD 14)
+file(GLOB_RECURSE STB_LIB_SRC ${CMAKE_SOURCE_DIR}/lib/stb/*.c ${CMAKE_SOURCE_DIR}/lib/stb/*.h)
 
-include_directories(.)
-
-add_library(lib STATIC
-        VulkanMemoryAllocator/include/vk_mem_alloc.h
-        )
+add_library(STB ${STB_LIB_SRC})

@@ -153,6 +153,12 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/EventBus/lib)
 # add libmorton
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/libmorton)
 
+# add tinyobjloader
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib/tinyobjloader)
+
+# add stb
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib)
+
 # add documentation targets
 add_subdirectory(${CMAKE_SOURCE_DIR}/docs)
 
@@ -208,6 +214,8 @@ target_include_directories(
         PUBLIC VulkanMemoryAllocator
         PUBLIC Dexode::EventBus
         PUBLIC libmorton
+        PUBLIC tinyobjloader
+        PUBLIC stb
 )
 
 target_link_directories(
@@ -217,6 +225,8 @@ target_link_directories(
         PUBLIC VulkanMemoryAllocator
         PUBLIC Dexode::EventBus
         PUBLIC libmorton
+        PUBLIC tinyobjloader
+        PUBLIC stb
 )
 
 target_link_libraries(
@@ -227,6 +237,8 @@ target_link_libraries(
         VulkanMemoryAllocator
         Dexode::EventBus
         libmorton
+        tinyobjloader
+        stb
 )
 
 # make

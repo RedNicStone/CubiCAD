@@ -30,7 +30,7 @@ class UniformBuffer {
   public:
     static std::shared_ptr<UniformBuffer<type>> create(const std::shared_ptr<Device> &pDevice,
                                                  const std::shared_ptr<Queue> &pTransferQueue) {
-        auto uniformBuffer = std::make_shared<UniformBuffer>();
+        auto uniformBuffer = std::make_shared<UniformBuffer<type>>();
 
         uniformBuffer->buffer =
             Buffer::create(pDevice,
