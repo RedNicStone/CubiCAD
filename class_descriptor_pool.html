@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_descriptor_pool.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_descriptor_pool-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">DescriptorPool Class Reference</div></div>
 </div><!--header-->
@@ -113,10 +114,8 @@ Collaboration diagram for DescriptorPool:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6abda0a700832910b2519653d04fbaed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_pool.html#a6abda0a700832910b2519653d04fbaed">DescriptorPool</a> (<a class="el" href="class_device.html">Device</a> *pDevice, std::vector&lt; VkDescriptorPoolSize &gt; &amp;sizes, uint32_t maxSets=0)</td></tr>
-<tr class="separator:a6abda0a700832910b2519653d04fbaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc724ba0f86add9b0e79dcc203d72317"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_device.html">Device</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_pool.html#adc724ba0f86add9b0e79dcc203d72317">getDevice</a> ()</td></tr>
-<tr class="separator:adc724ba0f86add9b0e79dcc203d72317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a086e673b09dd11b6765378d2cd2609a7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_pool.html#a086e673b09dd11b6765378d2cd2609a7">getDevice</a> ()</td></tr>
+<tr class="separator:a086e673b09dd11b6765378d2cd2609a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22766b0612324a23fc352f5c5d7c3534"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_pool.html#a22766b0612324a23fc352f5c5d7c3534">~DescriptorPool</a> ()</td></tr>
 <tr class="separator:a22766b0612324a23fc352f5c5d7c3534"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkDescriptorPool &gt;</a></td></tr>
@@ -125,6 +124,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkDescriptorPool *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#a84fba320d4eecc0f0f0a959b0231b8de">getHandlePtr</a> ()</td></tr>
 <tr class="separator:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a190f2272d8740c7f7fe13b5b8fb8326c"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_descriptor_pool.html">DescriptorPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_pool.html#a190f2272d8740c7f7fe13b5b8fb8326c">create</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; pDevice, std::vector&lt; VkDescriptorPoolSize &gt; &amp;sizes, uint32_t maxSets=0)</td></tr>
+<tr class="separator:a190f2272d8740c7f7fe13b5b8fb8326c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkDescriptorPool &gt;</a></td></tr>
@@ -132,16 +136,37 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6abda0a700832910b2519653d04fbaed" name="a6abda0a700832910b2519653d04fbaed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6abda0a700832910b2519653d04fbaed">&#9670;&nbsp;</a></span>DescriptorPool()</h2>
+<a id="a22766b0612324a23fc352f5c5d7c3534" name="a22766b0612324a23fc352f5c5d7c3534"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22766b0612324a23fc352f5c5d7c3534">&#9670;&nbsp;</a></span>~DescriptorPool()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">DescriptorPool::DescriptorPool </td>
+          <td class="memname">DescriptorPool::~DescriptorPool </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a190f2272d8740c7f7fe13b5b8fb8326c" name="a190f2272d8740c7f7fe13b5b8fb8326c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a190f2272d8740c7f7fe13b5b8fb8326c">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool.html">DescriptorPool</a> &gt; DescriptorPool::create </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td>
           <td class="paramname"><em>pDevice</em>, </td>
         </tr>
         <tr>
@@ -162,42 +187,23 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_descriptor_pool_a6abda0a700832910b2519653d04fbaed_cgraph.svg" width="418" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_descriptor_pool_a190f2272d8740c7f7fe13b5b8fb8326c_icgraph.svg" width="259" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a22766b0612324a23fc352f5c5d7c3534" name="a22766b0612324a23fc352f5c5d7c3534"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22766b0612324a23fc352f5c5d7c3534">&#9670;&nbsp;</a></span>~DescriptorPool()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">DescriptorPool::~DescriptorPool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_descriptor_pool_a22766b0612324a23fc352f5c5d7c3534_cgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="adc724ba0f86add9b0e79dcc203d72317" name="adc724ba0f86add9b0e79dcc203d72317"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc724ba0f86add9b0e79dcc203d72317">&#9670;&nbsp;</a></span>getDevice()</h2>
+<a id="a086e673b09dd11b6765378d2cd2609a7" name="a086e673b09dd11b6765378d2cd2609a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086e673b09dd11b6765378d2cd2609a7">&#9670;&nbsp;</a></span>getDevice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,7 +212,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_device.html">Device</a> * DescriptorPool::getDevice </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; DescriptorPool::getDevice </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

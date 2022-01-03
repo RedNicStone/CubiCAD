@@ -105,55 +105,67 @@ $(document).ready(function(){initNavTree('uniformbuffer_8h_source.html',''); ini
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vulkan/vulkan.h&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vk_mem_alloc.h&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="device_8h.html">device.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="buffer_8h.html">buffer.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="queues_8h.html">queues.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> type&gt;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="class_uniform_buffer.html">UniformBuffer</a> {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    type data;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_buffer.html">Buffer</a> buffer;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="class_device.html">Device</a>* device;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_queue.html">Queue</a>* transferQueue;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="device_8h.html">device.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="buffer_8h.html">buffer.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="queues_8h.html">queues.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> type&gt;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="class_uniform_buffer.html">UniformBuffer</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    type data;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::shared_ptr&lt;Buffer&gt; buffer;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#a64bf7e31b91170e6d8413dabd9f51f31">   28</a></span>    <a class="code hl_function" href="class_uniform_buffer.html#a64bf7e31b91170e6d8413dabd9f51f31">UniformBuffer</a>(<a class="code hl_class" href="class_device.html">Device</a>* pDevice, <a class="code hl_class" href="class_queue.html">Queue</a>* pTransferQueue) : buffer(pDevice, <a class="code hl_function" href="vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b">sizeof</a>(type),</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                                                                   VMA_MEMORY_USAGE_GPU_ONLY,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                                                                   VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                                                                   VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                                                                   { pTransferQueue-&gt;<a class="code hl_function" href="class_queue.html#a4c8e27aba8a0c3b0f14d9c95c73ebeea">getQueueFamilyIndex</a>() }){</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        device = pDevice;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        transferQueue = pTransferQueue;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_uniform_buffer.html#a0dd11e486c0c77cd7183e1ea3686f2e1">updateBufferContents</a>();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#ac539fb53d1b43e289e63fd2d66f1279c">   39</a></span>    type* <a class="code hl_function" href="class_uniform_buffer.html#ac539fb53d1b43e289e63fd2d66f1279c">getDataHandle</a>() { <span class="keywordflow">return</span> &amp;data; }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#afd4ff6803de098d90dd1af99f79a4a2a">   41</a></span>    <a class="code hl_class" href="class_buffer.html">Buffer</a>* <a class="code hl_function" href="class_uniform_buffer.html#afd4ff6803de098d90dd1af99f79a4a2a">getBuffer</a>() { <span class="keywordflow">return</span> &amp;buffer; }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#a216cda20bb34fae2c2b9e39c794cfd49">   42</a></span>    <a class="code hl_class" href="class_device.html">Device</a>* <a class="code hl_function" href="class_uniform_buffer.html#a216cda20bb34fae2c2b9e39c794cfd49">getDevice</a>() { <span class="keywordflow">return</span> device; }</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#adedcc6c7fffe9f45e6dc35a8c9fee717">   43</a></span>    <a class="code hl_class" href="class_queue.html">Queue</a>* <a class="code hl_function" href="class_uniform_buffer.html#adedcc6c7fffe9f45e6dc35a8c9fee717">getTransferQueue</a>() { <span class="keywordflow">return</span> transferQueue; }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_UNIFORMBUFFER_H</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::shared_ptr&lt;Device&gt; device;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::shared_ptr&lt;Queue&gt; transferQueue;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#abc6f3719288674b9d9f236952f2c9021">   31</a></span>    <span class="keyword">static</span> std::shared_ptr&lt;UniformBuffer&lt;type&gt;&gt; <a class="code hl_function" href="class_uniform_buffer.html#abc6f3719288674b9d9f236952f2c9021">create</a>(<span class="keyword">const</span> std::shared_ptr&lt;Device&gt; &amp;pDevice,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                                                 <span class="keyword">const</span> std::shared_ptr&lt;Queue&gt; &amp;pTransferQueue) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">auto</span> uniformBuffer = std::make_shared&lt;UniformBuffer&lt;type&gt;&gt;();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        uniformBuffer-&gt;buffer =</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <a class="code hl_function" href="class_buffer.html#aed1e91407b4a605b195fe0113ec4e1e1">Buffer::create</a>(pDevice,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                           <span class="keyword">sizeof</span>(type),</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                           VMA_MEMORY_USAGE_GPU_ONLY,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                           VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                           { pTransferQueue-&gt;getQueueFamilyIndex() });</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        uniformBuffer-&gt;device = pDevice;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        uniformBuffer-&gt;transferQueue = pTransferQueue;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> uniformBuffer;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_uniform_buffer.html#a0dd11e486c0c77cd7183e1ea3686f2e1">updateBufferContents</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#ac539fb53d1b43e289e63fd2d66f1279c">   50</a></span>    type *<a class="code hl_function" href="class_uniform_buffer.html#ac539fb53d1b43e289e63fd2d66f1279c">getDataHandle</a>() { <span class="keywordflow">return</span> &amp;data; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#aaee984339675bf1bc06b9d0afc8e0c11">   52</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_uniform_buffer.html#aaee984339675bf1bc06b9d0afc8e0c11">getSize</a>() { <span class="keywordflow">return</span> <span class="keyword">sizeof</span>(type); }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#a50a1c6de15cd58d874b3a631f5722d1f">   54</a></span>    std::shared_ptr&lt;Buffer&gt; <a class="code hl_function" href="class_uniform_buffer.html#a50a1c6de15cd58d874b3a631f5722d1f">getBuffer</a>() { <span class="keywordflow">return</span> buffer; }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#a15472e3aa2ee7fb1b55dbf990e80ebd2">   56</a></span>    std::shared_ptr&lt;Device&gt; <a class="code hl_function" href="class_uniform_buffer.html#a15472e3aa2ee7fb1b55dbf990e80ebd2">getDevice</a>() { <span class="keywordflow">return</span> device; }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_uniform_buffer.html#aa9d220b20367a8019fc7c42d5e88addf">   58</a></span>    std::shared_ptr&lt;Queue&gt; <a class="code hl_function" href="class_uniform_buffer.html#aa9d220b20367a8019fc7c42d5e88addf">getTransferQueue</a>() { <span class="keywordflow">return</span> transferQueue; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_UNIFORMBUFFER_H</span></div>
 <div class="ttc" id="abuffer_8h_html"><div class="ttname"><a href="buffer_8h.html">buffer.h</a></div></div>
-<div class="ttc" id="aclass_buffer_html"><div class="ttname"><a href="class_buffer.html">Buffer</a></div><div class="ttdef"><b>Definition:</b> buffer.h:20</div></div>
-<div class="ttc" id="aclass_device_html"><div class="ttname"><a href="class_device.html">Device</a></div><div class="ttdef"><b>Definition:</b> device.h:28</div></div>
-<div class="ttc" id="aclass_queue_html"><div class="ttname"><a href="class_queue.html">Queue</a></div><div class="ttdef"><b>Definition:</b> queues.h:101</div></div>
-<div class="ttc" id="aclass_queue_html_a4c8e27aba8a0c3b0f14d9c95c73ebeea"><div class="ttname"><a href="class_queue.html#a4c8e27aba8a0c3b0f14d9c95c73ebeea">Queue::getQueueFamilyIndex</a></div><div class="ttdeci">uint32_t getQueueFamilyIndex()</div><div class="ttdef"><b>Definition:</b> queues.h:112</div></div>
-<div class="ttc" id="aclass_uniform_buffer_html"><div class="ttname"><a href="class_uniform_buffer.html">UniformBuffer</a></div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:18</div></div>
-<div class="ttc" id="aclass_uniform_buffer_html_a0dd11e486c0c77cd7183e1ea3686f2e1"><div class="ttname"><a href="class_uniform_buffer.html#a0dd11e486c0c77cd7183e1ea3686f2e1">UniformBuffer::updateBufferContents</a></div><div class="ttdeci">void updateBufferContents()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.cpp:10</div></div>
-<div class="ttc" id="aclass_uniform_buffer_html_a216cda20bb34fae2c2b9e39c794cfd49"><div class="ttname"><a href="class_uniform_buffer.html#a216cda20bb34fae2c2b9e39c794cfd49">UniformBuffer::getDevice</a></div><div class="ttdeci">Device * getDevice()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:42</div></div>
-<div class="ttc" id="aclass_uniform_buffer_html_a64bf7e31b91170e6d8413dabd9f51f31"><div class="ttname"><a href="class_uniform_buffer.html#a64bf7e31b91170e6d8413dabd9f51f31">UniformBuffer::UniformBuffer</a></div><div class="ttdeci">UniformBuffer(Device *pDevice, Queue *pTransferQueue)</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:28</div></div>
-<div class="ttc" id="aclass_uniform_buffer_html_ac539fb53d1b43e289e63fd2d66f1279c"><div class="ttname"><a href="class_uniform_buffer.html#ac539fb53d1b43e289e63fd2d66f1279c">UniformBuffer::getDataHandle</a></div><div class="ttdeci">type * getDataHandle()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:39</div></div>
-<div class="ttc" id="aclass_uniform_buffer_html_adedcc6c7fffe9f45e6dc35a8c9fee717"><div class="ttname"><a href="class_uniform_buffer.html#adedcc6c7fffe9f45e6dc35a8c9fee717">UniformBuffer::getTransferQueue</a></div><div class="ttdeci">Queue * getTransferQueue()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:43</div></div>
-<div class="ttc" id="aclass_uniform_buffer_html_afd4ff6803de098d90dd1af99f79a4a2a"><div class="ttname"><a href="class_uniform_buffer.html#afd4ff6803de098d90dd1af99f79a4a2a">UniformBuffer::getBuffer</a></div><div class="ttdeci">Buffer * getBuffer()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:41</div></div>
+<div class="ttc" id="aclass_buffer_html_aed1e91407b4a605b195fe0113ec4e1e1"><div class="ttname"><a href="class_buffer.html#aed1e91407b4a605b195fe0113ec4e1e1">Buffer::create</a></div><div class="ttdeci">static std::shared_ptr&lt; Buffer &gt; create(std::shared_ptr&lt; Device &gt; pDevice, VkDeviceSize size, VmaMemoryUsage memoryUsage, VkMemoryPropertyFlags preferredFlags, VkBufferUsageFlagBits bufferUsage, std::vector&lt; uint32_t &gt; accessingQueues)</div><div class="ttdef"><b>Definition:</b> buffer.cpp:12</div></div>
+<div class="ttc" id="aclass_uniform_buffer_html"><div class="ttname"><a href="class_uniform_buffer.html">UniformBuffer</a></div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:21</div></div>
+<div class="ttc" id="aclass_uniform_buffer_html_a0dd11e486c0c77cd7183e1ea3686f2e1"><div class="ttname"><a href="class_uniform_buffer.html#a0dd11e486c0c77cd7183e1ea3686f2e1">UniformBuffer::updateBufferContents</a></div><div class="ttdeci">void updateBufferContents()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.cpp:9</div></div>
+<div class="ttc" id="aclass_uniform_buffer_html_a15472e3aa2ee7fb1b55dbf990e80ebd2"><div class="ttname"><a href="class_uniform_buffer.html#a15472e3aa2ee7fb1b55dbf990e80ebd2">UniformBuffer::getDevice</a></div><div class="ttdeci">std::shared_ptr&lt; Device &gt; getDevice()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:56</div></div>
+<div class="ttc" id="aclass_uniform_buffer_html_a50a1c6de15cd58d874b3a631f5722d1f"><div class="ttname"><a href="class_uniform_buffer.html#a50a1c6de15cd58d874b3a631f5722d1f">UniformBuffer::getBuffer</a></div><div class="ttdeci">std::shared_ptr&lt; Buffer &gt; getBuffer()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:54</div></div>
+<div class="ttc" id="aclass_uniform_buffer_html_aa9d220b20367a8019fc7c42d5e88addf"><div class="ttname"><a href="class_uniform_buffer.html#aa9d220b20367a8019fc7c42d5e88addf">UniformBuffer::getTransferQueue</a></div><div class="ttdeci">std::shared_ptr&lt; Queue &gt; getTransferQueue()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:58</div></div>
+<div class="ttc" id="aclass_uniform_buffer_html_aaee984339675bf1bc06b9d0afc8e0c11"><div class="ttname"><a href="class_uniform_buffer.html#aaee984339675bf1bc06b9d0afc8e0c11">UniformBuffer::getSize</a></div><div class="ttdeci">size_t getSize()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:52</div></div>
+<div class="ttc" id="aclass_uniform_buffer_html_abc6f3719288674b9d9f236952f2c9021"><div class="ttname"><a href="class_uniform_buffer.html#abc6f3719288674b9d9f236952f2c9021">UniformBuffer::create</a></div><div class="ttdeci">static std::shared_ptr&lt; UniformBuffer&lt; type &gt; &gt; create(const std::shared_ptr&lt; Device &gt; &amp;pDevice, const std::shared_ptr&lt; Queue &gt; &amp;pTransferQueue)</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:31</div></div>
+<div class="ttc" id="aclass_uniform_buffer_html_ac539fb53d1b43e289e63fd2d66f1279c"><div class="ttname"><a href="class_uniform_buffer.html#ac539fb53d1b43e289e63fd2d66f1279c">UniformBuffer::getDataHandle</a></div><div class="ttdeci">type * getDataHandle()</div><div class="ttdef"><b>Definition:</b> uniformbuffer.h:50</div></div>
 <div class="ttc" id="adevice_8h_html"><div class="ttname"><a href="device_8h.html">device.h</a></div></div>
 <div class="ttc" id="aqueues_8h_html"><div class="ttname"><a href="queues_8h.html">queues.h</a></div></div>
-<div class="ttc" id="avec__abs_8cpp_html_aa35b116656d89d82b8fb697bab52816b"><div class="ttname"><a href="vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b">sizeof</a></div><div class="ttdeci">::value &amp;&amp; sizeof(Ts)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

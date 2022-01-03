@@ -1,7 +1,7 @@
 var class_device =
 [
-    [ "Device", "class_device.html#a77bae2c26f7bb6139aa1abae873b7045", null ],
-    [ "cleanup", "class_device.html#ac9ad9b05d86585769f8171516e1ab1e2", null ],
+    [ "~Device", "class_device.html#a9dabc419c8d8df3a686c33ce042bc99a", null ],
     [ "getAllocator", "class_device.html#a7916576e1c4243c69fc6099a3fa38978", null ],
-    [ "getPhysicalDevice", "class_device.html#a8b21734d3d4c32b13990cf51b89048e0", null ]
+    [ "getPhysicalDevice", "class_device.html#a86b7b19b5d2c59c7eb3ee273933d4c7d", null ],
+    [ "waitIdle", "class_device.html#a226093cf28551c98bacac8345ef2ef30", null ]
 ];

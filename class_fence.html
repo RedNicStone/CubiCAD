@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_fence.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_fence-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Fence Class Reference</div></div>
 </div><!--header-->
@@ -113,8 +114,6 @@ Collaboration diagram for Fence:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7e8c809626a74fca27e5016bd04f47ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fence.html#a7e8c809626a74fca27e5016bd04f47ad">Fence</a> (<a class="el" href="class_device.html">Device</a> *pDevice, bool signaled=false)</td></tr>
-<tr class="separator:a7e8c809626a74fca27e5016bd04f47ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a8def44f6e7a30c889150109ff22c83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fence.html#a9a8def44f6e7a30c889150109ff22c83">getState</a> ()</td></tr>
 <tr class="separator:a9a8def44f6e7a30c889150109ff22c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af51544dbcd84cb7550ff8dd8a331183b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fence.html#af51544dbcd84cb7550ff8dd8a331183b">resetState</a> ()</td></tr>
@@ -129,6 +128,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkFence *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#a84fba320d4eecc0f0f0a959b0231b8de">getHandlePtr</a> ()</td></tr>
 <tr class="separator:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a283f8c846d9df9f3e1b1f99e16abd372"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fence.html#a283f8c846d9df9f3e1b1f99e16abd372">create</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; pDevice, bool signaled=false)</td></tr>
+<tr class="separator:a283f8c846d9df9f3e1b1f99e16abd372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkFence &gt;</a></td></tr>
@@ -136,8 +140,26 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7e8c809626a74fca27e5016bd04f47ad" name="a7e8c809626a74fca27e5016bd04f47ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e8c809626a74fca27e5016bd04f47ad">&#9670;&nbsp;</a></span>Fence()</h2>
+<a id="a542d1f0e5b80afc0b19865071cd6c616" name="a542d1f0e5b80afc0b19865071cd6c616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a542d1f0e5b80afc0b19865071cd6c616">&#9670;&nbsp;</a></span>~Fence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Fence::~Fence </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a283f8c846d9df9f3e1b1f99e16abd372" name="a283f8c846d9df9f3e1b1f99e16abd372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a283f8c846d9df9f3e1b1f99e16abd372">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,9 +168,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Fence::Fence </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; Fence::create </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td>
           <td class="paramname"><em>pDevice</em>, </td>
         </tr>
         <tr>
@@ -165,43 +187,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_fence_a7e8c809626a74fca27e5016bd04f47ad_cgraph.svg" width="319" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
-<a id="a542d1f0e5b80afc0b19865071cd6c616" name="a542d1f0e5b80afc0b19865071cd6c616"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a542d1f0e5b80afc0b19865071cd6c616">&#9670;&nbsp;</a></span>~Fence()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Fence::~Fence </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_fence_a542d1f0e5b80afc0b19865071cd6c616_cgraph.svg" width="326" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9a8def44f6e7a30c889150109ff22c83" name="a9a8def44f6e7a30c889150109ff22c83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a8def44f6e7a30c889150109ff22c83">&#9670;&nbsp;</a></span>getState()</h2>
 
@@ -216,12 +208,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_fence_a9a8def44f6e7a30c889150109ff22c83_cgraph.svg" width="332" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -239,12 +225,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_fence_af51544dbcd84cb7550ff8dd8a331183b_cgraph.svg" width="343" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -263,12 +243,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_fence_ad03e35c931e9b70fc00dc69640f084c9_cgraph.svg" width="362" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>

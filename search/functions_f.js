@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['physicaldevice_0',['PhysicalDevice',['../class_physical_device.html#a618aecc3dd4b8f346ca89559ca63ac27',1,'PhysicalDevice']]],
-  ['pipelinebase_1',['PipelineBase',['../class_pipeline_base.html#a61e60100fbcd3e02eae418bd9759d0aa',1,'PipelineBase']]],
-  ['pipelinelayout_2',['PipelineLayout',['../class_pipeline_layout.html#ac9c1b8457401f5d3a0fe929c62740bc8',1,'PipelineLayout::PipelineLayout(Device *pDevice, std::vector&lt; DescriptorSetLayout &gt; &amp;descriptorLayouts, std::vector&lt; PushConstantRange &gt; &amp;pushConstants)'],['../class_pipeline_layout.html#aef03a0b5beb663df09eafcf5de08390d',1,'PipelineLayout::PipelineLayout(Device *pDevice, std::vector&lt; DescriptorSetLayout &gt; &amp;descriptorLayouts)'],['../class_pipeline_layout.html#afbeb45449bd872d6c70590c2b5fd5e2a',1,'PipelineLayout::PipelineLayout(Device *pDevice, std::vector&lt; PushConstantRange &gt; &amp;pushConstants)'],['../class_pipeline_layout.html#a42b45fd69d6505da4139e71cb6b5a4dc',1,'PipelineLayout::PipelineLayout(Device *pDevice)']]],
-  ['pipelinestageinfo_3',['pipelineStageInfo',['../class_shader.html#a1b0b763e24e7061f328e596146c0bdb7',1,'Shader']]],
-  ['pushconstantrange_4',['PushConstantRange',['../class_push_constant_range.html#a74748ceee8ad087a8e0af36a16a52d80',1,'PushConstantRange']]]
+  ['querydeviceproperties_0',['queryDeviceProperties',['../class_physical_device.html#a21e707fbd8255fda9df3ecf1a4eb2b99',1,'PhysicalDevice']]],
+  ['querypresentmodes_1',['queryPresentModes',['../class_swap_chain.html#a53e153bace197f261e233b282f308638',1,'SwapChain']]],
+  ['querypresetsupport_2',['queryPresetSupport',['../class_queue_family_handler.html#a18d16b54d3fa6d622f9c33e19c106d97',1,'QueueFamilyHandler']]],
+  ['queryqueuefamilysupport_3',['queryQueueFamilySupport',['../class_queue_family_handler.html#ab18b5195ce377690fb24be4a62939e16',1,'QueueFamilyHandler']]],
+  ['querysurfacecapabilities_4',['querySurfaceCapabilities',['../class_swap_chain.html#a90b23e7be9f4f9b5ce24e9cd23a7ee13',1,'SwapChain']]],
+  ['querysurfaceformats_5',['querySurfaceFormats',['../class_swap_chain.html#a620f7c053b6508c4fa559b479837987d',1,'SwapChain']]]
 ];

@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_command_buffer.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_command_buffer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">CommandBuffer Class Reference</div></div>
 </div><!--header-->
@@ -101,44 +102,44 @@ $(document).ready(function(){initNavTree('class_command_buffer.html',''); initRe
 <div class="dynheader">
 Inheritance diagram for CommandBuffer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer__inherit__graph.svg" width="259" height="590"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_command_buffer__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for CommandBuffer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer__coll__graph.svg" width="259" height="590"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_command_buffer__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af04ac22f56b72a3b2adab7c325dddaa0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#af04ac22f56b72a3b2adab7c325dddaa0">CommandBuffer</a> (<a class="el" href="class_command_pool.html">CommandPool</a> *pCommandPool, VkCommandBufferLevel level)</td></tr>
-<tr class="separator:af04ac22f56b72a3b2adab7c325dddaa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd56a559c3cdf0a1783782488c354257"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#acd56a559c3cdf0a1783782488c354257">submitToQueue</a> (std::vector&lt; <a class="el" href="class_semaphore.html">Semaphore</a> * &gt; &amp;signalSemaphores, std::vector&lt; VkPipelineStageFlags &gt; waitStageMask, std::vector&lt; <a class="el" href="class_semaphore.html">Semaphore</a> * &gt; &amp;waitSemaphores, <a class="el" href="class_queue.html">Queue</a> *queue, <a class="el" href="class_fence.html">Fence</a> *triggerFence)</td></tr>
-<tr class="separator:acd56a559c3cdf0a1783782488c354257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a674b6099a58b7aa759035d475576b382"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a674b6099a58b7aa759035d475576b382">submitToQueue</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt; &amp;signalSemaphores, std::vector&lt; VkPipelineStageFlags &gt; waitStageMask, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt; &amp;waitSemaphores, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;queue, const std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &amp;triggerFence)</td></tr>
+<tr class="separator:a674b6099a58b7aa759035d475576b382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbfa16550570f699241b21ca3ca0ba7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a3bbfa16550570f699241b21ca3ca0ba7">beginCommandBuffer</a> (VkCommandBufferUsageFlags flags=0)</td></tr>
 <tr class="separator:a3bbfa16550570f699241b21ca3ca0ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa61e6369e7765f11e355c16e749dece5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aa61e6369e7765f11e355c16e749dece5">resetCommandBuffer</a> (VkCommandBufferResetFlags flags=0)</td></tr>
 <tr class="separator:aa61e6369e7765f11e355c16e749dece5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ad44743d3c5f3d430b54f012e75678"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a10ad44743d3c5f3d430b54f012e75678">endCommandBuffer</a> ()</td></tr>
 <tr class="separator:a10ad44743d3c5f3d430b54f012e75678"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e21cc54de63e53370d259d07f551ce5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a7e21cc54de63e53370d259d07f551ce5">beginRenderPass</a> (<a class="el" href="class_render_pass.html">RenderPass</a> *renderPass, <a class="el" href="class_frame_buffer.html">FrameBuffer</a> *frameBuffer, std::vector&lt; VkClearValue &gt; &amp;clearValues, uint32_t frameIndex, VkExtent2D extend, VkOffset2D offset, bool secondary=false)</td></tr>
-<tr class="separator:a7e21cc54de63e53370d259d07f551ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d1d88ce289b4fa12095d23e8d4bb791"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a4d1d88ce289b4fa12095d23e8d4bb791">beginRenderPass</a> (const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;renderPass, const std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt; &amp;frameBuffer, std::vector&lt; VkClearValue &gt; &amp;clearValues, uint32_t frameIndex, VkExtent2D extend, VkOffset2D offset, bool secondary=false)</td></tr>
+<tr class="separator:a4d1d88ce289b4fa12095d23e8d4bb791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f3c43ddde1476e49e9e93ec683b3123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a3f3c43ddde1476e49e9e93ec683b3123">nextSubpass</a> (VkSubpassContents subpassContents=VK_SUBPASS_CONTENTS_INLINE)</td></tr>
 <tr class="separator:a3f3c43ddde1476e49e9e93ec683b3123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6ba01d9fd02182683f0f677867a3ae1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ad6ba01d9fd02182683f0f677867a3ae1">endRenderPass</a> ()</td></tr>
 <tr class="separator:ad6ba01d9fd02182683f0f677867a3ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8d46aae398acf1da09fddeca9171eaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ab8d46aae398acf1da09fddeca9171eaf">bindPipeline</a> (<a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> *pipeline)</td></tr>
-<tr class="separator:ab8d46aae398acf1da09fddeca9171eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa22d6a47130668faea8bcd286b0c272a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aa22d6a47130668faea8bcd286b0c272a">bindDescriptorSets</a> (std::vector&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> * &gt; &amp;descriptorSets, <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> *layout, VkPipelineBindPoint bindPoint, std::vector&lt; uint32_t &gt; &amp;offsets)</td></tr>
-<tr class="separator:aa22d6a47130668faea8bcd286b0c272a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6e790bf5fbded03367b400e13192797"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ae6e790bf5fbded03367b400e13192797">bindDescriptorSets</a> (std::vector&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> * &gt; &amp;descriptorSets, <a class="el" href="class_pipeline_base.html">PipelineBase</a> *pipeline, std::vector&lt; uint32_t &gt; &amp;offsets)</td></tr>
-<tr class="separator:ae6e790bf5fbded03367b400e13192797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa1d6e532ff06fdc1adda631ccd48c03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#afa1d6e532ff06fdc1adda631ccd48c03">bindVertexBuffer</a> (<a class="el" href="class_buffer.html">Buffer</a> *buffer, uint32_t slot, VkDeviceSize offset=0)</td></tr>
-<tr class="separator:afa1d6e532ff06fdc1adda631ccd48c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcdeee6626ba499ef978de190935bbbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#afcdeee6626ba499ef978de190935bbbf">bindIndexBuffer</a> (<a class="el" href="class_buffer.html">Buffer</a> *buffer, VkIndexType type, VkDeviceSize offset=0)</td></tr>
-<tr class="separator:afcdeee6626ba499ef978de190935bbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ecd2d3ffffb04c4068a7f6bef64dd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ae5ecd2d3ffffb04c4068a7f6bef64dd6">bindPipeline</a> (const std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt; &amp;pipeline)</td></tr>
+<tr class="separator:ae5ecd2d3ffffb04c4068a7f6bef64dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa73cae6829801918db385b31b689b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aeaa73cae6829801918db385b31b689b5">bindDescriptorSets</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;descriptorSets, const std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt; &amp;layout, VkPipelineBindPoint bindPoint, std::vector&lt; uint32_t &gt; &amp;offsets)</td></tr>
+<tr class="separator:aeaa73cae6829801918db385b31b689b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0739cb0cc0fb37db07c8509becb4682"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ae0739cb0cc0fb37db07c8509becb4682">bindDescriptorSets</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;descriptorSets, const std::shared_ptr&lt; <a class="el" href="class_pipeline_base.html">PipelineBase</a> &gt; &amp;pipeline, std::vector&lt; uint32_t &gt; &amp;offsets)</td></tr>
+<tr class="separator:ae0739cb0cc0fb37db07c8509becb4682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeac1cb42cc5cc33ae62eccf03a118895"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aeac1cb42cc5cc33ae62eccf03a118895">bindDescriptorSets</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;descriptorSets, const std::shared_ptr&lt; <a class="el" href="class_pipeline_base.html">PipelineBase</a> &gt; &amp;pipeline)</td></tr>
+<tr class="separator:aeac1cb42cc5cc33ae62eccf03a118895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78f90b1b17e64e15ba2c97320839f4f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a78f90b1b17e64e15ba2c97320839f4f5">bindVertexBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t slot, VkDeviceSize offset=0)</td></tr>
+<tr class="separator:a78f90b1b17e64e15ba2c97320839f4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac281039c78a6e797b9c8b9641c30a9fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ac281039c78a6e797b9c8b9641c30a9fb">bindIndexBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, VkIndexType type, VkDeviceSize offset=0)</td></tr>
+<tr class="separator:ac281039c78a6e797b9c8b9641c30a9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78662ba08a6d36b572fa781a76e3bd36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a78662ba08a6d36b572fa781a76e3bd36">draw</a> (uint32_t vertexCount, uint32_t instanceCount=1, uint32_t firstVertex=0, uint32_t firstInstance=0)</td></tr>
 <tr class="separator:a78662ba08a6d36b572fa781a76e3bd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa521acf82918f7df7c9ea65226c6bf7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aa521acf82918f7df7c9ea65226c6bf7e">drawIndexed</a> (uint32_t indexCount, uint32_t instanceCount=0, uint32_t firstIndex=0, int32_t vertexOffset=0, uint32_t firstInstance=0)</td></tr>
@@ -149,47 +150,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkCommandBuffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#a84fba320d4eecc0f0f0a959b0231b8de">getHandlePtr</a> ()</td></tr>
 <tr class="separator:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9958c7132a13830e7eff9bae57e5b570"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a9958c7132a13830e7eff9bae57e5b570">create</a> (const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;pCommandPool, VkCommandBufferLevel level)</td></tr>
+<tr class="separator:a9958c7132a13830e7eff9bae57e5b570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkCommandBuffer &gt;</a></td></tr>
 <tr class="memitem:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkCommandBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#ab80d85ecc859b610cedefe8f0974b8c7">handle</a></td></tr>
 <tr class="separator:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af04ac22f56b72a3b2adab7c325dddaa0" name="af04ac22f56b72a3b2adab7c325dddaa0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af04ac22f56b72a3b2adab7c325dddaa0">&#9670;&nbsp;</a></span>CommandBuffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CommandBuffer::CommandBuffer </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_command_pool.html">CommandPool</a> *&#160;</td>
-          <td class="paramname"><em>pCommandPool</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">VkCommandBufferLevel&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_af04ac22f56b72a3b2adab7c325dddaa0_cgraph.svg" width="444" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3bbfa16550570f699241b21ca3ca0ba7" name="a3bbfa16550570f699241b21ca3ca0ba7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3bbfa16550570f699241b21ca3ca0ba7">&#9670;&nbsp;</a></span>beginCommandBuffer()</h2>
@@ -209,8 +180,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a7e21cc54de63e53370d259d07f551ce5" name="a7e21cc54de63e53370d259d07f551ce5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e21cc54de63e53370d259d07f551ce5">&#9670;&nbsp;</a></span>beginRenderPass()</h2>
+<a id="a4d1d88ce289b4fa12095d23e8d4bb791" name="a4d1d88ce289b4fa12095d23e8d4bb791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d1d88ce289b4fa12095d23e8d4bb791">&#9670;&nbsp;</a></span>beginRenderPass()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,13 +189,13 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void CommandBuffer::beginRenderPass </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_render_pass.html">RenderPass</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>renderPass</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_frame_buffer.html">FrameBuffer</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>frameBuffer</em>, </td>
         </tr>
         <tr>
@@ -264,17 +235,11 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_a7e21cc54de63e53370d259d07f551ce5_cgraph.svg" width="468" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
-<a id="ae6e790bf5fbded03367b400e13192797" name="ae6e790bf5fbded03367b400e13192797"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6e790bf5fbded03367b400e13192797">&#9670;&nbsp;</a></span>bindDescriptorSets() <span class="overload">[1/2]</span></h2>
+<a id="aeac1cb42cc5cc33ae62eccf03a118895" name="aeac1cb42cc5cc33ae62eccf03a118895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeac1cb42cc5cc33ae62eccf03a118895">&#9670;&nbsp;</a></span>bindDescriptorSets() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,13 +247,47 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void CommandBuffer::bindDescriptorSets </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>descriptorSets</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_pipeline_base.html">PipelineBase</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_pipeline_base.html">PipelineBase</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pipeline</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_aeac1cb42cc5cc33ae62eccf03a118895_cgraph.svg" width="520" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ae0739cb0cc0fb37db07c8509becb4682" name="ae0739cb0cc0fb37db07c8509becb4682"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0739cb0cc0fb37db07c8509becb4682">&#9670;&nbsp;</a></span>bindDescriptorSets() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandBuffer::bindDescriptorSets </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>descriptorSets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_pipeline_base.html">PipelineBase</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pipeline</em>, </td>
         </tr>
         <tr>
@@ -307,14 +306,14 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_command_buffer_ae6e790bf5fbded03367b400e13192797_cgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_ae0739cb0cc0fb37db07c8509becb4682_cgraph.svg" width="520" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="aa22d6a47130668faea8bcd286b0c272a" name="aa22d6a47130668faea8bcd286b0c272a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa22d6a47130668faea8bcd286b0c272a">&#9670;&nbsp;</a></span>bindDescriptorSets() <span class="overload">[2/2]</span></h2>
+<a id="aeaa73cae6829801918db385b31b689b5" name="aeaa73cae6829801918db385b31b689b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaa73cae6829801918db385b31b689b5">&#9670;&nbsp;</a></span>bindDescriptorSets() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,13 +321,13 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void CommandBuffer::bindDescriptorSets </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>descriptorSets</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_pipeline_layout.html">PipelineLayout</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>layout</em>, </td>
         </tr>
         <tr>
@@ -351,22 +350,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_aa22d6a47130668faea8bcd286b0c272a_cgraph.svg" width="450" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_aa22d6a47130668faea8bcd286b0c272a_icgraph.svg" width="520" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_aeaa73cae6829801918db385b31b689b5_icgraph.svg" width="520" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="afcdeee6626ba499ef978de190935bbbf" name="afcdeee6626ba499ef978de190935bbbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcdeee6626ba499ef978de190935bbbf">&#9670;&nbsp;</a></span>bindIndexBuffer()</h2>
+<a id="ac281039c78a6e797b9c8b9641c30a9fb" name="ac281039c78a6e797b9c8b9641c30a9fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac281039c78a6e797b9c8b9641c30a9fb">&#9670;&nbsp;</a></span>bindIndexBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,7 +367,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void CommandBuffer::bindIndexBuffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_buffer.html">Buffer</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -396,17 +389,11 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_afcdeee6626ba499ef978de190935bbbf_cgraph.svg" width="395" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
-<a id="ab8d46aae398acf1da09fddeca9171eaf" name="ab8d46aae398acf1da09fddeca9171eaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8d46aae398acf1da09fddeca9171eaf">&#9670;&nbsp;</a></span>bindPipeline()</h2>
+<a id="ae5ecd2d3ffffb04c4068a7f6bef64dd6" name="ae5ecd2d3ffffb04c4068a7f6bef64dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ecd2d3ffffb04c4068a7f6bef64dd6">&#9670;&nbsp;</a></span>bindPipeline()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -414,23 +401,17 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void CommandBuffer::bindPipeline </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pipeline</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_ab8d46aae398acf1da09fddeca9171eaf_cgraph.svg" width="420" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
-<a id="afa1d6e532ff06fdc1adda631ccd48c03" name="afa1d6e532ff06fdc1adda631ccd48c03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa1d6e532ff06fdc1adda631ccd48c03">&#9670;&nbsp;</a></span>bindVertexBuffer()</h2>
+<a id="a78f90b1b17e64e15ba2c97320839f4f5" name="a78f90b1b17e64e15ba2c97320839f4f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78f90b1b17e64e15ba2c97320839f4f5">&#9670;&nbsp;</a></span>bindVertexBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,7 +419,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void CommandBuffer::bindVertexBuffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_buffer.html">Buffer</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -460,10 +441,46 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9958c7132a13830e7eff9bae57e5b570" name="a9958c7132a13830e7eff9bae57e5b570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9958c7132a13830e7eff9bae57e5b570">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; CommandBuffer::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pCommandPool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkCommandBufferLevel&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_afa1d6e532ff06fdc1adda631ccd48c03_cgraph.svg" width="402" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_buffer_a9958c7132a13830e7eff9bae57e5b570_icgraph.svg" width="267" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -625,8 +642,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="acd56a559c3cdf0a1783782488c354257" name="acd56a559c3cdf0a1783782488c354257"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd56a559c3cdf0a1783782488c354257">&#9670;&nbsp;</a></span>submitToQueue()</h2>
+<a id="a674b6099a58b7aa759035d475576b382" name="a674b6099a58b7aa759035d475576b382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a674b6099a58b7aa759035d475576b382">&#9670;&nbsp;</a></span>submitToQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -634,7 +651,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void CommandBuffer::submitToQueue </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_semaphore.html">Semaphore</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>signalSemaphores</em>, </td>
         </tr>
         <tr>
@@ -646,19 +663,19 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_semaphore.html">Semaphore</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>waitSemaphores</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_queue.html">Queue</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>queue</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_fence.html">Fence</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>triggerFence</em>&#160;</td>
         </tr>
         <tr>
@@ -668,12 +685,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_command_buffer_acd56a559c3cdf0a1783782488c354257_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
 
 </div>
 </div>

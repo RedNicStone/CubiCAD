@@ -111,17 +111,18 @@ $(document).ready(function(){initNavTree('semaphore_8h_source.html',''); initRes
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_semaphore.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="class_semaphore.html">Semaphore</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_vulkan_class.html">VulkanClass</a>&lt;VkSemaphore&gt; {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_device.html">Device</a> *device;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::shared_ptr&lt;Device&gt; device;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="class_semaphore.html#a01329fd1b2ee518dfb049c0300248e13">Semaphore</a>(<a class="code hl_class" href="class_device.html">Device</a> *pDevice);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> std::shared_ptr&lt;Semaphore&gt; <a class="code hl_function" href="class_semaphore.html#a7bf99350ca438feb4b743891587a4e1c">create</a>(std::shared_ptr&lt;Device&gt; pDevice);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_SEMAPHORE_H</span></div>
-<div class="ttc" id="aclass_device_html"><div class="ttname"><a href="class_device.html">Device</a></div><div class="ttdef"><b>Definition:</b> device.h:28</div></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="class_semaphore.html#a633658a6fde276bffc912028725c6ade">~Semaphore</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_SEMAPHORE_H</span></div>
 <div class="ttc" id="aclass_semaphore_html"><div class="ttname"><a href="class_semaphore.html">Semaphore</a></div><div class="ttdef"><b>Definition:</b> semaphore.h:17</div></div>
-<div class="ttc" id="aclass_semaphore_html_a01329fd1b2ee518dfb049c0300248e13"><div class="ttname"><a href="class_semaphore.html#a01329fd1b2ee518dfb049c0300248e13">Semaphore::Semaphore</a></div><div class="ttdeci">Semaphore(Device *pDevice)</div><div class="ttdef"><b>Definition:</b> semaphore.cpp:8</div></div>
+<div class="ttc" id="aclass_semaphore_html_a633658a6fde276bffc912028725c6ade"><div class="ttname"><a href="class_semaphore.html#a633658a6fde276bffc912028725c6ade">Semaphore::~Semaphore</a></div><div class="ttdeci">~Semaphore()</div><div class="ttdef"><b>Definition:</b> semaphore.cpp:22</div></div>
+<div class="ttc" id="aclass_semaphore_html_a7bf99350ca438feb4b743891587a4e1c"><div class="ttname"><a href="class_semaphore.html#a7bf99350ca438feb4b743891587a4e1c">Semaphore::create</a></div><div class="ttdeci">static std::shared_ptr&lt; Semaphore &gt; create(std::shared_ptr&lt; Device &gt; pDevice)</div><div class="ttdef"><b>Definition:</b> semaphore.cpp:10</div></div>
 <div class="ttc" id="aclass_vulkan_class_html"><div class="ttname"><a href="class_vulkan_class.html">VulkanClass</a></div><div class="ttdef"><b>Definition:</b> vulkanclass.h:14</div></div>
 <div class="ttc" id="adevice_8h_html"><div class="ttname"><a href="device_8h.html">device.h</a></div></div>
 <div class="ttc" id="avulkanclass_8h_html"><div class="ttname"><a href="vulkanclass_8h.html">vulkanclass.h</a></div></div>

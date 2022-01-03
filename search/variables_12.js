@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_0',['y',['../struct_voxel_region.html#a25b82ec832d13f05aab38b4494749390',1,'VoxelRegion::y()'],['../struct_voxel_position.html#a339620da79f6d3e9456ff1dec72a7d82',1,'VoxelPosition::y()']]]
+  ['width_0',['WIDTH',['../vulkan__voxel__rasterizer__2_8cpp.html#a110637c1f80f9ffe303710de239c3e4d',1,'vulkan_voxel_rasterizer_2.cpp']]]
 ];

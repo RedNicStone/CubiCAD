@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['nodeinfo_0',['nodeInfo',['../struct_c_c_a_d___o_t_1_1_ot_node_primitive.html#ac90670cd1479bde2158870252473e648',1,'CCAD_OT::OtNodePrimitive::nodeInfo()'],['../struct_c_c_a_d___o_t_1_1_ot_node.html#aa48041619787206890784ff72fb1f040',1,'CCAD_OT::OtNode::nodeInfo()'],['../struct_c_c_a_d___o_t_1_1_ot_node_leaf.html#a877a2d17503e2976efe586c3b8b892a0',1,'CCAD_OT::OtNodeLeaf::nodeInfo()']]],
-  ['nodepos_1',['nodePos',['../struct_voxel_codec_octree_base_1_1_node_stack_element.html#a1750be7151f8e338def914bb5d288a93',1,'VoxelCodecOctreeBase::NodeStackElement']]],
-  ['nodeptr_2',['nodePtr',['../struct_voxel_codec_octree_base_1_1_node_stack_element.html#a4f4507e81758868b624e2bee3c54f8d3',1,'VoxelCodecOctreeBase::NodeStackElement']]],
-  ['nodestack_3',['nodeStack',['../class_voxel_codec_octree_base.html#a138a35d0cb32e12aefee433984a9048b',1,'VoxelCodecOctreeBase']]]
+  ['mat_0',['mat',['../struct_c_c_a_d___o_t_1_1_vertex_data_type.html#a11a855b050b80b61cde493cac0343edd',1,'CCAD_OT::VertexDataType']]],
+  ['mat_5ftype_1',['mat_type',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_shaded.html#a4c45ddabe16bc34fab23a43279124ef6',1,'CCAD_OT::OtMatInfoShaded']]],
+  ['materialinfo_2',['materialInfo',['../struct_c_c_a_d___o_t_1_1_ot_surface_info.html#a9bb0258caeb55a53f61eec3db1d6a64d',1,'CCAD_OT::OtSurfaceInfo']]],
+  ['max_5fframes_5fin_5fflight_3',['MAX_FRAMES_IN_FLIGHT',['../vulkan__voxel__rasterizer__2_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'vulkan_voxel_rasterizer_2.cpp']]],
+  ['maxqueuecount_4',['maxQueueCount',['../struct_possible_queue_family.html#a620d98143069d52b46700d24e2fc6b11',1,'PossibleQueueFamily']]],
+  ['metallic_5',['metallic',['../struct_p_b_r_material_parameters.html#a17f6a64c9b87e9e95102abd51b84df67',1,'PBRMaterialParameters']]]
 ];

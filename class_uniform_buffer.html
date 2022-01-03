@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_uniform_buffer.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_uniform_buffer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">UniformBuffer&lt; type &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -101,28 +102,33 @@ $(document).ready(function(){initNavTree('class_uniform_buffer.html',''); initRe
 <div class="dynheader">
 Collaboration diagram for UniformBuffer&lt; type &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer__coll__graph.svg" width="178" height="162"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer__coll__graph.svg" width="178" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a64bf7e31b91170e6d8413dabd9f51f31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#a64bf7e31b91170e6d8413dabd9f51f31">UniformBuffer</a> (<a class="el" href="class_device.html">Device</a> *pDevice, <a class="el" href="class_queue.html">Queue</a> *pTransferQueue)</td></tr>
-<tr class="separator:a64bf7e31b91170e6d8413dabd9f51f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dd11e486c0c77cd7183e1ea3686f2e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#a0dd11e486c0c77cd7183e1ea3686f2e1">updateBufferContents</a> ()</td></tr>
 <tr class="separator:a0dd11e486c0c77cd7183e1ea3686f2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac539fb53d1b43e289e63fd2d66f1279c"><td class="memItemLeft" align="right" valign="top">type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#ac539fb53d1b43e289e63fd2d66f1279c">getDataHandle</a> ()</td></tr>
 <tr class="separator:ac539fb53d1b43e289e63fd2d66f1279c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd4ff6803de098d90dd1af99f79a4a2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_buffer.html">Buffer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#afd4ff6803de098d90dd1af99f79a4a2a">getBuffer</a> ()</td></tr>
-<tr class="separator:afd4ff6803de098d90dd1af99f79a4a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a216cda20bb34fae2c2b9e39c794cfd49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_device.html">Device</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#a216cda20bb34fae2c2b9e39c794cfd49">getDevice</a> ()</td></tr>
-<tr class="separator:a216cda20bb34fae2c2b9e39c794cfd49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adedcc6c7fffe9f45e6dc35a8c9fee717"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_queue.html">Queue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#adedcc6c7fffe9f45e6dc35a8c9fee717">getTransferQueue</a> ()</td></tr>
-<tr class="separator:adedcc6c7fffe9f45e6dc35a8c9fee717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee984339675bf1bc06b9d0afc8e0c11"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#aaee984339675bf1bc06b9d0afc8e0c11">getSize</a> ()</td></tr>
+<tr class="separator:aaee984339675bf1bc06b9d0afc8e0c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50a1c6de15cd58d874b3a631f5722d1f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#a50a1c6de15cd58d874b3a631f5722d1f">getBuffer</a> ()</td></tr>
+<tr class="separator:a50a1c6de15cd58d874b3a631f5722d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15472e3aa2ee7fb1b55dbf990e80ebd2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#a15472e3aa2ee7fb1b55dbf990e80ebd2">getDevice</a> ()</td></tr>
+<tr class="separator:a15472e3aa2ee7fb1b55dbf990e80ebd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d220b20367a8019fc7c42d5e88addf"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#aa9d220b20367a8019fc7c42d5e88addf">getTransferQueue</a> ()</td></tr>
+<tr class="separator:aa9d220b20367a8019fc7c42d5e88addf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:abc6f3719288674b9d9f236952f2c9021"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#abc6f3719288674b9d9f236952f2c9021">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pTransferQueue)</td></tr>
+<tr class="separator:abc6f3719288674b9d9f236952f2c9021"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a64bf7e31b91170e6d8413dabd9f51f31" name="a64bf7e31b91170e6d8413dabd9f51f31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64bf7e31b91170e6d8413dabd9f51f31">&#9670;&nbsp;</a></span>UniformBuffer()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="abc6f3719288674b9d9f236952f2c9021" name="abc6f3719288674b9d9f236952f2c9021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc6f3719288674b9d9f236952f2c9021">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,15 +139,15 @@ template&lt;class type &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::<a class="el" href="class_uniform_buffer.html">UniformBuffer</a> </td>
+          <td class="memname">static std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt; &gt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::create </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pDevice</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_queue.html">Queue</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pTransferQueue</em>&#160;</td>
         </tr>
         <tr>
@@ -152,22 +158,21 @@ template&lt;class type &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer_a64bf7e31b91170e6d8413dabd9f51f31_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer_abc6f3719288674b9d9f236952f2c9021_cgraph.svg" width="302" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="afd4ff6803de098d90dd1af99f79a4a2a" name="afd4ff6803de098d90dd1af99f79a4a2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd4ff6803de098d90dd1af99f79a4a2a">&#9670;&nbsp;</a></span>getBuffer()</h2>
+<a id="a50a1c6de15cd58d874b3a631f5722d1f" name="a50a1c6de15cd58d874b3a631f5722d1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50a1c6de15cd58d874b3a631f5722d1f">&#9670;&nbsp;</a></span>getBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +183,7 @@ template&lt;class type &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_buffer.html">Buffer</a> * <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::getBuffer </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::getBuffer </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -190,12 +195,6 @@ template&lt;class type &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer_afd4ff6803de098d90dd1af99f79a4a2a_icgraph.svg" width="411" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -226,8 +225,8 @@ template&lt;class type &gt; </div>
 
 </div>
 </div>
-<a id="a216cda20bb34fae2c2b9e39c794cfd49" name="a216cda20bb34fae2c2b9e39c794cfd49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a216cda20bb34fae2c2b9e39c794cfd49">&#9670;&nbsp;</a></span>getDevice()</h2>
+<a id="a15472e3aa2ee7fb1b55dbf990e80ebd2" name="a15472e3aa2ee7fb1b55dbf990e80ebd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15472e3aa2ee7fb1b55dbf990e80ebd2">&#9670;&nbsp;</a></span>getDevice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,7 +237,7 @@ template&lt;class type &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_device.html">Device</a> * <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::getDevice </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::getDevice </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -253,8 +252,8 @@ template&lt;class type &gt; </div>
 
 </div>
 </div>
-<a id="adedcc6c7fffe9f45e6dc35a8c9fee717" name="adedcc6c7fffe9f45e6dc35a8c9fee717"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adedcc6c7fffe9f45e6dc35a8c9fee717">&#9670;&nbsp;</a></span>getTransferQueue()</h2>
+<a id="aaee984339675bf1bc06b9d0afc8e0c11" name="aaee984339675bf1bc06b9d0afc8e0c11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaee984339675bf1bc06b9d0afc8e0c11">&#9670;&nbsp;</a></span>getSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +264,34 @@ template&lt;class type &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_queue.html">Queue</a> * <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::getTransferQueue </td>
+          <td class="memname">size_t <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9d220b20367a8019fc7c42d5e88addf" name="aa9d220b20367a8019fc7c42d5e88addf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d220b20367a8019fc7c42d5e88addf">&#9670;&nbsp;</a></span>getTransferQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::getTransferQueue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

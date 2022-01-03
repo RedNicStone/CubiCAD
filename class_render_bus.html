@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('class_render_bus.html',''); initResiza
 <div class="dynheader">
 Collaboration diagram for RenderBus:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_bus__coll__graph.svg" width="140" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_bus__coll__graph.svg" width="147" height="132"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -109,8 +109,10 @@ Collaboration diagram for RenderBus:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a850a5814fa5e24bdf5264afe8468dd08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_bus.html#a850a5814fa5e24bdf5264afe8468dd08">RenderBus</a> ()</td></tr>
 <tr class="separator:a850a5814fa5e24bdf5264afe8468dd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cb70f11b203358edb055aec48625c72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_bus.html#a2cb70f11b203358edb055aec48625c72">runRenderLoop</a> (<a class="el" href="class_device.html">Device</a> *device)</td></tr>
-<tr class="separator:a2cb70f11b203358edb055aec48625c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c1fc166a1821a7c67a536a100d3b09f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f">runRenderLoop</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; device)</td></tr>
+<tr class="separator:a5c1fc166a1821a7c67a536a100d3b09f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c6c79cea328c4475de527b874ce517a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_bus.html#a0c6c79cea328c4475de527b874ce517a">runRenderLoop_</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; device)</td></tr>
+<tr class="separator:a0c6c79cea328c4475de527b874ce517a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0f97e2814210c4aae586f55f17850c4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; dexode::EventBus &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_bus.html#ae0f97e2814210c4aae586f55f17850c4">getBus</a> ()</td></tr>
 <tr class="separator:ae0f97e2814210c4aae586f55f17850c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -164,8 +166,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2cb70f11b203358edb055aec48625c72" name="a2cb70f11b203358edb055aec48625c72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cb70f11b203358edb055aec48625c72">&#9670;&nbsp;</a></span>runRenderLoop()</h2>
+<a id="a5c1fc166a1821a7c67a536a100d3b09f" name="a5c1fc166a1821a7c67a536a100d3b09f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c1fc166a1821a7c67a536a100d3b09f">&#9670;&nbsp;</a></span>runRenderLoop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,18 +175,30 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void RenderBus::runRenderLoop </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td>
           <td class="paramname"><em>device</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_bus_a2cb70f11b203358edb055aec48625c72_icgraph.svg" width="290" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+
 </div>
 </div>
+<a id="a0c6c79cea328c4475de527b874ce517a" name="a0c6c79cea328c4475de527b874ce517a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c6c79cea328c4475de527b874ce517a">&#9670;&nbsp;</a></span>runRenderLoop_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderBus::runRenderLoop_ </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

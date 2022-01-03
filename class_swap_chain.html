@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_swap_chain.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_swap_chain-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SwapChain Class Reference</div></div>
 </div><!--header-->
@@ -101,20 +102,24 @@ $(document).ready(function(){initNavTree('class_swap_chain.html',''); initResiza
 <div class="dynheader">
 Collaboration diagram for SwapChain:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain__coll__graph.svg" width="220" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain__coll__graph.svg" width="202" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4005deed95fd49ff9cc6964033407293"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a4005deed95fd49ff9cc6964033407293">SwapChain</a> (<a class="el" href="class_device.html">Device</a> *pDevice, <a class="el" href="class_window.html">Window</a> *pWindow, <a class="el" href="class_queue.html">Queue</a> *pQueue, uint32_t imageCount_v, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
-<tr class="separator:a4005deed95fd49ff9cc6964033407293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf96bda98dc3e14e9c71ea1ccb09e139"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#aaf96bda98dc3e14e9c71ea1ccb09e139">acquireNextFrame</a> (const <a class="el" href="struct_pre_render_acquire_frame_event.html">PreRenderAcquireFrameEvent</a> &amp;event)</td></tr>
+<tr class="separator:aaf96bda98dc3e14e9c71ea1ccb09e139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc72dd5afe32e19cd331e30a2f73b62b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#adc72dd5afe32e19cd331e30a2f73b62b">presentImage</a> (const <a class="el" href="struct_post_render_present_image_event.html">PostRenderPresentImageEvent</a> &amp;event)</td></tr>
+<tr class="separator:adc72dd5afe32e19cd331e30a2f73b62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90b23e7be9f4f9b5ce24e9cd23a7ee13"><td class="memItemLeft" align="right" valign="top">VkSurfaceCapabilitiesKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a90b23e7be9f4f9b5ce24e9cd23a7ee13">querySurfaceCapabilities</a> (VkPhysicalDevice *physicalDevice)</td></tr>
 <tr class="separator:a90b23e7be9f4f9b5ce24e9cd23a7ee13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a620f7c053b6508c4fa559b479837987d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkSurfaceFormatKHR &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a620f7c053b6508c4fa559b479837987d">querySurfaceFormats</a> (VkPhysicalDevice *physicalDevice)</td></tr>
 <tr class="separator:a620f7c053b6508c4fa559b479837987d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53e153bace197f261e233b282f308638"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkPresentModeKHR &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a53e153bace197f261e233b282f308638">queryPresentModes</a> (VkPhysicalDevice *physicalDevice)</td></tr>
 <tr class="separator:a53e153bace197f261e233b282f308638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18bea82319dfb2c695e75b145dde9c5e"><td class="memItemLeft" align="right" valign="top">VkSwapchainKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a18bea82319dfb2c695e75b145dde9c5e">getHandle</a> ()</td></tr>
+<tr class="separator:a18bea82319dfb2c695e75b145dde9c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3867b074e48d1e30fbcddbce7ec5e4ae"><td class="memItemLeft" align="right" valign="top">VkFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a3867b074e48d1e30fbcddbce7ec5e4ae">getFormat</a> ()</td></tr>
 <tr class="separator:a3867b074e48d1e30fbcddbce7ec5e4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd4fa131ce78a2ba005445b8ac623ed0"><td class="memItemLeft" align="right" valign="top">VkImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#abd4fa131ce78a2ba005445b8ac623ed0">getSwapChainImage</a> (uint32_t i)</td></tr>
@@ -129,38 +134,84 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3b4d7fe2cc19fc5a79c8a8cc8012740a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d26356a69b6b1319c3a7071f22c089b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a7d26356a69b6b1319c3a7071f22c089b">getCurrentImageIndex</a> () const</td></tr>
 <tr class="separator:a7d26356a69b6b1319c3a7071f22c089b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cde8352226637d49968371494c3c11c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_semaphore.html">Semaphore</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a6cde8352226637d49968371494c3c11c">getRenderSignalSemaphores</a> ()</td></tr>
-<tr class="separator:a6cde8352226637d49968371494c3c11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a090d9275f4399fa236b42b3c1145fbd0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_semaphore.html">Semaphore</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a090d9275f4399fa236b42b3c1145fbd0">getRenderWaitSemaphores</a> ()</td></tr>
-<tr class="separator:a090d9275f4399fa236b42b3c1145fbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272ae1b2c47678bd83e718451c90e2db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_fence.html">Fence</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a272ae1b2c47678bd83e718451c90e2db">getPresentFence</a> ()</td></tr>
-<tr class="separator:a272ae1b2c47678bd83e718451c90e2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12a35157c3d8ed634c2b4136ec4dae31"><td class="memItemLeft" align="right" valign="top">uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a12a35157c3d8ed634c2b4136ec4dae31">getCurrentImageIndex_</a> ()</td></tr>
+<tr class="separator:a12a35157c3d8ed634c2b4136ec4dae31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4c19a1fabe9554c2f1541fa6f536e14"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#ad4c19a1fabe9554c2f1541fa6f536e14">getRenderSignalSemaphores</a> ()</td></tr>
+<tr class="separator:ad4c19a1fabe9554c2f1541fa6f536e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bf1e8ad7470b1e59be7e3848afe7e85"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a6bf1e8ad7470b1e59be7e3848afe7e85">getRenderWaitSemaphores</a> ()</td></tr>
+<tr class="separator:a6bf1e8ad7470b1e59be7e3848afe7e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed92c39702bfa21854f423254cd70f03"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#aed92c39702bfa21854f423254cd70f03">getPresentFence</a> ()</td></tr>
+<tr class="separator:aed92c39702bfa21854f423254cd70f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58c288346a3fa211fbcc2cec594bfa68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a58c288346a3fa211fbcc2cec594bfa68">~SwapChain</a> ()</td></tr>
 <tr class="separator:a58c288346a3fa211fbcc2cec594bfa68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ae424e0b05d7eac9234bcf2c07cb74e40"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_swap_chain.html">SwapChain</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#ae424e0b05d7eac9234bcf2c07cb74e40">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt; &amp;pWindow, std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; pQueue, uint32_t imageCount_v, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
+<tr class="separator:ae424e0b05d7eac9234bcf2c07cb74e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4005deed95fd49ff9cc6964033407293" name="a4005deed95fd49ff9cc6964033407293"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4005deed95fd49ff9cc6964033407293">&#9670;&nbsp;</a></span>SwapChain()</h2>
+<a id="a58c288346a3fa211fbcc2cec594bfa68" name="a58c288346a3fa211fbcc2cec594bfa68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58c288346a3fa211fbcc2cec594bfa68">&#9670;&nbsp;</a></span>~SwapChain()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SwapChain::SwapChain </td>
+          <td class="memname">SwapChain::~SwapChain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaf96bda98dc3e14e9c71ea1ccb09e139" name="aaf96bda98dc3e14e9c71ea1ccb09e139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf96bda98dc3e14e9c71ea1ccb09e139">&#9670;&nbsp;</a></span>acquireNextFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwapChain::acquireNextFrame </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_pre_render_acquire_frame_event.html">PreRenderAcquireFrameEvent</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae424e0b05d7eac9234bcf2c07cb74e40" name="ae424e0b05d7eac9234bcf2c07cb74e40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae424e0b05d7eac9234bcf2c07cb74e40">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_swap_chain.html">SwapChain</a> &gt; SwapChain::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pDevice</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_window.html">Window</a> *&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pWindow</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_queue.html">Queue</a> *&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td>
           <td class="paramname"><em>pQueue</em>, </td>
         </tr>
         <tr>
@@ -181,40 +232,21 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a4005deed95fd49ff9cc6964033407293_cgraph.svg" width="395" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_ae424e0b05d7eac9234bcf2c07cb74e40_icgraph.svg" width="240" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a58c288346a3fa211fbcc2cec594bfa68" name="a58c288346a3fa211fbcc2cec594bfa68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58c288346a3fa211fbcc2cec594bfa68">&#9670;&nbsp;</a></span>~SwapChain()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SwapChain::~SwapChain </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a58c288346a3fa211fbcc2cec594bfa68_cgraph.svg" width="386" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3b4d7fe2cc19fc5a79c8a8cc8012740a" name="a3b4d7fe2cc19fc5a79c8a8cc8012740a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b4d7fe2cc19fc5a79c8a8cc8012740a">&#9670;&nbsp;</a></span>getCurrentFrame()</h2>
 
@@ -262,12 +294,31 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a7d26356a69b6b1319c3a7071f22c089b_icgraph.svg" width="300" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+
 </div>
 </div>
+<a id="a12a35157c3d8ed634c2b4136ec4dae31" name="a12a35157c3d8ed634c2b4136ec4dae31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a35157c3d8ed634c2b4136ec4dae31">&#9670;&nbsp;</a></span>getCurrentImageIndex_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t * SwapChain::getCurrentImageIndex_ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -293,12 +344,31 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a3867b074e48d1e30fbcddbce7ec5e4ae_icgraph.svg" width="515" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+
 </div>
 </div>
+<a id="a18bea82319dfb2c695e75b145dde9c5e" name="a18bea82319dfb2c695e75b145dde9c5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18bea82319dfb2c695e75b145dde9c5e">&#9670;&nbsp;</a></span>getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkSwapchainKHR SwapChain::getHandle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -324,17 +394,11 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a99ab29ed67d5afaefa8cfaaef8380576_icgraph.svg" width="412" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
-<a id="a272ae1b2c47678bd83e718451c90e2db" name="a272ae1b2c47678bd83e718451c90e2db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a272ae1b2c47678bd83e718451c90e2db">&#9670;&nbsp;</a></span>getPresentFence()</h2>
+<a id="aed92c39702bfa21854f423254cd70f03" name="aed92c39702bfa21854f423254cd70f03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed92c39702bfa21854f423254cd70f03">&#9670;&nbsp;</a></span>getPresentFence()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,7 +407,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_fence.html">Fence</a> * SwapChain::getPresentFence </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; SwapChain::getPresentFence </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -355,17 +419,11 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a272ae1b2c47678bd83e718451c90e2db_icgraph.svg" width="303" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
-<a id="a6cde8352226637d49968371494c3c11c" name="a6cde8352226637d49968371494c3c11c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cde8352226637d49968371494c3c11c">&#9670;&nbsp;</a></span>getRenderSignalSemaphores()</h2>
+<a id="ad4c19a1fabe9554c2f1541fa6f536e14" name="ad4c19a1fabe9554c2f1541fa6f536e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4c19a1fabe9554c2f1541fa6f536e14">&#9670;&nbsp;</a></span>getRenderSignalSemaphores()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,7 +432,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="class_semaphore.html">Semaphore</a> * &gt; SwapChain::getRenderSignalSemaphores </td>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt; SwapChain::getRenderSignalSemaphores </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -386,17 +444,11 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a6cde8352226637d49968371494c3c11c_icgraph.svg" width="299" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
-<a id="a090d9275f4399fa236b42b3c1145fbd0" name="a090d9275f4399fa236b42b3c1145fbd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a090d9275f4399fa236b42b3c1145fbd0">&#9670;&nbsp;</a></span>getRenderWaitSemaphores()</h2>
+<a id="a6bf1e8ad7470b1e59be7e3848afe7e85" name="a6bf1e8ad7470b1e59be7e3848afe7e85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bf1e8ad7470b1e59be7e3848afe7e85">&#9670;&nbsp;</a></span>getRenderWaitSemaphores()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,7 +457,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="class_semaphore.html">Semaphore</a> * &gt; SwapChain::getRenderWaitSemaphores </td>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt; SwapChain::getRenderWaitSemaphores </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -417,12 +469,6 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a090d9275f4399fa236b42b3c1145fbd0_icgraph.svg" width="288" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -475,12 +521,6 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a5bfaf6f1ce7c80c8becb7c60e55a1b45_icgraph.svg" width="472" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -498,18 +538,24 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_adc8c869a51d54a4a224ef0fac68bf80c_cgraph.svg" width="379" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+
 </div>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_adc8c869a51d54a4a224ef0fac68bf80c_icgraph.svg" width="411" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
+<a id="adc72dd5afe32e19cd331e30a2f73b62b" name="adc72dd5afe32e19cd331e30a2f73b62b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc72dd5afe32e19cd331e30a2f73b62b">&#9670;&nbsp;</a></span>presentImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwapChain::presentImage </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_post_render_present_image_event.html">PostRenderPresentImageEvent</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -528,12 +574,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a53e153bace197f261e233b282f308638_cgraph.svg" width="406" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -552,12 +592,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a90b23e7be9f4f9b5ce24e9cd23a7ee13_cgraph.svg" width="434" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -576,12 +610,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a620f7c053b6508c4fa559b479837987d_cgraph.svg" width="415" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>

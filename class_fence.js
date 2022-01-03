@@ -1,6 +1,5 @@
 var class_fence =
 [
-    [ "Fence", "class_fence.html#a7e8c809626a74fca27e5016bd04f47ad", null ],
     [ "~Fence", "class_fence.html#a542d1f0e5b80afc0b19865071cd6c616", null ],
     [ "getState", "class_fence.html#a9a8def44f6e7a30c889150109ff22c83", null ],
     [ "resetState", "class_fence.html#af51544dbcd84cb7550ff8dd8a331183b", null ],

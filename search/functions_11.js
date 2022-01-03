@@ -1,13 +1,17 @@
 var searchData=
 [
-  ['raytracingshader_0',['RaytracingShader',['../class_raytracing_shader.html#aad52e2fc2d89c9e4a88d26bf8fc1a119',1,'RaytracingShader']]],
-  ['refreshcurrentvoxelfragmentdata_1',['refreshCurrentVoxelFragmentData',['../class_voxel_fragment_stream_base.html#a45205d71c1d28e3004fc0dc22f0dbfc4',1,'VoxelFragmentStreamBase::refreshCurrentVoxelFragmentData()'],['../class_voxel_fragment_stream_buffered.html#a93fb0074968b9ea82301cfdda3474944',1,'VoxelFragmentStreamBuffered::refreshCurrentVoxelFragmentData()']]],
-  ['registerqueuefamilyallocation_2',['registerQueueFamilyAllocation',['../class_queue_family_handler.html#a96cc55ca9e14920e29c9a9ba4275454d',1,'QueueFamilyHandler']]],
-  ['renderbus_3',['RenderBus',['../class_render_bus.html#a850a5814fa5e24bdf5264afe8468dd08',1,'RenderBus']]],
-  ['renderpass_4',['RenderPass',['../class_render_pass.html#a29b044dd6c6d9e813a41eba83d580ead',1,'RenderPass']]],
-  ['resetcommandbuffer_5',['resetCommandBuffer',['../class_command_buffer.html#aa61e6369e7765f11e355c16e749dece5',1,'CommandBuffer']]],
-  ['resetresizefence_6',['resetResizeFence',['../class_window.html#ac36ac45a01901c2118e1efcdf9c1cc69',1,'Window']]],
-  ['resetstate_7',['resetState',['../class_fence.html#af51544dbcd84cb7550ff8dd8a331183b',1,'Fence']]],
-  ['resize_8',['resize',['../class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c',1,'VirtualAllocation::resize()'],['../class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da',1,'VirtualStackAllocation::resize()']]],
-  ['runrenderloop_9',['runRenderLoop',['../class_render_bus.html#a2cb70f11b203358edb055aec48625c72',1,'RenderBus']]]
+  ['setchild_0',['setChild',['../struct_c_c_a_d___o_t_1_1_ot_node_primitive.html#ad3f3420739ac4c2009cdcd42355d01db',1,'CCAD_OT::OtNodePrimitive::setChild()'],['../struct_c_c_a_d___o_t_1_1_ot_node.html#a6989b8cbe96fd9d517bbcbae12f43861',1,'CCAD_OT::OtNode::setChild(OtPos pos, OtNodePrimitive *node) override'],['../struct_c_c_a_d___o_t_1_1_ot_node.html#a3dd8c12d9a58ecb31e452fdf8f5151ec',1,'CCAD_OT::OtNode::setChild(uint8_t pos, OtNodePrimitive *node) override'],['../struct_c_c_a_d___o_t_1_1_ot_node_primitive.html#a473080d58fd51b032f8878a8acaf69b2',1,'CCAD_OT::OtNodePrimitive::setChild(OtPos pos, OtNodePrimitive *node)']]],
+  ['setinfo_1',['setInfo',['../struct_c_c_a_d___o_t_1_1_ot_node_primitive.html#a3e2ae5bfe22e9ae0f37e1fd2a28f5af0',1,'CCAD_OT::OtNodePrimitive']]],
+  ['setresized_2',['setResized',['../class_window.html#ac97dfad150101478662ccb944107122f',1,'Window']]],
+  ['setvoxelindex_3',['setVoxelIndex',['../class_voxel_fragment_stream_base.html#a1cfe0362fe9dbeb1389c02a82c7a2fcb',1,'VoxelFragmentStreamBase']]],
+  ['sizeof_4',['sizeof',['../vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b',1,'sizeof():&#160;vec_abs.cpp'],['../classvec__abs.html#a06caffce1759540f487daed09c3fc1bf',1,'vec_abs::sizeof()']]],
+  ['skipvoxel_5',['skipVoxel',['../class_voxel_codec_base.html#a62936f8d9a7245325b697f22f6ed666b',1,'VoxelCodecBase::skipVoxel()'],['../class_voxel_codec_linear.html#a90b349e6082868a5179e23e6bedb8420',1,'VoxelCodecLinear::skipVoxel()'],['../class_voxel_codec_shuffle.html#a4493ed8b54f35353e493831d329093d2',1,'VoxelCodecShuffle::skipVoxel()'],['../class_voxel_fragment_stream_base.html#a41ad4edf67441b5436c29505bb5bed30',1,'VoxelFragmentStreamBase::skipVoxel()']]],
+  ['skipvoxels_6',['skipVoxels',['../class_voxel_codec_base.html#ae29e5d2deffdee87249a44a4f0da926f',1,'VoxelCodecBase::skipVoxels()'],['../class_voxel_codec_linear.html#af940ce0cf5aa2cf8cdd912e972539e32',1,'VoxelCodecLinear::skipVoxels()'],['../class_voxel_codec_shuffle.html#a7e3690ee5bd863a4dca3a76f53e4e6e6',1,'VoxelCodecShuffle::skipVoxels()'],['../class_voxel_fragment_stream_base.html#a0915f844a3fc34888f8c19f297da8bc1',1,'VoxelFragmentStreamBase::skipVoxels()']]],
+  ['stackallocator_7',['StackAllocator',['../class_stack_allocator.html#a931c0181f057a5b4fdbf7e23b40f613f',1,'StackAllocator']]],
+  ['submitcommandbuffer_8',['submitCommandBuffer',['../class_queue.html#a2c383cb1dfe51be9201c5db232a06e47',1,'Queue']]],
+  ['submitdependency_9',['submitDependency',['../class_render_pass.html#a8eddc619ad7def8a9db7fea50cfffd01',1,'RenderPass']]],
+  ['submitimageattachment_10',['submitImageAttachment',['../class_render_pass.html#a156cba6f4295faf3252ad3794c167bd4',1,'RenderPass']]],
+  ['submitsubpass_11',['submitSubpass',['../class_render_pass.html#a38c62d88f71b8f31f198b7a0c54cef60',1,'RenderPass']]],
+  ['submitswapchainattachment_12',['submitSwapChainAttachment',['../class_render_pass.html#a6c1ed57bea5d7a5940926d1353c5db69',1,'RenderPass']]],
+  ['submittoqueue_13',['submitToQueue',['../class_command_buffer.html#a674b6099a58b7aa759035d475576b382',1,'CommandBuffer']]]
 ];

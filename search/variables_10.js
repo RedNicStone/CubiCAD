@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['vertices_0',['vertices',['../struct_c_c_a_d___o_t_1_1_cube.html#a2fbefe8a2fb7b2675809a6b266b08049',1,'CCAD_OT::Cube']]],
-  ['voxelindex_1',['voxelIndex',['../class_voxel_codec_base.html#a65a47193f78216788b84147b1273a037',1,'VoxelCodecBase::voxelIndex()'],['../class_voxel_fragment_stream_base.html#a7557b5d14ec826a95136777024860447',1,'VoxelFragmentStreamBase::voxelIndex()']]]
+  ['use_5fcustom_5fnode_5ftemplate_0',['use_custom_node_template',['../struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html#a8c214968de00f9a4d5a671a02837daa7',1,'CCAD_OT::OtConstructOctreeInfo']]],
+  ['uv_1',['uv',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_textured.html#ae86c7c57aa9521f9f57b3fe26a82d506',1,'CCAD_OT::OtMatInfoTextured::uv()'],['../struct_vertex.html#a71f6da764be0988aed9e61a3d9c371f3',1,'Vertex::uv()']]]
 ];

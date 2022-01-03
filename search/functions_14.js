@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['uniformbuffer_0',['UniformBuffer',['../class_uniform_buffer.html#a64bf7e31b91170e6d8413dabd9f51f31',1,'UniformBuffer']]],
-  ['unmap_1',['unmap',['../class_buffer.html#aaeecba2e74f8797e81816c433f7d573e',1,'Buffer']]],
-  ['updatebuffercontents_2',['updateBufferContents',['../class_uniform_buffer.html#a0dd11e486c0c77cd7183e1ea3686f2e1',1,'UniformBuffer']]],
-  ['updatestoragebuffer_3',['updateStorageBuffer',['../class_descriptor_set.html#abf66a72931e5a22d893ba7c4a34fe521',1,'DescriptorSet']]],
-  ['updatestorageimage_4',['updateStorageImage',['../class_descriptor_set.html#af0e5ab25a4cecb5712eb27e128d5a5f9',1,'DescriptorSet']]],
-  ['updateuniformbuffer_5',['updateUniformBuffer',['../class_descriptor_set.html#a1944edb26a47ecb985ab73382a37ed4a',1,'DescriptorSet']]]
+  ['value_0',['value',['../structoptional.html#a5fcd27e1ee81ffc29606ac241349f0c4',1,'optional']]],
+  ['vec_5fabs_1',['vec_abs',['../classvec__abs.html#a6156aa215de54d0326099868b93f9c5a',1,'vec_abs::vec_abs()'],['../classvec__abs.html#ad8064d5e8604221717b7d15facdc1843',1,'vec_abs::vec_abs(const vec_abs &amp;vec)'],['../classvec__abs.html#af0cbc5502ce9a7c939bc9d0d7278ba92',1,'vec_abs::vec_abs(const std::array&lt; T, N &gt; &amp;arr)']]],
+  ['virtualstackallocation_2',['VirtualStackAllocation',['../class_virtual_stack_allocation.html#add88314383fa3d876f3159fccd221a2c',1,'VirtualStackAllocation']]]
 ];

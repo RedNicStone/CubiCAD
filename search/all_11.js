@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['raytracingshader_0',['RaytracingShader',['../class_raytracing_shader.html',1,'RaytracingShader'],['../class_raytracing_shader.html#aad52e2fc2d89c9e4a88d26bf8fc1a119',1,'RaytracingShader::RaytracingShader()']]],
+  ['raytracingshader_0',['RaytracingShader',['../class_raytracing_shader.html',1,'']]],
   ['readwriteptr_1',['readWritePtr',['../class_voxel_codec_base.html#a983e3aa343fb39f783ab3d511e0af9a7',1,'VoxelCodecBase']]],
   ['refreshcurrentvoxelfragmentdata_2',['refreshCurrentVoxelFragmentData',['../class_voxel_fragment_stream_buffered.html#a93fb0074968b9ea82301cfdda3474944',1,'VoxelFragmentStreamBuffered::refreshCurrentVoxelFragmentData()'],['../class_voxel_fragment_stream_base.html#a45205d71c1d28e3004fc0dc22f0dbfc4',1,'VoxelFragmentStreamBase::refreshCurrentVoxelFragmentData()']]],
   ['registerqueuefamilyallocation_3',['registerQueueFamilyAllocation',['../class_queue_family_handler.html#a96cc55ca9e14920e29c9a9ba4275454d',1,'QueueFamilyHandler']]],
@@ -12,9 +12,9 @@ var searchData=
   ['render_5fpass_5fattachment_5ftype_5fresolve_9',['RENDER_PASS_ATTACHMENT_TYPE_RESOLVE',['../renderpass_8h.html#a6c4fab4cfe9fec88519a100b3d1facbea79a60cb0ba5e31fc57cae085622bfd20',1,'renderpass.h']]],
   ['render_5fpass_5fattachment_5ftype_5funknown_10',['RENDER_PASS_ATTACHMENT_TYPE_UNKNOWN',['../renderpass_8h.html#a6c4fab4cfe9fec88519a100b3d1facbea9fb0ee803cb7b18dc401acfe52a3b188',1,'renderpass.h']]],
   ['render_5fpass_5fattachment_5ftypes_5fcount_11',['RENDER_PASS_ATTACHMENT_TYPES_COUNT',['../renderpass_8h.html#a6c4fab4cfe9fec88519a100b3d1facbea91ec4ae26213f6c13fc506d135a163d1',1,'renderpass.h']]],
-  ['renderbus_12',['RenderBus',['../class_render_bus.html#a850a5814fa5e24bdf5264afe8468dd08',1,'RenderBus::RenderBus()'],['../class_render_bus.html',1,'RenderBus']]],
+  ['renderbus_12',['RenderBus',['../class_render_bus.html',1,'RenderBus'],['../class_render_bus.html#a850a5814fa5e24bdf5264afe8468dd08',1,'RenderBus::RenderBus()']]],
   ['renderevent_13',['RenderEvent',['../struct_render_event.html',1,'']]],
-  ['renderpass_14',['RenderPass',['../class_render_pass.html',1,'RenderPass'],['../class_render_pass.html#a29b044dd6c6d9e813a41eba83d580ead',1,'RenderPass::RenderPass()']]],
+  ['renderpass_14',['RenderPass',['../class_render_pass.html',1,'']]],
   ['renderpass_2ecpp_15',['renderpass.cpp',['../renderpass_8cpp.html',1,'']]],
   ['renderpass_2eh_16',['renderpass.h',['../renderpass_8h.html',1,'']]],
   ['renderpassattachmenttype_17',['RenderPassAttachmentType',['../renderpass_8h.html#a6c4fab4cfe9fec88519a100b3d1facbe',1,'renderpass.h']]],
@@ -23,5 +23,8 @@ var searchData=
   ['resetresizefence_20',['resetResizeFence',['../class_window.html#ac36ac45a01901c2118e1efcdf9c1cc69',1,'Window']]],
   ['resetstate_21',['resetState',['../class_fence.html#af51544dbcd84cb7550ff8dd8a331183b',1,'Fence']]],
   ['resize_22',['resize',['../class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da',1,'VirtualStackAllocation::resize()'],['../class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c',1,'VirtualAllocation::resize()']]],
-  ['runrenderloop_23',['runRenderLoop',['../class_render_bus.html#a2cb70f11b203358edb055aec48625c72',1,'RenderBus']]]
+  ['roughness_23',['roughness',['../struct_p_b_r_material_parameters.html#a105f39b848440efb331e4640baaa6ad5',1,'PBRMaterialParameters']]],
+  ['run_24',['run',['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp']]],
+  ['runrenderloop_25',['runRenderLoop',['../class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f',1,'RenderBus']]],
+  ['runrenderloop_5f_26',['runRenderLoop_',['../class_render_bus.html#a0c6c79cea328c4475de527b874ce517a',1,'RenderBus']]]
 ];

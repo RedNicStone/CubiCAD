@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_buffer_view.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_buffer_view-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">BufferView Class Reference</div></div>
 </div><!--header-->
@@ -113,12 +114,8 @@ Collaboration diagram for BufferView:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aceb259e9c25d11470a0cf2424ee6e59f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_view.html#aceb259e9c25d11470a0cf2424ee6e59f">BufferView</a> (<a class="el" href="class_buffer.html">Buffer</a> *pBuffer, VkFormat viewFormat, VkDeviceSize offset, VkDeviceSize range)</td></tr>
-<tr class="separator:aceb259e9c25d11470a0cf2424ee6e59f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a824bb0b35efcaaefaf190dc7560f01da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_view.html#a824bb0b35efcaaefaf190dc7560f01da">BufferView</a> (<a class="el" href="class_buffer.html">Buffer</a> *pBuffer, VkFormat viewFormat)</td></tr>
-<tr class="separator:a824bb0b35efcaaefaf190dc7560f01da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab71f4912958e1e93d332e06983fe829b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_buffer.html">Buffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_view.html#ab71f4912958e1e93d332e06983fe829b">getBuffer</a> ()</td></tr>
-<tr class="separator:ab71f4912958e1e93d332e06983fe829b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e5a7c769b16257ba99ac7a479e1aeb0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_view.html#a3e5a7c769b16257ba99ac7a479e1aeb0">getBuffer</a> ()</td></tr>
+<tr class="separator:a3e5a7c769b16257ba99ac7a479e1aeb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0dd7dd7305874e0c484a239ea4de81b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_view.html#ae0dd7dd7305874e0c484a239ea4de81b">~BufferView</a> ()</td></tr>
 <tr class="separator:ae0dd7dd7305874e0c484a239ea4de81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkBufferView &gt;</a></td></tr>
@@ -127,6 +124,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkBufferView *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#a84fba320d4eecc0f0f0a959b0231b8de">getHandlePtr</a> ()</td></tr>
 <tr class="separator:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3c955e16bfd8b18428f8a48ddaef9073"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_buffer_view.html">BufferView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_view.html#a3c955e16bfd8b18428f8a48ddaef9073">create</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;pBuffer, VkFormat viewFormat, VkDeviceSize offset, VkDeviceSize range)</td></tr>
+<tr class="separator:a3c955e16bfd8b18428f8a48ddaef9073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79efedbe320e8cf28346bba834a07d75"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_buffer_view.html">BufferView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer_view.html#a79efedbe320e8cf28346bba834a07d75">create</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;pBuffer, VkFormat viewFormat)</td></tr>
+<tr class="separator:a79efedbe320e8cf28346bba834a07d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkBufferView &gt;</a></td></tr>
@@ -134,16 +138,79 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aceb259e9c25d11470a0cf2424ee6e59f" name="aceb259e9c25d11470a0cf2424ee6e59f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceb259e9c25d11470a0cf2424ee6e59f">&#9670;&nbsp;</a></span>BufferView() <span class="overload">[1/2]</span></h2>
+<a id="ae0dd7dd7305874e0c484a239ea4de81b" name="ae0dd7dd7305874e0c484a239ea4de81b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0dd7dd7305874e0c484a239ea4de81b">&#9670;&nbsp;</a></span>~BufferView()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">BufferView::BufferView </td>
+          <td class="memname">BufferView::~BufferView </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_buffer.html">Buffer</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a79efedbe320e8cf28346bba834a07d75" name="a79efedbe320e8cf28346bba834a07d75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79efedbe320e8cf28346bba834a07d75">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_buffer_view.html">BufferView</a> &gt; BufferView::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkFormat&#160;</td>
+          <td class="paramname"><em>viewFormat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_view_a79efedbe320e8cf28346bba834a07d75_cgraph.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a3c955e16bfd8b18428f8a48ddaef9073" name="a3c955e16bfd8b18428f8a48ddaef9073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c955e16bfd8b18428f8a48ddaef9073">&#9670;&nbsp;</a></span>create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_buffer_view.html">BufferView</a> &gt; BufferView::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pBuffer</em>, </td>
         </tr>
         <tr>
@@ -170,70 +237,23 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_view_aceb259e9c25d11470a0cf2424ee6e59f_cgraph.svg" width="374" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_view_a3c955e16bfd8b18428f8a48ddaef9073_icgraph.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a824bb0b35efcaaefaf190dc7560f01da" name="a824bb0b35efcaaefaf190dc7560f01da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a824bb0b35efcaaefaf190dc7560f01da">&#9670;&nbsp;</a></span>BufferView() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BufferView::BufferView </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_buffer.html">Buffer</a> *&#160;</td>
-          <td class="paramname"><em>pBuffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">VkFormat&#160;</td>
-          <td class="paramname"><em>viewFormat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae0dd7dd7305874e0c484a239ea4de81b" name="ae0dd7dd7305874e0c484a239ea4de81b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0dd7dd7305874e0c484a239ea4de81b">&#9670;&nbsp;</a></span>~BufferView()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BufferView::~BufferView </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_view_ae0dd7dd7305874e0c484a239ea4de81b_cgraph.svg" width="380" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab71f4912958e1e93d332e06983fe829b" name="ab71f4912958e1e93d332e06983fe829b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab71f4912958e1e93d332e06983fe829b">&#9670;&nbsp;</a></span>getBuffer()</h2>
+<a id="a3e5a7c769b16257ba99ac7a479e1aeb0" name="a3e5a7c769b16257ba99ac7a479e1aeb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e5a7c769b16257ba99ac7a479e1aeb0">&#9670;&nbsp;</a></span>getBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +262,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_buffer.html">Buffer</a> &amp; BufferView::getBuffer </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; BufferView::getBuffer </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

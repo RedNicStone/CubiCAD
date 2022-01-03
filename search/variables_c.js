@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readwriteptr_0',['readWritePtr',['../class_voxel_codec_base.html#a983e3aa343fb39f783ab3d511e0af9a7',1,'VoxelCodecBase']]]
+  ['queuecount_0',['queueCount',['../struct_possible_queue_family.html#a6575ac943cfc40fdde71281eb9dd00f3',1,'PossibleQueueFamily']]]
 ];

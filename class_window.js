@@ -1,6 +1,5 @@
 var class_window =
 [
-    [ "Window", "class_window.html#abb46067fbf5107e3bc16888d0caad7f1", null ],
     [ "~Window", "class_window.html#a245d821e6016fa1f6970ccbbedd635f6", null ],
     [ "getResized", "class_window.html#ae365a38081f13d2e3bb26a940cbf0eec", null ],
     [ "getSurface", "class_window.html#a3b44ad706b5a6ad04b3d50df68c4d832", null ],

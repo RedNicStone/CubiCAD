@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_instance.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_instance-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Instance Class Reference</div></div>
 </div><!--header-->
@@ -101,22 +102,20 @@ $(document).ready(function(){initNavTree('class_instance.html',''); initResizabl
 <div class="dynheader">
 Inheritance diagram for Instance:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_instance__inherit__graph.svg" width="195" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_instance__inherit__graph.svg" width="374" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for Instance:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_instance__coll__graph.svg" width="195" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_instance__coll__graph.svg" width="374" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8b2b3750d8c78f4f88c53d95514d8db4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instance.html#a8b2b3750d8c78f4f88c53d95514d8db4">Instance</a> (const char *appName, uint32_t appVersion, bool shouldEnableValidationLayers)</td></tr>
-<tr class="separator:a8b2b3750d8c78f4f88c53d95514d8db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae38f11d8d9ff9e767b46882cb143f8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instance.html#acae38f11d8d9ff9e767b46882cb143f8">getPhysicalDevice</a> ()</td></tr>
-<tr class="separator:acae38f11d8d9ff9e767b46882cb143f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab034dfb0fe6ed6acb61eeadd2655b840"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instance.html#ab034dfb0fe6ed6acb61eeadd2655b840">getPhysicalDevice</a> ()</td></tr>
+<tr class="separator:ab034dfb0fe6ed6acb61eeadd2655b840"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c704127d65563aa749ae671692dd34f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instance.html#a4c704127d65563aa749ae671692dd34f">getValidationLayers</a> ()</td></tr>
 <tr class="separator:a4c704127d65563aa749ae671692dd34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04e36ab3f4c4b5a8d8a0095b2582e454"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instance.html#a04e36ab3f4c4b5a8d8a0095b2582e454">getExtensions</a> () const</td></tr>
@@ -127,21 +126,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkInstance *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#a84fba320d4eecc0f0f0a959b0231b8de">getHandlePtr</a> ()</td></tr>
 <tr class="separator:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a5157cfdc2e0f384b6fc4d2f901f50e51"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_instance.html#a5157cfdc2e0f384b6fc4d2f901f50e51">create</a> (const char *appName, uint32_t appVersion, bool shouldEnableValidationLayers)</td></tr>
+<tr class="separator:a5157cfdc2e0f384b6fc4d2f901f50e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkInstance &gt;</a></td></tr>
 <tr class="memitem:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkInstance&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#ab80d85ecc859b610cedefe8f0974b8c7">handle</a></td></tr>
 <tr class="separator:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8b2b3750d8c78f4f88c53d95514d8db4" name="a8b2b3750d8c78f4f88c53d95514d8db4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b2b3750d8c78f4f88c53d95514d8db4">&#9670;&nbsp;</a></span>Instance()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5157cfdc2e0f384b6fc4d2f901f50e51" name="a5157cfdc2e0f384b6fc4d2f901f50e51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5157cfdc2e0f384b6fc4d2f901f50e51">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Instance::Instance </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt; Instance::create </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>appName</em>, </td>
@@ -164,11 +171,21 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_instance_a5157cfdc2e0f384b6fc4d2f901f50e51_icgraph.svg" width="224" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a04e36ab3f4c4b5a8d8a0095b2582e454" name="a04e36ab3f4c4b5a8d8a0095b2582e454"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04e36ab3f4c4b5a8d8a0095b2582e454">&#9670;&nbsp;</a></span>getExtensions()</h2>
 
@@ -194,8 +211,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="acae38f11d8d9ff9e767b46882cb143f8" name="acae38f11d8d9ff9e767b46882cb143f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acae38f11d8d9ff9e767b46882cb143f8">&#9670;&nbsp;</a></span>getPhysicalDevice()</h2>
+<a id="ab034dfb0fe6ed6acb61eeadd2655b840" name="ab034dfb0fe6ed6acb61eeadd2655b840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab034dfb0fe6ed6acb61eeadd2655b840">&#9670;&nbsp;</a></span>getPhysicalDevice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +221,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt; &amp; Instance::getPhysicalDevice </td>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt; &gt; &amp; Instance::getPhysicalDevice </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -216,12 +233,6 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_instance_acae38f11d8d9ff9e767b46882cb143f8_icgraph.svg" width="295" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
@@ -247,12 +258,6 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_instance_a4c704127d65563aa749ae671692dd34f_icgraph.svg" width="359" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>

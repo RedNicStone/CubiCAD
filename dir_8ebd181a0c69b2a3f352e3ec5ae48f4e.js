@@ -1,9 +1,5 @@
 var dir_8ebd181a0c69b2a3f352e3ec5ae48f4e =
 [
-    [ "application.cpp", "application_8cpp.html", null ],
-    [ "application.h", "application_8h.html", [
-      [ "VulkanRenderApplication", "class_vulkan_render_application.html", "class_vulkan_render_application" ]
-    ] ],
     [ "buffer.cpp", "buffer_8cpp.html", null ],
     [ "buffer.h", "buffer_8h.html", "buffer_8h" ],
     [ "bufferview.cpp", "bufferview_8cpp.html", null ],
@@ -28,10 +24,6 @@ var dir_8ebd181a0c69b2a3f352e3ec5ae48f4e =
     [ "framebuffer.h", "framebuffer_8h.html", "framebuffer_8h" ],
     [ "graphicspipeline.cpp", "graphicspipeline_8cpp.html", null ],
     [ "graphicspipeline.h", "graphicspipeline_8h.html", "graphicspipeline_8h" ],
-    [ "hardwareinterface.cpp", "hardwareinterface_8cpp.html", null ],
-    [ "hardwareinterface.h", "hardwareinterface_8h.html", [
-      [ "HardwareInterface", "class_hardware_interface.html", null ]
-    ] ],
     [ "image.cpp", "image_8cpp.html", null ],
     [ "image.h", "image_8h.html", "image_8h" ],
     [ "imageview.cpp", "imageview_8cpp.html", null ],

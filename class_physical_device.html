@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_physical_device.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_physical_device-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">PhysicalDevice Class Reference</div></div>
 </div><!--header-->
@@ -113,12 +114,10 @@ Collaboration diagram for PhysicalDevice:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a618aecc3dd4b8f346ca89559ca63ac27"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physical_device.html#a618aecc3dd4b8f346ca89559ca63ac27">PhysicalDevice</a> (<a class="el" href="class_instance.html">Instance</a> *callingInstance, VkPhysicalDevice device)</td></tr>
-<tr class="separator:a618aecc3dd4b8f346ca89559ca63ac27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cdab88e6b3e24197cfde6e275414e64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_queue_family_handler.html">QueueFamilyHandler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physical_device.html#a9cdab88e6b3e24197cfde6e275414e64">getQueueFamilyHandler</a> ()</td></tr>
-<tr class="separator:a9cdab88e6b3e24197cfde6e275414e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d372413feb8108927fb303c1e89b71d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_instance.html">Instance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physical_device.html#a7d372413feb8108927fb303c1e89b71d">getInstance</a> ()</td></tr>
-<tr class="separator:a7d372413feb8108927fb303c1e89b71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac337daa8f59b82c861642d607a4d3f26"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue_family_handler.html">QueueFamilyHandler</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physical_device.html#ac337daa8f59b82c861642d607a4d3f26">getQueueFamilyHandler</a> ()</td></tr>
+<tr class="separator:ac337daa8f59b82c861642d607a4d3f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61520b557a3626e9e46d308cfc832734"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physical_device.html#a61520b557a3626e9e46d308cfc832734">getInstance</a> ()</td></tr>
+<tr class="separator:a61520b557a3626e9e46d308cfc832734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e9db719b701ad66d1d02c3ba0ca0e2a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physical_device.html#a7e9db719b701ad66d1d02c3ba0ca0e2a">hasRequiredExtensions</a> (const std::vector&lt; std::string &gt; &amp;requiredExtensions)</td></tr>
 <tr class="separator:a7e9db719b701ad66d1d02c3ba0ca0e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6f8384d1b81728e92e3e318c1f67414"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkExtensionProperties &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physical_device.html#ac6f8384d1b81728e92e3e318c1f67414">getSupportedExtensions</a> ()</td></tr>
@@ -131,15 +130,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkPhysicalDevice *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#a84fba320d4eecc0f0f0a959b0231b8de">getHandlePtr</a> ()</td></tr>
 <tr class="separator:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:add33c9f9e2280a6639af4538bdb2dc1c"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physical_device.html#add33c9f9e2280a6639af4538bdb2dc1c">create</a> (std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt; callingInstance, VkPhysicalDevice device)</td></tr>
+<tr class="separator:add33c9f9e2280a6639af4538bdb2dc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkPhysicalDevice &gt;</a></td></tr>
 <tr class="memitem:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkPhysicalDevice&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#ab80d85ecc859b610cedefe8f0974b8c7">handle</a></td></tr>
 <tr class="separator:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a618aecc3dd4b8f346ca89559ca63ac27" name="a618aecc3dd4b8f346ca89559ca63ac27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a618aecc3dd4b8f346ca89559ca63ac27">&#9670;&nbsp;</a></span>PhysicalDevice()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="add33c9f9e2280a6639af4538bdb2dc1c" name="add33c9f9e2280a6639af4538bdb2dc1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add33c9f9e2280a6639af4538bdb2dc1c">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,9 +152,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">PhysicalDevice::PhysicalDevice </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt; PhysicalDevice::create </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_instance.html">Instance</a> *&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt;&#160;</td>
           <td class="paramname"><em>callingInstance</em>, </td>
         </tr>
         <tr>
@@ -167,39 +171,21 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7d372413feb8108927fb303c1e89b71d" name="a7d372413feb8108927fb303c1e89b71d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d372413feb8108927fb303c1e89b71d">&#9670;&nbsp;</a></span>getInstance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_instance.html">Instance</a> * PhysicalDevice::getInstance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 <div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_physical_device_a7d372413feb8108927fb303c1e89b71d_icgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_physical_device_add33c9f9e2280a6639af4538bdb2dc1c_cgraph.svg" width="355" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a9cdab88e6b3e24197cfde6e275414e64" name="a9cdab88e6b3e24197cfde6e275414e64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cdab88e6b3e24197cfde6e275414e64">&#9670;&nbsp;</a></span>getQueueFamilyHandler()</h2>
+<a id="a61520b557a3626e9e46d308cfc832734" name="a61520b557a3626e9e46d308cfc832734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61520b557a3626e9e46d308cfc832734">&#9670;&nbsp;</a></span>getInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +194,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_queue_family_handler.html">QueueFamilyHandler</a> * PhysicalDevice::getQueueFamilyHandler </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt; PhysicalDevice::getInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -220,12 +206,31 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_physical_device_a9cdab88e6b3e24197cfde6e275414e64_icgraph.svg" width="340" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+
 </div>
 </div>
+<a id="ac337daa8f59b82c861642d607a4d3f26" name="ac337daa8f59b82c861642d607a4d3f26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac337daa8f59b82c861642d607a4d3f26">&#9670;&nbsp;</a></span>getQueueFamilyHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_queue_family_handler.html">QueueFamilyHandler</a> &gt; PhysicalDevice::getQueueFamilyHandler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -290,12 +295,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_physical_device_a21e707fbd8255fda9df3ecf1a4eb2b99_icgraph.svg" width="298" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>

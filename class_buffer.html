@@ -102,22 +102,24 @@ $(document).ready(function(){initNavTree('class_buffer.html',''); initResizable(
 <div class="dynheader">
 Inheritance diagram for Buffer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer__inherit__graph.svg" width="194" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer__inherit__graph.svg" width="194" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for Buffer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer__coll__graph.svg" width="194" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer__coll__graph.svg" width="194" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adde8848a1a77518493be53da47ade57f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#adde8848a1a77518493be53da47ade57f">Buffer</a> (<a class="el" href="class_device.html">Device</a> *device_, VkDeviceSize size, VmaMemoryUsage memoryUsage, VkMemoryPropertyFlags preferredFlags, VkBufferUsageFlagBits bufferUsage, std::vector&lt; uint32_t &gt; accessingQueues)</td></tr>
-<tr class="separator:adde8848a1a77518493be53da47ade57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dc5a3c532a4deeb649d37b94d0cb011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_device.html">Device</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#a6dc5a3c532a4deeb649d37b94d0cb011">getDevice</a> () const</td></tr>
-<tr class="separator:a6dc5a3c532a4deeb649d37b94d0cb011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ed538fd8efc829ca964147e4186e97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#ac0ed538fd8efc829ca964147e4186e97">transferDataMapped</a> (void *src)</td></tr>
+<tr class="separator:ac0ed538fd8efc829ca964147e4186e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2be7106a57ee25f8b94a0d9e4c9febc7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#a2be7106a57ee25f8b94a0d9e4c9febc7">getDevice</a> ()</td></tr>
+<tr class="separator:a2be7106a57ee25f8b94a0d9e4c9febc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011a38115407cad17b4ed01bafef80a8"><td class="memItemLeft" align="right" valign="top">VmaAllocation&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#a011a38115407cad17b4ed01bafef80a8">getAllocation</a> ()</td></tr>
+<tr class="separator:a011a38115407cad17b4ed01bafef80a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac37afa4f8b19a37a076b06c86074003f"><td class="memItemLeft" align="right" valign="top">VkDeviceSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#ac37afa4f8b19a37a076b06c86074003f">getSize</a> () const</td></tr>
 <tr class="separator:ac37afa4f8b19a37a076b06c86074003f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80d49c3641eb7d63ede96bbe568f1f00"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#a80d49c3641eb7d63ede96bbe568f1f00">map</a> ()</td></tr>
@@ -134,8 +136,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac9ce6e707ed1fdf3239dd29fb230ce71"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_buffer.html">Buffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#ac9ce6e707ed1fdf3239dd29fb230ce71">createHostStagingBuffer</a> (<a class="el" href="class_device.html">Device</a> *device_, VkDeviceSize size, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
-<tr class="separator:ac9ce6e707ed1fdf3239dd29fb230ce71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed1e91407b4a605b195fe0113ec4e1e1"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#aed1e91407b4a605b195fe0113ec4e1e1">create</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; pDevice, VkDeviceSize size, VmaMemoryUsage memoryUsage, VkMemoryPropertyFlags preferredFlags, VkBufferUsageFlagBits bufferUsage, std::vector&lt; uint32_t &gt; accessingQueues)</td></tr>
+<tr class="separator:aed1e91407b4a605b195fe0113ec4e1e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acecb553ef3ce833addccf1979b064a53"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buffer.html#acecb553ef3ce833addccf1979b064a53">createHostStagingBuffer</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; pDevice, VkDeviceSize size, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
+<tr class="separator:acecb553ef3ce833addccf1979b064a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -144,17 +148,38 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="adde8848a1a77518493be53da47ade57f" name="adde8848a1a77518493be53da47ade57f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adde8848a1a77518493be53da47ade57f">&#9670;&nbsp;</a></span>Buffer()</h2>
+<a id="a59b8743e4a5f731bdd0c4185c9ef263b" name="a59b8743e4a5f731bdd0c4185c9ef263b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b8743e4a5f731bdd0c4185c9ef263b">&#9670;&nbsp;</a></span>~Buffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Buffer::Buffer </td>
+          <td class="memname">Buffer::~Buffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *&#160;</td>
-          <td class="paramname"><em>device_</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aed1e91407b4a605b195fe0113ec4e1e1" name="aed1e91407b4a605b195fe0113ec4e1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed1e91407b4a605b195fe0113ec4e1e1">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; Buffer::create </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td>
+          <td class="paramname"><em>pDevice</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -192,48 +217,23 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_adde8848a1a77518493be53da47ade57f_cgraph.svg" width="292" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_adde8848a1a77518493be53da47ade57f_icgraph.svg" width="326" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_aed1e91407b4a605b195fe0113ec4e1e1_icgraph.svg" width="328" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a59b8743e4a5f731bdd0c4185c9ef263b" name="a59b8743e4a5f731bdd0c4185c9ef263b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59b8743e4a5f731bdd0c4185c9ef263b">&#9670;&nbsp;</a></span>~Buffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Buffer::~Buffer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_a59b8743e4a5f731bdd0c4185c9ef263b_cgraph.svg" width="299" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac9ce6e707ed1fdf3239dd29fb230ce71" name="ac9ce6e707ed1fdf3239dd29fb230ce71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9ce6e707ed1fdf3239dd29fb230ce71">&#9670;&nbsp;</a></span>createHostStagingBuffer()</h2>
+<a id="acecb553ef3ce833addccf1979b064a53" name="acecb553ef3ce833addccf1979b064a53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acecb553ef3ce833addccf1979b064a53">&#9670;&nbsp;</a></span>createHostStagingBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,10 +242,10 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_buffer.html">Buffer</a> Buffer::createHostStagingBuffer </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; Buffer::createHostStagingBuffer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *&#160;</td>
-          <td class="paramname"><em>device_</em>, </td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td>
+          <td class="paramname"><em>pDevice</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -274,14 +274,14 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_ac9ce6e707ed1fdf3239dd29fb230ce71_cgraph.svg" width="511" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_acecb553ef3ce833addccf1979b064a53_cgraph.svg" width="328" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a6dc5a3c532a4deeb649d37b94d0cb011" name="a6dc5a3c532a4deeb649d37b94d0cb011"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dc5a3c532a4deeb649d37b94d0cb011">&#9670;&nbsp;</a></span>getDevice()</h2>
+<a id="a011a38115407cad17b4ed01bafef80a8" name="a011a38115407cad17b4ed01bafef80a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a011a38115407cad17b4ed01bafef80a8">&#9670;&nbsp;</a></span>getAllocation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,10 +290,10 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_device.html">Device</a> &amp; Buffer::getDevice </td>
+          <td class="memname">VmaAllocation Buffer::getAllocation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -302,12 +302,31 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_a6dc5a3c532a4deeb649d37b94d0cb011_icgraph.svg" width="340" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+
 </div>
 </div>
+<a id="a2be7106a57ee25f8b94a0d9e4c9febc7" name="a2be7106a57ee25f8b94a0d9e4c9febc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2be7106a57ee25f8b94a0d9e4c9febc7">&#9670;&nbsp;</a></span>getDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; Buffer::getDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -350,12 +369,24 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_a80d49c3641eb7d63ede96bbe568f1f00_cgraph.svg" width="283" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+
 </div>
 </div>
+<a id="ac0ed538fd8efc829ca964147e4186e97" name="ac0ed538fd8efc829ca964147e4186e97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ed538fd8efc829ca964147e4186e97">&#9670;&nbsp;</a></span>transferDataMapped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Buffer::transferDataMapped </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -373,12 +404,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_buffer_aaeecba2e74f8797e81816c433f7d573e_cgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>

@@ -4,8 +4,21 @@ var hierarchy =
       [ "StackAllocator", "class_stack_allocator.html", null ]
     ] ],
     [ "CCAD_OT::Cube", "struct_c_c_a_d___o_t_1_1_cube.html", null ],
+    [ "std::enable_shared_from_this", null, [
+      [ "Image", "class_image.html", null ],
+      [ "Instance", "class_instance.html", null ],
+      [ "QueueFamily", "class_queue_family.html", null ],
+      [ "QueueFamilyHandler", "class_queue_family_handler.html", null ]
+    ] ],
     [ "FrameBuffer", "class_frame_buffer.html", null ],
-    [ "HardwareInterface", "class_hardware_interface.html", null ],
+    [ "MandelbrotApp", "class_mandelbrot_app.html", null ],
+    [ "MandelbrotUBO", "struct_mandelbrot_u_b_o.html", null ],
+    [ "MasterMaterial", "class_master_material.html", null ],
+    [ "material", "classmaterial.html", null ],
+    [ "MaterialLibrary", "class_material_library.html", null ],
+    [ "material::materialObject", "structmaterial_1_1material_object.html", null ],
+    [ "Mesh", "class_mesh.html", null ],
+    [ "ModelLoader", "class_model_loader.html", null ],
     [ "VoxelCodecOctreeBase< Types >::NodeStackElement", "struct_voxel_codec_octree_base_1_1_node_stack_element.html", null ],
     [ "optional< T >", "structoptional.html", null ],
     [ "CCAD_OT::OtConstructOctreeInfo", "struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html", null ],
@@ -29,9 +42,8 @@ var hierarchy =
     ] ],
     [ "CCAD_OT::OtOctree", "class_c_c_a_d___o_t_1_1_ot_octree.html", null ],
     [ "CCAD_OT::OtSurfaceInfo", "struct_c_c_a_d___o_t_1_1_ot_surface_info.html", null ],
+    [ "PBRMaterialParameters", "struct_p_b_r_material_parameters.html", null ],
     [ "PossibleQueueFamily", "struct_possible_queue_family.html", null ],
-    [ "QueueFamily", "class_queue_family.html", null ],
-    [ "QueueFamilyHandler", "class_queue_family_handler.html", null ],
     [ "QueueFamilyIndices", "struct_queue_family_indices.html", null ],
     [ "RenderBus", "class_render_bus.html", null ],
     [ "RenderEvent", "struct_render_event.html", [
@@ -85,10 +97,16 @@ var hierarchy =
         [ "NVTaskShader", "class_n_v_task_shader.html", null ]
       ] ]
     ] ],
+    [ "ShaderParameter", "struct_shader_parameter.html", [
+      [ "ShaderParameterBuffer", "struct_shader_parameter_buffer.html", null ],
+      [ "ShaderParameterConstant< Type, typeCount >", "struct_shader_parameter_constant.html", null ],
+      [ "ShaderParameterTexture", "struct_shader_parameter_texture.html", null ]
+    ] ],
     [ "SwapChain", "class_swap_chain.html", null ],
     [ "SwapChainSupportDetails", "struct_swap_chain_support_details.html", null ],
     [ "UniformBuffer< type >", "class_uniform_buffer.html", null ],
     [ "vec_abs< T, N >", "classvec__abs.html", null ],
+    [ "Vertex", "struct_vertex.html", null ],
     [ "CCAD_OT::VertexDataType", "struct_c_c_a_d___o_t_1_1_vertex_data_type.html", null ],
     [ "CCAD_OT::VertexMemberCheck< T >", "struct_c_c_a_d___o_t_1_1_vertex_member_check.html", null ],
     [ "VirtualAllocation", "class_virtual_allocation.html", [
@@ -170,6 +188,5 @@ var hierarchy =
     [ "VulkanClass< VkSemaphore >", "class_vulkan_class.html", [
       [ "Semaphore", "class_semaphore.html", null ]
     ] ],
-    [ "VulkanRenderApplication", "class_vulkan_render_application.html", null ],
     [ "Window", "class_window.html", null ]
 ];

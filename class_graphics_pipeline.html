@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_graphics_pipeline.html',''); ini
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_graphics_pipeline-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">GraphicsPipeline Class Reference</div></div>
 </div><!--header-->
@@ -101,83 +102,134 @@ $(document).ready(function(){initNavTree('class_graphics_pipeline.html',''); ini
 <div class="dynheader">
 Inheritance diagram for GraphicsPipeline:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_graphics_pipeline__inherit__graph.svg" width="190" height="584"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_graphics_pipeline__inherit__graph.svg" width="190" height="599"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for GraphicsPipeline:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_graphics_pipeline__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_graphics_pipeline__coll__graph.svg" width="190" height="599"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0425bd7cb72849f78d39549e6009390f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_pipeline.html#a0425bd7cb72849f78d39549e6009390f">GraphicsPipeline</a> (<a class="el" href="class_device.html">Device</a> *<a class="el" href="class_pipeline_base.html#ad25273672eb072ee7d500b665e79f494">device</a>, <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> *<a class="el" href="class_pipeline_base.html#acad45d894c6549f089391f219cc8172b">layout</a>, std::vector&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> * &gt; &amp;shaders, const <a class="el" href="class_render_pass.html">RenderPass</a> &amp;renderPass, VkExtent2D extent)</td></tr>
-<tr class="separator:a0425bd7cb72849f78d39549e6009390f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7bf95288c0416dd260853c5dc792629"><td class="memItemLeft" align="right" valign="top">VkPipelineBindPoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_pipeline.html#af7bf95288c0416dd260853c5dc792629">getBindPoint</a> () final</td></tr>
 <tr class="separator:af7bf95288c0416dd260853c5dc792629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa194bba7882b0c2f3a7c23544b167e0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_pipeline.html#aa194bba7882b0c2f3a7c23544b167e0b">~GraphicsPipeline</a> () override</td></tr>
+<tr class="separator:aa194bba7882b0c2f3a7c23544b167e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_pipeline_base"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_pipeline_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_pipeline_base.html">PipelineBase</a></td></tr>
-<tr class="memitem:af024d32b697ded5ce7fee8c1fee6945e inherit pub_methods_class_pipeline_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_device.html">Device</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#af024d32b697ded5ce7fee8c1fee6945e">getDevice</a> ()</td></tr>
-<tr class="separator:af024d32b697ded5ce7fee8c1fee6945e inherit pub_methods_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae876e352930914a9609578aa920f5107 inherit pub_methods_class_pipeline_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_pipeline_layout.html">PipelineLayout</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#ae876e352930914a9609578aa920f5107">getLayout</a> ()</td></tr>
-<tr class="separator:ae876e352930914a9609578aa920f5107 inherit pub_methods_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab28871a7219795b40f690a8d50590b52 inherit pub_methods_class_pipeline_base"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#ab28871a7219795b40f690a8d50590b52">getDevice</a> ()</td></tr>
+<tr class="separator:ab28871a7219795b40f690a8d50590b52 inherit pub_methods_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d003f2e101eab506551aba16dfb0670 inherit pub_methods_class_pipeline_base"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#a6d003f2e101eab506551aba16dfb0670">getLayout</a> ()</td></tr>
+<tr class="separator:a6d003f2e101eab506551aba16dfb0670 inherit pub_methods_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70977566eadfe78e8fb907ec8d3c6f63 inherit pub_methods_class_pipeline_base"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#a70977566eadfe78e8fb907ec8d3c6f63">~PipelineBase</a> ()=default</td></tr>
+<tr class="separator:a70977566eadfe78e8fb907ec8d3c6f63 inherit pub_methods_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkPipeline &gt;</a></td></tr>
 <tr class="memitem:a914c142e905262efbd473aeb5bdfb0e8 inherit pub_methods_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkPipeline&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#a914c142e905262efbd473aeb5bdfb0e8">getHandle</a> () const</td></tr>
 <tr class="separator:a914c142e905262efbd473aeb5bdfb0e8 inherit pub_methods_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkPipeline *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#a84fba320d4eecc0f0f0a959b0231b8de">getHandlePtr</a> ()</td></tr>
 <tr class="separator:a84fba320d4eecc0f0f0a959b0231b8de inherit pub_methods_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7799f144680f1c6370cd093b7e19814d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_pipeline.html#a7799f144680f1c6370cd093b7e19814d">create</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; pDevice, std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt; pLayout, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &gt; &amp;shaders, const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;renderPass, VkExtent2D extent, VkPrimitiveTopology topology=VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, VkCullModeFlags cullMode=VK_CULL_MODE_BACK_BIT, VkFrontFace frontFace=VK_FRONT_FACE_CLOCKWISE)</td></tr>
+<tr class="separator:a7799f144680f1c6370cd093b7e19814d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_class_pipeline_base"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_pipeline_base')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_pipeline_base.html">PipelineBase</a></td></tr>
-<tr class="memitem:a61e60100fbcd3e02eae418bd9759d0aa inherit pro_methods_class_pipeline_base"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#a61e60100fbcd3e02eae418bd9759d0aa">PipelineBase</a> (<a class="el" href="class_device.html">Device</a> *<a class="el" href="class_pipeline_base.html#ad25273672eb072ee7d500b665e79f494">device</a>, <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> *<a class="el" href="class_pipeline_base.html#acad45d894c6549f089391f219cc8172b">layout</a>)</td></tr>
-<tr class="separator:a61e60100fbcd3e02eae418bd9759d0aa inherit pro_methods_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_pipeline_base"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_pipeline_base')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_pipeline_base.html">PipelineBase</a></td></tr>
-<tr class="memitem:ad25273672eb072ee7d500b665e79f494 inherit pro_attribs_class_pipeline_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_device.html">Device</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#ad25273672eb072ee7d500b665e79f494">device</a></td></tr>
-<tr class="separator:ad25273672eb072ee7d500b665e79f494 inherit pro_attribs_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acad45d894c6549f089391f219cc8172b inherit pro_attribs_class_pipeline_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_pipeline_layout.html">PipelineLayout</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#acad45d894c6549f089391f219cc8172b">layout</a></td></tr>
-<tr class="separator:acad45d894c6549f089391f219cc8172b inherit pro_attribs_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a4556112bcf5fe0bfecc5d45f61a27 inherit pro_attribs_class_pipeline_base"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#a51a4556112bcf5fe0bfecc5d45f61a27">device</a></td></tr>
+<tr class="separator:a51a4556112bcf5fe0bfecc5d45f61a27 inherit pro_attribs_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf0825bbfca48cb3d6c738c2ab209a3c inherit pro_attribs_class_pipeline_base"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline_base.html#adf0825bbfca48cb3d6c738c2ab209a3c">layout</a></td></tr>
+<tr class="separator:adf0825bbfca48cb3d6c738c2ab209a3c inherit pro_attribs_class_pipeline_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkPipeline &gt;</a></td></tr>
 <tr class="memitem:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memItemLeft" align="right" valign="top">VkPipeline&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_class.html#ab80d85ecc859b610cedefe8f0974b8c7">handle</a></td></tr>
 <tr class="separator:ab80d85ecc859b610cedefe8f0974b8c7 inherit pro_attribs_class_vulkan_class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0425bd7cb72849f78d39549e6009390f" name="a0425bd7cb72849f78d39549e6009390f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0425bd7cb72849f78d39549e6009390f">&#9670;&nbsp;</a></span>GraphicsPipeline()</h2>
+<a id="aa194bba7882b0c2f3a7c23544b167e0b" name="aa194bba7882b0c2f3a7c23544b167e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa194bba7882b0c2f3a7c23544b167e0b">&#9670;&nbsp;</a></span>~GraphicsPipeline()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GraphicsPipeline::GraphicsPipeline </td>
+          <td class="memname">GraphicsPipeline::~GraphicsPipeline </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_device.html">Device</a> *&#160;</td>
-          <td class="paramname"><em>device</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7799f144680f1c6370cd093b7e19814d" name="a7799f144680f1c6370cd093b7e19814d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7799f144680f1c6370cd093b7e19814d">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt; GraphicsPipeline::create </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td>
+          <td class="paramname"><em>pDevice</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_pipeline_layout.html">PipelineLayout</a> *&#160;</td>
-          <td class="paramname"><em>layout</em>, </td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt;&#160;</td>
+          <td class="paramname"><em>pLayout</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> * &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>shaders</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_render_pass.html">RenderPass</a> &amp;&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>renderPass</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkExtent2D&#160;</td>
-          <td class="paramname"><em>extent</em>&#160;</td>
+          <td class="paramname"><em>extent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPrimitiveTopology&#160;</td>
+          <td class="paramname"><em>topology</em> = <code>VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkCullModeFlags&#160;</td>
+          <td class="paramname"><em>cullMode</em> = <code>VK_CULL_MODE_BACK_BIT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkFrontFace&#160;</td>
+          <td class="paramname"><em>frontFace</em> = <code>VK_FRONT_FACE_CLOCKWISE</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -185,17 +237,21 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_graphics_pipeline_a0425bd7cb72849f78d39549e6009390f_cgraph.svg" width="398" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_graphics_pipeline_a7799f144680f1c6370cd093b7e19814d_icgraph.svg" width="272" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="af7bf95288c0416dd260853c5dc792629" name="af7bf95288c0416dd260853c5dc792629"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af7bf95288c0416dd260853c5dc792629">&#9670;&nbsp;</a></span>getBindPoint()</h2>
 
@@ -220,12 +276,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="class_pipeline_base.html#afb72e0dcd6f7975137052a4276d96500">PipelineBase</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_graphics_pipeline_af7bf95288c0416dd260853c5dc792629_icgraph.svg" width="420" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
