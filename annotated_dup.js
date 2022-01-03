@@ -50,11 +50,12 @@ var annotated_dup =
     [ "MandelbrotApp", "class_mandelbrot_app.html", "class_mandelbrot_app" ],
     [ "MandelbrotUBO", "struct_mandelbrot_u_b_o.html", "struct_mandelbrot_u_b_o" ],
     [ "MasterMaterial", "class_master_material.html", null ],
-    [ "material", "classmaterial.html", [
-      [ "materialObject", "structmaterial_1_1material_object.html", null ]
+    [ "Material", "class_material.html", [
+      [ "materialObject", "struct_material_1_1material_object.html", null ]
     ] ],
     [ "MaterialLibrary", "class_material_library.html", "class_material_library" ],
     [ "Mesh", "class_mesh.html", null ],
+    [ "Meshlet", "class_meshlet.html", null ],
     [ "ModelLoader", "class_model_loader.html", "class_model_loader" ],
     [ "NVAnyHitShader", "class_n_v_any_hit_shader.html", null ],
     [ "NVCallableShader", "class_n_v_callable_shader.html", null ],
