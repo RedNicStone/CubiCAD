@@ -12,15 +12,26 @@
 #include <vector>
 #include <string>
 
+#include "material.h"
+
 
 struct Vertex {
     glm::vec3 pos;
     glm::uvec2 uv;
 };
 
-class Mesh {
+class Meshlet {
   private:
     std::vector<Vertex> vertexData;
+    std::shared_ptr<Material> material;
+
+  public:
+    static std::shared_ptr<Meshlet> create(std::string filename);
+};
+
+class Mesh {
+  private:
+    std::vector<std::shared_ptr<Meshlet>> vertexData;
 
   public:
     static std::shared_ptr<Mesh> create(std::string filename);

@@ -5,7 +5,7 @@
 #ifndef CUBICAD_MATERIAL_H
 #define CUBICAD_MATERIAL_H
 
-class material {
+class Material {
   private:
 
 
