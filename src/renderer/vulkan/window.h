@@ -21,7 +21,7 @@ class Instance;
 
 class Window {
   private:
-    Instance *instance;
+    std::shared_ptr<Instance> instance;
 
     GLFWwindow *window = nullptr;
     VkSurfaceKHR surface{};
@@ -32,9 +32,12 @@ class Window {
     void dynamicResizeCallback(int width, int height);
 
   public:
-    Window(Instance *pInstance, const std::string &title, int width, int height);
+    static std::shared_ptr<Window> create(std::shared_ptr<Instance> pInstance,
+                                                           const std::string &title,
+                                                           int width,
+                                                           int height);
 
-    bool getResized() const { return resized; }
+    [[nodiscard]] bool getResized() const { return resized; }
 
     void setResized(bool resized_) { resized = resized_; }
 

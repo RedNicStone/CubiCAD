@@ -20,25 +20,30 @@
 #include "descriptorset.h"
 
 
-class   CommandBuffer : public VulkanClass<VkCommandBuffer> {
+class GraphicsPipeline;
+
+class FrameBuffer;
+
+class CommandBuffer : public VulkanClass<VkCommandBuffer> {
   private:
-    CommandPool *commandPool;
+    std::shared_ptr<CommandPool> commandPool;
 
   public:
-    CommandBuffer(CommandPool *pCommandPool, VkCommandBufferLevel level);
+    static std::shared_ptr<CommandBuffer> create(const std::shared_ptr<CommandPool> &pCommandPool,
+                                                 VkCommandBufferLevel level);
 
-    void submitToQueue(std::vector<Semaphore*>& signalSemaphores,
-                               std::vector<VkPipelineStageFlags> waitStageMask,
-                               std::vector<Semaphore*>& waitSemaphores,
-                               Queue* queue,
-                               Fence* triggerFence);
+    void submitToQueue(std::vector<std::shared_ptr<Semaphore>> &signalSemaphores,
+                       std::vector<VkPipelineStageFlags> waitStageMask,
+                       std::vector<std::shared_ptr<Semaphore>> &waitSemaphores,
+                       const std::shared_ptr<Queue> &queue,
+                       const std::shared_ptr<Fence>& triggerFence);
 
     void beginCommandBuffer(VkCommandBufferUsageFlags flags = 0);
     void resetCommandBuffer(VkCommandBufferResetFlags flags = 0);
     void endCommandBuffer();
 
-    void beginRenderPass(RenderPass *renderPass,
-                         FrameBuffer *frameBuffer,
+    void beginRenderPass(const std::shared_ptr<RenderPass> &renderPass,
+                         const std::shared_ptr<FrameBuffer> &frameBuffer,
                          std::vector<VkClearValue> &clearValues,
                          uint32_t frameIndex,
                          VkExtent2D extend,
@@ -47,16 +52,18 @@ class   CommandBuffer : public VulkanClass<VkCommandBuffer> {
     void nextSubpass(VkSubpassContents subpassContents = VK_SUBPASS_CONTENTS_INLINE);
     void endRenderPass();
 
-    void bindPipeline(GraphicsPipeline *pipeline);
-    void bindDescriptorSets(std::vector<DescriptorSet *> &descriptorSets,
-                            PipelineLayout *layout,
+    void bindPipeline(const std::shared_ptr<GraphicsPipeline> &pipeline);
+    void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
+                            const std::shared_ptr<PipelineLayout> &layout,
                             VkPipelineBindPoint bindPoint,
-                            std::vector<uint32_t>& offsets);
-    void bindDescriptorSets(std::vector<DescriptorSet *> &descriptorSets,
-                            PipelineBase *pipeline,
-                            std::vector<uint32_t>& offsets);
-    void bindVertexBuffer(Buffer *buffer, uint32_t slot, VkDeviceSize offset = 0);
-    void bindIndexBuffer(Buffer *buffer, VkIndexType type, VkDeviceSize offset = 0);
+                            std::vector<uint32_t> &offsets);
+    void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
+                            const std::shared_ptr<PipelineBase> &pipeline,
+                            std::vector<uint32_t> &offsets);
+    void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
+        const std::shared_ptr<PipelineBase> &pipeline);
+    void bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t slot, VkDeviceSize offset = 0);
+    void bindIndexBuffer(const std::shared_ptr<Buffer> &buffer, VkIndexType type, VkDeviceSize offset = 0);
 
     void draw(uint32_t vertexCount, uint32_t instanceCount = 1, uint32_t firstVertex = 0, uint32_t firstInstance = 0);
     void drawIndexed(uint32_t indexCount,

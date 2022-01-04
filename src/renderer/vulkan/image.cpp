@@ -4,28 +4,32 @@
 
 #include <vulkan/vulkan_core.h>
 
+#include <utility>
+
 #include "image.h"
 
 
-Image::Image(Device *device_,
-             VmaMemoryUsage memoryUsage,
-             VkMemoryPropertyFlags preferredFlags,
-             VkImageCreateInfo &createInfo,
-             std::vector<uint32_t> &accessingQueues) {
-    device = device_;
+std::shared_ptr<Image> Image::create(std::shared_ptr<Device> pDevice,
+                                     VmaMemoryUsage memoryUsage,
+                                     VkMemoryPropertyFlags preferredFlags,
+                                     VkImageCreateInfo &createInfo,
+                                     std::vector<uint32_t> &accessingQueues) {
+    auto image = std::shared_ptr<Image>();
+    image->device = std::move(pDevice);
 
-    extent = createInfo.extent;
-    type = createInfo.imageType;
-    format = createInfo.format;
-    mipLevels = createInfo.mipLevels;
-    arrayLayers = createInfo.arrayLayers;
+    image->extent = createInfo.extent;
+    image->type = createInfo.imageType;
+    image->format = createInfo.format;
+    image->mipLevels = createInfo.mipLevels;
+    image->arrayLayers = createInfo.arrayLayers;
+
+    createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
+    createInfo.pQueueFamilyIndices = accessingQueues.data();
 
     if (accessingQueues.size() >= 2)
-        createInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
-    else {
         createInfo.sharingMode = VK_SHARING_MODE_CONCURRENT;
-        createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
-        createInfo.pQueueFamilyIndices = accessingQueues.data();
+    else {
+        createInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
     }
 
     VmaAllocationCreateInfo allocationCreateInfo{};
@@ -33,64 +37,69 @@ Image::Image(Device *device_,
     allocationCreateInfo.flags = VMA_ALLOCATION_CREATE_MAPPED_BIT;
     allocationCreateInfo.preferredFlags = preferredFlags;
 
-    if (vmaCreateImage(device->getAllocator(),
+    if (vmaCreateImage(image->device->getAllocator(),
                        &createInfo,
                        &allocationCreateInfo,
-                       &handle,
-                       &allocation,
-                       &allocationInfo) != VK_SUCCESS)
+                       &image->handle,
+                       &image->allocation,
+                       &image->allocationInfo) != VK_SUCCESS)
         throw std::runtime_error("could not allocate memory");
 }
 
-Image::Image(Device *device_,
-             const VkExtent2D &size,
-             uint32_t mip_level,
-             VkFormat format_,
-             VkImageUsageFlags usage,
-             std::vector<uint32_t> &accessingQueues) {
-    extent = {size.width, size.height, 0};
-    type = VK_IMAGE_TYPE_2D;
-    format = format_;
-    mipLevels = mip_level;
-    arrayLayers = 1;
+std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
+                                     const VkExtent2D &size,
+                                     uint32_t mip_level,
+                                     VkFormat format,
+                                     VkImageUsageFlags usage,
+                                     std::vector<uint32_t> &accessingQueues) {
+    auto image = std::make_shared<Image>();
+    image->device = pDevice;
+
+    image->extent = {size.width, size.height, 0};
+    image->type = VK_IMAGE_TYPE_2D;
+    image->format = format;
+    image->mipLevels = mip_level;
+    image->arrayLayers = 1;
 
     VkImageCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
     createInfo.imageType = VK_IMAGE_TYPE_2D;
-    createInfo.extent = {size.width, size.height, 0};
+    createInfo.extent = {size.width, size.height, 1};
     createInfo.mipLevels = mip_level;
     createInfo.arrayLayers = 1;
-    createInfo.format = format_;
+    createInfo.format = format;
     createInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
     createInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
     createInfo.usage = usage;
     createInfo.samples = VK_SAMPLE_COUNT_1_BIT;
-    device = device_;
+    createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
+    createInfo.pQueueFamilyIndices = accessingQueues.data();
+    createInfo.flags = 0;
 
     if (accessingQueues.size() >= 2)
-        createInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
-    else {
         createInfo.sharingMode = VK_SHARING_MODE_CONCURRENT;
-        createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
-        createInfo.pQueueFamilyIndices = accessingQueues.data();
+    else {
+        createInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
     }
 
     VmaAllocationCreateInfo allocationCreateInfo{};
     allocationCreateInfo.usage = VMA_MEMORY_USAGE_GPU_ONLY;
-    allocationCreateInfo.flags = VMA_ALLOCATION_CREATE_MAPPED_BIT;
+    allocationCreateInfo.flags = 0;
     allocationCreateInfo.preferredFlags = 0;
 
-    if (vmaCreateImage(device->getAllocator(),
+    if (vmaCreateImage(image->device->getAllocator(),
                        &createInfo,
                        &allocationCreateInfo,
-                       &handle,
-                       &allocation,
-                       &allocationInfo) != VK_SUCCESS)
+                       &image->handle,
+                       &image->allocation,
+                       &image->allocationInfo) != VK_SUCCESS)
         throw std::runtime_error("could not allocate memory");
+
+    return image;
 }
 
-ImageView Image::createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange) {
-    return ImageView(this, viewType, subresourceRange);
+std::shared_ptr<ImageView> Image::createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange) {
+    return ImageView::create(shared_from_this(), viewType, subresourceRange);
 }
 
 Image::~Image() {

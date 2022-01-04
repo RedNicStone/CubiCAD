@@ -18,12 +18,14 @@
 
 class DescriptorPool : public VulkanClass<VkDescriptorPool> {
   private:
-    Device *device;
+    std::shared_ptr<Device> device;
 
   public:
-    DescriptorPool(Device *pDevice, std::vector<VkDescriptorPoolSize> &sizes, uint32_t maxSets = 0);
+    static std::shared_ptr<DescriptorPool> create(std::shared_ptr<Device> pDevice,
+                                                  std::vector<VkDescriptorPoolSize> &sizes,
+                                                  uint32_t maxSets = 0);
 
-    Device *getDevice() { return device; }
+    std::shared_ptr<Device> getDevice() { return device; }
 
     ~DescriptorPool();
 };

@@ -5,16 +5,23 @@
 #include "commandpool.h"
 
 
-CommandPool::CommandPool(Device *pDevice, Queue *pQueue, VkCommandPoolCreateFlags flags)
-    : device(pDevice), queue(pQueue) {
+std::shared_ptr<CommandPool> CommandPool::create(const std::shared_ptr<Device> &pDevice,
+                                                 const std::shared_ptr<Queue> &pQueue,
+                                                 VkCommandPoolCreateFlags flags) {
+    auto commandPool = std::make_shared<CommandPool>();
+
+    commandPool->device = pDevice;
+    commandPool->queue = pQueue;
 
     VkCommandPoolCreateInfo create_info{};
     create_info.sType = VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO;
-    create_info.queueFamilyIndex = queue->getQueueFamilyIndex();
+    create_info.queueFamilyIndex = pQueue->getQueueFamilyIndex();
     create_info.flags = flags;
 
-    if (vkCreateCommandPool(device->getHandle(), &create_info, nullptr, &handle) != VK_SUCCESS)
+    if (vkCreateCommandPool(pDevice->getHandle(), &create_info, nullptr, &commandPool->handle) != VK_SUCCESS)
         throw std::runtime_error("failed to create command pool");
+
+    return commandPool;
 }
 
 CommandPool::~CommandPool() {

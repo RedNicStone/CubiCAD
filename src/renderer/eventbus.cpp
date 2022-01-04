@@ -5,7 +5,7 @@
 #include "eventbus.h"
 
 
-void RenderBus::runRenderLoop(Device *device) {
+void RenderBus::runRenderLoop(std::shared_ptr<Device> device) {
     eventBus->postpone(PreRenderAcquireFrameEvent{{device}});
     eventBus->process();
     eventBus->postpone(PreRenderUpdateBuffersEvent{{device}});
@@ -19,6 +19,11 @@ void RenderBus::runRenderLoop(Device *device) {
     eventBus->postpone(PostRenderPresentImageEvent{{device}});
     eventBus->process();
     eventBus->postpone(PostRenderRecreateEvent{{device}});
+    eventBus->process();
+}
+
+void RenderBus::runRenderLoop_(std::shared_ptr<Device> device) {
+    eventBus->postpone(PreRenderAcquireFrameEvent{{device}});
     eventBus->process();
 }
 

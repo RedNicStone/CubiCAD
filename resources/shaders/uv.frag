@@ -12,5 +12,5 @@ layout(binding = 0) uniform FrameInfoObject {
 } frameInfo;
 
 void main() {
-	outColor = vec4(fragUV, frameInfo.frameCount % 255, 0);
+	outColor = vec4(fragUV, (frameInfo.frameCount % 4095) / 4095.0, 0);
 }

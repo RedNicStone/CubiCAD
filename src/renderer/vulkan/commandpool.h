@@ -15,17 +15,19 @@
 
 class CommandPool : public VulkanClass<VkCommandPool> {
   private:
-    Device *device;
-    Queue *queue;
+    std::shared_ptr<Device> device;
+    std::shared_ptr<Queue> queue;
 
   public:
-    CommandPool(Device *pDevice, Queue *pQueue, VkCommandPoolCreateFlags flags);
+    static std::shared_ptr<CommandPool> create(const std::shared_ptr<Device> &pDevice,
+                                               const std::shared_ptr<Queue> &pQueue,
+                                               VkCommandPoolCreateFlags flags);
 
-    Queue *getQueue() { return queue; }
+    std::shared_ptr<Queue> getQueue() { return queue; }
 
-    Device *getDevice() { return device; }
+    std::shared_ptr<Device> getDevice() { return device; }
 
-    QueueFamily *getQueueFamily() { return queue->getQueueFamily(); }
+    std::shared_ptr<QueueFamily> getQueueFamily() { return queue->getQueueFamily(); }
 
     ~CommandPool();
 };

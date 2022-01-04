@@ -19,14 +19,14 @@ void Instance::createPhysicalDevices() {
     vkEnumeratePhysicalDevices(handle, &deviceCount, possibleDevices.data());
 
     VkPhysicalDeviceProperties physicalProperties;
-    for (VkPhysicalDevice device : possibleDevices) {
+    for (VkPhysicalDevice device: possibleDevices) {
         vkGetPhysicalDeviceProperties(device, &physicalProperties);
         std::cout << "  * " << physicalProperties.deviceName << std::endl;
     }
 
     physicalDevices.reserve(deviceCount);
-    for (auto device : possibleDevices)
-        physicalDevices.emplace_back(this, device);
+    for (auto device: possibleDevices)
+        physicalDevices.push_back(PhysicalDevice::create(shared_from_this(), device));
 }
 
 void Instance::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT &createInfo) {
@@ -66,10 +66,10 @@ bool Instance::checkExtensionSupport(bool validationLayerExtensions) {
 
     std::vector<const char *> vecGlfwExtensions = getRequiredExtensions(validationLayerExtensions);
 
-    for (const char *extensionName : vecGlfwExtensions) {
+    for (const char *extensionName: vecGlfwExtensions) {
         bool extensionFound = false;
 
-        for (const auto &extensionProperties : availableExtensions) {
+        for (const auto &extensionProperties: availableExtensions) {
             if (strcmp(extensionName, extensionProperties.extensionName) == 0) {
                 extensionFound = true;
                 break;
@@ -97,10 +97,10 @@ std::vector<VkLayerProperties> Instance::getSupportedLayers() {
 bool Instance::checkValidationLayerSupport(const std::vector<char *> &validationLayers) {
     std::vector<VkLayerProperties> availableLayers(getSupportedLayers());
 
-    for (const auto layerName : validationLayers) {
+    for (const auto layerName: validationLayers) {
         bool layerFound = false;
 
-        for (const auto &layerProperties : availableLayers) {
+        for (const auto &layerProperties: availableLayers) {
             if (!strcmp(layerName, layerProperties.layerName)) {
                 layerFound = true;
                 break;
@@ -129,38 +129,41 @@ std::vector<const char *> Instance::getRequiredExtensions(bool validationLayerEx
     return extensions;
 }
 
-Instance::Instance(const char *appName, uint32_t appVersion, bool shouldEnableValidationLayers) {
-    enableValidationLayers = shouldEnableValidationLayers;
+std::shared_ptr<Instance> Instance::create(const char *appName,
+                                           uint32_t appVersion,
+                                           bool shouldEnableValidationLayers) {
+    auto instance = std::make_shared<Instance>();
+    instance->enableValidationLayers = shouldEnableValidationLayers;
 
-    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-    appInfo.apiVersion = VK_API_VERSION_1_2;
-    appInfo.pEngineName = "CubiCAD";
-    appInfo.engineVersion = 0;
-    appInfo.pApplicationName = appName;
-    appInfo.applicationVersion = appVersion;
+    instance->appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    instance->appInfo.apiVersion = VK_API_VERSION_1_2;
+    instance->appInfo.pEngineName = "CubiCAD";
+    instance->appInfo.engineVersion = 0;
+    instance->appInfo.pApplicationName = appName;
+    instance->appInfo.applicationVersion = appVersion;
 
     VkInstanceCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-    createInfo.pApplicationInfo = &appInfo;
+    createInfo.pApplicationInfo = &instance->appInfo;
 
-    if (!Instance::checkExtensionSupport(enableValidationLayers)) {
+    if (!Instance::checkExtensionSupport(instance->enableValidationLayers)) {
         throw std::runtime_error("not all required extensions available");
     }
 
-    auto extensions = getRequiredExtensions(enableValidationLayers);
+    auto extensions = getRequiredExtensions(instance->enableValidationLayers);
     createInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
     createInfo.ppEnabledExtensionNames = extensions.data();
 
-    if (enableValidationLayers) {
-        validationLayers.push_back((char *) "VK_LAYER_KHRONOS_validation");
+    if (instance->enableValidationLayers) {
+        instance->validationLayers.push_back((char *) "VK_LAYER_KHRONOS_validation");
 
-        if (!Instance::checkValidationLayerSupport(validationLayers)) {
+        if (!Instance::checkValidationLayerSupport(instance->validationLayers)) {
             throw std::runtime_error("validation layers requested, but not available!");
         }
 
         VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
-        createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
-        createInfo.ppEnabledLayerNames = validationLayers.data();
+        createInfo.enabledLayerCount = static_cast<uint32_t>(instance->validationLayers.size());
+        createInfo.ppEnabledLayerNames = instance->validationLayers.data();
 
         populateDebugMessengerCreateInfo(debugCreateInfo);
         createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT *) &debugCreateInfo;
@@ -170,16 +173,19 @@ Instance::Instance(const char *appName, uint32_t appVersion, bool shouldEnableVa
         createInfo.pNext = nullptr;
     }
 
-    if (vkCreateInstance(&createInfo, nullptr, &handle) != VK_SUCCESS) {
+    if (vkCreateInstance(&createInfo, nullptr, &instance->handle) != VK_SUCCESS) {
         throw std::runtime_error("failed to crate vulkan instance!");
     }
     //todo add configurable extensions
     VkDebugUtilsMessengerCreateInfoEXT debugMessengerCreateInfo;
     populateDebugMessengerCreateInfo(debugMessengerCreateInfo);
 
-    if (CreateDebugUtilsMessengerEXT(handle, &debugMessengerCreateInfo, nullptr, &debugMessenger) != VK_SUCCESS) {
+    if (CreateDebugUtilsMessengerEXT(instance->handle, &debugMessengerCreateInfo, nullptr, &instance->debugMessenger)
+        != VK_SUCCESS) {
         throw std::runtime_error("failed to set up debug messenger!");
     }
 
-    createPhysicalDevices();
+    instance->createPhysicalDevices();
+
+    return instance;
 }

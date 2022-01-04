@@ -6,12 +6,17 @@
 
 #include <utility>
 
-#include "../../utils/utils.h"
 
+std::shared_ptr<Shader> Shader::create(std::shared_ptr<Device> pDevice,
+                                       std::string nName,
+                                       const std::string &filename) {
+    auto shader = std::make_shared<Shader>();
+    shader->device = std::move(pDevice);
+    shader->name = std::move(nName);
+    shader->shaderCode = readFile(filename);
+    shader->loadModule();
 
-Shader::Shader(Device *device, std::string name, const std::string &filename) : name(std::move(name)), device(device) {
-    shaderCode = Utils::readFile(filename);
-    loadModule();
+    return shader;
 }
 
 void Shader::loadModule() {

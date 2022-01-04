@@ -27,7 +27,7 @@ struct optional {
         data = tData;
     }
 
-    bool has_value() const { return valid; }
+    [[nodiscard]] bool has_value() const { return valid; }
 
     T &value() { return data; }
 
@@ -43,7 +43,7 @@ struct QueueFamilyIndices {
     optional<uint32_t> presentFamily;
     optional<uint32_t> transferFamily;
 
-    bool isComplete() const;
+    [[nodiscard]] bool isComplete() const;
     std::vector<uint32_t> getUniqueQueueFamilies();
 };
 

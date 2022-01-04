@@ -27,21 +27,23 @@ class PhysicalDevice;
 
 class Device : public VulkanClass<VkDevice> {
   private:
-    PhysicalDevice *physicalDevice;
+    std::shared_ptr<PhysicalDevice> physicalDevice;
     VmaAllocator allocator;
 
     void createMemoryAllocator();
 
   public:
-    Device(PhysicalDevice *physicalDevice,
-           std::vector<const char *> deviceExtensions,
-           const VkPhysicalDeviceFeatures &deviceFeatures);
+    static std::shared_ptr<Device> create(const std::shared_ptr<PhysicalDevice> &physicalDevice,
+                                          std::vector<const char *> deviceExtensions,
+                                          const VkPhysicalDeviceFeatures &deviceFeatures);
 
-    PhysicalDevice &getPhysicalDevice() const { return *physicalDevice; }
+    void waitIdle();
+
+    std::shared_ptr<PhysicalDevice> getPhysicalDevice() { return physicalDevice; }
 
     VmaAllocator getAllocator() { return allocator; }
 
-    void cleanup();
+    ~Device();
 };
 
 #endif //CUBICAD_DEVICE_H

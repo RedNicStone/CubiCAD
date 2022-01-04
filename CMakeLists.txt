@@ -41,7 +41,7 @@ file(GLOB_RECURSE VOXEL_LIB_SRC ${CMAKE_SOURCE_DIR}/src/voxel/*.cpp)
 file(GLOB_RECURSE UTILS_LIB_SRC ${CMAKE_SOURCE_DIR}/src/utils/*.cpp)
 
 add_executable(CubiCAD
-        ${CMAKE_SOURCE_DIR}/src/tests/memory_allocation.cpp
+        ${CMAKE_SOURCE_DIR}/src/tests/vulkan_voxel_rasterizer_2.cpp
         ${GRAPHICS_LIB_SRC}
         ${VOXEL_LIB_SRC}
         ${UTILS_LIB_SRC}
@@ -158,6 +158,12 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/EventBus/lib)
 # add libmorton
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/libmorton)
 
+# add tinyobjloader
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib/tinyobjloader)
+
+# add stb
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib)
+
 # add documentation targets
 add_subdirectory(${CMAKE_SOURCE_DIR}/docs)
 
@@ -186,7 +192,8 @@ file(GLOB
 message(STATUS "Detected shaders to build: ${SHADERS_SOURCE_PATH}")
 
 foreach(SHADER_SOURCE_FILE ${SHADERS_SOURCE_PATH})
-    string(REGEX REPLACE "\\..*" ".spv" SHADER_BINARY_FILE ${SHADER_SOURCE_FILE})
+    set(SHADER_BINARY_FILE ${SHADER_SOURCE_FILE})
+    string(APPEND SHADER_BINARY_FILE ".spv")
     list(APPEND SHADERS_BUILD_PATH "${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}")
     add_custom_command(OUTPUT ${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}
         COMMAND echo "compiling shader: ${SHADER_SOURCE_FILE}" &
@@ -212,6 +219,8 @@ target_include_directories(
         PUBLIC VulkanMemoryAllocator
         PUBLIC Dexode::EventBus
         PUBLIC libmorton
+        PUBLIC tinyobjloader
+        PUBLIC stb
 )
 
 target_link_directories(
@@ -221,16 +230,20 @@ target_link_directories(
         PUBLIC VulkanMemoryAllocator
         PUBLIC Dexode::EventBus
         PUBLIC libmorton
+        PUBLIC tinyobjloader
+        PUBLIC stb
 )
 
 target_link_libraries(
         CubiCAD
-
+        general
         glfw
         Vulkan::Vulkan
         VulkanMemoryAllocator
         Dexode::EventBus
         libmorton
+        tinyobjloader
+        stb
 )
 
 # make

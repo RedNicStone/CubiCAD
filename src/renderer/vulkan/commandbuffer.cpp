@@ -4,22 +4,29 @@
 
 #include "commandbuffer.h"
 
+#include <utility>
 
-CommandBuffer::CommandBuffer(CommandPool *pCommandPool, VkCommandBufferLevel level) : commandPool(pCommandPool) {
+
+std::shared_ptr<CommandBuffer> CommandBuffer::create(const std::shared_ptr<CommandPool> &pCommandPool,
+                                                     VkCommandBufferLevel level) {
+    auto commandBuffer = std::make_shared<CommandBuffer>();
+
     VkCommandBufferAllocateInfo allocateInfo{};
     allocateInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
     allocateInfo.level = level;
     allocateInfo.commandPool = pCommandPool->getHandle();
     allocateInfo.commandBufferCount = 1;
 
-    vkAllocateCommandBuffers(pCommandPool->getDevice()->getHandle(), &allocateInfo, &handle);
+    vkAllocateCommandBuffers(pCommandPool->getDevice()->getHandle(), &allocateInfo, &commandBuffer->handle);
+
+    return commandBuffer;
 }
 
-void CommandBuffer::submitToQueue(std::vector<Semaphore*>& signalSemaphores,
-                                          std::vector<VkPipelineStageFlags> waitStageMask,
-                                          std::vector<Semaphore*>& waitSemaphores,
-                                          Queue* queue,
-                                          Fence* triggerFence) {
+void CommandBuffer::submitToQueue(std::vector<std::shared_ptr<Semaphore>> &signalSemaphores,
+                                  std::vector<VkPipelineStageFlags> waitStageMask,
+                                  std::vector<std::shared_ptr<Semaphore>> &waitSemaphores,
+                                  const std::shared_ptr<Queue> &queue,
+                                  const std::shared_ptr<Fence>& triggerFence) {
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
 
@@ -28,20 +35,20 @@ void CommandBuffer::submitToQueue(std::vector<Semaphore*>& signalSemaphores,
 
     std::vector<VkSemaphore> signalSemaphoreHandles;
     signalSemaphoreHandles.reserve(signalSemaphores.size());
-    for (auto & signalSemaphore : signalSemaphores)
+    for (auto &signalSemaphore: signalSemaphores)
         signalSemaphoreHandles.push_back(signalSemaphore->getHandle());
     submitInfo.signalSemaphoreCount = static_cast<uint32_t>(signalSemaphoreHandles.size());
     submitInfo.pSignalSemaphores = signalSemaphoreHandles.data();
 
     std::vector<VkSemaphore> waitSemaphoreHandles;
     waitSemaphoreHandles.reserve(waitSemaphores.size());
-    for (auto & waitSemaphore : waitSemaphores)
+    for (auto &waitSemaphore: waitSemaphores)
         waitSemaphoreHandles.push_back(waitSemaphore->getHandle());
     submitInfo.waitSemaphoreCount = static_cast<uint32_t>(waitSemaphoreHandles.size());
     submitInfo.pWaitSemaphores = waitSemaphoreHandles.data();
     submitInfo.pWaitDstStageMask = waitStageMask.data();
 
-    queue->submitCommandBuffer( { submitInfo }, triggerFence );
+    queue->submitCommandBuffer({submitInfo}, triggerFence);
 }
 
 void CommandBuffer::beginCommandBuffer(VkCommandBufferUsageFlags flags) {
@@ -64,8 +71,8 @@ void CommandBuffer::endCommandBuffer() {
         throw std::runtime_error("failed to record command buffer");
 }
 
-void CommandBuffer::beginRenderPass(RenderPass *renderPass,
-                                    FrameBuffer *frameBuffer,
+void CommandBuffer::beginRenderPass(const std::shared_ptr<RenderPass> &renderPass,
+                                    const std::shared_ptr<FrameBuffer> &frameBuffer,
                                     std::vector<VkClearValue> &clearValues,
                                     uint32_t frameIndex,
                                     VkExtent2D extend,
@@ -93,14 +100,14 @@ void CommandBuffer::endRenderPass() {
     vkCmdEndRenderPass(handle);
 }
 
-void CommandBuffer::bindPipeline(GraphicsPipeline *pipeline) {
+void CommandBuffer::bindPipeline(const std::shared_ptr<GraphicsPipeline> &pipeline) {
     vkCmdBindPipeline(handle, pipeline->getBindPoint(), pipeline->getHandle());
 }
 
-void CommandBuffer::bindDescriptorSets(std::vector<DescriptorSet *> &descriptorSets,
-                                       PipelineLayout *layout,
+void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
+                                       const std::shared_ptr<PipelineLayout> &layout,
                                        VkPipelineBindPoint bindPoint,
-                                       std::vector<uint32_t>& offsets) {
+                                       std::vector<uint32_t> &offsets) {
     std::vector<VkDescriptorSet> descriptorHandles(descriptorSets.size());
     for (size_t i = 0; i < descriptorSets.size(); i++) {
         descriptorHandles[i] = descriptorSets[i]->getHandle();
@@ -109,24 +116,30 @@ void CommandBuffer::bindDescriptorSets(std::vector<DescriptorSet *> &descriptorS
                             bindPoint,
                             layout->getHandle(),
                             0,
-                            static_cast<uint32_t>(descriptorSets.size()),
+                            static_cast<uint32_t>(descriptorHandles.size()),
                             descriptorHandles.data(),
                             static_cast<uint32_t>(offsets.size()),
                             offsets.data());
 }
 
-void CommandBuffer::bindDescriptorSets(std::vector<DescriptorSet *> &descriptorSets,
-                                       PipelineBase *pipeline,
-                                       std::vector<uint32_t>& offsets) {
+void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
+                                       const std::shared_ptr<PipelineBase> &pipeline,
+                                       std::vector<uint32_t> &offsets) {
     bindDescriptorSets(descriptorSets, pipeline->getLayout(), pipeline->getBindPoint(), offsets);
 }
 
-void CommandBuffer::bindVertexBuffer(Buffer *buffer, uint32_t slot, VkDeviceSize offset) {
+void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
+                                                                       const std::shared_ptr<PipelineBase> &pipeline) {
+    std::vector<uint32_t> offsets{};
+    bindDescriptorSets(descriptorSets, pipeline->getLayout(), pipeline->getBindPoint(), offsets);
+}
+
+void CommandBuffer::bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t slot, VkDeviceSize offset) {
     VkBuffer bufferHandle = buffer->getHandle();
     vkCmdBindVertexBuffers(handle, slot, 1, &bufferHandle, &offset);
 }
 
-void CommandBuffer::bindIndexBuffer(Buffer *buffer, VkIndexType type, VkDeviceSize offset) {
+void CommandBuffer::bindIndexBuffer(const std::shared_ptr<Buffer> &buffer, VkIndexType type, VkDeviceSize offset) {
     vkCmdBindIndexBuffer(handle, buffer->getHandle(), offset, type);
 }
 

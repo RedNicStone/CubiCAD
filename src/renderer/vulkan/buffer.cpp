@@ -4,29 +4,32 @@
 
 #include <vulkan/vulkan_core.h>
 
+#include <utility>
+
 #include "buffer.h"
 
 
-Buffer::Buffer(Device *device_,
-               VkDeviceSize size,
-               VmaMemoryUsage memoryUsage,
-               VkMemoryPropertyFlags preferredFlags,
-               VkBufferUsageFlagBits bufferUsage,
-               std::vector<uint32_t> accessingQueues) {
-    device = device_;
-    deviceSize = size;
+std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
+                                       VkDeviceSize size,
+                                       VmaMemoryUsage memoryUsage,
+                                       VkMemoryPropertyFlags preferredFlags,
+                                       VkBufferUsageFlagBits bufferUsage,
+                                       std::vector<uint32_t> accessingQueues) {
+    auto buffer = std::make_shared<Buffer>();
+    buffer->device = std::move(pDevice);
+    buffer->deviceSize = size;
 
     VkBufferCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
     createInfo.size = size;
     createInfo.usage = bufferUsage;
+    createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
+    createInfo.pQueueFamilyIndices = accessingQueues.data();
 
-    if (accessingQueues.size() < 2)
-        createInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
-    else {
+    if (accessingQueues.size() >= 2)
         createInfo.sharingMode = VK_SHARING_MODE_CONCURRENT;
-        createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
-        createInfo.pQueueFamilyIndices = accessingQueues.data();
+    else {
+        createInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
     }
 
     VmaAllocationCreateInfo allocationCreateInfo{};
@@ -34,17 +37,26 @@ Buffer::Buffer(Device *device_,
     allocationCreateInfo.flags = VMA_ALLOCATION_CREATE_MAPPED_BIT;
     allocationCreateInfo.preferredFlags = preferredFlags;
 
-    if (vmaCreateBuffer(device->getAllocator(),
+    if (vmaCreateBuffer(buffer->device->getAllocator(),
                         &createInfo,
                         &allocationCreateInfo,
-                        &handle,
-                        &allocation,
-                        &allocationInfo) != VK_SUCCESS)
+                        &buffer->handle,
+                        &buffer->allocation,
+                        &buffer->allocationInfo) != VK_SUCCESS)
         throw std::runtime_error("could not allocate memory");
+
+    return buffer;
 }
 
-Buffer Buffer::createHostStagingBuffer(Device *device_, VkDeviceSize size, std::vector<uint32_t> &accessingQueues) {
-    return Buffer(device_, size, VMA_MEMORY_USAGE_CPU_ONLY, 0, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, accessingQueues);
+std::shared_ptr<Buffer> Buffer::createHostStagingBuffer(std::shared_ptr<Device> pDevice,
+                                                        VkDeviceSize size,
+                                                        std::vector<uint32_t> &accessingQueues) {
+    return Buffer::create(std::move(pDevice),
+                          size,
+                          VMA_MEMORY_USAGE_CPU_ONLY,
+                          0,
+                          VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+                          accessingQueues);
 }
 
 void *Buffer::map() {
@@ -63,4 +75,11 @@ void Buffer::unmap() {
 
 Buffer::~Buffer() {
     vmaDestroyBuffer(device->getAllocator(), handle, allocation);
+}
+
+void Buffer::transferDataMapped(void *src) {
+    void *dst;
+    vmaMapMemory(device->getAllocator(), allocation, &dst);
+    memcpy(dst, src, allocationInfo.size);
+    vmaUnmapMemory(device->getAllocator(), allocation);
 }

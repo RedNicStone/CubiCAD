@@ -19,30 +19,36 @@
 
 class Buffer : public VulkanClass<VkBuffer> {
   private:
-    Device *device;
+    std::shared_ptr<Device> device;
     VmaAllocation allocation;
     VmaAllocationInfo allocationInfo{};
 
     VkDeviceSize deviceSize;
 
   public:
-    Buffer(Device *device_,
-           VkDeviceSize size,
-           VmaMemoryUsage memoryUsage,
-           VkMemoryPropertyFlags preferredFlags,
-           VkBufferUsageFlagBits bufferUsage,
-           std::vector<uint32_t> accessingQueues);
+    static std::shared_ptr<Buffer> create(std::shared_ptr<Device> pDevice,
+                                          VkDeviceSize size,
+                                          VmaMemoryUsage memoryUsage,
+                                          VkMemoryPropertyFlags preferredFlags,
+                                          VkBufferUsageFlagBits bufferUsage,
+                                          std::vector<uint32_t> accessingQueues);
 
-    static Buffer createHostStagingBuffer(Device *device_, VkDeviceSize size, std::vector<uint32_t> &accessingQueues);
+    static std::shared_ptr<Buffer> createHostStagingBuffer(std::shared_ptr<Device> pDevice,
+                                                           VkDeviceSize size,
+                                                           std::vector<uint32_t> &accessingQueues);
 
-    Device &getDevice() const { return *device; }
+    void transferDataMapped(void* src);
 
-    VkDeviceSize getSize() const { return deviceSize; }
+    std::shared_ptr<Device> getDevice() { return device; }
+
+    VmaAllocation getAllocation() { return allocation; }
+
+    [[nodiscard]] VkDeviceSize getSize() const { return deviceSize; }
 
     void *map();
     void unmap();
 
-    ~Buffer();  // TODO is this object destructed when it goes out of scope?
+    ~Buffer();
 };
 
 #endif //CUBICAD_BUFFER_H

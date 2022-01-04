@@ -26,18 +26,18 @@ int main() {
 
     glfwInit();
 
-    Instance instance = Instance("api_test", version, true);
+    auto instance = Instance::create("api_test", version, true);
 
     Window::initWindows();
-    Window window = Window(&instance, "API Test " + std::to_string(version), 1080, 720);
+    auto window = Window::create(instance, "API Test " + std::to_string(version), 1080, 720);
 
-    PhysicalDevice physical_device = instance.getPhysicalDevice()[0];
-    physical_device.queryDeviceProperties();
+    auto physical_device = instance->getPhysicalDevice()[0];
+    physical_device->queryDeviceProperties();
 
     VkPhysicalDeviceFeatures features{};
     std::vector<const char *> deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 
-    QueueFamilyHandler *familyHandler = physical_device.getQueueFamilyHandler();
+    auto familyHandler = physical_device->getQueueFamilyHandler();
 
     optional<uint32_t> graphicsFamily = familyHandler->getOptimalQueueFamily(VK_QUEUE_GRAPHICS_BIT);
     if (graphicsFamily.has_value())
@@ -47,32 +47,35 @@ int main() {
     if (transferFamily.has_value())
         familyHandler->registerQueueFamilyAllocation(transferFamily.value(), 1);
 
-    optional<uint32_t> presentFamily = familyHandler->getOptimalPresentQueue(&window);
+    optional<uint32_t> presentFamily = familyHandler->getOptimalPresentQueue(window);
     if (presentFamily.has_value())
         familyHandler->registerQueueFamilyAllocation(presentFamily.value(), 1);
 
     std::vector<uint32_t> swapChainQueues = familyHandler->getRegisteredQueueFamilies();
 
-    Device device = Device(&physical_device, deviceExtensions, features);
+    auto device = Device::create(physical_device, deviceExtensions, features);
 
-    Queue *presentQueue = physical_device.getQueueFamilyHandler()->getQueueFamily(presentFamily.value())->getQueue(0);
-    Queue *graphicsQueue = physical_device.getQueueFamilyHandler()->getQueueFamily(graphicsFamily.value())->getQueue(0);
-    Queue *transferQueue = physical_device.getQueueFamilyHandler()->getQueueFamily(transferFamily.value())->getQueue(0);
+    auto presentQueue = physical_device->getQueueFamilyHandler()->getQueueFamily(presentFamily.value())->getQueue(0);
+    auto graphicsQueue = physical_device->getQueueFamilyHandler()->getQueueFamily(graphicsFamily.value())->getQueue(0);
+    auto transferQueue = physical_device->getQueueFamilyHandler()->getQueueFamily(transferFamily.value())->getQueue(0);
 
-    SwapChain swapChain = SwapChain(&device, &window, presentQueue, 3, swapChainQueues);
+    std::cout << "Graphics queue: " << graphicsQueue->getHandle() << std::endl;
+    std::cout << "Present queue: " << presentQueue->getHandle() << std::endl;
 
-    RenderPass renderPass = RenderPass(&device);
+    auto swapChain = SwapChain::create(device, window, presentQueue, 3, swapChainQueues);
+
+    auto renderPass = RenderPass::create(device);
     std::vector<VkAttachmentReference>
         attachments =
-        {{renderPass.submitSwapChainAttachment(&swapChain, true), VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL}};
+        {{renderPass->submitSwapChainAttachment(swapChain, true), VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL}};
     uint32_t
         renderPassID =
-        renderPass.submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
+        renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                  attachments,
                                  nullptr,
                                  VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
-    renderPass.submitDependency(VK_SUBPASS_EXTERNAL, renderPassID, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
-    renderPass.build();
+    renderPass->submitDependency(VK_SUBPASS_EXTERNAL, renderPassID, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
+    renderPass->build();
 
     struct FrameInfoObject {
         glm::mediump_uint32_t frameCount;
@@ -83,7 +86,7 @@ int main() {
 
     std::vector<VkDescriptorPoolSize> poolSizes(1);
     poolSizes[0].type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    poolSizes[0].descriptorCount = swapChain.getImageCount();
+    poolSizes[0].descriptorCount = swapChain->getImageCount();
 
     std::vector<VkDescriptorSetLayoutBinding> setLayoutBindings(1);
     setLayoutBindings[0].binding = 0;
@@ -92,63 +95,63 @@ int main() {
     setLayoutBindings[0].pImmutableSamplers = nullptr;
     setLayoutBindings[0].stageFlags = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT;
 
-    std::vector<DescriptorSetLayout> descriptorLayouts{};
-    descriptorLayouts.emplace_back(&device, setLayoutBindings);
+    std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{};
+    descriptorLayouts.push_back(DescriptorSetLayout::create(device, setLayoutBindings));
 
-    PipelineLayout layout = PipelineLayout(&device, descriptorLayouts);
+    auto layout = PipelineLayout::create(device, descriptorLayouts);
 
-    DescriptorPool descriptorPool = DescriptorPool(&device, poolSizes);
+    auto descriptorPool = DescriptorPool::create(device, poolSizes);
 
-    std::vector<UniformBuffer<FrameInfoObject>> frameInfoBuffers{};
-    std::vector<DescriptorSet> descriptorSets{};
+    std::vector<std::shared_ptr<UniformBuffer<FrameInfoObject>>> frameInfoBuffers{};
+    std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{};
 
-    frameInfoBuffers.reserve(swapChain.getImageCount());
-    descriptorSets.reserve(swapChain.getImageCount());
+    frameInfoBuffers.reserve(swapChain->getImageCount());
+    descriptorSets.reserve(swapChain->getImageCount());
 
-    for (uint32_t i = 0; i < swapChain.getImageCount(); i++) {
-        UniformBuffer<FrameInfoObject> x = UniformBuffer<FrameInfoObject>(&device, transferQueue);
-        frameInfoBuffers.emplace_back(&device, transferQueue);
-        descriptorSets.emplace_back(&descriptorLayouts[0], &descriptorPool);
-        descriptorSets[i].updateUniformBuffer(&frameInfoBuffers[i], 0);
+    for (uint32_t i = 0; i < swapChain->getImageCount(); i++) {
+        frameInfoBuffers.push_back(UniformBuffer<FrameInfoObject>::create(device, transferQueue));
+        descriptorSets.push_back(DescriptorSet::create(descriptorLayouts[0], descriptorPool));
+        descriptorSets[i]->updateUniformBuffer(frameInfoBuffers[i], 0);
     }
 
-    VertexShader vertexShader = VertexShader(&device, "main", "resources/shaders/vert_quad.spv");
-    FragmentShader fragmentShader = FragmentShader(&device, "main", "resources/shaders/frag_uv.spv");
-    std::vector<GraphicsShader *> shaders = {&vertexShader, &fragmentShader};
+    auto vertexShader = VertexShader::create(device, "main", "resources/shaders/compiled/quad.vert.spv");
+    auto fragmentShader = FragmentShader::create(device, "main", "resources/shaders/compiled/uv.frag.spv");
+    std::vector<std::shared_ptr<GraphicsShader>> shaders = {vertexShader, fragmentShader};
 
-    GraphicsPipeline pipeline = GraphicsPipeline(&device, &layout, shaders, renderPass, swapChain
-    .getSwapExtent());
+    auto pipeline = GraphicsPipeline::create(device, layout, shaders, renderPass, swapChain->getSwapExtent());
 
-    std::vector<std::vector<ImageView>> imageViews(swapChain.getImageCount(), std::vector<ImageView>());
+    std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(swapChain->getImageCount(),
+                                                                    std::vector<std::shared_ptr<ImageView>>
+        ());
 
-    FrameBuffer frameBuffer = FrameBuffer(&device, &renderPass, &swapChain, imageViews);
+    auto frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
 
-    CommandPool graphicsPool = CommandPool(&device, graphicsQueue, 0);
-    CommandPool presentPool = CommandPool(&device, presentQueue, 0);
+    auto graphicsPool = CommandPool::create(device, graphicsQueue, 0);
+    auto presentPool = CommandPool::create(device, presentQueue, 0);
 
-    std::vector<CommandBuffer> graphicsBuffers{};
+    std::vector<std::shared_ptr<CommandBuffer>> graphicsBuffers{};
 
-    graphicsBuffers.reserve(swapChain.getImageCount());
-    for (uint32_t i = 0; i < swapChain.getImageCount(); i++) {
-        graphicsBuffers.emplace_back(&graphicsPool,VK_COMMAND_BUFFER_LEVEL_PRIMARY);
+    graphicsBuffers.reserve(swapChain->getImageCount());
+    for (uint32_t i = 0; i < swapChain->getImageCount(); i++) {
+        graphicsBuffers.push_back(CommandBuffer::create(graphicsPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY));
 
-        graphicsBuffers[i].beginCommandBuffer();
+        graphicsBuffers[i]->beginCommandBuffer();
 
         std::vector<VkClearValue> clearColors = {{{{0.0f, 0.0f, 0.0f, 1.0f}}}};
-        graphicsBuffers[i].beginRenderPass(&renderPass, &frameBuffer, clearColors, i, swapChain.getSwapExtent(),
+        graphicsBuffers[i]->beginRenderPass(renderPass, frameBuffer, clearColors, i, swapChain->getSwapExtent(),
                                            VkOffset2D{0, 0});
 
-        graphicsBuffers[i].bindPipeline(&pipeline);
+        graphicsBuffers[i]->bindPipeline(pipeline);
 
-        std::vector<DescriptorSet*> pDescriptorSets { &descriptorSets[i] };
+        std::vector<std::shared_ptr<DescriptorSet>> pDescriptorSets = { descriptorSets[i] };
         std::vector<uint32_t> offsets { };
-        graphicsBuffers[i].bindDescriptorSets(pDescriptorSets, &pipeline, offsets);
+        graphicsBuffers[i]->bindDescriptorSets(pDescriptorSets, pipeline, offsets);
 
-        graphicsBuffers[i].draw(6);
+        graphicsBuffers[i]->draw(6);
 
-        graphicsBuffers[i].endRenderPass();
+        graphicsBuffers[i]->endRenderPass();
 
-        graphicsBuffers[i].endCommandBuffer();
+        graphicsBuffers[i]->endCommandBuffer();
     }
 
     dexode::EventBus::Listener listener{publicRenderBus.getBus()};
@@ -156,26 +159,28 @@ int main() {
         //swapChain.getPresentFence()->waitForSignal();
         //swapChain.getPresentFence()->resetState();
 
-        std::vector<Semaphore*> signalSemaphores = swapChain.getRenderSignalSemaphores();
-        std::vector<Semaphore*> waitSemaphores = swapChain.getRenderWaitSemaphores();
-        graphicsBuffers[swapChain.getCurrentImageIndex()].submitToQueue(signalSemaphores,
+        std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
+        std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
+        std::cout << "submitting using image index: " << swapChain->getCurrentImageIndex() << std::endl;
+        std::cout << "submitting using image: " << swapChain->getCurrentFrame() << std::endl;
+        graphicsBuffers[swapChain->getCurrentImageIndex()]->submitToQueue(signalSemaphores,
                                                                    { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
                                                                    waitSemaphores,
                                                                    graphicsQueue,
-                                                                   swapChain.getPresentFence());
+                                                                   swapChain->getPresentFence());
 
 
         while (graphicsQueue->hasWorkSubmitted()) {
-            std::this_thread::sleep_for(std::chrono::nanoseconds(1000));
+            std::this_thread::sleep_for(std::chrono::nanoseconds(100));
         }
     });
 
     static auto startTime = std::chrono::high_resolution_clock::now();
     auto frameTime = startTime;
     listener.listen<PreRenderUpdateBuffersEvent>([&](const auto &event) {
-        FrameInfoObject* handle = frameInfoBuffers[swapChain.getCurrentImageIndex()].getDataHandle();
+        FrameInfoObject* handle = frameInfoBuffers[swapChain->getCurrentImageIndex()]->getDataHandle();
         handle->frameCount++;
-        handle->frameID = static_cast<unsigned char>(swapChain.getCurrentImageIndex());
+        handle->frameID = static_cast<unsigned char>(swapChain->getCurrentImageIndex());
 
         auto currentTime = std::chrono::high_resolution_clock::now();
 
@@ -189,7 +194,52 @@ int main() {
 
     publicRenderBus.getBus()->process();
 
+    /*while (true) {
+        //swapChain->doRenderLoop(&graphicsBuffers, graphicsQueue);
+        //publicRenderBus.runRenderLoop(device);
+    }*/
+
+    auto imageAvailableSemaphore = Semaphore::create(device);
+    auto renderFinishedSemaphore = Semaphore::create(device);
+
     while (true) {
-        publicRenderBus.runRenderLoop(&device);
+        uint32_t imageIndex;
+        vkAcquireNextImageKHR(device->getHandle(), swapChain->getHandle(), UINT64_MAX, imageAvailableSemaphore->getHandle(),
+                              VK_NULL_HANDLE, &imageIndex);
+
+        VkSubmitInfo submitInfo{};
+        submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+
+        VkSemaphore waitSemaphores[] = {imageAvailableSemaphore->getHandle()};
+        VkPipelineStageFlags waitStages[] = {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT};
+        submitInfo.waitSemaphoreCount = 1;
+        submitInfo.pWaitSemaphores = waitSemaphores;
+        submitInfo.pWaitDstStageMask = waitStages;
+
+        submitInfo.commandBufferCount = 1;
+        VkCommandBuffer buffer = graphicsBuffers[imageIndex]->getHandle();
+        submitInfo.pCommandBuffers = &buffer;
+
+        VkSemaphore signalSemaphores[] = {renderFinishedSemaphore->getHandle()};
+        submitInfo.signalSemaphoreCount = 1;
+        submitInfo.pSignalSemaphores = signalSemaphores;
+
+        if (vkQueueSubmit(graphicsQueue->getHandle(), 1, &submitInfo, VK_NULL_HANDLE) != VK_SUCCESS) {
+            throw std::runtime_error("failed to submit draw command buffer!");
+        }
+
+        VkPresentInfoKHR presentInfo{};
+        presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+
+        presentInfo.waitSemaphoreCount = 1;
+        presentInfo.pWaitSemaphores = signalSemaphores;
+
+        VkSwapchainKHR swapChains[] = {swapChain->getHandle()};
+        presentInfo.swapchainCount = 1;
+        presentInfo.pSwapchains = swapChains;
+        presentInfo.pImageIndices = &imageIndex;
+        presentInfo.pResults = nullptr; // Optional
+
+        vkQueuePresentKHR(presentQueue->getHandle(), &presentInfo);
     }
 }

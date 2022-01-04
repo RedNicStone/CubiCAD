@@ -20,9 +20,11 @@ void Device::createMemoryAllocator() {
     vmaCreateAllocator(&createInfo, &allocator);
 }
 
-Device::Device(PhysicalDevice *physicalDevice,
-               std::vector<const char *> deviceExtensions,
-               const VkPhysicalDeviceFeatures &deviceFeatures) : physicalDevice(physicalDevice) {
+std::shared_ptr<Device> Device::create(const std::shared_ptr<PhysicalDevice> &physicalDevice,
+                                       std::vector<const char *> deviceExtensions,
+                                       const VkPhysicalDeviceFeatures &deviceFeatures) {
+    auto device = std::make_shared<Device>();
+    device->physicalDevice = physicalDevice;
 
     physicalDevice->getQueueFamilyHandler()->createQueues();
     std::vector<VkDeviceQueueCreateInfo> queueCreateInfos = physicalDevice->getQueueFamilyHandler()->getCreateInfo();
@@ -42,15 +44,21 @@ Device::Device(PhysicalDevice *physicalDevice,
     createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
     createInfo.ppEnabledLayerNames = validationLayers.data();
 
-    if (vkCreateDevice(physicalDevice->getHandle(), &createInfo, nullptr, &handle) != VK_SUCCESS) {
+    if (vkCreateDevice(physicalDevice->getHandle(), &createInfo, nullptr, &device->handle) != VK_SUCCESS) {
         throw std::runtime_error("failed to create logical device!");
     }
 
-    physicalDevice->getQueueFamilyHandler()->getQueues(this);
+    physicalDevice->getQueueFamilyHandler()->getQueues(device);
 
-    createMemoryAllocator();
+    device->createMemoryAllocator();
+
+    return device;
 }
 
-void Device::cleanup() {
+Device::~Device() {
     vkDestroyDevice(handle, nullptr);
+}
+
+void Device::waitIdle() {
+    vkDeviceWaitIdle(handle);
 }

@@ -38,7 +38,7 @@ class SwapChain;
 //todo implement multiple subpasses, dependencies and color / input attachments
 class RenderPass : public VulkanClass<VkRenderPass> {
   private:
-    Device *device;
+    std::shared_ptr<Device> device;
 
     std::vector<VkAttachmentDescription> attachments;
     std::vector<VkSubpassDescription> subpasses;
@@ -46,9 +46,9 @@ class RenderPass : public VulkanClass<VkRenderPass> {
     std::vector<VkSubpassDependency> dependencies;
 
   public:
-    explicit RenderPass(Device *pDevice) : device(pDevice) {};
+    static std::shared_ptr<RenderPass> create(std::shared_ptr<Device> pDevice);
 
-    Device &getDevice() { return *device; }
+    std::shared_ptr<Device> getDevice() { return device; }
 
     uint32_t submitImageAttachment(VkFormat format,
                                    VkSampleCountFlagBits sampleCount,
@@ -59,16 +59,19 @@ class RenderPass : public VulkanClass<VkRenderPass> {
                                    VkImageLayout initialLayout,
                                    VkImageLayout finalLayout);
 
-    uint32_t submitSwapChainAttachment(SwapChain *swapChain, bool clearImage);
+    uint32_t submitSwapChainAttachment(const std::shared_ptr<SwapChain> &swapChain, bool clearImage);
 
     uint32_t submitSubpass(VkPipelineBindPoint bindPoint,
                            std::vector<VkAttachmentReference> &colorAttachments,
+                           std::vector<VkAttachmentReference> &inputAttachments,
                            VkAttachmentReference *depthAttachment,
                            VkPipelineStageFlags stage);
 
     void submitDependency(uint32_t src, uint32_t dst, VkAccessFlags srcAccess, VkAccessFlags dstAccess);
 
     void build();
+
+    ~RenderPass();
 };
 
 #endif //CUBICAD_RENDERPASS_H

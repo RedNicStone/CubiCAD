@@ -21,23 +21,25 @@
 
 class PipelineLayout : public VulkanClass<VkPipelineLayout> {
   private:
-    Device *device;
+    std::shared_ptr<Device> device;
 
-    std::vector<DescriptorSetLayout> descriptorSetLayouts;
-    std::vector<PushConstantRange> pushConstantRanges;
+    std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorSetLayouts;
+    std::vector<std::shared_ptr<PushConstantRange>> pushConstantRanges;
 
   public:
-    PipelineLayout(Device *pDevice,
-                   std::vector<DescriptorSetLayout> &descriptorLayouts,
-                   std::vector<PushConstantRange> &pushConstants);
+    static std::shared_ptr<PipelineLayout> create(std::shared_ptr<Device> pDevice,
+                                                  std::vector<std::shared_ptr<DescriptorSetLayout>> &descriptorLayouts,
+                                                  std::vector<std::shared_ptr<PushConstantRange>> &pushConstants);
 
-    PipelineLayout(Device *pDevice, std::vector<DescriptorSetLayout> &descriptorLayouts);
+    static std::shared_ptr<PipelineLayout> create(std::shared_ptr<Device> pDevice,
+                                                  std::vector<std::shared_ptr<DescriptorSetLayout>> &descriptorLayouts);
 
-    PipelineLayout(Device *pDevice, std::vector<PushConstantRange> &pushConstants);
+    static std::shared_ptr<PipelineLayout> create(std::shared_ptr<Device> pDevice,
+                                                  std::vector<std::shared_ptr<PushConstantRange>> &pushConstants);
 
-    explicit PipelineLayout(Device *pDevice);
+    static std::shared_ptr<PipelineLayout> create(std::shared_ptr<Device> pDevice);
 
-    Device &getDevice() const { return *device; }
+    std::shared_ptr<Device> getDevice() { return device; }
 
     ~PipelineLayout();
 };

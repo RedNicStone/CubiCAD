@@ -13,7 +13,7 @@
 
 
 struct RenderEvent {
-    Device *device;
+    std::shared_ptr<Device> device;
 };
 
 struct PreRenderAcquireFrameEvent : public RenderEvent {};
@@ -31,7 +31,8 @@ class RenderBus {
   public:
     RenderBus();
 
-    void runRenderLoop(Device *device);
+    void runRenderLoop(std::shared_ptr<Device> device);
+    void runRenderLoop_(std::shared_ptr<Device> device);
 
     std::shared_ptr<dexode::EventBus> getBus() { return eventBus; }
 };
