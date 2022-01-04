@@ -15,7 +15,6 @@
 #include <string>
 
 #include "device.h"
-#include "../../utils/utils.h"
 
 
 class Shader {

@@ -6,9 +6,11 @@
 
 #include <utility>
 
+#include "../../utils/utils.h"
+
 
 Shader::Shader(Device *device, std::string name, const std::string &filename) : name(std::move(name)), device(device) {
-    shaderCode = readFile(filename);
+    shaderCode = Utils::readFile(filename);
     loadModule();
 }
 

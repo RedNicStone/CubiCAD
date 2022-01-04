@@ -2,7 +2,7 @@
 // Created by nic on 07/05/2021.
 //
 
-#include "../Math/Octree/octree.h"
+#include "../voxel/VoxelCodecSparseOctree.h"
 
 
 int main() {
