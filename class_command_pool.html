@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_command_pool.html',''); initResi
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_command_pool-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">CommandPool Class Reference</div></div>
 </div><!--header-->
@@ -102,13 +103,13 @@ $(document).ready(function(){initNavTree('class_command_pool.html',''); initResi
 <div class="dynheader">
 Inheritance diagram for CommandPool:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_pool__inherit__graph.svg" width="247" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_pool__inherit__graph.svg" width="247" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for CommandPool:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_pool__coll__graph.svg" width="247" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_pool__coll__graph.svg" width="247" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -132,6 +133,13 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0c7b1a49862653552ece1efda2a73ae3"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_pool.html#a0c7b1a49862653552ece1efda2a73ae3">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pQueue, VkCommandPoolCreateFlags flags)</td></tr>
 <tr class="separator:a0c7b1a49862653552ece1efda2a73ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a0c72a0263fbc1a7b47b01e93e3f3c519"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_pool.html#a0c72a0263fbc1a7b47b01e93e3f3c519">device</a></td></tr>
+<tr class="separator:a0c72a0263fbc1a7b47b01e93e3f3c519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a014f41877c285a904537409836d7d83d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_pool.html#a014f41877c285a904537409836d7d83d">queue</a></td></tr>
+<tr class="separator:a014f41877c285a904537409836d7d83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -200,7 +208,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_command_pool_a0c7b1a49862653552ece1efda2a73ae3_icgraph.svg" width="259" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_command_pool_a0c7b1a49862653552ece1efda2a73ae3_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -275,6 +283,51 @@ Here is the caller graph for this function:</div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0c72a0263fbc1a7b47b01e93e3f3c519" name="a0c72a0263fbc1a7b47b01e93e3f3c519"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c72a0263fbc1a7b47b01e93e3f3c519">&#9670;&nbsp;</a></span>device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_device.html">Device</a>&gt; CommandPool::device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a014f41877c285a904537409836d7d83d" name="a014f41877c285a904537409836d7d83d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a014f41877c285a904537409836d7d83d">&#9670;&nbsp;</a></span>queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_queue.html">Queue</a>&gt; CommandPool::queue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

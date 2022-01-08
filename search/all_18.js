@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_0',['y',['../struct_voxel_region.html#a25b82ec832d13f05aab38b4494749390',1,'VoxelRegion::y()'],['../struct_voxel_position.html#a339620da79f6d3e9456ff1dec72a7d82',1,'VoxelPosition::y()']]]
+  ['x_0',['x',['../struct_voxel_region.html#a3b7f9a7e6de178d02cc4986629b0ebb2',1,'VoxelRegion::x()'],['../struct_voxel_position.html#a623c22a27612716cdf31c286eaf79d83',1,'VoxelPosition::x()']]]
 ];

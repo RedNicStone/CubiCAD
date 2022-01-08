@@ -6,12 +6,7 @@ var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
     [ "mastermaterial.cpp", "mastermaterial_8cpp.html", null ],
     [ "mastermaterial.h", "mastermaterial_8h.html", "mastermaterial_8h" ],
     [ "material.cpp", "material_8cpp.html", null ],
-    [ "material.h", "material_8h.html", [
-      [ "Material", "class_material.html", [
-        [ "materialObject", "struct_material_1_1material_object.html", null ]
-      ] ],
-      [ "Material::materialObject", "struct_material_1_1material_object.html", null ]
-    ] ],
+    [ "material.h", "material_8h.html", "material_8h" ],
     [ "materiallibrary.cpp", "materiallibrary_8cpp.html", null ],
     [ "materiallibrary.h", "materiallibrary_8h.html", "materiallibrary_8h" ],
     [ "mesh.cpp", "mesh_8cpp.html", null ],

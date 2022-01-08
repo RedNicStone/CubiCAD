@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_queue_family.html',''); initResi
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_queue_family-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">QueueFamily Class Reference</div></div>
 </div><!--header-->
@@ -102,13 +103,13 @@ $(document).ready(function(){initNavTree('class_queue_family.html',''); initResi
 <div class="dynheader">
 Inheritance diagram for QueueFamily:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family__inherit__graph.svg" width="192" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family__inherit__graph.svg" width="192" height="346"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for QueueFamily:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family__coll__graph.svg" width="192" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family__coll__graph.svg" width="192" height="346"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -129,6 +130,17 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ea0be17b56da59ce42c8bb6219e56ff"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_queue_family.html">QueueFamily</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family.html#a0ea0be17b56da59ce42c8bb6219e56ff">create</a> (const std::shared_ptr&lt; <a class="el" href="class_queue_family_handler.html">QueueFamilyHandler</a> &gt; &amp;pFamilyHandler, uint32_t family, uint32_t count)</td></tr>
 <tr class="separator:a0ea0be17b56da59ce42c8bb6219e56ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a40c1117bf981e7d3facbe9e531efdb8d"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="class_queue_family_handler.html">QueueFamilyHandler</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family.html#a40c1117bf981e7d3facbe9e531efdb8d">familyHandler</a></td></tr>
+<tr class="separator:a40c1117bf981e7d3facbe9e531efdb8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afca0ddcd21f98d7271c6882910289180"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family.html#afca0ddcd21f98d7271c6882910289180">queues</a></td></tr>
+<tr class="separator:afca0ddcd21f98d7271c6882910289180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5acc27a01176c71d63bf55a296e308dc"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family.html#a5acc27a01176c71d63bf55a296e308dc">queueFamily</a></td></tr>
+<tr class="separator:a5acc27a01176c71d63bf55a296e308dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22499c6787dbbc888e5245c3b44b1705"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family.html#a22499c6787dbbc888e5245c3b44b1705">queueCount</a></td></tr>
+<tr class="separator:a22499c6787dbbc888e5245c3b44b1705"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0ea0be17b56da59ce42c8bb6219e56ff" name="a0ea0be17b56da59ce42c8bb6219e56ff"></a>
@@ -293,6 +305,95 @@ Here is the call graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family_a97fd7454057a4df54825332560d29846_cgraph.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a40c1117bf981e7d3facbe9e531efdb8d" name="a40c1117bf981e7d3facbe9e531efdb8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c1117bf981e7d3facbe9e531efdb8d">&#9670;&nbsp;</a></span>familyHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::weak_ptr&lt;<a class="el" href="class_queue_family_handler.html">QueueFamilyHandler</a>&gt; QueueFamily::familyHandler</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22499c6787dbbc888e5245c3b44b1705" name="a22499c6787dbbc888e5245c3b44b1705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22499c6787dbbc888e5245c3b44b1705">&#9670;&nbsp;</a></span>queueCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t QueueFamily::queueCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5acc27a01176c71d63bf55a296e308dc" name="a5acc27a01176c71d63bf55a296e308dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5acc27a01176c71d63bf55a296e308dc">&#9670;&nbsp;</a></span>queueFamily</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t QueueFamily::queueFamily</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afca0ddcd21f98d7271c6882910289180" name="afca0ddcd21f98d7271c6882910289180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca0ddcd21f98d7271c6882910289180">&#9670;&nbsp;</a></span>queues</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_queue.html">Queue</a>&gt; &gt; QueueFamily::queues</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

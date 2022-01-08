@@ -92,6 +92,8 @@ $(document).ready(function(){initNavTree('class_c_c_a_d___o_t_1_1_ot_geometry_co
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">CCAD_OT::OtGeometryCompiler&lt; T_index, T_vertex &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -101,7 +103,7 @@ $(document).ready(function(){initNavTree('class_c_c_a_d___o_t_1_1_ot_geometry_co
 <div class="dynheader">
 Collaboration diagram for CCAD_OT::OtGeometryCompiler&lt; T_index, T_vertex &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_geometry_compiler__coll__graph.svg" width="222" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_geometry_compiler__coll__graph.svg" width="222" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -109,8 +111,87 @@ Collaboration diagram for CCAD_OT::OtGeometryCompiler&lt; T_index, T_vertex &gt;
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac48c63a9a04869b69c396933e3ad0c70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#ac48c63a9a04869b69c396933e3ad0c70">generateVertexData</a> (const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_root.html">OtNodeRoot</a> &amp;node_root)</td></tr>
 <tr class="separator:ac48c63a9a04869b69c396933e3ad0c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1b41486a5bbb8509281bd7bca5088ed9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#a1b41486a5bbb8509281bd7bca5088ed9">recursive_iterate_nodes_</a> (<a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> &amp;node, int pos_x, int pos_z, int pos_y, int level)</td></tr>
+<tr class="separator:a1b41486a5bbb8509281bd7bca5088ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac40a92a29d756e23bead02f1ff9bbf92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#ac40a92a29d756e23bead02f1ff9bbf92">generate_data_</a> (const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_surface_info.html">OtSurfaceInfo</a> &amp;info, int pos_x, int pos_z, int pos_y, int level)</td></tr>
+<tr class="separator:ac40a92a29d756e23bead02f1ff9bbf92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4ffbde01ba8cd2eff2672dd37c261ad5"><td class="memItemLeft" align="right" valign="top">T_index *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#a4ffbde01ba8cd2eff2672dd37c261ad5">pIndexBuffer</a></td></tr>
+<tr class="separator:a4ffbde01ba8cd2eff2672dd37c261ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad3907ed731f065e0e573082eaa9a36c"><td class="memItemLeft" align="right" valign="top">T_vertex *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#aad3907ed731f065e0e573082eaa9a36c">pVertexBuffer</a></td></tr>
+<tr class="separator:aad3907ed731f065e0e573082eaa9a36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b4f769661affa3ab992fa287e6f5d3d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T_vertex &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#a7b4f769661affa3ab992fa287e6f5d3d">vertexData</a></td></tr>
+<tr class="separator:a7b4f769661affa3ab992fa287e6f5d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a482707ac38142501483d71121fcb3958"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T_index &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#a482707ac38142501483d71121fcb3958">indexDataPoints</a></td></tr>
+<tr class="separator:a482707ac38142501483d71121fcb3958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa33aee509ea369705bbca6109dd23bfe"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T_index &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#aa33aee509ea369705bbca6109dd23bfe">indexDataLines</a></td></tr>
+<tr class="separator:aa33aee509ea369705bbca6109dd23bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab44c6d14785800d8f4160a6d5e630409"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T_index &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#ab44c6d14785800d8f4160a6d5e630409">indexDataFaces</a></td></tr>
+<tr class="separator:ab44c6d14785800d8f4160a6d5e630409"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac40a92a29d756e23bead02f1ff9bbf92" name="ac40a92a29d756e23bead02f1ff9bbf92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac40a92a29d756e23bead02f1ff9bbf92">&#9670;&nbsp;</a></span>generate_data_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IndexType T_index, typename T_vertex &gt; <br />
+requires <a class="el" href="struct_c_c_a_d___o_t_1_1_vertex_member_check.html">VertexMemberCheck</a>&lt;T_vertex&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">value void <a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html">CCAD_OT::OtGeometryCompiler</a>&lt; T_index, T_vertex &gt;::generate_data_ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_surface_info.html">OtSurfaceInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>info</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac48c63a9a04869b69c396933e3ad0c70" name="ac48c63a9a04869b69c396933e3ad0c70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac48c63a9a04869b69c396933e3ad0c70">&#9670;&nbsp;</a></span>generateVertexData()</h2>
 
@@ -127,6 +208,214 @@ template&lt;IndexType T_index, typename T_vertex &gt; </div>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b41486a5bbb8509281bd7bca5088ed9" name="a1b41486a5bbb8509281bd7bca5088ed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b41486a5bbb8509281bd7bca5088ed9">&#9670;&nbsp;</a></span>recursive_iterate_nodes_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IndexType T_index, typename T_vertex &gt; <br />
+requires <a class="el" href="struct_c_c_a_d___o_t_1_1_vertex_member_check.html">VertexMemberCheck</a>&lt;T_vertex&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">value void <a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html">CCAD_OT::OtGeometryCompiler</a>&lt; T_index, T_vertex &gt;::recursive_iterate_nodes_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> &amp;&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_geometry_compiler_a1b41486a5bbb8509281bd7bca5088ed9_cgraph.svg" width="455" height="248"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab44c6d14785800d8f4160a6d5e630409" name="ab44c6d14785800d8f4160a6d5e630409"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab44c6d14785800d8f4160a6d5e630409">&#9670;&nbsp;</a></span>indexDataFaces</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IndexType T_index, typename T_vertex &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;T_index&gt; <a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html">CCAD_OT::OtGeometryCompiler</a>&lt; T_index, T_vertex &gt;::indexDataFaces</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa33aee509ea369705bbca6109dd23bfe" name="aa33aee509ea369705bbca6109dd23bfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa33aee509ea369705bbca6109dd23bfe">&#9670;&nbsp;</a></span>indexDataLines</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IndexType T_index, typename T_vertex &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;T_index&gt; <a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html">CCAD_OT::OtGeometryCompiler</a>&lt; T_index, T_vertex &gt;::indexDataLines</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a482707ac38142501483d71121fcb3958" name="a482707ac38142501483d71121fcb3958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a482707ac38142501483d71121fcb3958">&#9670;&nbsp;</a></span>indexDataPoints</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IndexType T_index, typename T_vertex &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;T_index&gt; <a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html">CCAD_OT::OtGeometryCompiler</a>&lt; T_index, T_vertex &gt;::indexDataPoints</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ffbde01ba8cd2eff2672dd37c261ad5" name="a4ffbde01ba8cd2eff2672dd37c261ad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ffbde01ba8cd2eff2672dd37c261ad5">&#9670;&nbsp;</a></span>pIndexBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IndexType T_index, typename T_vertex &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_index* <a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html">CCAD_OT::OtGeometryCompiler</a>&lt; T_index, T_vertex &gt;::pIndexBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad3907ed731f065e0e573082eaa9a36c" name="aad3907ed731f065e0e573082eaa9a36c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad3907ed731f065e0e573082eaa9a36c">&#9670;&nbsp;</a></span>pVertexBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IndexType T_index, typename T_vertex &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_vertex* <a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html">CCAD_OT::OtGeometryCompiler</a>&lt; T_index, T_vertex &gt;::pVertexBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b4f769661affa3ab992fa287e6f5d3d" name="a7b4f769661affa3ab992fa287e6f5d3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b4f769661affa3ab992fa287e6f5d3d">&#9670;&nbsp;</a></span>vertexData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IndexType T_index, typename T_vertex &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;T_vertex&gt; <a class="el" href="class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html">CCAD_OT::OtGeometryCompiler</a>&lt; T_index, T_vertex &gt;::vertexData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

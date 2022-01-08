@@ -1,5 +1,6 @@
 var class_voxel_codec_shuffle =
 [
+    [ "fragment", "class_voxel_codec_shuffle.html#a0cfba6c1fd272fcff3d3116847a1093e", null ],
     [ "~VoxelCodecShuffle", "class_voxel_codec_shuffle.html#ac330c2c7f3e2ad8547be795ae1726030", null ],
     [ "copyElementFromPtr", "class_voxel_codec_shuffle.html#ab9155f156a8a8c43a96c6b5bf2e91842", null ],
     [ "copyElementToPtr", "class_voxel_codec_shuffle.html#ab67908f6aed3d69190ef5f847b7ecf5a", null ],

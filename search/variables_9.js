@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['mat_0',['mat',['../struct_c_c_a_d___o_t_1_1_vertex_data_type.html#a11a855b050b80b61cde493cac0343edd',1,'CCAD_OT::VertexDataType']]],
-  ['mat_5ftype_1',['mat_type',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_shaded.html#a4c45ddabe16bc34fab23a43279124ef6',1,'CCAD_OT::OtMatInfoShaded']]],
-  ['materialinfo_2',['materialInfo',['../struct_c_c_a_d___o_t_1_1_ot_surface_info.html#a9bb0258caeb55a53f61eec3db1d6a64d',1,'CCAD_OT::OtSurfaceInfo']]],
-  ['max_5fframes_5fin_5fflight_3',['MAX_FRAMES_IN_FLIGHT',['../vulkan__voxel__rasterizer__2_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'vulkan_voxel_rasterizer_2.cpp']]],
-  ['maxqueuecount_4',['maxQueueCount',['../struct_possible_queue_family.html#a620d98143069d52b46700d24e2fc6b11',1,'PossibleQueueFamily']]],
-  ['metallic_5',['metallic',['../struct_p_b_r_material_parameters.html#a17f6a64c9b87e9e95102abd51b84df67',1,'PBRMaterialParameters']]]
+  ['lastframedeltas_0',['lastFrameDeltas',['../class_mandelbrot_app.html#a7c6b710886fe6a3c87fde1aca0e3b210',1,'MandelbrotApp']]],
+  ['lastfreepage_1',['lastFreePage',['../class_stack_allocator.html#acc4f10272061c0048822e27d0ce4fdac',1,'StackAllocator']]],
+  ['lasttimedelta_2',['lastTimeDelta',['../class_mandelbrot_app.html#ae3107eca2110e913106d3f523e0d252a',1,'MandelbrotApp']]],
+  ['layout_3',['layout',['../class_pipeline_base.html#adf0825bbfca48cb3d6c738c2ab209a3c',1,'PipelineBase']]],
+  ['leaf_4',['leaf',['../class_voxel_codec_sparse_octree.html#af7196c899a1bf2c265c5cda9360fce76',1,'VoxelCodecSparseOctree']]],
+  ['leafmask_5',['leafMask',['../struct_voxel_codec_sparse_octree_1_1_node.html#ab1403afc5a855f8baa767df340b54856',1,'VoxelCodecSparseOctree::Node']]],
+  ['line_5findices_6',['line_indices',['../struct_c_c_a_d___o_t_1_1_cube.html#a7bc8364f6e8b02e13ff6e98aab0ac202',1,'CCAD_OT::Cube']]],
+  ['listener_7',['listener',['../class_swap_chain.html#a19289a81bc3f7d09e85ef9ea73c1d376',1,'SwapChain']]]
 ];

@@ -4,5 +4,7 @@ var structoptional =
     [ "optional", "structoptional.html#aa840f6692296e5791bd622ba028e4801", null ],
     [ "has_value", "structoptional.html#a7c9c93a03748f3024d4043b20fa8e958", null ],
     [ "operator=", "structoptional.html#acea0902dd558fe9e59c07a85c6eee8d9", null ],
-    [ "value", "structoptional.html#a5fcd27e1ee81ffc29606ac241349f0c4", null ]
+    [ "value", "structoptional.html#a5fcd27e1ee81ffc29606ac241349f0c4", null ],
+    [ "data", "structoptional.html#ad188b0174fb1e064a3b53635cfd71d98", null ],
+    [ "valid", "structoptional.html#a27044374869b54e435e1dca0bb79e3f3", null ]
 ];

@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_queue.html',''); initResizable()
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_queue-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Queue Class Reference</div></div>
 </div><!--header-->
@@ -102,13 +103,13 @@ $(document).ready(function(){initNavTree('class_queue.html',''); initResizable()
 <div class="dynheader">
 Inheritance diagram for Queue:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue__inherit__graph.svg" width="184" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue__inherit__graph.svg" width="184" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for Queue:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue__coll__graph.svg" width="184" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue__coll__graph.svg" width="184" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -118,8 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa9ba05dc539d27ca02d8ffaf49f4e188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c8e27aba8a0c3b0f14d9c95c73ebeea"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a4c8e27aba8a0c3b0f14d9c95c73ebeea">getQueueFamilyIndex</a> ()</td></tr>
 <tr class="separator:a4c8e27aba8a0c3b0f14d9c95c73ebeea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c383cb1dfe51be9201c5db232a06e47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a2c383cb1dfe51be9201c5db232a06e47">submitCommandBuffer</a> (std::vector&lt; VkSubmitInfo &gt; submitInfos, const std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &amp;fence)</td></tr>
-<tr class="separator:a2c383cb1dfe51be9201c5db232a06e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d5d8a6679d97aa9ade79a052304f52a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a2d5d8a6679d97aa9ade79a052304f52a">submitCommandBuffer</a> (std::vector&lt; VkSubmitInfo &gt; submitInfos, const std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &amp;fence=nullptr)</td></tr>
+<tr class="separator:a2d5d8a6679d97aa9ade79a052304f52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f40d2acb594dc9d528b34eb5db0abd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#ad4f40d2acb594dc9d528b34eb5db0abd">hasWorkSubmitted</a> () const</td></tr>
 <tr class="separator:ad4f40d2acb594dc9d528b34eb5db0abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b9ededbbfb59b56224dc4cd9834cbc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a6b9ededbbfb59b56224dc4cd9834cbc2">waitForIdle</a> ()</td></tr>
@@ -134,6 +135,13 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a522dcb1bd747f207dd2a2b3a3fce9049"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a522dcb1bd747f207dd2a2b3a3fce9049">create</a> (const std::shared_ptr&lt; <a class="el" href="class_queue_family.html">QueueFamily</a> &gt; &amp;family)</td></tr>
 <tr class="separator:a522dcb1bd747f207dd2a2b3a3fce9049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a34829e27cb0c1b26798d2aa44ee813fb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue_family.html">QueueFamily</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a34829e27cb0c1b26798d2aa44ee813fb">queueFamily</a></td></tr>
+<tr class="separator:a34829e27cb0c1b26798d2aa44ee813fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c0d27a5128b4b3551e43ccda6f4e5a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue.html#a8c0d27a5128b4b3551e43ccda6f4e5a8">useLock</a> {false}</td></tr>
+<tr class="separator:a8c0d27a5128b4b3551e43ccda6f4e5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -241,8 +249,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2c383cb1dfe51be9201c5db232a06e47" name="a2c383cb1dfe51be9201c5db232a06e47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c383cb1dfe51be9201c5db232a06e47">&#9670;&nbsp;</a></span>submitCommandBuffer()</h2>
+<a id="a2d5d8a6679d97aa9ade79a052304f52a" name="a2d5d8a6679d97aa9ade79a052304f52a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d5d8a6679d97aa9ade79a052304f52a">&#9670;&nbsp;</a></span>submitCommandBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,7 +265,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>fence</em>&#160;</td>
+          <td class="paramname"><em>fence</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -282,6 +290,51 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a34829e27cb0c1b26798d2aa44ee813fb" name="a34829e27cb0c1b26798d2aa44ee813fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34829e27cb0c1b26798d2aa44ee813fb">&#9670;&nbsp;</a></span>queueFamily</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_queue_family.html">QueueFamily</a>&gt; Queue::queueFamily</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c0d27a5128b4b3551e43ccda6f4e5a8" name="a8c0d27a5128b4b3551e43ccda6f4e5a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c0d27a5128b4b3551e43ccda6f4e5a8">&#9670;&nbsp;</a></span>useLock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Queue::useLock {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('class_swap_chain.html',''); initResiza
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_swap_chain-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SwapChain Class Reference</div></div>
 </div><!--header-->
@@ -102,7 +104,7 @@ $(document).ready(function(){initNavTree('class_swap_chain.html',''); initResiza
 <div class="dynheader">
 Collaboration diagram for SwapChain:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain__coll__graph.svg" width="202" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain__coll__graph.svg" width="210" height="470"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -149,6 +151,54 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae424e0b05d7eac9234bcf2c07cb74e40"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_swap_chain.html">SwapChain</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#ae424e0b05d7eac9234bcf2c07cb74e40">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt; &amp;pWindow, std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; pQueue, uint32_t imageCount_v, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
 <tr class="separator:ae424e0b05d7eac9234bcf2c07cb74e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af77dc34c5c5a7adcd26f7180a3df1d73"><td class="memItemLeft" align="right" valign="top">VkSurfaceFormatKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#af77dc34c5c5a7adcd26f7180a3df1d73">chooseSwapSurfaceFormat</a> ()</td></tr>
+<tr class="separator:af77dc34c5c5a7adcd26f7180a3df1d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1cba85a0ab83bb4ab3a2092af803e72"><td class="memItemLeft" align="right" valign="top">VkPresentModeKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#aa1cba85a0ab83bb4ab3a2092af803e72">chooseSwapPresentMode</a> ()</td></tr>
+<tr class="separator:aa1cba85a0ab83bb4ab3a2092af803e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d91946c6d165cb548a331a249e30157"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a6d91946c6d165cb548a331a249e30157">createSyncObjects</a> ()</td></tr>
+<tr class="separator:a6d91946c6d165cb548a331a249e30157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c1b739a8b245063604eba188d342556"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a1c1b739a8b245063604eba188d342556">cleanupSwapChain</a> ()</td></tr>
+<tr class="separator:a1c1b739a8b245063604eba188d342556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6baddf7a59b17af49fac197ba9764383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a6baddf7a59b17af49fac197ba9764383">recreateSwapChain</a> ()</td></tr>
+<tr class="separator:a6baddf7a59b17af49fac197ba9764383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4dc5f39b6548457c13a4b3e4f80a2bd5"><td class="memItemLeft" align="right" valign="top">VkSwapchainKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a4dc5f39b6548457c13a4b3e4f80a2bd5">swapChain</a> = VK_NULL_HANDLE</td></tr>
+<tr class="separator:a4dc5f39b6548457c13a4b3e4f80a2bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc6867d4b921dae384e7b7df5f6355f7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#adc6867d4b921dae384e7b7df5f6355f7">presentQueue</a></td></tr>
+<tr class="separator:adc6867d4b921dae384e7b7df5f6355f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cec969d1ad3d0f5ad81809f5eeb2c73"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a9cec969d1ad3d0f5ad81809f5eeb2c73">imageCount</a></td></tr>
+<tr class="separator:a9cec969d1ad3d0f5ad81809f5eeb2c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ccdde4e5fa00e750533132c59bdce25"><td class="memItemLeft" align="right" valign="top">VkFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a4ccdde4e5fa00e750533132c59bdce25">imageFormat</a></td></tr>
+<tr class="separator:a4ccdde4e5fa00e750533132c59bdce25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1380d5040bd70d313213ab81461a727a"><td class="memItemLeft" align="right" valign="top">VkSurfaceCapabilitiesKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a1380d5040bd70d313213ab81461a727a">capabilities</a></td></tr>
+<tr class="separator:a1380d5040bd70d313213ab81461a727a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ebafc5bb1cb9b41919158f22b4f6208"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkImage &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a7ebafc5bb1cb9b41919158f22b4f6208">swapChainImages</a></td></tr>
+<tr class="separator:a7ebafc5bb1cb9b41919158f22b4f6208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144df50dfbb5de290b7eb2107fd0f01c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkImageView &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a144df50dfbb5de290b7eb2107fd0f01c">swapChainImageViews</a></td></tr>
+<tr class="separator:a144df50dfbb5de290b7eb2107fd0f01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a329fd84b95b401acf321bdff4d3b1f6e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a329fd84b95b401acf321bdff4d3b1f6e">currentFrame</a> {0}</td></tr>
+<tr class="separator:a329fd84b95b401acf321bdff4d3b1f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7d577853b225cca5afe2d16efcb859c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#ad7d577853b225cca5afe2d16efcb859c">currentImageIndex</a> {0}</td></tr>
+<tr class="separator:ad7d577853b225cca5afe2d16efcb859c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b87e6a2de9ed87f19c95e84322272c7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a0b87e6a2de9ed87f19c95e84322272c7">imageAvailableSemaphores</a></td></tr>
+<tr class="separator:a0b87e6a2de9ed87f19c95e84322272c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5525b70a1a72763ec03b2a422e4891eb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a5525b70a1a72763ec03b2a422e4891eb">renderFinishedSemaphores</a></td></tr>
+<tr class="separator:a5525b70a1a72763ec03b2a422e4891eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6218e24e32fae988cb76387ee13908ed"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a6218e24e32fae988cb76387ee13908ed">inFlightFences</a></td></tr>
+<tr class="separator:a6218e24e32fae988cb76387ee13908ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11426fe4d871903dab6293a1ca783cfc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a11426fe4d871903dab6293a1ca783cfc">imagesInFlight</a></td></tr>
+<tr class="separator:a11426fe4d871903dab6293a1ca783cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19289a81bc3f7d09e85ef9ea73c1d376"><td class="memItemLeft" align="right" valign="top">dexode::EventBus::Listener&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a19289a81bc3f7d09e85ef9ea73c1d376">listener</a> {publicRenderBus.getBus()}</td></tr>
+<tr class="separator:a19289a81bc3f7d09e85ef9ea73c1d376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff10bee96f734fd784e7bf15720fae86"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#aff10bee96f734fd784e7bf15720fae86">device</a></td></tr>
+<tr class="separator:aff10bee96f734fd784e7bf15720fae86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a9d376e6d954b7da7f4e14da2e0feb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a01a9d376e6d954b7da7f4e14da2e0feb">window</a></td></tr>
+<tr class="separator:a01a9d376e6d954b7da7f4e14da2e0feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a58c288346a3fa211fbcc2cec594bfa68" name="a58c288346a3fa211fbcc2cec594bfa68"></a>
@@ -183,6 +233,81 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1cba85a0ab83bb4ab3a2092af803e72" name="aa1cba85a0ab83bb4ab3a2092af803e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1cba85a0ab83bb4ab3a2092af803e72">&#9670;&nbsp;</a></span>chooseSwapPresentMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkPresentModeKHR SwapChain::chooseSwapPresentMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af77dc34c5c5a7adcd26f7180a3df1d73" name="af77dc34c5c5a7adcd26f7180a3df1d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af77dc34c5c5a7adcd26f7180a3df1d73">&#9670;&nbsp;</a></span>chooseSwapSurfaceFormat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkSurfaceFormatKHR SwapChain::chooseSwapSurfaceFormat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c1b739a8b245063604eba188d342556" name="a1c1b739a8b245063604eba188d342556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c1b739a8b245063604eba188d342556">&#9670;&nbsp;</a></span>cleanupSwapChain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwapChain::cleanupSwapChain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -241,7 +366,38 @@ Static Public Member Functions</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_ae424e0b05d7eac9234bcf2c07cb74e40_icgraph.svg" width="240" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_swap_chain_ae424e0b05d7eac9234bcf2c07cb74e40_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a6d91946c6d165cb548a331a249e30157" name="a6d91946c6d165cb548a331a249e30157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d91946c6d165cb548a331a249e30157">&#9670;&nbsp;</a></span>createSyncObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwapChain::createSyncObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a6d91946c6d165cb548a331a249e30157_cgraph.svg" width="394" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -556,6 +712,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_adc72dd5afe32e19cd331e30a2f73b62b_cgraph.svg" width="439" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -609,6 +771,390 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6baddf7a59b17af49fac197ba9764383" name="a6baddf7a59b17af49fac197ba9764383"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6baddf7a59b17af49fac197ba9764383">&#9670;&nbsp;</a></span>recreateSwapChain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SwapChain::recreateSwapChain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain_a6baddf7a59b17af49fac197ba9764383_icgraph.svg" width="439" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1380d5040bd70d313213ab81461a727a" name="a1380d5040bd70d313213ab81461a727a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1380d5040bd70d313213ab81461a727a">&#9670;&nbsp;</a></span>capabilities</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkSurfaceCapabilitiesKHR SwapChain::capabilities</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a329fd84b95b401acf321bdff4d3b1f6e" name="a329fd84b95b401acf321bdff4d3b1f6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a329fd84b95b401acf321bdff4d3b1f6e">&#9670;&nbsp;</a></span>currentFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t SwapChain::currentFrame {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7d577853b225cca5afe2d16efcb859c" name="ad7d577853b225cca5afe2d16efcb859c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7d577853b225cca5afe2d16efcb859c">&#9670;&nbsp;</a></span>currentImageIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t SwapChain::currentImageIndex {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff10bee96f734fd784e7bf15720fae86" name="aff10bee96f734fd784e7bf15720fae86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff10bee96f734fd784e7bf15720fae86">&#9670;&nbsp;</a></span>device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_device.html">Device</a>&gt; SwapChain::device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b87e6a2de9ed87f19c95e84322272c7" name="a0b87e6a2de9ed87f19c95e84322272c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b87e6a2de9ed87f19c95e84322272c7">&#9670;&nbsp;</a></span>imageAvailableSemaphores</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_semaphore.html">Semaphore</a>&gt; &gt; SwapChain::imageAvailableSemaphores</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cec969d1ad3d0f5ad81809f5eeb2c73" name="a9cec969d1ad3d0f5ad81809f5eeb2c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cec969d1ad3d0f5ad81809f5eeb2c73">&#9670;&nbsp;</a></span>imageCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t SwapChain::imageCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ccdde4e5fa00e750533132c59bdce25" name="a4ccdde4e5fa00e750533132c59bdce25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ccdde4e5fa00e750533132c59bdce25">&#9670;&nbsp;</a></span>imageFormat</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkFormat SwapChain::imageFormat</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11426fe4d871903dab6293a1ca783cfc" name="a11426fe4d871903dab6293a1ca783cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11426fe4d871903dab6293a1ca783cfc">&#9670;&nbsp;</a></span>imagesInFlight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_fence.html">Fence</a>&gt; &gt; SwapChain::imagesInFlight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6218e24e32fae988cb76387ee13908ed" name="a6218e24e32fae988cb76387ee13908ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6218e24e32fae988cb76387ee13908ed">&#9670;&nbsp;</a></span>inFlightFences</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_fence.html">Fence</a>&gt; &gt; SwapChain::inFlightFences</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19289a81bc3f7d09e85ef9ea73c1d376" name="a19289a81bc3f7d09e85ef9ea73c1d376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19289a81bc3f7d09e85ef9ea73c1d376">&#9670;&nbsp;</a></span>listener</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dexode::EventBus::Listener SwapChain::listener {publicRenderBus.getBus()}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc6867d4b921dae384e7b7df5f6355f7" name="adc6867d4b921dae384e7b7df5f6355f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc6867d4b921dae384e7b7df5f6355f7">&#9670;&nbsp;</a></span>presentQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_queue.html">Queue</a>&gt; SwapChain::presentQueue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5525b70a1a72763ec03b2a422e4891eb" name="a5525b70a1a72763ec03b2a422e4891eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5525b70a1a72763ec03b2a422e4891eb">&#9670;&nbsp;</a></span>renderFinishedSemaphores</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_semaphore.html">Semaphore</a>&gt; &gt; SwapChain::renderFinishedSemaphores</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4dc5f39b6548457c13a4b3e4f80a2bd5" name="a4dc5f39b6548457c13a4b3e4f80a2bd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc5f39b6548457c13a4b3e4f80a2bd5">&#9670;&nbsp;</a></span>swapChain</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkSwapchainKHR SwapChain::swapChain = VK_NULL_HANDLE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ebafc5bb1cb9b41919158f22b4f6208" name="a7ebafc5bb1cb9b41919158f22b4f6208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ebafc5bb1cb9b41919158f22b4f6208">&#9670;&nbsp;</a></span>swapChainImages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;VkImage&gt; SwapChain::swapChainImages</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a144df50dfbb5de290b7eb2107fd0f01c" name="a144df50dfbb5de290b7eb2107fd0f01c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144df50dfbb5de290b7eb2107fd0f01c">&#9670;&nbsp;</a></span>swapChainImageViews</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;VkImageView&gt; SwapChain::swapChainImageViews</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01a9d376e6d954b7da7f4e14da2e0feb" name="a01a9d376e6d954b7da7f4e14da2e0feb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a9d376e6d954b7da7f4e14da2e0feb">&#9670;&nbsp;</a></span>window</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_window.html">Window</a>&gt; SwapChain::window</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

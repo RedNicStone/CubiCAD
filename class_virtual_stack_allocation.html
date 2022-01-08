@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_virtual_stack_allocation.html','
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_virtual_stack_allocation-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">VirtualStackAllocation Class Reference</div></div>
 </div><!--header-->
@@ -102,16 +103,21 @@ $(document).ready(function(){initNavTree('class_virtual_stack_allocation.html','
 <div class="dynheader">
 Inheritance diagram for VirtualStackAllocation:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_virtual_stack_allocation__inherit__graph.svg" width="180" height="316"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_virtual_stack_allocation__inherit__graph.svg" width="180" height="346"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for VirtualStackAllocation:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_virtual_stack_allocation__coll__graph.svg" width="180" height="316"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_virtual_stack_allocation__coll__graph.svg" width="328" height="531"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_virtual_stack_allocation_1_1_mapped_page.html">MappedPage</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:add88314383fa3d876f3159fccd221a2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_virtual_stack_allocation.html#add88314383fa3d876f3159fccd221a2c">VirtualStackAllocation</a> (<a class="el" href="class_stack_allocator.html">StackAllocator</a> *allocator, size_t size_, const std::vector&lt; std::shared_ptr&lt; char[]&gt; &gt; &amp;pages, uint8_t page_size)</td></tr>
@@ -129,6 +135,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a96c8047110beff69c21b7799acff9107 inherit pub_methods_class_virtual_allocation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c2917fd2fbbcdab3e38d053fe7f89da inherit pub_methods_class_virtual_allocation"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_virtual_allocation.html#a5c2917fd2fbbcdab3e38d053fe7f89da">~VirtualAllocation</a> ()=default</td></tr>
 <tr class="separator:a5c2917fd2fbbcdab3e38d053fe7f89da inherit pub_methods_class_virtual_allocation"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aae50af7726c4aef1a95ec01fc0ec50df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stack_allocator.html">StackAllocator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_virtual_stack_allocation.html#aae50af7726c4aef1a95ec01fc0ec50df">pAllocator</a> {}</td></tr>
+<tr class="memdesc:aae50af7726c4aef1a95ec01fc0ec50df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parent allocator.  <a href="class_virtual_stack_allocation.html#aae50af7726c4aef1a95ec01fc0ec50df">More...</a><br /></td></tr>
+<tr class="separator:aae50af7726c4aef1a95ec01fc0ec50df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e85e26b4943fea0b0acbe9bc3990345"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_virtual_stack_allocation.html#a5e85e26b4943fea0b0acbe9bc3990345">pageSize</a> {}</td></tr>
+<tr class="memdesc:a5e85e26b4943fea0b0acbe9bc3990345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of one page.  <a href="class_virtual_stack_allocation.html#a5e85e26b4943fea0b0acbe9bc3990345">More...</a><br /></td></tr>
+<tr class="separator:a5e85e26b4943fea0b0acbe9bc3990345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2dc0e19e8c33aad7d4fb613e00859b1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_virtual_stack_allocation_1_1_mapped_page.html">MappedPage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_virtual_stack_allocation.html#aa2dc0e19e8c33aad7d4fb613e00859b1">mappedPages</a> {}</td></tr>
+<tr class="memdesc:aa2dc0e19e8c33aad7d4fb613e00859b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of <a class="el" href="struct_virtual_stack_allocation_1_1_mapped_page.html">MappedPage</a> storing all virtual memory pages.  <a href="class_virtual_stack_allocation.html#aa2dc0e19e8c33aad7d4fb613e00859b1">More...</a><br /></td></tr>
+<tr class="separator:aa2dc0e19e8c33aad7d4fb613e00859b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -262,7 +280,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_virtual_stack_allocation_a29393b6e8c029a513a5073d29319b2da_cgraph.svg" width="395" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_virtual_stack_allocation_a29393b6e8c029a513a5073d29319b2da_cgraph.svg" width="630" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -271,6 +289,79 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_virtual_stack_allocation_a29393b6e8c029a513a5073d29319b2da_icgraph.svg" width="260" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa2dc0e19e8c33aad7d4fb613e00859b1" name="aa2dc0e19e8c33aad7d4fb613e00859b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2dc0e19e8c33aad7d4fb613e00859b1">&#9670;&nbsp;</a></span>mappedPages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_virtual_stack_allocation_1_1_mapped_page.html">MappedPage</a>&gt; VirtualStackAllocation::mappedPages {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector of <a class="el" href="struct_virtual_stack_allocation_1_1_mapped_page.html">MappedPage</a> storing all virtual memory pages. </p>
+
+</div>
+</div>
+<a id="a5e85e26b4943fea0b0acbe9bc3990345" name="a5e85e26b4943fea0b0acbe9bc3990345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e85e26b4943fea0b0acbe9bc3990345">&#9670;&nbsp;</a></span>pageSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t VirtualStackAllocation::pageSize {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Size of one page. </p>
+
+</div>
+</div>
+<a id="aae50af7726c4aef1a95ec01fc0ec50df" name="aae50af7726c4aef1a95ec01fc0ec50df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae50af7726c4aef1a95ec01fc0ec50df">&#9670;&nbsp;</a></span>pAllocator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stack_allocator.html">StackAllocator</a>* VirtualStackAllocation::pAllocator {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parent allocator. </p>
 
 </div>
 </div>

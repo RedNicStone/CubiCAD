@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['capabilities_0',['capabilities',['../struct_swap_chain_support_details.html#a8918f9f5496b29a701e8d094aa455b2a',1,'SwapChainSupportDetails']]],
-  ['channel_1',['channel',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_debug.html#ae7e17e4aa2b5ffc58cd5db961b84c406',1,'CCAD_OT::OtMatInfoDebug']]],
-  ['children_2',['children',['../struct_c_c_a_d___o_t_1_1_ot_node.html#a23ff303eaaf51d3207e5700a682bc0f9',1,'CCAD_OT::OtNode']]],
-  ['clearcoatroughness_3',['clearCoatRoughness',['../struct_p_b_r_material_parameters.html#accf060ae2e10dc5f3e6ae76403e3c179',1,'PBRMaterialParameters']]],
-  ['clearcoatthickness_4',['clearCoatThickness',['../struct_p_b_r_material_parameters.html#a0aab0549e67d45cba068c516ca099c89',1,'PBRMaterialParameters']]],
-  ['codec_5',['codec',['../class_voxel_fragment_stream_base.html#a57b4856fb79eb2158d7ea43494094ce8',1,'VoxelFragmentStreamBase']]],
-  ['color_6',['color',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_solid.html#a2d502121054496c875cf30aece3af9d5',1,'CCAD_OT::OtMatInfoSolid::color()'],['../struct_c_c_a_d___o_t_1_1_vertex_data_type.html#ab0bd9638ba623addcab83ae905df805b',1,'CCAD_OT::VertexDataType::color()']]],
-  ['construction_5fdepth_7',['construction_depth',['../struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html#a90a162e53837c4b38ffd0b80809ee5b8',1,'CCAD_OT::OtConstructOctreeInfo']]],
-  ['custom_5fnode_5ftemplate_8',['custom_node_template',['../struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html#aa2c260299cb264ff58716abdd708e203',1,'CCAD_OT::OtConstructOctreeInfo']]]
+  ['buffer_0',['buffer',['../class_buffer_view.html#a5a326064e86b6a7d291e98844ac0fced',1,'BufferView::buffer()'],['../class_uniform_buffer.html#a01844c992fa9f44667507d8dd8a50969',1,'UniformBuffer::buffer()']]],
+  ['bufferood_1',['bufferOOD',['../class_material_library.html#a402281d25091e2ddef2750a608060d91',1,'MaterialLibrary']]]
 ];

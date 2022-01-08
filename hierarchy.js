@@ -5,6 +5,7 @@ var hierarchy =
     ] ],
     [ "CCAD_OT::Cube", "struct_c_c_a_d___o_t_1_1_cube.html", null ],
     [ "std::enable_shared_from_this", null, [
+      [ "Buffer", "class_buffer.html", null ],
       [ "Image", "class_image.html", null ],
       [ "Instance", "class_instance.html", null ],
       [ "QueueFamily", "class_queue_family.html", null ],
@@ -13,14 +14,18 @@ var hierarchy =
     [ "FrameBuffer", "class_frame_buffer.html", null ],
     [ "MandelbrotApp", "class_mandelbrot_app.html", null ],
     [ "MandelbrotUBO", "struct_mandelbrot_u_b_o.html", null ],
-    [ "MasterMaterial", "class_master_material.html", null ],
-    [ "Material", "class_material.html", null ],
-    [ "MaterialLibrary", "class_material_library.html", null ],
-    [ "Material::materialObject", "struct_material_1_1material_object.html", null ],
+    [ "VirtualStackAllocation::MappedPage", "struct_virtual_stack_allocation_1_1_mapped_page.html", null ],
+    [ "MasterMaterial< Parameters >", "class_master_material.html", null ],
+    [ "Material< Parameters >", "class_material.html", null ],
+    [ "MaterialLibrary< Parameters >", "class_material_library.html", null ],
+    [ "MaterialParameters", "struct_material_parameters.html", [
+      [ "PBRMaterialParameters", "struct_p_b_r_material_parameters.html", null ]
+    ] ],
     [ "Mesh", "class_mesh.html", null ],
-    [ "Meshlet", "class_meshlet.html", null ],
+    [ "Meshlet", "struct_meshlet.html", null ],
     [ "ModelLoader", "class_model_loader.html", null ],
-    [ "VoxelCodecOctreeBase< Types >::NodeStackElement", "struct_voxel_codec_octree_base_1_1_node_stack_element.html", null ],
+    [ "VoxelCodecSparseOctree< Types >::Node", "struct_voxel_codec_sparse_octree_1_1_node.html", null ],
+    [ "VoxelCodecOctreeBase::NodeStackElement", "struct_voxel_codec_octree_base_1_1_node_stack_element.html", null ],
     [ "optional< T >", "structoptional.html", null ],
     [ "CCAD_OT::OtConstructOctreeInfo", "struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html", null ],
     [ "CCAD_OT::OtGeometryCompiler< T_index, T_vertex >", "class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html", null ],
@@ -43,7 +48,7 @@ var hierarchy =
     ] ],
     [ "CCAD_OT::OtOctree", "class_c_c_a_d___o_t_1_1_ot_octree.html", null ],
     [ "CCAD_OT::OtSurfaceInfo", "struct_c_c_a_d___o_t_1_1_ot_surface_info.html", null ],
-    [ "PBRMaterialParameters", "struct_p_b_r_material_parameters.html", null ],
+    [ "StackAllocator::PhysicalPage", "struct_stack_allocator_1_1_physical_page.html", null ],
     [ "PossibleQueueFamily", "struct_possible_queue_family.html", null ],
     [ "QueueFamilyIndices", "struct_queue_family_indices.html", null ],
     [ "RenderBus", "class_render_bus.html", null ],
@@ -98,14 +103,10 @@ var hierarchy =
         [ "NVTaskShader", "class_n_v_task_shader.html", null ]
       ] ]
     ] ],
-    [ "ShaderParameter", "struct_shader_parameter.html", [
-      [ "ShaderParameterBuffer", "struct_shader_parameter_buffer.html", null ],
-      [ "ShaderParameterConstant< Type, typeCount >", "struct_shader_parameter_constant.html", null ],
-      [ "ShaderParameterTexture", "struct_shader_parameter_texture.html", null ]
-    ] ],
     [ "SwapChain", "class_swap_chain.html", null ],
     [ "SwapChainSupportDetails", "struct_swap_chain_support_details.html", null ],
     [ "UniformBuffer< type >", "class_uniform_buffer.html", null ],
+    [ "Utils", "class_utils.html", null ],
     [ "vec_abs< T, N >", "classvec__abs.html", null ],
     [ "Vertex", "struct_vertex.html", null ],
     [ "CCAD_OT::VertexDataType", "struct_c_c_a_d___o_t_1_1_vertex_data_type.html", null ],
@@ -115,7 +116,8 @@ var hierarchy =
     ] ],
     [ "VoxelCodecBase", "class_voxel_codec_base.html", [
       [ "VoxelCodecLinear< Types >", "class_voxel_codec_linear.html", null ],
-      [ "VoxelCodecOctreeBase< Types >", "class_voxel_codec_octree_base.html", [
+      [ "VoxelCodecOctreeBase", "class_voxel_codec_octree_base.html", [
+        [ "VoxelCodecOctreeConstructable", "class_voxel_codec_octree_constructable.html", null ],
         [ "VoxelCodecSparseOctree< Types >", "class_voxel_codec_sparse_octree.html", null ]
       ] ],
       [ "VoxelCodecShuffle< Types >", "class_voxel_codec_shuffle.html", null ]

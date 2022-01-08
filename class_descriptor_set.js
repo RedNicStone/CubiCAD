@@ -8,5 +8,8 @@ var class_descriptor_set =
     [ "updateImage", "class_descriptor_set.html#a23f619098d1dfda570b9e54b7fd115fe", null ],
     [ "updateStorageBuffer", "class_descriptor_set.html#a28cf1e0776751aec4cbba26ffbf80b4d", null ],
     [ "updateUniformBuffer", "class_descriptor_set.html#a8e5435aec7f0fb5d99b9eb31ba7e4fcc", null ],
-    [ "updateUniformBuffer", "class_descriptor_set.html#a8c7c62a121fb542a4180ea1ee1551c62", null ]
+    [ "updateUniformBuffer", "class_descriptor_set.html#a8c7c62a121fb542a4180ea1ee1551c62", null ],
+    [ "device", "class_descriptor_set.html#a160d4791e0fdf05b4313bb5c2445668c", null ],
+    [ "pool", "class_descriptor_set.html#a6fd3e44d3bd20d1b3123e78ef728d7b3", null ],
+    [ "setLayout", "class_descriptor_set.html#ad9ad54cbbcf399c88e3a2edee1456fa9", null ]
 ];

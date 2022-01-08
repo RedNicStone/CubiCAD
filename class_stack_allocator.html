@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('class_stack_allocator.html',''); initR
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_stack_allocator-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">StackAllocator Class Reference</div></div>
 </div><!--header-->
@@ -102,16 +105,21 @@ $(document).ready(function(){initNavTree('class_stack_allocator.html',''); initR
 <div class="dynheader">
 Inheritance diagram for StackAllocator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_stack_allocator__inherit__graph.svg" width="162" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_stack_allocator__inherit__graph.svg" width="162" height="346"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for StackAllocator:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_stack_allocator__coll__graph.svg" width="162" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_stack_allocator__coll__graph.svg" width="162" height="346"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stack_allocator_1_1_physical_page.html">PhysicalPage</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a931c0181f057a5b4fdbf7e23b40f613f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_allocator.html#a931c0181f057a5b4fdbf7e23b40f613f">StackAllocator</a> (uint8_t page_size, uint8_t allocation_chunks=1)</td></tr>
@@ -125,7 +133,69 @@ Public Member Functions</h2></td></tr>
 <tr class="inherit_header pub_methods_class_allocator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_allocator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_allocator.html">Allocator</a></td></tr>
 <tr class="memitem:adecdefe454ec475f90338f56880cab18 inherit pub_methods_class_allocator"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_allocator.html#adecdefe454ec475f90338f56880cab18">~Allocator</a> ()=default</td></tr>
 <tr class="separator:adecdefe454ec475f90338f56880cab18 inherit pub_methods_class_allocator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a6b138da9e92dd9aca22ca40be4c34e45"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_allocator.html#a6b138da9e92dd9aca22ca40be4c34e45">PageStatus</a> : uint_fast8_t { <a class="el" href="class_stack_allocator.html#a6b138da9e92dd9aca22ca40be4c34e45a73255dc1b4deb8c9f897253e5ee01551">PAGE_STATUS_INVALID</a> = 0b00
+, <a class="el" href="class_stack_allocator.html#a6b138da9e92dd9aca22ca40be4c34e45a156add78f355b72ee3cb546ea7972217">PAGE_STATUS_FREE</a> = 0b01
+, <a class="el" href="class_stack_allocator.html#a6b138da9e92dd9aca22ca40be4c34e45ae7a51a70d39b572ee1ec2a6b4fa02668">PAGE_STATUS_USED</a> = 0b10
+ }</td></tr>
+<tr class="separator:a6b138da9e92dd9aca22ca40be4c34e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ad29032f6eac92c736eece0c2e94093ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_allocator.html#ad29032f6eac92c736eece0c2e94093ba">createPages</a> (size_t numberOfPages)</td></tr>
+<tr class="separator:ad29032f6eac92c736eece0c2e94093ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a513d83294ec7c8248183e9d8371fb2ab"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_allocator.html#a513d83294ec7c8248183e9d8371fb2ab">pageSize</a> {}</td></tr>
+<tr class="memdesc:a513d83294ec7c8248183e9d8371fb2ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of one page.  <a href="class_stack_allocator.html#a513d83294ec7c8248183e9d8371fb2ab">More...</a><br /></td></tr>
+<tr class="separator:a513d83294ec7c8248183e9d8371fb2ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e54d82ff328c44457e5330a1732c0da"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_allocator.html#a1e54d82ff328c44457e5330a1732c0da">allocationChunkSize</a> {}</td></tr>
+<tr class="memdesc:a1e54d82ff328c44457e5330a1732c0da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of one chunk.  <a href="class_stack_allocator.html#a1e54d82ff328c44457e5330a1732c0da">More...</a><br /></td></tr>
+<tr class="separator:a1e54d82ff328c44457e5330a1732c0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc4f10272061c0048822e27d0ce4fdac"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_allocator.html#acc4f10272061c0048822e27d0ce4fdac">lastFreePage</a> {}</td></tr>
+<tr class="memdesc:acc4f10272061c0048822e27d0ce4fdac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of last free page.  <a href="class_stack_allocator.html#acc4f10272061c0048822e27d0ce4fdac">More...</a><br /></td></tr>
+<tr class="separator:acc4f10272061c0048822e27d0ce4fdac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2977c437d49efded08c272e2d72f5074"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_stack_allocator_1_1_physical_page.html">PhysicalPage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_allocator.html#a2977c437d49efded08c272e2d72f5074">physicalAllocations</a> {}</td></tr>
+<tr class="memdesc:a2977c437d49efded08c272e2d72f5074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of all allocated pages.  <a href="class_stack_allocator.html#a2977c437d49efded08c272e2d72f5074">More...</a><br /></td></tr>
+<tr class="separator:a2977c437d49efded08c272e2d72f5074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77d23412ffbe5db51d2c3c51efea8de7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_virtual_stack_allocation.html">VirtualStackAllocation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_allocator.html#a77d23412ffbe5db51d2c3c51efea8de7">virtualAllocations</a> {}</td></tr>
+<tr class="memdesc:a77d23412ffbe5db51d2c3c51efea8de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of all virtual pages.  <a href="class_stack_allocator.html#a77d23412ffbe5db51d2c3c51efea8de7">More...</a><br /></td></tr>
+<tr class="separator:a77d23412ffbe5db51d2c3c51efea8de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a6b138da9e92dd9aca22ca40be4c34e45" name="a6b138da9e92dd9aca22ca40be4c34e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b138da9e92dd9aca22ca40be4c34e45">&#9670;&nbsp;</a></span>PageStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_stack_allocator.html#a6b138da9e92dd9aca22ca40be4c34e45">StackAllocator::PageStatus</a> : uint_fast8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6b138da9e92dd9aca22ca40be4c34e45a73255dc1b4deb8c9f897253e5ee01551" name="a6b138da9e92dd9aca22ca40be4c34e45a73255dc1b4deb8c9f897253e5ee01551"></a>PAGE_STATUS_INVALID&#160;</td><td class="fielddoc"><p >possible use statuses of an allocated page </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6b138da9e92dd9aca22ca40be4c34e45a156add78f355b72ee3cb546ea7972217" name="a6b138da9e92dd9aca22ca40be4c34e45a156add78f355b72ee3cb546ea7972217"></a>PAGE_STATUS_FREE&#160;</td><td class="fielddoc"><p >the page is free </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6b138da9e92dd9aca22ca40be4c34e45ae7a51a70d39b572ee1ec2a6b4fa02668" name="a6b138da9e92dd9aca22ca40be4c34e45ae7a51a70d39b572ee1ec2a6b4fa02668"></a>PAGE_STATUS_USED&#160;</td><td class="fielddoc"><p >the page is (partially) used </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a931c0181f057a5b4fdbf7e23b40f613f" name="a931c0181f057a5b4fdbf7e23b40f613f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a931c0181f057a5b4fdbf7e23b40f613f">&#9670;&nbsp;</a></span>StackAllocator()</h2>
@@ -196,6 +266,44 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad29032f6eac92c736eece0c2e94093ba" name="ad29032f6eac92c736eece0c2e94093ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad29032f6eac92c736eece0c2e94093ba">&#9670;&nbsp;</a></span>createPages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StackAllocator::createPages </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>numberOfPages</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Private function to allocate new pages </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numberOfPages</td><td>How many should be allocated </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_stack_allocator_ad29032f6eac92c736eece0c2e94093ba_icgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a401f126231669d946e02e9063bd1f35f" name="a401f126231669d946e02e9063bd1f35f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a401f126231669d946e02e9063bd1f35f">&#9670;&nbsp;</a></span>findOrCreatePages()</h2>
 
@@ -218,6 +326,12 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector of pointers to pages </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_stack_allocator_a401f126231669d946e02e9063bd1f35f_cgraph.svg" width="431" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -262,7 +376,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_stack_allocator_a531bb6769bc72f5a796180b5bf8b5735_cgraph.svg" width="447" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_stack_allocator_a531bb6769bc72f5a796180b5bf8b5735_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
@@ -271,6 +385,127 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_stack_allocator_a531bb6769bc72f5a796180b5bf8b5735_icgraph.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1e54d82ff328c44457e5330a1732c0da" name="a1e54d82ff328c44457e5330a1732c0da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e54d82ff328c44457e5330a1732c0da">&#9670;&nbsp;</a></span>allocationChunkSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t StackAllocator::allocationChunkSize {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Size of one chunk. </p>
+
+</div>
+</div>
+<a id="acc4f10272061c0048822e27d0ce4fdac" name="acc4f10272061c0048822e27d0ce4fdac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc4f10272061c0048822e27d0ce4fdac">&#9670;&nbsp;</a></span>lastFreePage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StackAllocator::lastFreePage {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Index of last free page. </p>
+
+</div>
+</div>
+<a id="a513d83294ec7c8248183e9d8371fb2ab" name="a513d83294ec7c8248183e9d8371fb2ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a513d83294ec7c8248183e9d8371fb2ab">&#9670;&nbsp;</a></span>pageSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t StackAllocator::pageSize {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Size of one page. </p>
+
+</div>
+</div>
+<a id="a2977c437d49efded08c272e2d72f5074" name="a2977c437d49efded08c272e2d72f5074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2977c437d49efded08c272e2d72f5074">&#9670;&nbsp;</a></span>physicalAllocations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_stack_allocator_1_1_physical_page.html">PhysicalPage</a>&gt; StackAllocator::physicalAllocations {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector of all allocated pages. </p>
+
+</div>
+</div>
+<a id="a77d23412ffbe5db51d2c3c51efea8de7" name="a77d23412ffbe5db51d2c3c51efea8de7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77d23412ffbe5db51d2c3c51efea8de7">&#9670;&nbsp;</a></span>virtualAllocations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_virtual_stack_allocation.html">VirtualStackAllocation</a>&gt; StackAllocator::virtualAllocations {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector of all virtual pages. </p>
 
 </div>
 </div>

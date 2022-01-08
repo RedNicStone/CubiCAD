@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['handle_0',['handle',['../class_vulkan_class.html#ab80d85ecc859b610cedefe8f0974b8c7',1,'VulkanClass']]],
-  ['height_1',['HEIGHT',['../vulkan__voxel__rasterizer__2_8cpp.html#af4091c0fc85ce76fe88d5379d7230497',1,'vulkan_voxel_rasterizer_2.cpp']]]
+  ['graphicscommandbuffers_0',['graphicsCommandBuffers',['../class_mandelbrot_app.html#a4fd77dd56c332ea756fa70cd93866659',1,'MandelbrotApp']]],
+  ['graphicsdescriptorpool_1',['graphicsDescriptorPool',['../class_mandelbrot_app.html#a8ddad7f35525f4cae66373bd903d634b',1,'MandelbrotApp']]],
+  ['graphicsfamily_2',['graphicsFamily',['../struct_queue_family_indices.html#a36cf12e04588ae1e8060df3c8d809cb1',1,'QueueFamilyIndices']]],
+  ['graphicsqueue_3',['graphicsQueue',['../class_mandelbrot_app.html#a29e27cecdcddf9ceaf60f9601e3b88f6',1,'MandelbrotApp']]]
 ];

@@ -92,13 +92,15 @@ $(document).ready(function(){initNavTree('materiallibrary_8h.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">materiallibrary.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;glm/glm.hpp&gt;</code><br />
 <code>#include &quot;<a class="el" href="mastermaterial_8h_source.html">mastermaterial.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="material_8h_source.html">material.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="uniformbuffer_8h_source.html">vulkan/uniformbuffer.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for materiallibrary.h:</div>
@@ -109,7 +111,7 @@ Include dependency graph for materiallibrary.h:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="materiallibrary_8h__dep__incl.svg" width="192" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="materiallibrary_8h__dep__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div>
@@ -117,15 +119,18 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_p_b_r_material_parameters.html">PBRMaterialParameters</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html">MaterialLibrary</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html">MaterialLibrary&lt; Parameters &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a2ca629cced2ef16d32eeecec61c4574c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materiallibrary_8h.html#a2ca629cced2ef16d32eeecec61c4574c">CUBICAD_MATERIALLIBRARY_H</a></td></tr>
 <tr class="separator:a2ca629cced2ef16d32eeecec61c4574c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a13be063f53a7d15310a53fb2b2e0e30d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="class_material_library.html">MaterialLibrary</a>&lt; <a class="el" href="struct_p_b_r_material_parameters.html">PBRMaterialParameters</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materiallibrary_8h.html#a13be063f53a7d15310a53fb2b2e0e30d">PBRMaterialLibrary</a></td></tr>
+<tr class="separator:a13be063f53a7d15310a53fb2b2e0e30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a2ca629cced2ef16d32eeecec61c4574c" name="a2ca629cced2ef16d32eeecec61c4574c"></a>
@@ -136,6 +141,21 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define CUBICAD_MATERIALLIBRARY_H</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a13be063f53a7d15310a53fb2b2e0e30d" name="a13be063f53a7d15310a53fb2b2e0e30d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13be063f53a7d15310a53fb2b2e0e30d">&#9670;&nbsp;</a></span>PBRMaterialLibrary</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="class_material_library.html">MaterialLibrary</a>&lt;<a class="el" href="struct_p_b_r_material_parameters.html">PBRMaterialParameters</a>&gt; <a class="el" href="materiallibrary_8h.html#a13be063f53a7d15310a53fb2b2e0e30d">PBRMaterialLibrary</a></td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('class_window.html',''); initResizable(
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_window-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Window Class Reference</div></div>
 </div><!--header-->
@@ -102,7 +105,7 @@ $(document).ready(function(){initNavTree('class_window.html',''); initResizable(
 <div class="dynheader">
 Collaboration diagram for Window:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_window__coll__graph.svg" width="156" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_window__coll__graph.svg" width="186" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -129,6 +132,29 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aca04f60c37e2fc5663dd24c80cf70b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab50d41994a7da97e3829c1e3134fc281"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#ab50d41994a7da97e3829c1e3134fc281">initWindows</a> ()</td></tr>
 <tr class="separator:ab50d41994a7da97e3829c1e3134fc281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae53e48ceff3fe92ae028cc92257a1f56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#ae53e48ceff3fe92ae028cc92257a1f56">dynamicResizeCallback</a> (int width, int height)</td></tr>
+<tr class="separator:ae53e48ceff3fe92ae028cc92257a1f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:afbdfb8ba03018225dfc29866afd26d2a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#afbdfb8ba03018225dfc29866afd26d2a">staticResizeCallback</a> (GLFWwindow *<a class="el" href="class_window.html#a9957db4afdad3d57e5c5b6626b44b6d0">window</a>, int width, int height)</td></tr>
+<tr class="separator:afbdfb8ba03018225dfc29866afd26d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5077d65fc2eac2f426ba770cd8b00272"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a5077d65fc2eac2f426ba770cd8b00272">instance</a></td></tr>
+<tr class="separator:a5077d65fc2eac2f426ba770cd8b00272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9957db4afdad3d57e5c5b6626b44b6d0"><td class="memItemLeft" align="right" valign="top">GLFWwindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a9957db4afdad3d57e5c5b6626b44b6d0">window</a> = nullptr</td></tr>
+<tr class="separator:a9957db4afdad3d57e5c5b6626b44b6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65828b312337d49e3fff207849e1c768"><td class="memItemLeft" align="right" valign="top">VkSurfaceKHR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a65828b312337d49e3fff207849e1c768">surface</a> {}</td></tr>
+<tr class="separator:a65828b312337d49e3fff207849e1c768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1172a8d661edaaae4492e22332d3280a"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a1172a8d661edaaae4492e22332d3280a">extend</a> {}</td></tr>
+<tr class="separator:a1172a8d661edaaae4492e22332d3280a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd6a085fe40e9011e695b2840640e2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#abfd6a085fe40e9011e695b2840640e2e">resized</a> = false</td></tr>
+<tr class="separator:abfd6a085fe40e9011e695b2840640e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a245d821e6016fa1f6970ccbbedd635f6" name="a245d821e6016fa1f6970ccbbedd635f6"></a>
@@ -195,9 +221,57 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_window_aca04f60c37e2fc5663dd24c80cf70b1b_cgraph.svg" width="623" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_window_aca04f60c37e2fc5663dd24c80cf70b1b_icgraph.svg" width="220" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_aca04f60c37e2fc5663dd24c80cf70b1b_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ae53e48ceff3fe92ae028cc92257a1f56" name="ae53e48ceff3fe92ae028cc92257a1f56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae53e48ceff3fe92ae028cc92257a1f56">&#9670;&nbsp;</a></span>dynamicResizeCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::dynamicResizeCallback </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_ae53e48ceff3fe92ae028cc92257a1f56_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -328,7 +402,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_window_ab50d41994a7da97e3829c1e3134fc281_icgraph.svg" width="254" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_ab50d41994a7da97e3829c1e3134fc281_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -379,6 +453,171 @@ Here is the caller graph for this function:</div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbdfb8ba03018225dfc29866afd26d2a" name="afbdfb8ba03018225dfc29866afd26d2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbdfb8ba03018225dfc29866afd26d2a">&#9670;&nbsp;</a></span>staticResizeCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::staticResizeCallback </td>
+          <td>(</td>
+          <td class="paramtype">GLFWwindow *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_window_afbdfb8ba03018225dfc29866afd26d2a_cgraph.svg" width="464" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_afbdfb8ba03018225dfc29866afd26d2a_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1172a8d661edaaae4492e22332d3280a" name="a1172a8d661edaaae4492e22332d3280a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1172a8d661edaaae4492e22332d3280a">&#9670;&nbsp;</a></span>extend</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkExtent2D Window::extend {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5077d65fc2eac2f426ba770cd8b00272" name="a5077d65fc2eac2f426ba770cd8b00272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5077d65fc2eac2f426ba770cd8b00272">&#9670;&nbsp;</a></span>instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_instance.html">Instance</a>&gt; Window::instance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abfd6a085fe40e9011e695b2840640e2e" name="abfd6a085fe40e9011e695b2840640e2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd6a085fe40e9011e695b2840640e2e">&#9670;&nbsp;</a></span>resized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Window::resized = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65828b312337d49e3fff207849e1c768" name="a65828b312337d49e3fff207849e1c768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65828b312337d49e3fff207849e1c768">&#9670;&nbsp;</a></span>surface</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkSurfaceKHR Window::surface {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9957db4afdad3d57e5c5b6626b44b6d0" name="a9957db4afdad3d57e5c5b6626b44b6d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9957db4afdad3d57e5c5b6626b44b6d0">&#9670;&nbsp;</a></span>window</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLFWwindow* Window::window = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

@@ -1,18 +1,14 @@
 var searchData=
 [
-  ['face_5findices_0',['face_indices',['../struct_c_c_a_d___o_t_1_1_cube.html#adcccfe1b2e3738766dc3954786602b38',1,'CCAD_OT::Cube']]],
-  ['fence_1',['Fence',['../class_fence.html',1,'']]],
-  ['fence_2ecpp_2',['fence.cpp',['../fence_8cpp.html',1,'']]],
-  ['fence_2eh_3',['fence.h',['../fence_8h.html',1,'']]],
-  ['findorcreatepages_4',['findOrCreatePages',['../class_stack_allocator.html#a401f126231669d946e02e9063bd1f35f',1,'StackAllocator']]],
-  ['flags_5',['flags',['../struct_possible_queue_family.html#a844f8c6ec817be12800e5badf9753c3c',1,'PossibleQueueFamily']]],
-  ['for_5fsequence_6',['for_sequence',['../_voxel_codec_linear_8h.html#a97dd2723d9aa5ae9b0b55db08968a87f',1,'for_sequence(std::integer_sequence&lt; T, S... &gt;, F f):&#160;VoxelCodecLinear.h'],['../_voxel_codec_shuffle_8h.html#a97dd2723d9aa5ae9b0b55db08968a87f',1,'for_sequence(std::integer_sequence&lt; T, S... &gt;, F f):&#160;VoxelCodecShuffle.h']]],
-  ['formats_7',['formats',['../struct_swap_chain_support_details.html#a22cda9622ff2cd725ec00311e2007a7f',1,'SwapChainSupportDetails']]],
-  ['fragmentshader_8',['FragmentShader',['../class_fragment_shader.html',1,'']]],
-  ['framebuffer_9',['FrameBuffer',['../class_frame_buffer.html',1,'']]],
-  ['framebuffer_2ecpp_10',['framebuffer.cpp',['../framebuffer_8cpp.html',1,'']]],
-  ['framebuffer_2eh_11',['framebuffer.h',['../framebuffer_8h.html',1,'']]],
-  ['framecount_12',['frameCount',['../struct_mandelbrot_u_b_o.html#a1920e076824f33078e189500b57e627a',1,'MandelbrotUBO']]],
-  ['frameid_13',['frameID',['../struct_mandelbrot_u_b_o.html#aaf31c8b1bac4220c566d3ca07a79c00e',1,'MandelbrotUBO']]],
-  ['frametime_14',['frameTime',['../struct_mandelbrot_u_b_o.html#a020dac8b164e60955ace32b975578992',1,'MandelbrotUBO']]]
+  ['emission_0',['emission',['../struct_p_b_r_material_parameters.html#aa306e7b1e6e57ebbc8ae12ba1224ccf2',1,'PBRMaterialParameters']]],
+  ['empty_1',['empty',['../union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#adc58c99c0f2f9f220c33dcc8e8b91289',1,'CCAD_OT::OtMatInfoUnion']]],
+  ['enablevalidationlayers_2',['enableValidationLayers',['../class_instance.html#aecfb05ddbae10c7e6d9a8d5f59242e34',1,'Instance::enableValidationLayers()'],['../vulkan__voxel__rasterizer__2_8cpp.html#aebf0191c8cb852209eefbb50d9cbf7ba',1,'enableValidationLayers():&#160;vulkan_voxel_rasterizer_2.cpp']]],
+  ['endcommandbuffer_3',['endCommandBuffer',['../class_command_buffer.html#a10ad44743d3c5f3d430b54f012e75678',1,'CommandBuffer']]],
+  ['endrenderpass_4',['endRenderPass',['../class_command_buffer.html#ad6ba01d9fd02182683f0f677867a3ae1',1,'CommandBuffer']]],
+  ['enternode_5',['enterNode',['../class_voxel_codec_octree_base.html#a960ca94e1aae08319bf96405b0ea3238',1,'VoxelCodecOctreeBase::enterNode()'],['../class_voxel_codec_octree_base.html#a53a4dfe7843c6c21261951cc45521808',1,'VoxelCodecOctreeBase::enterNode(OctreePos pos)'],['../class_voxel_codec_sparse_octree.html#a83e1380e77c6f77a44910c73eba1fe0d',1,'VoxelCodecSparseOctree::enterNode() override'],['../class_voxel_codec_sparse_octree.html#a7ecaeef6dedfda831cd7f0270b094d99',1,'VoxelCodecSparseOctree::enterNode(OctreePos pos) override']]],
+  ['eventbus_6',['eventBus',['../class_render_bus.html#a5a8ea09b3087ef5ae3b1cb08b0905fd2',1,'RenderBus']]],
+  ['eventbus_2ecpp_7',['eventbus.cpp',['../eventbus_8cpp.html',1,'']]],
+  ['eventbus_2eh_8',['eventbus.h',['../eventbus_8h.html',1,'']]],
+  ['extend_9',['extend',['../class_window.html#a1172a8d661edaaae4492e22332d3280a',1,'Window']]],
+  ['extent_10',['extent',['../class_image.html#a4f2ec794be19ebd67c34068b2b36dc17',1,'Image']]]
 ];

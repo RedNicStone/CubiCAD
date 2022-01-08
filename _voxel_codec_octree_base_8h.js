@@ -1,7 +1,8 @@
 var _voxel_codec_octree_base_8h =
 [
-    [ "VoxelCodecOctreeBase< Types >", "class_voxel_codec_octree_base.html", "class_voxel_codec_octree_base" ],
-    [ "VoxelCodecOctreeBase< Types >::NodeStackElement", "struct_voxel_codec_octree_base_1_1_node_stack_element.html", "struct_voxel_codec_octree_base_1_1_node_stack_element" ],
+    [ "VoxelCodecOctreeBase", "class_voxel_codec_octree_base.html", "class_voxel_codec_octree_base" ],
+    [ "VoxelCodecOctreeBase::NodeStackElement", "struct_voxel_codec_octree_base_1_1_node_stack_element.html", "struct_voxel_codec_octree_base_1_1_node_stack_element" ],
+    [ "VoxelCodecOctreeConstructable", "class_voxel_codec_octree_constructable.html", null ],
     [ "CUBICAD_VOXELCODECOCTREEBASE_H_", "_voxel_codec_octree_base_8h.html#aa025f1239b3529acaf93094d8b699123", null ],
     [ "OctreePos", "_voxel_codec_octree_base_8h.html#a31d38c9be7ba24821b575ed9b0e6464b", [
       [ "OCTREE_POS_TOP_FRONT_RIGHT", "_voxel_codec_octree_base_8h.html#a31d38c9be7ba24821b575ed9b0e6464ba926927d9f1662e3e7f9f278febaade1e", null ],
@@ -22,5 +23,6 @@ var _voxel_codec_octree_base_8h =
       [ "OCTREE_POS_FLAG_BACK_FRONT_LEFT", "_voxel_codec_octree_base_8h.html#ae134f94660e8b08df8977aaf3847d9a0ac1786a2e60f36886b3d2319effd1193c", null ],
       [ "OCTREE_POS_FLAG_BACK_BACK_RIGHT", "_voxel_codec_octree_base_8h.html#ae134f94660e8b08df8977aaf3847d9a0aba1f0b6d43a213db0d9f24bd0f2167df", null ],
       [ "OCTREE_POS_FLAG_BACK_BACK_LEFT", "_voxel_codec_octree_base_8h.html#ae134f94660e8b08df8977aaf3847d9a0a9f529a0bea52246a1c7441cb6673cde2", null ]
-    ] ]
+    ] ],
+    [ "OCTREE_POS_RELATION_MAP", "_voxel_codec_octree_base_8h.html#a6bef932f4002130ab197d5030cc12e43", null ]
 ];

@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('class_device.html',''); initResizable(
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_device-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Device Class Reference</div></div>
 </div><!--header-->
@@ -102,13 +104,13 @@ $(document).ready(function(){initNavTree('class_device.html',''); initResizable(
 <div class="dynheader">
 Inheritance diagram for Device:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_device__inherit__graph.svg" width="184" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_device__inherit__graph.svg" width="184" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for Device:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_device__coll__graph.svg" width="184" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_device__coll__graph.svg" width="184" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -130,8 +132,20 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2a9f19d3d5e271b7d3c300e657b44219"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a2a9f19d3d5e271b7d3c300e657b44219">create</a> (const std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt; &amp;physicalDevice, std::vector&lt; const char * &gt; <a class="el" href="vulkan__voxel__rasterizer__2_8cpp.html#a778fa44773f3b6f713038d7d9f01e054">deviceExtensions</a>, const VkPhysicalDeviceFeatures &amp;deviceFeatures)</td></tr>
+<tr class="memitem:a2a9f19d3d5e271b7d3c300e657b44219"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a2a9f19d3d5e271b7d3c300e657b44219">create</a> (const std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt; &amp;<a class="el" href="class_device.html#a68e5d597ba665f286ca3139cb261c04c">physicalDevice</a>, std::vector&lt; const char * &gt; <a class="el" href="vulkan__voxel__rasterizer__2_8cpp.html#a778fa44773f3b6f713038d7d9f01e054">deviceExtensions</a>, const VkPhysicalDeviceFeatures &amp;deviceFeatures)</td></tr>
 <tr class="separator:a2a9f19d3d5e271b7d3c300e657b44219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aea8efde94db9aa86ed12dc8da0dbfc5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#aea8efde94db9aa86ed12dc8da0dbfc5f">createMemoryAllocator</a> ()</td></tr>
+<tr class="separator:aea8efde94db9aa86ed12dc8da0dbfc5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a68e5d597ba665f286ca3139cb261c04c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a68e5d597ba665f286ca3139cb261c04c">physicalDevice</a></td></tr>
+<tr class="separator:a68e5d597ba665f286ca3139cb261c04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019d8e30a846caf09c07bda4735cd7fa"><td class="memItemLeft" align="right" valign="top">VmaAllocator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_device.html#a019d8e30a846caf09c07bda4735cd7fa">allocator</a></td></tr>
+<tr class="separator:a019d8e30a846caf09c07bda4735cd7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -200,9 +214,34 @@ Additional Inherited Members</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_device_a2a9f19d3d5e271b7d3c300e657b44219_icgraph.svg" width="214" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_device_a2a9f19d3d5e271b7d3c300e657b44219_icgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
+
+</div>
+</div>
+<a id="aea8efde94db9aa86ed12dc8da0dbfc5f" name="aea8efde94db9aa86ed12dc8da0dbfc5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea8efde94db9aa86ed12dc8da0dbfc5f">&#9670;&nbsp;</a></span>createMemoryAllocator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Device::createMemoryAllocator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -269,6 +308,51 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a019d8e30a846caf09c07bda4735cd7fa" name="a019d8e30a846caf09c07bda4735cd7fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019d8e30a846caf09c07bda4735cd7fa">&#9670;&nbsp;</a></span>allocator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VmaAllocator Device::allocator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68e5d597ba665f286ca3139cb261c04c" name="a68e5d597ba665f286ca3139cb261c04c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e5d597ba665f286ca3139cb261c04c">&#9670;&nbsp;</a></span>physicalDevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_physical_device.html">PhysicalDevice</a>&gt; Device::physicalDevice</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

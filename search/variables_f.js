@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['tex_5findex_0',['tex_index',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_textured.html#a5e257bdf5c4c4bcfa8098419a0f17aaf',1,'CCAD_OT::OtMatInfoTextured']]],
-  ['textured_1',['textured',['../union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#ac929aba0a8bab0145875e5d1ac6a3e55',1,'CCAD_OT::OtMatInfoUnion']]],
-  ['time_2',['time',['../struct_mandelbrot_u_b_o.html#aca526764ac36994dc528578c2e07271c',1,'MandelbrotUBO']]],
-  ['transferfamily_3',['transferFamily',['../struct_queue_family_indices.html#aa4f0d219980a4dea476a3fafde146ac7',1,'QueueFamilyIndices']]],
-  ['transparency_4',['transparency',['../struct_p_b_r_material_parameters.html#ac971a6ac02c77155cbb5b6c3d1968349',1,'PBRMaterialParameters']]],
-  ['type_5',['type',['../struct_c_c_a_d___o_t_1_1_ot_node_info.html#aa46e766aa759efb96481abfedec84478',1,'CCAD_OT::OtNodeInfo::type()'],['../struct_c_c_a_d___o_t_1_1_ot_node_info_rendered.html#a717c61a97bc13f74ec6b796e789e1d7f',1,'CCAD_OT::OtNodeInfoRendered::type()'],['../struct_c_c_a_d___o_t_1_1_ot_node_primitive.html#a1dc2f3fc8cf4e3ee2c1c1922008bfdd6',1,'CCAD_OT::OtNodePrimitive::type()'],['../struct_c_c_a_d___o_t_1_1_ot_node.html#a2ea3fb351e5a0864e59f056936b0139e',1,'CCAD_OT::OtNode::type()'],['../struct_c_c_a_d___o_t_1_1_ot_node_root.html#ab11469976209f5a12b5fd75cba71ce27',1,'CCAD_OT::OtNodeRoot::type()'],['../struct_c_c_a_d___o_t_1_1_ot_node_leaf.html#a689f363a919ea762770f254e9dfd3fa5',1,'CCAD_OT::OtNodeLeaf::type()']]]
+  ['reader_0',['reader',['../class_model_loader.html#a251aa81af2f4e99f6ba15a363136cfbe',1,'ModelLoader']]],
+  ['readwriteptr_1',['readWritePtr',['../class_voxel_codec_base.html#a983e3aa343fb39f783ab3d511e0af9a7',1,'VoxelCodecBase']]],
+  ['renderfinishedsemaphores_2',['renderFinishedSemaphores',['../class_swap_chain.html#a5525b70a1a72763ec03b2a422e4891eb',1,'SwapChain']]],
+  ['renderpass_3',['renderPass',['../class_mandelbrot_app.html#a3f0968ca66e6e24aec03af46fc30d932',1,'MandelbrotApp']]],
+  ['resized_4',['resized',['../class_window.html#abfd6a085fe40e9011e695b2840640e2e',1,'Window']]],
+  ['root_5fnode_5',['root_node',['../class_c_c_a_d___o_t_1_1_ot_octree.html#af1e01751604141ee577606c70aff5465',1,'CCAD_OT::OtOctree']]],
+  ['roughness_6',['roughness',['../struct_p_b_r_material_parameters.html#a105f39b848440efb331e4640baaa6ad5',1,'PBRMaterialParameters']]]
 ];

@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_image.html',''); initResizable()
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_image-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Image Class Reference</div></div>
 </div><!--header-->
@@ -102,13 +103,13 @@ $(document).ready(function(){initNavTree('class_image.html',''); initResizable()
 <div class="dynheader">
 Inheritance diagram for Image:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_image__inherit__graph.svg" width="347" height="516"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_image__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for Image:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_image__coll__graph.svg" width="347" height="516"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_image__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <table class="memberdecls">
@@ -140,8 +141,27 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af46f4c74c9df89aa493f35da8a17aff2"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#af46f4c74c9df89aa493f35da8a17aff2">create</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; pDevice, VmaMemoryUsage memoryUsage, VkMemoryPropertyFlags preferredFlags, VkImageCreateInfo &amp;createInfo, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
 <tr class="separator:af46f4c74c9df89aa493f35da8a17aff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf9f8727b4ec835350ef036b98ea710b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#acf9f8727b4ec835350ef036b98ea710b">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const VkExtent2D &amp;size, uint32_t mip_level, VkFormat format, VkImageUsageFlags usage, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
+<tr class="memitem:acf9f8727b4ec835350ef036b98ea710b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#acf9f8727b4ec835350ef036b98ea710b">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const VkExtent2D &amp;size, uint32_t mip_level, VkFormat <a class="el" href="class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e">format</a>, VkImageUsageFlags usage, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
 <tr class="separator:acf9f8727b4ec835350ef036b98ea710b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae7feb1205602050df046512f63c3942b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ae7feb1205602050df046512f63c3942b">device</a></td></tr>
+<tr class="separator:ae7feb1205602050df046512f63c3942b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2db4d1a5acdcf6bfa9226f6f3a43b71"><td class="memItemLeft" align="right" valign="top">VmaAllocation&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ad2db4d1a5acdcf6bfa9226f6f3a43b71">allocation</a></td></tr>
+<tr class="separator:ad2db4d1a5acdcf6bfa9226f6f3a43b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88a91372a01454c08f5ffbb5fd8b5200"><td class="memItemLeft" align="right" valign="top">VmaAllocationInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a88a91372a01454c08f5ffbb5fd8b5200">allocationInfo</a> {}</td></tr>
+<tr class="separator:a88a91372a01454c08f5ffbb5fd8b5200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f2ec794be19ebd67c34068b2b36dc17"><td class="memItemLeft" align="right" valign="top">VkExtent3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a4f2ec794be19ebd67c34068b2b36dc17">extent</a></td></tr>
+<tr class="separator:a4f2ec794be19ebd67c34068b2b36dc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae681e1be2adc6cdd003bed858d2655f9"><td class="memItemLeft" align="right" valign="top">VkImageType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ae681e1be2adc6cdd003bed858d2655f9">type</a></td></tr>
+<tr class="separator:ae681e1be2adc6cdd003bed858d2655f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3261b28e4da1955ba89ad6665bfc2f8e"><td class="memItemLeft" align="right" valign="top">VkFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e">format</a></td></tr>
+<tr class="separator:a3261b28e4da1955ba89ad6665bfc2f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acabca646d85b455e9dc5342c1a940d21"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#acabca646d85b455e9dc5342c1a940d21">mipLevels</a></td></tr>
+<tr class="separator:acabca646d85b455e9dc5342c1a940d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d51a957011e2e329504d7920b91758"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#af9d51a957011e2e329504d7920b91758">arrayLayers</a></td></tr>
+<tr class="separator:af9d51a957011e2e329504d7920b91758"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -460,6 +480,183 @@ Here is the call graph for this function:</div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad2db4d1a5acdcf6bfa9226f6f3a43b71" name="ad2db4d1a5acdcf6bfa9226f6f3a43b71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2db4d1a5acdcf6bfa9226f6f3a43b71">&#9670;&nbsp;</a></span>allocation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VmaAllocation Image::allocation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88a91372a01454c08f5ffbb5fd8b5200" name="a88a91372a01454c08f5ffbb5fd8b5200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88a91372a01454c08f5ffbb5fd8b5200">&#9670;&nbsp;</a></span>allocationInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VmaAllocationInfo Image::allocationInfo {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9d51a957011e2e329504d7920b91758" name="af9d51a957011e2e329504d7920b91758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9d51a957011e2e329504d7920b91758">&#9670;&nbsp;</a></span>arrayLayers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Image::arrayLayers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7feb1205602050df046512f63c3942b" name="ae7feb1205602050df046512f63c3942b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7feb1205602050df046512f63c3942b">&#9670;&nbsp;</a></span>device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_device.html">Device</a>&gt; Image::device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f2ec794be19ebd67c34068b2b36dc17" name="a4f2ec794be19ebd67c34068b2b36dc17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f2ec794be19ebd67c34068b2b36dc17">&#9670;&nbsp;</a></span>extent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkExtent3D Image::extent</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3261b28e4da1955ba89ad6665bfc2f8e" name="a3261b28e4da1955ba89ad6665bfc2f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3261b28e4da1955ba89ad6665bfc2f8e">&#9670;&nbsp;</a></span>format</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkFormat Image::format</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acabca646d85b455e9dc5342c1a940d21" name="acabca646d85b455e9dc5342c1a940d21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acabca646d85b455e9dc5342c1a940d21">&#9670;&nbsp;</a></span>mipLevels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Image::mipLevels</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae681e1be2adc6cdd003bed858d2655f9" name="ae681e1be2adc6cdd003bed858d2655f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae681e1be2adc6cdd003bed858d2655f9">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkImageType Image::type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

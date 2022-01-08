@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['endcommandbuffer_0',['endCommandBuffer',['../class_command_buffer.html#a10ad44743d3c5f3d430b54f012e75678',1,'CommandBuffer']]],
-  ['endrenderpass_1',['endRenderPass',['../class_command_buffer.html#ad6ba01d9fd02182683f0f677867a3ae1',1,'CommandBuffer']]],
-  ['enternode_2',['enterNode',['../class_voxel_codec_octree_base.html#afb043db78f174bb20bc50bff535fdb96',1,'VoxelCodecOctreeBase']]],
-  ['expandallocation_3',['expandAllocation',['../class_voxel_codec_octree_base.html#a6c33145a8b58bb0c52e708a54008a4c2',1,'VoxelCodecOctreeBase']]]
+  ['draw_0',['draw',['../class_command_buffer.html#a78662ba08a6d36b572fa781a76e3bd36',1,'CommandBuffer']]],
+  ['drawframe_1',['drawFrame',['../class_mandelbrot_app.html#ab3ce0f5ab6d2fb792b5217ceb4ffdc2d',1,'MandelbrotApp']]],
+  ['drawindexed_2',['drawIndexed',['../class_command_buffer.html#aa521acf82918f7df7c9ea65226c6bf7e',1,'CommandBuffer']]],
+  ['dynamicresizecallback_3',['dynamicResizeCallback',['../class_window.html#ae53e48ceff3fe92ae028cc92257a1f56',1,'Window']]]
 ];

@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['value_0',['value',['../structoptional.html#a5fcd27e1ee81ffc29606ac241349f0c4',1,'optional']]],
-  ['vec_5fabs_1',['vec_abs',['../classvec__abs.html#a6156aa215de54d0326099868b93f9c5a',1,'vec_abs::vec_abs()'],['../classvec__abs.html#ad8064d5e8604221717b7d15facdc1843',1,'vec_abs::vec_abs(const vec_abs &amp;vec)'],['../classvec__abs.html#af0cbc5502ce9a7c939bc9d0d7278ba92',1,'vec_abs::vec_abs(const std::array&lt; T, N &gt; &amp;arr)']]],
-  ['virtualstackallocation_2',['VirtualStackAllocation',['../class_virtual_stack_allocation.html#add88314383fa3d876f3159fccd221a2c',1,'VirtualStackAllocation']]]
+  ['unmap_0',['unmap',['../class_buffer.html#aaeecba2e74f8797e81816c433f7d573e',1,'Buffer']]],
+  ['updatebuffercontents_1',['updateBufferContents',['../class_uniform_buffer.html#a0dd11e486c0c77cd7183e1ea3686f2e1',1,'UniformBuffer']]],
+  ['updateimage_2',['updateImage',['../class_descriptor_set.html#a35931a8d5106020ddc7617e800a138fa',1,'DescriptorSet::updateImage(const std::shared_ptr&lt; ImageView &gt; &amp;imageView, uint32_t binding, uint32_t arrayElement=0)'],['../class_descriptor_set.html#a23f619098d1dfda570b9e54b7fd115fe',1,'DescriptorSet::updateImage(const std::shared_ptr&lt; ImageView &gt; &amp;imageView, VkDescriptorType type, uint32_t binding, uint32_t arrayElement=0)']]],
+  ['updatestoragebuffer_3',['updateStorageBuffer',['../class_descriptor_set.html#a28cf1e0776751aec4cbba26ffbf80b4d',1,'DescriptorSet']]],
+  ['updateuniformbuffer_4',['updateUniformBuffer',['../class_descriptor_set.html#a8e5435aec7f0fb5d99b9eb31ba7e4fcc',1,'DescriptorSet::updateUniformBuffer(std::shared_ptr&lt; UniformBuffer&lt; type &gt; &gt; buffer, uint32_t binding, VkDeviceSize offset=0, uint32_t arrayElement=0)'],['../class_descriptor_set.html#a8c7c62a121fb542a4180ea1ee1551c62',1,'DescriptorSet::updateUniformBuffer(std::vector&lt; std::shared_ptr&lt; UniformBuffer&lt; type... &gt; &gt; &gt; buffer, std::vector&lt; uint32_t &gt; binding, std::vector&lt; VkDeviceSize &gt; offset={}, std::vector&lt; uint32_t &gt; arrayElement={})'],['../class_mandelbrot_app.html#a1ef118b77009ffff5b744dfdcd2a81a7',1,'MandelbrotApp::updateUniformBuffer(uint32_t currentImage)']]],
+  ['updatewindowsize_5',['updateWindowSize',['../class_mandelbrot_app.html#a6f6996cd05102ca8f631a075ea2cda23',1,'MandelbrotApp']]]
 ];

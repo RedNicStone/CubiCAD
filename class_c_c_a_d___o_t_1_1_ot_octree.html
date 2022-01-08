@@ -92,6 +92,8 @@ $(document).ready(function(){initNavTree('class_c_c_a_d___o_t_1_1_ot_octree.html
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_c_c_a_d___o_t_1_1_ot_octree-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">CCAD_OT::OtOctree Class Reference</div></div>
 </div><!--header-->
@@ -101,7 +103,7 @@ $(document).ready(function(){initNavTree('class_c_c_a_d___o_t_1_1_ot_octree.html
 <div class="dynheader">
 Collaboration diagram for CCAD_OT::OtOctree:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree__coll__graph.svg" width="191" height="132"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <table class="memberdecls">
@@ -115,6 +117,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acf4a1d1c22a312e2a46a8d947b09844e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affdeb3fd886f3158e29744f2a2608338"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#affdeb3fd886f3158e29744f2a2608338">ot_create_leaf</a> (double x, double y, double z, uint32_t depth)</td></tr>
 <tr class="separator:affdeb3fd886f3158e29744f2a2608338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:afe7647556ff80406d93244eda0947548"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#afe7647556ff80406d93244eda0947548">recursive_erase_</a> (<a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">CCAD_OT::OtNodePrimitive</a> *node)</td></tr>
+<tr class="separator:afe7647556ff80406d93244eda0947548"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ad94c9403c2672d0ad010e1f863d43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#a42ad94c9403c2672d0ad010e1f863d43">recursive_full_construct_</a> (uint32_t depth, const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *node_template, <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *node)</td></tr>
+<tr class="separator:a42ad94c9403c2672d0ad010e1f863d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7fbd28a7734f9595369d91cd6be7165"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#ab7fbd28a7734f9595369d91cd6be7165">recursive_find_closest_</a> (double x, double y, double z, uint32_t depth, <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *node)</td></tr>
+<tr class="separator:ab7fbd28a7734f9595369d91cd6be7165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af03ecfa8e04704c4f890668d8398ad9b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#af03ecfa8e04704c4f890668d8398ad9b">recursive_create_leaf_</a> (double x, double y, double z, uint32_t depth_current, uint32_t depth_goal, <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *node)</td></tr>
+<tr class="separator:af03ecfa8e04704c4f890668d8398ad9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af1e01751604141ee577606c70aff5465"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_root.html">OtNodeRoot</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#af1e01751604141ee577606c70aff5465">root_node</a> = new <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_root.html">OtNodeRoot</a>()</td></tr>
+<tr class="separator:af1e01751604141ee577606c70aff5465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad79691122296514c3d5e73ca7c7f4c43" name="ad79691122296514c3d5e73ca7c7f4c43"></a>
@@ -132,6 +150,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_ad79691122296514c3d5e73ca7c7f4c43_cgraph.svg" width="620" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -173,6 +197,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_affdeb3fd886f3158e29744f2a2608338_cgraph.svg" width="594" height="314"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_affdeb3fd886f3158e29744f2a2608338_icgraph.svg" width="258" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
@@ -195,6 +225,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_a17f002facea3c5b28cdf176b2faf16ae_cgraph.svg" width="588" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -234,6 +270,265 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_acf4a1d1c22a312e2a46a8d947b09844e_cgraph.svg" width="599" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="af03ecfa8e04704c4f890668d8398ad9b" name="af03ecfa8e04704c4f890668d8398ad9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af03ecfa8e04704c4f890668d8398ad9b">&#9670;&nbsp;</a></span>recursive_create_leaf_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> * CCAD_OT::OtOctree::recursive_create_leaf_ </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>depth_current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>depth_goal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_af03ecfa8e04704c4f890668d8398ad9b_cgraph.svg" width="398" height="314"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_af03ecfa8e04704c4f890668d8398ad9b_icgraph.svg" width="459" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="afe7647556ff80406d93244eda0947548" name="afe7647556ff80406d93244eda0947548"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe7647556ff80406d93244eda0947548">&#9670;&nbsp;</a></span>recursive_erase_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CCAD_OT::OtOctree::recursive_erase_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">CCAD_OT::OtNodePrimitive</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_afe7647556ff80406d93244eda0947548_cgraph.svg" width="392" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_afe7647556ff80406d93244eda0947548_icgraph.svg" width="454" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ab7fbd28a7734f9595369d91cd6be7165" name="ab7fbd28a7734f9595369d91cd6be7165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7fbd28a7734f9595369d91cd6be7165">&#9670;&nbsp;</a></span>recursive_find_closest_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> * CCAD_OT::OtOctree::recursive_find_closest_ </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_ab7fbd28a7734f9595369d91cd6be7165_cgraph.svg" width="403" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_ab7fbd28a7734f9595369d91cd6be7165_icgraph.svg" width="366" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a42ad94c9403c2672d0ad010e1f863d43" name="a42ad94c9403c2672d0ad010e1f863d43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42ad94c9403c2672d0ad010e1f863d43">&#9670;&nbsp;</a></span>recursive_full_construct_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CCAD_OT::OtOctree::recursive_full_construct_ </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *&#160;</td>
+          <td class="paramname"><em>node_template</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_primitive.html">OtNodePrimitive</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_a42ad94c9403c2672d0ad010e1f863d43_cgraph.svg" width="411" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_c_c_a_d___o_t_1_1_ot_octree_a42ad94c9403c2672d0ad010e1f863d43_icgraph.svg" width="387" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af1e01751604141ee577606c70aff5465" name="af1e01751604141ee577606c70aff5465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e01751604141ee577606c70aff5465">&#9670;&nbsp;</a></span>root_node</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_root.html">OtNodeRoot</a>* CCAD_OT::OtOctree::root_node = new <a class="el" href="struct_c_c_a_d___o_t_1_1_ot_node_root.html">OtNodeRoot</a>()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

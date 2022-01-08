@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['import_0',['import',['../class_model_loader.html#aa9107f0cc50ccd1990cf2ed013df9cf1',1,'ModelLoader']]],
-  ['initwindows_1',['initWindows',['../class_window.html#ab50d41994a7da97e3829c1e3134fc281',1,'Window']]],
-  ['iscomplete_2',['isComplete',['../struct_queue_family_indices.html#a15425ce6a9efb2a9f6516babef8e6391',1,'QueueFamilyIndices']]],
-  ['isleaf_3',['isLeaf',['../class_voxel_codec_octree_base.html#a6d35c3b8dab47f1e1c9d05c536134b5a',1,'VoxelCodecOctreeBase::isLeaf()'],['../class_voxel_codec_sparse_octree.html#a8b0c081bbbdedeb307d0b91c0999f3a6',1,'VoxelCodecSparseOctree::isLeaf()']]]
+  ['has_5fvalue_0',['has_value',['../structoptional.html#a7c9c93a03748f3024d4043b20fa8e958',1,'optional']]],
+  ['hasrequiredextensions_1',['hasRequiredExtensions',['../class_physical_device.html#a7e9db719b701ad66d1d02c3ba0ca0e2a',1,'PhysicalDevice']]],
+  ['hasworksubmitted_2',['hasWorkSubmitted',['../class_queue.html#ad4f40d2acb594dc9d528b34eb5db0abd',1,'Queue']]],
+  ['holdsdata_3',['holdsData',['../class_voxel_codec_octree_base.html#ac21c115c8d1b37a1ba2470abbf2f395b',1,'VoxelCodecOctreeBase::holdsData()'],['../class_voxel_codec_sparse_octree.html#a5e1000023f467511ab7072e56cdb1e03',1,'VoxelCodecSparseOctree::holdsData()']]]
 ];

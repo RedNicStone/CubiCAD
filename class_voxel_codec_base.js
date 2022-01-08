@@ -11,7 +11,7 @@ var class_voxel_codec_base =
     [ "jumpToVoxel", "class_voxel_codec_base.html#aec53dd6d3446c5f5cc5a7480b86d6e03", null ],
     [ "skipVoxel", "class_voxel_codec_base.html#a62936f8d9a7245325b697f22f6ed666b", null ],
     [ "skipVoxels", "class_voxel_codec_base.html#ae29e5d2deffdee87249a44a4f0da926f", null ],
-    [ "allocationHandler", "class_voxel_codec_base.html#a7f147073f6c48773563a0edf7bcb6739", null ],
+    [ "allocationHandler", "class_voxel_codec_base.html#a257707f3f441ecf8d4270c17c1b7b956", null ],
     [ "allocationPtr", "class_voxel_codec_base.html#aa01817c4779339093135cb5f15851547", null ],
     [ "allocationSize", "class_voxel_codec_base.html#a645b07b449b17cf42f62347e0a49a6fa", null ],
     [ "readWritePtr", "class_voxel_codec_base.html#a983e3aa343fb39f783ab3d511e0af9a7", null ],

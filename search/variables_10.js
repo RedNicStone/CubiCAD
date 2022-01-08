@@ -1,5 +1,23 @@
 var searchData=
 [
-  ['use_5fcustom_5fnode_5ftemplate_0',['use_custom_node_template',['../struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html#a8c214968de00f9a4d5a671a02837daa7',1,'CCAD_OT::OtConstructOctreeInfo']]],
-  ['uv_1',['uv',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_textured.html#ae86c7c57aa9521f9f57b3fe26a82d506',1,'CCAD_OT::OtMatInfoTextured::uv()'],['../struct_vertex.html#a71f6da764be0988aed9e61a3d9c371f3',1,'Vertex::uv()']]]
+  ['setlayout_0',['setLayout',['../class_descriptor_set.html#ad9ad54cbbcf399c88e3a2edee1456fa9',1,'DescriptorSet']]],
+  ['shaded_1',['shaded',['../union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#aa379da389b403df55fe033bbd40d07f2',1,'CCAD_OT::OtMatInfoUnion']]],
+  ['shadercode_2',['shaderCode',['../class_shader.html#a55de2b5aa93226b8fa3118e6388d7bbd',1,'Shader']]],
+  ['shadermodule_3',['shaderModule',['../class_shader.html#ad122573a5ad341dceb3d160039691a11',1,'Shader']]],
+  ['shaderstage_4',['shaderStage',['../class_shader.html#a051da1ef3b0809676e8501f5650e8395',1,'Shader']]],
+  ['shadingpipeline_5',['shadingPipeline',['../class_mandelbrot_app.html#adab8e1e888115d4f892dae38787861d3',1,'MandelbrotApp']]],
+  ['shadingpipelinelayout_6',['shadingPipelineLayout',['../class_mandelbrot_app.html#a1c25defc25d20c876e6e485e82207def',1,'MandelbrotApp']]],
+  ['sheen_7',['sheen',['../struct_p_b_r_material_parameters.html#ad6352384b6bbec3665397b1c4ba7c64a',1,'PBRMaterialParameters']]],
+  ['size_8',['size',['../class_virtual_allocation.html#a13d95ae73fc6c08f4a66e44b63e5757a',1,'VirtualAllocation::size()'],['../class_voxel_codec_base.html#a2e8332b5da1676bdd5ef01b466e77509',1,'VoxelCodecBase::size()']]],
+  ['solid_9',['solid',['../union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#a1ce8fff7f51dba53bba71541161eb814',1,'CCAD_OT::OtMatInfoUnion']]],
+  ['specular_10',['specular',['../struct_p_b_r_material_parameters.html#a3db2877df44ccec7b39e8a6c2dfe9689',1,'PBRMaterialParameters']]],
+  ['status_11',['status',['../struct_stack_allocator_1_1_physical_page.html#ac468ff1511abd9dfa8c6c00421ac4c60',1,'StackAllocator::PhysicalPage']]],
+  ['subpass_5fstages_12',['subpass_stages',['../class_render_pass.html#a6158493254f112b4acda255f362e939b',1,'RenderPass']]],
+  ['subpasses_13',['subpasses',['../class_render_pass.html#ab174cc47f47f05c4700537e5f764cc0e',1,'RenderPass']]],
+  ['surface_14',['surface',['../class_window.html#a65828b312337d49e3fff207849e1c768',1,'Window']]],
+  ['surfaceinfo_15',['surfaceInfo',['../struct_c_c_a_d___o_t_1_1_ot_node_info_rendered.html#a98862c9675bdeda4539918072da86500',1,'CCAD_OT::OtNodeInfoRendered']]],
+  ['swapchain_16',['swapChain',['../class_swap_chain.html#a4dc5f39b6548457c13a4b3e4f80a2bd5',1,'SwapChain::swapChain()'],['../class_mandelbrot_app.html#a9a7c370e8cba120b74af6cc6165d44b4',1,'MandelbrotApp::swapChain()']]],
+  ['swapchainextent_17',['swapChainExtent',['../class_mandelbrot_app.html#a7df7caf7132923e4a96371dcca4e6094',1,'MandelbrotApp']]],
+  ['swapchainimages_18',['swapChainImages',['../class_swap_chain.html#a7ebafc5bb1cb9b41919158f22b4f6208',1,'SwapChain']]],
+  ['swapchainimageviews_19',['swapChainImageViews',['../class_swap_chain.html#a144df50dfbb5de290b7eb2107fd0f01c',1,'SwapChain']]]
 ];

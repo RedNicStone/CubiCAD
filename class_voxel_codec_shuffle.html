@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_voxel_codec_shuffle.html',''); i
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="class_voxel_codec_shuffle-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">VoxelCodecShuffle&lt; Types &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -154,14 +155,19 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f6d26424a0a140170b3e2cc9b2d9444"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_voxel_codec_shuffle.html">VoxelCodecShuffle</a>&lt; Types... &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voxel_codec_shuffle.html#a6f6d26424a0a140170b3e2cc9b2d9444">Allocate</a> (AllocationHandler *handler, <a class="el" href="struct_voxel_region.html">VoxelRegion</a> region)</td></tr>
 <tr class="separator:a6f6d26424a0a140170b3e2cc9b2d9444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a0cfba6c1fd272fcff3d3116847a1093e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voxel_codec_shuffle.html#a0cfba6c1fd272fcff3d3116847a1093e">fragment</a> = <a class="el" href="class_voxel_fragment.html">VoxelFragment</a>&lt; Types... &gt;</td></tr>
+<tr class="separator:a0cfba6c1fd272fcff3d3116847a1093e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_voxel_codec_base"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_voxel_codec_base')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_voxel_codec_base.html">VoxelCodecBase</a></td></tr>
 <tr class="memitem:a645b07b449b17cf42f62347e0a49a6fa inherit pro_attribs_class_voxel_codec_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_voxel_region.html">VoxelRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voxel_codec_base.html#a645b07b449b17cf42f62347e0a49a6fa">allocationSize</a> {}</td></tr>
 <tr class="memdesc:a645b07b449b17cf42f62347e0a49a6fa inherit pro_attribs_class_voxel_codec_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">base for all voxel codecs, this represents voxels stored in some way  <a href="class_voxel_codec_base.html#a645b07b449b17cf42f62347e0a49a6fa">More...</a><br /></td></tr>
 <tr class="separator:a645b07b449b17cf42f62347e0a49a6fa inherit pro_attribs_class_voxel_codec_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f147073f6c48773563a0edf7bcb6739 inherit pro_attribs_class_voxel_codec_base"><td class="memItemLeft" align="right" valign="top">AllocationHandler *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voxel_codec_base.html#a7f147073f6c48773563a0edf7bcb6739">allocationHandler</a> {}</td></tr>
-<tr class="separator:a7f147073f6c48773563a0edf7bcb6739 inherit pro_attribs_class_voxel_codec_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a257707f3f441ecf8d4270c17c1b7b956 inherit pro_attribs_class_voxel_codec_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_allocator.html">Allocator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voxel_codec_base.html#a257707f3f441ecf8d4270c17c1b7b956">allocationHandler</a> {}</td></tr>
+<tr class="separator:a257707f3f441ecf8d4270c17c1b7b956 inherit pro_attribs_class_voxel_codec_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa01817c4779339093135cb5f15851547 inherit pro_attribs_class_voxel_codec_base"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voxel_codec_base.html#aa01817c4779339093135cb5f15851547">allocationPtr</a> {}</td></tr>
 <tr class="memdesc:aa01817c4779339093135cb5f15851547 inherit pro_attribs_class_voxel_codec_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the storage allocation  <a href="class_voxel_codec_base.html#aa01817c4779339093135cb5f15851547">More...</a><br /></td></tr>
 <tr class="separator:aa01817c4779339093135cb5f15851547 inherit pro_attribs_class_voxel_codec_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,6 +181,33 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:a65a47193f78216788b84147b1273a037 inherit pro_attribs_class_voxel_codec_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of the current voxel  <a href="class_voxel_codec_base.html#a65a47193f78216788b84147b1273a037">More...</a><br /></td></tr>
 <tr class="separator:a65a47193f78216788b84147b1273a037 inherit pro_attribs_class_voxel_codec_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a0cfba6c1fd272fcff3d3116847a1093e" name="a0cfba6c1fd272fcff3d3116847a1093e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cfba6c1fd272fcff3d3116847a1093e">&#9670;&nbsp;</a></span>fragment</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ... Types&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="class_voxel_codec_shuffle.html">VoxelCodecShuffle</a>&lt; Types &gt;::<a class="el" href="class_voxel_codec_shuffle.html#a0cfba6c1fd272fcff3d3116847a1093e">fragment</a> =  <a class="el" href="class_voxel_fragment.html">VoxelFragment</a>&lt;Types...&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >this class represents a shuffled voxel codec, stored like this: n data 1 [ &lt;attribute0&gt;, &lt;attribute1&gt;, ..., &lt;attributeN&gt;, 2 &lt;attribute0&gt;, &lt;attribute1&gt;, ..., &lt;attributeN&gt;, 3 &lt;attribute0&gt;, &lt;attribute1&gt;, ..., &lt;attributeN&gt; ]</p>
+<p >this implementation uses just as much memory as "VoxelCodecLinear", but since the attributes are close together it should be faster to work on </p>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac330c2c7f3e2ad8547be795ae1726030" name="ac330c2c7f3e2ad8547be795ae1726030"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac330c2c7f3e2ad8547be795ae1726030">&#9670;&nbsp;</a></span>~VoxelCodecShuffle()</h2>

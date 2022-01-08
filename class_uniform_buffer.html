@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_uniform_buffer.html',''); initRe
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_uniform_buffer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">UniformBuffer&lt; type &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -102,7 +103,7 @@ $(document).ready(function(){initNavTree('class_uniform_buffer.html',''); initRe
 <div class="dynheader">
 Collaboration diagram for UniformBuffer&lt; type &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer__coll__graph.svg" width="178" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer__coll__graph.svg" width="178" height="220"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -125,6 +126,17 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abc6f3719288674b9d9f236952f2c9021"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#abc6f3719288674b9d9f236952f2c9021">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pTransferQueue)</td></tr>
 <tr class="separator:abc6f3719288674b9d9f236952f2c9021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a474eacfab16ced33490b933d06eee982"><td class="memItemLeft" align="right" valign="top">type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#a474eacfab16ced33490b933d06eee982">data</a></td></tr>
+<tr class="separator:a474eacfab16ced33490b933d06eee982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01844c992fa9f44667507d8dd8a50969"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#a01844c992fa9f44667507d8dd8a50969">buffer</a></td></tr>
+<tr class="separator:a01844c992fa9f44667507d8dd8a50969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9a87af7bd04265056d2f5dab5fa6e1e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#aa9a87af7bd04265056d2f5dab5fa6e1e">device</a></td></tr>
+<tr class="separator:aa9a87af7bd04265056d2f5dab5fa6e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1512c672b3acd0bcd0c7ffea7092053"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uniform_buffer.html#ad1512c672b3acd0bcd0c7ffea7092053">transferQueue</a></td></tr>
+<tr class="separator:ad1512c672b3acd0bcd0c7ffea7092053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="abc6f3719288674b9d9f236952f2c9021" name="abc6f3719288674b9d9f236952f2c9021"></a>
@@ -165,7 +177,13 @@ template&lt;class type &gt; </div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer_abc6f3719288674b9d9f236952f2c9021_cgraph.svg" width="302" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer_abc6f3719288674b9d9f236952f2c9021_cgraph.svg" width="302" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_uniform_buffer_abc6f3719288674b9d9f236952f2c9021_icgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -318,6 +336,103 @@ template&lt;class type &gt; </div>
           <td class="memname">void <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::updateBufferContents</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a01844c992fa9f44667507d8dd8a50969" name="a01844c992fa9f44667507d8dd8a50969"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01844c992fa9f44667507d8dd8a50969">&#9670;&nbsp;</a></span>buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_buffer.html">Buffer</a>&gt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::buffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a474eacfab16ced33490b933d06eee982" name="a474eacfab16ced33490b933d06eee982"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474eacfab16ced33490b933d06eee982">&#9670;&nbsp;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">type <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::data</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9a87af7bd04265056d2f5dab5fa6e1e" name="aa9a87af7bd04265056d2f5dab5fa6e1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9a87af7bd04265056d2f5dab5fa6e1e">&#9670;&nbsp;</a></span>device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_device.html">Device</a>&gt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1512c672b3acd0bcd0c7ffea7092053" name="ad1512c672b3acd0bcd0c7ffea7092053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1512c672b3acd0bcd0c7ffea7092053">&#9670;&nbsp;</a></span>transferQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_queue.html">Queue</a>&gt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt;::transferQueue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

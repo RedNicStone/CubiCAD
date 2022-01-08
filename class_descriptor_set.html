@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_descriptor_set.html',''); initRe
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_descriptor_set-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">DescriptorSet Class Reference</div></div>
 </div><!--header-->
@@ -102,13 +103,13 @@ $(document).ready(function(){initNavTree('class_descriptor_set.html',''); initRe
 <div class="dynheader">
 Inheritance diagram for DescriptorSet:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_descriptor_set__inherit__graph.svg" width="223" height="546"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_descriptor_set__inherit__graph.svg" width="223" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for DescriptorSet:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_descriptor_set__coll__graph.svg" width="223" height="546"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_descriptor_set__coll__graph.svg" width="223" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -146,6 +147,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a67313affadff97f5121a39a3e196ddb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a306241a074652c36316c44d653da5303"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a306241a074652c36316c44d653da5303">create</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a> &gt; &gt; pLayout, const std::shared_ptr&lt; <a class="el" href="class_descriptor_pool.html">DescriptorPool</a> &gt; &amp;pPool)</td></tr>
 <tr class="separator:a306241a074652c36316c44d653da5303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a160d4791e0fdf05b4313bb5c2445668c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a160d4791e0fdf05b4313bb5c2445668c">device</a></td></tr>
+<tr class="separator:a160d4791e0fdf05b4313bb5c2445668c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9ad54cbbcf399c88e3a2edee1456fa9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#ad9ad54cbbcf399c88e3a2edee1456fa9">setLayout</a></td></tr>
+<tr class="separator:ad9ad54cbbcf399c88e3a2edee1456fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd3e44d3bd20d1b3123e78ef728d7b3"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool.html">DescriptorPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a6fd3e44d3bd20d1b3123e78ef728d7b3">pool</a></td></tr>
+<tr class="separator:a6fd3e44d3bd20d1b3123e78ef728d7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -208,7 +218,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_descriptor_set_a67313affadff97f5121a39a3e196ddb1_icgraph.svg" width="252" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_descriptor_set_a67313affadff97f5121a39a3e196ddb1_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -551,6 +561,73 @@ template&lt;class ... type&gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a160d4791e0fdf05b4313bb5c2445668c" name="a160d4791e0fdf05b4313bb5c2445668c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a160d4791e0fdf05b4313bb5c2445668c">&#9670;&nbsp;</a></span>device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_device.html">Device</a>&gt; DescriptorSet::device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fd3e44d3bd20d1b3123e78ef728d7b3" name="a6fd3e44d3bd20d1b3123e78ef728d7b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd3e44d3bd20d1b3123e78ef728d7b3">&#9670;&nbsp;</a></span>pool</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_pool.html">DescriptorPool</a>&gt; DescriptorSet::pool</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9ad54cbbcf399c88e3a2edee1456fa9" name="ad9ad54cbbcf399c88e3a2edee1456fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9ad54cbbcf399c88e3a2edee1456fa9">&#9670;&nbsp;</a></span>setLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a>&gt; DescriptorSet::setLayout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

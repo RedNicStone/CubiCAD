@@ -1,5 +1,6 @@
 var class_voxel_codec_linear =
 [
+    [ "fragment", "class_voxel_codec_linear.html#a1f4fed7e3b5cc9a813bb7aaf85b223bc", null ],
     [ "~VoxelCodecLinear", "class_voxel_codec_linear.html#a9d7b7608dcf35a7bcf5f566167a286fa", null ],
     [ "copyElementFromPtr", "class_voxel_codec_linear.html#a71f905634c2e2ab89e914595802f4986", null ],
     [ "copyElementToPtr", "class_voxel_codec_linear.html#ad72387009c28ac0398bf0f4e076bef86", null ],

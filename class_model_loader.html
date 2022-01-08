@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_model_loader.html',''); initResi
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_model_loader-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ModelLoader Class Reference</div></div>
 </div><!--header-->
@@ -102,19 +103,26 @@ $(document).ready(function(){initNavTree('class_model_loader.html',''); initResi
 <div class="dynheader">
 Collaboration diagram for ModelLoader:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_model_loader__coll__graph.svg" width="108" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_model_loader__coll__graph.svg" width="108" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa9107f0cc50ccd1990cf2ed013df9cf1"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#aa9107f0cc50ccd1990cf2ed013df9cf1">import</a> (const std::string &amp;filename)</td></tr>
-<tr class="separator:aa9107f0cc50ccd1990cf2ed013df9cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bdca79ce5d68de4ae122dde456f1d2a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a8bdca79ce5d68de4ae122dde456f1d2a">import</a> (std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; masterMaterial, const std::string &amp;filename)</td></tr>
+<tr class="separator:a8bdca79ce5d68de4ae122dde456f1d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:affd2b8840989f0bdf63c952775bb082e"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_model_loader.html">ModelLoader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#affd2b8840989f0bdf63c952775bb082e">create</a> ()</td></tr>
 <tr class="separator:affd2b8840989f0bdf63c952775bb082e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a251aa81af2f4e99f6ba15a363136cfbe"><td class="memItemLeft" align="right" valign="top">tinyobj::ObjReader&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a251aa81af2f4e99f6ba15a363136cfbe">reader</a></td></tr>
+<tr class="separator:a251aa81af2f4e99f6ba15a363136cfbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eb632e2e16c813d05e622581ad3dd91"><td class="memItemLeft" align="right" valign="top">tinyobj::ObjReaderConfig&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a3eb632e2e16c813d05e622581ad3dd91">config</a> {}</td></tr>
+<tr class="separator:a3eb632e2e16c813d05e622581ad3dd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="affd2b8840989f0bdf63c952775bb082e" name="affd2b8840989f0bdf63c952775bb082e"></a>
@@ -142,8 +150,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa9107f0cc50ccd1990cf2ed013df9cf1" name="aa9107f0cc50ccd1990cf2ed013df9cf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9107f0cc50ccd1990cf2ed013df9cf1">&#9670;&nbsp;</a></span>import()</h2>
+<a id="a8bdca79ce5d68de4ae122dde456f1d2a" name="a8bdca79ce5d68de4ae122dde456f1d2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bdca79ce5d68de4ae122dde456f1d2a">&#9670;&nbsp;</a></span>import()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,11 +159,66 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; ModelLoader::import </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt;&#160;</td>
+          <td class="paramname"><em>masterMaterial</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3eb632e2e16c813d05e622581ad3dd91" name="a3eb632e2e16c813d05e622581ad3dd91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eb632e2e16c813d05e622581ad3dd91">&#9670;&nbsp;</a></span>config</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinyobj::ObjReaderConfig ModelLoader::config {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a251aa81af2f4e99f6ba15a363136cfbe" name="a251aa81af2f4e99f6ba15a363136cfbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a251aa81af2f4e99f6ba15a363136cfbe">&#9670;&nbsp;</a></span>reader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tinyobj::ObjReader ModelLoader::reader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

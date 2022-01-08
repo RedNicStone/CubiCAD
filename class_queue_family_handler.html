@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('class_queue_family_handler.html',''); 
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_queue_family_handler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">QueueFamilyHandler Class Reference</div></div>
 </div><!--header-->
@@ -102,13 +104,13 @@ $(document).ready(function(){initNavTree('class_queue_family_handler.html',''); 
 <div class="dynheader">
 Inheritance diagram for QueueFamilyHandler:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family_handler__inherit__graph.svg" width="238" height="463"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family_handler__inherit__graph.svg" width="238" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for QueueFamilyHandler:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family_handler__coll__graph.svg" width="238" height="463"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family_handler__coll__graph.svg" width="238" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -149,6 +151,24 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a38af9b43bb9df16c7970afef803f09b0"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_queue_family_handler.html">QueueFamilyHandler</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family_handler.html#a38af9b43bb9df16c7970afef803f09b0">create</a> (std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt; pDevice)</td></tr>
 <tr class="separator:a38af9b43bb9df16c7970afef803f09b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa5424f92703a60906d8319c660c665c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family_handler.html#aa5424f92703a60906d8319c660c665c8">findOptimalQueues</a> ()</td></tr>
+<tr class="separator:aa5424f92703a60906d8319c660c665c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac0e3fca90533b0d9befc5c229b6dd440"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family_handler.html#ac0e3fca90533b0d9befc5c229b6dd440">device</a></td></tr>
+<tr class="separator:ac0e3fca90533b0d9befc5c229b6dd440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a045d900306b9c4c8a04b53f0f2ba6af4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_possible_queue_family.html">PossibleQueueFamily</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family_handler.html#a045d900306b9c4c8a04b53f0f2ba6af4">possibleFamilies</a></td></tr>
+<tr class="separator:a045d900306b9c4c8a04b53f0f2ba6af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb839f031c383496cac6e017a6617107"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_queue_family.html">QueueFamily</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family_handler.html#afb839f031c383496cac6e017a6617107">families</a></td></tr>
+<tr class="separator:afb839f031c383496cac6e017a6617107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4045694ee02e6b4c1eace296fa99da29"><td class="memItemLeft" align="right" valign="top">std::map&lt; VkQueueFlagBits, <a class="el" href="structoptional.html">optional</a>&lt; uint32_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family_handler.html#a4045694ee02e6b4c1eace296fa99da29">optimalFamilies</a> = {{VK_QUEUE_GRAPHICS_BIT, {}}, {VK_QUEUE_COMPUTE_BIT, {}}, {VK_QUEUE_TRANSFER_BIT, {}}}</td></tr>
+<tr class="separator:a4045694ee02e6b4c1eace296fa99da29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a158df943c776e075f8172ebb47a91372"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structoptional.html">optional</a>&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_queue_family_handler.html#a158df943c776e075f8172ebb47a91372">presentFamily</a></td></tr>
+<tr class="separator:a158df943c776e075f8172ebb47a91372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7f123a12a3cc6352ad1738c46ab7c81c" name="a7f123a12a3cc6352ad1738c46ab7c81c"></a>
@@ -205,7 +225,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family_handler_a38af9b43bb9df16c7970afef803f09b0_icgraph.svg" width="355" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family_handler_a38af9b43bb9df16c7970afef803f09b0_icgraph.svg" width="566" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -231,6 +251,31 @@ Here is the call graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_queue_family_handler_aa4a912d3d04570225e3ab871904fba78_cgraph.svg" width="342" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<a id="aa5424f92703a60906d8319c660c665c8" name="aa5424f92703a60906d8319c660c665c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5424f92703a60906d8319c660c665c8">&#9670;&nbsp;</a></span>findOptimalQueues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QueueFamilyHandler::findOptimalQueues </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -508,6 +553,117 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac0e3fca90533b0d9befc5c229b6dd440" name="ac0e3fca90533b0d9befc5c229b6dd440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0e3fca90533b0d9befc5c229b6dd440">&#9670;&nbsp;</a></span>device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_physical_device.html">PhysicalDevice</a>&gt; QueueFamilyHandler::device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb839f031c383496cac6e017a6617107" name="afb839f031c383496cac6e017a6617107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb839f031c383496cac6e017a6617107">&#9670;&nbsp;</a></span>families</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_queue_family.html">QueueFamily</a>&gt; &gt; QueueFamilyHandler::families</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4045694ee02e6b4c1eace296fa99da29" name="a4045694ee02e6b4c1eace296fa99da29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4045694ee02e6b4c1eace296fa99da29">&#9670;&nbsp;</a></span>optimalFamilies</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;VkQueueFlagBits, <a class="el" href="structoptional.html">optional</a>&lt;uint32_t&gt; &gt; QueueFamilyHandler::optimalFamilies = {{VK_QUEUE_GRAPHICS_BIT, {}}, {VK_QUEUE_COMPUTE_BIT, {}}, {VK_QUEUE_TRANSFER_BIT, {}}}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a045d900306b9c4c8a04b53f0f2ba6af4" name="a045d900306b9c4c8a04b53f0f2ba6af4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a045d900306b9c4c8a04b53f0f2ba6af4">&#9670;&nbsp;</a></span>possibleFamilies</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_possible_queue_family.html">PossibleQueueFamily</a>&gt; QueueFamilyHandler::possibleFamilies</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a158df943c776e075f8172ebb47a91372" name="a158df943c776e075f8172ebb47a91372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a158df943c776e075f8172ebb47a91372">&#9670;&nbsp;</a></span>presentFamily</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structoptional.html">optional</a>&lt;uint32_t&gt; QueueFamilyHandler::presentFamily</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
