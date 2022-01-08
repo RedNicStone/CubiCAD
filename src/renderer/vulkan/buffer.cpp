@@ -12,8 +12,26 @@
 std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
                                        VkDeviceSize size,
                                        VmaMemoryUsage memoryUsage,
+                                       VkBufferUsageFlags bufferUsage,
+                                       std::vector<uint32_t> accessingQueues) {
+    return Buffer::create(std::move(pDevice), size, memoryUsage, 0, 0, bufferUsage, std::move(accessingQueues));
+}
+
+std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
+                                       VkDeviceSize size,
+                                       VmaMemoryUsage memoryUsage,
                                        VkMemoryPropertyFlags preferredFlags,
-                                       VkBufferUsageFlagBits bufferUsage,
+                                       VkBufferUsageFlags bufferUsage,
+                                       std::vector<uint32_t> accessingQueues) {
+    return Buffer::create(std::move(pDevice), size, memoryUsage, preferredFlags, 0, bufferUsage, std::move(accessingQueues));
+}
+
+std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
+                                       VkDeviceSize size,
+                                       VmaMemoryUsage memoryUsage,
+                                       VkMemoryPropertyFlags preferredFlags,
+                                       VkMemoryPropertyFlags requiredFlags,
+                                       VkBufferUsageFlags bufferUsage,
                                        std::vector<uint32_t> accessingQueues) {
     auto buffer = std::make_shared<Buffer>();
     buffer->device = std::move(pDevice);
@@ -36,6 +54,7 @@ std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
     allocationCreateInfo.usage = memoryUsage;
     allocationCreateInfo.flags = VMA_ALLOCATION_CREATE_MAPPED_BIT;
     allocationCreateInfo.preferredFlags = preferredFlags;
+    allocationCreateInfo.requiredFlags = requiredFlags;
 
     if (vmaCreateBuffer(buffer->device->getAllocator(),
                         &createInfo,
@@ -82,4 +101,22 @@ void Buffer::transferDataMapped(void *src) {
     vmaMapMemory(device->getAllocator(), allocation, &dst);
     memcpy(dst, src, allocationInfo.size);
     vmaUnmapMemory(device->getAllocator(), allocation);
+}
+
+void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool) {
+    std::vector<uint32_t> accessingQueues = { commandPool->getQueueFamily()->getQueueFamilyIndex() };
+    auto stagingBuffer = Buffer::createHostStagingBuffer(device, allocationInfo.size, accessingQueues);
+    stagingBuffer->transferDataMapped(src);
+
+    auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
+    commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
+    commandBuffer->copyBuffer(stagingBuffer, shared_from_this(), { { 0, 0, allocationInfo.size } });
+    commandBuffer->endCommandBuffer();
+
+    VkSubmitInfo submitInfo{};
+    submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+    submitInfo.commandBufferCount = 1;
+    submitInfo.pCommandBuffers = commandBuffer->getHandlePtr();
+
+    commandPool->getQueue()->submitCommandBuffer({ submitInfo });
 }

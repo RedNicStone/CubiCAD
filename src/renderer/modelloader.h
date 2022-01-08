@@ -2,6 +2,8 @@
 // Created by nic on 29/12/2021.
 //
 
+#pragma once
+
 #ifndef CUBICAD_MODELLOADER_H
 #define CUBICAD_MODELLOADER_H
 
@@ -12,6 +14,7 @@
 #include <iostream>
 
 #include "mesh.h"
+#include "mastermaterial.h"
 
 
 class ModelLoader {
@@ -22,7 +25,7 @@ class ModelLoader {
   public:
     static std::shared_ptr<ModelLoader> create();
 
-    std::shared_ptr<Mesh> import(const std::string& filename);
+    std::shared_ptr<Mesh> import(std::shared_ptr<MasterMaterial> masterMaterial, const std::string& filename);
 };
 
 #endif //CUBICAD_MODELLOADER_H
