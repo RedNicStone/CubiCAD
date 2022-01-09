@@ -113,7 +113,7 @@ class Queue : public VulkanClass<VkQueue> {
 
     uint32_t getQueueFamilyIndex() { return queueFamily->getQueueFamilyIndex(); }
 
-    void submitCommandBuffer(std::vector<VkSubmitInfo> submitInfos, const std::shared_ptr<Fence> &fence);
+    void submitCommandBuffer(std::vector<VkSubmitInfo> submitInfos, const std::shared_ptr<Fence> &fence = nullptr);
     [[nodiscard]] bool hasWorkSubmitted() const;
     void waitForIdle();
 };

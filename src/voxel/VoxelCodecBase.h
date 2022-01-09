@@ -28,7 +28,7 @@ struct VoxelPosition {    //! region of voxels, represents a three dimensional v
 class VoxelCodecBase {  //! base for all voxel codecs, this represents voxels stored in some way
   protected:
     VoxelRegion         allocationSize                  {};     //!< region of voxels stored
-    AllocationHandler * allocationHandler               {};     //!< pointer to AllocationHandler that handles
+    Allocator *         allocationHandler               {};     //!< pointer to AllocationHandler that handles
                                                                 //!< allocations
 
     void *              allocationPtr                   {};     //!< pointer to the storage allocation

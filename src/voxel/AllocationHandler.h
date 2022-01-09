@@ -65,7 +65,7 @@ class Allocator {
      */
     virtual VirtualAllocation *makeAllocation(size_t size) {};
 
-    virtual                     ~Allocator() = default;
+    virtual ~Allocator() = default;
 };
 
 class VirtualStackAllocation : public VirtualAllocation {

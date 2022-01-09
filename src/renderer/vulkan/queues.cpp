@@ -154,7 +154,11 @@ void Queue::submitCommandBuffer(std::vector<VkSubmitInfo> submitInfos, const std
 
     useLock = true;
     auto submissions = static_cast<uint32_t>(submitInfos.size());
-    vkQueueSubmit(handle, submissions, submitInfos.data(), fence->getHandle());
+    if (fence) {
+        vkQueueSubmit(handle, submissions, submitInfos.data(), fence->getHandle());
+    } else {
+        vkQueueSubmit(handle, submissions, submitInfos.data(), VK_NULL_HANDLE);
+    }
 }
 
 bool Queue::hasWorkSubmitted() const {

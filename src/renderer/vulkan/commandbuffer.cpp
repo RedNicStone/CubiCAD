@@ -154,3 +154,9 @@ void CommandBuffer::drawIndexed(uint32_t indexCount,
                                 uint32_t firstInstance) {
     vkCmdDrawIndexed(handle, indexCount, instanceCount, firstIndex, vertexOffset, firstInstance);
 }
+
+void CommandBuffer::copyBuffer(const std::shared_ptr<Buffer>& src,
+                               const std::shared_ptr<Buffer>& dst,
+                               std::vector<VkBufferCopy> copyRegions) {
+    vkCmdCopyBuffer(handle, src->getHandle(), dst->getHandle(), static_cast<uint32_t>(copyRegions.size()), copyRegions.data());
+}

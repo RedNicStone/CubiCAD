@@ -13,11 +13,12 @@
 #include "device.h"
 #include "vulkanclass.h"
 #include "queues.h"
+#include "commandbuffer.h"
 
 #include <vector>
 
 
-class Buffer : public VulkanClass<VkBuffer> {
+class Buffer : public VulkanClass<VkBuffer>, public std::enable_shared_from_this<Buffer> {
   private:
     std::shared_ptr<Device> device;
     VmaAllocation allocation;
@@ -29,8 +30,22 @@ class Buffer : public VulkanClass<VkBuffer> {
     static std::shared_ptr<Buffer> create(std::shared_ptr<Device> pDevice,
                                           VkDeviceSize size,
                                           VmaMemoryUsage memoryUsage,
+                                          VkBufferUsageFlags bufferUsage,
+                                          std::vector<uint32_t> accessingQueues);
+
+    static std::shared_ptr<Buffer> create(std::shared_ptr<Device> pDevice,
+                                          VkDeviceSize size,
+                                          VmaMemoryUsage memoryUsage,
                                           VkMemoryPropertyFlags preferredFlags,
-                                          VkBufferUsageFlagBits bufferUsage,
+                                          VkBufferUsageFlags bufferUsage,
+                                          std::vector<uint32_t> accessingQueues);
+
+    static std::shared_ptr<Buffer> create(std::shared_ptr<Device> pDevice,
+                                          VkDeviceSize size,
+                                          VmaMemoryUsage memoryUsage,
+                                          VkMemoryPropertyFlags preferredFlags,
+                                          VkMemoryPropertyFlags requiredFlags,
+                                          VkBufferUsageFlags bufferUsage,
                                           std::vector<uint32_t> accessingQueues);
 
     static std::shared_ptr<Buffer> createHostStagingBuffer(std::shared_ptr<Device> pDevice,
@@ -38,6 +53,7 @@ class Buffer : public VulkanClass<VkBuffer> {
                                                            std::vector<uint32_t> &accessingQueues);
 
     void transferDataMapped(void* src);
+    void transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool);
 
     std::shared_ptr<Device> getDevice() { return device; }
 

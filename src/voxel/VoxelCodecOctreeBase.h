@@ -8,10 +8,13 @@
 #define CUBICAD_VOXELCODECOCTREEBASE_H_
 
 #include <stack>
+#include <boost/bimap.hpp>
 
 #include "VoxelUtils.h"
 #include "VoxelCodecBase.h"
 #include "VoxelFragmentTypes.h"
+#include "AllocationHandler.h"
+#include "../utils/utils.h"
 
 
 enum OctreePosFlag : uint_fast8_t {                 //!< positions of a octree as bitmask
@@ -36,25 +39,22 @@ enum OctreePos : uint_fast8_t {                     //!< positions of a octree a
     OCTREE_POS_BACK_BACK_LEFT           = 0b111,
 };
 
-template<typename ...Types>
+[[maybe_unused]] const auto OCTREE_POS_RELATION_MAP = Utils::makeBimap<OctreePosFlag, OctreePos>({
+    {OCTREE_POS_FLAG_TOP_FRONT_RIGHT,   OCTREE_POS_TOP_FRONT_RIGHT  },
+    {OCTREE_POS_FLAG_TOP_FRONT_LEFT,    OCTREE_POS_TOP_FRONT_LEFT   },
+    {OCTREE_POS_FLAG_TOP_BACK_RIGHT,    OCTREE_POS_TOP_BACK_RIGHT   },
+    {OCTREE_POS_FLAG_TOP_BACK_LEFT,     OCTREE_POS_TOP_BACK_LEFT    },
+    {OCTREE_POS_FLAG_BACK_FRONT_RIGHT,  OCTREE_POS_BACK_FRONT_RIGHT },
+    {OCTREE_POS_FLAG_BACK_FRONT_LEFT,   OCTREE_POS_BACK_FRONT_LEFT  },
+    {OCTREE_POS_FLAG_BACK_BACK_RIGHT,   OCTREE_POS_BACK_BACK_RIGHT  },
+    {OCTREE_POS_FLAG_BACK_BACK_LEFT,    OCTREE_POS_BACK_BACK_LEFT   }
+});
+
 class VoxelCodecOctreeBase : public VoxelCodecBase {
-  private:
-    const static size_v MEMORY_REALLOCATION_TRIGGER = 0x7FFF8;  //!< trigger memory reallocation if memory exceeds
-                                                                //!< (reservedMemory - MEMORY_REALLOCATION_TRIGGER -
-                                                                //!< nodeSize)
-                                                                //!< Default: 0x7FFF8 (65kB)
-                                                                //!< !! THIS VALUE MUST ALWAYS BE LARGER THAN ONE NODE !!
-
-    const static float  MEMORY_REALLOCATION_FACTOR  = 1.5;      //!< determines what size the new allocation will have
-                                                                //!< newSize = oldSize * MEMORY_REALLOCATION_FACTOR
-                                                                //!< Default: 1.5
-
-    const static size_v MEMORY_INITIAL_ALLOCATION   = 0x7FFFF8; //!< size of the initial allocation
-                                                                //!< Default: 0x7FFFF8 (1MB)
-
   protected:
     struct NodeStackElement {                       //! struct that represents a previously visited node
-        void*                       nodePtr           ;     //!< pointer to the actual node
+        size_t                      nodePtr           ;     //!< pointer to the actual node
+        char* memoryPtr;
         OctreePos                   nodePos           ;     //!< stores the position of the node relative to the
         // previous one
     };
@@ -63,7 +63,7 @@ class VoxelCodecOctreeBase : public VoxelCodecBase {
 
     std::stack<NodeStackElement>    nodeStack       {};     //!< stack containing all previously visited nodes
 
-    void            expandAllocation()                ;
+    VirtualAllocation allocation;
 
   public:
     size_n          getDepth()                      { return nodeStack.size();          }   //!< get the current depth
@@ -71,20 +71,21 @@ class VoxelCodecOctreeBase : public VoxelCodecBase {
 
     virtual bool    isLeaf()                        {};     //!< is the current voxel a leaf (has no children)?
     virtual bool    holdsData()                     {};     //!< does the current voxel hold data?
+    virtual OctreePosFlag getChild() {};
+    virtual OctreePosFlag getLeaf() {};
 
-    virtual void    enterNode(OctreePos pos)        {};     //!< enter node at relative position
-    virtual void    leaveNode()                     {};     //!< leave current node
-
-    virtual void    makeNode(OctreePos pos)         {};     //!< make current leaf a node
+    virtual bool    enterNode()        {};
+    virtual bool    enterNode(OctreePos pos)        {};     //!< enter node at relative position
+    virtual bool nextNode() {};
+    virtual bool nextNode(OctreePos pos) {};
+    virtual bool    leaveNode()                     {};     //!< leave current node
 
     ~VoxelCodecOctreeBase()         override = default;     //!< virtual destructor
 };
 
-template<typename... Types>
-void VoxelCodecOctreeBase<Types...>::expandAllocation() {
-    if (actualSize > size - (VoxelFragment<Types...>::getTotalFragmentSize() - MEMORY_REALLOCATION_TRIGGER)) {
-        allocationHandler.
-    }
-}
+class VoxelCodecOctreeConstructable : public VoxelCodecOctreeBase {
+  public:
+
+};
 
 #endif //CUBICAD_VOXELCODECOCTREEBASE_H_

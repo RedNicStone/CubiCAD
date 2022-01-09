@@ -2,30 +2,23 @@
 // Created by nic on 21/05/2021.
 //
 
+#pragma once
+
 #ifndef CUBICAD_UTILS_H
 #define CUBICAD_UTILS_H
 
 #include <vector>
-#include <string>
-#include <fstream>
+#include <boost/bimap.hpp>
 
 
-static std::vector<char> readFile(const std::string &filename) {
-    std::ifstream file(filename, std::ios::ate | std::ios::binary);
+class Utils {
+  public:
+    static std::vector<char> readFile(const std::string &filename);
 
-    if (!file.is_open()) {
-        throw std::runtime_error("failed to open file!");
-    }
+    static uint_fast8_t getMSB(uint_fast64_t x);
 
-    size_t fileSize = (size_t) file.tellg();
-    std::vector<char> buffer(fileSize);
-
-    file.seekg(0);
-    file.read(buffer.data(), fileSize);
-
-    file.close();
-
-    return buffer;
-}
+    template <typename L, typename R>
+    static boost::bimap<L, R> makeBimap(std::initializer_list<typename boost::bimap<L, R>::value_type> list);
+};
 
 #endif //CUBICAD_UTILS_H

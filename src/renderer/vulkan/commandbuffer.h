@@ -72,6 +72,8 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
                      int32_t vertexOffset = 0,
                      uint32_t firstInstance = 0);
 
+    void copyBuffer(const std::shared_ptr<Buffer>& src, const std::shared_ptr<Buffer>& dst, std::vector<VkBufferCopy>
+        copyRegions);
 };
 
 #endif //CUBICAD_SRC_RENDERER_VULKAN_COMMANDBUFFER_H_
