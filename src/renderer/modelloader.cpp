@@ -14,7 +14,7 @@ std::shared_ptr<ModelLoader> ModelLoader::create() {
     modelLoader->config.vertex_color = false;
 }
 
-std::shared_ptr<Mesh> ModelLoader::import(const std::string& filename) {
+std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename) {
     if(!reader.ParseFromFile(filename)) {
         if (!reader.Error().empty()) {
             throw std::runtime_error(reader.Error());
@@ -31,50 +31,45 @@ std::shared_ptr<Mesh> ModelLoader::import(const std::string& filename) {
     auto& materials = reader.GetMaterials();
 
     std::vector<std::shared_ptr<Mesh>> meshes;
+    //std::vector<std::shared_ptr<Material>> surfaceMaterials;
     meshes.reserve(shapes.size());
 
+    /*for (const auto& material : materials) {
+
+    }*/
+
     // Loop over shapes
-    for (const auto & shape : shapes) {
+    for (const auto& shape : shapes) {
+
+        std::unordered_map<int, Meshlet> meshlets;
+
         // Loop over faces(polygon)
-
-        std::unordered_map<int, std::shared_ptr<Meshlet>> meshlets;
-
-        size_t index_offset = 0;
         for (size_t f = 0; f < shape.mesh.num_face_vertices.size(); f++) {
-            auto fv = size_t(shape.mesh.num_face_vertices[f]);
+            int materialID = shape.mesh.material_ids[f];
 
             // Loop over vertices in the face.
-            for (size_t v = 0; v < fv; v++) {
-                // access to vertex
-                tinyobj::index_t idx = shape.mesh.indices[index_offset + v];
-                tinyobj::real_t vx = attrib.vertices[3*size_t(idx.vertex_index)+0];
-                tinyobj::real_t vy = attrib.vertices[3*size_t(idx.vertex_index)+1];
-                tinyobj::real_t vz = attrib.vertices[3*size_t(idx.vertex_index)+2];
+            for (size_t v = 0; v < 3; v++) {
+                tinyobj::index_t idx = shape.mesh.indices[f * 3 + v];
+                meshlets[materialID].indexData.push_back(idx.vertex_index);
 
-                // Check if `normal_index` is zero or positive. negative = no normal data
-                if (idx.normal_index >= 0) {
-                    tinyobj::real_t nx = attrib.normals[3*size_t(idx.normal_index)+0];
-                    tinyobj::real_t ny = attrib.normals[3*size_t(idx.normal_index)+1];
-                    tinyobj::real_t nz = attrib.normals[3*size_t(idx.normal_index)+2];
-                }
-
-                // Check if `texcoord_index` is zero or positive. negative = no texcoord data
+                Vertex vertex{};
+                vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + 3*size_t(idx.vertex_index));
                 if (idx.texcoord_index >= 0) {
-                    tinyobj::real_t tx = attrib.texcoords[2*size_t(idx.texcoord_index)+0];
-                    tinyobj::real_t ty = attrib.texcoords[2*size_t(idx.texcoord_index)+1];
+                    vertex.uv = { glm::floatBitsToUint(attrib.texcoords[2*size_t(idx.texcoord_index)+0]),
+                                  glm::floatBitsToUint(attrib.texcoords[2*size_t(idx.texcoord_index)+1]) };
                 }
-
-                // Optional: vertex colors
-                // tinyobj::real_t red   = attrib.colors[3*size_t(idx.vertex_index)+0];
-                // tinyobj::real_t green = attrib.colors[3*size_t(idx.vertex_index)+1];
-                // tinyobj::real_t blue  = attrib.colors[3*size_t(idx.vertex_index)+2];
             }
-            index_offset += fv;
-
-            // per-face material
-            shape.mesh.material_ids[f];
         }
 
-        meshes.push_back(std::make_shared<Mesh>());
+        std::vector<Meshlet> meshletVector;
+        meshletVector.reserve(meshlets.size());
+
+        for (const auto& kv : meshlets) {
+            meshletVector.push_back(kv.second);
+        }
+
+        meshes.push_back(Mesh::create(meshletVector));
     }
+
+    return meshes;
 }

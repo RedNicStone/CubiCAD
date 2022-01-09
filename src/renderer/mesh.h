@@ -20,21 +20,18 @@ struct Vertex {
     glm::uvec2 uv;
 };
 
-class Meshlet {
-  private:
+struct Meshlet {
+    std::vector<int> indexData;
     std::vector<Vertex> vertexData;
     std::shared_ptr<Material> material;
-
-  public:
-    static std::shared_ptr<Meshlet> create(std::string filename);
 };
 
 class Mesh {
   private:
-    std::vector<std::shared_ptr<Meshlet>> vertexData;
+    std::vector<Meshlet> subMeshes;
 
   public:
-    static std::shared_ptr<Mesh> create(std::string filename);
+    static std::shared_ptr<Mesh> create(const std::vector<Meshlet>& meshlets);
 };
 
 #endif //CUBICAD_MESH_H
