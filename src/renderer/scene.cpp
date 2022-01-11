@@ -33,11 +33,11 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
 
     scene->descriptorPool = DescriptorPoolManager::create(pDevice);
 
-    std::vector<VkDescriptorSetLayoutBinding> bindings {
+    scene->sceneBindings = {
         { 0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, VK_SHADER_STAGE_ALL_GRAPHICS, VK_NULL_HANDLE }
     };
-    scene->sceneInfoBufferSetLayout = DescriptorSetLayout::create(pDevice, bindings);
-    scene->sceneDescriptorSet = scene->descriptorPool->allocate(scene->sceneInfoBufferSetLayout);
+    scene->sceneInfoSetLayout = DescriptorSetLayout::create(pDevice, scene->sceneBindings);
+    scene->sceneDescriptorSet = scene->descriptorPool->allocate(scene->sceneInfoSetLayout);
 
     scene->sceneInfoBuffer = UniformBuffer<SceneData>::create(pDevice, pTransferQueue);
 
@@ -124,19 +124,15 @@ void Scene::collectRenderBuffers() {
 }
 
 void Scene::bakeMaterials() {
-    std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{ sceneInfoBufferSetLayout };
-
     std::unordered_set<std::shared_ptr<MasterMaterial<PBRMaterialParameters>>> masterMaterials;
-    std::unordered_set<std::shared_ptr<Material<PBRMaterialParameters>>> materials;
     for (const auto& instance : instances) {
         for (const auto& meshlet : instance->getMesh()->getMeshlets()) {
-            materials.insert(meshlet->material);
+            masterMaterials.insert(meshlet->material->getMasterMaterial());
         }
     }
-    std::vector<VkDescriptorSetLayoutBinding> bindings;
-    for (const auto& material : materials) {
-        auto materialBindings
-        material->updateDescriptorSetLayouts(descriptorLayouts);
+
+    for (const auto& masterMaterial : masterMaterials) {
+        masterMaterial->updateDescriptorSetLayouts(sceneInfoSetLayout);
     }
 }
 
@@ -144,7 +140,32 @@ std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer() {
     graphicsCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
     std::vector<std::shared_ptr<DescriptorSet>> sceneDescriptorSets{ sceneDescriptorSet };
-    graphicsCommandBuffer->bindDescriptorSets(sceneDescriptorSets)
+
+    std::vector<uint32_t> offsets{};
+    graphicsCommandBuffer->bindDescriptorSets(sceneDescriptorSets, pipelineLayout, VK_PIPELINE_BIND_POINT_GRAPHICS, offsets);
+
+    graphicsCommandBuffer->bindVertexBuffer(vertexBuffer, 0);
+    graphicsCommandBuffer->bindIndexBuffer(indexBuffer, VK_INDEX_TYPE_UINT32);
+    graphicsCommandBuffer->bindVertexBuffer(instanceBuffer, 1);
+
+    std::shared_ptr<MasterMaterial<PBRMaterialParameters>> previousMasterMaterial{};
+    for (const auto& drawCall : indirectDrawCalls) {
+        std::shared_ptr<MasterMaterial<PBRMaterialParameters>> currentMasterMaterial = drawCall
+            .material->getMasterMaterial();
+        if (currentMasterMaterial != previousMasterMaterial) {
+            previousMasterMaterial = currentMasterMaterial;
+            graphicsCommandBuffer->bindPipeline(currentMasterMaterial->getPipeline());
+            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ currentMasterMaterial->getDescriptorSet(),
+                                                                                      drawCall.material->getDescriptorSet() };
+            graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());
+        } else {
+            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ drawCall.material->getDescriptorSet() };
+            graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());
+        }
+
+        graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer, drawCall.drawCallLength, drawCall
+        .drawCallOffset);
+    }
 
     lastFrameTime = std::chrono::high_resolution_clock::now();
 }

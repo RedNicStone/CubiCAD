@@ -33,17 +33,13 @@ class Material {
     std::shared_ptr<MasterMaterial<Parameters>> masterMaterial;
     Parameters parameters;
 
+    std::shared_ptr<DescriptorSet> materialSet;
+
   public:
     Parameters getParameters() { return parameters; }
     std::shared_ptr<MasterMaterial<Parameters>> getMasterMaterial() { return masterMaterial; }
-
-    std::vector<VkDescriptorSetLayoutBinding> getMasterMaterialBindings();
+    std::shared_ptr<DescriptorSet> getDescriptorSet() { return materialSet; }
 };
-
-template<typename Parameters>
-std::vector<VkDescriptorSetLayoutBinding> Material<Parameters>::getMasterMaterialBindings() {
-    return {};
-}
 
 typedef Material<PBRMaterialParameters> PBRMaterial;
 

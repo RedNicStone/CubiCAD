@@ -29,7 +29,11 @@ class GraphicsPipeline : public PipelineBase {
         VkExtent2D extent,
     VkPrimitiveTopology topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST,
                                                     VkCullModeFlags cullMode = VK_CULL_MODE_BACK_BIT,
-        VkFrontFace frontFace = VK_FRONT_FACE_CLOCKWISE);
+        VkFrontFace frontFace = VK_FRONT_FACE_CLOCKWISE,
+                                                    std::vector<VkVertexInputBindingDescription>
+                                                    bindingDescription = {},
+                                                    std::vector<VkVertexInputAttributeDescription>
+                                                    attributeDescription = {});
 
     VkPipelineBindPoint getBindPoint() final { return VK_PIPELINE_BIND_POINT_GRAPHICS; }
 

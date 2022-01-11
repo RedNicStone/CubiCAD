@@ -51,12 +51,13 @@ class Scene {
     std::shared_ptr<Buffer> indexBuffer;
 
     std::shared_ptr<UniformBuffer<SceneData>> sceneInfoBuffer;
-    std::shared_ptr<DescriptorSetLayout> sceneInfoBufferSetLayout;
+    std::vector<VkDescriptorSetLayoutBinding> sceneBindings;
+    std::shared_ptr<DescriptorSetLayout> sceneInfoSetLayout;
     std::chrono::time_point<std::chrono::high_resolution_clock, std::chrono::duration<double>> lastFrameTime;
 
     std::shared_ptr<DescriptorPoolManager> descriptorPool;
     std::shared_ptr<DescriptorSet> sceneDescriptorSet;
-    std::shared_ptr<DescriptorSet> materialDescriptorSet;
+    std::shared_ptr<PipelineLayout> pipelineLayout;
 
     void transferRenderData();
 
