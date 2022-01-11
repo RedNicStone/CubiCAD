@@ -155,6 +155,16 @@ void CommandBuffer::drawIndexed(uint32_t indexCount,
     vkCmdDrawIndexed(handle, indexCount, instanceCount, firstIndex, vertexOffset, firstInstance);
 }
 
+void CommandBuffer::drawIndirect(const std::shared_ptr<Buffer> &buffer, uint32_t
+drawCount, VkDeviceSize offset, uint32_t stride) {
+    vkCmdDrawIndirect(handle, buffer->getHandle(), offset, drawCount, stride);
+}
+
+void CommandBuffer::drawIndexedIndirect(const std::shared_ptr<Buffer> &buffer, uint32_t
+drawCount, VkDeviceSize offset, uint32_t stride) {
+    vkCmdDrawIndexedIndirect(handle, buffer->getHandle(), offset, drawCount, stride);
+}
+
 void CommandBuffer::copyBuffer(const std::shared_ptr<Buffer>& src,
                                const std::shared_ptr<Buffer>& dst,
                                std::vector<VkBufferCopy> copyRegions) {

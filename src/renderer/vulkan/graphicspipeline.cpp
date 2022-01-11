@@ -14,7 +14,11 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
                                                            VkExtent2D extent,
                                                            VkPrimitiveTopology topology,
                                                            VkCullModeFlags cullMode,
-                                                           VkFrontFace frontFace) {
+                                                           VkFrontFace frontFace,
+                                                           std::vector<VkVertexInputBindingDescription>
+                                                               bindingDescription,
+                                                           std::vector<VkVertexInputAttributeDescription>
+                                                               attributeDescription) {
     auto graphicsPipeline = std::make_shared<GraphicsPipeline>();
     graphicsPipeline->device = std::move(pDevice);
     graphicsPipeline->layout = std::move(pLayout);
@@ -27,8 +31,10 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
 
     VkPipelineVertexInputStateCreateInfo vertexInputInfo{};
     vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
-    vertexInputInfo.vertexBindingDescriptionCount = 0;
-    vertexInputInfo.vertexAttributeDescriptionCount = 0;
+    vertexInputInfo.vertexBindingDescriptionCount = static_cast<uint32_t>(bindingDescription.size());
+    vertexInputInfo.pVertexBindingDescriptions = bindingDescription.data();
+    vertexInputInfo.vertexAttributeDescriptionCount = static_cast<uint32_t>(attributeDescription.size());
+    vertexInputInfo.pVertexAttributeDescriptions = attributeDescription.data();
 
     VkPipelineInputAssemblyStateCreateInfo inputAssembly{};
     inputAssembly.sType = VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;

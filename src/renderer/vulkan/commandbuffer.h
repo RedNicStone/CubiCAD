@@ -71,6 +71,12 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
                      uint32_t firstIndex = 0,
                      int32_t vertexOffset = 0,
                      uint32_t firstInstance = 0);
+    void drawIndirect(const std::shared_ptr<Buffer> &buffer, uint32_t drawCount, VkDeviceSize offset = 0, uint32_t
+    stride = 0);
+    void drawIndexedIndirect(const std::shared_ptr<Buffer> &buffer,
+                             uint32_t drawCount,
+                             VkDeviceSize offset = 0,
+                             uint32_t stride = 0);
 
     void copyBuffer(const std::shared_ptr<Buffer>& src, const std::shared_ptr<Buffer>& dst, std::vector<VkBufferCopy>
         copyRegions);
