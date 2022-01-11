@@ -4,6 +4,7 @@ var hierarchy =
       [ "StackAllocator", "class_stack_allocator.html", null ]
     ] ],
     [ "CCAD_OT::Cube", "struct_c_c_a_d___o_t_1_1_cube.html", null ],
+    [ "DescriptorPoolManager", "class_descriptor_pool_manager.html", null ],
     [ "std::enable_shared_from_this", null, [
       [ "Buffer", "class_buffer.html", null ],
       [ "Image", "class_image.html", null ],
@@ -12,16 +13,16 @@ var hierarchy =
       [ "QueueFamilyHandler", "class_queue_family_handler.html", null ]
     ] ],
     [ "FrameBuffer", "class_frame_buffer.html", null ],
+    [ "Scene::IndirectDrawCall", "struct_scene_1_1_indirect_draw_call.html", null ],
+    [ "InstanceData", "struct_instance_data.html", null ],
     [ "MandelbrotApp", "class_mandelbrot_app.html", null ],
     [ "MandelbrotUBO", "struct_mandelbrot_u_b_o.html", null ],
     [ "VirtualStackAllocation::MappedPage", "struct_virtual_stack_allocation_1_1_mapped_page.html", null ],
     [ "MasterMaterial< Parameters >", "class_master_material.html", null ],
     [ "Material< Parameters >", "class_material.html", null ],
     [ "MaterialLibrary< Parameters >", "class_material_library.html", null ],
-    [ "MaterialParameters", "struct_material_parameters.html", [
-      [ "PBRMaterialParameters", "struct_p_b_r_material_parameters.html", null ]
-    ] ],
     [ "Mesh", "class_mesh.html", null ],
+    [ "MeshInstance", "class_mesh_instance.html", null ],
     [ "Meshlet", "struct_meshlet.html", null ],
     [ "ModelLoader", "class_model_loader.html", null ],
     [ "VoxelCodecSparseOctree< Types >::Node", "struct_voxel_codec_sparse_octree_1_1_node.html", null ],
@@ -48,7 +49,9 @@ var hierarchy =
     ] ],
     [ "CCAD_OT::OtOctree", "class_c_c_a_d___o_t_1_1_ot_octree.html", null ],
     [ "CCAD_OT::OtSurfaceInfo", "struct_c_c_a_d___o_t_1_1_ot_surface_info.html", null ],
+    [ "PBRMaterialParameters", "struct_p_b_r_material_parameters.html", null ],
     [ "StackAllocator::PhysicalPage", "struct_stack_allocator_1_1_physical_page.html", null ],
+    [ "DescriptorPoolManager::PoolSizes", "struct_descriptor_pool_manager_1_1_pool_sizes.html", null ],
     [ "PossibleQueueFamily", "struct_possible_queue_family.html", null ],
     [ "QueueFamilyIndices", "struct_queue_family_indices.html", null ],
     [ "RenderBus", "class_render_bus.html", null ],
@@ -61,6 +64,8 @@ var hierarchy =
       [ "PreRenderUpdateBuffersEvent", "struct_pre_render_update_buffers_event.html", null ],
       [ "RenderSubmitQueueEvent", "struct_render_submit_queue_event.html", null ]
     ] ],
+    [ "Scene", "class_scene.html", null ],
+    [ "SceneData", "struct_scene_data.html", null ],
     [ "CCAD_OT::SFINAECheck< T, T >", "struct_c_c_a_d___o_t_1_1_s_f_i_n_a_e_check.html", null ],
     [ "Shader", "class_shader.html", [
       [ "ComputeShader", "class_compute_shader.html", [

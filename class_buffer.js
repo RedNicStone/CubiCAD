@@ -6,6 +6,7 @@ var class_buffer =
     [ "getSize", "class_buffer.html#ac37afa4f8b19a37a076b06c86074003f", null ],
     [ "map", "class_buffer.html#a80d49c3641eb7d63ede96bbe568f1f00", null ],
     [ "transferDataMapped", "class_buffer.html#ac0ed538fd8efc829ca964147e4186e97", null ],
+    [ "transferDataMapped", "class_buffer.html#ab3c15a93424ecbe1145b58092313e47d", null ],
     [ "transferDataStaged", "class_buffer.html#ac0bd0ae62b73b6a5115347f8a661054a", null ],
     [ "unmap", "class_buffer.html#aaeecba2e74f8797e81816c433f7d573e", null ],
     [ "allocation", "class_buffer.html#af448b2ed65fd0fdc62d989243bbf0fb3", null ],

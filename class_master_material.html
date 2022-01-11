@@ -91,6 +91,8 @@ $(document).ready(function(){initNavTree('class_master_material.html',''); initR
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_master_material-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MasterMaterial&lt; Parameters &gt; Class Template Reference</div></div>
@@ -101,19 +103,114 @@ $(document).ready(function(){initNavTree('class_master_material.html',''); initR
 <div class="dynheader">
 Collaboration diagram for MasterMaterial&lt; Parameters &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material__coll__graph.svg" width="208" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material__coll__graph.svg" width="216" height="191"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a022f3e07a819c2a9e085f5cd6cf3f5c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a022f3e07a819c2a9e085f5cd6cf3f5c4">updateDescriptorSetLayouts</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a> &gt; &gt; descriptorLayouts)</td></tr>
+<tr class="separator:a022f3e07a819c2a9e085f5cd6cf3f5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a074e93553f96badfa6ebb26fad18badf"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a>&lt; Parameters &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a074e93553f96badfa6ebb26fad18badf">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &gt; &amp;<a class="el" href="class_master_material.html#a0c5713b713d4d9173c443806f53e812d">shaders</a>, VkExtent2D <a class="el" href="class_master_material.html#a8256a6581f194832b4bec31542d3a6aa">extent</a>)</td></tr>
+<tr class="separator:a074e93553f96badfa6ebb26fad18badf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a3a5f22c1009fd2f7cc20a75336f53e0b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a3a5f22c1009fd2f7cc20a75336f53e0b">device</a></td></tr>
+<tr class="separator:a3a5f22c1009fd2f7cc20a75336f53e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca0d566723ddc2c79945a18a1a4a940"><td class="memItemLeft" align="right" valign="top">Parameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#aeca0d566723ddc2c79945a18a1a4a940">defaultParameters</a></td></tr>
+<tr class="separator:aeca0d566723ddc2c79945a18a1a4a940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8256a6581f194832b4bec31542d3a6aa"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a8256a6581f194832b4bec31542d3a6aa">extent</a> {}</td></tr>
+<tr class="separator:a8256a6581f194832b4bec31542d3a6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5713b713d4d9173c443806f53e812d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a0c5713b713d4d9173c443806f53e812d">shaders</a></td></tr>
+<tr class="separator:a0c5713b713d4d9173c443806f53e812d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a294ccbc3f1d69eb41edb5adb1fe24ab9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a294ccbc3f1d69eb41edb5adb1fe24ab9">renderPass</a></td></tr>
+<tr class="separator:a294ccbc3f1d69eb41edb5adb1fe24ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25de0f5ad84e7a652678358869b2b483"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a25de0f5ad84e7a652678358869b2b483">pipelineLayout</a></td></tr>
 <tr class="separator:a25de0f5ad84e7a652678358869b2b483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a580e06c21ffa9eb2d3fb4f882ab43ce6"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a580e06c21ffa9eb2d3fb4f882ab43ce6">pipeline</a></td></tr>
 <tr class="separator:a580e06c21ffa9eb2d3fb4f882ab43ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeca0d566723ddc2c79945a18a1a4a940"><td class="memItemLeft" align="right" valign="top">Parameters&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#aeca0d566723ddc2c79945a18a1a4a940">defaultParameters</a></td></tr>
-<tr class="separator:aeca0d566723ddc2c79945a18a1a4a940"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a074e93553f96badfa6ebb26fad18badf" name="a074e93553f96badfa6ebb26fad18badf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a074e93553f96badfa6ebb26fad18badf">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Parameters &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a>&lt; Parameters &gt; &gt; <a class="el" href="class_master_material.html">MasterMaterial</a>&lt; Parameters &gt;::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pDevice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shaders</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkExtent2D&#160;</td>
+          <td class="paramname"><em>extent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material_a074e93553f96badfa6ebb26fad18badf_cgraph.svg" width="344" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a022f3e07a819c2a9e085f5cd6cf3f5c4" name="a022f3e07a819c2a9e085f5cd6cf3f5c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a022f3e07a819c2a9e085f5cd6cf3f5c4">&#9670;&nbsp;</a></span>updateDescriptorSetLayouts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Parameters &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_master_material.html">MasterMaterial</a>&lt; Parameters &gt;::updateDescriptorSetLayouts </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>descriptorLayouts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_master_material_a022f3e07a819c2a9e085f5cd6cf3f5c4_cgraph.svg" width="100%" height="372"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aeca0d566723ddc2c79945a18a1a4a940" name="aeca0d566723ddc2c79945a18a1a4a940"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeca0d566723ddc2c79945a18a1a4a940">&#9670;&nbsp;</a></span>defaultParameters</h2>
@@ -128,6 +225,54 @@ template&lt;typename Parameters &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">Parameters <a class="el" href="class_master_material.html">MasterMaterial</a>&lt; Parameters &gt;::defaultParameters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a5f22c1009fd2f7cc20a75336f53e0b" name="a3a5f22c1009fd2f7cc20a75336f53e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5f22c1009fd2f7cc20a75336f53e0b">&#9670;&nbsp;</a></span>device</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Parameters &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_device.html">Device</a>&gt; <a class="el" href="class_master_material.html">MasterMaterial</a>&lt; Parameters &gt;::device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8256a6581f194832b4bec31542d3a6aa" name="a8256a6581f194832b4bec31542d3a6aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8256a6581f194832b4bec31542d3a6aa">&#9670;&nbsp;</a></span>extent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Parameters &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkExtent2D <a class="el" href="class_master_material.html">MasterMaterial</a>&lt; Parameters &gt;::extent {}</td>
         </tr>
       </table>
   </td>
@@ -176,6 +321,54 @@ template&lt;typename Parameters &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_pipeline_layout.html">PipelineLayout</a>&gt; <a class="el" href="class_master_material.html">MasterMaterial</a>&lt; Parameters &gt;::pipelineLayout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a294ccbc3f1d69eb41edb5adb1fe24ab9" name="a294ccbc3f1d69eb41edb5adb1fe24ab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a294ccbc3f1d69eb41edb5adb1fe24ab9">&#9670;&nbsp;</a></span>renderPass</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Parameters &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_render_pass.html">RenderPass</a>&gt; <a class="el" href="class_master_material.html">MasterMaterial</a>&lt; Parameters &gt;::renderPass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c5713b713d4d9173c443806f53e812d" name="a0c5713b713d4d9173c443806f53e812d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5713b713d4d9173c443806f53e812d">&#9670;&nbsp;</a></span>shaders</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Parameters &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_graphics_shader.html">GraphicsShader</a>&gt; &gt; <a class="el" href="class_master_material.html">MasterMaterial</a>&lt; Parameters &gt;::shaders</td>
         </tr>
       </table>
   </td>

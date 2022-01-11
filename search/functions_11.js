@@ -12,11 +12,13 @@ var searchData=
   ['registershader_9',['registerShader',['../class_material_library.html#a021e46149b4dcdc1a6ce9f564afcdc1b',1,'MaterialLibrary']]],
   ['remove_10',['remove',['../class_mandelbrot_app.html#a69b06411ed6947c7c03adc0245e698d5',1,'MandelbrotApp']]],
   ['renderbus_11',['RenderBus',['../class_render_bus.html#a850a5814fa5e24bdf5264afe8468dd08',1,'RenderBus']]],
-  ['resetcommandbuffer_12',['resetCommandBuffer',['../class_command_buffer.html#aa61e6369e7765f11e355c16e749dece5',1,'CommandBuffer']]],
-  ['resetresizefence_13',['resetResizeFence',['../class_window.html#ac36ac45a01901c2118e1efcdf9c1cc69',1,'Window']]],
-  ['resetstate_14',['resetState',['../class_fence.html#af51544dbcd84cb7550ff8dd8a331183b',1,'Fence']]],
-  ['resize_15',['resize',['../class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c',1,'VirtualAllocation::resize()'],['../class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da',1,'VirtualStackAllocation::resize()']]],
-  ['run_16',['run',['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp']]],
-  ['runrenderloop_17',['runRenderLoop',['../class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f',1,'RenderBus']]],
-  ['runrenderloop_5f_18',['runRenderLoop_',['../class_render_bus.html#a0c6c79cea328c4475de527b874ce517a',1,'RenderBus']]]
+  ['reset_12',['reset',['../class_descriptor_pool.html#a4de3e4b794ee5e62f8fda5370c85de31',1,'DescriptorPool']]],
+  ['resetcommandbuffer_13',['resetCommandBuffer',['../class_command_buffer.html#aa61e6369e7765f11e355c16e749dece5',1,'CommandBuffer']]],
+  ['resetpools_14',['resetPools',['../class_descriptor_pool_manager.html#a431fea02150aa7225867fcb7fe3d2643',1,'DescriptorPoolManager']]],
+  ['resetresizefence_15',['resetResizeFence',['../class_window.html#ac36ac45a01901c2118e1efcdf9c1cc69',1,'Window']]],
+  ['resetstate_16',['resetState',['../class_fence.html#af51544dbcd84cb7550ff8dd8a331183b',1,'Fence']]],
+  ['resize_17',['resize',['../class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c',1,'VirtualAllocation::resize()'],['../class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da',1,'VirtualStackAllocation::resize()']]],
+  ['run_18',['run',['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp']]],
+  ['runrenderloop_19',['runRenderLoop',['../class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f',1,'RenderBus']]],
+  ['runrenderloop_5f_20',['runRenderLoop_',['../class_render_bus.html#a0c6c79cea328c4475de527b874ce517a',1,'RenderBus']]]
 ];

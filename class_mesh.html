@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('class_mesh.html',''); initResizable();
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_mesh-members.html">List of all members</a>  </div>
@@ -102,23 +103,44 @@ $(document).ready(function(){initNavTree('class_mesh.html',''); initResizable();
 <div class="dynheader">
 Collaboration diagram for Mesh:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh__coll__graph.svg" width="102" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh__coll__graph.svg" width="159" height="220"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac9b9c8ccb25b32068fcc05632975140f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ac9b9c8ccb25b32068fcc05632975140f">getIndexCount</a> () const</td></tr>
+<tr class="separator:ac9b9c8ccb25b32068fcc05632975140f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c14df866b9d28ac272b40622b74c8e5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a6c14df866b9d28ac272b40622b74c8e5">getVertexCount</a> () const</td></tr>
+<tr class="separator:a6c14df866b9d28ac272b40622b74c8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64b20cc1816ae3ef0881e9d4a49c1e6b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a64b20cc1816ae3ef0881e9d4a49c1e6b">getMeshlets</a> ()</td></tr>
+<tr class="separator:a64b20cc1816ae3ef0881e9d4a49c1e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f6d448301a43b052baa1eddfe1a67c"><td class="memItemLeft" align="right" valign="top">VkDrawIndexedIndirectCommand&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a65f6d448301a43b052baa1eddfe1a67c">getDrawCommand</a> () const</td></tr>
+<tr class="separator:a65f6d448301a43b052baa1eddfe1a67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af740dbcd310b362fe74ea313d1debf26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#af740dbcd310b362fe74ea313d1debf26">setOffsets</a> (uint32_t vFirstIndex, uint32_t vFirstVertex)</td></tr>
+<tr class="separator:af740dbcd310b362fe74ea313d1debf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad9e534c887ad3fd0c049e870ba3d3a49"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ad9e534c887ad3fd0c049e870ba3d3a49">create</a> (std::string filename)</td></tr>
-<tr class="separator:ad9e534c887ad3fd0c049e870ba3d3a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13580bbb22e02e39f817aa3a0d133e17"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a13580bbb22e02e39f817aa3a0d133e17">create</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt; &amp;meshlets, uint32_t nFirstIndex, uint32_t nFirstVertex)</td></tr>
+<tr class="separator:a13580bbb22e02e39f817aa3a0d133e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a23d5177663444f7ff461b15e738048ac"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a23d5177663444f7ff461b15e738048ac">vertexData</a></td></tr>
-<tr class="separator:a23d5177663444f7ff461b15e738048ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2416d455f7a0cece9e44d2499aa028dc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a2416d455f7a0cece9e44d2499aa028dc">subMeshes</a></td></tr>
+<tr class="separator:a2416d455f7a0cece9e44d2499aa028dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab59aa21d3ba133a328aed08ca260de"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a5ab59aa21d3ba133a328aed08ca260de">firstIndex</a></td></tr>
+<tr class="separator:a5ab59aa21d3ba133a328aed08ca260de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee748077ea8b4c8f2199a6a322ab334"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#aaee748077ea8b4c8f2199a6a322ab334">firstVertex</a></td></tr>
+<tr class="separator:aaee748077ea8b4c8f2199a6a322ab334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaafc29c9662dd7738199be753d3091a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#afaafc29c9662dd7738199be753d3091a">indexCount</a></td></tr>
+<tr class="separator:afaafc29c9662dd7738199be753d3091a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31177b45a1d9008adf6aaaa6899f36b6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a31177b45a1d9008adf6aaaa6899f36b6">vertexCount</a></td></tr>
+<tr class="separator:a31177b45a1d9008adf6aaaa6899f36b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad9e534c887ad3fd0c049e870ba3d3a49" name="ad9e534c887ad3fd0c049e870ba3d3a49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9e534c887ad3fd0c049e870ba3d3a49">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a13580bbb22e02e39f817aa3a0d133e17" name="a13580bbb22e02e39f817aa3a0d133e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13580bbb22e02e39f817aa3a0d133e17">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,9 +151,25 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; Mesh::create </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>meshlets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>nFirstIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>nFirstVertex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -140,12 +178,34 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_a13580bbb22e02e39f817aa3a0d133e17_icgraph.svg" width="294" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a23d5177663444f7ff461b15e738048ac" name="a23d5177663444f7ff461b15e738048ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23d5177663444f7ff461b15e738048ac">&#9670;&nbsp;</a></span>vertexData</h2>
+<a id="a65f6d448301a43b052baa1eddfe1a67c" name="a65f6d448301a43b052baa1eddfe1a67c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65f6d448301a43b052baa1eddfe1a67c">&#9670;&nbsp;</a></span>getDrawCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkDrawIndexedIndirectCommand Mesh::getDrawCommand </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9b9c8ccb25b32068fcc05632975140f" name="ac9b9c8ccb25b32068fcc05632975140f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9b9c8ccb25b32068fcc05632975140f">&#9670;&nbsp;</a></span>getIndexCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +214,199 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="struct_meshlet.html">Meshlet</a>&gt; Mesh::vertexData</td>
+          <td class="memname">uint32_t Mesh::getIndexCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64b20cc1816ae3ef0881e9d4a49c1e6b" name="a64b20cc1816ae3ef0881e9d4a49c1e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64b20cc1816ae3ef0881e9d4a49c1e6b">&#9670;&nbsp;</a></span>getMeshlets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt; &amp; Mesh::getMeshlets </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c14df866b9d28ac272b40622b74c8e5" name="a6c14df866b9d28ac272b40622b74c8e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c14df866b9d28ac272b40622b74c8e5">&#9670;&nbsp;</a></span>getVertexCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Mesh::getVertexCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af740dbcd310b362fe74ea313d1debf26" name="af740dbcd310b362fe74ea313d1debf26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af740dbcd310b362fe74ea313d1debf26">&#9670;&nbsp;</a></span>setOffsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::setOffsets </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>vFirstIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>vFirstVertex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5ab59aa21d3ba133a328aed08ca260de" name="a5ab59aa21d3ba133a328aed08ca260de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ab59aa21d3ba133a328aed08ca260de">&#9670;&nbsp;</a></span>firstIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Mesh::firstIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaee748077ea8b4c8f2199a6a322ab334" name="aaee748077ea8b4c8f2199a6a322ab334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaee748077ea8b4c8f2199a6a322ab334">&#9670;&nbsp;</a></span>firstVertex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Mesh::firstVertex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afaafc29c9662dd7738199be753d3091a" name="afaafc29c9662dd7738199be753d3091a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaafc29c9662dd7738199be753d3091a">&#9670;&nbsp;</a></span>indexCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Mesh::indexCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2416d455f7a0cece9e44d2499aa028dc" name="a2416d455f7a0cece9e44d2499aa028dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2416d455f7a0cece9e44d2499aa028dc">&#9670;&nbsp;</a></span>subMeshes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="struct_meshlet.html">Meshlet</a>&gt; &gt; Mesh::subMeshes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a31177b45a1d9008adf6aaaa6899f36b6" name="a31177b45a1d9008adf6aaaa6899f36b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31177b45a1d9008adf6aaaa6899f36b6">&#9670;&nbsp;</a></span>vertexCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Mesh::vertexCount</td>
         </tr>
       </table>
   </td>
