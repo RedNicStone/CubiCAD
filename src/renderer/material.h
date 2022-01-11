@@ -34,10 +34,16 @@ class Material {
     Parameters parameters;
 
   public:
-
     Parameters getParameters() { return parameters; }
     std::shared_ptr<MasterMaterial<Parameters>> getMasterMaterial() { return masterMaterial; }
+
+    std::vector<VkDescriptorSetLayoutBinding> getMasterMaterialBindings();
 };
+
+template<typename Parameters>
+std::vector<VkDescriptorSetLayoutBinding> Material<Parameters>::getMasterMaterialBindings() {
+    return {};
+}
 
 typedef Material<PBRMaterialParameters> PBRMaterial;
 

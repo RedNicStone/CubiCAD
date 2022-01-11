@@ -126,13 +126,16 @@ void Scene::collectRenderBuffers() {
 void Scene::bakeMaterials() {
     std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{ sceneInfoBufferSetLayout };
 
-    std::unordered_set<std::shared_ptr<MasterMaterial<PBRMaterialParameters>>> materials;
+    std::unordered_set<std::shared_ptr<MasterMaterial<PBRMaterialParameters>>> masterMaterials;
+    std::unordered_set<std::shared_ptr<Material<PBRMaterialParameters>>> materials;
     for (const auto& instance : instances) {
         for (const auto& meshlet : instance->getMesh()->getMeshlets()) {
-            materials.insert(meshlet->material->getMasterMaterial());
+            materials.insert(meshlet->material);
         }
     }
+    std::vector<VkDescriptorSetLayoutBinding> bindings;
     for (const auto& material : materials) {
+        auto materialBindings
         material->updateDescriptorSetLayouts(descriptorLayouts);
     }
 }

@@ -10,6 +10,8 @@
 #include "vulkan/graphicspipeline.h"
 #include "material.h"
 
+#include <utility>
+
 
 template<typename Parameters>
 class MasterMaterial {
@@ -21,15 +23,13 @@ class MasterMaterial {
     VkExtent2D extent{};
     std::vector<std::shared_ptr<GraphicsShader>> shaders;
     std::shared_ptr<RenderPass> renderPass;
-    std::shared_ptr<PipelineLayout> pipelineLayout;
     std::shared_ptr<GraphicsPipeline> pipeline;
 
   public:
     static std::shared_ptr<Material<Parameters>> create(const std::shared_ptr<Device>& pDevice, const
     std::vector<std::shared_ptr<GraphicsShader>>& shaders, VkExtent2D extent);
 
-    void updateDescriptorSetLayouts(std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts);
-
+    void updateDescriptorPipelineLayouts(std::shared_ptr<PipelineLayout> pipelineLayout);
 };
 
 template<typename Parameters>
@@ -45,9 +45,8 @@ std::vector<std::shared_ptr<GraphicsShader>>& shaders, VkExtent2D extent) {
 }
 
 template<typename Parameters>
-void MasterMaterial<Parameters>::updateDescriptorSetLayouts(std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts) {
-    pipelineLayout = PipelineLayout::create(device, descriptorLayouts);
-    pipeline = GraphicsPipeline::create(device, pipelineLayout, shaders, renderPass, {0, 0});
+void MasterMaterial<Parameters>::updateDescriptorPipelineLayouts(std::shared_ptr<PipelineLayout> pipelineLayout) {
+    pipeline = GraphicsPipeline::create(device, std::move(pipelineLayout), shaders, renderPass, {0, 0});
 }
 
 typedef MasterMaterial<PBRMaterialParameters> PBRMasterMaterial;
