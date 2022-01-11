@@ -167,16 +167,18 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a39e46951fedd607da16d5b8331496cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af41a0cc7a4f07c85305678475e2ec0d7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; <a class="el" href="struct_scene_data.html">SceneData</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#af41a0cc7a4f07c85305678475e2ec0d7">sceneInfoBuffer</a></td></tr>
 <tr class="separator:af41a0cc7a4f07c85305678475e2ec0d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebca8815883522c8d88aeb48c231b0e1"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aebca8815883522c8d88aeb48c231b0e1">sceneInfoBufferSetLayout</a></td></tr>
-<tr class="separator:aebca8815883522c8d88aeb48c231b0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44a115503c209391850adb60390b7341"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkDescriptorSetLayoutBinding &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a44a115503c209391850adb60390b7341">sceneBindings</a></td></tr>
+<tr class="separator:a44a115503c209391850adb60390b7341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0423a986c9d07cce66ef9e5cb1c903f9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a0423a986c9d07cce66ef9e5cb1c903f9">sceneInfoSetLayout</a></td></tr>
+<tr class="separator:a0423a986c9d07cce66ef9e5cb1c903f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56a5dda71789b1364cf68677e1aa00fa"><td class="memItemLeft" align="right" valign="top">std::chrono::time_point&lt; std::chrono::high_resolution_clock, std::chrono::duration&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a56a5dda71789b1364cf68677e1aa00fa">lastFrameTime</a></td></tr>
 <tr class="separator:a56a5dda71789b1364cf68677e1aa00fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed8cd16173f9f026396a13b5e0cac828"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aed8cd16173f9f026396a13b5e0cac828">descriptorPool</a></td></tr>
 <tr class="separator:aed8cd16173f9f026396a13b5e0cac828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd1adb69bdb5272ba3cea9e2be181b4a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#acd1adb69bdb5272ba3cea9e2be181b4a">sceneDescriptorSet</a></td></tr>
 <tr class="separator:acd1adb69bdb5272ba3cea9e2be181b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e1582451aec737d6a26af947cc8085e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a7e1582451aec737d6a26af947cc8085e">materialDescriptorSet</a></td></tr>
-<tr class="separator:a7e1582451aec737d6a26af947cc8085e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae432ecbc432f1a7cb85f8f8d211ad251"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae432ecbc432f1a7cb85f8f8d211ad251">pipelineLayout</a></td></tr>
+<tr class="separator:ae432ecbc432f1a7cb85f8f8d211ad251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3b8cec2e32546713915f8c6303c951f1" name="a3b8cec2e32546713915f8c6303c951f1"></a>
@@ -626,8 +628,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a7e1582451aec737d6a26af947cc8085e" name="a7e1582451aec737d6a26af947cc8085e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e1582451aec737d6a26af947cc8085e">&#9670;&nbsp;</a></span>materialDescriptorSet</h2>
+<a id="ae432ecbc432f1a7cb85f8f8d211ad251" name="ae432ecbc432f1a7cb85f8f8d211ad251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae432ecbc432f1a7cb85f8f8d211ad251">&#9670;&nbsp;</a></span>pipelineLayout</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -636,7 +638,29 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_set.html">DescriptorSet</a>&gt; Scene::materialDescriptorSet</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_pipeline_layout.html">PipelineLayout</a>&gt; Scene::pipelineLayout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44a115503c209391850adb60390b7341" name="a44a115503c209391850adb60390b7341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a115503c209391850adb60390b7341">&#9670;&nbsp;</a></span>sceneBindings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;VkDescriptorSetLayoutBinding&gt; Scene::sceneBindings</td>
         </tr>
       </table>
   </td>
@@ -692,8 +716,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aebca8815883522c8d88aeb48c231b0e1" name="aebca8815883522c8d88aeb48c231b0e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebca8815883522c8d88aeb48c231b0e1">&#9670;&nbsp;</a></span>sceneInfoBufferSetLayout</h2>
+<a id="a0423a986c9d07cce66ef9e5cb1c903f9" name="a0423a986c9d07cce66ef9e5cb1c903f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0423a986c9d07cce66ef9e5cb1c903f9">&#9670;&nbsp;</a></span>sceneInfoSetLayout</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -702,7 +726,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a>&gt; Scene::sceneInfoBufferSetLayout</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a>&gt; Scene::sceneInfoSetLayout</td>
         </tr>
       </table>
   </td>

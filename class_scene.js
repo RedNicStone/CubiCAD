@@ -19,10 +19,11 @@ var class_scene =
     [ "instanceBufferData", "class_scene.html#a1396bec2404fee8e9076e888e7c14c05", null ],
     [ "instances", "class_scene.html#a25dfe61208f84baef0549c9986cc7bc4", null ],
     [ "lastFrameTime", "class_scene.html#a56a5dda71789b1364cf68677e1aa00fa", null ],
-    [ "materialDescriptorSet", "class_scene.html#a7e1582451aec737d6a26af947cc8085e", null ],
+    [ "pipelineLayout", "class_scene.html#ae432ecbc432f1a7cb85f8f8d211ad251", null ],
+    [ "sceneBindings", "class_scene.html#a44a115503c209391850adb60390b7341", null ],
     [ "sceneDescriptorSet", "class_scene.html#acd1adb69bdb5272ba3cea9e2be181b4a", null ],
     [ "sceneInfoBuffer", "class_scene.html#af41a0cc7a4f07c85305678475e2ec0d7", null ],
-    [ "sceneInfoBufferSetLayout", "class_scene.html#aebca8815883522c8d88aeb48c231b0e1", null ],
+    [ "sceneInfoSetLayout", "class_scene.html#a0423a986c9d07cce66ef9e5cb1c903f9", null ],
     [ "transferCommandPool", "class_scene.html#a3970951ef9b670604f78ce3a495e7077", null ],
     [ "transferQueue", "class_scene.html#acd3f5ca1423632a870f4b1cdb0a67c51", null ],
     [ "vertexBuffer", "class_scene.html#a85f6a3f914df27b9860fce93c161e05c", null ]

@@ -145,6 +145,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a78662ba08a6d36b572fa781a76e3bd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa521acf82918f7df7c9ea65226c6bf7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aa521acf82918f7df7c9ea65226c6bf7e">drawIndexed</a> (uint32_t indexCount, uint32_t instanceCount=0, uint32_t firstIndex=0, int32_t vertexOffset=0, uint32_t firstInstance=0)</td></tr>
 <tr class="separator:aa521acf82918f7df7c9ea65226c6bf7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a953f85adb62f9dbabca3b12a19167492"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a953f85adb62f9dbabca3b12a19167492">drawIndirect</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t drawCount, VkDeviceSize offset=0, uint32_t stride=0)</td></tr>
+<tr class="separator:a953f85adb62f9dbabca3b12a19167492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a558608a850e025c4e5a283e4ec11febf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a558608a850e025c4e5a283e4ec11febf">drawIndexedIndirect</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t drawCount, VkDeviceSize offset=0, uint32_t stride=0)</td></tr>
+<tr class="separator:a558608a850e025c4e5a283e4ec11febf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60bd4e8ed325865b8b60b2ebc589abeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a60bd4e8ed325865b8b60b2ebc589abeb">copyBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;src, const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;dst, std::vector&lt; VkBufferCopy &gt; copyRegions)</td></tr>
 <tr class="separator:a60bd4e8ed325865b8b60b2ebc589abeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_vulkan_class"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_vulkan_class')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_vulkan_class.html">VulkanClass&lt; VkCommandBuffer &gt;</a></td></tr>
@@ -603,6 +607,86 @@ Here is the caller graph for this function:</div>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>firstInstance</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a558608a850e025c4e5a283e4ec11febf" name="a558608a850e025c4e5a283e4ec11febf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a558608a850e025c4e5a283e4ec11febf">&#9670;&nbsp;</a></span>drawIndexedIndirect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandBuffer::drawIndexedIndirect </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>drawCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkDeviceSize&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>stride</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a953f85adb62f9dbabca3b12a19167492" name="a953f85adb62f9dbabca3b12a19167492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a953f85adb62f9dbabca3b12a19167492">&#9670;&nbsp;</a></span>drawIndirect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandBuffer::drawIndirect </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>drawCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkDeviceSize&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>stride</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

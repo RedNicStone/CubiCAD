@@ -11,6 +11,8 @@ var class_command_buffer =
     [ "copyBuffer", "class_command_buffer.html#a60bd4e8ed325865b8b60b2ebc589abeb", null ],
     [ "draw", "class_command_buffer.html#a78662ba08a6d36b572fa781a76e3bd36", null ],
     [ "drawIndexed", "class_command_buffer.html#aa521acf82918f7df7c9ea65226c6bf7e", null ],
+    [ "drawIndexedIndirect", "class_command_buffer.html#a558608a850e025c4e5a283e4ec11febf", null ],
+    [ "drawIndirect", "class_command_buffer.html#a953f85adb62f9dbabca3b12a19167492", null ],
     [ "endCommandBuffer", "class_command_buffer.html#a10ad44743d3c5f3d430b54f012e75678", null ],
     [ "endRenderPass", "class_command_buffer.html#ad6ba01d9fd02182683f0f677867a3ae1", null ],
     [ "nextSubpass", "class_command_buffer.html#a3f3c43ddde1476e49e9e93ec683b3123", null ],
