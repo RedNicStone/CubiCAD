@@ -30,6 +30,10 @@ class DescriptorSet : public VulkanClass<VkDescriptorSet> {
     static std::shared_ptr<DescriptorSet> create(std::shared_ptr<DescriptorSetLayout> pLayout,
                                                  const std::shared_ptr<DescriptorPool> &pPool);
 
+    static std::shared_ptr<DescriptorSet> create(std::shared_ptr<DescriptorSetLayout> pLayout,
+                                                 const std::shared_ptr<DescriptorPool> &pPool,
+                                                 VkResult& result);
+
     static std::vector<std::shared_ptr<DescriptorSet>> create(std::vector<std::shared_ptr<DescriptorSetLayout>> pLayout,
                                                  const std::shared_ptr<DescriptorPool> &pPool);
 

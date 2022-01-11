@@ -53,6 +53,7 @@ class Buffer : public VulkanClass<VkBuffer>, public std::enable_shared_from_this
                                                            std::vector<uint32_t> &accessingQueues);
 
     void transferDataMapped(void* src);
+    void transferDataMapped(void* src, size_t size);
     void transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool);
 
     std::shared_ptr<Device> getDevice() { return device; }

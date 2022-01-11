@@ -20,9 +20,10 @@ class MaterialLibrary {
   private:
     std::shared_ptr<Device> device;
     std::shared_ptr<Queue> transferQueue;
+    std::vector<glm::uint32> accessingQueueFamilyIndexes{};
 
     bool bufferOOD = false;  // is the material buffer out of date?
-    uint32_t materialCount = 0;  // how many materials are registered
+    uint32_t materialCount;  // how many materials are registered
     std::shared_ptr<Buffer> materialBuffer;  // the material buffer
 
     std::shared_ptr<MasterMaterial<Parameters>> masterMaterial;
@@ -33,7 +34,7 @@ class MaterialLibrary {
                                                                const std::shared_ptr<Queue>& pTransferQueue,
                                                                const std::vector<std::shared_ptr<Queue>>&
                                                                accessingQueues,
-                                                               size_t reservedMaterials = 255);
+                                                               size_t reservedMaterials = 256);
 
     std::shared_ptr<Material<Parameters>> registerShader(Parameters parameters);
 
@@ -51,15 +52,14 @@ std::shared_ptr<MaterialLibrary<Parameters>> MaterialLibrary<Parameters>::create
     library->transferQueue = pTransferQueue;
     library->materials = std::vector<std::shared_ptr<Material<Parameters>>>(reservedMaterials);
 
-    std::vector<glm::uint32> accessingQueueFamilyIndexes{};
-    accessingQueueFamilyIndexes.reserve(accessingQueues.size() + 1);
-    accessingQueueFamilyIndexes.push_back(pTransferQueue->getQueueFamilyIndex());
+    library->accessingQueueFamilyIndexes.reserve(accessingQueues.size() + 1);
+    library->accessingQueueFamilyIndexes.push_back(pTransferQueue->getQueueFamilyIndex());
     for (const auto& queue : accessingQueues) {
-        accessingQueueFamilyIndexes.push_back(queue->getQueueFamilyIndex());
+        library->accessingQueueFamilyIndexes.push_back(queue->getQueueFamilyIndex());
     }
     library->materialBuffer = Buffer::create(pDevice, sizeof(Parameters) * reservedMaterials,
                                              VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-    accessingQueueFamilyIndexes);
+                                             library->accessingQueueFamilyIndexes);
 
     return library;
 }
@@ -86,7 +86,7 @@ void MaterialLibrary<Parameters>::pushParameters() {
         for (size_t i = 0; i < materials.size(); i++) {
             data[i] = materials[i].getParameters();
         }
-        materialBuffer->transferDataMapped(data.data());
+        materialBuffer->transferDataStaged(data.data());
     }
 }
 

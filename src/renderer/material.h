@@ -11,23 +11,20 @@
 #include "vulkan/graphicspipeline.h"
 
 
-struct MaterialParameters {
-    glm::uint32 materialIndex;
-};
-
-struct PBRMaterialParameters : public MaterialParameters {
-    std::pair<glm::uvec3, std::nullopt_t>   diffuse;
-    std::pair<glm::uvec3, std::nullopt_t>   emission;
-    std::pair<glm::uvec3, std::nullopt_t>   normal;
-    std::pair<glm::float32, std::nullopt_t> transparency;
-    std::pair<glm::float32, std::nullopt_t> roughness;
-    std::pair<glm::float32, std::nullopt_t> metallic;
-    std::pair<glm::float32, std::nullopt_t> specular;
-    std::pair<glm::float32, std::nullopt_t> sheen;
-    std::pair<glm::float32, std::nullopt_t> clearCoatThickness;
-    std::pair<glm::float32, std::nullopt_t> clearCoatRoughness;
-    std::pair<glm::float32, std::nullopt_t> anisotropy;
-    std::pair<glm::float32, std::nullopt_t> anisotropyRotation;
+struct PBRMaterialParameters {
+    alignas(4)  glm::uint32 materialIndex;
+    alignas(16) glm::uvec3   diffuse;
+    alignas(16) glm::uvec3   emission;
+    alignas(16) glm::uvec3   normal;
+    alignas(4)  glm::float32 transparency;
+    alignas(4)  glm::float32 roughness;
+    alignas(4)  glm::float32 metallic;
+    alignas(4)  glm::float32 specular;
+    alignas(4)  glm::float32 sheen;
+    alignas(4)  glm::float32 clearCoatThickness;
+    alignas(4)  glm::float32 clearCoatRoughness;
+    alignas(4)  glm::float32 anisotropy;
+    alignas(4)  glm::float32 anisotropyRotation;
 };
 
 template<typename Parameters>
@@ -36,10 +33,10 @@ class Material {
     std::shared_ptr<MasterMaterial<Parameters>> masterMaterial;
     Parameters parameters;
 
-    std::shared_ptr<GraphicsPipeline> pipeline;
-
   public:
+
     Parameters getParameters() { return parameters; }
+    std::shared_ptr<MasterMaterial<Parameters>> getMasterMaterial() { return masterMaterial; }
 };
 
 typedef Material<PBRMaterialParameters> PBRMaterial;

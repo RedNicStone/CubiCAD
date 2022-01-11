@@ -25,6 +25,8 @@ class DescriptorPool : public VulkanClass<VkDescriptorPool> {
                                                   std::vector<VkDescriptorPoolSize> &sizes,
                                                   uint32_t maxSets = 0);
 
+    void reset();
+
     std::shared_ptr<Device> getDevice() { return device; }
 
     ~DescriptorPool();

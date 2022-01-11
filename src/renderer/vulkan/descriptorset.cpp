@@ -20,7 +20,33 @@ std::shared_ptr<DescriptorSet> DescriptorSet::create(std::shared_ptr<DescriptorS
     allocateInfo.descriptorSetCount = 1;
     allocateInfo.pSetLayouts = descriptorSet->setLayout->getHandlePtr();
 
-    vkAllocateDescriptorSets(descriptorSet->device->getHandle(), &allocateInfo, &descriptorSet->handle);
+    if (vkAllocateDescriptorSets(descriptorSet->device->getHandle(), &allocateInfo, &descriptorSet->handle) !=
+    VK_SUCCESS) {
+        throw std::runtime_error("could not create descriptor set!");
+    }
+
+    return descriptorSet;
+}
+
+std::shared_ptr<DescriptorSet> DescriptorSet::create(std::shared_ptr<DescriptorSetLayout> pLayout,
+                                                     const std::shared_ptr<DescriptorPool> &pPool,
+                                                     VkResult& result) {
+    auto descriptorSet = std::make_shared<DescriptorSet>();
+    descriptorSet->device = pPool->getDevice();
+    descriptorSet->pool = pPool;
+    descriptorSet->setLayout = std::move(pLayout);
+
+    VkDescriptorSetAllocateInfo allocateInfo{};
+    allocateInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
+    allocateInfo.descriptorPool = pPool->getHandle();
+    allocateInfo.descriptorSetCount = 1;
+    allocateInfo.pSetLayouts = descriptorSet->setLayout->getHandlePtr();
+
+    result = vkAllocateDescriptorSets(descriptorSet->device->getHandle(), &allocateInfo, &descriptorSet->handle);
+
+    if (result != VK_SUCCESS) {
+        throw std::runtime_error("could not create descriptor set!");
+    }
 
     return descriptorSet;
 }
@@ -43,7 +69,10 @@ std::vector<std::shared_ptr<DescriptorSet>> DescriptorSet::create(std::vector<st
 
     auto descriptorSetHandles = std::vector<VkDescriptorSet>(pLayout.size());
 
-    vkAllocateDescriptorSets(pPool->getDevice()->getHandle(), &allocateInfo, descriptorSetHandles.data());
+    if (vkAllocateDescriptorSets(pPool->getDevice()->getHandle(), &allocateInfo, descriptorSetHandles.data()) !=
+        VK_SUCCESS) {
+        throw std::runtime_error("could not create descriptor set!");
+    }
 
     for (uint32_t i = 0; i < pLayout.size(); i++) {
         descriptorSets[i]->device = pPool->getDevice();

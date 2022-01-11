@@ -7,7 +7,10 @@
 
 template<class type>
 void UniformBuffer<type>::updateBufferContents() {
-    void *mapDst = buffer->map();
-    memcpy(mapDst, &data, sizeof(type));
+    memcpy(dataPtr, &data, sizeof(type));
+}
+
+template<class type>
+UniformBuffer<type>::~UniformBuffer() {
     buffer->unmap();
 }

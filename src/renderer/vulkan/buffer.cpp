@@ -103,6 +103,13 @@ void Buffer::transferDataMapped(void *src) {
     vmaUnmapMemory(device->getAllocator(), allocation);
 }
 
+void Buffer::transferDataMapped(void *src, size_t size) {
+    void *dst;
+    vmaMapMemory(device->getAllocator(), allocation, &dst);
+    memcpy(dst, src, size);
+    vmaUnmapMemory(device->getAllocator(), allocation);
+}
+
 void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool) {
     std::vector<uint32_t> accessingQueues = { commandPool->getQueueFamily()->getQueueFamilyIndex() };
     auto stagingBuffer = Buffer::createHostStagingBuffer(device, allocationInfo.size, accessingQueues);

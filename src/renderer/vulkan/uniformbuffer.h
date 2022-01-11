@@ -21,6 +21,7 @@ template<class type>
 class UniformBuffer {
   private:
     type data;
+    void* dataPtr{};
 
     std::shared_ptr<Buffer> buffer;
 
@@ -43,6 +44,8 @@ class UniformBuffer {
         uniformBuffer->device = pDevice;
         uniformBuffer->transferQueue = pTransferQueue;
 
+        uniformBuffer->dataPtr = uniformBuffer->buffer->map();
+
         return uniformBuffer;
     }
 
@@ -57,6 +60,8 @@ class UniformBuffer {
     std::shared_ptr<Device> getDevice() { return device; }
 
     std::shared_ptr<Queue> getTransferQueue() { return transferQueue; }
+
+    ~UniformBuffer();
 };
 
 #endif //CUBICAD_UNIFORMBUFFER_H

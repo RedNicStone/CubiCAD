@@ -35,3 +35,7 @@ std::shared_ptr<DescriptorPool> DescriptorPool::create(std::shared_ptr<Device> p
 DescriptorPool::~DescriptorPool() {
     vkDestroyDescriptorPool(device->getHandle(), handle, nullptr);
 }
+
+void DescriptorPool::reset() {
+    vkResetDescriptorPool(device->getHandle(), handle, 0);
+}
