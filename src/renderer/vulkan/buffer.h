@@ -18,7 +18,7 @@
 #include <vector>
 
 
-class Buffer : public VulkanClass<VkBuffer>, public std::enable_shared_from_this<Buffer> {
+class Buffer : public std::enable_shared_from_this<Buffer>, public VulkanClass<VkBuffer> {
   private:
     std::shared_ptr<Device> device;
     VmaAllocation allocation;

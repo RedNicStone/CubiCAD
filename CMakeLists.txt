@@ -41,7 +41,7 @@ file(GLOB_RECURSE VOXEL_LIB_SRC ${CMAKE_SOURCE_DIR}/src/voxel/*.cpp)
 file(GLOB_RECURSE UTILS_LIB_SRC ${CMAKE_SOURCE_DIR}/src/utils/*.cpp)
 
 add_executable(CubiCAD
-        ${CMAKE_SOURCE_DIR}/src/tests/vulkan_voxel_rasterizer_2.cpp
+        ${CMAKE_SOURCE_DIR}/src/tests/vulkan_voxel_rasterizer_3.cpp
         ${GRAPHICS_LIB_SRC}
         ${VOXEL_LIB_SRC}
         ${UTILS_LIB_SRC}
@@ -162,7 +162,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/libmorton)
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/tinyobjloader)
 
 # add stb
-add_subdirectory(${CMAKE_SOURCE_DIR}/lib)
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib/stb-cmake)
 
 # add documentation targets
 add_subdirectory(${CMAKE_SOURCE_DIR}/docs)
@@ -243,7 +243,6 @@ target_link_libraries(
         Dexode::EventBus
         libmorton
         tinyobjloader
-        stb
 )
 
 # make

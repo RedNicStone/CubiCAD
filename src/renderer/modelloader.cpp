@@ -2,6 +2,9 @@
 // Created by nic on 29/12/2021.
 //
 
+#define TINYOBJLOADER_IMPLEMENTATION
+#define TINYOBJLOADER_USE_MAPBOX_EARCUT
+
 #include "modelloader.h"
 
 
@@ -41,7 +44,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
     // Loop over shapes
     for (const auto& shape : shapes) {
 
-        std::unordered_map<int, Meshlet> meshlets;
+        std::unordered_map<int, std::shared_ptr<Meshlet>> meshlets;
 
         // Loop over faces(polygon)
         for (size_t f = 0; f < shape.mesh.num_face_vertices.size(); f++) {
@@ -50,7 +53,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
             // Loop over vertices in the face.
             for (size_t v = 0; v < 3; v++) {
                 tinyobj::index_t idx = shape.mesh.indices[f * 3 + v];
-                meshlets[materialID].indexData.push_back(idx.vertex_index);
+                meshlets[materialID]->indexData.push_back(idx.vertex_index);
 
                 Vertex vertex{};
                 vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + 3*size_t(idx.vertex_index));
@@ -61,7 +64,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
             }
         }
 
-        std::vector<Meshlet> meshletVector;
+        std::vector<std::shared_ptr<Meshlet>> meshletVector;
         meshletVector.reserve(meshlets.size());
 
         for (const auto& kv : meshlets) {

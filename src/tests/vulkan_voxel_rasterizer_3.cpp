@@ -101,6 +101,11 @@ class MandelbrotApp {
 
     std::vector<std::shared_ptr<CommandBuffer>> graphicsCommandBuffers;
 
+    std::shared_ptr<Scene> scene;
+    std::shared_ptr<ModelLoader> modelLoader;
+    std::shared_ptr<Mesh> model;
+    std::shared_ptr<MeshInstance> object;
+
     std::array<float, 60> lastFrameDeltas;
     size_t currentFrame = 0;
     size_t currentFrameIndex = 0;
@@ -142,7 +147,21 @@ class MandelbrotApp {
         createGraphicsDescriptorSets();
         createGraphicsCommandBuffers();
         createSyncObjects();
+        loadModels();
+        createScene();
         //submitEventBusFunctions();
+    }
+
+    void loadModels() {
+        modelLoader = ModelLoader::create();
+        model = modelLoader->import("resources/models/demo/dragon/dragon.obj")[0];
+        object = MeshInstance::create(model);
+    }
+
+    void createScene() {
+        scene = Scene::create(device, graphicsQueue, graphicsQueue);
+        scene->submitInstance(object);
+        scene->collectRenderBuffers();
     }
 
     /*void submitEventBusFunctions() {

@@ -12,8 +12,6 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
                                      size_t reservedIndirectCommands) {
     auto scene = std::make_shared<Scene>();
     scene->device = pDevice;
-    scene->transferQueue = pTransferQueue;
-    scene->graphicsQueue = pGraphicsQueue;
 
     scene->transferCommandPool = CommandPool::create(pDevice, pTransferQueue, 0);
     scene->graphicsCommandPool = CommandPool::create(pDevice, pGraphicsQueue, 0);
@@ -44,12 +42,21 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     scene->instanceBufferData = scene->instanceBuffer->map();
     scene->indirectCommandBufferData = scene->indirectCommandBuffer->map();
 
-    scene->graphicsCommandBuffer = CommandBuffer::create(scene->transferCommandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
+    scene->graphicsCommandBuffer = CommandBuffer::create(scene->graphicsCommandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
 
     return scene;
 }
 
 void Scene::transferRenderData() {
+    auto currentTime = std::chrono::high_resolution_clock::now();
+
+    SceneData* data = sceneInfoBuffer->getDataHandle();
+    data->frameTime = static_cast<glm::uint32>(
+        std::chrono::duration_cast<std::chrono::nanoseconds>(lastFrameTime - currentTime).count());
+    data->nFrame++;
+
+    lastFrameTime = currentTime;
+
     indirectDrawCalls.clear();
     std::vector<InstanceData> instanceData;
     std::vector<VkDrawIndexedIndirectCommand> indirectDrawData;
@@ -61,14 +68,14 @@ void Scene::transferRenderData() {
             meshletDraws[meshlet].push_back(instance);
         }
     }
-    std::unordered_map<std::shared_ptr<PBRMaterial>,
+    std::unordered_map<std::shared_ptr<Material>,
                        std::vector<std::pair<std::shared_ptr<Meshlet>,
                                              std::vector<std::shared_ptr<MeshInstance>>>>> materialDraws{};
     for (const auto& meshletDraw : meshletDraws) {
         materialDraws[meshletDraw.first->material].push_back(meshletDraw);
     }
-    std::unordered_map<std::shared_ptr<MasterMaterial<PBRMaterialParameters>>,
-                       std::vector<std::pair<std::shared_ptr<PBRMaterial>,
+    std::unordered_map<std::shared_ptr<MasterMaterial>,
+                       std::vector<std::pair<std::shared_ptr<Material>,
                                    std::vector<std::pair<std::shared_ptr<Meshlet>,
                                                std::vector<std::shared_ptr<MeshInstance>>>>>>> masterMaterialDraws{};
     for (const auto& materialDraw : materialDraws) {
@@ -102,6 +109,10 @@ void Scene::transferRenderData() {
     (VkDrawIndexedIndirectCommand));
 }
 
+void Scene::submitInstance(const std::shared_ptr<MeshInstance>& meshInstance) {
+    instances.push_back(meshInstance);
+}
+
 void Scene::collectRenderBuffers() {
     std::vector<Vertex> vertexData;
     std::vector<uint32_t> indexData;
@@ -124,7 +135,7 @@ void Scene::collectRenderBuffers() {
 }
 
 void Scene::bakeMaterials() {
-    std::unordered_set<std::shared_ptr<MasterMaterial<PBRMaterialParameters>>> masterMaterials;
+    std::unordered_set<std::shared_ptr<MasterMaterial>> masterMaterials;
     for (const auto& instance : instances) {
         for (const auto& meshlet : instance->getMesh()->getMeshlets()) {
             masterMaterials.insert(meshlet->material->getMasterMaterial());
@@ -137,6 +148,8 @@ void Scene::bakeMaterials() {
 }
 
 std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer() {
+    transferRenderData();
+
     graphicsCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
     std::vector<std::shared_ptr<DescriptorSet>> sceneDescriptorSets{ sceneDescriptorSet };
@@ -144,13 +157,13 @@ std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer() {
     std::vector<uint32_t> offsets{};
     graphicsCommandBuffer->bindDescriptorSets(sceneDescriptorSets, pipelineLayout, VK_PIPELINE_BIND_POINT_GRAPHICS, offsets);
 
-    graphicsCommandBuffer->bindVertexBuffer(vertexBuffer, 0);
+    std::vector<std::shared_ptr<Buffer>> vertexBuffers = {vertexBuffer, instanceBuffer};
+    graphicsCommandBuffer->bindVertexBuffers(vertexBuffers, 0);
     graphicsCommandBuffer->bindIndexBuffer(indexBuffer, VK_INDEX_TYPE_UINT32);
-    graphicsCommandBuffer->bindVertexBuffer(instanceBuffer, 1);
 
-    std::shared_ptr<MasterMaterial<PBRMaterialParameters>> previousMasterMaterial{};
+    std::shared_ptr<MasterMaterial> previousMasterMaterial{};
     for (const auto& drawCall : indirectDrawCalls) {
-        std::shared_ptr<MasterMaterial<PBRMaterialParameters>> currentMasterMaterial = drawCall
+        std::shared_ptr<MasterMaterial> currentMasterMaterial = drawCall
             .material->getMasterMaterial();
         if (currentMasterMaterial != previousMasterMaterial) {
             previousMasterMaterial = currentMasterMaterial;
@@ -167,7 +180,9 @@ std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer() {
         .drawCallOffset);
     }
 
-    lastFrameTime = std::chrono::high_resolution_clock::now();
+    graphicsCommandBuffer->endRenderPass();
+
+    graphicsCommandBuffer->endCommandBuffer();
 }
 
 Scene::~Scene() {

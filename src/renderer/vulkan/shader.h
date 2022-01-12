@@ -16,6 +16,7 @@
 #include <string>
 
 #include "device.h"
+#include "../../utils/utils.h"
 
 
 class Shader {
@@ -48,7 +49,7 @@ class GraphicsShader : virtual public Shader {
         auto shader = std::make_shared<GraphicsShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
 
         return shader;
@@ -64,7 +65,7 @@ class NVShader : virtual public Shader {
         auto shader = std::make_shared<NVShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
 
         return shader;
@@ -80,7 +81,7 @@ class KHRShader : virtual public Shader {
         auto shader = std::make_shared<KHRShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
 
         return shader;
@@ -96,7 +97,7 @@ class RaytracingShader : virtual public GraphicsShader {
         auto shader = std::make_shared<RaytracingShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
 
         return shader;
@@ -112,7 +113,7 @@ class VertexShader : virtual public GraphicsShader {
         auto shader = std::make_shared<VertexShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_VERTEX_BIT;
 
@@ -129,7 +130,7 @@ class TesselationControlShader : virtual public GraphicsShader {
         auto shader = std::make_shared<TesselationControlShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT;
 
@@ -146,7 +147,7 @@ class TesselationEvaluationShader : virtual public GraphicsShader {
         auto shader = std::make_shared<TesselationEvaluationShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT;
 
@@ -163,7 +164,7 @@ class GeometryShader : virtual public GraphicsShader {
         auto shader = std::make_shared<GeometryShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_GEOMETRY_BIT;
 
@@ -180,7 +181,7 @@ class FragmentShader : virtual public GraphicsShader {
         auto shader = std::make_shared<FragmentShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_FRAGMENT_BIT;
 
@@ -197,7 +198,7 @@ class ComputeShader : virtual public Shader {
         auto shader = std::make_shared<ComputeShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_COMPUTE_BIT;
 
@@ -214,7 +215,7 @@ class NVTaskShader : virtual public NVShader, virtual public ComputeShader {
         auto shader = std::make_shared<NVTaskShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_TASK_BIT_NV;
 
@@ -231,7 +232,7 @@ class NVMeshShader : virtual public NVShader, virtual public GraphicsShader {
         auto shader = std::make_shared<NVMeshShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_MESH_BIT_NV;
 
@@ -248,7 +249,7 @@ class NVRaygenShader : virtual public NVShader, virtual public RaytracingShader 
         auto shader = std::make_shared<NVRaygenShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_RAYGEN_BIT_NV;
 
@@ -265,7 +266,7 @@ class NVAnyHitShader : virtual public NVShader, virtual public RaytracingShader 
         auto shader = std::make_shared<NVAnyHitShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_ANY_HIT_BIT_NV;
 
@@ -282,7 +283,7 @@ class NVClosestHitShader : virtual public NVShader, virtual public RaytracingSha
         auto shader = std::make_shared<NVClosestHitShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_CLOSEST_HIT_BIT_NV;
 
@@ -299,7 +300,7 @@ class NVMissShader : virtual public NVShader, virtual public RaytracingShader {
         auto shader = std::make_shared<NVMissShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_MISS_BIT_NV;
 
@@ -316,7 +317,7 @@ class NVCallableShader : virtual public NVShader, virtual public RaytracingShade
         auto shader = std::make_shared<NVCallableShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_CALLABLE_BIT_NV;
 
@@ -333,7 +334,7 @@ class KHRRaygenShader : virtual public KHRShader, virtual public RaytracingShade
         auto shader = std::make_shared<KHRRaygenShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_RAYGEN_BIT_KHR;
 
@@ -350,7 +351,7 @@ class KHRAnyHitShader : virtual public KHRShader, virtual public RaytracingShade
         auto shader = std::make_shared<KHRAnyHitShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_ANY_HIT_BIT_KHR;
 
@@ -367,7 +368,7 @@ class KHRClosestHitShader : virtual public KHRShader, virtual public RaytracingS
         auto shader = std::make_shared<KHRClosestHitShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_CLOSEST_HIT_BIT_KHR;
 
@@ -384,7 +385,7 @@ class KHRMissShader : virtual public KHRShader, virtual public RaytracingShader 
         auto shader = std::make_shared<KHRMissShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_MISS_BIT_KHR;
 
@@ -401,7 +402,7 @@ class KHRCallableShader : virtual public KHRShader, virtual public RaytracingSha
         auto shader = std::make_shared<KHRCallableShader>();
         shader->device = std::move(pDevice);
         shader->name = std::move(nName);
-        shader->shaderCode = readFile(filename);
+        shader->shaderCode = Utils::readFile(filename);
         shader->loadModule();
         shader->shaderStage = VK_SHADER_STAGE_CALLABLE_BIT_KHR;
 

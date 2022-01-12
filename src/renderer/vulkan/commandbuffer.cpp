@@ -134,9 +134,23 @@ void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet
     bindDescriptorSets(descriptorSets, pipeline->getLayout(), pipeline->getBindPoint(), offsets);
 }
 
-void CommandBuffer::bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t slot, VkDeviceSize offset) {
+void CommandBuffer::bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t binding, VkDeviceSize offset) {
     VkBuffer bufferHandle = buffer->getHandle();
-    vkCmdBindVertexBuffers(handle, slot, 1, &bufferHandle, &offset);
+    vkCmdBindVertexBuffers(handle, binding, 1, &bufferHandle, &offset);
+}
+
+void CommandBuffer::bindVertexBuffers(const std::vector<std::shared_ptr<Buffer>> &buffers, uint32_t binding, std::vector<VkDeviceSize>
+    offsets) {
+    std::vector<VkBuffer> bufferHandle{};
+    bufferHandle.reserve(buffers.size());
+    for (const auto& buffer : buffers) {
+        bufferHandle.push_back(buffer->getHandle());
+    }
+    if (offsets.empty()) {
+        offsets = std::vector<VkDeviceSize>(buffers.size(), 0);
+    }
+
+    vkCmdBindVertexBuffers(handle, binding, static_cast<uint32_t>(bufferHandle.size()), bufferHandle.data(), offsets.data());
 }
 
 void CommandBuffer::bindIndexBuffer(const std::shared_ptr<Buffer> &buffer, VkIndexType type, VkDeviceSize offset) {

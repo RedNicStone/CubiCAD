@@ -17,6 +17,8 @@
 #include "queues.h"
 
 
+class Buffer;
+
 template<class type>
 class UniformBuffer {
   private:
@@ -30,24 +32,7 @@ class UniformBuffer {
 
   public:
     static std::shared_ptr<UniformBuffer<type>> create(const std::shared_ptr<Device> &pDevice,
-                                                 const std::shared_ptr<Queue> &pTransferQueue) {
-        auto uniformBuffer = std::make_shared<UniformBuffer<type>>();
-
-        uniformBuffer->buffer =
-            Buffer::create(pDevice,
-                           sizeof(type),
-                           VMA_MEMORY_USAGE_GPU_ONLY,
-                           VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
-                           VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
-                           { pTransferQueue->getQueueFamilyIndex() });
-        uniformBuffer->device = pDevice;
-        uniformBuffer->transferQueue = pTransferQueue;
-
-        uniformBuffer->dataPtr = uniformBuffer->buffer->map();
-
-        return uniformBuffer;
-    }
+                                                 const std::shared_ptr<Queue> &pTransferQueue);
 
     void updateBufferContents();
 
@@ -63,5 +48,26 @@ class UniformBuffer {
 
     ~UniformBuffer();
 };
+
+template<class type>
+std::shared_ptr<UniformBuffer<type>> UniformBuffer<type>::create(const std::shared_ptr<Device> &pDevice,
+                                                                 const std::shared_ptr<Queue> &pTransferQueue)  {
+    auto uniformBuffer = std::make_shared<UniformBuffer<type>>();
+
+    uniformBuffer->buffer =
+        Buffer::create(pDevice,
+                       sizeof(type),
+                       VMA_MEMORY_USAGE_GPU_ONLY,
+                       VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+                       VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
+                       VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+                       { pTransferQueue->getQueueFamilyIndex() });
+    uniformBuffer->device = pDevice;
+    uniformBuffer->transferQueue = pTransferQueue;
+
+    uniformBuffer->dataPtr = uniformBuffer->buffer->map();
+
+    return uniformBuffer;
+}
 
 #endif //CUBICAD_UNIFORMBUFFER_H

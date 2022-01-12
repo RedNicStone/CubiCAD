@@ -2,9 +2,10 @@
 // Created by nic on 21/05/2021.
 //
 
-#include "shader.h"
-
 #include <utility>
+
+#include "shader.h"
+#include "../../utils/utils.h"
 
 
 std::shared_ptr<Shader> Shader::create(std::shared_ptr<Device> pDevice,
@@ -13,7 +14,7 @@ std::shared_ptr<Shader> Shader::create(std::shared_ptr<Device> pDevice,
     auto shader = std::make_shared<Shader>();
     shader->device = std::move(pDevice);
     shader->name = std::move(nName);
-    shader->shaderCode = readFile(filename);
+    shader->shaderCode = Utils::readFile(filename);
     shader->loadModule();
 
     return shader;

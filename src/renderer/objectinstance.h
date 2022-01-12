@@ -10,6 +10,8 @@
 #include "mesh.h"
 
 
+class Mesh;
+
 struct InstanceData {
     alignas(4) glm::uint objectID;
     alignas(64) glm::mat4 model;

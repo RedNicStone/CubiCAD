@@ -24,6 +24,10 @@ class GraphicsPipeline;
 
 class FrameBuffer;
 
+class DescriptorSet;
+
+class Buffer;
+
 class CommandBuffer : public VulkanClass<VkCommandBuffer> {
   private:
     std::shared_ptr<CommandPool> commandPool;
@@ -62,7 +66,9 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
                             std::vector<uint32_t> &offsets);
     void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
         const std::shared_ptr<PipelineBase> &pipeline);
-    void bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t slot, VkDeviceSize offset = 0);
+    void bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t binding, VkDeviceSize offset = 0);
+    void bindVertexBuffers(const std::vector<std::shared_ptr<Buffer>> &buffers, uint32_t binding,
+                           std::vector<VkDeviceSize> offsets = {});
     void bindIndexBuffer(const std::shared_ptr<Buffer> &buffer, VkIndexType type, VkDeviceSize offset = 0);
 
     void draw(uint32_t vertexCount, uint32_t instanceCount = 1, uint32_t firstVertex = 0, uint32_t firstInstance = 0);

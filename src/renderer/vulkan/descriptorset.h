@@ -20,6 +20,11 @@
 #include "uniformbuffer.h"
 
 
+template<class type>
+class UniformBuffer;
+
+class Buffer;
+
 class DescriptorSet : public VulkanClass<VkDescriptorSet> {
   private:
     std::shared_ptr<Device> device;

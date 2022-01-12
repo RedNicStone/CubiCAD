@@ -8,8 +8,11 @@
 #define CUBICAD_MATERIAL_H
 
 #include "materiallibrary.h"
+#include "mastermaterial.h"
 #include "vulkan/graphicspipeline.h"
 
+
+class MasterMaterial;
 
 struct PBRMaterialParameters {
     alignas(4)  glm::uint32 materialIndex;
@@ -27,20 +30,17 @@ struct PBRMaterialParameters {
     alignas(4)  glm::float32 anisotropyRotation;
 };
 
-template<typename Parameters>
 class Material {
   private:
-    std::shared_ptr<MasterMaterial<Parameters>> masterMaterial;
+    std::shared_ptr<MasterMaterial> masterMaterial;
     Parameters parameters;
 
     std::shared_ptr<DescriptorSet> materialSet;
 
   public:
     Parameters getParameters() { return parameters; }
-    std::shared_ptr<MasterMaterial<Parameters>> getMasterMaterial() { return masterMaterial; }
+    std::shared_ptr<MasterMaterial> getMasterMaterial() { return masterMaterial; }
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return materialSet; }
 };
-
-typedef Material<PBRMaterialParameters> PBRMaterial;
 
 #endif //CUBICAD_MATERIAL_H

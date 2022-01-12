@@ -15,6 +15,10 @@
 #include "material.h"
 
 
+class Material;
+
+struct PBRMaterialParameters;
+
 struct Vertex {
     glm::vec3 pos;
     glm::uvec2 uv;
@@ -23,7 +27,7 @@ struct Vertex {
 struct Meshlet {
     std::vector<int> indexData;
     std::vector<Vertex> vertexData;
-    std::shared_ptr<PBRMaterial> material;
+    std::shared_ptr<Material> material;
 };
 
 class Mesh {
@@ -36,8 +40,7 @@ class Mesh {
     uint32_t vertexCount;
 
   public:
-    static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>>& meshlets, uint32_t nFirstIndex, uint32_t
-    nFirstVertex);
+    static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>>& meshlets);
 
     [[nodiscard]] uint32_t getIndexCount() const { return indexCount; }
     [[nodiscard]] uint32_t getVertexCount() const { return vertexCount; }

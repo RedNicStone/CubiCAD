@@ -36,6 +36,8 @@ class QueueFamily;
 
 class Device;
 
+class PhysicalDevice;
+
 class QueueFamilyHandler : public std::enable_shared_from_this<QueueFamilyHandler> {
   private:
     std::shared_ptr<PhysicalDevice> device;

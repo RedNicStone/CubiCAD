@@ -10,16 +10,22 @@
 #include "vulkan/graphicspipeline.h"
 #include "material.h"
 #include "mesh.h"
+#include "objectinstance.h"
 
 #include <utility>
 
 
-template<typename Parameters>
+class Material;
+
+struct Vertex;
+
+struct PBRMaterialParameters;
+
 class MasterMaterial {
   private:
     std::shared_ptr<Device> device;
 
-    Parameters defaultParameters;
+    PBRMaterialParameters defaultParameters;
 
     VkExtent2D extent{};
     std::vector<std::shared_ptr<GraphicsShader>> shaders;
@@ -32,7 +38,7 @@ class MasterMaterial {
     std::shared_ptr<DescriptorSet> masterMaterialSet;
 
   public:
-    static std::shared_ptr<Material<Parameters>> create(const std::shared_ptr<Device>& pDevice, const
+    static std::shared_ptr<Material> create(const std::shared_ptr<Device>& pDevice, const
     std::vector<std::shared_ptr<GraphicsShader>>& shaders, VkExtent2D extent);
 
     void updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout);
@@ -42,20 +48,7 @@ class MasterMaterial {
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return masterMaterialSet; };
 };
 
-template<typename Parameters>
-std::shared_ptr<Material<Parameters>> MasterMaterial<Parameters>::create(const std::shared_ptr<Device>& pDevice, const
-std::vector<std::shared_ptr<GraphicsShader>>& shaders, VkExtent2D extent) {
-    auto material = std::make_shared<Material<Parameters>>();
-    material->device = pDevice;
-    material->extent = extent;
-    material->shaders = shaders;
-    material->renderPass = RenderPass::create(pDevice);
-
-    return material;
-}
-
-template<typename Parameters>
-void MasterMaterial<Parameters>::updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout) {
+void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout) {
     std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{ sceneLayout, masterMaterialSetLayout,
                                                                          materialSetLayout };
 
@@ -63,15 +56,18 @@ void MasterMaterial<Parameters>::updateDescriptorSetLayouts(const std::shared_pt
 
     std::vector<VkVertexInputBindingDescription> bindingDescription {
         { 0, sizeof(Vertex), VK_VERTEX_INPUT_RATE_VERTEX },
-        { 1, sizeof(Instance), VK_VERTEX_INPUT_RATE_INSTANCE }
+        { 1, sizeof(InstanceData), VK_VERTEX_INPUT_RATE_INSTANCE }
     };
     std::vector<VkVertexInputAttributeDescription> attributeDescription {
-        {  }
+        { 0, 0, VK_FORMAT_R32G32B32_SFLOAT, 0 },
+        { 1, 1, VK_FORMAT_R32_UINT, offsetof(InstanceData, objectID) },
+        { 2, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::float32) * 0 },
+        { 3, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::float32) * 1 },
+        { 4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::float32) * 2 },
+        { 5, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::float32) * 3 }
     };
     pipeline = GraphicsPipeline::create(device, pipelineLayout, shaders, renderPass, extent,
                                         VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, VK_CULL_MODE_BACK_BIT, VK_FRONT_FACE_CLOCKWISE);
 }
-
-typedef MasterMaterial<PBRMaterialParameters> PBRMasterMaterial;
 
 #endif //CUBICAD_MASTERMATERIAL_H

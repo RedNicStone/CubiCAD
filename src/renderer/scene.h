@@ -25,7 +25,7 @@ struct SceneData {
 class Scene {
   public:
     struct IndirectDrawCall {
-        std::shared_ptr<PBRMaterial> material;
+        std::shared_ptr<Material> material;
         uint32_t drawCallOffset;
         uint32_t drawCallLength;
     };
@@ -33,8 +33,6 @@ class Scene {
   private:
     std::shared_ptr<Device> device;
 
-    std::shared_ptr<Queue> transferQueue;
-    std::shared_ptr<Queue> graphicsQueue;
     std::shared_ptr<CommandPool> transferCommandPool;
     std::shared_ptr<CommandPool> graphicsCommandPool;
     std::shared_ptr<CommandBuffer> graphicsCommandBuffer;
@@ -67,6 +65,8 @@ class Scene {
                                   const std::shared_ptr<Queue>& pGraphicsQueue,
                                   size_t reservedInstances = 65536,
                                   size_t reservedIndirectCommands = 256);
+
+    void submitInstance(const std::shared_ptr<MeshInstance>& meshInstance);
 
     void collectRenderBuffers();
     void bakeMaterials();
