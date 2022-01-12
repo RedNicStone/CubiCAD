@@ -1,9 +1,9 @@
 var class_material =
 [
-    [ "getDescriptorSet", "class_material.html#a3472c6859ff248a61467d00a6c65e755", null ],
-    [ "getMasterMaterial", "class_material.html#a7d00fcace7b41720b2c7fba99e87f3fd", null ],
-    [ "getParameters", "class_material.html#a27dee92d49ed6b526ebec2d5afb3e19e", null ],
-    [ "masterMaterial", "class_material.html#a44f31ce43a9f4a9cc7716162bc652b34", null ],
-    [ "materialSet", "class_material.html#a94a546a523562bcb135135065103179f", null ],
-    [ "parameters", "class_material.html#aad7e884ad1cb3f77a55b692ce751d53b", null ]
+    [ "getDescriptorSet", "class_material.html#a0ab2bae36632b73cb4e51aa5267538ae", null ],
+    [ "getMasterMaterial", "class_material.html#a391426493e83af6640e90b2174107743", null ],
+    [ "getParameters", "class_material.html#aae32ab2316442f4415e648e55f3cfc9c", null ],
+    [ "masterMaterial", "class_material.html#ae684ce8923164f78dc57f725afb57d01", null ],
+    [ "materialSet", "class_material.html#a18b4911cb71bfc4db72ed283fa26bd63", null ],
+    [ "parameters", "class_material.html#af5c1a0230732ab3b80cccbf2fece3396", null ]
 ];

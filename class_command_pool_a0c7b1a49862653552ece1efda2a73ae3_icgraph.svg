@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 708;
+var viewWidth = 610;
 var viewHeight = 104;
 var sectionId = 'dynsection-2';
 </script>
@@ -58,8 +58,8 @@ var sectionId = 'dynsection-2';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="588,-38.5 588,-57.5 700,-57.5 700,-38.5 588,-38.5"/>
-<text text-anchor="middle" x="644" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandPool::create</text>
+<polygon fill="#bfbfbf" stroke="black" points="490,-38.5 490,-57.5 602,-57.5 602,-38.5 490,-38.5"/>
+<text text-anchor="middle" x="546" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandPool::create</text>
 </a>
 </g>
 </g>
@@ -67,91 +67,82 @@ var sectionId = 'dynsection-2';
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="class_scene.html#aa0a677239f29daa0650fe4e399a30734" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="425.5,-76.5 425.5,-95.5 501.5,-95.5 501.5,-76.5 425.5,-76.5"/>
-<text text-anchor="middle" x="463.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">Scene::create</text>
+<polygon fill="none" stroke="black" points="378,-76.5 378,-95.5 454,-95.5 454,-76.5 378,-76.5"/>
+<text text-anchor="middle" x="416" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">Scene::create</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M587.91,-59.73C559.91,-65.69 526.64,-72.77 501.7,-78.08"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="588.9,-63.09 597.96,-57.59 587.45,-56.25 588.9,-63.09"/>
+<path fill="none" stroke="midnightblue" d="M502.78,-60.54C485.36,-65.7 465.51,-71.6 449.29,-76.41"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="504.11,-63.79 512.7,-57.59 502.12,-57.08 504.11,-63.79"/>
+</g>
+<!-- Node5 -->
+<g id="node5" class="node">
+<title>Node5</title>
+<g id="a_node5"><a xlink:href="class_mandelbrot_app.html#aef0e6061890a496c1571ffceb502fcd6" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="165,-38.5 165,-57.5 342,-57.5 342,-38.5 165,-38.5"/>
+<text text-anchor="middle" x="253.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MandelbrotApp::createCommandPool</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node5 -->
+<g id="edge4" class="edge">
+<title>Node1&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M479.63,-48C439.04,-48 386.37,-48 342.18,-48"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="479.68,-51.5 489.68,-48 479.68,-44.5 479.68,-51.5"/>
+</g>
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="vulkan__voxel__rasterizer_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="397,-0.5 397,-19.5 435,-19.5 435,-0.5 397,-0.5"/>
+<text text-anchor="middle" x="416" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node6 -->
+<g id="edge6" class="edge">
+<title>Node1&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M502.82,-35.48C479.83,-28.65 452.58,-20.56 435.05,-15.36"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="502.12,-38.92 512.7,-38.41 504.11,-32.21 502.12,-38.92"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="class_mandelbrot_app.html#aef0e6061890a496c1571ffceb502fcd6" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="375,-38.5 375,-57.5 552,-57.5 552,-38.5 375,-38.5"/>
-<text text-anchor="middle" x="463.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MandelbrotApp::createCommandPool</text>
+<g id="a_node3"><a xlink:href="class_mandelbrot_app.html#a9adbc757b127cc20ef8fe983bd29ebbb" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="183,-76.5 183,-95.5 324,-95.5 324,-76.5 183,-76.5"/>
+<text text-anchor="middle" x="253.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">MandelbrotApp::createScene</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node3 -->
+<!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
-<title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M577.93,-48C569.54,-48 560.84,-48 552.17,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="577.99,-51.5 587.99,-48 577.99,-44.5 577.99,-51.5"/>
-</g>
-<!-- Node7 -->
-<g id="node7" class="node">
-<title>Node7</title>
-<g id="a_node7"><a xlink:href="vulkan__voxel__rasterizer_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="444.5,-0.5 444.5,-19.5 482.5,-19.5 482.5,-0.5 444.5,-0.5"/>
-<text text-anchor="middle" x="463.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node7 -->
-<g id="edge6" class="edge">
-<title>Node1&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M588.04,-36.3C551.94,-28.62 507.03,-19.05 482.53,-13.84"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="587.45,-39.75 597.96,-38.41 588.9,-32.91 587.45,-39.75"/>
+<title>Node2&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M367.7,-86C354.1,-86 338.97,-86 324.31,-86"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="367.77,-89.5 377.77,-86 367.77,-82.5 367.77,-89.5"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="class_mandelbrot_app.html#ad5c4a7e7fd79bc75fea87df0165005b6" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="210,-38.5 210,-57.5 339,-57.5 339,-38.5 210,-38.5"/>
-<text text-anchor="middle" x="274.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MandelbrotApp::initVulkan</text>
+<polygon fill="none" stroke="black" points="0,-57.5 0,-76.5 129,-76.5 129,-57.5 0,-57.5"/>
+<text text-anchor="middle" x="64.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">MandelbrotApp::initVulkan</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M364.57,-48C355.9,-48 347.28,-48 339.02,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="364.75,-51.5 374.75,-48 364.75,-44.5 364.75,-51.5"/>
+<path fill="none" stroke="midnightblue" d="M172.83,-77.9C158.19,-76.42 143.1,-74.88 129.01,-73.45"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="172.57,-81.4 182.87,-78.93 173.27,-74.43 172.57,-81.4"/>
 </g>
-<!-- Node5 -->
-<g id="node5" class="node">
-<title>Node5</title>
-<g id="a_node5"><a xlink:href="class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="74,-38.5 74,-57.5 174,-57.5 174,-38.5 74,-38.5"/>
-<text text-anchor="middle" x="124" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MandelbrotApp::run</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node5 -->
-<g id="edge4" class="edge">
-<title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M199.65,-48C191.1,-48 182.55,-48 174.44,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="199.66,-51.5 209.66,-48 199.66,-44.5 199.66,-51.5"/>
-</g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="vulkan__voxel__rasterizer__2_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="0,-38.5 0,-57.5 38,-57.5 38,-38.5 0,-38.5"/>
-<text text-anchor="middle" x="19" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">main</text>
-</a>
-</g>
-</g>
-<!-- Node5&#45;&gt;Node6 -->
+<!-- Node5&#45;&gt;Node4 -->
 <g id="edge5" class="edge">
-<title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M63.85,-48C54.65,-48 45.78,-48 38.46,-48"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="63.91,-51.5 73.91,-48 63.91,-44.5 63.91,-51.5"/>
+<title>Node5&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M154.57,-57.95C145.9,-58.83 137.28,-59.71 129.02,-60.55"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="155.15,-61.41 164.75,-56.92 154.45,-54.44 155.15,-61.41"/>
 </g>
 </g>
 </svg>

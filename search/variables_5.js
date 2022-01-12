@@ -8,7 +8,7 @@ var searchData=
   ['flags_5',['flags',['../struct_possible_queue_family.html#a844f8c6ec817be12800e5badf9753c3c',1,'PossibleQueueFamily']]],
   ['format_6',['format',['../class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e',1,'Image']]],
   ['formats_7',['formats',['../struct_swap_chain_support_details.html#a22cda9622ff2cd725ec00311e2007a7f',1,'SwapChainSupportDetails']]],
-  ['framebuffer_8',['frameBuffer',['../class_mandelbrot_app.html#ae59672cb7fb1fef6616e28f35850b198',1,'MandelbrotApp']]],
+  ['framebuffer_8',['frameBuffer',['../class_mandelbrot_app.html#a1c635c2a06ecf0dcab1c849332ee4c79',1,'MandelbrotApp']]],
   ['framebufferresized_9',['framebufferResized',['../class_mandelbrot_app.html#a1dbec42f71e98686b30629f626800f0f',1,'MandelbrotApp']]],
   ['framebuffers_10',['frameBuffers',['../class_frame_buffer.html#a7b1719d5b4cc7de4f706f4319f0ab146',1,'FrameBuffer']]],
   ['framecount_11',['frameCount',['../struct_mandelbrot_u_b_o.html#a1920e076824f33078e189500b57e627a',1,'MandelbrotUBO']]],

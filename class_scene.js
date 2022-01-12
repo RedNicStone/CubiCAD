@@ -5,12 +5,12 @@ var class_scene =
     [ "bakeGraphicsBuffer", "class_scene.html#a873b83600a9b9d618046cef7d54f25c0", null ],
     [ "bakeMaterials", "class_scene.html#afb1796a968395d0d7a1de747bb957d05", null ],
     [ "collectRenderBuffers", "class_scene.html#ad95b93a5f79949bb04f75133f8b476a4", null ],
+    [ "submitInstance", "class_scene.html#abb83e5cf158a38e7db0d42f4127676b7", null ],
     [ "transferRenderData", "class_scene.html#ae74c7fe2b71459224585f31c5f61ffb2", null ],
     [ "descriptorPool", "class_scene.html#aed8cd16173f9f026396a13b5e0cac828", null ],
     [ "device", "class_scene.html#a1b0b3a618374ae3fb39bee81911e2d5b", null ],
     [ "graphicsCommandBuffer", "class_scene.html#abce82c91f8e4e514c925d9a0d067cdc3", null ],
     [ "graphicsCommandPool", "class_scene.html#a3224aade7f78642870d9656db375cbf8", null ],
-    [ "graphicsQueue", "class_scene.html#a3308c379b9817156bbc0cfb6376d0365", null ],
     [ "indexBuffer", "class_scene.html#a39e46951fedd607da16d5b8331496cd0", null ],
     [ "indirectCommandBuffer", "class_scene.html#aebd299d8dd29279ad0e32fa5ec4cb510", null ],
     [ "indirectCommandBufferData", "class_scene.html#af9b100e26a5a7d404b713ac9f874de21", null ],
@@ -25,6 +25,5 @@ var class_scene =
     [ "sceneInfoBuffer", "class_scene.html#af41a0cc7a4f07c85305678475e2ec0d7", null ],
     [ "sceneInfoSetLayout", "class_scene.html#a0423a986c9d07cce66ef9e5cb1c903f9", null ],
     [ "transferCommandPool", "class_scene.html#a3970951ef9b670604f78ce3a495e7077", null ],
-    [ "transferQueue", "class_scene.html#acd3f5ca1423632a870f4b1cdb0a67c51", null ],
     [ "vertexBuffer", "class_scene.html#a85f6a3f914df27b9860fce93c161e05c", null ]
 ];

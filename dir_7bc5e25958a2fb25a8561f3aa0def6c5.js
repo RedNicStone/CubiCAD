@@ -13,7 +13,7 @@ var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
     [ "materiallibrary.h", "materiallibrary_8h.html", "materiallibrary_8h" ],
     [ "mesh.cpp", "mesh_8cpp.html", null ],
     [ "mesh.h", "mesh_8h.html", "mesh_8h" ],
-    [ "modelloader.cpp", "modelloader_8cpp.html", null ],
+    [ "modelloader.cpp", "modelloader_8cpp.html", "modelloader_8cpp" ],
     [ "modelloader.h", "modelloader_8h.html", "modelloader_8h" ],
     [ "objectinstance.cpp", "objectinstance_8cpp.html", null ],
     [ "objectinstance.h", "objectinstance_8h.html", "objectinstance_8h" ],

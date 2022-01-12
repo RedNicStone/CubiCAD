@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['querydeviceproperties_0',['queryDeviceProperties',['../class_physical_device.html#a21e707fbd8255fda9df3ecf1a4eb2b99',1,'PhysicalDevice::queryDeviceProperties()'],['../class_mandelbrot_app.html#a254df8aa1e31dd7cdd999a8b8b53e8a7',1,'MandelbrotApp::queryDeviceProperties()']]],
+  ['querydeviceproperties_0',['queryDeviceProperties',['../class_physical_device.html#a21e707fbd8255fda9df3ecf1a4eb2b99',1,'PhysicalDevice::queryDeviceProperties()'],['../class_mandelbrot_app.html#a254df8aa1e31dd7cdd999a8b8b53e8a7',1,'MandelbrotApp::queryDeviceProperties(const std::shared_ptr&lt; PhysicalDevice &gt; &amp;device)'],['../class_mandelbrot_app.html#a254df8aa1e31dd7cdd999a8b8b53e8a7',1,'MandelbrotApp::queryDeviceProperties(const std::shared_ptr&lt; PhysicalDevice &gt; &amp;device)']]],
   ['querypresentmodes_1',['queryPresentModes',['../class_swap_chain.html#a53e153bace197f261e233b282f308638',1,'SwapChain']]],
   ['querypresetsupport_2',['queryPresetSupport',['../class_queue_family_handler.html#a18d16b54d3fa6d622f9c33e19c106d97',1,'QueueFamilyHandler']]],
   ['queryqueuefamilysupport_3',['queryQueueFamilySupport',['../class_queue_family_handler.html#ab18b5195ce377690fb24be4a62939e16',1,'QueueFamilyHandler']]],
