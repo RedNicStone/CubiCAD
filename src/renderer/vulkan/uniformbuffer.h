@@ -19,10 +19,10 @@
 
 class Buffer;
 
-template<class type>
 class UniformBuffer {
   private:
-    type data;
+    size_t size{};
+    void* data{};
     void* dataPtr{};
 
     std::shared_ptr<Buffer> buffer;
@@ -31,14 +31,13 @@ class UniformBuffer {
     std::shared_ptr<Queue> transferQueue;
 
   public:
-    static std::shared_ptr<UniformBuffer<type>> create(const std::shared_ptr<Device> &pDevice,
-                                                 const std::shared_ptr<Queue> &pTransferQueue);
+    static std::shared_ptr<UniformBuffer> create(const std::shared_ptr<Device> &pDevice,
+                                                 const std::shared_ptr<Queue> &pTransferQueue,
+                                                 size_t vSize);
 
-    void updateBufferContents();
+    void *getDataHandle() { return data; }
 
-    type *getDataHandle() { return &data; }
-
-    size_t getSize() { return sizeof(type); }
+    [[nodiscard]] size_t getSize() const { return size; }
 
     std::shared_ptr<Buffer> getBuffer() { return buffer; }
 
@@ -48,26 +47,5 @@ class UniformBuffer {
 
     ~UniformBuffer();
 };
-
-template<class type>
-std::shared_ptr<UniformBuffer<type>> UniformBuffer<type>::create(const std::shared_ptr<Device> &pDevice,
-                                                                 const std::shared_ptr<Queue> &pTransferQueue)  {
-    auto uniformBuffer = std::make_shared<UniformBuffer<type>>();
-
-    uniformBuffer->buffer =
-        Buffer::create(pDevice,
-                       sizeof(type),
-                       VMA_MEMORY_USAGE_GPU_ONLY,
-                       VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-                       VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
-                       VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
-                       { pTransferQueue->getQueueFamilyIndex() });
-    uniformBuffer->device = pDevice;
-    uniformBuffer->transferQueue = pTransferQueue;
-
-    uniformBuffer->dataPtr = uniformBuffer->buffer->map();
-
-    return uniformBuffer;
-}
 
 #endif //CUBICAD_UNIFORMBUFFER_H

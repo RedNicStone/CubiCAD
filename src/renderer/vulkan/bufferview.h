@@ -2,6 +2,8 @@
 // Created by nic on 16/07/2021.
 //
 
+#pragma once
+
 #ifndef CUBICAD_BUFFERVIEW_H
 #define CUBICAD_BUFFERVIEW_H
 

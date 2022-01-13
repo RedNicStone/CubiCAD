@@ -13,6 +13,8 @@ std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &
         mesh->indexCount += meshlet->indexData.size();
         mesh->vertexCount += meshlet->vertexData.size();
     }
+
+    return mesh;
 }
 
 VkDrawIndexedIndirectCommand Mesh::getDrawCommand() const {

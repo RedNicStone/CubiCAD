@@ -37,7 +37,7 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     scene->sceneInfoSetLayout = DescriptorSetLayout::create(pDevice, scene->sceneBindings);
     scene->sceneDescriptorSet = scene->descriptorPool->allocate(scene->sceneInfoSetLayout);
 
-    scene->sceneInfoBuffer = UniformBuffer<SceneData>::create(pDevice, pTransferQueue);
+    scene->sceneInfoBuffer = UniformBuffer::create(pDevice, pTransferQueue, sizeof(SceneData));
 
     scene->instanceBufferData = scene->instanceBuffer->map();
     scene->indirectCommandBufferData = scene->indirectCommandBuffer->map();
@@ -50,7 +50,7 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
 void Scene::transferRenderData() {
     auto currentTime = std::chrono::high_resolution_clock::now();
 
-    SceneData* data = sceneInfoBuffer->getDataHandle();
+    auto* data = static_cast<SceneData *>(sceneInfoBuffer->getDataHandle());
     data->frameTime = static_cast<glm::uint32>(
         std::chrono::duration_cast<std::chrono::nanoseconds>(lastFrameTime - currentTime).count());
     data->nFrame++;

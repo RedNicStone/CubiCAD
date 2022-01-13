@@ -17,6 +17,12 @@ void Device::createMemoryAllocator() {
     createInfo.physicalDevice = physicalDevice->getHandle();
     createInfo.device = handle;
 
+    VmaVulkanFunctions functions{};
+    functions.vkGetInstanceProcAddr = &vkGetInstanceProcAddr;
+    functions.vkGetDeviceProcAddr = &vkGetDeviceProcAddr;
+
+    createInfo.pVulkanFunctions = &functions;
+
     vmaCreateAllocator(&createInfo, &allocator);
 }
 

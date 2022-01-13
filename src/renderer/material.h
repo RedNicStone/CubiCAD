@@ -33,12 +33,12 @@ struct PBRMaterialParameters {
 class Material {
   private:
     std::shared_ptr<MasterMaterial> masterMaterial;
-    Parameters parameters;
+    PBRMaterialParameters parameters;
 
     std::shared_ptr<DescriptorSet> materialSet;
 
   public:
-    Parameters getParameters() { return parameters; }
+    PBRMaterialParameters getParameters() { return parameters; }
     std::shared_ptr<MasterMaterial> getMasterMaterial() { return masterMaterial; }
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return materialSet; }
 };

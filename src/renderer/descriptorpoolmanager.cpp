@@ -14,7 +14,7 @@ std::shared_ptr<DescriptorPoolManager> DescriptorPoolManager::create(std::shared
 }
 
 std::shared_ptr<DescriptorSet> DescriptorPoolManager::allocate(std::shared_ptr<DescriptorSetLayout> layout) {
-    if (currentPool) {
+    if (currentPool == nullptr) {
         currentPool = grabPool();
         usedPools.push_back(currentPool);
     }

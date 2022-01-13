@@ -136,3 +136,64 @@ void DescriptorSet::updateImage(const std::shared_ptr<ImageView> &imageView,
 DescriptorSet::~DescriptorSet() {
     vkFreeDescriptorSets(device->getHandle(), pool->getHandle(), 1, &handle);
 }
+
+void DescriptorSet::updateUniformBuffer(const std::shared_ptr<UniformBuffer> &buffer,
+                                        uint32_t binding,
+                                        VkDeviceSize offset,
+                                        uint32_t arrayElement) {
+    VkDescriptorBufferInfo info{};
+    info.buffer = buffer->getBuffer()->getHandle();
+    info.range = buffer->getSize();
+    info.offset = offset;
+
+    VkWriteDescriptorSet write{};
+    write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    write.dstSet = handle;
+    write.dstBinding = binding;
+    write.dstArrayElement = arrayElement;
+    write.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    write.descriptorCount = 1;
+    write.pBufferInfo = &info;
+    write.pImageInfo = nullptr;
+    write.pTexelBufferView = nullptr;
+
+    vkUpdateDescriptorSets(device->getHandle(), 1, &write, 0, nullptr);
+}
+
+void DescriptorSet::updateUniformBuffer(std::vector<std::shared_ptr<UniformBuffer>> buffer,
+                                        std::vector<uint32_t> binding,
+                                        std::vector<VkDeviceSize> offset,
+                                        std::vector<uint32_t> arrayElement) {
+    std::vector<VkWriteDescriptorSet> writeDescriptorSets(buffer.size());
+
+    if (offset.empty()) {
+        offset = std::vector<VkDeviceSize>(buffer.size(), 0);
+    }
+
+    if (arrayElement.empty()) {
+        offset = std::vector<VkDeviceSize>(buffer.size(), 0);
+    }
+
+    for (uint32_t i = 0; i < buffer.size(); i++) {
+        VkDescriptorBufferInfo info{};
+        info.buffer = buffer[i]->getBuffer()->getHandle();
+        info.range = buffer[i]->getSize();
+        info.offset = offset[i];
+
+        writeDescriptorSets[i].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+        writeDescriptorSets[i].dstSet = handle;
+        writeDescriptorSets[i].dstBinding = binding[i];
+        writeDescriptorSets[i].dstArrayElement = arrayElement[i];
+        writeDescriptorSets[i].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+        writeDescriptorSets[i].descriptorCount = 1;
+        writeDescriptorSets[i].pBufferInfo = &info;
+        writeDescriptorSets[i].pImageInfo = nullptr;
+        writeDescriptorSets[i].pTexelBufferView = nullptr;
+    }
+
+    vkUpdateDescriptorSets(device->getHandle(),
+                           static_cast<uint32_t>(buffer.size()),
+                           writeDescriptorSets.data(),
+                           0,
+                           nullptr);
+}

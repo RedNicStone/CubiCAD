@@ -15,10 +15,14 @@ std::shared_ptr<ModelLoader> ModelLoader::create() {
     modelLoader->config.triangulation_method = "earcut";
     modelLoader->config.mtl_search_path = "./";
     modelLoader->config.vertex_color = false;
+
+    modelLoader->reader = tinyobj::ObjReader();
+
+    return modelLoader;
 }
 
 std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename) {
-    if(!reader.ParseFromFile(filename)) {
+    if(!reader.ParseFromFile(filename, config)) {
         if (!reader.Error().empty()) {
             throw std::runtime_error(reader.Error());
         }
@@ -53,6 +57,9 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
             // Loop over vertices in the face.
             for (size_t v = 0; v < 3; v++) {
                 tinyobj::index_t idx = shape.mesh.indices[f * 3 + v];
+                if (meshlets[materialID] == nullptr) {
+                    meshlets[materialID] = std::make_shared<Meshlet>();
+                }
                 meshlets[materialID]->indexData.push_back(idx.vertex_index);
 
                 Vertex vertex{};
@@ -61,6 +68,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
                     vertex.uv = { glm::floatBitsToUint(attrib.texcoords[2*size_t(idx.texcoord_index)+0]),
                                   glm::floatBitsToUint(attrib.texcoords[2*size_t(idx.texcoord_index)+1]) };
                 }
+                meshlets[materialID]->vertexData.push_back(vertex);
             }
         }
 

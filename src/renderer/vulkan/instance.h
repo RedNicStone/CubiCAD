@@ -59,6 +59,7 @@ class Instance : public VulkanClass<VkInstance>, public std::enable_shared_from_
                                             bool shouldEnableValidationLayers);
 
     std::vector<std::shared_ptr<PhysicalDevice>> &getPhysicalDevice() { return physicalDevices; }
+    const char* getName() { return appInfo.pApplicationName; }
 
     std::vector<char *> getValidationLayers() { return validationLayers; }
 

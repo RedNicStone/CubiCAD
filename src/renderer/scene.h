@@ -48,7 +48,7 @@ class Scene {
     std::shared_ptr<Buffer> vertexBuffer;
     std::shared_ptr<Buffer> indexBuffer;
 
-    std::shared_ptr<UniformBuffer<SceneData>> sceneInfoBuffer;
+    std::shared_ptr<UniformBuffer> sceneInfoBuffer;
     std::vector<VkDescriptorSetLayoutBinding> sceneBindings;
     std::shared_ptr<DescriptorSetLayout> sceneInfoSetLayout;
     std::chrono::time_point<std::chrono::high_resolution_clock, std::chrono::duration<double>> lastFrameTime;

@@ -97,7 +97,7 @@ class MandelbrotApp {
 
     std::shared_ptr<CommandPool> commandPool;
 
-    std::vector<std::shared_ptr<UniformBuffer<MandelbrotUBO>>> uniformBuffers;
+    std::vector<std::shared_ptr<UniformBuffer>> uniformBuffers;
 
     std::vector<std::shared_ptr<CommandBuffer>> graphicsCommandBuffers;
 
@@ -154,7 +154,7 @@ class MandelbrotApp {
 
     void loadModels() {
         modelLoader = ModelLoader::create();
-        model = modelLoader->import("resources/models/demo/dragon/dragon.obj")[0];
+        model = modelLoader->import("resources/models/demo/dragon/dragon.obj").front();
         object = MeshInstance::create(model);
     }
 
@@ -442,7 +442,7 @@ class MandelbrotApp {
         uniformBuffers.resize(imageCount);
 
         for (size_t i = 0; i < imageCount; i++) {
-            uniformBuffers[i] = UniformBuffer<MandelbrotUBO>::create(device, graphicsQueue);
+            uniformBuffers[i] = UniformBuffer::create(device, graphicsQueue, sizeof(MandelbrotUBO));
         }
     }
 

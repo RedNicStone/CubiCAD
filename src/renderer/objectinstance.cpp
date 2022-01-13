@@ -10,4 +10,6 @@
 std::shared_ptr<MeshInstance> MeshInstance::create(std::shared_ptr<Mesh> masterMesh) {
     auto meshInstance = std::make_shared<MeshInstance>();
     meshInstance->mesh = std::move(masterMesh);
+
+    return meshInstance;
 }
