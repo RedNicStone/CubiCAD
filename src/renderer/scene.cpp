@@ -16,18 +16,36 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     scene->transferCommandPool = CommandPool::create(pDevice, pTransferQueue, 0);
     scene->graphicsCommandPool = CommandPool::create(pDevice, pGraphicsQueue, 0);
 
-    scene->instanceBuffer = Buffer::create(pDevice, sizeof(InstanceData) * reservedInstances,
+    std::vector<uint32_t> accessingQueues{ pTransferQueue->getQueueFamilyIndex(),
+                                           pGraphicsQueue->getQueueFamilyIndex() };
+
+    auto end = accessingQueues.end();
+    for (auto it = accessingQueues.begin(); it != end; ++it) {
+        end = std::remove(it + 1, end, *it);
+    }
+    accessingQueues.erase(end, accessingQueues.end());
+
+    scene->instanceBuffer = DynamicBuffer::create(pDevice,
+                                                  accessingQueues,
                                            VMA_MEMORY_USAGE_GPU_ONLY,
+                                                  VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
                                            VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-                                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
-                                           VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
-                                           { pTransferQueue->getQueueFamilyIndex(), pGraphicsQueue->getQueueFamilyIndex() });
-    scene->indirectCommandBuffer = Buffer::create(pDevice, sizeof(VkDrawIndexedIndirectCommand) * reservedIndirectCommands,
+                                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
+    scene->indirectCommandBuffer = DynamicBuffer::create(pDevice,
+                                                         accessingQueues,
                                            VMA_MEMORY_USAGE_GPU_ONLY,
+                                                         VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT,
                                            VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-                                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
-                                           VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
-                                           { pTransferQueue->getQueueFamilyIndex(), pGraphicsQueue->getQueueFamilyIndex() });
+                                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
+
+    scene->vertexBuffer = DynamicBuffer::create(pDevice,
+                                                accessingQueues,
+                                                  VMA_MEMORY_USAGE_GPU_ONLY,
+                                                VK_BUFFER_USAGE_VERTEX_BUFFER_BIT);
+    scene->indexBuffer = DynamicBuffer::create(pDevice,
+                                               accessingQueues,
+                                                         VMA_MEMORY_USAGE_GPU_ONLY,
+                                                         VK_BUFFER_USAGE_INDEX_BUFFER_BIT);
 
     scene->descriptorPool = DescriptorPoolManager::create(pDevice);
 
@@ -38,6 +56,7 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     scene->sceneDescriptorSet = scene->descriptorPool->allocate(scene->sceneInfoSetLayout);
 
     scene->sceneInfoBuffer = UniformBuffer::create(pDevice, pTransferQueue, sizeof(SceneData));
+    scene->sceneDescriptorSet->updateUniformBuffer(scene->sceneInfoBuffer, 0);
 
     scene->instanceBufferData = scene->instanceBuffer->map();
     scene->indirectCommandBufferData = scene->indirectCommandBuffer->map();
@@ -104,6 +123,10 @@ void Scene::transferRenderData() {
         }
     }
 
+    instanceBuffer->getBuffer(instanceData.size() * sizeof(InstanceData));
+    indirectCommandBuffer->getBuffer(indirectDrawData.size() * sizeof
+        (VkDrawIndexedIndirectCommand));
+
     memcpy(instanceBufferData, instanceData.data(), instanceData.size() * sizeof(InstanceData));
     memcpy(indirectCommandBufferData, indirectDrawData.data(), indirectDrawData.size() * sizeof
     (VkDrawIndexedIndirectCommand));
@@ -130,12 +153,14 @@ void Scene::collectRenderBuffers() {
         }
     }
 
-    vertexBuffer->transferDataStaged(vertexData.data(), transferCommandPool);
-    indexBuffer->transferDataStaged(indexData.data(), transferCommandPool);
+    vertexBuffer->getBuffer(sizeof(Vertex) * vertexData.size())->transferDataStaged(vertexData.data(),
+                                                                                 transferCommandPool);
+    indexBuffer->getBuffer(sizeof(uint32_t) * indexData.size())->transferDataStaged(indexData.data(),
+                                                                                  transferCommandPool);
 }
 
 void Scene::bakeMaterials() {
-    std::unordered_set<std::shared_ptr<MasterMaterial>> masterMaterials;
+    std::unordered_set<std::shared_ptr<MasterMaterial>> masterMaterials{};
     for (const auto& instance : instances) {
         for (const auto& meshlet : instance->getMesh()->getMeshlets()) {
             masterMaterials.insert(meshlet->material->getMasterMaterial());
@@ -147,36 +172,47 @@ void Scene::bakeMaterials() {
     }
 }
 
-std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer() {
+std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer(const std::shared_ptr<FrameBuffer>& frameBuffer, uint32_t frameID) {
     transferRenderData();
 
     graphicsCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
-    std::vector<std::shared_ptr<DescriptorSet>> sceneDescriptorSets{ sceneDescriptorSet };
-
     std::vector<uint32_t> offsets{};
-    graphicsCommandBuffer->bindDescriptorSets(sceneDescriptorSets, pipelineLayout, VK_PIPELINE_BIND_POINT_GRAPHICS, offsets);
 
-    std::vector<std::shared_ptr<Buffer>> vertexBuffers = {vertexBuffer, instanceBuffer};
+    std::vector<std::shared_ptr<Buffer>> vertexBuffers = {vertexBuffer->getBuffer(), instanceBuffer->getBuffer()};
     graphicsCommandBuffer->bindVertexBuffers(vertexBuffers, 0);
-    graphicsCommandBuffer->bindIndexBuffer(indexBuffer, VK_INDEX_TYPE_UINT32);
+    graphicsCommandBuffer->bindIndexBuffer(indexBuffer->getBuffer(), VK_INDEX_TYPE_UINT32);
 
-    std::shared_ptr<MasterMaterial> previousMasterMaterial{};
+    std::shared_ptr<MasterMaterial> previousMasterMaterial = nullptr;
     for (const auto& drawCall : indirectDrawCalls) {
         std::shared_ptr<MasterMaterial> currentMasterMaterial = drawCall
             .material->getMasterMaterial();
         if (currentMasterMaterial != previousMasterMaterial) {
+            if (previousMasterMaterial != nullptr) {
+                graphicsCommandBuffer->endRenderPass();
+            }
             previousMasterMaterial = currentMasterMaterial;
+            std::vector<VkClearValue> clearColor = {{{{0.0f, 0.0f, 0.0f, 1.0f}}}};
+
+            graphicsCommandBuffer->beginRenderPass(currentMasterMaterial->getRenderPass(), frameBuffer, clearColor,
+                                                   frameID, frameBuffer->getExtent(), {0, 0});
             graphicsCommandBuffer->bindPipeline(currentMasterMaterial->getPipeline());
-            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ currentMasterMaterial->getDescriptorSet(),
+
+            std::vector<std::shared_ptr<DescriptorSet>> sceneDescriptorSets{ sceneDescriptorSet };
+            graphicsCommandBuffer->bindDescriptorSets(sceneDescriptorSets, currentMasterMaterial->getPipelineLayout(),
+                                                      VK_PIPELINE_BIND_POINT_GRAPHICS,
+                                                      offsets);
+            /*std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ currentMasterMaterial->getDescriptorSet(),
                                                                                       drawCall.material->getDescriptorSet() };
-            graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());
+            graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());*/
         } else {
-            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ drawCall.material->getDescriptorSet() };
-            graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());
+            /*std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ drawCall.material->getDescriptorSet() };
+            graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());*/
+
+            //todo
         }
 
-        graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer, drawCall.drawCallLength, drawCall
+        graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer->getBuffer(), drawCall.drawCallLength, drawCall
         .drawCallOffset);
     }
 

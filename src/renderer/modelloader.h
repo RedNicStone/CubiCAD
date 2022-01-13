@@ -21,7 +21,8 @@ class ModelLoader {
   public:
     static std::shared_ptr<ModelLoader> create();
 
-    std::vector<std::shared_ptr<Mesh>> import(const std::string& filename);
+    std::vector<std::shared_ptr<Mesh>> import(const std::string& filename, std::shared_ptr<Material>
+    material);
 };
 
 #endif //CUBICAD_MODELLOADER_H

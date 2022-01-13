@@ -106,12 +106,14 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
     pipelineInfo.subpass = 0;
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
 
-    vkCreateGraphicsPipelines(graphicsPipeline->device->getHandle(),
+    if (vkCreateGraphicsPipelines(graphicsPipeline->device->getHandle(),
                               VK_NULL_HANDLE,
                               1,
                               &pipelineInfo,
                               nullptr,
-                              &graphicsPipeline->handle);
+                              &graphicsPipeline->handle) != VK_SUCCESS) {
+        throw std::runtime_error("Could not create render pipeline!");
+    }
 
     return graphicsPipeline;
 }

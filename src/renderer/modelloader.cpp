@@ -21,7 +21,8 @@ std::shared_ptr<ModelLoader> ModelLoader::create() {
     return modelLoader;
 }
 
-std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename) {
+std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename, std::shared_ptr<Material>
+    material) {
     if(!reader.ParseFromFile(filename, config)) {
         if (!reader.Error().empty()) {
             throw std::runtime_error(reader.Error());
@@ -76,6 +77,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
         meshletVector.reserve(meshlets.size());
 
         for (const auto& kv : meshlets) {
+            kv.second->material = material;
             meshletVector.push_back(kv.second);
         }
 

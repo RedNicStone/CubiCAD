@@ -9,9 +9,9 @@
 
 #include <unordered_set>
 
-
 #include "objectinstance.h"
 #include "descriptorpoolmanager.h"
+#include "dynamicbuffer.h"
 
 
 struct SceneData {
@@ -40,13 +40,13 @@ class Scene {
     std::vector<std::shared_ptr<MeshInstance>> instances;
 
     std::vector<IndirectDrawCall> indirectDrawCalls;
-    std::shared_ptr<Buffer> instanceBuffer;  // the instance buffer
-    std::shared_ptr<Buffer> indirectCommandBuffer;  // the indirect command buffer
-    void* instanceBufferData;
-    void* indirectCommandBufferData;
+    std::shared_ptr<DynamicBuffer> instanceBuffer;  // the instance buffer
+    std::shared_ptr<DynamicBuffer> indirectCommandBuffer;  // the indirect command buffer
+    void** instanceBufferData;
+    void** indirectCommandBufferData;
 
-    std::shared_ptr<Buffer> vertexBuffer;
-    std::shared_ptr<Buffer> indexBuffer;
+    std::shared_ptr<DynamicBuffer> vertexBuffer;
+    std::shared_ptr<DynamicBuffer> indexBuffer;
 
     std::shared_ptr<UniformBuffer> sceneInfoBuffer;
     std::vector<VkDescriptorSetLayoutBinding> sceneBindings;
@@ -55,7 +55,6 @@ class Scene {
 
     std::shared_ptr<DescriptorPoolManager> descriptorPool;
     std::shared_ptr<DescriptorSet> sceneDescriptorSet;
-    std::shared_ptr<PipelineLayout> pipelineLayout;
 
     void transferRenderData();
 
@@ -71,7 +70,7 @@ class Scene {
     void collectRenderBuffers();
     void bakeMaterials();
 
-    std::shared_ptr<CommandBuffer> bakeGraphicsBuffer();
+    std::shared_ptr<CommandBuffer> bakeGraphicsBuffer(const std::shared_ptr<FrameBuffer>& frameBuffer, uint32_t frameID);
 
     ~Scene();
 };

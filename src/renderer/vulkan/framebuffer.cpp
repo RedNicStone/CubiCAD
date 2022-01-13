@@ -14,6 +14,7 @@ std::shared_ptr<FrameBuffer> FrameBuffer::create(const std::shared_ptr<Device> &
     auto frameBuffer = std::make_shared<FrameBuffer>();
     frameBuffer->device = pDevice;
     frameBuffer->frameBuffers.resize(imageViews.size());
+    frameBuffer->extent = extent;
 
     VkFramebufferCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
@@ -46,14 +47,13 @@ std::shared_ptr<FrameBuffer> FrameBuffer::create(std::shared_ptr<Device> pDevice
     auto frameBuffer = std::make_shared<FrameBuffer>();
     frameBuffer->device = std::move(pDevice);
     frameBuffer->frameBuffers.resize(swapChain->getImageCount());
-
-    VkExtent2D extend = swapChain->getSwapExtent();
+    frameBuffer->extent = swapChain->getSwapExtent();
 
     VkFramebufferCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
     createInfo.renderPass = renderPass->getHandle();
-    createInfo.width = extend.width;
-    createInfo.height = extend.height;
+    createInfo.width = frameBuffer->extent.width;
+    createInfo.height = frameBuffer->extent.height;
     createInfo.layers = 1;
 
     for (uint32_t i = 0; i < swapChain->getImageCount(); i++) {

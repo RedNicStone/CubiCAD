@@ -6,19 +6,20 @@
 
 
 std::shared_ptr<MasterMaterial> MasterMaterial::create(const std::shared_ptr<Device>& pDevice, const
-std::vector<std::shared_ptr<GraphicsShader>>& shaders, VkExtent2D extent) {
+std::vector<std::shared_ptr<GraphicsShader>>& vShaders, VkExtent2D vExtent, const std::shared_ptr<RenderPass>&
+pRenderPass) {
     auto material = std::make_shared<MasterMaterial>();
     material->device = pDevice;
-    material->extent = extent;
-    material->shaders = shaders;
-    material->renderPass = RenderPass::create(pDevice);
+    material->extent = vExtent;
+    material->shaders = vShaders;
+    material->renderPass = pRenderPass;
 
     return material;
 }
 
 void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout) {
-    std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{ sceneLayout, masterMaterialSetLayout,
-                                                                         materialSetLayout };
+    std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{ sceneLayout/*, masterMaterialSetLayout,
+                                                                         materialSetLayout*/ }; //todo
 
     pipelineLayout = PipelineLayout::create(device, descriptorLayouts);
 
@@ -29,10 +30,10 @@ void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<Descriptor
     std::vector<VkVertexInputAttributeDescription> attributeDescription {
         { 0, 0, VK_FORMAT_R32G32B32_SFLOAT, 0 },
         { 1, 1, VK_FORMAT_R32_UINT, offsetof(InstanceData, objectID) },
-        { 2, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::float32) * 0 },
-        { 3, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::float32) * 1 },
-        { 4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::float32) * 2 },
-        { 5, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::float32) * 3 }
+        { 2, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 0 },
+        { 3, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 1 },
+        { 4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 2 },
+        { 5, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 3 }
     };
     pipeline = GraphicsPipeline::create(device, pipelineLayout, shaders, renderPass, extent,
                                         VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, VK_CULL_MODE_BACK_BIT, VK_FRONT_FACE_CLOCKWISE);

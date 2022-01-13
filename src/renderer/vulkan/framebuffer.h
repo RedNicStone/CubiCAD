@@ -28,11 +28,12 @@ class FrameBuffer {
     std::shared_ptr<Device> device;
 
     std::vector<VkFramebuffer> frameBuffers;
+    VkExtent2D extent;
 
   public:
     static std::shared_ptr<FrameBuffer> create(const std::shared_ptr<Device> &pDevice,
                                                const std::shared_ptr<RenderPass> &renderPass,
-                                               VkExtent2D extent,
+                                               VkExtent2D vExtent,
                                                std::vector<std::vector<std::shared_ptr<ImageView>>> &imageViews);
 
     static std::shared_ptr<FrameBuffer> create(std::shared_ptr<Device> pDevice,
@@ -41,6 +42,7 @@ class FrameBuffer {
                                                std::vector<std::vector<std::shared_ptr<ImageView>>> &imageViews);
 
     VkFramebuffer getFramebuffer(uint32_t i) { return frameBuffers[i]; }
+    VkExtent2D getExtent() { return extent; }
 
     ~FrameBuffer();
 };

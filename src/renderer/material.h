@@ -38,6 +38,8 @@ class Material {
     std::shared_ptr<DescriptorSet> materialSet;
 
   public:
+    static std::shared_ptr<Material> create(std::shared_ptr<MasterMaterial> pMasterMaterial);
+
     PBRMaterialParameters getParameters() { return parameters; }
     std::shared_ptr<MasterMaterial> getMasterMaterial() { return masterMaterial; }
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return materialSet; }

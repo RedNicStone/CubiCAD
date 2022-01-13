@@ -154,7 +154,15 @@ class MandelbrotApp {
 
     void loadModels() {
         modelLoader = ModelLoader::create();
-        model = modelLoader->import("resources/models/demo/dragon/dragon.obj").front();
+
+        auto vertexShader = VertexShader::create(device, "main", "resources/shaders/compiled/PBR_basic.vert.spv");
+        auto fragmentShader = FragmentShader::create(device, "main", "resources/shaders/compiled/PBR_basic.frag.spv");
+        std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
+
+        auto masterMaterial = MasterMaterial::create(device, shaders, swapChainExtent, renderPass);
+        auto material = Material::create(masterMaterial);
+        model = modelLoader->import("resources/models/demo/dragon/dragon.obj", material).front();
+
         object = MeshInstance::create(model);
     }
 
@@ -162,6 +170,7 @@ class MandelbrotApp {
         scene = Scene::create(device, graphicsQueue, graphicsQueue);
         scene->submitInstance(object);
         scene->collectRenderBuffers();
+        scene->bakeMaterials();
     }
 
     /*void submitEventBusFunctions() {
@@ -488,8 +497,9 @@ class MandelbrotApp {
 
         std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
         std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
-        graphicsCommandBuffers[swapChain->getCurrentImageIndex()]->submitToQueue(signalSemaphores,
-                                                                                 { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
+
+        auto commandBuffer = scene->bakeGraphicsBuffer(frameBuffer, static_cast<uint32_t>(currentFrameIndex));
+        commandBuffer->submitToQueue(signalSemaphores, { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
                                                                                  waitSemaphores,
                                                                                  graphicsQueue,
                                                                                  swapChain->getPresentFence());
