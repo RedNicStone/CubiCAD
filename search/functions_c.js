@@ -5,7 +5,7 @@ var searchData=
   ['makeallocation_2',['makeAllocation',['../class_stack_allocator.html#a531bb6769bc72f5a796180b5bf8b5735',1,'StackAllocator::makeAllocation()'],['../class_allocator.html#ab8ee9af52bca63366cb43e3d5d40276f',1,'Allocator::makeAllocation()']]],
   ['makebimap_3',['makeBimap',['../class_utils.html#af1a6b637c53cfd9dd4ef5d2dce27feab',1,'Utils']]],
   ['makenode_4',['makeNode',['../class_voxel_codec_sparse_octree.html#a25d55ef9d9ddb63edb1e570d05ea5e6f',1,'VoxelCodecSparseOctree']]],
-  ['map_5',['map',['../class_buffer.html#a80d49c3641eb7d63ede96bbe568f1f00',1,'Buffer']]],
+  ['map_5',['map',['../class_dynamic_buffer.html#ab21b00292d7f53b2626de714141f8b3e',1,'DynamicBuffer::map()'],['../class_buffer.html#a80d49c3641eb7d63ede96bbe568f1f00',1,'Buffer::map()']]],
   ['morton2d_5f32_5fdecode_6',['morton2D_32_decode',['../namespacelibmorton.html#afd8c6c41fc7dd83d20ee36c2288961e9',1,'libmorton']]],
   ['morton2d_5f32_5fencode_7',['morton2D_32_encode',['../namespacelibmorton.html#afc6d9a705d0f67b8651a19ed086f6197',1,'libmorton']]],
   ['morton2d_5f64_5fdecode_8',['morton2D_64_decode',['../namespacelibmorton.html#aedea02f0c94cbc18dc5542f5429cbe62',1,'libmorton']]],

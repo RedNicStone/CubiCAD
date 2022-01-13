@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_master_material.html',''); initR
 <div class="dynheader">
 Collaboration diagram for MasterMaterial:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material__coll__graph.svg" width="216" height="279"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material__coll__graph.svg" width="216" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -117,11 +117,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7ba368be5a0fb7fabcccdea01db02314"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9652ef27362f06f4d7effe3c0f1bbb52"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a9652ef27362f06f4d7effe3c0f1bbb52">getDescriptorSet</a> ()</td></tr>
 <tr class="separator:a9652ef27362f06f4d7effe3c0f1bbb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade1341446c1c2e231824fb7f3aa50751"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#ade1341446c1c2e231824fb7f3aa50751">getRenderPass</a> ()</td></tr>
+<tr class="separator:ade1341446c1c2e231824fb7f3aa50751"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a92f9f2938bb5298d8bb25c87f2f1bdb2"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a92f9f2938bb5298d8bb25c87f2f1bdb2">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &gt; &amp;<a class="el" href="class_master_material.html#ae713e1f2972f5a13ec432861c6c66b06">shaders</a>, VkExtent2D <a class="el" href="class_master_material.html#a71b6081e8971e33fe40ad2257c853962">extent</a>)</td></tr>
-<tr class="separator:a92f9f2938bb5298d8bb25c87f2f1bdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44e0a95051440dba047bcec8327d77c"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#ad44e0a95051440dba047bcec8327d77c">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &gt; &amp;vShaders, VkExtent2D vExtent, const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;pRenderPass)</td></tr>
+<tr class="separator:ad44e0a95051440dba047bcec8327d77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -147,8 +149,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a208b3d3ed443b20d5ab86156ee339bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a92f9f2938bb5298d8bb25c87f2f1bdb2" name="a92f9f2938bb5298d8bb25c87f2f1bdb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92f9f2938bb5298d8bb25c87f2f1bdb2">&#9670;&nbsp;</a></span>create()</h2>
+<a id="ad44e0a95051440dba047bcec8327d77c" name="ad44e0a95051440dba047bcec8327d77c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad44e0a95051440dba047bcec8327d77c">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,13 +168,19 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>shaders</em>, </td>
+          <td class="paramname"><em>vShaders</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkExtent2D&#160;</td>
-          <td class="paramname"><em>extent</em>&#160;</td>
+          <td class="paramname"><em>vExtent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pRenderPass</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -187,9 +195,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
+Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material_a92f9f2938bb5298d8bb25c87f2f1bdb2_cgraph.svg" width="344" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material_ad44e0a95051440dba047bcec8327d77c_icgraph.svg" width="611" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -256,6 +264,31 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt; MasterMaterial::getPipelineLayout </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade1341446c1c2e231824fb7f3aa50751" name="ade1341446c1c2e231824fb7f3aa50751"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade1341446c1c2e231824fb7f3aa50751">&#9670;&nbsp;</a></span>getRenderPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; MasterMaterial::getRenderPass </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

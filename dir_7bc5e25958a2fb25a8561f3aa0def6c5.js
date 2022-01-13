@@ -3,6 +3,10 @@ var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
     [ "vulkan", "dir_8ebd181a0c69b2a3f352e3ec5ae48f4e.html", "dir_8ebd181a0c69b2a3f352e3ec5ae48f4e" ],
     [ "descriptorpoolmanager.cpp", "descriptorpoolmanager_8cpp.html", null ],
     [ "descriptorpoolmanager.h", "descriptorpoolmanager_8h.html", "descriptorpoolmanager_8h" ],
+    [ "dynamicbuffer.cpp", "dynamicbuffer_8cpp.html", null ],
+    [ "dynamicbuffer.h", "dynamicbuffer_8h.html", [
+      [ "DynamicBuffer", "class_dynamic_buffer.html", "class_dynamic_buffer" ]
+    ] ],
     [ "eventbus.cpp", "eventbus_8cpp.html", "eventbus_8cpp" ],
     [ "eventbus.h", "eventbus_8h.html", "eventbus_8h" ],
     [ "mastermaterial.cpp", "mastermaterial_8cpp.html", null ],

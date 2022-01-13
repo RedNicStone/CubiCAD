@@ -9,5 +9,7 @@ var searchData=
   ['descriptorset_2ecpp_6',['descriptorset.cpp',['../descriptorset_8cpp.html',1,'']]],
   ['descriptorset_2eh_7',['descriptorset.h',['../descriptorset_8h.html',1,'']]],
   ['device_2ecpp_8',['device.cpp',['../device_8cpp.html',1,'']]],
-  ['device_2eh_9',['device.h',['../device_8h.html',1,'']]]
+  ['device_2eh_9',['device.h',['../device_8h.html',1,'']]],
+  ['dynamicbuffer_2ecpp_10',['dynamicbuffer.cpp',['../dynamicbuffer_8cpp.html',1,'']]],
+  ['dynamicbuffer_2eh_11',['dynamicbuffer.h',['../dynamicbuffer_8h.html',1,'']]]
 ];

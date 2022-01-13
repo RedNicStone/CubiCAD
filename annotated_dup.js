@@ -33,6 +33,7 @@ var annotated_dup =
     [ "DescriptorSet", "class_descriptor_set.html", "class_descriptor_set" ],
     [ "DescriptorSetLayout", "class_descriptor_set_layout.html", "class_descriptor_set_layout" ],
     [ "Device", "class_device.html", "class_device" ],
+    [ "DynamicBuffer", "class_dynamic_buffer.html", "class_dynamic_buffer" ],
     [ "Fence", "class_fence.html", "class_fence" ],
     [ "FragmentShader", "class_fragment_shader.html", null ],
     [ "FrameBuffer", "class_frame_buffer.html", "class_frame_buffer" ],

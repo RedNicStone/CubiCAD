@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_frame_buffer.html',''); initResi
 <div class="dynheader">
 Collaboration diagram for FrameBuffer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_frame_buffer__coll__graph.svg" width="139" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_frame_buffer__coll__graph.svg" width="139" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -111,13 +111,15 @@ Collaboration diagram for FrameBuffer:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0c8211d7d25ee5c3c2292de2fc352f4d"><td class="memItemLeft" align="right" valign="top">VkFramebuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_buffer.html#a0c8211d7d25ee5c3c2292de2fc352f4d">getFramebuffer</a> (uint32_t i)</td></tr>
 <tr class="separator:a0c8211d7d25ee5c3c2292de2fc352f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b7c26e97d177a320338b7de8cb11f9b"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_buffer.html#a7b7c26e97d177a320338b7de8cb11f9b">getExtent</a> ()</td></tr>
+<tr class="separator:a7b7c26e97d177a320338b7de8cb11f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef8be9884e8cc0fc3f3692e6c6968fa1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_buffer.html#aef8be9884e8cc0fc3f3692e6c6968fa1">~FrameBuffer</a> ()</td></tr>
 <tr class="separator:aef8be9884e8cc0fc3f3692e6c6968fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acff00c271ebabcb99b9aaf434697134f"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_buffer.html#acff00c271ebabcb99b9aaf434697134f">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;renderPass, VkExtent2D extent, std::vector&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &gt; &gt; &amp;imageViews)</td></tr>
-<tr class="separator:acff00c271ebabcb99b9aaf434697134f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b861048fc9c1861448d4dee7a6b9b69"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_buffer.html#a3b861048fc9c1861448d4dee7a6b9b69">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;renderPass, VkExtent2D vExtent, std::vector&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &gt; &gt; &amp;imageViews)</td></tr>
+<tr class="separator:a3b861048fc9c1861448d4dee7a6b9b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a091397aa82df54de4aa96d340fe5c2ed"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_buffer.html#a091397aa82df54de4aa96d340fe5c2ed">create</a> (std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; pDevice, const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;renderPass, const std::shared_ptr&lt; <a class="el" href="class_swap_chain.html">SwapChain</a> &gt; &amp;swapChain, std::vector&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &gt; &gt; &amp;imageViews)</td></tr>
 <tr class="separator:a091397aa82df54de4aa96d340fe5c2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -127,6 +129,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae68a7fb2386e69190a75a8dfa33462c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b1719d5b4cc7de4f706f4319f0ab146"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkFramebuffer &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_buffer.html#a7b1719d5b4cc7de4f706f4319f0ab146">frameBuffers</a></td></tr>
 <tr class="separator:a7b1719d5b4cc7de4f706f4319f0ab146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a5ce24478864b3ce292e58b6c341ad3"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_buffer.html#a7a5ce24478864b3ce292e58b6c341ad3">extent</a></td></tr>
+<tr class="separator:a7a5ce24478864b3ce292e58b6c341ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aef8be9884e8cc0fc3f3692e6c6968fa1" name="aef8be9884e8cc0fc3f3692e6c6968fa1"></a>
@@ -147,8 +151,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="acff00c271ebabcb99b9aaf434697134f" name="acff00c271ebabcb99b9aaf434697134f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acff00c271ebabcb99b9aaf434697134f">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
+<a id="a3b861048fc9c1861448d4dee7a6b9b69" name="a3b861048fc9c1861448d4dee7a6b9b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b861048fc9c1861448d4dee7a6b9b69">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,7 +176,7 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkExtent2D&#160;</td>
-          <td class="paramname"><em>extent</em>, </td>
+          <td class="paramname"><em>vExtent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -195,7 +199,7 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_frame_buffer_acff00c271ebabcb99b9aaf434697134f_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_frame_buffer_a3b861048fc9c1861448d4dee7a6b9b69_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -249,6 +253,31 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a7b7c26e97d177a320338b7de8cb11f9b" name="a7b7c26e97d177a320338b7de8cb11f9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b7c26e97d177a320338b7de8cb11f9b">&#9670;&nbsp;</a></span>getExtent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkExtent2D FrameBuffer::getExtent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0c8211d7d25ee5c3c2292de2fc352f4d" name="a0c8211d7d25ee5c3c2292de2fc352f4d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c8211d7d25ee5c3c2292de2fc352f4d">&#9670;&nbsp;</a></span>getFramebuffer()</h2>
 
@@ -287,6 +316,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_device.html">Device</a>&gt; FrameBuffer::device</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a5ce24478864b3ce292e58b6c341ad3" name="a7a5ce24478864b3ce292e58b6c341ad3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a5ce24478864b3ce292e58b6c341ad3">&#9670;&nbsp;</a></span>extent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkExtent2D FrameBuffer::extent</td>
         </tr>
       </table>
   </td>

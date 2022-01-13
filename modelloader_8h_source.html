@@ -116,10 +116,11 @@ $(document).ready(function(){initNavTree('modelloader_8h_source.html',''); initR
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">static</span> std::shared_ptr&lt;ModelLoader&gt; <a class="code hl_function" href="class_model_loader.html#affd2b8840989f0bdf63c952775bb082e">create</a>();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;std::shared_ptr&lt;Mesh&gt;&gt; <span class="keyword">import</span>(<span class="keyword">const</span> std::string&amp; filename);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_MODELLOADER_H</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;std::shared_ptr&lt;Mesh&gt;&gt; <span class="keyword">import</span>(<span class="keyword">const</span> std::string&amp; filename, std::shared_ptr&lt;Material&gt;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    material);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_MODELLOADER_H</span></div>
 <div class="ttc" id="aclass_model_loader_html"><div class="ttname"><a href="class_model_loader.html">ModelLoader</a></div><div class="ttdef"><b>Definition:</b> modelloader.h:16</div></div>
 <div class="ttc" id="aclass_model_loader_html_a251aa81af2f4e99f6ba15a363136cfbe"><div class="ttname"><a href="class_model_loader.html#a251aa81af2f4e99f6ba15a363136cfbe">ModelLoader::reader</a></div><div class="ttdeci">tinyobj::ObjReader reader</div><div class="ttdef"><b>Definition:</b> modelloader.h:18</div></div>
 <div class="ttc" id="aclass_model_loader_html_a3eb632e2e16c813d05e622581ad3dd91"><div class="ttname"><a href="class_model_loader.html#a3eb632e2e16c813d05e622581ad3dd91">ModelLoader::config</a></div><div class="ttdeci">tinyobj::ObjReaderConfig config</div><div class="ttdef"><b>Definition:</b> modelloader.h:19</div></div>
