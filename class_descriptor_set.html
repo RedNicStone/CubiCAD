@@ -115,12 +115,10 @@ Collaboration diagram for DescriptorSet:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e5435aec7f0fb5d99b9eb31ba7e4fcc"><td class="memTemplParams" colspan="2">template&lt;class type &gt; </td></tr>
-<tr class="memitem:a8e5435aec7f0fb5d99b9eb31ba7e4fcc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a8e5435aec7f0fb5d99b9eb31ba7e4fcc">updateUniformBuffer</a> (std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt; &gt; buffer, uint32_t binding, VkDeviceSize offset=0, uint32_t arrayElement=0)</td></tr>
-<tr class="separator:a8e5435aec7f0fb5d99b9eb31ba7e4fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c7c62a121fb542a4180ea1ee1551c62"><td class="memTemplParams" colspan="2">template&lt;class ... type&gt; </td></tr>
-<tr class="memitem:a8c7c62a121fb542a4180ea1ee1551c62"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a8c7c62a121fb542a4180ea1ee1551c62">updateUniformBuffer</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type... &gt; &gt; &gt; buffer, std::vector&lt; uint32_t &gt; binding, std::vector&lt; VkDeviceSize &gt; offset={}, std::vector&lt; uint32_t &gt; arrayElement={})</td></tr>
-<tr class="separator:a8c7c62a121fb542a4180ea1ee1551c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a862f9a7f7b603e9fc75a39a51a118379"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a862f9a7f7b603e9fc75a39a51a118379">updateUniformBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a> &gt; &amp;buffer, uint32_t binding, VkDeviceSize offset=0, uint32_t arrayElement=0)</td></tr>
+<tr class="separator:a862f9a7f7b603e9fc75a39a51a118379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af788c69a7dd29fb641fa410feeadf27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#af788c69a7dd29fb641fa410feeadf27f">updateUniformBuffer</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a> &gt; &gt; buffer, std::vector&lt; uint32_t &gt; binding, std::vector&lt; VkDeviceSize &gt; offset={}, std::vector&lt; uint32_t &gt; arrayElement={})</td></tr>
+<tr class="separator:af788c69a7dd29fb641fa410feeadf27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28cf1e0776751aec4cbba26ffbf80b4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a28cf1e0776751aec4cbba26ffbf80b4d">updateStorageBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t binding, uint32_t arrayElement=0, VkDeviceSize offset=0, VkDeviceSize range=VK_WHOLE_SIZE)</td></tr>
 <tr class="separator:a28cf1e0776751aec4cbba26ffbf80b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35931a8d5106020ddc7617e800a138fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a35931a8d5106020ddc7617e800a138fa">updateImage</a> (const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;imageView, uint32_t binding, uint32_t arrayElement=0)</td></tr>
@@ -511,21 +509,16 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a8e5435aec7f0fb5d99b9eb31ba7e4fcc" name="a8e5435aec7f0fb5d99b9eb31ba7e4fcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e5435aec7f0fb5d99b9eb31ba7e4fcc">&#9670;&nbsp;</a></span>updateUniformBuffer() <span class="overload">[1/2]</span></h2>
+<a id="a862f9a7f7b603e9fc75a39a51a118379" name="a862f9a7f7b603e9fc75a39a51a118379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a862f9a7f7b603e9fc75a39a51a118379">&#9670;&nbsp;</a></span>updateUniformBuffer() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class type &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void DescriptorSet::updateUniformBuffer </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type &gt; &gt;&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -552,30 +545,20 @@ template&lt;class type &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8c7c62a121fb542a4180ea1ee1551c62" name="a8c7c62a121fb542a4180ea1ee1551c62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c7c62a121fb542a4180ea1ee1551c62">&#9670;&nbsp;</a></span>updateUniformBuffer() <span class="overload">[2/2]</span></h2>
+<a id="af788c69a7dd29fb641fa410feeadf27f" name="af788c69a7dd29fb641fa410feeadf27f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af788c69a7dd29fb641fa410feeadf27f">&#9670;&nbsp;</a></span>updateUniformBuffer() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class ... type&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void DescriptorSet::updateUniformBuffer </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&lt; type... &gt; &gt; &gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a> &gt; &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
@@ -602,11 +585,6 @@ template&lt;class ... type&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

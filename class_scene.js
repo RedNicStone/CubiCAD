@@ -22,7 +22,7 @@ var class_scene =
     [ "pipelineLayout", "class_scene.html#ae432ecbc432f1a7cb85f8f8d211ad251", null ],
     [ "sceneBindings", "class_scene.html#a44a115503c209391850adb60390b7341", null ],
     [ "sceneDescriptorSet", "class_scene.html#acd1adb69bdb5272ba3cea9e2be181b4a", null ],
-    [ "sceneInfoBuffer", "class_scene.html#af41a0cc7a4f07c85305678475e2ec0d7", null ],
+    [ "sceneInfoBuffer", "class_scene.html#ad1b51b4e41497da8ce7315ba9b71bf2c", null ],
     [ "sceneInfoSetLayout", "class_scene.html#a0423a986c9d07cce66ef9e5cb1c903f9", null ],
     [ "transferCommandPool", "class_scene.html#a3970951ef9b670604f78ce3a495e7077", null ],
     [ "vertexBuffer", "class_scene.html#a85f6a3f914df27b9860fce93c161e05c", null ]

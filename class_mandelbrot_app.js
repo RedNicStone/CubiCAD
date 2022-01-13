@@ -86,7 +86,7 @@ var class_mandelbrot_app =
     [ "shadingPipelineLayout", "class_mandelbrot_app.html#a9090f25937daeecf9af264374d64df7c", null ],
     [ "swapChain", "class_mandelbrot_app.html#ae1f7143384e91f923b04f608e5975dd0", null ],
     [ "swapChainExtent", "class_mandelbrot_app.html#a7df7caf7132923e4a96371dcca4e6094", null ],
-    [ "uniformBuffers", "class_mandelbrot_app.html#a1c72944f0ed684b222276b3bbf3a8012", null ],
+    [ "uniformBuffers", "class_mandelbrot_app.html#afb1aa1ebf9b22d2ed5661fdd985d0c5f", null ],
     [ "version", "class_mandelbrot_app.html#a229c3cd7aaa9698546f6d3dc932d23d3", null ],
     [ "window", "class_mandelbrot_app.html#a521383303ec8a82b210b8dbdaa0d2afd", null ]
 ];

@@ -3,9 +3,7 @@ var dir_8ebd181a0c69b2a3f352e3ec5ae48f4e =
     [ "buffer.cpp", "buffer_8cpp.html", null ],
     [ "buffer.h", "buffer_8h.html", "buffer_8h" ],
     [ "bufferview.cpp", "bufferview_8cpp.html", null ],
-    [ "bufferview.h", "bufferview_8h.html", [
-      [ "BufferView", "class_buffer_view.html", "class_buffer_view" ]
-    ] ],
+    [ "bufferview.h", "bufferview_8h.html", "bufferview_8h" ],
     [ "commandbuffer.cpp", "commandbuffer_8cpp.html", null ],
     [ "commandbuffer.h", "commandbuffer_8h.html", "commandbuffer_8h" ],
     [ "commandpool.cpp", "commandpool_8cpp.html", null ],

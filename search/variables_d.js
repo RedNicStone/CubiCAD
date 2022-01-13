@@ -2,7 +2,7 @@ var searchData=
 [
   ['pagesize_0',['pageSize',['../class_stack_allocator.html#a513d83294ec7c8248183e9d8371fb2ab',1,'StackAllocator::pageSize()'],['../class_virtual_stack_allocation.html#a5e85e26b4943fea0b0acbe9bc3990345',1,'VirtualStackAllocation::pageSize()']]],
   ['pallocator_1',['pAllocator',['../class_virtual_stack_allocation.html#aae50af7726c4aef1a95ec01fc0ec50df',1,'VirtualStackAllocation']]],
-  ['parameters_2',['parameters',['../class_material.html#af5c1a0230732ab3b80cccbf2fece3396',1,'Material']]],
+  ['parameters_2',['parameters',['../class_material.html#ab9fdd1f792d0fc91e5888fe0d804d959',1,'Material']]],
   ['pdata_3',['pData',['../struct_virtual_stack_allocation_1_1_mapped_page.html#acfc8ea3d51a7e7716f17b75a58f2c42e',1,'VirtualStackAllocation::MappedPage::pData()'],['../struct_stack_allocator_1_1_physical_page.html#a11e36be92f17fb8a3d6021e67b7db59f',1,'StackAllocator::PhysicalPage::pData()']]],
   ['physicalallocations_4',['physicalAllocations',['../class_stack_allocator.html#a2977c437d49efded08c272e2d72f5074',1,'StackAllocator']]],
   ['physicaldevice_5',['physicalDevice',['../class_device.html#a68e5d597ba665f286ca3139cb261c04c',1,'Device::physicalDevice()'],['../class_mandelbrot_app.html#a874434641d63c514004a3062524a2109',1,'MandelbrotApp::physicalDevice()']]],

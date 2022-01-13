@@ -21,7 +21,7 @@ var searchData=
   ['_7eshader_18',['~Shader',['../class_shader.html#aff01df87e8a102f270b5b135a295e59d',1,'Shader']]],
   ['_7estackallocator_19',['~StackAllocator',['../class_stack_allocator.html#af9c82e78eb9b22e3560b522b2b305656',1,'StackAllocator']]],
   ['_7eswapchain_20',['~SwapChain',['../class_swap_chain.html#a58c288346a3fa211fbcc2cec594bfa68',1,'SwapChain']]],
-  ['_7euniformbuffer_21',['~UniformBuffer',['../class_uniform_buffer.html#ad85f5b4ada90edccfe3c40808fc35d5a',1,'UniformBuffer']]],
+  ['_7euniformbuffer_21',['~UniformBuffer',['../class_uniform_buffer.html#aed1896a3bb0033107663e860713f876e',1,'UniformBuffer']]],
   ['_7evirtualallocation_22',['~VirtualAllocation',['../class_virtual_allocation.html#a5c2917fd2fbbcdab3e38d053fe7f89da',1,'VirtualAllocation']]],
   ['_7evoxelcodecbase_23',['~VoxelCodecBase',['../class_voxel_codec_base.html#aa9823d739f141f866cb8638fd9cc3671',1,'VoxelCodecBase']]],
   ['_7evoxelcodeclinear_24',['~VoxelCodecLinear',['../class_voxel_codec_linear.html#a9d7b7608dcf35a7bcf5f566167a286fa',1,'VoxelCodecLinear']]],

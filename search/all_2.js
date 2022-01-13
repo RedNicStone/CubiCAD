@@ -9,7 +9,7 @@ var searchData=
   ['bindpipeline_6',['bindPipeline',['../class_command_buffer.html#ae5ecd2d3ffffb04c4068a7f6bef64dd6',1,'CommandBuffer']]],
   ['bindvertexbuffer_7',['bindVertexBuffer',['../class_command_buffer.html#a05706ad77f7592eb97ba231447a702af',1,'CommandBuffer']]],
   ['bindvertexbuffers_8',['bindVertexBuffers',['../class_command_buffer.html#afc9dc15618fb9733b3cba8949084b024',1,'CommandBuffer']]],
-  ['buffer_9',['buffer',['../class_buffer_view.html#a5a326064e86b6a7d291e98844ac0fced',1,'BufferView::buffer()'],['../class_uniform_buffer.html#a01844c992fa9f44667507d8dd8a50969',1,'UniformBuffer::buffer()']]],
+  ['buffer_9',['buffer',['../class_buffer_view.html#a5a326064e86b6a7d291e98844ac0fced',1,'BufferView::buffer()'],['../class_uniform_buffer.html#a0f325d5e2ae5e9e64fd2c7771d2208ec',1,'UniformBuffer::buffer()']]],
   ['buffer_10',['Buffer',['../class_buffer.html',1,'']]],
   ['buffer_2ecpp_11',['buffer.cpp',['../buffer_8cpp.html',1,'']]],
   ['buffer_2eh_12',['buffer.h',['../buffer_8h.html',1,'']]],

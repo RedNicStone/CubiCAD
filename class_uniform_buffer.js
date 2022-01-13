@@ -1,15 +1,15 @@
 var class_uniform_buffer =
 [
-    [ "~UniformBuffer", "class_uniform_buffer.html#ad85f5b4ada90edccfe3c40808fc35d5a", null ],
-    [ "getBuffer", "class_uniform_buffer.html#a50a1c6de15cd58d874b3a631f5722d1f", null ],
-    [ "getDataHandle", "class_uniform_buffer.html#ac539fb53d1b43e289e63fd2d66f1279c", null ],
-    [ "getDevice", "class_uniform_buffer.html#a15472e3aa2ee7fb1b55dbf990e80ebd2", null ],
-    [ "getSize", "class_uniform_buffer.html#aaee984339675bf1bc06b9d0afc8e0c11", null ],
-    [ "getTransferQueue", "class_uniform_buffer.html#aa9d220b20367a8019fc7c42d5e88addf", null ],
-    [ "updateBufferContents", "class_uniform_buffer.html#a0dd11e486c0c77cd7183e1ea3686f2e1", null ],
-    [ "buffer", "class_uniform_buffer.html#a01844c992fa9f44667507d8dd8a50969", null ],
-    [ "data", "class_uniform_buffer.html#a474eacfab16ced33490b933d06eee982", null ],
-    [ "dataPtr", "class_uniform_buffer.html#adbe210451bf94e549ab7ea1b84bbc629", null ],
-    [ "device", "class_uniform_buffer.html#aa9a87af7bd04265056d2f5dab5fa6e1e", null ],
-    [ "transferQueue", "class_uniform_buffer.html#ad1512c672b3acd0bcd0c7ffea7092053", null ]
+    [ "~UniformBuffer", "class_uniform_buffer.html#aed1896a3bb0033107663e860713f876e", null ],
+    [ "getBuffer", "class_uniform_buffer.html#afac806a5ee4e86b6de1f369e065516e8", null ],
+    [ "getDataHandle", "class_uniform_buffer.html#a80ca2248f9a9e0b110fffb914ec102e3", null ],
+    [ "getDevice", "class_uniform_buffer.html#a1a2cafca96216a6d87e564ddece30032", null ],
+    [ "getSize", "class_uniform_buffer.html#aabcdf9967c784c9e6c90feec08946961", null ],
+    [ "getTransferQueue", "class_uniform_buffer.html#af1ff014053bed624c7ffec3819bf54d5", null ],
+    [ "buffer", "class_uniform_buffer.html#a0f325d5e2ae5e9e64fd2c7771d2208ec", null ],
+    [ "data", "class_uniform_buffer.html#a80e78684ab4989709bc18918dd4b52de", null ],
+    [ "dataPtr", "class_uniform_buffer.html#acbeb49be0b57d0b14aca6437f93401dc", null ],
+    [ "device", "class_uniform_buffer.html#a2cad39af570bab8e21fca3e0e6fd032f", null ],
+    [ "size", "class_uniform_buffer.html#acdd716d788116af119cfe8c94dfb0ac4", null ],
+    [ "transferQueue", "class_uniform_buffer.html#a2df439166764766b4197bd2177ffbbab", null ]
 ];
