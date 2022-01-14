@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"struct_stack_allocator_1_1_physical_page.html#a4d1804694c42249b7e62d061024d8490":[2,0,72,0,1],
+"struct_stack_allocator_1_1_physical_page.html#ac468ff1511abd9dfa8c6c00421ac4c60":[2,0,72,0,3],
 "struct_swap_chain_support_details.html":[2,0,74],
 "struct_swap_chain_support_details.html#a22cda9622ff2cd725ec00311e2007a7f":[2,0,74,1],
 "struct_swap_chain_support_details.html#a8918f9f5496b29a701e8d094aa455b2a":[2,0,74,0],

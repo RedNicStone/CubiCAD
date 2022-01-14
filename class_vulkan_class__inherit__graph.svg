@@ -475,34 +475,35 @@ var sectionId = 'dynsection-0';
 <g id="node3" class="node">
 <title>Node3</title>
 <g id="a_node3"><a xlink:href="class_buffer.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="0,-128.5 0,-350.5 137,-350.5 137,-128.5 0,-128.5"/>
-<text text-anchor="middle" x="68.5" y="-338.5" font-family="Helvetica,sans-Serif" font-size="10.00">Buffer</text>
-<polyline fill="none" stroke="black" points="0,-331.5 137,-331.5 "/>
-<text text-anchor="start" x="8" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; device</text>
-<text text-anchor="start" x="8" y="-308.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; allocation</text>
-<text text-anchor="start" x="8" y="-297.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; allocationInfo</text>
-<text text-anchor="start" x="8" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; deviceSize</text>
-<polyline fill="none" stroke="black" points="0,-279.5 137,-279.5 "/>
-<text text-anchor="start" x="8" y="-267.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ transferDataMapped()</text>
-<text text-anchor="start" x="8" y="-256.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ transferDataMapped()</text>
-<text text-anchor="start" x="8" y="-245.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ transferDataStaged()</text>
-<text text-anchor="start" x="8" y="-234.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getDevice()</text>
-<text text-anchor="start" x="8" y="-223.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAllocation()</text>
-<text text-anchor="start" x="8" y="-212.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getSize()</text>
-<text text-anchor="start" x="8" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ map()</text>
-<text text-anchor="start" x="8" y="-190.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ unmap()</text>
-<text text-anchor="start" x="8" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~Buffer()</text>
-<text text-anchor="start" x="8" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
-<text text-anchor="start" x="8" y="-157.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
-<text text-anchor="start" x="8" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
-<text text-anchor="start" x="8" y="-135.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ createHostStagingBuffer()</text>
+<polygon fill="none" stroke="black" points="0,-123 0,-356 137,-356 137,-123 0,-123"/>
+<text text-anchor="middle" x="68.5" y="-344" font-family="Helvetica,sans-Serif" font-size="10.00">Buffer</text>
+<polyline fill="none" stroke="black" points="0,-337 137,-337 "/>
+<text text-anchor="start" x="8" y="-325" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; device</text>
+<text text-anchor="start" x="8" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; allocation</text>
+<text text-anchor="start" x="8" y="-303" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; allocationInfo</text>
+<text text-anchor="start" x="8" y="-292" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; deviceSize</text>
+<polyline fill="none" stroke="black" points="0,-285 137,-285 "/>
+<text text-anchor="start" x="8" y="-273" font-family="Helvetica,sans-Serif" font-size="10.00">+ transferDataMapped()</text>
+<text text-anchor="start" x="8" y="-262" font-family="Helvetica,sans-Serif" font-size="10.00">+ transferDataMapped()</text>
+<text text-anchor="start" x="8" y="-251" font-family="Helvetica,sans-Serif" font-size="10.00">+ transferDataStaged()</text>
+<text text-anchor="start" x="8" y="-240" font-family="Helvetica,sans-Serif" font-size="10.00">+ transferDataStaged()</text>
+<text text-anchor="start" x="8" y="-229" font-family="Helvetica,sans-Serif" font-size="10.00">+ getDevice()</text>
+<text text-anchor="start" x="8" y="-218" font-family="Helvetica,sans-Serif" font-size="10.00">+ getAllocation()</text>
+<text text-anchor="start" x="8" y="-207" font-family="Helvetica,sans-Serif" font-size="10.00">+ getSize()</text>
+<text text-anchor="start" x="8" y="-196" font-family="Helvetica,sans-Serif" font-size="10.00">+ map()</text>
+<text text-anchor="start" x="8" y="-185" font-family="Helvetica,sans-Serif" font-size="10.00">+ unmap()</text>
+<text text-anchor="start" x="8" y="-174" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~Buffer()</text>
+<text text-anchor="start" x="8" y="-163" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
+<text text-anchor="start" x="8" y="-152" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
+<text text-anchor="start" x="8" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
+<text text-anchor="start" x="8" y="-130" font-family="Helvetica,sans-Serif" font-size="10.00">+ createHostStagingBuffer()</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M68.5,-394.8C68.5,-381.6 68.5,-366.42 68.5,-350.86"/>
+<path fill="none" stroke="midnightblue" d="M68.5,-394.73C68.5,-383.1 68.5,-369.96 68.5,-356.38"/>
 <polygon fill="none" stroke="midnightblue" points="65,-394.94 68.5,-404.94 72,-394.94 65,-394.94"/>
 </g>
 <!-- Node5 -->
@@ -561,24 +562,25 @@ var sectionId = 'dynsection-0';
 <g id="node9" class="node">
 <title>Node9</title>
 <g id="a_node9"><a xlink:href="class_command_pool.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="534,-183.5 534,-295.5 635,-295.5 635,-183.5 534,-183.5"/>
-<text text-anchor="middle" x="584.5" y="-283.5" font-family="Helvetica,sans-Serif" font-size="10.00">CommandPool</text>
-<polyline fill="none" stroke="black" points="534,-276.5 635,-276.5 "/>
-<text text-anchor="start" x="542" y="-264.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; device</text>
-<text text-anchor="start" x="542" y="-253.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; queue</text>
-<polyline fill="none" stroke="black" points="534,-246.5 635,-246.5 "/>
-<text text-anchor="start" x="542" y="-234.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getQueue()</text>
-<text text-anchor="start" x="542" y="-223.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getDevice()</text>
-<text text-anchor="start" x="542" y="-212.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getQueueFamily()</text>
-<text text-anchor="start" x="542" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~CommandPool()</text>
-<text text-anchor="start" x="542" y="-190.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
+<polygon fill="none" stroke="black" points="534,-178 534,-301 635,-301 635,-178 534,-178"/>
+<text text-anchor="middle" x="584.5" y="-289" font-family="Helvetica,sans-Serif" font-size="10.00">CommandPool</text>
+<polyline fill="none" stroke="black" points="534,-282 635,-282 "/>
+<text text-anchor="start" x="542" y="-270" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; device</text>
+<text text-anchor="start" x="542" y="-259" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; queue</text>
+<polyline fill="none" stroke="black" points="534,-252 635,-252 "/>
+<text text-anchor="start" x="542" y="-240" font-family="Helvetica,sans-Serif" font-size="10.00">+ reset()</text>
+<text text-anchor="start" x="542" y="-229" font-family="Helvetica,sans-Serif" font-size="10.00">+ getQueue()</text>
+<text text-anchor="start" x="542" y="-218" font-family="Helvetica,sans-Serif" font-size="10.00">+ getDevice()</text>
+<text text-anchor="start" x="542" y="-207" font-family="Helvetica,sans-Serif" font-size="10.00">+ getQueueFamily()</text>
+<text text-anchor="start" x="542" y="-196" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~CommandPool()</text>
+<text text-anchor="start" x="542" y="-185" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
 </a>
 </g>
 </g>
 <!-- Node8&#45;&gt;Node9 -->
 <g id="edge8" class="edge">
 <title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M584.5,-394.69C584.5,-365.6 584.5,-327.02 584.5,-295.72"/>
+<path fill="none" stroke="midnightblue" d="M584.5,-394.88C584.5,-367.45 584.5,-331.53 584.5,-301.24"/>
 <polygon fill="none" stroke="midnightblue" points="581,-394.94 584.5,-404.94 588,-394.94 581,-394.94"/>
 </g>
 <!-- Node11 -->

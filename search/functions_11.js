@@ -12,7 +12,7 @@ var searchData=
   ['registershader_9',['registerShader',['../class_material_library.html#a58e1655e5a9b5013f5519bf307d06215',1,'MaterialLibrary']]],
   ['remove_10',['remove',['../class_mandelbrot_app.html#a69b06411ed6947c7c03adc0245e698d5',1,'MandelbrotApp::remove(std::vector&lt; type &gt; &amp;v)'],['../class_mandelbrot_app.html#a69b06411ed6947c7c03adc0245e698d5',1,'MandelbrotApp::remove(std::vector&lt; type &gt; &amp;v)']]],
   ['renderbus_11',['RenderBus',['../class_render_bus.html#a850a5814fa5e24bdf5264afe8468dd08',1,'RenderBus']]],
-  ['reset_12',['reset',['../class_descriptor_pool.html#a4de3e4b794ee5e62f8fda5370c85de31',1,'DescriptorPool']]],
+  ['reset_12',['reset',['../class_command_pool.html#ae4ec3ceb91b21667b90134f2a2d09e51',1,'CommandPool::reset()'],['../class_descriptor_pool.html#a4de3e4b794ee5e62f8fda5370c85de31',1,'DescriptorPool::reset()']]],
   ['resetcommandbuffer_13',['resetCommandBuffer',['../class_command_buffer.html#aa61e6369e7765f11e355c16e749dece5',1,'CommandBuffer']]],
   ['resetpools_14',['resetPools',['../class_descriptor_pool_manager.html#a431fea02150aa7225867fcb7fe3d2643',1,'DescriptorPoolManager']]],
   ['resetresizefence_15',['resetResizeFence',['../class_window.html#ac36ac45a01901c2118e1efcdf9c1cc69',1,'Window']]],
