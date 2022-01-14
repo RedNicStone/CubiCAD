@@ -7,7 +7,7 @@
 #include <utility>
 
 
-std::shared_ptr<DynamicBuffer> DynamicBuffer::create(std::shared_ptr<Device> pDevice,
+std::shared_ptr<DynamicBuffer> DynamicBuffer::create(const std::shared_ptr<Device>& pDevice,
                                               const std::vector<uint32_t>& vAccessingQueues,
                                               VmaMemoryUsage vMemoryUsage,
                                               VkBufferUsageFlags vBufferUsage,
@@ -15,7 +15,7 @@ std::shared_ptr<DynamicBuffer> DynamicBuffer::create(std::shared_ptr<Device> pDe
                                               VkMemoryPropertyFlags vRequiredFlags) {
     auto buffer = std::make_shared<DynamicBuffer>();
 
-    buffer->device = std::move(pDevice);
+    buffer->device = pDevice;
     buffer->accessingQueues = vAccessingQueues;
     buffer->memoryUsage = vMemoryUsage;
     buffer->bufferUsage = vBufferUsage;

@@ -13,8 +13,8 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     auto scene = std::make_shared<Scene>();
     scene->device = pDevice;
 
-    scene->transferCommandPool = CommandPool::create(pDevice, pTransferQueue, 0);
-    scene->graphicsCommandPool = CommandPool::create(pDevice, pGraphicsQueue, 0);
+    scene->transferCommandPool = CommandPool::create(pDevice, pTransferQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
+    scene->graphicsCommandPool = CommandPool::create(pDevice, pGraphicsQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
 
     std::vector<uint32_t> accessingQueues{ pTransferQueue->getQueueFamilyIndex(),
                                            pGraphicsQueue->getQueueFamilyIndex() };
@@ -73,6 +73,8 @@ void Scene::transferRenderData() {
     data->frameTime = static_cast<glm::uint32>(
         std::chrono::duration_cast<std::chrono::nanoseconds>(lastFrameTime - currentTime).count());
     data->nFrame++;
+    data->proj = glm::mat4(1.0);
+    data->view = glm::mat4(1.0);
 
     lastFrameTime = currentTime;
 
@@ -127,8 +129,8 @@ void Scene::transferRenderData() {
     indirectCommandBuffer->getBuffer(indirectDrawData.size() * sizeof
         (VkDrawIndexedIndirectCommand));
 
-    memcpy(instanceBufferData, instanceData.data(), instanceData.size() * sizeof(InstanceData));
-    memcpy(indirectCommandBufferData, indirectDrawData.data(), indirectDrawData.size() * sizeof
+    memcpy(*instanceBufferData, instanceData.data(), instanceData.size() * sizeof(InstanceData));
+    memcpy(*indirectCommandBufferData, indirectDrawData.data(), indirectDrawData.size() * sizeof
     (VkDrawIndexedIndirectCommand));
 }
 
@@ -154,9 +156,9 @@ void Scene::collectRenderBuffers() {
     }
 
     vertexBuffer->getBuffer(sizeof(Vertex) * vertexData.size())->transferDataStaged(vertexData.data(),
-                                                                                 transferCommandPool);
+                                                                                 transferCommandPool, sizeof(Vertex) * vertexData.size());
     indexBuffer->getBuffer(sizeof(uint32_t) * indexData.size())->transferDataStaged(indexData.data(),
-                                                                                  transferCommandPool);
+                                                                                  transferCommandPool, sizeof(uint32_t) * indexData.size());
 }
 
 void Scene::bakeMaterials() {
@@ -217,8 +219,9 @@ std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer(const std::shared_ptr<F
     }
 
     graphicsCommandBuffer->endRenderPass();
-
     graphicsCommandBuffer->endCommandBuffer();
+
+    return graphicsCommandBuffer;
 }
 
 Scene::~Scene() {

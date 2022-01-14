@@ -11,5 +11,10 @@ std::shared_ptr<MeshInstance> MeshInstance::create(std::shared_ptr<Mesh> masterM
     auto meshInstance = std::make_shared<MeshInstance>();
     meshInstance->mesh = std::move(masterMesh);
 
+    InstanceData data{};
+    data.objectID = 5;
+    data.model = glm::mat4(1.0);
+    meshInstance->instanceData = data;
+
     return meshInstance;
 }

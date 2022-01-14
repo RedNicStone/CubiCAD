@@ -26,7 +26,7 @@ class DynamicBuffer {
     void* data;
 
   public:
-    static std::shared_ptr<DynamicBuffer> create(std::shared_ptr<Device> pDevice,
+    static std::shared_ptr<DynamicBuffer> create(const std::shared_ptr<Device>& pDevice,
                                                  const std::vector<uint32_t>& vAccessingQueues,
                                                  VmaMemoryUsage vMemoryUsage,
                                                  VkBufferUsageFlags vBufferUsage,

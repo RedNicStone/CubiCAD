@@ -9,24 +9,24 @@
 #include "buffer.h"
 
 
-std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
+std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
                                        VkDeviceSize size,
                                        VmaMemoryUsage memoryUsage,
                                        VkBufferUsageFlags bufferUsage,
                                        std::vector<uint32_t> accessingQueues) {
-    return Buffer::create(std::move(pDevice), size, memoryUsage, 0, 0, bufferUsage, std::move(accessingQueues));
+    return Buffer::create(pDevice, size, memoryUsage, 0, 0, bufferUsage, std::move(accessingQueues));
 }
 
-std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
+std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
                                        VkDeviceSize size,
                                        VmaMemoryUsage memoryUsage,
                                        VkMemoryPropertyFlags preferredFlags,
                                        VkBufferUsageFlags bufferUsage,
                                        std::vector<uint32_t> accessingQueues) {
-    return Buffer::create(std::move(pDevice), size, memoryUsage, preferredFlags, 0, bufferUsage, std::move(accessingQueues));
+    return Buffer::create(pDevice, size, memoryUsage, preferredFlags, 0, bufferUsage, std::move(accessingQueues));
 }
 
-std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
+std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
                                        VkDeviceSize size,
                                        VmaMemoryUsage memoryUsage,
                                        VkMemoryPropertyFlags preferredFlags,
@@ -34,7 +34,7 @@ std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
                                        VkBufferUsageFlags bufferUsage,
                                        std::vector<uint32_t> accessingQueues) {
     auto buffer = std::make_shared<Buffer>();
-    buffer->device = std::move(pDevice);
+    buffer->device = pDevice;
     buffer->deviceSize = size;
 
     VkBufferCreateInfo createInfo{};
@@ -67,10 +67,10 @@ std::shared_ptr<Buffer> Buffer::create(std::shared_ptr<Device> pDevice,
     return buffer;
 }
 
-std::shared_ptr<Buffer> Buffer::createHostStagingBuffer(std::shared_ptr<Device> pDevice,
+std::shared_ptr<Buffer> Buffer::createHostStagingBuffer(const std::shared_ptr<Device>& pDevice,
                                                         VkDeviceSize size,
                                                         std::vector<uint32_t> &accessingQueues) {
-    return Buffer::create(std::move(pDevice),
+    return Buffer::create(pDevice,
                           size,
                           VMA_MEMORY_USAGE_CPU_ONLY,
                           0,
@@ -111,13 +111,17 @@ void Buffer::transferDataMapped(void *src, size_t size) {
 }
 
 void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool) {
+    transferDataStaged(src, commandPool, allocationInfo.size);
+}
+
+void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool, VkDeviceSize size) {
     std::vector<uint32_t> accessingQueues = { commandPool->getQueueFamily()->getQueueFamilyIndex() };
-    auto stagingBuffer = Buffer::createHostStagingBuffer(device, allocationInfo.size, accessingQueues);
+    auto stagingBuffer = Buffer::createHostStagingBuffer(device, size, accessingQueues);
     stagingBuffer->transferDataMapped(src);
 
     auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
     commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
-    commandBuffer->copyBuffer(stagingBuffer, shared_from_this(), { { 0, 0, allocationInfo.size } });
+    commandBuffer->copyBuffer(stagingBuffer, shared_from_this(), { { 0, 0, size } });
     commandBuffer->endCommandBuffer();
 
     VkSubmitInfo submitInfo{};
@@ -126,4 +130,5 @@ void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& c
     submitInfo.pCommandBuffers = commandBuffer->getHandlePtr();
 
     commandPool->getQueue()->submitCommandBuffer({ submitInfo });
+    commandPool->getQueue()->waitForIdle();
 }

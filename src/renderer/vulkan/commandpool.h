@@ -23,10 +23,10 @@ class CommandPool : public VulkanClass<VkCommandPool> {
                                                const std::shared_ptr<Queue> &pQueue,
                                                VkCommandPoolCreateFlags flags);
 
+    void reset();
+
     std::shared_ptr<Queue> getQueue() { return queue; }
-
     std::shared_ptr<Device> getDevice() { return device; }
-
     std::shared_ptr<QueueFamily> getQueueFamily() { return queue->getQueueFamily(); }
 
     ~CommandPool();

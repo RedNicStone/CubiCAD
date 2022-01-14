@@ -406,7 +406,7 @@ class MandelbrotApp {
     }
 
     void createCommandPool() {
-        commandPool = CommandPool::create(device, graphicsQueue, 0);
+        commandPool = CommandPool::create(device, graphicsQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
     }
 
     void createGraphicsDescriptorPools() {
@@ -498,7 +498,7 @@ class MandelbrotApp {
         std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
         std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
 
-        auto commandBuffer = scene->bakeGraphicsBuffer(frameBuffer, static_cast<uint32_t>(currentFrameIndex));
+        auto commandBuffer = scene->bakeGraphicsBuffer(frameBuffer, static_cast<uint32_t>(swapChain->getCurrentImageIndex()));
         commandBuffer->submitToQueue(signalSemaphores, { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
                                                                                  waitSemaphores,
                                                                                  graphicsQueue,

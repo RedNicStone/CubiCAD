@@ -24,6 +24,10 @@ std::shared_ptr<CommandPool> CommandPool::create(const std::shared_ptr<Device> &
     return commandPool;
 }
 
+void CommandPool::reset() {
+    vkResetCommandPool(device->getHandle(), handle, 0);
+}
+
 CommandPool::~CommandPool() {
     vkDestroyCommandPool(device->getHandle(), handle, nullptr);
 }
