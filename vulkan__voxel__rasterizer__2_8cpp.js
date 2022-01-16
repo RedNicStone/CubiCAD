@@ -3,6 +3,7 @@ var vulkan__voxel__rasterizer__2_8cpp =
     [ "MandelbrotUBO", "struct_mandelbrot_u_b_o.html", "struct_mandelbrot_u_b_o" ],
     [ "MandelbrotApp", "class_mandelbrot_app.html", "class_mandelbrot_app" ],
     [ "GLFW_INCLUDE_VULKAN", "vulkan__voxel__rasterizer__2_8cpp.html#ab91f325a54d3e35fe831a86d6382c2a9", null ],
+    [ "GLM_FORCE_DEFAULT_ALIGNED_GENTYPES", "vulkan__voxel__rasterizer__2_8cpp.html#a53aeecf6b7ba36273b6998fbd206ca7d", null ],
     [ "GLM_FORCE_DEPTH_ZERO_TO_ONE", "vulkan__voxel__rasterizer__2_8cpp.html#aa53e0967978ad7a8792f6961156ec968", null ],
     [ "GLM_FORCE_RADIANS", "vulkan__voxel__rasterizer__2_8cpp.html#a816ab7d5c2ce1f0a01216042837beb93", null ],
     [ "ComplexNum", "vulkan__voxel__rasterizer__2_8cpp.html#a148524a91f02c13ea45df29fc6b6d4d8", null ],

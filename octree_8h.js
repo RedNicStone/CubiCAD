@@ -15,6 +15,9 @@ var octree_8h =
     [ "CCAD_OT::OtNodeLeaf", "struct_c_c_a_d___o_t_1_1_ot_node_leaf.html", "struct_c_c_a_d___o_t_1_1_ot_node_leaf" ],
     [ "CCAD_OT::OtConstructOctreeInfo", "struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html", "struct_c_c_a_d___o_t_1_1_ot_construct_octree_info" ],
     [ "CCAD_OT::OtOctree", "class_c_c_a_d___o_t_1_1_ot_octree.html", "class_c_c_a_d___o_t_1_1_ot_octree" ],
+    [ "GLM_FORCE_DEFAULT_ALIGNED_GENTYPES", "octree_8h.html#a53aeecf6b7ba36273b6998fbd206ca7d", null ],
+    [ "GLM_FORCE_DEPTH_ZERO_TO_ONE", "octree_8h.html#aa53e0967978ad7a8792f6961156ec968", null ],
+    [ "GLM_FORCE_RADIANS", "octree_8h.html#a816ab7d5c2ce1f0a01216042837beb93", null ],
     [ "OtDrawMode", "octree_8h.html#a71c4bd0f4fd139ddb816c6b926a57de4", [
       [ "OT_DRAW_MODE_NO_DRAW", "octree_8h.html#a71c4bd0f4fd139ddb816c6b926a57de4a8193fba40f03fae3d02aaf56e4df1e17", null ],
       [ "OT_DRAW_MODE_DOT", "octree_8h.html#a71c4bd0f4fd139ddb816c6b926a57de4a82482ccabb9370612e814dfe20944842", null ],

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['lastframedeltas_0',['lastFrameDeltas',['../class_mandelbrot_app.html#acbc3533c71495fe1c5c38322f206c008',1,'MandelbrotApp']]],
+  ['lastframedeltas_0',['lastFrameDeltas',['../class_mandelbrot_app.html#a7c6b710886fe6a3c87fde1aca0e3b210',1,'MandelbrotApp']]],
   ['lastframetime_1',['lastFrameTime',['../class_scene.html#a56a5dda71789b1364cf68677e1aa00fa',1,'Scene']]],
   ['lastfreepage_2',['lastFreePage',['../class_stack_allocator.html#acc4f10272061c0048822e27d0ce4fdac',1,'StackAllocator']]],
-  ['lasttimedelta_3',['lastTimeDelta',['../class_mandelbrot_app.html#a301728fde59ff0b7b2d2fd7762ca9c57',1,'MandelbrotApp']]],
+  ['lasttimedelta_3',['lastTimeDelta',['../class_mandelbrot_app.html#ae3107eca2110e913106d3f523e0d252a',1,'MandelbrotApp']]],
   ['layout_4',['layout',['../class_pipeline_base.html#adf0825bbfca48cb3d6c738c2ab209a3c',1,'PipelineBase']]],
   ['leaf_5',['leaf',['../class_voxel_codec_sparse_octree.html#af7196c899a1bf2c265c5cda9360fce76',1,'VoxelCodecSparseOctree']]],
   ['leafmask_6',['leafMask',['../struct_voxel_codec_sparse_octree_1_1_node.html#ab1403afc5a855f8baa767df340b54856',1,'VoxelCodecSparseOctree::Node']]],

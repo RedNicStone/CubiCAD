@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('class_scene.html',''); initResizable()
 <div class="dynheader">
 Collaboration diagram for Scene:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene__coll__graph.svg" width="202" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene__coll__graph.svg" width="175" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -116,14 +116,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ab79fdea4f3e255d8aaeb32bf21d5a784"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ab79fdea4f3e255d8aaeb32bf21d5a784">updateUBO</a> (VkExtent2D windowExtend, glm::vec2 mouseDelta)</td></tr>
+<tr class="separator:ab79fdea4f3e255d8aaeb32bf21d5a784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8db8781fbcfb7bced9f62312af94bd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_scene_data.html">SceneData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ac8db8781fbcfb7bced9f62312af94bd9">getUBO</a> ()</td></tr>
+<tr class="separator:ac8db8781fbcfb7bced9f62312af94bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb83e5cf158a38e7db0d42f4127676b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abb83e5cf158a38e7db0d42f4127676b7">submitInstance</a> (const std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &amp;meshInstance)</td></tr>
 <tr class="separator:abb83e5cf158a38e7db0d42f4127676b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad95b93a5f79949bb04f75133f8b476a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ad95b93a5f79949bb04f75133f8b476a4">collectRenderBuffers</a> ()</td></tr>
 <tr class="separator:ad95b93a5f79949bb04f75133f8b476a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb1796a968395d0d7a1de747bb957d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afb1796a968395d0d7a1de747bb957d05">bakeMaterials</a> ()</td></tr>
 <tr class="separator:afb1796a968395d0d7a1de747bb957d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a474c2986577106f35c407aa757edd530"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a474c2986577106f35c407aa757edd530">bakeGraphicsBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt; &amp;frameBuffer, uint32_t frameID)</td></tr>
-<tr class="separator:a474c2986577106f35c407aa757edd530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d9b02ed3e1d23471ddfb3c62b759b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a18d9b02ed3e1d23471ddfb3c62b759b2">bakeGraphicsBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;graphicsCommandBuffer)</td></tr>
+<tr class="separator:a18d9b02ed3e1d23471ddfb3c62b759b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b8cec2e32546713915f8c6303c951f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3b8cec2e32546713915f8c6303c951f1">~Scene</a> ()</td></tr>
 <tr class="separator:a3b8cec2e32546713915f8c6303c951f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -139,14 +143,16 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:aa6e44df581b31413b127d8355f483155"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aa6e44df581b31413b127d8355f483155">pos</a> = {0, 1, 0}</td></tr>
+<tr class="separator:aa6e44df581b31413b127d8355f483155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7d8a68bb1853f2b02c084c806ef8d91"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ac7d8a68bb1853f2b02c084c806ef8d91">target</a> = {0, 0, 0}</td></tr>
+<tr class="separator:ac7d8a68bb1853f2b02c084c806ef8d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ef7ff04c6382b8f9208dd805e33c4ec"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a8ef7ff04c6382b8f9208dd805e33c4ec">up</a> = {0, 0, 1}</td></tr>
+<tr class="separator:a8ef7ff04c6382b8f9208dd805e33c4ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b0b3a618374ae3fb39bee81911e2d5b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a1b0b3a618374ae3fb39bee81911e2d5b">device</a></td></tr>
 <tr class="separator:a1b0b3a618374ae3fb39bee81911e2d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3970951ef9b670604f78ce3a495e7077"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3970951ef9b670604f78ce3a495e7077">transferCommandPool</a></td></tr>
 <tr class="separator:a3970951ef9b670604f78ce3a495e7077"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3224aade7f78642870d9656db375cbf8"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3224aade7f78642870d9656db375cbf8">graphicsCommandPool</a></td></tr>
-<tr class="separator:a3224aade7f78642870d9656db375cbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abce82c91f8e4e514c925d9a0d067cdc3"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abce82c91f8e4e514c925d9a0d067cdc3">graphicsCommandBuffer</a></td></tr>
-<tr class="separator:abce82c91f8e4e514c925d9a0d067cdc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25dfe61208f84baef0549c9986cc7bc4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a25dfe61208f84baef0549c9986cc7bc4">instances</a></td></tr>
 <tr class="separator:a25dfe61208f84baef0549c9986cc7bc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23d826cabef0fde333a57e6f27148133"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_scene_1_1_indirect_draw_call.html">IndirectDrawCall</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a23d826cabef0fde333a57e6f27148133">indirectDrawCalls</a></td></tr>
@@ -195,35 +201,25 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a474c2986577106f35c407aa757edd530" name="a474c2986577106f35c407aa757edd530"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a474c2986577106f35c407aa757edd530">&#9670;&nbsp;</a></span>bakeGraphicsBuffer()</h2>
+<a id="a18d9b02ed3e1d23471ddfb3c62b759b2" name="a18d9b02ed3e1d23471ddfb3c62b759b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18d9b02ed3e1d23471ddfb3c62b759b2">&#9670;&nbsp;</a></span>bakeGraphicsBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; Scene::bakeGraphicsBuffer </td>
+          <td class="memname">void Scene::bakeGraphicsBuffer </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>frameBuffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>graphicsCommandBuffer</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>frameID</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_a474c2986577106f35c407aa757edd530_cgraph.svg" width="519" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_a18d9b02ed3e1d23471ddfb3c62b759b2_cgraph.svg" width="519" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -317,7 +313,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_aa0a677239f29daa0650fe4e399a30734_cgraph.svg" width="464" height="322"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_aa0a677239f29daa0650fe4e399a30734_cgraph.svg" width="464" height="271"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -326,6 +322,23 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_aa0a677239f29daa0650fe4e399a30734_icgraph.svg" width="568" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<a id="ac8db8781fbcfb7bced9f62312af94bd9" name="ac8db8781fbcfb7bced9f62312af94bd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8db8781fbcfb7bced9f62312af94bd9">&#9670;&nbsp;</a></span>getUBO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_scene_data.html">SceneData</a> Scene::getUBO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -384,6 +397,34 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ab79fdea4f3e255d8aaeb32bf21d5a784" name="ab79fdea4f3e255d8aaeb32bf21d5a784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab79fdea4f3e255d8aaeb32bf21d5a784">&#9670;&nbsp;</a></span>updateUBO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::updateUBO </td>
+          <td>(</td>
+          <td class="paramtype">VkExtent2D&#160;</td>
+          <td class="paramname"><em>windowExtend</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>mouseDelta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aed8cd16173f9f026396a13b5e0cac828" name="aed8cd16173f9f026396a13b5e0cac828"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed8cd16173f9f026396a13b5e0cac828">&#9670;&nbsp;</a></span>descriptorPool</h2>
@@ -418,50 +459,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_device.html">Device</a>&gt; Scene::device</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abce82c91f8e4e514c925d9a0d067cdc3" name="abce82c91f8e4e514c925d9a0d067cdc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abce82c91f8e4e514c925d9a0d067cdc3">&#9670;&nbsp;</a></span>graphicsCommandBuffer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_command_buffer.html">CommandBuffer</a>&gt; Scene::graphicsCommandBuffer</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3224aade7f78642870d9656db375cbf8" name="a3224aade7f78642870d9656db375cbf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3224aade7f78642870d9656db375cbf8">&#9670;&nbsp;</a></span>graphicsCommandPool</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_command_pool.html">CommandPool</a>&gt; Scene::graphicsCommandPool</td>
         </tr>
       </table>
   </td>
@@ -649,6 +646,28 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aa6e44df581b31413b127d8355f483155" name="aa6e44df581b31413b127d8355f483155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6e44df581b31413b127d8355f483155">&#9670;&nbsp;</a></span>pos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Scene::pos = {0, 1, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a44a115503c209391850adb60390b7341" name="a44a115503c209391850adb60390b7341"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44a115503c209391850adb60390b7341">&#9670;&nbsp;</a></span>sceneBindings</h2>
 
@@ -737,6 +756,28 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ac7d8a68bb1853f2b02c084c806ef8d91" name="ac7d8a68bb1853f2b02c084c806ef8d91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7d8a68bb1853f2b02c084c806ef8d91">&#9670;&nbsp;</a></span>target</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Scene::target = {0, 0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3970951ef9b670604f78ce3a495e7077" name="a3970951ef9b670604f78ce3a495e7077"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3970951ef9b670604f78ce3a495e7077">&#9670;&nbsp;</a></span>transferCommandPool</h2>
 
@@ -748,6 +789,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_command_pool.html">CommandPool</a>&gt; Scene::transferCommandPool</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ef7ff04c6382b8f9208dd805e33c4ec" name="a8ef7ff04c6382b8f9208dd805e33c4ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ef7ff04c6382b8f9208dd805e33c4ec">&#9670;&nbsp;</a></span>up</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Scene::up = {0, 0, 1}</td>
         </tr>
       </table>
   </td>

@@ -1,6 +1,6 @@
 var class_dynamic_buffer =
 [
-    [ "getBuffer", "class_dynamic_buffer.html#adc458c65b034f43f27c925bef0de4292", null ],
+    [ "getBuffer", "class_dynamic_buffer.html#a89a831a4a8ccc4f565614c72cfd98fec", null ],
     [ "getBufferPreserveContents", "class_dynamic_buffer.html#ad12ff4367acfe377f988606a1588f363", null ],
     [ "map", "class_dynamic_buffer.html#ab21b00292d7f53b2626de714141f8b3e", null ],
     [ "unmap", "class_dynamic_buffer.html#ab8d3ee7193752312deddf498f96c11ff", null ],
