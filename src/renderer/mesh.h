@@ -7,6 +7,10 @@
 #ifndef CUBICAD_MESH_H
 #define CUBICAD_MESH_H
 
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
+
 #include <memory>
 #include <glm/glm.hpp>
 #include <vector>
@@ -25,7 +29,7 @@ struct Vertex {
 };
 
 struct Meshlet {
-    std::vector<int> indexData;
+    std::vector<uint32_t> indexData;
     std::vector<Vertex> vertexData;
     std::shared_ptr<Material> material;
 };

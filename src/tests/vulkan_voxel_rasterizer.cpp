@@ -2,6 +2,9 @@
 // Created by nic on 14/03/2021.
 //
 
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
 
 #include <vector>
 #include <glm/glm.hpp>

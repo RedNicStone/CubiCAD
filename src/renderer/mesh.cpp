@@ -22,6 +22,8 @@ VkDrawIndexedIndirectCommand Mesh::getDrawCommand() const {
     command.indexCount = indexCount;
     command.firstIndex = firstIndex;
     command.vertexOffset = static_cast<int32_t>(firstVertex);
+
+    return command;
 }
 
 void Mesh::setOffsets(uint32_t vFirstIndex, uint32_t vFirstVertex) {

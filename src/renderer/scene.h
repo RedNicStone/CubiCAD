@@ -7,7 +7,12 @@
 #ifndef CUBICAD_SCENE_H
 #define CUBICAD_SCENE_H
 
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
+
 #include <unordered_set>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "objectinstance.h"
 #include "descriptorpoolmanager.h"
@@ -15,11 +20,11 @@
 
 
 struct SceneData {
-    alignas(64) glm::mat4 view;  // view matrix
-    alignas(64) glm::mat4 proj;  // projection matrix
+    glm::mat4 view;  // view matrix
+    glm::mat4 proj;  // projection matrix
 
-    alignas(4)  glm::uint nFrame;  // frame ID
-    alignas(4)  glm::uint frameTime;  // frame time in ns
+    glm::uint nFrame;  // frame ID
+    glm::uint frameTime;  // frame time in ns
 };
 
 class Scene {
@@ -31,11 +36,13 @@ class Scene {
     };
 
   private:
+    glm::vec3 pos = {0, 1, 0};
+    glm::vec3 target = {0, 0, 0};
+    glm::vec3 up = {0, 0, 1};
+
     std::shared_ptr<Device> device;
 
     std::shared_ptr<CommandPool> transferCommandPool;
-    std::shared_ptr<CommandPool> graphicsCommandPool;
-    std::shared_ptr<CommandBuffer> graphicsCommandBuffer;
 
     std::vector<std::shared_ptr<MeshInstance>> instances;
 
@@ -65,12 +72,15 @@ class Scene {
                                   size_t reservedInstances = 65536,
                                   size_t reservedIndirectCommands = 256);
 
+    void updateUBO(VkExtent2D windowExtend, glm::vec2 mouseDelta);
+    SceneData getUBO();
+
     void submitInstance(const std::shared_ptr<MeshInstance>& meshInstance);
 
     void collectRenderBuffers();
     void bakeMaterials();
 
-    std::shared_ptr<CommandBuffer> bakeGraphicsBuffer(const std::shared_ptr<FrameBuffer>& frameBuffer, uint32_t frameID);
+    void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 
     ~Scene();
 };

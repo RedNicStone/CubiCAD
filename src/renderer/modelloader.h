@@ -21,7 +21,7 @@ class ModelLoader {
   public:
     static std::shared_ptr<ModelLoader> create();
 
-    std::vector<std::shared_ptr<Mesh>> import(const std::string& filename, std::shared_ptr<Material>
+    std::vector<std::shared_ptr<Mesh>> import(const std::string& filename, const std::shared_ptr<Material>&
     material);
 };
 

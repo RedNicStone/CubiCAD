@@ -21,7 +21,7 @@ std::shared_ptr<ModelLoader> ModelLoader::create() {
     return modelLoader;
 }
 
-std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename, std::shared_ptr<Material>
+std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename, const std::shared_ptr<Material>&
     material) {
     if(!reader.ParseFromFile(filename, config)) {
         if (!reader.Error().empty()) {
@@ -54,14 +54,13 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
         // Loop over faces(polygon)
         for (size_t f = 0; f < shape.mesh.num_face_vertices.size(); f++) {
             int materialID = shape.mesh.material_ids[f];
+            if (meshlets[materialID] == nullptr) {
+                meshlets[materialID] = std::make_shared<Meshlet>();
+            }
 
             // Loop over vertices in the face.
             for (size_t v = 0; v < 3; v++) {
                 tinyobj::index_t idx = shape.mesh.indices[f * 3 + v];
-                if (meshlets[materialID] == nullptr) {
-                    meshlets[materialID] = std::make_shared<Meshlet>();
-                }
-                meshlets[materialID]->indexData.push_back(idx.vertex_index);
 
                 Vertex vertex{};
                 vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + 3*size_t(idx.vertex_index));
@@ -70,6 +69,9 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
                                   glm::floatBitsToUint(attrib.texcoords[2*size_t(idx.texcoord_index)+1]) };
                 }
                 meshlets[materialID]->vertexData.push_back(vertex);
+
+                meshlets[materialID]->indexData.push_back(static_cast<uint32_t>(meshlets[materialID]->indexData.size
+                ()));
             }
         }
 

@@ -33,7 +33,7 @@ class DynamicBuffer {
                                                  VkMemoryPropertyFlags vPreferredFlags = 0,
                                                  VkMemoryPropertyFlags vRequiredFlags = 0);
 
-    std::shared_ptr<Buffer> getBuffer(VkDeviceSize size = 65536);
+    std::shared_ptr<Buffer> getBuffer(VkDeviceSize size = 0);
     std::shared_ptr<Buffer> getBufferPreserveContents(VkDeviceSize size, const std::shared_ptr<CommandPool>&
         commandPool);
 

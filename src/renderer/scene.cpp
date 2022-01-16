@@ -14,7 +14,6 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     scene->device = pDevice;
 
     scene->transferCommandPool = CommandPool::create(pDevice, pTransferQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
-    scene->graphicsCommandPool = CommandPool::create(pDevice, pGraphicsQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
 
     std::vector<uint32_t> accessingQueues{ pTransferQueue->getQueueFamilyIndex(),
                                            pGraphicsQueue->getQueueFamilyIndex() };
@@ -61,9 +60,47 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     scene->instanceBufferData = scene->instanceBuffer->map();
     scene->indirectCommandBufferData = scene->indirectCommandBuffer->map();
 
-    scene->graphicsCommandBuffer = CommandBuffer::create(scene->graphicsCommandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
+    auto* data = static_cast<SceneData *>(scene->sceneInfoBuffer->getDataHandle());
+    data->view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
     return scene;
+}
+
+void Scene::updateUBO(VkExtent2D windowExtend, glm::vec2 mouseDelta) {
+    auto* data = static_cast<SceneData *>(sceneInfoBuffer->getDataHandle());
+    const glm::vec4 eye = {0, 0, 0, 1};
+
+    glm::vec4 position = {pos, 1};
+    glm::vec4 pivot = {pos, 1};
+
+    float deltaAngleX = (360 / (float) windowExtend.width); // a movement from left to right = 2*PI = 360 deg
+    float deltaAngleY = (180 / (float) windowExtend.height);  // a movement from top to bottom = PI = 180 deg
+    float xAngle = mouseDelta.x * deltaAngleX;
+    float yAngle = mouseDelta.y * deltaAngleY;
+
+    std::cout << "Angle :" << xAngle << ", " << yAngle << std::endl;
+
+    pos = glm::vec3(
+        glm::rotate(glm::mat4(1.0),
+                    xAngle,
+                    glm::vec3(glm::transpose(data->view)[0])
+        ) * glm::vec4((pos - target), 1)) + target;
+
+    auto n =  pos;
+    std::cout << "Pos :" << n.x << ", " << n.y << ", " << n.z << std::endl;
+
+    pos = glm::vec3(
+        glm::rotate(glm::mat4(1.0),
+                    yAngle,
+                    up
+        ) * glm::vec4((pos - target), 1)) + target;
+
+    data->view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
+    data->proj = glm::perspective(glm::radians(45.0f), (float) windowExtend.width / (float) windowExtend.height, 0.1f, 10.0f);
+}
+
+SceneData Scene::getUBO() {
+    return *static_cast<SceneData*>(sceneInfoBuffer->getDataHandle());
 }
 
 void Scene::transferRenderData() {
@@ -73,8 +110,6 @@ void Scene::transferRenderData() {
     data->frameTime = static_cast<glm::uint32>(
         std::chrono::duration_cast<std::chrono::nanoseconds>(lastFrameTime - currentTime).count());
     data->nFrame++;
-    data->proj = glm::mat4(1.0);
-    data->view = glm::mat4(1.0);
 
     lastFrameTime = currentTime;
 
@@ -106,7 +141,7 @@ void Scene::transferRenderData() {
         for (const auto& materialCall : drawCall.second) {
             IndirectDrawCall indirectDrawCall{};
             indirectDrawCall.material = materialCall.first;
-            indirectDrawCall.drawCallOffset = static_cast<uint32_t>(indirectDrawCalls.size());
+            indirectDrawCall.drawCallOffset = static_cast<uint32_t>(indirectDrawData.size());
 
             for (const auto& meshletCall : materialCall.second) {
                 for (const auto& instanceCall : meshletCall.second) {
@@ -119,7 +154,7 @@ void Scene::transferRenderData() {
                 indirectDrawData.push_back(drawCommand);
             }
 
-            indirectDrawCall.drawCallLength = static_cast<uint32_t>(indirectDrawCalls.size())
+            indirectDrawCall.drawCallLength = static_cast<uint32_t>(indirectDrawData.size())
                 - indirectDrawCall.drawCallOffset;
             indirectDrawCalls.push_back(indirectDrawCall);
         }
@@ -174,10 +209,8 @@ void Scene::bakeMaterials() {
     }
 }
 
-std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer(const std::shared_ptr<FrameBuffer>& frameBuffer, uint32_t frameID) {
+void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffer) {
     transferRenderData();
-
-    graphicsCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
     std::vector<uint32_t> offsets{};
 
@@ -194,10 +227,6 @@ std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer(const std::shared_ptr<F
                 graphicsCommandBuffer->endRenderPass();
             }
             previousMasterMaterial = currentMasterMaterial;
-            std::vector<VkClearValue> clearColor = {{{{0.0f, 0.0f, 0.0f, 1.0f}}}};
-
-            graphicsCommandBuffer->beginRenderPass(currentMasterMaterial->getRenderPass(), frameBuffer, clearColor,
-                                                   frameID, frameBuffer->getExtent(), {0, 0});
             graphicsCommandBuffer->bindPipeline(currentMasterMaterial->getPipeline());
 
             std::vector<std::shared_ptr<DescriptorSet>> sceneDescriptorSets{ sceneDescriptorSet };
@@ -217,11 +246,6 @@ std::shared_ptr<CommandBuffer> Scene::bakeGraphicsBuffer(const std::shared_ptr<F
         graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer->getBuffer(), drawCall.drawCallLength, drawCall
         .drawCallOffset);
     }
-
-    graphicsCommandBuffer->endRenderPass();
-    graphicsCommandBuffer->endCommandBuffer();
-
-    return graphicsCommandBuffer;
 }
 
 Scene::~Scene() {

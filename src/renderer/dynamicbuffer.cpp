@@ -29,6 +29,8 @@ std::shared_ptr<Buffer> DynamicBuffer::getBuffer(VkDeviceSize size) {
     if (buffer == nullptr || size > buffer->getSize()) {
         if (mapped && buffer != nullptr)
             buffer->unmap();
+        if (size == 0)
+            size = 65536;
         buffer = Buffer::create(device, size, memoryUsage, preferredFlags, requiredFlags, bufferUsage |
         VK_BUFFER_USAGE_TRANSFER_DST_BIT,
                                 accessingQueues);

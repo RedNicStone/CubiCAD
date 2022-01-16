@@ -9,6 +9,7 @@
 
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
 
 #include <glm/glm.hpp>
 
@@ -54,13 +55,6 @@ const bool enableValidationLayers = false;
 const bool enableValidationLayers = true;
 #endif
 
-struct MandelbrotUBO {
-    uint frameCount;
-    uint frameID;
-    uint frameTime;
-    uint time;
-};
-
 class MandelbrotApp {
   public:
     void run() {
@@ -72,9 +66,6 @@ class MandelbrotApp {
     }
 
   private:
-    std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<double, std::chrono::seconds::period>>
-        lastTimeDelta;
-
     uint32_t version = VK_MAKE_VERSION(0, 3, 0);
     std::shared_ptr<Instance> instance;
     std::shared_ptr<Window> window;
@@ -90,14 +81,8 @@ class MandelbrotApp {
     VkExtent2D swapChainExtent;
 
     std::shared_ptr<RenderPass> renderPass;
-    std::shared_ptr<DescriptorSetLayout> descriptorSetsLayout;
-
-    std::shared_ptr<PipelineLayout> shadingPipelineLayout;
-    std::shared_ptr<GraphicsPipeline> shadingPipeline;
 
     std::shared_ptr<CommandPool> commandPool;
-
-    std::vector<std::shared_ptr<UniformBuffer>> uniformBuffers;
 
     std::vector<std::shared_ptr<CommandBuffer>> graphicsCommandBuffers;
 
@@ -106,17 +91,12 @@ class MandelbrotApp {
     std::shared_ptr<Mesh> model;
     std::shared_ptr<MeshInstance> object;
 
-    std::array<float, 60> lastFrameDeltas;
-    size_t currentFrame = 0;
-    size_t currentFrameIndex = 0;
-    float currentFPS = 0;
-
     bool framebufferResized = false;
     uint32_t imageCount;
 
-    std::shared_ptr<DescriptorPool> graphicsDescriptorPool;
-    std::vector<std::shared_ptr<DescriptorSet>> descriptorSets;
     std::vector<std::shared_ptr<Fence>> imagesInFlight;
+
+    glm::dvec2 prevMousePos;
 
     //dexode::EventBus::Listener listener{publicRenderBus.getBus()};
 
@@ -138,13 +118,8 @@ class MandelbrotApp {
         createSwapChain();
         createImageViews();
         createRenderPass();
-        createDescriptorSetLayouts();
-        createGraphicsPipeline();
         createFrameBuffers();
         createCommandPool();
-        createUniformBuffers();
-        createGraphicsDescriptorPools();
-        createGraphicsDescriptorSets();
         createGraphicsCommandBuffers();
         createSyncObjects();
         loadModels();
@@ -161,7 +136,7 @@ class MandelbrotApp {
 
         auto masterMaterial = MasterMaterial::create(device, shaders, swapChainExtent, renderPass);
         auto material = Material::create(masterMaterial);
-        model = modelLoader->import("resources/models/demo/dragon/dragon.obj", material).front();
+        model = modelLoader->import("resources/models/demo/primitives/cube.obj", material).front();
 
         object = MeshInstance::create(model);
     }
@@ -237,11 +212,7 @@ class MandelbrotApp {
         createSwapChain();
         createImageViews();
         createRenderPass();
-        createGraphicsPipeline();
         createFrameBuffers();
-        createUniformBuffers();
-        createGraphicsDescriptorPools();
-        createGraphicsDescriptorSets();
         createGraphicsCommandBuffers();
     }
 
@@ -362,42 +333,6 @@ class MandelbrotApp {
         renderPass->build();
     }
 
-    void createDescriptorSetLayouts() {
-        std::vector<VkDescriptorSetLayoutBinding> setLayoutBindings(1);
-
-        setLayoutBindings[0].binding = 0;
-        setLayoutBindings[0].descriptorCount = 1;
-        setLayoutBindings[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        setLayoutBindings[0].pImmutableSamplers = nullptr;
-        setLayoutBindings[0].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-
-        descriptorSetsLayout = DescriptorSetLayout::create(device, setLayoutBindings);
-    }
-
-    void createGraphicsPipeline() {
-
-        auto quadShaderStage = VertexShader::create(device, "main", "resources/shaders/compiled/quad.vert.spv");
-        auto shadingShaderStage = FragmentShader::create(device, "main", "resources/shaders/compiled/uv.frag.spv");
-
-        std::vector<std::shared_ptr<GraphicsShader>> shaders = {quadShaderStage, shadingShaderStage};
-        std::vector<VkPipelineShaderStageCreateInfo>
-            stages = {quadShaderStage->pipelineStageInfo(), shadingShaderStage->pipelineStageInfo()};
-
-        std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorSetLayouts = {descriptorSetsLayout};
-
-        shadingPipelineLayout = PipelineLayout::create(device, descriptorSetLayouts);
-        VkExtent2D extent = {swapChainExtent.width, swapChainExtent.height};
-
-        shadingPipeline =
-            GraphicsPipeline::create(device,
-                                     shadingPipelineLayout,
-                                     shaders,
-                                     renderPass,
-                                     extent,
-                                     VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP,
-                                     VK_CULL_MODE_NONE);
-    }
-
     void createFrameBuffers() {
         std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount,
                                                                         std::vector<std::shared_ptr<ImageView>>());
@@ -407,26 +342,6 @@ class MandelbrotApp {
 
     void createCommandPool() {
         commandPool = CommandPool::create(device, graphicsQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
-    }
-
-    void createGraphicsDescriptorPools() {
-        VkDescriptorPoolSize graphicsPoolSize{};
-        graphicsPoolSize.type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        graphicsPoolSize.descriptorCount = static_cast<uint32_t>(imageCount);
-
-        std::vector<VkDescriptorPoolSize> descriptorPoolSizes = { graphicsPoolSize };
-
-        graphicsDescriptorPool = DescriptorPool::create(device, descriptorPoolSizes);
-    }
-
-    void createGraphicsDescriptorSets() {
-        std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorSetLayouts(imageCount, descriptorSetsLayout);
-
-        descriptorSets = DescriptorSet::create(descriptorSetLayouts, graphicsDescriptorPool);
-
-        for (size_t i = 0; i < imageCount; i++) {
-            descriptorSets[i]->updateUniformBuffer(uniformBuffers[i], 0);
-        }
     }
 
     VkFormat findSupportedFormat(const std::vector<VkFormat> &candidates,
@@ -445,41 +360,11 @@ class MandelbrotApp {
         throw std::runtime_error("failed to find supported format!");
     }
 
-    void createUniformBuffers() {
-        VkDeviceSize bufferSize = sizeof(MandelbrotUBO);
-
-        uniformBuffers.resize(imageCount);
-
-        for (size_t i = 0; i < imageCount; i++) {
-            uniformBuffers[i] = UniformBuffer::create(device, graphicsQueue, sizeof(MandelbrotUBO));
-        }
-    }
-
     void createGraphicsCommandBuffers() {
         graphicsCommandBuffers.resize(imageCount);
 
-        for (uint32_t i = 0; i < graphicsCommandBuffers.size(); i++) {
-            graphicsCommandBuffers[i] = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
-
-            graphicsCommandBuffers[i]->beginCommandBuffer();
-
-            std::vector<VkClearValue> clearColor = {{{{0.0f, 0.0f, 0.0f, 1.0f}}}};
-
-            graphicsCommandBuffers[i]->beginRenderPass(renderPass, frameBuffer, clearColor, i, swapChainExtent, {0, 0});
-
-            std::vector<std::shared_ptr<DescriptorSet>> currentSets = {descriptorSets[i]};
-
-            graphicsCommandBuffers[i]->bindPipeline(shadingPipeline);
-
-            graphicsCommandBuffers[i]->bindDescriptorSets(currentSets, shadingPipeline);
-
-            graphicsCommandBuffers[i]->draw(4, 1, 0, 0);
-
-            //ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), graphicsCommandBuffers[i]);
-
-            graphicsCommandBuffers[i]->endRenderPass();
-
-            graphicsCommandBuffers[i]->endCommandBuffer();
+        for (auto & graphicsCommandBuffer : graphicsCommandBuffers) {
+            graphicsCommandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
         }
     }
 
@@ -488,55 +373,46 @@ class MandelbrotApp {
     }
 
     void drawFrame() {
+        glm::dvec2 currentMousePos;
+        glfwGetCursorPos(window->getWindow(), reinterpret_cast<double *>(&currentMousePos.x),
+                         reinterpret_cast<double *>(&currentMousePos.y));
+        currentMousePos -= glm::dvec2(WIDTH, HEIGHT);
+        scene->updateUBO(window->getSurfaceExtend(), currentMousePos - prevMousePos);
+        prevMousePos = currentMousePos;
+
         swapChain->acquireNextFrame({device});
         //ImGui::Render();
+        uint32_t index = swapChain->getCurrentImageIndex();
 
         updateWindowSize();
-        updateUniformBuffer(swapChain->getCurrentImageIndex());
-        currentFPS = getAverageFramerate();
 
         std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
         std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
 
-        auto commandBuffer = scene->bakeGraphicsBuffer(frameBuffer, static_cast<uint32_t>(swapChain->getCurrentImageIndex()));
-        commandBuffer->submitToQueue(signalSemaphores, { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
-                                                                                 waitSemaphores,
-                                                                                 graphicsQueue,
-                                                                                 swapChain->getPresentFence());
+        graphicsCommandBuffers[index]->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
+
+        auto view = -glm::transpose(scene->getUBO().view)[2];
+        std::cout << "View :" << view.x << ", " << view.y << ", " << view.z << std::endl;
+
+        std::vector<VkClearValue> clearColor = {{{{view.x, view.y, view.z, 1.0}}}};
+        graphicsCommandBuffers[index]->beginRenderPass(renderPass, frameBuffer, clearColor,
+                                                       index, frameBuffer->getExtent(), {0, 0});
+
+        scene->bakeGraphicsBuffer(graphicsCommandBuffers[index]);
+
+        graphicsCommandBuffers[index]->endRenderPass();
+        graphicsCommandBuffers[index]->endCommandBuffer();
+
+        graphicsCommandBuffers[index]->submitToQueue(signalSemaphores, { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
+                                     waitSemaphores,
+                                     graphicsQueue,
+                                     swapChain->getPresentFence());
 
         swapChain->presentImage({device});
     }
 
-    void updateUniformBuffer(uint32_t currentImage) {
-        static auto startTime = std::chrono::high_resolution_clock::now();
-
-        auto currentTime = std::chrono::high_resolution_clock::now();
-        double time = std::chrono::duration<double, std::chrono::seconds::period>(currentTime - startTime).count();
-        double
-            timeDelta =
-            std::chrono::duration<double, std::chrono::nanoseconds::period>(currentTime - lastTimeDelta).count();
-        lastTimeDelta = currentTime;
-
-        MandelbrotUBO ubo{};
-        ubo.frameCount = static_cast<uint>(currentFrameIndex);
-        ubo.frameID = ubo.frameCount;
-        ubo.frameTime = static_cast<uint>(timeDelta);
-        ubo.time = static_cast<uint>(time);
-
-        currentFrameIndex++;
-
-        uniformBuffers[currentImage]->getBuffer()->transferDataMapped(&ubo);
-    }
-
     void updateWindowSize() {
         //glfwGetWindowSize(window_, &window_Height, &window_Width);
-    }
-
-    float getAverageFramerate() {
-        float average = 0.0f;
-        for (float value: lastFrameDeltas)
-            average += value;
-        return average / static_cast<float>(lastFrameDeltas.size());
     }
 };
 

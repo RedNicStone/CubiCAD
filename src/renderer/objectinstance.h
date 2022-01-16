@@ -13,8 +13,8 @@
 class Mesh;
 
 struct InstanceData {
-    alignas(4) glm::uint objectID;
-    alignas(64) glm::mat4 model;
+    glm::uint objectID;
+    glm::mat4 model;
 };
 
 class MeshInstance {
