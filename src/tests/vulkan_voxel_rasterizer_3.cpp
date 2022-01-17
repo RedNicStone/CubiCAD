@@ -377,8 +377,27 @@ class MandelbrotApp {
         glfwGetCursorPos(window->getWindow(), reinterpret_cast<double *>(&currentMousePos.x),
                          reinterpret_cast<double *>(&currentMousePos.y));
         currentMousePos -= glm::dvec2(WIDTH, HEIGHT);
-        scene->updateUBO(window->getSurfaceExtend(), currentMousePos - prevMousePos);
+        auto deltaMousePos = currentMousePos - prevMousePos;
         prevMousePos = currentMousePos;
+
+        auto camera = scene->getCamera();
+        const auto moveSpeed = 0.01f;
+        if (glfwGetKey(window->getWindow(), GLFW_KEY_W) == GLFW_PRESS) {
+            camera->move(camera->getRotation() * glm::vec3(moveSpeed));
+        }
+        if (glfwGetKey(window->getWindow(), GLFW_KEY_S) == GLFW_PRESS) {
+            camera->move(-camera->getRotation() * glm::vec3(moveSpeed));
+        }
+        if (glfwGetKey(window->getWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+            camera->move(glm::cross(camera->getRotation(), {0, 1, 0}) * glm::vec3(moveSpeed));
+        }
+        if (glfwGetKey(window->getWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+            camera->move(-glm::cross(camera->getRotation(), {0, 1, 0}) * glm::vec3(moveSpeed));
+        }
+
+        //camera->rotate((float) deltaMousePos.y, {0, 1, 0});
+
+        scene->updateUBO();
 
         swapChain->acquireNextFrame({device});
         //ImGui::Render();
@@ -391,10 +410,7 @@ class MandelbrotApp {
 
         graphicsCommandBuffers[index]->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
-        auto view = -glm::transpose(scene->getUBO().view)[2];
-        std::cout << "View :" << view.x << ", " << view.y << ", " << view.z << std::endl;
-
-        std::vector<VkClearValue> clearColor = {{{{view.x, view.y, view.z, 1.0}}}};
+        std::vector<VkClearValue> clearColor = {{{{0.0, 0.0, 0.0, 1.0}}}};
         graphicsCommandBuffers[index]->beginRenderPass(renderPass, frameBuffer, clearColor,
                                                        index, frameBuffer->getExtent(), {0, 0});
 

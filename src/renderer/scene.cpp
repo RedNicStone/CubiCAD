@@ -7,9 +7,7 @@
 
 std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
                                      const std::shared_ptr<Queue> &pTransferQueue,
-                                     const std::shared_ptr<Queue> &pGraphicsQueue,
-                                     size_t reservedInstances,
-                                     size_t reservedIndirectCommands) {
+                                     const std::shared_ptr<Queue> &pGraphicsQueue) {
     auto scene = std::make_shared<Scene>();
     scene->device = pDevice;
 
@@ -63,44 +61,17 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     auto* data = static_cast<SceneData *>(scene->sceneInfoBuffer->getDataHandle());
     data->view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
+    scene->camera = std::make_shared<Camera>();
+
     return scene;
 }
 
-void Scene::updateUBO(VkExtent2D windowExtend, glm::vec2 mouseDelta) {
+void Scene::updateUBO() {
     auto* data = static_cast<SceneData *>(sceneInfoBuffer->getDataHandle());
-    const glm::vec4 eye = {0, 0, 0, 1};
 
-    glm::vec4 position = {pos, 1};
-    glm::vec4 pivot = {pos, 1};
-
-    float deltaAngleX = (360 / (float) windowExtend.width); // a movement from left to right = 2*PI = 360 deg
-    float deltaAngleY = (180 / (float) windowExtend.height);  // a movement from top to bottom = PI = 180 deg
-    float xAngle = mouseDelta.x * deltaAngleX;
-    float yAngle = mouseDelta.y * deltaAngleY;
-
-    std::cout << "Angle :" << xAngle << ", " << yAngle << std::endl;
-
-    pos = glm::vec3(
-        glm::rotate(glm::mat4(1.0),
-                    xAngle,
-                    glm::vec3(glm::transpose(data->view)[0])
-        ) * glm::vec4((pos - target), 1)) + target;
-
-    auto n =  pos;
-    std::cout << "Pos :" << n.x << ", " << n.y << ", " << n.z << std::endl;
-
-    pos = glm::vec3(
-        glm::rotate(glm::mat4(1.0),
-                    yAngle,
-                    up
-        ) * glm::vec4((pos - target), 1)) + target;
-
-    data->view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
-    data->proj = glm::perspective(glm::radians(45.0f), (float) windowExtend.width / (float) windowExtend.height, 0.1f, 10.0f);
-}
-
-SceneData Scene::getUBO() {
-    return *static_cast<SceneData*>(sceneInfoBuffer->getDataHandle());
+    camera->update();
+    data->view = camera->getView();
+    data->proj = camera->getProj();
 }
 
 void Scene::transferRenderData() {

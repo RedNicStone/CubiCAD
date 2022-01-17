@@ -17,48 +17,47 @@
 #include "objectinstance.h"
 #include "descriptorpoolmanager.h"
 #include "dynamicbuffer.h"
+#include "camera.h"
 
 
 struct SceneData {
-    glm::mat4 view;  // view matrix
-    glm::mat4 proj;  // projection matrix
+    glm::mat4 view{};  // view matrix
+    glm::mat4 proj{};  // projection matrix
 
-    glm::uint nFrame;  // frame ID
-    glm::uint frameTime;  // frame time in ns
+    glm::uint nFrame{};  // frame ID
+    glm::uint frameTime{};  // frame time in ns
 };
 
 class Scene {
   public:
     struct IndirectDrawCall {
         std::shared_ptr<Material> material;
-        uint32_t drawCallOffset;
-        uint32_t drawCallLength;
+        uint32_t drawCallOffset{};
+        uint32_t drawCallLength{};
     };
 
   private:
-    glm::vec3 pos = {0, 1, 0};
-    glm::vec3 target = {0, 0, 0};
-    glm::vec3 up = {0, 0, 1};
+    std::shared_ptr<Camera> camera;
 
     std::shared_ptr<Device> device;
 
     std::shared_ptr<CommandPool> transferCommandPool;
 
-    std::vector<std::shared_ptr<MeshInstance>> instances;
+    std::vector<std::shared_ptr<MeshInstance>> instances{};
 
-    std::vector<IndirectDrawCall> indirectDrawCalls;
+    std::vector<IndirectDrawCall> indirectDrawCalls{};
     std::shared_ptr<DynamicBuffer> instanceBuffer;  // the instance buffer
     std::shared_ptr<DynamicBuffer> indirectCommandBuffer;  // the indirect command buffer
-    void** instanceBufferData;
-    void** indirectCommandBufferData;
+    void** instanceBufferData{};
+    void** indirectCommandBufferData{};
 
     std::shared_ptr<DynamicBuffer> vertexBuffer;
     std::shared_ptr<DynamicBuffer> indexBuffer;
 
     std::shared_ptr<UniformBuffer> sceneInfoBuffer;
-    std::vector<VkDescriptorSetLayoutBinding> sceneBindings;
+    std::vector<VkDescriptorSetLayoutBinding> sceneBindings{};
     std::shared_ptr<DescriptorSetLayout> sceneInfoSetLayout;
-    std::chrono::time_point<std::chrono::high_resolution_clock, std::chrono::duration<double>> lastFrameTime;
+    std::chrono::time_point<std::chrono::high_resolution_clock, std::chrono::duration<double>> lastFrameTime{};
 
     std::shared_ptr<DescriptorPoolManager> descriptorPool;
     std::shared_ptr<DescriptorSet> sceneDescriptorSet;
@@ -68,12 +67,9 @@ class Scene {
   public:
     static std::shared_ptr<Scene> create(const std::shared_ptr<Device>& pDevice,
                                   const std::shared_ptr<Queue>& pTransferQueue,
-                                  const std::shared_ptr<Queue>& pGraphicsQueue,
-                                  size_t reservedInstances = 65536,
-                                  size_t reservedIndirectCommands = 256);
+                                  const std::shared_ptr<Queue>& pGraphicsQueue);
 
-    void updateUBO(VkExtent2D windowExtend, glm::vec2 mouseDelta);
-    SceneData getUBO();
+    void updateUBO();
 
     void submitInstance(const std::shared_ptr<MeshInstance>& meshInstance);
 
@@ -81,6 +77,8 @@ class Scene {
     void bakeMaterials();
 
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
+
+    std::shared_ptr<Camera> getCamera() { return camera; }
 
     ~Scene();
 };
