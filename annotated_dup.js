@@ -25,6 +25,8 @@ var annotated_dup =
     [ "Allocator", "class_allocator.html", "class_allocator" ],
     [ "Buffer", "class_buffer.html", "class_buffer" ],
     [ "BufferView", "class_buffer_view.html", "class_buffer_view" ],
+    [ "Camera", "class_camera.html", "class_camera" ],
+    [ "CameraModel", "struct_camera_model.html", "struct_camera_model" ],
     [ "CommandBuffer", "class_command_buffer.html", "class_command_buffer" ],
     [ "CommandPool", "class_command_pool.html", "class_command_pool" ],
     [ "ComputeShader", "class_compute_shader.html", null ],

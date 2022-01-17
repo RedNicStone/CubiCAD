@@ -22,6 +22,6 @@ var searchData=
   ['mesh_19',['mesh',['../class_mesh_instance.html#a7e26897cd72ba054993ef140c5c8fd55',1,'MeshInstance']]],
   ['metallic_20',['metallic',['../struct_p_b_r_material_parameters.html#a01cae6fd7b9496f74cc33e43204bfcc7',1,'PBRMaterialParameters']]],
   ['miplevels_21',['mipLevels',['../class_image.html#acabca646d85b455e9dc5342c1a940d21',1,'Image']]],
-  ['model_22',['model',['../struct_instance_data.html#ac212f0d8e381b56fec9265ed559ddf39',1,'InstanceData::model()'],['../class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd',1,'MandelbrotApp::model()']]],
+  ['model_22',['model',['../class_camera.html#a0f466597be3dfd881ab42f8703b74c0e',1,'Camera::model()'],['../struct_instance_data.html#ac212f0d8e381b56fec9265ed559ddf39',1,'InstanceData::model()'],['../class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd',1,'MandelbrotApp::model()']]],
   ['modelloader_23',['modelLoader',['../class_mandelbrot_app.html#a6f5b878e7208691e01d501e9094157dd',1,'MandelbrotApp']]]
 ];

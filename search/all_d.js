@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['main_0',['main',['../vulkan__voxel__rasterizer__3_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vulkan_voxel_rasterizer_3.cpp'],['../vulkan__voxel__rasterizer__2_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vulkan_voxel_rasterizer_2.cpp'],['../vulkan__voxel__rasterizer_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vulkan_voxel_rasterizer.cpp'],['../voxels_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;voxels.cpp'],['../vectors_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vectors.cpp'],['../octrees_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;octrees.cpp'],['../memory__allocation_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;memory_allocation.cpp']]],
+  ['main_0',['main',['../vulkan__voxel__rasterizer__3_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vulkan_voxel_rasterizer_3.cpp'],['../vulkan__voxel__rasterizer__2_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vulkan_voxel_rasterizer_2.cpp'],['../vulkan__voxel__rasterizer_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vulkan_voxel_rasterizer.cpp'],['../voxels_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;voxels.cpp'],['../vectors_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vectors.cpp'],['../memory__allocation_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;memory_allocation.cpp'],['../octrees_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;octrees.cpp']]],
   ['mainloop_1',['mainLoop',['../class_mandelbrot_app.html#a5ba89ddb4a53a2140e571a8178843f34',1,'MandelbrotApp::mainLoop()'],['../class_mandelbrot_app.html#a5ba89ddb4a53a2140e571a8178843f34',1,'MandelbrotApp::mainLoop()']]],
-  ['makeallocation_2',['makeAllocation',['../class_allocator.html#ab8ee9af52bca63366cb43e3d5d40276f',1,'Allocator::makeAllocation()'],['../class_stack_allocator.html#a531bb6769bc72f5a796180b5bf8b5735',1,'StackAllocator::makeAllocation()']]],
+  ['makeallocation_2',['makeAllocation',['../class_stack_allocator.html#a531bb6769bc72f5a796180b5bf8b5735',1,'StackAllocator::makeAllocation()'],['../class_allocator.html#ab8ee9af52bca63366cb43e3d5d40276f',1,'Allocator::makeAllocation()']]],
   ['makebimap_3',['makeBimap',['../class_utils.html#af1a6b637c53cfd9dd4ef5d2dce27feab',1,'Utils']]],
   ['makenode_4',['makeNode',['../class_voxel_codec_sparse_octree.html#a25d55ef9d9ddb63edb1e570d05ea5e6f',1,'VoxelCodecSparseOctree']]],
   ['mandelbrotapp_5',['MandelbrotApp',['../class_mandelbrot_app.html',1,'']]],
   ['mandelbrotubo_6',['MandelbrotUBO',['../struct_mandelbrot_u_b_o.html',1,'']]],
-  ['map_7',['map',['../class_dynamic_buffer.html#ab21b00292d7f53b2626de714141f8b3e',1,'DynamicBuffer::map()'],['../class_buffer.html#a80d49c3641eb7d63ede96bbe568f1f00',1,'Buffer::map()']]],
+  ['map_7',['map',['../class_buffer.html#a80d49c3641eb7d63ede96bbe568f1f00',1,'Buffer::map()'],['../class_dynamic_buffer.html#ab21b00292d7f53b2626de714141f8b3e',1,'DynamicBuffer::map()']]],
   ['mapped_8',['mapped',['../class_dynamic_buffer.html#aea2c28b8a8e4e7330d592c929e937053',1,'DynamicBuffer']]],
   ['mappedpage_9',['MappedPage',['../struct_virtual_stack_allocation_1_1_mapped_page.html',1,'VirtualStackAllocation']]],
   ['mappedpages_10',['mappedPages',['../class_virtual_stack_allocation.html#aa2dc0e19e8c33aad7d4fb613e00859b1',1,'VirtualStackAllocation']]],
@@ -33,7 +33,7 @@ var searchData=
   ['materials_30',['materials',['../class_material_library.html#a73efd1fb99b43dc60c048aa3d24da65a',1,'MaterialLibrary']]],
   ['materialset_31',['materialSet',['../class_material.html#a18b4911cb71bfc4db72ed283fa26bd63',1,'Material']]],
   ['materialsetlayout_32',['materialSetLayout',['../class_master_material.html#abeba80e16ad2a5b811aad7db56843570',1,'MasterMaterial']]],
-  ['max_5fframes_5fin_5fflight_33',['MAX_FRAMES_IN_FLIGHT',['../vulkan__voxel__rasterizer__2_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'MAX_FRAMES_IN_FLIGHT():&#160;vulkan_voxel_rasterizer_2.cpp'],['../vulkan__voxel__rasterizer__3_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'MAX_FRAMES_IN_FLIGHT():&#160;vulkan_voxel_rasterizer_3.cpp']]],
+  ['max_5fframes_5fin_5fflight_33',['MAX_FRAMES_IN_FLIGHT',['../vulkan__voxel__rasterizer__3_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'MAX_FRAMES_IN_FLIGHT():&#160;vulkan_voxel_rasterizer_3.cpp'],['../vulkan__voxel__rasterizer__2_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'MAX_FRAMES_IN_FLIGHT():&#160;vulkan_voxel_rasterizer_2.cpp']]],
   ['maxqueuecount_34',['maxQueueCount',['../struct_possible_queue_family.html#a620d98143069d52b46700d24e2fc6b11',1,'PossibleQueueFamily']]],
   ['memory_5fallocation_2ecpp_35',['memory_allocation.cpp',['../memory__allocation_8cpp.html',1,'']]],
   ['memoryptr_36',['memoryPtr',['../struct_voxel_codec_octree_base_1_1_node_stack_element.html#ad1aa4e6191775ea03299f22a5ebe6c97',1,'VoxelCodecOctreeBase::NodeStackElement']]],
@@ -46,7 +46,7 @@ var searchData=
   ['meshlet_43',['Meshlet',['../struct_meshlet.html',1,'']]],
   ['metallic_44',['metallic',['../struct_p_b_r_material_parameters.html#a01cae6fd7b9496f74cc33e43204bfcc7',1,'PBRMaterialParameters']]],
   ['miplevels_45',['mipLevels',['../class_image.html#acabca646d85b455e9dc5342c1a940d21',1,'Image']]],
-  ['model_46',['model',['../struct_instance_data.html#ac212f0d8e381b56fec9265ed559ddf39',1,'InstanceData::model()'],['../class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd',1,'MandelbrotApp::model()']]],
+  ['model_46',['model',['../class_camera.html#a0f466597be3dfd881ab42f8703b74c0e',1,'Camera::model()'],['../struct_instance_data.html#ac212f0d8e381b56fec9265ed559ddf39',1,'InstanceData::model()'],['../class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd',1,'MandelbrotApp::model()']]],
   ['modelloader_47',['modelLoader',['../class_mandelbrot_app.html#a6f5b878e7208691e01d501e9094157dd',1,'MandelbrotApp']]],
   ['modelloader_48',['ModelLoader',['../class_model_loader.html',1,'']]],
   ['modelloader_2ecpp_49',['modelloader.cpp',['../modelloader_8cpp.html',1,'']]],
@@ -62,5 +62,6 @@ var searchData=
   ['morton3d_5f64_5fdecode_59',['morton3D_64_decode',['../namespacelibmorton.html#abd1f779ac6d7aa5c546c14acea6466a9',1,'libmorton']]],
   ['morton3d_5f64_5fencode_60',['morton3D_64_encode',['../namespacelibmorton.html#a973910379db4076475eeedccb98cf19d',1,'libmorton']]],
   ['morton3d_5fdecode_61',['morton3D_decode',['../namespacelibmorton.html#a1542df660235f16d6ee589fd0d908916',1,'libmorton']]],
-  ['morton3d_5fencode_62',['morton3D_encode',['../namespacelibmorton.html#afb4fdae007f02c9414e67939544f66a8',1,'libmorton']]]
+  ['morton3d_5fencode_62',['morton3D_encode',['../namespacelibmorton.html#afb4fdae007f02c9414e67939544f66a8',1,'libmorton']]],
+  ['move_63',['move',['../class_camera.html#a0fceb59627dfe7c2e0e19a2909b67552',1,'Camera']]]
 ];

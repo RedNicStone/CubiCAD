@@ -18,7 +18,8 @@ var searchData=
   ['resetresizefence_15',['resetResizeFence',['../class_window.html#ac36ac45a01901c2118e1efcdf9c1cc69',1,'Window']]],
   ['resetstate_16',['resetState',['../class_fence.html#af51544dbcd84cb7550ff8dd8a331183b',1,'Fence']]],
   ['resize_17',['resize',['../class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c',1,'VirtualAllocation::resize()'],['../class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da',1,'VirtualStackAllocation::resize()']]],
-  ['run_18',['run',['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()']]],
-  ['runrenderloop_19',['runRenderLoop',['../class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f',1,'RenderBus']]],
-  ['runrenderloop_5f_20',['runRenderLoop_',['../class_render_bus.html#a0c6c79cea328c4475de527b874ce517a',1,'RenderBus']]]
+  ['rotate_18',['rotate',['../class_camera.html#a25423f6fbeab3064b2a6185ee5727ad7',1,'Camera']]],
+  ['run_19',['run',['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()']]],
+  ['runrenderloop_20',['runRenderLoop',['../class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f',1,'RenderBus']]],
+  ['runrenderloop_5f_21',['runRenderLoop_',['../class_render_bus.html#a0c6c79cea328c4475de527b874ce517a',1,'RenderBus']]]
 ];

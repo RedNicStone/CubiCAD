@@ -1,6 +1,8 @@
 var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
 [
     [ "vulkan", "dir_8ebd181a0c69b2a3f352e3ec5ae48f4e.html", "dir_8ebd181a0c69b2a3f352e3ec5ae48f4e" ],
+    [ "camera.cpp", "camera_8cpp.html", null ],
+    [ "camera.h", "camera_8h.html", "camera_8h" ],
     [ "descriptorpoolmanager.cpp", "descriptorpoolmanager_8cpp.html", null ],
     [ "descriptorpoolmanager.h", "descriptorpoolmanager_8h.html", "descriptorpoolmanager_8h" ],
     [ "dynamicbuffer.cpp", "dynamicbuffer_8cpp.html", null ],
