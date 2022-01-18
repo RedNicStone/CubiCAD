@@ -65,8 +65,8 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
                 Vertex vertex{};
                 vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + 3*size_t(idx.vertex_index));
                 if (idx.texcoord_index >= 0) {
-                    vertex.uv = { glm::floatBitsToUint(attrib.texcoords[2*size_t(idx.texcoord_index)+0]),
-                                  glm::floatBitsToUint(attrib.texcoords[2*size_t(idx.texcoord_index)+1]) };
+                    vertex.uv = *reinterpret_cast<const glm::vec2*>(attrib.texcoords.data()
+                        + 2*size_t(idx.texcoord_index));
                 }
                 meshlets[materialID]->vertexData.push_back(vertex);
 

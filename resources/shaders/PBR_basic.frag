@@ -8,10 +8,11 @@ layout(set = 0, binding = 0) uniform SceneInfo {
     uint frameTime;  // frame time in ns
 } scene_info;
 
-flat layout(location = 1) in uint instance_id;
+flat layout(location = 0) in uint instance_id;
+layout(location = 1) in vec2 uv;
 
 layout(location = 0) out vec4 pixel_color;
 
 void main() {
-    pixel_color = vec4(instance_id, scene_info.nFrame, scene_info.frameTime, 0);
+    pixel_color = vec4(uv, scene_info.frameTime, 0);
 }

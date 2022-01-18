@@ -7,7 +7,8 @@
 
 std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
                                      const std::shared_ptr<Queue> &pTransferQueue,
-                                     const std::shared_ptr<Queue> &pGraphicsQueue) {
+                                     const std::shared_ptr<Queue> &pGraphicsQueue,
+                                     const std::shared_ptr<Camera>& pCamera) {
     auto scene = std::make_shared<Scene>();
     scene->device = pDevice;
 
@@ -61,9 +62,13 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     auto* data = static_cast<SceneData *>(scene->sceneInfoBuffer->getDataHandle());
     data->view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
-    scene->camera = std::make_shared<Camera>();
+    scene->camera = pCamera;
 
     return scene;
+}
+
+void Scene::setCamera(const std::shared_ptr<Camera>& pCamera) {
+    camera = pCamera;
 }
 
 void Scene::updateUBO() {
@@ -121,7 +126,7 @@ void Scene::transferRenderData() {
 
                 VkDrawIndexedIndirectCommand drawCommand = meshletCall.second.front()->getMesh()->getDrawCommand();
                 drawCommand.firstInstance = 0;
-                drawCommand.instanceCount = static_cast<uint32_t>(drawCall.second.size());
+                drawCommand.instanceCount = static_cast<uint32_t>(meshletCall.second.size());
                 indirectDrawData.push_back(drawCommand);
             }
 
@@ -145,6 +150,9 @@ void Scene::submitInstance(const std::shared_ptr<MeshInstance>& meshInstance) {
 }
 
 void Scene::collectRenderBuffers() {
+    if (instances.empty())
+        return;
+
     std::vector<Vertex> vertexData;
     std::vector<uint32_t> indexData;
 
@@ -161,13 +169,13 @@ void Scene::collectRenderBuffers() {
         }
     }
 
-    vertexBuffer->getBuffer(sizeof(Vertex) * vertexData.size())->transferDataStaged(vertexData.data(),
+        vertexBuffer->getBuffer(sizeof(Vertex) * vertexData.size())->transferDataStaged(vertexData.data(),
                                                                                  transferCommandPool, sizeof(Vertex) * vertexData.size());
     indexBuffer->getBuffer(sizeof(uint32_t) * indexData.size())->transferDataStaged(indexData.data(),
                                                                                   transferCommandPool, sizeof(uint32_t) * indexData.size());
 }
 
-void Scene::bakeMaterials() {
+void Scene::bakeMaterials(bool enableDepthStencil) {
     std::unordered_set<std::shared_ptr<MasterMaterial>> masterMaterials{};
     for (const auto& instance : instances) {
         for (const auto& meshlet : instance->getMesh()->getMeshlets()) {
@@ -176,7 +184,7 @@ void Scene::bakeMaterials() {
     }
 
     for (const auto& masterMaterial : masterMaterials) {
-        masterMaterial->updateDescriptorSetLayouts(sceneInfoSetLayout);
+        masterMaterial->updateDescriptorSetLayouts(sceneInfoSetLayout, enableDepthStencil);
     }
 }
 

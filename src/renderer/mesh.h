@@ -25,7 +25,7 @@ struct PBRMaterialParameters;
 
 struct Vertex {
     glm::vec3 pos;
-    glm::uvec2 uv;
+    glm::vec2 uv;
 };
 
 struct Meshlet {

@@ -10,20 +10,23 @@ std::shared_ptr<Camera> Camera::create(CameraModel cameraModel, VkExtent2D windo
 
     camera->updateCameraModel(cameraModel, window);
 
-    camera->position = {0, 0, 0};
-    camera->rotation = {1, 0, 0};
+    camera->position = {2, 2, 2};
+    camera->rotation = {-2, -2, -2};
 
     camera->view = glm::lookAt(camera->position, camera->position + camera->rotation, {0, 1, 0});
+
+    return camera;
 }
 
 void Camera::updateCameraModel(CameraModel cameraModel, VkExtent2D window) {
+    auto fov = glm::radians(cameraModel.fieldOfView);
     switch (cameraModel.cameraMode) {
         case CAMERA_MODE_PERSPECTIVE_INFINITE:
-            projection = glm::infinitePerspective(cameraModel.fieldOfView,
+            projection = glm::infinitePerspective(fov,
                                                   (double) window.width / window.height, cameraModel.clipNear);
             break;
         case CAMERA_MODE_PERSPECTIVE_FINITE:
-            projection = glm::perspective(cameraModel.fieldOfView, (double) window.width / window.height,
+            projection = glm::perspective(fov, (double) window.width / window.height,
                                           cameraModel.clipNear, cameraModel.clipFar);
             break;
         case CAMERA_MODE_ORTHOGRAPHIC_INFINITE:
@@ -35,6 +38,7 @@ void Camera::updateCameraModel(CameraModel cameraModel, VkExtent2D window) {
                                     cameraModel.clipNear, cameraModel.clipFar);
             break;
     }
+    projection[1][1] *= -1;
 }
 
 void Camera::update() {

@@ -67,14 +67,16 @@ class Scene {
   public:
     static std::shared_ptr<Scene> create(const std::shared_ptr<Device>& pDevice,
                                   const std::shared_ptr<Queue>& pTransferQueue,
-                                  const std::shared_ptr<Queue>& pGraphicsQueue);
+                                  const std::shared_ptr<Queue>& pGraphicsQueue,
+                                  const std::shared_ptr<Camera>& pCamera);
 
+    void setCamera(const std::shared_ptr<Camera>& pCamera);
     void updateUBO();
 
     void submitInstance(const std::shared_ptr<MeshInstance>& meshInstance);
 
     void collectRenderBuffers();
-    void bakeMaterials();
+    void bakeMaterials(bool enableDepthStencil = false);
 
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 

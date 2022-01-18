@@ -17,7 +17,8 @@ pRenderPass) {
     return material;
 }
 
-void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout) {
+void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout, bool
+enableDepthStencil) {
     std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{ sceneLayout/*, masterMaterialSetLayout,
                                                                          materialSetLayout*/ }; //todo
 
@@ -37,6 +38,6 @@ void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<Descriptor
         { 6, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 3 }
     };
     pipeline = GraphicsPipeline::create(device, pipelineLayout, shaders, renderPass, extent,
-                                        VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, VK_CULL_MODE_BACK_BIT,
-                                        VK_FRONT_FACE_CLOCKWISE, bindingDescription, attributeDescription);
+                                        VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, VK_CULL_MODE_NONE,
+                                        VK_FRONT_FACE_CLOCKWISE, bindingDescription, attributeDescription, enableDepthStencil);
 }

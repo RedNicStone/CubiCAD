@@ -42,7 +42,8 @@ class MasterMaterial {
     std::vector<std::shared_ptr<GraphicsShader>>& vShaders, VkExtent2D vExtent, const std::shared_ptr<RenderPass>&
     pRenderPass);
 
-    void updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout);
+    void updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout, bool
+    enableDepthStencil = false);
 
     std::shared_ptr<GraphicsPipeline> getPipeline() { return pipeline; };
     std::shared_ptr<PipelineLayout> getPipelineLayout() { return pipelineLayout; };

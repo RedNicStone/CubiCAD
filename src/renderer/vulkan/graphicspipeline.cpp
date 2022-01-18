@@ -18,7 +18,8 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
                                                            std::vector<VkVertexInputBindingDescription>
                                                                bindingDescription,
                                                            std::vector<VkVertexInputAttributeDescription>
-                                                               attributeDescription) {
+                                                               attributeDescription,
+                                                           bool enableDepthStencil) {
     auto graphicsPipeline = std::make_shared<GraphicsPipeline>();
     graphicsPipeline->device = std::move(pDevice);
     graphicsPipeline->layout = std::move(pLayout);
@@ -105,6 +106,22 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
     pipelineInfo.renderPass = renderPass->getHandle();
     pipelineInfo.subpass = 0;
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
+
+    if (enableDepthStencil) {
+        VkPipelineDepthStencilStateCreateInfo depthStencil{};
+        depthStencil.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
+        depthStencil.depthTestEnable = VK_TRUE;
+        depthStencil.depthWriteEnable = VK_TRUE;
+        depthStencil.depthCompareOp = VK_COMPARE_OP_LESS;
+        depthStencil.depthBoundsTestEnable = VK_FALSE;
+        depthStencil.minDepthBounds = 0.0f;
+        depthStencil.maxDepthBounds = 1.0f;
+        depthStencil.stencilTestEnable = VK_FALSE;
+        depthStencil.front = {};
+        depthStencil.back = {};
+
+        pipelineInfo.pDepthStencilState = &depthStencil;
+    }
 
     if (vkCreateGraphicsPipelines(graphicsPipeline->device->getHandle(),
                               VK_NULL_HANDLE,

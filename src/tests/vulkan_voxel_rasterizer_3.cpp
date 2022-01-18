@@ -80,6 +80,9 @@ class MandelbrotApp {
     std::shared_ptr<FrameBuffer> frameBuffer;
     VkExtent2D swapChainExtent;
 
+    std::shared_ptr<Image> depthImage;
+    std::shared_ptr<ImageView> depthImageView;
+
     std::shared_ptr<RenderPass> renderPass;
 
     std::shared_ptr<CommandPool> commandPool;
@@ -89,9 +92,11 @@ class MandelbrotApp {
     std::shared_ptr<Scene> scene;
     std::shared_ptr<ModelLoader> modelLoader;
     std::shared_ptr<Mesh> model;
-    std::shared_ptr<MeshInstance> object;
+    std::vector<std::shared_ptr<MeshInstance>> objects;
 
-    bool framebufferResized = false;
+    std::shared_ptr<Camera> camera;
+
+    bool mouseCaptured = false;
     uint32_t imageCount;
 
     std::vector<std::shared_ptr<Fence>> imagesInFlight;
@@ -138,14 +143,34 @@ class MandelbrotApp {
         auto material = Material::create(masterMaterial);
         model = modelLoader->import("resources/models/demo/primitives/cube.obj", material).front();
 
-        object = MeshInstance::create(model);
+        for (size_t i = 0; i < 500; i++) {
+            auto object = MeshInstance::create(model);
+            object->setScale(glm::vec3(0.1f));
+            object->setPosition(glm::normalize(glm::vec3(
+                static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
+                static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
+                static_cast <float> (rand()) / static_cast <float> (RAND_MAX))
+                - glm::vec3(0.5f)) *
+            glm::vec3(20));
+            objects.push_back(object);
+        }
     }
 
     void createScene() {
-        scene = Scene::create(device, graphicsQueue, graphicsQueue);
-        scene->submitInstance(object);
+        CameraModel cameraModel{};
+        cameraModel.cameraMode = CAMERA_MODE_PERSPECTIVE_INFINITE;
+        cameraModel.fieldOfView = 75.0;
+        cameraModel.clipNear = 0.1;
+        cameraModel.clipFar = 100.0;
+
+        camera = Camera::create(cameraModel, window->getSurfaceExtend());
+
+        scene = Scene::create(device, graphicsQueue, graphicsQueue, camera);
+
+        for (const auto& object : objects)
+            scene->submitInstance(object);
         scene->collectRenderBuffers();
-        scene->bakeMaterials();
+        scene->bakeMaterials(true);
     }
 
     /*void submitEventBusFunctions() {
@@ -183,6 +208,7 @@ class MandelbrotApp {
 
             //ImGui::ShowDemowindow_();
             //setupImGUIFrame();
+            updateObjects();
             drawFrame();
 
             //publicRenderBus.runRenderLoop(device);
@@ -197,6 +223,56 @@ class MandelbrotApp {
         if (debugLevel > 0) { std::cout << "cleaning up\n"; }
 
         glfwTerminate();
+    }
+
+    void updateObjects() {
+        glm::dvec2 currentMousePos;
+        glfwGetCursorPos(window->getWindow(), reinterpret_cast<double *>(&currentMousePos.x),
+                         reinterpret_cast<double *>(&currentMousePos.y));
+        currentMousePos -= glm::dvec2(WIDTH, HEIGHT);
+        auto deltaMousePos = currentMousePos - prevMousePos;
+        prevMousePos = currentMousePos;
+
+        if (mouseCaptured && glfwGetKey(window->getWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+            glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+            mouseCaptured = false;
+        }
+        if (!mouseCaptured && glfwGetMouseButton(window->getWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+            glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+            mouseCaptured = true;
+        }
+        if (mouseCaptured) {
+            auto moveSpeed = 0.002f;
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
+                moveSpeed *= 3;
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_W) == GLFW_PRESS) {
+                camera->move(camera->getRotation() * glm::vec3(moveSpeed));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_S) == GLFW_PRESS) {
+                camera->move(-camera->getRotation() * glm::vec3(moveSpeed));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_A) == GLFW_PRESS) {
+                camera->move(-glm::cross(camera->getRotation(), {0, 1, 0}) * glm::vec3(moveSpeed));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_D) == GLFW_PRESS) {
+                camera->move(glm::cross(camera->getRotation(), {0, 1, 0}) * glm::vec3(moveSpeed));
+            }
+
+
+            const auto mouseSpeed = 0.001f;
+            camera->rotate((float) deltaMousePos.x * mouseSpeed, {0, -1, 0});
+            camera->rotate((float) deltaMousePos.y * mouseSpeed,
+                           glm::normalize(glm::cross({0, 1, 0}, camera->getRotation())));
+        }
+
+        scene->updateUBO();
+
+        for (const auto& object : objects) {
+            object->move((glm::cross(object->getPosition(), {0, 1, 0}) - object->getPosition() * glm::vec3(0.001f)
+            ) *
+            glm::vec3(0.003f));
+        }
     }
 
     void recreateSwapChain() {
@@ -274,12 +350,15 @@ class MandelbrotApp {
             accessingQueues = {graphicsQueue->getQueueFamilyIndex(), presentQueue->getQueueFamilyIndex()};
         remove(accessingQueues);
 
-        swapChain = SwapChain::create(device, window, presentQueue, imageCount, accessingQueues);
+        swapChain = SwapChain::create(device, window, presentQueue, 3, accessingQueues);
+
+        accessingQueues = { graphicsQueue->getQueueFamilyIndex() };
+        depthImage = Image::create(device, swapChain->getSwapExtent(), 1, VK_FORMAT_D32_SFLOAT,
+                                   VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, accessingQueues);
+        depthImageView = ImageView::create(depthImage, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_DEPTH_BIT);
 
         imageCount = swapChain->getImageCount();
-
         VkExtent2D extent = swapChain->getSwapExtent();
-
         swapChainExtent = extent;
     }
 
@@ -313,11 +392,22 @@ class MandelbrotApp {
     void createRenderPass() {
         renderPass = RenderPass::create(device);
 
-        uint32_t swapChainAttachment = renderPass->submitSwapChainAttachment(swapChain, false);
+        uint32_t swapChainAttachment = renderPass->submitSwapChainAttachment(swapChain, true);
+        uint32_t depthAttachment = renderPass->submitImageAttachment(depthImage->getFormat(), VK_SAMPLE_COUNT_1_BIT,
+                                                                     VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                                                     VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                                     VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                                                     VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                                     VK_IMAGE_LAYOUT_UNDEFINED,
+                                                                     VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
 
         VkAttachmentReference colorAttachmentRef{};
         colorAttachmentRef.attachment = swapChainAttachment;
         colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+
+        VkAttachmentReference depthAttachmentRef{};
+        depthAttachmentRef.attachment = depthAttachment;
+        depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
         std::vector<VkAttachmentReference> shadingPipelineColorReference = {colorAttachmentRef};
         std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = { };
@@ -325,7 +415,7 @@ class MandelbrotApp {
             renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                       shadingPipelineColorReference,
                                       shadingPipelineAttachmentReference,
-                                      nullptr,
+                                      &depthAttachmentRef,
                                       0);
 
         renderPass->submitDependency(VK_SUBPASS_EXTERNAL, shadingSubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
@@ -335,7 +425,9 @@ class MandelbrotApp {
 
     void createFrameBuffers() {
         std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount,
-                                                                        std::vector<std::shared_ptr<ImageView>>());
+                                                                        std::vector<std::shared_ptr<ImageView>>{
+            depthImageView
+        });
 
         frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
     }
@@ -373,32 +465,6 @@ class MandelbrotApp {
     }
 
     void drawFrame() {
-        glm::dvec2 currentMousePos;
-        glfwGetCursorPos(window->getWindow(), reinterpret_cast<double *>(&currentMousePos.x),
-                         reinterpret_cast<double *>(&currentMousePos.y));
-        currentMousePos -= glm::dvec2(WIDTH, HEIGHT);
-        auto deltaMousePos = currentMousePos - prevMousePos;
-        prevMousePos = currentMousePos;
-
-        auto camera = scene->getCamera();
-        const auto moveSpeed = 0.01f;
-        if (glfwGetKey(window->getWindow(), GLFW_KEY_W) == GLFW_PRESS) {
-            camera->move(camera->getRotation() * glm::vec3(moveSpeed));
-        }
-        if (glfwGetKey(window->getWindow(), GLFW_KEY_S) == GLFW_PRESS) {
-            camera->move(-camera->getRotation() * glm::vec3(moveSpeed));
-        }
-        if (glfwGetKey(window->getWindow(), GLFW_KEY_A) == GLFW_PRESS) {
-            camera->move(glm::cross(camera->getRotation(), {0, 1, 0}) * glm::vec3(moveSpeed));
-        }
-        if (glfwGetKey(window->getWindow(), GLFW_KEY_D) == GLFW_PRESS) {
-            camera->move(-glm::cross(camera->getRotation(), {0, 1, 0}) * glm::vec3(moveSpeed));
-        }
-
-        //camera->rotate((float) deltaMousePos.y, {0, 1, 0});
-
-        scene->updateUBO();
-
         swapChain->acquireNextFrame({device});
         //ImGui::Render();
         uint32_t index = swapChain->getCurrentImageIndex();
@@ -410,7 +476,9 @@ class MandelbrotApp {
 
         graphicsCommandBuffers[index]->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
-        std::vector<VkClearValue> clearColor = {{{{0.0, 0.0, 0.0, 1.0}}}};
+        std::vector<VkClearValue> clearColor(2);
+        clearColor[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
+        clearColor[1].depthStencil = {1.0, 0};
         graphicsCommandBuffers[index]->beginRenderPass(renderPass, frameBuffer, clearColor,
                                                        index, frameBuffer->getExtent(), {0, 0});
 
