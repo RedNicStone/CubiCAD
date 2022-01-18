@@ -4,7 +4,7 @@ var class_master_material =
     [ "getPipeline", "class_master_material.html#a011e052072c762e1b24159f914270db6", null ],
     [ "getPipelineLayout", "class_master_material.html#a7ba368be5a0fb7fabcccdea01db02314", null ],
     [ "getRenderPass", "class_master_material.html#ade1341446c1c2e231824fb7f3aa50751", null ],
-    [ "updateDescriptorSetLayouts", "class_master_material.html#ae3123901414c9c17da9949b39c9bb2bd", null ],
+    [ "updateDescriptorSetLayouts", "class_master_material.html#ac3ad1784dd8bb582223a60ac87edbf63", null ],
     [ "defaultParameters", "class_master_material.html#ac174656e76b31c0e77d2083764a254d5", null ],
     [ "device", "class_master_material.html#a110f2c3650366c684e272513906bd0fb", null ],
     [ "extent", "class_master_material.html#a71b6081e8971e33fe40ad2257c853962", null ],

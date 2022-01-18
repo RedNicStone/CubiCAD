@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('class_scene.html',''); initResizable()
 <div class="dynheader">
 Collaboration diagram for Scene:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene__coll__graph.svg" width="202" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene__coll__graph.svg" width="202" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -116,14 +116,16 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ae32c730b9796344b0c7f59897657d60c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae32c730b9796344b0c7f59897657d60c">setCamera</a> (const std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; &amp;pCamera)</td></tr>
+<tr class="separator:ae32c730b9796344b0c7f59897657d60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad267fb74ba045d85bbc38bafee0fc862"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ad267fb74ba045d85bbc38bafee0fc862">updateUBO</a> ()</td></tr>
 <tr class="separator:ad267fb74ba045d85bbc38bafee0fc862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb83e5cf158a38e7db0d42f4127676b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abb83e5cf158a38e7db0d42f4127676b7">submitInstance</a> (const std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &amp;meshInstance)</td></tr>
 <tr class="separator:abb83e5cf158a38e7db0d42f4127676b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad95b93a5f79949bb04f75133f8b476a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ad95b93a5f79949bb04f75133f8b476a4">collectRenderBuffers</a> ()</td></tr>
 <tr class="separator:ad95b93a5f79949bb04f75133f8b476a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb1796a968395d0d7a1de747bb957d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#afb1796a968395d0d7a1de747bb957d05">bakeMaterials</a> ()</td></tr>
-<tr class="separator:afb1796a968395d0d7a1de747bb957d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55c89f3cb667c2ccce9bf2f0ed63815e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a55c89f3cb667c2ccce9bf2f0ed63815e">bakeMaterials</a> (bool enableDepthStencil=false)</td></tr>
+<tr class="separator:a55c89f3cb667c2ccce9bf2f0ed63815e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18d9b02ed3e1d23471ddfb3c62b759b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a18d9b02ed3e1d23471ddfb3c62b759b2">bakeGraphicsBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;graphicsCommandBuffer)</td></tr>
 <tr class="separator:a18d9b02ed3e1d23471ddfb3c62b759b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adab1af0c8f8889f64a4ef22a61df4736"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#adab1af0c8f8889f64a4ef22a61df4736">getCamera</a> ()</td></tr>
@@ -133,8 +135,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aaa7e7f381899c591f4e19fb7c88685e7"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aaa7e7f381899c591f4e19fb7c88685e7">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pTransferQueue, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pGraphicsQueue)</td></tr>
-<tr class="separator:aaa7e7f381899c591f4e19fb7c88685e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26c330284ae1b40d737ac9360cfc61e3"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a26c330284ae1b40d737ac9360cfc61e3">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pTransferQueue, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pGraphicsQueue, const std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; &amp;pCamera)</td></tr>
+<tr class="separator:a26c330284ae1b40d737ac9360cfc61e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -221,8 +223,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="afb1796a968395d0d7a1de747bb957d05" name="afb1796a968395d0d7a1de747bb957d05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb1796a968395d0d7a1de747bb957d05">&#9670;&nbsp;</a></span>bakeMaterials()</h2>
+<a id="a55c89f3cb667c2ccce9bf2f0ed63815e" name="a55c89f3cb667c2ccce9bf2f0ed63815e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55c89f3cb667c2ccce9bf2f0ed63815e">&#9670;&nbsp;</a></span>bakeMaterials()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,7 +232,8 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void Scene::bakeMaterials </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enableDepthStencil</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -255,8 +258,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aaa7e7f381899c591f4e19fb7c88685e7" name="aaa7e7f381899c591f4e19fb7c88685e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa7e7f381899c591f4e19fb7c88685e7">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a26c330284ae1b40d737ac9360cfc61e3" name="a26c330284ae1b40d737ac9360cfc61e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c330284ae1b40d737ac9360cfc61e3">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -280,7 +283,13 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pGraphicsQueue</em>&#160;</td>
+          <td class="paramname"><em>pGraphicsQueue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pCamera</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -297,13 +306,13 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_aaa7e7f381899c591f4e19fb7c88685e7_cgraph.svg" width="464" height="271"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_a26c330284ae1b40d737ac9360cfc61e3_cgraph.svg" width="464" height="271"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_aaa7e7f381899c591f4e19fb7c88685e7_icgraph.svg" width="568" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_a26c330284ae1b40d737ac9360cfc61e3_icgraph.svg" width="568" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -330,6 +339,24 @@ Here is the caller graph for this function:</div>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae32c730b9796344b0c7f59897657d60c" name="ae32c730b9796344b0c7f59897657d60c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae32c730b9796344b0c7f59897657d60c">&#9670;&nbsp;</a></span>setCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::setCamera </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pCamera</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

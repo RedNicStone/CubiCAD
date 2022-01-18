@@ -67,10 +67,10 @@ var NAVTREEINDEX =
 [
 "_allocation_handler_8cpp.html",
 "class_fence.html",
-"class_queue_family_handler.html#a158df943c776e075f8172ebb47a91372",
-"class_vulkan_class.html#a914c142e905262efbd473aeb5bdfb0e8",
-"namespace_c_c_a_d___o_t.html#a80a3c44052e9878035bae01bb1cbc3b9aea6092271e5301e895329ee5776f5c0c",
-"struct_p_b_r_material_parameters.html#a01cae6fd7b9496f74cc33e43204bfcc7"
+"class_queue_family.html#a11365e7c4de8b027047d6d43254d4dfd",
+"class_voxel_fragment_stream_base.html#a41ad4edf67441b5436c29505bb5bed30",
+"namespace_c_c_a_d___o_t.html#a71c4bd0f4fd139ddb816c6b926a57de4a8193fba40f03fae3d02aaf56e4df1e17",
+"struct_camera_model.html#af85ad3201614b2f30633d9648ba090bb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

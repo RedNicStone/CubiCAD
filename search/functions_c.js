@@ -18,5 +18,5 @@ var searchData=
   ['morton3d_5f64_5fencode_15',['morton3D_64_encode',['../namespacelibmorton.html#a973910379db4076475eeedccb98cf19d',1,'libmorton']]],
   ['morton3d_5fdecode_16',['morton3D_decode',['../namespacelibmorton.html#a1542df660235f16d6ee589fd0d908916',1,'libmorton']]],
   ['morton3d_5fencode_17',['morton3D_encode',['../namespacelibmorton.html#afb4fdae007f02c9414e67939544f66a8',1,'libmorton']]],
-  ['move_18',['move',['../class_camera.html#a0fceb59627dfe7c2e0e19a2909b67552',1,'Camera']]]
+  ['move_18',['move',['../class_mesh_instance.html#a67648123dba5930bb7cc1aa84d68ea55',1,'MeshInstance::move()'],['../class_camera.html#a0fceb59627dfe7c2e0e19a2909b67552',1,'Camera::move()']]]
 ];

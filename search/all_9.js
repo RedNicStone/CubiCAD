@@ -7,7 +7,7 @@ var searchData=
   ['imageavailablesemaphores_4',['imageAvailableSemaphores',['../class_swap_chain.html#a0b87e6a2de9ed87f19c95e84322272c7',1,'SwapChain']]],
   ['imagecount_5',['imageCount',['../class_mandelbrot_app.html#a4380e7987c7a15849d4f8b217f381900',1,'MandelbrotApp::imageCount()'],['../class_swap_chain.html#a9cec969d1ad3d0f5ad81809f5eeb2c73',1,'SwapChain::imageCount()']]],
   ['imageformat_6',['imageFormat',['../class_swap_chain.html#a4ccdde4e5fa00e750533132c59bdce25',1,'SwapChain']]],
-  ['imagesinflight_7',['imagesInFlight',['../class_mandelbrot_app.html#a17718233bed6902be5ff04a094d3f43f',1,'MandelbrotApp::imagesInFlight()'],['../class_swap_chain.html#a11426fe4d871903dab6293a1ca783cfc',1,'SwapChain::imagesInFlight()']]],
+  ['imagesinflight_7',['imagesInFlight',['../class_swap_chain.html#a11426fe4d871903dab6293a1ca783cfc',1,'SwapChain::imagesInFlight()'],['../class_mandelbrot_app.html#a17718233bed6902be5ff04a094d3f43f',1,'MandelbrotApp::imagesInFlight()']]],
   ['imageview_8',['ImageView',['../class_image_view.html',1,'']]],
   ['imageview_2ecpp_9',['imageview.cpp',['../imageview_8cpp.html',1,'']]],
   ['imageview_2eh_10',['imageview.h',['../imageview_8h.html',1,'']]],
@@ -34,8 +34,7 @@ var searchData=
   ['instancebuffer_31',['instanceBuffer',['../class_scene.html#acc0e555c9f313e130de8888fcb299274',1,'Scene']]],
   ['instancebufferdata_32',['instanceBufferData',['../class_scene.html#ab340f781e639017d5cd47c0e45e4a74d',1,'Scene']]],
   ['instancedata_33',['InstanceData',['../struct_instance_data.html',1,'']]],
-  ['instancedata_34',['instanceData',['../class_mesh_instance.html#aaa2dc02b3ba0dfacb2c54c849e9ef869',1,'MeshInstance']]],
-  ['instances_35',['instances',['../class_scene.html#a25dfe61208f84baef0549c9986cc7bc4',1,'Scene']]],
-  ['iscomplete_36',['isComplete',['../struct_queue_family_indices.html#a15425ce6a9efb2a9f6516babef8e6391',1,'QueueFamilyIndices']]],
-  ['isleaf_37',['isLeaf',['../class_voxel_codec_octree_base.html#aecdfa7853c6e9c3571ac7566f72ed892',1,'VoxelCodecOctreeBase::isLeaf()'],['../class_voxel_codec_sparse_octree.html#a8b0c081bbbdedeb307d0b91c0999f3a6',1,'VoxelCodecSparseOctree::isLeaf()']]]
+  ['instances_34',['instances',['../class_scene.html#a25dfe61208f84baef0549c9986cc7bc4',1,'Scene']]],
+  ['iscomplete_35',['isComplete',['../struct_queue_family_indices.html#a15425ce6a9efb2a9f6516babef8e6391',1,'QueueFamilyIndices']]],
+  ['isleaf_36',['isLeaf',['../class_voxel_codec_octree_base.html#aecdfa7853c6e9c3571ac7566f72ed892',1,'VoxelCodecOctreeBase::isLeaf()'],['../class_voxel_codec_sparse_octree.html#a8b0c081bbbdedeb307d0b91c0999f3a6',1,'VoxelCodecSparseOctree::isLeaf()']]]
 ];

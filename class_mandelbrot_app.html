@@ -179,6 +179,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a9adbc757b127cc20ef8fe983bd29ebbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ba89ddb4a53a2140e571a8178843f34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a5ba89ddb4a53a2140e571a8178843f34">mainLoop</a> ()</td></tr>
 <tr class="separator:a5ba89ddb4a53a2140e571a8178843f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6bdb42f4466ab66b21086106d6468ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#af6bdb42f4466ab66b21086106d6468ba">updateObjects</a> ()</td></tr>
+<tr class="separator:af6bdb42f4466ab66b21086106d6468ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a733620a6533fb25a6ffa309886b74904"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a733620a6533fb25a6ffa309886b74904">recreateSwapChain</a> ()</td></tr>
 <tr class="separator:a733620a6533fb25a6ffa309886b74904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c4bdbc240a35e9cfcc4d7c6d3f15982"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a7c4bdbc240a35e9cfcc4d7c6d3f15982">createInstance</a> ()</td></tr>
@@ -287,14 +289,22 @@ Private Attributes</h2></td></tr>
 <tr class="separator:acba5fa7e30898747270083bd9fe28b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17718233bed6902be5ff04a094d3f43f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a17718233bed6902be5ff04a094d3f43f">imagesInFlight</a></td></tr>
 <tr class="separator:a17718233bed6902be5ff04a094d3f43f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89d98461c3508ff814f247440ba529e9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a89d98461c3508ff814f247440ba529e9">depthImage</a></td></tr>
+<tr class="separator:a89d98461c3508ff814f247440ba529e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f9b0d992dec4ab70076d1d16e8ad317"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a5f9b0d992dec4ab70076d1d16e8ad317">depthImageView</a></td></tr>
+<tr class="separator:a5f9b0d992dec4ab70076d1d16e8ad317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf621f1f9c14c07725bc3af1a843214e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#abf621f1f9c14c07725bc3af1a843214e">scene</a></td></tr>
 <tr class="separator:abf621f1f9c14c07725bc3af1a843214e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f5b878e7208691e01d501e9094157dd"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_model_loader.html">ModelLoader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a6f5b878e7208691e01d501e9094157dd">modelLoader</a></td></tr>
 <tr class="separator:a6f5b878e7208691e01d501e9094157dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed39aac51affd7a4dfedbdf98ae1dbcd"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd">model</a></td></tr>
 <tr class="separator:aed39aac51affd7a4dfedbdf98ae1dbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8da43bd1c3f4f897dec7bf983c77c27"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#aa8da43bd1c3f4f897dec7bf983c77c27">object</a></td></tr>
-<tr class="separator:aa8da43bd1c3f4f897dec7bf983c77c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df3cc387c42f839a2abeecdf904cad7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a3df3cc387c42f839a2abeecdf904cad7">objects</a></td></tr>
+<tr class="separator:a3df3cc387c42f839a2abeecdf904cad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d73b6c5cd7345ea8ed16c5a761bced9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a8d73b6c5cd7345ea8ed16c5a761bced9">camera</a></td></tr>
+<tr class="separator:a8d73b6c5cd7345ea8ed16c5a761bced9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b183bf75c2fe14f32015215d23fd989"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#a5b183bf75c2fe14f32015215d23fd989">mouseCaptured</a> = false</td></tr>
+<tr class="separator:a5b183bf75c2fe14f32015215d23fd989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed2337aa2c13aa4f50d19fe0e21e6a08"><td class="memItemLeft" align="right" valign="top">glm::dvec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mandelbrot_app.html#aed2337aa2c13aa4f50d19fe0e21e6a08">prevMousePos</a></td></tr>
 <tr class="separator:aed2337aa2c13aa4f50d19fe0e21e6a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -1169,7 +1179,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mandelbrot_app_ab4ca51db62e7b50d59a46e83a7fb4a9e_cgraph.svg" width="402" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mandelbrot_app_ab4ca51db62e7b50d59a46e83a7fb4a9e_cgraph.svg" width="402" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -1206,7 +1216,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mandelbrot_app_ab4ca51db62e7b50d59a46e83a7fb4a9e_cgraph.svg" width="402" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mandelbrot_app_ab4ca51db62e7b50d59a46e83a7fb4a9e_cgraph.svg" width="402" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -2091,6 +2101,37 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="af6bdb42f4466ab66b21086106d6468ba" name="af6bdb42f4466ab66b21086106d6468ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6bdb42f4466ab66b21086106d6468ba">&#9670;&nbsp;</a></span>updateObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MandelbrotApp::updateObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mandelbrot_app_af6bdb42f4466ab66b21086106d6468ba_icgraph.svg" width="430" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a1ef118b77009ffff5b744dfdcd2a81a7" name="a1ef118b77009ffff5b744dfdcd2a81a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ef118b77009ffff5b744dfdcd2a81a7">&#9670;&nbsp;</a></span>updateUniformBuffer()</h2>
 
@@ -2180,6 +2221,28 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8d73b6c5cd7345ea8ed16c5a761bced9" name="a8d73b6c5cd7345ea8ed16c5a761bced9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d73b6c5cd7345ea8ed16c5a761bced9">&#9670;&nbsp;</a></span>camera</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_camera.html">Camera</a>&gt; MandelbrotApp::camera</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a406946c5175595d2cc9c91b83a31b46d" name="a406946c5175595d2cc9c91b83a31b46d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a406946c5175595d2cc9c91b83a31b46d">&#9670;&nbsp;</a></span>commandPool</h2>
 
@@ -2257,6 +2320,50 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">size_t MandelbrotApp::currentFrameIndex = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89d98461c3508ff814f247440ba529e9" name="a89d98461c3508ff814f247440ba529e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89d98461c3508ff814f247440ba529e9">&#9670;&nbsp;</a></span>depthImage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_image.html">Image</a>&gt; MandelbrotApp::depthImage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f9b0d992dec4ab70076d1d16e8ad317" name="a5f9b0d992dec4ab70076d1d16e8ad317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f9b0d992dec4ab70076d1d16e8ad317">&#9670;&nbsp;</a></span>depthImageView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_image_view.html">ImageView</a>&gt; MandelbrotApp::depthImageView</td>
         </tr>
       </table>
   </td>
@@ -2598,8 +2705,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aa8da43bd1c3f4f897dec7bf983c77c27" name="aa8da43bd1c3f4f897dec7bf983c77c27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8da43bd1c3f4f897dec7bf983c77c27">&#9670;&nbsp;</a></span>object</h2>
+<a id="a5b183bf75c2fe14f32015215d23fd989" name="a5b183bf75c2fe14f32015215d23fd989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b183bf75c2fe14f32015215d23fd989">&#9670;&nbsp;</a></span>mouseCaptured</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2608,7 +2715,29 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_mesh_instance.html">MeshInstance</a>&gt; MandelbrotApp::object</td>
+          <td class="memname">bool MandelbrotApp::mouseCaptured = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3df3cc387c42f839a2abeecdf904cad7" name="a3df3cc387c42f839a2abeecdf904cad7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df3cc387c42f839a2abeecdf904cad7">&#9670;&nbsp;</a></span>objects</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_mesh_instance.html">MeshInstance</a>&gt; &gt; MandelbrotApp::objects</td>
         </tr>
       </table>
   </td>

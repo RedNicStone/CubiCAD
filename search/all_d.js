@@ -11,7 +11,7 @@ var searchData=
   ['mapped_8',['mapped',['../class_dynamic_buffer.html#aea2c28b8a8e4e7330d592c929e937053',1,'DynamicBuffer']]],
   ['mappedpage_9',['MappedPage',['../struct_virtual_stack_allocation_1_1_mapped_page.html',1,'VirtualStackAllocation']]],
   ['mappedpages_10',['mappedPages',['../class_virtual_stack_allocation.html#aa2dc0e19e8c33aad7d4fb613e00859b1',1,'VirtualStackAllocation']]],
-  ['mastermaterial_11',['masterMaterial',['../class_material.html#ae684ce8923164f78dc57f725afb57d01',1,'Material::masterMaterial()'],['../class_material_library.html#a7e9a6adfbcb85747941f58b537036a2c',1,'MaterialLibrary::masterMaterial()']]],
+  ['mastermaterial_11',['masterMaterial',['../class_material_library.html#a7e9a6adfbcb85747941f58b537036a2c',1,'MaterialLibrary::masterMaterial()'],['../class_material.html#ae684ce8923164f78dc57f725afb57d01',1,'Material::masterMaterial()']]],
   ['mastermaterial_12',['MasterMaterial',['../class_master_material.html',1,'']]],
   ['mastermaterial_2ecpp_13',['mastermaterial.cpp',['../mastermaterial_8cpp.html',1,'']]],
   ['mastermaterial_2eh_14',['mastermaterial.h',['../mastermaterial_8h.html',1,'']]],
@@ -38,8 +38,8 @@ var searchData=
   ['memory_5fallocation_2ecpp_35',['memory_allocation.cpp',['../memory__allocation_8cpp.html',1,'']]],
   ['memoryptr_36',['memoryPtr',['../struct_voxel_codec_octree_base_1_1_node_stack_element.html#ad1aa4e6191775ea03299f22a5ebe6c97',1,'VoxelCodecOctreeBase::NodeStackElement']]],
   ['memoryusage_37',['memoryUsage',['../class_dynamic_buffer.html#a9157aef8b767e07677fa618069028bb5',1,'DynamicBuffer']]],
-  ['mesh_38',['mesh',['../class_mesh_instance.html#a7e26897cd72ba054993ef140c5c8fd55',1,'MeshInstance']]],
-  ['mesh_39',['Mesh',['../class_mesh.html',1,'']]],
+  ['mesh_38',['Mesh',['../class_mesh.html',1,'']]],
+  ['mesh_39',['mesh',['../class_mesh_instance.html#a7e26897cd72ba054993ef140c5c8fd55',1,'MeshInstance']]],
   ['mesh_2ecpp_40',['mesh.cpp',['../mesh_8cpp.html',1,'']]],
   ['mesh_2eh_41',['mesh.h',['../mesh_8h.html',1,'']]],
   ['meshinstance_42',['MeshInstance',['../class_mesh_instance.html',1,'']]],
@@ -63,5 +63,6 @@ var searchData=
   ['morton3d_5f64_5fencode_60',['morton3D_64_encode',['../namespacelibmorton.html#a973910379db4076475eeedccb98cf19d',1,'libmorton']]],
   ['morton3d_5fdecode_61',['morton3D_decode',['../namespacelibmorton.html#a1542df660235f16d6ee589fd0d908916',1,'libmorton']]],
   ['morton3d_5fencode_62',['morton3D_encode',['../namespacelibmorton.html#afb4fdae007f02c9414e67939544f66a8',1,'libmorton']]],
-  ['move_63',['move',['../class_camera.html#a0fceb59627dfe7c2e0e19a2909b67552',1,'Camera']]]
+  ['mousecaptured_63',['mouseCaptured',['../class_mandelbrot_app.html#a5b183bf75c2fe14f32015215d23fd989',1,'MandelbrotApp']]],
+  ['move_64',['move',['../class_mesh_instance.html#a67648123dba5930bb7cc1aa84d68ea55',1,'MeshInstance::move()'],['../class_camera.html#a0fceb59627dfe7c2e0e19a2909b67552',1,'Camera::move()']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['camera_0',['camera',['../class_scene.html#a14a8fe9bd02917832c7e3a321fdc1171',1,'Scene']]],
+  ['camera_0',['camera',['../class_mandelbrot_app.html#a8d73b6c5cd7345ea8ed16c5a761bced9',1,'MandelbrotApp::camera()'],['../class_scene.html#a14a8fe9bd02917832c7e3a321fdc1171',1,'Scene::camera()']]],
   ['cameramode_1',['cameraMode',['../struct_camera_model.html#ad25da324a5eb18bd671218a5b8263a0d',1,'CameraModel']]],
   ['capabilities_2',['capabilities',['../class_swap_chain.html#a1380d5040bd70d313213ab81461a727a',1,'SwapChain::capabilities()'],['../struct_swap_chain_support_details.html#a8918f9f5496b29a701e8d094aa455b2a',1,'SwapChainSupportDetails::capabilities()']]],
   ['channel_3',['channel',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_debug.html#ae7e17e4aa2b5ffc58cd5db961b84c406',1,'CCAD_OT::OtMatInfoDebug']]],
