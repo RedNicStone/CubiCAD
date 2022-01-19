@@ -242,7 +242,7 @@ class MandelbrotApp {
             mouseCaptured = true;
         }
         if (mouseCaptured) {
-            auto moveSpeed = 0.002f;
+            auto moveSpeed = 0.02f;
             if (glfwGetKey(window->getWindow(), GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
                 moveSpeed *= 3;
             }
@@ -269,9 +269,9 @@ class MandelbrotApp {
         scene->updateUBO();
 
         for (const auto& object : objects) {
-            object->move((glm::cross(object->getPosition(), {0, 1, 0}) - object->getPosition() * glm::vec3(0.001f)
-            ) *
-            glm::vec3(0.003f));
+            object->setPosition(glm::normalize(glm::cross(object->getPosition(),
+                                                          {0, 1, 0}) * glm::vec3(0.003f)
+                                                   + object->getPosition()) * glm::vec3(20));
         }
     }
 
