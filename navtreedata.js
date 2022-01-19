@@ -68,9 +68,9 @@ var NAVTREEINDEX =
 "_allocation_handler_8cpp.html",
 "class_fence.html",
 "class_queue_family.html#a11365e7c4de8b027047d6d43254d4dfd",
-"class_voxel_fragment_stream_base.html#a41ad4edf67441b5436c29505bb5bed30",
-"namespace_c_c_a_d___o_t.html#a71c4bd0f4fd139ddb816c6b926a57de4a8193fba40f03fae3d02aaf56e4df1e17",
-"struct_camera_model.html#af85ad3201614b2f30633d9648ba090bb"
+"class_voxel_fragment_stream_base.html#a1cfe0362fe9dbeb1389c02a82c7a2fcb",
+"namespace_c_c_a_d___o_t.html#a53a28821f06868f78656b043694f47bea7c1d1a286d9f9b28426fcce6f6722316",
+"struct_c_c_a_d___o_t_1_1_vertex_member_check.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

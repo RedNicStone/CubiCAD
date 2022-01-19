@@ -100,6 +100,7 @@ var annotated_dup =
     [ "SwapChainSupportDetails", "struct_swap_chain_support_details.html", "struct_swap_chain_support_details" ],
     [ "TesselationControlShader", "class_tesselation_control_shader.html", null ],
     [ "TesselationEvaluationShader", "class_tesselation_evaluation_shader.html", null ],
+    [ "UIRenderer", "class_u_i_renderer.html", "class_u_i_renderer" ],
     [ "UniformBuffer", "class_uniform_buffer.html", "class_uniform_buffer" ],
     [ "Utils", "class_utils.html", null ],
     [ "vec_abs", "classvec__abs.html", "classvec__abs" ],
