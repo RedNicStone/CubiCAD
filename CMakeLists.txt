@@ -142,7 +142,7 @@ endif()
 find_package(Vulkan REQUIRED FATAL_ERROR)
 
 
-# find glfw
+# configure glfw
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
@@ -163,6 +163,9 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/tinyobjloader)
 
 # add stb
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/stb-cmake)
+
+# add Dear ImGUI
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib)
 
 # add documentation targets
 add_subdirectory(${CMAKE_SOURCE_DIR}/docs)
@@ -221,17 +224,7 @@ target_include_directories(
         PUBLIC libmorton
         PUBLIC tinyobjloader
         PUBLIC stb
-)
-
-target_link_directories(
-        CubiCAD
-        PUBLIC glfw
-        PUBLIC Vulkan::Vulkan
-        PUBLIC VulkanMemoryAllocator
-        PUBLIC Dexode::EventBus
-        PUBLIC libmorton
-        PUBLIC tinyobjloader
-        PUBLIC stb
+        PUBLIC imgui
 )
 
 target_link_libraries(
@@ -243,6 +236,7 @@ target_link_libraries(
         Dexode::EventBus
         libmorton
         tinyobjloader
+        imgui
 )
 
 # make

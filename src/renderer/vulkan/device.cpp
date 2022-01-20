@@ -62,6 +62,8 @@ std::shared_ptr<Device> Device::create(const std::shared_ptr<PhysicalDevice> &ph
 }
 
 Device::~Device() {
+    vmaDestroyAllocator(allocator);
+
     vkDestroyDevice(handle, nullptr);
 }
 
