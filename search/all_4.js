@@ -33,7 +33,7 @@ var searchData=
   ['deviceextensions_30',['deviceExtensions',['../vulkan__voxel__rasterizer__3_8cpp.html#a778fa44773f3b6f713038d7d9f01e054',1,'deviceExtensions():&#160;vulkan_voxel_rasterizer_3.cpp'],['../vulkan__voxel__rasterizer__2_8cpp.html#a778fa44773f3b6f713038d7d9f01e054',1,'deviceExtensions():&#160;vulkan_voxel_rasterizer_2.cpp']]],
   ['devicesize_31',['deviceSize',['../class_buffer.html#a37679c9bdf3efb2560255eb8d2b3fcf7',1,'Buffer']]],
   ['diffuse_32',['diffuse',['../struct_p_b_r_material_parameters.html#aea4624b12f8a64377739da4987b19417',1,'PBRMaterialParameters']]],
-  ['draw_33',['draw',['../class_command_buffer.html#a78662ba08a6d36b572fa781a76e3bd36',1,'CommandBuffer']]],
+  ['draw_33',['draw',['../class_u_i_renderer.html#a06b0c6122b6c09165525a75e5fcac012',1,'UIRenderer::draw()'],['../class_command_buffer.html#a78662ba08a6d36b572fa781a76e3bd36',1,'CommandBuffer::draw()']]],
   ['drawcalllength_34',['drawCallLength',['../struct_scene_1_1_indirect_draw_call.html#a1cc2add65ddee137a07b5cbb5a45a9ed',1,'Scene::IndirectDrawCall']]],
   ['drawcalloffset_35',['drawCallOffset',['../struct_scene_1_1_indirect_draw_call.html#a6b3b7fa0aa71a46087abd997fd315b13',1,'Scene::IndirectDrawCall']]],
   ['drawframe_36',['drawFrame',['../class_mandelbrot_app.html#ab3ce0f5ab6d2fb792b5217ceb4ffdc2d',1,'MandelbrotApp::drawFrame()'],['../class_mandelbrot_app.html#ab3ce0f5ab6d2fb792b5217ceb4ffdc2d',1,'MandelbrotApp::drawFrame()']]],

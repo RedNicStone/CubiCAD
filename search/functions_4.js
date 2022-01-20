@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['draw_0',['draw',['../class_command_buffer.html#a78662ba08a6d36b572fa781a76e3bd36',1,'CommandBuffer']]],
+  ['draw_0',['draw',['../class_u_i_renderer.html#a06b0c6122b6c09165525a75e5fcac012',1,'UIRenderer::draw()'],['../class_command_buffer.html#a78662ba08a6d36b572fa781a76e3bd36',1,'CommandBuffer::draw()']]],
   ['drawframe_1',['drawFrame',['../class_mandelbrot_app.html#ab3ce0f5ab6d2fb792b5217ceb4ffdc2d',1,'MandelbrotApp::drawFrame()'],['../class_mandelbrot_app.html#ab3ce0f5ab6d2fb792b5217ceb4ffdc2d',1,'MandelbrotApp::drawFrame()']]],
   ['drawindexed_2',['drawIndexed',['../class_command_buffer.html#aa521acf82918f7df7c9ea65226c6bf7e',1,'CommandBuffer']]],
   ['drawindexedindirect_3',['drawIndexedIndirect',['../class_command_buffer.html#a558608a850e025c4e5a283e4ec11febf',1,'CommandBuffer']]],

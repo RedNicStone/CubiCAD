@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_u_i_renderer.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_u_i_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">UIRenderer Class Reference</div></div>
@@ -102,66 +103,58 @@ $(document).ready(function(){initNavTree('class_u_i_renderer.html',''); initResi
 <div class="dynheader">
 Collaboration diagram for UIRenderer:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_u_i_renderer__coll__graph.svg" width="106" height="103"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_u_i_renderer__coll__graph.svg" width="126" height="191"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a83b820d16e0e541f63058f9f70e1b8a9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#a83b820d16e0e541f63058f9f70e1b8a9">create</a> (std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; graphicsQueue, std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; transferQueue, std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; device)</td></tr>
-<tr class="separator:a83b820d16e0e541f63058f9f70e1b8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06b0c6122b6c09165525a75e5fcac012"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#a06b0c6122b6c09165525a75e5fcac012">draw</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;graphicsCommandBuffer)</td></tr>
+<tr class="separator:a06b0c6122b6c09165525a75e5fcac012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f12bcba5c648597e3dc14c26756a6b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#a1f12bcba5c648597e3dc14c26756a6b9">setHidden</a> (bool hide)</td></tr>
+<tr class="separator:a1f12bcba5c648597e3dc14c26756a6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef9c9dcca061e5d0f83a48115c9c63f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#acef9c9dcca061e5d0f83a48115c9c63f">getHidden</a> () const</td></tr>
+<tr class="separator:acef9c9dcca061e5d0f83a48115c9c63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b28c33842e6b163d48318e7c5bb372"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#a53b28c33842e6b163d48318e7c5bb372">~UIRenderer</a> ()</td></tr>
+<tr class="separator:a53b28c33842e6b163d48318e7c5bb372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a22da1db7697acd6dc600919d804eda69"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#a22da1db7697acd6dc600919d804eda69">create</a> (const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;graphicsQueue, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;transferPool, const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;renderPass, const std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt; &amp;window, uint32_t imageCount)</td></tr>
+<tr class="separator:a22da1db7697acd6dc600919d804eda69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac8d680ed9737849462c758bb0fd3ee7"><td class="memItemLeft" align="right" valign="top">static ImGuiIO &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#aac8d680ed9737849462c758bb0fd3ee7">getIO</a> ()</td></tr>
+<tr class="separator:aac8d680ed9737849462c758bb0fd3ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ad0c5e8a4d85993af1f82be4732175474"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool.html">DescriptorPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#ad0c5e8a4d85993af1f82be4732175474">ImGUIPool</a></td></tr>
 <tr class="separator:ad0c5e8a4d85993af1f82be4732175474"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafe5c4cbb02a1d66120005f151e15e9d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#aafe5c4cbb02a1d66120005f151e15e9d">renderPass</a></td></tr>
-<tr class="separator:aafe5c4cbb02a1d66120005f151e15e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5581e6b2f15de2f3f65ff8b6fb1c53f"><td class="memItemLeft" align="right" valign="top">ImGuiContext *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#ab5581e6b2f15de2f3f65ff8b6fb1c53f">context</a> = nullptr</td></tr>
+<tr class="separator:ab5581e6b2f15de2f3f65ff8b6fb1c53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4415731714f87670aad9dcadfeb19590"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_renderer.html#a4415731714f87670aad9dcadfeb19590">hideUI</a> = false</td></tr>
+<tr class="separator:a4415731714f87670aad9dcadfeb19590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a83b820d16e0e541f63058f9f70e1b8a9" name="a83b820d16e0e541f63058f9f70e1b8a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83b820d16e0e541f63058f9f70e1b8a9">&#9670;&nbsp;</a></span>create()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a53b28c33842e6b163d48318e7c5bb372" name="a53b28c33842e6b163d48318e7c5bb372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b28c33842e6b163d48318e7c5bb372">&#9670;&nbsp;</a></span>~UIRenderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt; UIRenderer::create </td>
+          <td class="memname">UIRenderer::~UIRenderer </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td>
-          <td class="paramname"><em>graphicsQueue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td>
-          <td class="paramname"><em>transferQueue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td>
-          <td class="paramname"><em>device</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_u_i_renderer_a83b820d16e0e541f63058f9f70e1b8a9_cgraph.svg" width="339" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad0c5e8a4d85993af1f82be4732175474" name="ad0c5e8a4d85993af1f82be4732175474"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0c5e8a4d85993af1f82be4732175474">&#9670;&nbsp;</a></span>ImGUIPool</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a22da1db7697acd6dc600919d804eda69" name="a22da1db7697acd6dc600919d804eda69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22da1db7697acd6dc600919d804eda69">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +163,166 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_pool.html">DescriptorPool</a>&gt; UIRenderer::ImGUIPool</td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt; UIRenderer::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>graphicsQueue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>transferPool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>renderPass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>imageCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_u_i_renderer_a22da1db7697acd6dc600919d804eda69_cgraph.svg" width="347" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_u_i_renderer_a22da1db7697acd6dc600919d804eda69_icgraph.svg" width="575" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a06b0c6122b6c09165525a75e5fcac012" name="a06b0c6122b6c09165525a75e5fcac012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b0c6122b6c09165525a75e5fcac012">&#9670;&nbsp;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIRenderer::draw </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>graphicsCommandBuffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acef9c9dcca061e5d0f83a48115c9c63f" name="acef9c9dcca061e5d0f83a48115c9c63f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acef9c9dcca061e5d0f83a48115c9c63f">&#9670;&nbsp;</a></span>getHidden()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UIRenderer::getHidden </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac8d680ed9737849462c758bb0fd3ee7" name="aac8d680ed9737849462c758bb0fd3ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac8d680ed9737849462c758bb0fd3ee7">&#9670;&nbsp;</a></span>getIO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ImGuiIO &amp; UIRenderer::getIO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_u_i_renderer_aac8d680ed9737849462c758bb0fd3ee7_icgraph.svg" width="604" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a1f12bcba5c648597e3dc14c26756a6b9" name="a1f12bcba5c648597e3dc14c26756a6b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f12bcba5c648597e3dc14c26756a6b9">&#9670;&nbsp;</a></span>setHidden()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIRenderer::setHidden </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>hide</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab5581e6b2f15de2f3f65ff8b6fb1c53f" name="ab5581e6b2f15de2f3f65ff8b6fb1c53f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5581e6b2f15de2f3f65ff8b6fb1c53f">&#9670;&nbsp;</a></span>context</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ImGuiContext* UIRenderer::context = nullptr</td>
         </tr>
       </table>
   </td>
@@ -182,8 +334,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aafe5c4cbb02a1d66120005f151e15e9d" name="aafe5c4cbb02a1d66120005f151e15e9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafe5c4cbb02a1d66120005f151e15e9d">&#9670;&nbsp;</a></span>renderPass</h2>
+<a id="a4415731714f87670aad9dcadfeb19590" name="a4415731714f87670aad9dcadfeb19590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4415731714f87670aad9dcadfeb19590">&#9670;&nbsp;</a></span>hideUI</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +344,29 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_render_pass.html">RenderPass</a>&gt; UIRenderer::renderPass</td>
+          <td class="memname">bool UIRenderer::hideUI = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0c5e8a4d85993af1f82be4732175474" name="ad0c5e8a4d85993af1f82be4732175474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0c5e8a4d85993af1f82be4732175474">&#9670;&nbsp;</a></span>ImGUIPool</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_pool.html">DescriptorPool</a>&gt; UIRenderer::ImGUIPool</td>
         </tr>
       </table>
   </td>

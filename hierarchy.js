@@ -30,6 +30,7 @@ var hierarchy =
     [ "ModelLoader", "class_model_loader.html", null ],
     [ "VoxelCodecSparseOctree< Types >::Node", "struct_voxel_codec_sparse_octree_1_1_node.html", null ],
     [ "VoxelCodecOctreeBase::NodeStackElement", "struct_voxel_codec_octree_base_1_1_node_stack_element.html", null ],
+    [ "ObjectSelector", "class_object_selector.html", null ],
     [ "optional< T >", "structoptional.html", null ],
     [ "CCAD_OT::OtConstructOctreeInfo", "struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html", null ],
     [ "CCAD_OT::OtGeometryCompiler< T_index, T_vertex >", "class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html", null ],
