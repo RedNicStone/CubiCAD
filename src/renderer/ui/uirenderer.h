@@ -7,16 +7,33 @@
 
 #include "../vulkan/descriptorset.h"
 #include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_vulkan.h>
+#include <imgui_internal.h>
+
 
 class UIRenderer {
   private:
     std::shared_ptr<DescriptorPool> ImGUIPool;
 
-    std::shared_ptr<RenderPass> renderPass;
+    ImGuiContext* context = nullptr;
+    bool hideUI = false;
 
   public:
-    std::shared_ptr<UIRenderer> create(std::shared_ptr<Queue> graphicsQueue, std::shared_ptr<Queue> transferQueue,
-                                       std::shared_ptr<Device> device);
+    static std::shared_ptr<UIRenderer> create(const std::shared_ptr<Queue>& graphicsQueue,
+                                       const std::shared_ptr<CommandPool>& transferPool,
+                                       const std::shared_ptr<RenderPass>& renderPass,
+                                       const std::shared_ptr<Window>& window,
+                                       uint32_t imageCount);
+
+    void draw(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffer);
+
+    void setHidden(bool hide);
+
+    static ImGuiIO& getIO() { return ImGui::GetIO(); }
+    [[nodiscard]] bool getHidden() const { return hideUI; }
+
+    ~UIRenderer();
 };
 
 #endif //CUBICAD_UIRENDERER_H

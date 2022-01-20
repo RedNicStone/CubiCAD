@@ -7,8 +7,13 @@
 #include <utility>
 
 
-std::shared_ptr<UIRenderer> UIRenderer::create(std::shared_ptr<Queue> graphicsQueue, std::shared_ptr<Queue> transferQueue,
-                                               std::shared_ptr<Device> device) {
+std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue>& graphicsQueue,
+                                               const std::shared_ptr<CommandPool>& transferPool,
+                                               const std::shared_ptr<RenderPass>& renderPass,
+                                               const std::shared_ptr<Window>& window,
+                                               uint32_t imageCount) {
+    auto uiRenderer = std::make_shared<UIRenderer>();
+
     std::vector<VkDescriptorPoolSize> poolSizes =
         {
             { VK_DESCRIPTOR_TYPE_SAMPLER, 1000 },
@@ -24,7 +29,67 @@ std::shared_ptr<UIRenderer> UIRenderer::create(std::shared_ptr<Queue> graphicsQu
             { VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000 }
         };
 
-    ImGUIPool = DescriptorPool::create(device, poolSizes, 1000);
+    uiRenderer->ImGUIPool = DescriptorPool::create(renderPass->getDevice(), poolSizes, 1000);
 
-    ImGui::CreateContext();
+    IMGUI_CHECKVERSION();
+    uiRenderer->context = ImGui::CreateContext();
+
+    ImGui::StyleColorsDark();
+
+    ImGui_ImplGlfw_InitForVulkan(window->getWindow(), true);
+
+    ImGui_ImplVulkan_InitInfo initInfo{};
+    initInfo.Instance = renderPass->getDevice()->getPhysicalDevice()->getInstance()->getHandle();
+    initInfo.PhysicalDevice = renderPass->getDevice()->getPhysicalDevice()->getHandle();
+    initInfo.Device = renderPass->getDevice()->getHandle();
+    initInfo.QueueFamily = graphicsQueue->getQueueFamilyIndex();
+    initInfo.Queue = graphicsQueue->getHandle();
+    initInfo.DescriptorPool = uiRenderer->ImGUIPool->getHandle();
+    initInfo.MinImageCount = imageCount;
+    initInfo.ImageCount = imageCount;
+    initInfo.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
+
+    ImGui_ImplVulkan_Init(&initInfo, renderPass->getHandle());
+
+    auto transferBuffer = CommandBuffer::create(transferPool);
+    transferBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
+    ImGui_ImplVulkan_CreateFontsTexture(transferBuffer->getHandle());
+    transferBuffer->endCommandBuffer();
+
+    std::vector<uint32_t> accessingQueues = { transferPool->getQueueFamily()->getQueueFamilyIndex() };
+    VkSubmitInfo submitInfo{};
+    submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+    submitInfo.commandBufferCount = 1;
+    submitInfo.pCommandBuffers = transferBuffer->getHandlePtr();
+
+    transferPool->getQueue()->submitCommandBuffer({ submitInfo });
+    transferPool->getQueue()->waitForIdle();
+
+    ImGui_ImplVulkan_DestroyFontUploadObjects();
+
+    return uiRenderer;
+}
+
+void UIRenderer::draw(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffer) {
+    ImGui_ImplVulkan_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+
+    if (!hideUI) {
+        ImGui::ShowDemoWindow();
+    }
+
+    ImGui::Render();
+
+    ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), graphicsCommandBuffer->getHandle());
+}
+
+UIRenderer::~UIRenderer() {
+    ImGui_ImplVulkan_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+}
+
+void UIRenderer::setHidden(bool hide) {
+    hideUI = hide;
 }

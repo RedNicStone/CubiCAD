@@ -34,6 +34,7 @@
 #include "../renderer/vulkan/swapchain.h"
 #include "../renderer/modelloader.h"
 #include "../renderer/scene.h"
+#include "../renderer/ui/uirenderer.h"
 
 
 using ComplexNum = std::pair<long double, long double>;
@@ -95,6 +96,7 @@ class MandelbrotApp {
     std::vector<std::shared_ptr<MeshInstance>> objects;
 
     std::shared_ptr<Camera> camera;
+    std::shared_ptr<UIRenderer> UI;
 
     bool mouseCaptured = false;
     uint32_t imageCount;
@@ -129,7 +131,12 @@ class MandelbrotApp {
         createSyncObjects();
         loadModels();
         createScene();
+        createUI();
         //submitEventBusFunctions();
+    }
+
+    void createUI() {
+        UI = UIRenderer::create(graphicsQueue, commandPool, renderPass, window, imageCount);
     }
 
     void loadModels() {
@@ -226,6 +233,8 @@ class MandelbrotApp {
     }
 
     void updateObjects() {
+        auto& io = UIRenderer::getIO();
+
         glm::dvec2 currentMousePos;
         glfwGetCursorPos(window->getWindow(), reinterpret_cast<double *>(&currentMousePos.x),
                          reinterpret_cast<double *>(&currentMousePos.y));
@@ -236,10 +245,13 @@ class MandelbrotApp {
         if (mouseCaptured && glfwGetKey(window->getWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
             glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
             mouseCaptured = false;
+            UI->setHidden(false);
         }
-        if (!mouseCaptured && glfwGetMouseButton(window->getWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+        if (!mouseCaptured && !io.WantCaptureMouse &&
+                glfwGetMouseButton(window->getWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
             glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
             mouseCaptured = true;
+            UI->setHidden(true);
         }
         if (mouseCaptured) {
             auto moveSpeed = 0.02f;
@@ -465,6 +477,8 @@ class MandelbrotApp {
     }
 
     void drawFrame() {
+        glfwPollEvents();
+
         swapChain->acquireNextFrame({device});
         //ImGui::Render();
         uint32_t index = swapChain->getCurrentImageIndex();
@@ -483,6 +497,7 @@ class MandelbrotApp {
                                                        index, frameBuffer->getExtent(), {0, 0});
 
         scene->bakeGraphicsBuffer(graphicsCommandBuffers[index]);
+        UI->draw(graphicsCommandBuffers[index]);
 
         graphicsCommandBuffers[index]->endRenderPass();
         graphicsCommandBuffers[index]->endCommandBuffer();

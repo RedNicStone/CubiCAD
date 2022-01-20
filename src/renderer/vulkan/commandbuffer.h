@@ -34,7 +34,7 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
 
   public:
     static std::shared_ptr<CommandBuffer> create(const std::shared_ptr<CommandPool> &pCommandPool,
-                                                 VkCommandBufferLevel level);
+                                                 VkCommandBufferLevel level = VK_COMMAND_BUFFER_LEVEL_PRIMARY);
 
     void submitToQueue(std::vector<std::shared_ptr<Semaphore>> &signalSemaphores,
                        std::vector<VkPipelineStageFlags> waitStageMask,

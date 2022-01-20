@@ -12,6 +12,7 @@
 std::shared_ptr<Image> Image::create(std::shared_ptr<Device> pDevice,
                                      VmaMemoryUsage memoryUsage,
                                      VkMemoryPropertyFlags preferredFlags,
+                                     VkMemoryPropertyFlags requiredFlags,
                                      VkImageCreateInfo &createInfo,
                                      std::vector<uint32_t> &accessingQueues) {
     auto image = std::shared_ptr<Image>();
@@ -36,6 +37,7 @@ std::shared_ptr<Image> Image::create(std::shared_ptr<Device> pDevice,
     allocationCreateInfo.usage = memoryUsage;
     allocationCreateInfo.flags = VMA_ALLOCATION_CREATE_MAPPED_BIT;
     allocationCreateInfo.preferredFlags = preferredFlags;
+    allocationCreateInfo.requiredFlags = requiredFlags;
 
     if (vmaCreateImage(image->device->getAllocator(),
                        &createInfo,

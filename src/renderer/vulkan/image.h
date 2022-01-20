@@ -36,6 +36,7 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     static std::shared_ptr<Image> create(std::shared_ptr<Device> pDevice,
                                          VmaMemoryUsage memoryUsage,
                                          VkMemoryPropertyFlags preferredFlags,
+                                         VkMemoryPropertyFlags requiredFlags,
                                          VkImageCreateInfo &createInfo,
                                          std::vector<uint32_t> &accessingQueues);
 

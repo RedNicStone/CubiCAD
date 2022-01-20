@@ -164,22 +164,8 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/tinyobjloader)
 # add stb
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/stb-cmake)
 
-# configure ImGUI
-set(IMGUI_EXAMPLES OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_SDL OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_METAL OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_OSX OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_WIN32 OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_GLUT OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_OPENGL OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_OPENGL2 OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_DX9 OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_DX10 OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_DX11 OFF CACHE BOOL "" FORCE)
-set(IMGUI_IMPL_DX12 OFF CACHE BOOL "" FORCE)
-
 # add Dear ImGUI
-add_subdirectory(${CMAKE_SOURCE_DIR}/lib/imgui)
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib)
 
 # add documentation targets
 add_subdirectory(${CMAKE_SOURCE_DIR}/docs)
