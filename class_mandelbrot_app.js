@@ -77,6 +77,8 @@ var class_mandelbrot_app =
     [ "modelLoader", "class_mandelbrot_app.html#a6f5b878e7208691e01d501e9094157dd", null ],
     [ "mouseCaptured", "class_mandelbrot_app.html#a5b183bf75c2fe14f32015215d23fd989", null ],
     [ "objectBuffer", "class_mandelbrot_app.html#a5411c76d4462663f797314f8057c027c", null ],
+    [ "objectBufferImage", "class_mandelbrot_app.html#a35d6444afc4163ef8e19934293278b3d", null ],
+    [ "objectBufferImageView", "class_mandelbrot_app.html#a4112e50b3e2b98015a095d0d731c2d2d", null ],
     [ "objects", "class_mandelbrot_app.html#a3df3cc387c42f839a2abeecdf904cad7", null ],
     [ "physicalDevice", "class_mandelbrot_app.html#a874434641d63c514004a3062524a2109", null ],
     [ "presentQueue", "class_mandelbrot_app.html#abaa45c272a0bfb2276836dd8e4aefba8", null ],
@@ -88,6 +90,7 @@ var class_mandelbrot_app =
     [ "swapChain", "class_mandelbrot_app.html#ae1f7143384e91f923b04f608e5975dd0", null ],
     [ "swapChainExtent", "class_mandelbrot_app.html#a7df7caf7132923e4a96371dcca4e6094", null ],
     [ "UI", "class_mandelbrot_app.html#aabf3b0a7b73ec54bb2b23b6d5b069d6a", null ],
+    [ "UISubpass", "class_mandelbrot_app.html#a572b177d5dab822e205ace8bd34f788b", null ],
     [ "uniformBuffers", "class_mandelbrot_app.html#a6bcbf0d8c38cd7b80e1847215cbafff3", null ],
     [ "version", "class_mandelbrot_app.html#a229c3cd7aaa9698546f6d3dc932d23d3", null ],
     [ "window", "class_mandelbrot_app.html#a521383303ec8a82b210b8dbdaa0d2afd", null ]

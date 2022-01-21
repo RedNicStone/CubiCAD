@@ -67,10 +67,10 @@ var NAVTREEINDEX =
 [
 "_allocation_handler_8cpp.html",
 "class_fence.html",
-"class_pipeline_layout.html#a20ca47236e2bf94aa206224f26dd10fa",
-"class_voxel_codec_shuffle.html#ab67908f6aed3d69190ef5f847b7ecf5a",
-"mesh_8h_source.html",
-"struct_c_c_a_d___o_t_1_1_ot_node_primitive.html#ad3f3420739ac4c2009cdcd42355d01db"
+"class_pipeline_base.html#ab28871a7219795b40f690a8d50590b52",
+"class_voxel_codec_shuffle.html#a0cfba6c1fd272fcff3d3116847a1093e",
+"mesh_8h.html",
+"struct_c_c_a_d___o_t_1_1_ot_node_primitive.html#aa4bfe4a4d2221788a60a829d40f9efbf"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

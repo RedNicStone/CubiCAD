@@ -1,5 +1,10 @@
 var NAVTREEINDEX2 =
 {
+"class_pipeline_base.html#ab28871a7219795b40f690a8d50590b52":[2,0,52,2],
+"class_pipeline_base.html#adf0825bbfca48cb3d6c738c2ab209a3c":[2,0,52,5],
+"class_pipeline_base.html#afb72e0dcd6f7975137052a4276d96500":[2,0,52,1],
+"class_pipeline_layout.html":[2,0,53],
+"class_pipeline_layout.html#a118836efe387cd17b41d3be36108e010":[2,0,53,0],
 "class_pipeline_layout.html#a20ca47236e2bf94aa206224f26dd10fa":[2,0,53,2],
 "class_pipeline_layout.html#a49247db520f79ad5be0de87b2aa85d30":[2,0,53,3],
 "class_pipeline_layout.html#a79cb41488cc675c90d6ea5603e831d83":[2,0,53,4],
@@ -244,10 +249,5 @@ var NAVTREEINDEX2 =
 "class_voxel_codec_octree_base.html#aecdfa7853c6e9c3571ac7566f72ed892":[2,0,90,9],
 "class_voxel_codec_octree_base.html#aede2728192c2ab1257ccec9f64658bde":[2,0,90,5],
 "class_voxel_codec_octree_constructable.html":[2,0,91],
-"class_voxel_codec_shuffle.html":[2,0,92],
-"class_voxel_codec_shuffle.html#a0cfba6c1fd272fcff3d3116847a1093e":[2,0,92,0],
-"class_voxel_codec_shuffle.html#a20376e6b0843c220a78678d21c9a66f5":[2,0,92,4],
-"class_voxel_codec_shuffle.html#a4493ed8b54f35353e493831d329093d2":[2,0,92,6],
-"class_voxel_codec_shuffle.html#a7e3690ee5bd863a4dca3a76f53e4e6e6":[2,0,92,7],
-"class_voxel_codec_shuffle.html#a8f81c759f4d71c1e15bb3f46a4ef24b8":[2,0,92,5]
+"class_voxel_codec_shuffle.html":[2,0,92]
 };
