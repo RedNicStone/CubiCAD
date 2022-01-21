@@ -44,9 +44,11 @@ class MeshInstance {
 
     void move(glm::vec3 position);
 
+    void setID(uint32_t id) { objectID = id; }
+
     glm::vec3 getPosition() { return pos; }
-    glm::vec3 setRotation() { return rot; }
-    glm::vec3 setScale() { return scale; }
+    glm::vec3 getRotation() { return rot; }
+    glm::vec3 getScale() { return scale; }
 };
 
 #endif //CUBICAD_OBJECTINSTANCE_H

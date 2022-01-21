@@ -146,6 +146,7 @@ void Scene::transferRenderData() {
 }
 
 void Scene::submitInstance(const std::shared_ptr<MeshInstance>& meshInstance) {
+    meshInstance->setID(static_cast<uint32_t>(instances.size()));
     instances.push_back(meshInstance);
 }
 
@@ -169,7 +170,7 @@ void Scene::collectRenderBuffers() {
         }
     }
 
-        vertexBuffer->getBuffer(sizeof(Vertex) * vertexData.size())->transferDataStaged(vertexData.data(),
+    vertexBuffer->getBuffer(sizeof(Vertex) * vertexData.size())->transferDataStaged(vertexData.data(),
                                                                                  transferCommandPool, sizeof(Vertex) * vertexData.size());
     indexBuffer->getBuffer(sizeof(uint32_t) * indexData.size())->transferDataStaged(indexData.data(),
                                                                                   transferCommandPool, sizeof(uint32_t) * indexData.size());

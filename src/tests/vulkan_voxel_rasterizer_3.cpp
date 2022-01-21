@@ -35,6 +35,7 @@
 #include "../renderer/modelloader.h"
 #include "../renderer/scene.h"
 #include "../renderer/ui/uirenderer.h"
+#include "../renderer/framebufferselector.h"
 
 
 using ComplexNum = std::pair<long double, long double>;
@@ -97,6 +98,7 @@ class MandelbrotApp {
 
     std::shared_ptr<Camera> camera;
     std::shared_ptr<UIRenderer> UI;
+    std::shared_ptr<FramebufferSelector> objectBuffer;
 
     bool mouseCaptured = false;
     uint32_t imageCount;
@@ -369,6 +371,8 @@ class MandelbrotApp {
                                    VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, accessingQueues);
         depthImageView = ImageView::create(depthImage, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_DEPTH_BIT);
 
+        objectBuffer = FramebufferSelector::create(device, graphicsQueue, window->getSurfaceExtend());
+
         imageCount = swapChain->getImageCount();
         VkExtent2D extent = swapChain->getSwapExtent();
         swapChainExtent = extent;
@@ -412,6 +416,14 @@ class MandelbrotApp {
                                                                      VK_ATTACHMENT_STORE_OP_DONT_CARE,
                                                                      VK_IMAGE_LAYOUT_UNDEFINED,
                                                                      VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
+        uint32_t objectIDAttachment = renderPass->submitImageAttachment(objectBuffer->getImage()->getFormat(),
+                                                                        VK_SAMPLE_COUNT_1_BIT,
+                                                                     VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                                                     VK_ATTACHMENT_STORE_OP_STORE,
+                                                                     VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                                                     VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                                     VK_IMAGE_LAYOUT_UNDEFINED,
+                                                                     VK_IMAGE_LAYOUT_READ_ONLY_OPTIMAL_KHR);
 
         VkAttachmentReference colorAttachmentRef{};
         colorAttachmentRef.attachment = swapChainAttachment;
@@ -421,8 +433,12 @@ class MandelbrotApp {
         depthAttachmentRef.attachment = depthAttachment;
         depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
-        std::vector<VkAttachmentReference> shadingPipelineColorReference = {colorAttachmentRef};
-        std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = { };
+        VkAttachmentReference objectIDAttachmentRef{};
+        depthAttachmentRef.attachment = objectIDAttachment;
+        depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+
+        std::vector<VkAttachmentReference> shadingPipelineColorReference = { colorAttachmentRef };
+        std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = { objectIDAttachmentRef };
         uint32_t shadingSubpass =
             renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                       shadingPipelineColorReference,
@@ -438,7 +454,8 @@ class MandelbrotApp {
     void createFrameBuffers() {
         std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount,
                                                                         std::vector<std::shared_ptr<ImageView>>{
-            depthImageView
+            depthImageView,
+            objectBuffer->getImageView()
         });
 
         frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
@@ -508,6 +525,13 @@ class MandelbrotApp {
                                      swapChain->getPresentFence());
 
         swapChain->presentImage({device});
+
+        VkExtent2D mousePos{};
+        mousePos.width = static_cast<uint32_t>(prevMousePos.y);
+        mousePos.height = static_cast<uint32_t>(prevMousePos.x);
+
+        uint32_t objectID = objectBuffer->getIDAtPosition(mousePos);
+        std::cout << objectID << std::endl;
     }
 
     void updateWindowSize() {

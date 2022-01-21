@@ -9,14 +9,14 @@
 #include "image.h"
 
 
-std::shared_ptr<Image> Image::create(std::shared_ptr<Device> pDevice,
+std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
                                      VmaMemoryUsage memoryUsage,
                                      VkMemoryPropertyFlags preferredFlags,
                                      VkMemoryPropertyFlags requiredFlags,
                                      VkImageCreateInfo &createInfo,
                                      std::vector<uint32_t> &accessingQueues) {
-    auto image = std::shared_ptr<Image>();
-    image->device = std::move(pDevice);
+    auto image = std::make_shared<Image>();
+    image->device = pDevice;
 
     image->extent = createInfo.extent;
     image->type = createInfo.imageType;
@@ -46,6 +46,8 @@ std::shared_ptr<Image> Image::create(std::shared_ptr<Device> pDevice,
                        &image->allocation,
                        &image->allocationInfo) != VK_SUCCESS)
         throw std::runtime_error("could not allocate memory");
+
+    return image;
 }
 
 std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
@@ -102,6 +104,20 @@ std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
 
 std::shared_ptr<ImageView> Image::createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange) {
     return ImageView::create(shared_from_this(), viewType, subresourceRange);
+}
+
+void *Image::map() {
+    if (allocationInfo.pMappedData != nullptr)
+        return allocationInfo.pMappedData;
+
+    void *data;
+    vmaMapMemory(device->getAllocator(), allocation, &data);
+    return data;
+}
+
+void Image::unmap() {
+    if (allocationInfo.pMappedData == nullptr)
+        vmaUnmapMemory(device->getAllocator(), allocation);
 }
 
 Image::~Image() {

@@ -33,7 +33,7 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     uint32_t arrayLayers;
 
   public:
-    static std::shared_ptr<Image> create(std::shared_ptr<Device> pDevice,
+    static std::shared_ptr<Image> create(const std::shared_ptr<Device>& pDevice,
                                          VmaMemoryUsage memoryUsage,
                                          VkMemoryPropertyFlags preferredFlags,
                                          VkMemoryPropertyFlags requiredFlags,
@@ -60,6 +60,9 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     [[nodiscard]] uint32_t getMipLevels() const { return mipLevels; }
 
     [[nodiscard]] uint32_t getArrayLayers() const { return arrayLayers; }
+
+    void* map();
+    void unmap();
 
     ~Image();
 };

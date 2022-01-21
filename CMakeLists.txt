@@ -107,8 +107,10 @@ if(AUTO_LOCATE_VULKAN)
     # Try extracting VulkanSDK path from ${Vulkan_INCLUDE_DIRS}
     if (NOT ${Vulkan_INCLUDE_DIRS} STREQUAL "")
         set(VULKAN_PATH ${Vulkan_INCLUDE_DIRS})
-        STRING(REGEX REPLACE "/Include" "" VULKAN_PATH ${VULKAN_PATH})
+        string(REGEX REPLACE "/Include" "" VULKAN_PATH ${VULKAN_PATH})
     endif()
+
+    message(STATUS ${Vulkan_FOUND})
 
     if(NOT Vulkan_FOUND)
         # CMake may fail to locate the libraries but could be able to
