@@ -6,13 +6,15 @@
 
 
 std::shared_ptr<MasterMaterial> MasterMaterial::create(const std::shared_ptr<Device>& pDevice, const
-std::vector<std::shared_ptr<GraphicsShader>>& vShaders, VkExtent2D vExtent, const std::shared_ptr<RenderPass>&
+std::vector<std::shared_ptr<GraphicsShader>>& vShaders, uint32_t vColorBlendStates, VkExtent2D vExtent, const
+std::shared_ptr<RenderPass>&
 pRenderPass) {
     auto material = std::make_shared<MasterMaterial>();
     material->device = pDevice;
     material->extent = vExtent;
     material->shaders = vShaders;
     material->renderPass = pRenderPass;
+    material->colorBlendStates = vColorBlendStates;
 
     return material;
 }
@@ -37,7 +39,7 @@ enableDepthStencil) {
         { 5, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 2 },
         { 6, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 3 }
     };
-    pipeline = GraphicsPipeline::create(device, pipelineLayout, shaders, renderPass, extent,
+    pipeline = GraphicsPipeline::create(device, pipelineLayout, shaders, renderPass, colorBlendStates, extent,
                                         VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, VK_CULL_MODE_NONE,
                                         VK_FRONT_FACE_CLOCKWISE, bindingDescription, attributeDescription, enableDepthStencil);
 }

@@ -26,6 +26,7 @@ class GraphicsPipeline : public PipelineBase {
     std::shared_ptr<PipelineLayout> pLayout,
         std::vector<std::shared_ptr<GraphicsShader>> &shaders,
     const std::shared_ptr<RenderPass> &renderPass,
+                                                    uint32_t colorBlendStates,
         VkExtent2D extent,
     VkPrimitiveTopology topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST,
                                                     VkCullModeFlags cullMode = VK_CULL_MODE_BACK_BIT,

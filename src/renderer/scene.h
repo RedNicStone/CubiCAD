@@ -26,6 +26,8 @@ struct SceneData {
 
     glm::uint nFrame{};  // frame ID
     glm::uint frameTime{};  // frame time in ns
+    glm::uint selectedID{};
+    glm::uint hoverID{};
 };
 
 class Scene {

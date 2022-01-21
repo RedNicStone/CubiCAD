@@ -15,6 +15,6 @@ layout(location = 0) out vec4 pixel_color;
 layout(location = 1) out uint instance_id;
 
 void main() {
-    pixel_color = vec4(vert_uv, scene_info.frameTime, 0);
+    pixel_color = vec4(vec3(vert_instance_id) / 500, 0.0f);
     instance_id = vert_instance_id;
 }

@@ -24,7 +24,8 @@ class UIRenderer {
                                        const std::shared_ptr<CommandPool>& transferPool,
                                        const std::shared_ptr<RenderPass>& renderPass,
                                        const std::shared_ptr<Window>& window,
-                                       uint32_t imageCount);
+                                       uint32_t imageCount,
+                                       uint32_t subpass = 0);
 
     void draw(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffer);
 

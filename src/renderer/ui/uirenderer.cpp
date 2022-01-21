@@ -11,7 +11,8 @@ std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue>& gra
                                                const std::shared_ptr<CommandPool>& transferPool,
                                                const std::shared_ptr<RenderPass>& renderPass,
                                                const std::shared_ptr<Window>& window,
-                                               uint32_t imageCount) {
+                                               uint32_t imageCount,
+                                               uint32_t subpass) {
     auto uiRenderer = std::make_shared<UIRenderer>();
 
     std::vector<VkDescriptorPoolSize> poolSizes =
@@ -48,6 +49,7 @@ std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue>& gra
     initInfo.MinImageCount = imageCount;
     initInfo.ImageCount = imageCount;
     initInfo.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
+    initInfo.Subpass = subpass;
 
     ImGui_ImplVulkan_Init(&initInfo, renderPass->getHandle());
 

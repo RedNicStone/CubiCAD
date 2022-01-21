@@ -146,7 +146,7 @@ void Scene::transferRenderData() {
 }
 
 void Scene::submitInstance(const std::shared_ptr<MeshInstance>& meshInstance) {
-    meshInstance->setID(static_cast<uint32_t>(instances.size()));
+    meshInstance->setID(static_cast<uint32_t>(instances.size() + 1));
     instances.push_back(meshInstance);
 }
 

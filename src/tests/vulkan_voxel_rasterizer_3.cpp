@@ -86,6 +86,7 @@ class MandelbrotApp {
     std::shared_ptr<ImageView> depthImageView;
 
     std::shared_ptr<RenderPass> renderPass;
+    uint32_t UISubpass;
 
     std::shared_ptr<CommandPool> commandPool;
 
@@ -99,6 +100,8 @@ class MandelbrotApp {
     std::shared_ptr<Camera> camera;
     std::shared_ptr<UIRenderer> UI;
     std::shared_ptr<FramebufferSelector> objectBuffer;
+    std::shared_ptr<Image> objectBufferImage;
+    std::shared_ptr<ImageView> objectBufferImageView;
 
     bool mouseCaptured = false;
     uint32_t imageCount;
@@ -138,7 +141,7 @@ class MandelbrotApp {
     }
 
     void createUI() {
-        UI = UIRenderer::create(graphicsQueue, commandPool, renderPass, window, imageCount);
+        UI = UIRenderer::create(graphicsQueue, commandPool, renderPass, window, imageCount, UISubpass);
     }
 
     void loadModels() {
@@ -148,7 +151,7 @@ class MandelbrotApp {
         auto fragmentShader = FragmentShader::create(device, "main", "resources/shaders/compiled/PBR_basic.frag.spv");
         std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
 
-        auto masterMaterial = MasterMaterial::create(device, shaders, swapChainExtent, renderPass);
+        auto masterMaterial = MasterMaterial::create(device, shaders, 2, swapChainExtent, renderPass);
         auto material = Material::create(masterMaterial);
         model = modelLoader->import("resources/models/demo/primitives/cube.obj", material).front();
 
@@ -281,12 +284,12 @@ class MandelbrotApp {
         }
 
         scene->updateUBO();
-
+        /*
         for (const auto& object : objects) {
             object->setPosition(glm::normalize(glm::cross(object->getPosition(),
                                                           {0, 1, 0}) * glm::vec3(0.003f)
                                                    + object->getPosition()) * glm::vec3(20));
-        }
+        }*/
     }
 
     void recreateSwapChain() {
@@ -434,11 +437,11 @@ class MandelbrotApp {
         depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
         VkAttachmentReference objectIDAttachmentRef{};
-        depthAttachmentRef.attachment = objectIDAttachment;
-        depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+        objectIDAttachmentRef.attachment = objectIDAttachment;
+        objectIDAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-        std::vector<VkAttachmentReference> shadingPipelineColorReference = { colorAttachmentRef };
-        std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = { objectIDAttachmentRef };
+        std::vector<VkAttachmentReference> shadingPipelineColorReference = { colorAttachmentRef, objectIDAttachmentRef };
+        std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = { };
         uint32_t shadingSubpass =
             renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                       shadingPipelineColorReference,
@@ -446,7 +449,17 @@ class MandelbrotApp {
                                       &depthAttachmentRef,
                                       0);
 
+        std::vector<VkAttachmentReference> UIPipelineColorReference = { colorAttachmentRef };
+        std::vector<VkAttachmentReference> UIPipelineAttachmentReference = { };
+        UISubpass =
+            renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
+                                      UIPipelineColorReference,
+                                      UIPipelineAttachmentReference,
+                                      nullptr,
+                                      0);
+
         renderPass->submitDependency(VK_SUBPASS_EXTERNAL, shadingSubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
+        renderPass->submitDependency(shadingSubpass, UISubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
 
         renderPass->build();
     }
@@ -507,13 +520,17 @@ class MandelbrotApp {
 
         graphicsCommandBuffers[index]->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
-        std::vector<VkClearValue> clearColor(2);
+        std::vector<VkClearValue> clearColor(3);
         clearColor[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
         clearColor[1].depthStencil = {1.0, 0};
+        clearColor[2].color = { { 0.0f, 0.0f, 0.0f, 1.0f } };
         graphicsCommandBuffers[index]->beginRenderPass(renderPass, frameBuffer, clearColor,
                                                        index, frameBuffer->getExtent(), {0, 0});
 
         scene->bakeGraphicsBuffer(graphicsCommandBuffers[index]);
+
+        graphicsCommandBuffers[index]->nextSubpass();
+
         UI->draw(graphicsCommandBuffers[index]);
 
         graphicsCommandBuffers[index]->endRenderPass();
@@ -526,12 +543,14 @@ class MandelbrotApp {
 
         swapChain->presentImage({device});
 
-        VkExtent2D mousePos{};
-        mousePos.width = static_cast<uint32_t>(prevMousePos.y);
-        mousePos.height = static_cast<uint32_t>(prevMousePos.x);
+        if (glfwGetWindowAttrib(window->getWindow(), GLFW_HOVERED)) {
+            VkExtent2D mousePos{};
+            mousePos.width = static_cast<uint32_t>(prevMousePos.x) + WIDTH;
+            mousePos.height = static_cast<uint32_t>(prevMousePos.y) + HEIGHT;
 
-        uint32_t objectID = objectBuffer->getIDAtPosition(mousePos);
-        std::cout << objectID << std::endl;
+            uint32_t objectID = objectBuffer->getIDAtPosition(mousePos);
+            std::cout << objectID << std::endl;
+        }
     }
 
     void updateWindowSize() {

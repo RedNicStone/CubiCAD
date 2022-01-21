@@ -5,15 +5,18 @@
 #ifndef CUBICAD_FRAMEBUFFERSELECTOR_H
 #define CUBICAD_FRAMEBUFFERSELECTOR_H
 
+#include <fstream>
+
 #include "../renderer/vulkan/imageview.h"
 
 
 class FramebufferSelector {
   private:
     std::shared_ptr<Image> image;
-    std::shared_ptr<ImageView> imageView;
 
+    VkExtent2D extent;
     uint32_t* data;
+    VkSubresourceLayout imageLayout;
 
   public:
     static std::shared_ptr<FramebufferSelector> create(const std::shared_ptr<Device>& device,

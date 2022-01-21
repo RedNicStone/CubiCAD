@@ -37,9 +37,12 @@ class MasterMaterial {
     std::shared_ptr<DescriptorSetLayout> masterMaterialSetLayout;
     std::shared_ptr<DescriptorSet> masterMaterialSet;
 
+    uint32_t colorBlendStates;
+
   public:
     static std::shared_ptr<MasterMaterial> create(const std::shared_ptr<Device>& pDevice, const
-    std::vector<std::shared_ptr<GraphicsShader>>& vShaders, VkExtent2D vExtent, const std::shared_ptr<RenderPass>&
+    std::vector<std::shared_ptr<GraphicsShader>>& vShaders, uint32_t
+    vColorBlendStates, VkExtent2D vExtent, const std::shared_ptr<RenderPass>&
     pRenderPass);
 
     void updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout, bool
