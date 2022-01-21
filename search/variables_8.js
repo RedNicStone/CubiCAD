@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['image_0',['image',['../class_image_view.html#acf3281a59cbfbe76013781e640904ba7',1,'ImageView::image()'],['../class_object_selector.html#a32f656dd0b77ec75601ce544e657d2c6',1,'ObjectSelector::image()']]],
+  ['image_0',['image',['../class_image_view.html#acf3281a59cbfbe76013781e640904ba7',1,'ImageView::image()'],['../class_framebuffer_selector.html#a338a324f85605cac1a248968052b6153',1,'FramebufferSelector::image()']]],
   ['imageavailablesemaphores_1',['imageAvailableSemaphores',['../class_swap_chain.html#a0b87e6a2de9ed87f19c95e84322272c7',1,'SwapChain']]],
   ['imagecount_2',['imageCount',['../class_swap_chain.html#a9cec969d1ad3d0f5ad81809f5eeb2c73',1,'SwapChain::imageCount()'],['../class_mandelbrot_app.html#a4380e7987c7a15849d4f8b217f381900',1,'MandelbrotApp::imageCount()']]],
   ['imageformat_3',['imageFormat',['../class_swap_chain.html#a4ccdde4e5fa00e750533132c59bdce25',1,'SwapChain']]],
   ['imagesinflight_4',['imagesInFlight',['../class_swap_chain.html#a11426fe4d871903dab6293a1ca783cfc',1,'SwapChain::imagesInFlight()'],['../class_mandelbrot_app.html#a17718233bed6902be5ff04a094d3f43f',1,'MandelbrotApp::imagesInFlight()']]],
-  ['imageview_5',['imageView',['../class_object_selector.html#aade54a82d93c4266028050d58abac3e3',1,'ObjectSelector']]],
+  ['imageview_5',['imageView',['../class_framebuffer_selector.html#aa59554243528f0ff38ecc4bc2a321fcf',1,'FramebufferSelector']]],
   ['imguipool_6',['ImGUIPool',['../class_u_i_renderer.html#ad0c5e8a4d85993af1f82be4732175474',1,'UIRenderer']]],
   ['indexbuffer_7',['indexBuffer',['../class_scene.html#a8c1a74b526242aa96fcce9f86020f14c',1,'Scene']]],
   ['indexcount_8',['indexCount',['../class_mesh.html#afaafc29c9662dd7738199be753d3091a',1,'Mesh']]],

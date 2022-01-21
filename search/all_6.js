@@ -17,7 +17,7 @@ var searchData=
   ['for_5fsequence_14',['for_sequence',['../_voxel_codec_linear_8h.html#a97dd2723d9aa5ae9b0b55db08968a87f',1,'for_sequence(std::integer_sequence&lt; T, S... &gt;, F f):&#160;VoxelCodecLinear.h'],['../_voxel_codec_shuffle_8h.html#a97dd2723d9aa5ae9b0b55db08968a87f',1,'for_sequence(std::integer_sequence&lt; T, S... &gt;, F f):&#160;VoxelCodecShuffle.h']]],
   ['format_15',['format',['../class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e',1,'Image']]],
   ['formats_16',['formats',['../struct_swap_chain_support_details.html#a22cda9622ff2cd725ec00311e2007a7f',1,'SwapChainSupportDetails']]],
-  ['fragment_17',['fragment',['../class_voxel_codec_linear.html#a1f4fed7e3b5cc9a813bb7aaf85b223bc',1,'VoxelCodecLinear::fragment()'],['../class_voxel_codec_shuffle.html#a0cfba6c1fd272fcff3d3116847a1093e',1,'VoxelCodecShuffle::fragment()']]],
+  ['fragment_17',['fragment',['../class_voxel_codec_shuffle.html#a0cfba6c1fd272fcff3d3116847a1093e',1,'VoxelCodecShuffle::fragment()'],['../class_voxel_codec_linear.html#a1f4fed7e3b5cc9a813bb7aaf85b223bc',1,'VoxelCodecLinear::fragment()']]],
   ['fragmentshader_18',['FragmentShader',['../class_fragment_shader.html',1,'']]],
   ['framebuffer_19',['frameBuffer',['../class_mandelbrot_app.html#a1c635c2a06ecf0dcab1c849332ee4c79',1,'MandelbrotApp']]],
   ['framebuffer_20',['FrameBuffer',['../class_frame_buffer.html',1,'']]],
@@ -25,8 +25,11 @@ var searchData=
   ['framebuffer_2eh_22',['framebuffer.h',['../framebuffer_8h.html',1,'']]],
   ['framebufferresized_23',['framebufferResized',['../class_mandelbrot_app.html#a1dbec42f71e98686b30629f626800f0f',1,'MandelbrotApp']]],
   ['framebuffers_24',['frameBuffers',['../class_frame_buffer.html#a7b1719d5b4cc7de4f706f4319f0ab146',1,'FrameBuffer']]],
-  ['framecount_25',['frameCount',['../struct_mandelbrot_u_b_o.html#a1920e076824f33078e189500b57e627a',1,'MandelbrotUBO']]],
-  ['frameid_26',['frameID',['../struct_mandelbrot_u_b_o.html#aaf31c8b1bac4220c566d3ca07a79c00e',1,'MandelbrotUBO']]],
-  ['frametime_27',['frameTime',['../struct_scene_data.html#a1a1dcbcdb29e9d308c4abbb5818cd0d2',1,'SceneData::frameTime()'],['../struct_mandelbrot_u_b_o.html#a020dac8b164e60955ace32b975578992',1,'MandelbrotUBO::frameTime()']]],
-  ['freepools_28',['freePools',['../class_descriptor_pool_manager.html#adfe3dedd498e3e39154a8a1550436359',1,'DescriptorPoolManager']]]
+  ['framebufferselector_25',['FramebufferSelector',['../class_framebuffer_selector.html',1,'']]],
+  ['framebufferselector_2ecpp_26',['framebufferselector.cpp',['../framebufferselector_8cpp.html',1,'']]],
+  ['framebufferselector_2eh_27',['framebufferselector.h',['../framebufferselector_8h.html',1,'']]],
+  ['framecount_28',['frameCount',['../struct_mandelbrot_u_b_o.html#a1920e076824f33078e189500b57e627a',1,'MandelbrotUBO']]],
+  ['frameid_29',['frameID',['../struct_mandelbrot_u_b_o.html#aaf31c8b1bac4220c566d3ca07a79c00e',1,'MandelbrotUBO']]],
+  ['frametime_30',['frameTime',['../struct_scene_data.html#a1a1dcbcdb29e9d308c4abbb5818cd0d2',1,'SceneData::frameTime()'],['../struct_mandelbrot_u_b_o.html#a020dac8b164e60955ace32b975578992',1,'MandelbrotUBO::frameTime()']]],
+  ['freepools_31',['freePools',['../class_descriptor_pool_manager.html#adfe3dedd498e3e39154a8a1550436359',1,'DescriptorPoolManager']]]
 ];

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['data_0',['data',['../structoptional.html#ad188b0174fb1e064a3b53635cfd71d98',1,'optional::data()'],['../class_dynamic_buffer.html#a494e6d54597be286531736f6fb85a38b',1,'DynamicBuffer::data()'],['../classvec__abs.html#a2e3dc5af3a4418d55f3d727531ecf42e',1,'vec_abs::data()'],['../class_uniform_buffer.html#a80e78684ab4989709bc18918dd4b52de',1,'UniformBuffer::data()'],['../class_voxel_fragment_stream_buffered.html#a0bc69efc6115f8acecd5d7d3c46ba75f',1,'VoxelFragmentStreamBuffered::data()']]],
+  ['data_0',['data',['../structoptional.html#ad188b0174fb1e064a3b53635cfd71d98',1,'optional::data()'],['../class_voxel_fragment_stream_buffered.html#a0bc69efc6115f8acecd5d7d3c46ba75f',1,'VoxelFragmentStreamBuffered::data()'],['../class_uniform_buffer.html#a80e78684ab4989709bc18918dd4b52de',1,'UniformBuffer::data()'],['../classvec__abs.html#a2e3dc5af3a4418d55f3d727531ecf42e',1,'vec_abs::data()'],['../class_dynamic_buffer.html#a494e6d54597be286531736f6fb85a38b',1,'DynamicBuffer::data()'],['../class_framebuffer_selector.html#a14889f766261d87e22931e9dd66d2241',1,'FramebufferSelector::data()']]],
   ['dataptr_1',['dataPtr',['../class_uniform_buffer.html#acbeb49be0b57d0b14aca6437f93401dc',1,'UniformBuffer']]],
   ['debug_2',['debug',['../union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#a93ba49ff05e9a02c65a0f833bf6d3e2a',1,'CCAD_OT::OtMatInfoUnion']]],
-  ['debuglevel_3',['debugLevel',['../vulkan__voxel__rasterizer__3_8cpp.html#a49efd1f0915380f5061abe035382f615',1,'debugLevel():&#160;vulkan_voxel_rasterizer_3.cpp'],['../vulkan__voxel__rasterizer__2_8cpp.html#a49efd1f0915380f5061abe035382f615',1,'debugLevel():&#160;vulkan_voxel_rasterizer_2.cpp']]],
+  ['debuglevel_3',['debugLevel',['../vulkan__voxel__rasterizer__2_8cpp.html#a49efd1f0915380f5061abe035382f615',1,'debugLevel():&#160;vulkan_voxel_rasterizer_2.cpp'],['../vulkan__voxel__rasterizer__3_8cpp.html#a49efd1f0915380f5061abe035382f615',1,'debugLevel():&#160;vulkan_voxel_rasterizer_3.cpp']]],
   ['debugmessenger_4',['debugMessenger',['../class_instance.html#af9259aea1fb166473a580f5ea4de5ea7',1,'Instance']]],
   ['defaultparameters_5',['defaultParameters',['../class_master_material.html#ac174656e76b31c0e77d2083764a254d5',1,'MasterMaterial']]],
   ['dependencies_6',['dependencies',['../class_render_pass.html#a2d86831421cd923715ab199d75bb5440',1,'RenderPass']]],

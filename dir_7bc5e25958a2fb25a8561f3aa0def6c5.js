@@ -12,6 +12,10 @@ var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
     ] ],
     [ "eventbus.cpp", "eventbus_8cpp.html", "eventbus_8cpp" ],
     [ "eventbus.h", "eventbus_8h.html", "eventbus_8h" ],
+    [ "framebufferselector.cpp", "framebufferselector_8cpp.html", null ],
+    [ "framebufferselector.h", "framebufferselector_8h.html", [
+      [ "FramebufferSelector", "class_framebuffer_selector.html", "class_framebuffer_selector" ]
+    ] ],
     [ "mastermaterial.cpp", "mastermaterial_8cpp.html", null ],
     [ "mastermaterial.h", "mastermaterial_8h.html", "mastermaterial_8h" ],
     [ "material.cpp", "material_8cpp.html", null ],
@@ -24,10 +28,6 @@ var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
     [ "modelloader.h", "modelloader_8h.html", "modelloader_8h" ],
     [ "objectinstance.cpp", "objectinstance_8cpp.html", null ],
     [ "objectinstance.h", "objectinstance_8h.html", "objectinstance_8h" ],
-    [ "objectselector.cpp", "objectselector_8cpp.html", null ],
-    [ "objectselector.h", "objectselector_8h.html", [
-      [ "ObjectSelector", "class_object_selector.html", "class_object_selector" ]
-    ] ],
     [ "scene.cpp", "scene_8cpp.html", null ],
     [ "scene.h", "scene_8h.html", "scene_8h" ]
 ];

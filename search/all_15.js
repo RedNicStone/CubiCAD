@@ -8,7 +8,7 @@ var searchData=
   ['uniformbuffer_2ecpp_5',['uniformbuffer.cpp',['../uniformbuffer_8cpp.html',1,'']]],
   ['uniformbuffer_2eh_6',['uniformbuffer.h',['../uniformbuffer_8h.html',1,'']]],
   ['uniformbuffers_7',['uniformBuffers',['../class_mandelbrot_app.html#a6bcbf0d8c38cd7b80e1847215cbafff3',1,'MandelbrotApp']]],
-  ['unmap_8',['unmap',['../class_dynamic_buffer.html#ab8d3ee7193752312deddf498f96c11ff',1,'DynamicBuffer::unmap()'],['../class_buffer.html#aaeecba2e74f8797e81816c433f7d573e',1,'Buffer::unmap()']]],
+  ['unmap_8',['unmap',['../class_dynamic_buffer.html#ab8d3ee7193752312deddf498f96c11ff',1,'DynamicBuffer::unmap()'],['../class_buffer.html#aaeecba2e74f8797e81816c433f7d573e',1,'Buffer::unmap()'],['../class_image.html#a630dd4d080617bfe75d184165111cf53',1,'Image::unmap()']]],
   ['update_9',['update',['../class_camera.html#a42cda7239981a5618660d04bd5893556',1,'Camera']]],
   ['updatecameramodel_10',['updateCameraModel',['../class_camera.html#aad5b656768190f0141a3abc78e8defd6',1,'Camera']]],
   ['updatedescriptorsetlayouts_11',['updateDescriptorSetLayouts',['../class_master_material.html#ac3ad1784dd8bb582223a60ac87edbf63',1,'MasterMaterial']]],
