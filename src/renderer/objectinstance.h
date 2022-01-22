@@ -12,6 +12,7 @@
 #define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
 
 #include <glm/gtx/transform.hpp>
+#include <utility>
 
 #include "mesh.h"
 
@@ -30,10 +31,18 @@ class MeshInstance {
     glm::vec3 pos = {0, 0, 0};
     glm::vec3 rot = {0, 0, 0};
     glm::vec3 scale = {1, 1, 1};
+
+    glm::mat4 matRot;
+    glm::mat4 matPos;
+    glm::mat4 matScale;
+    glm::mat4 combined;
+
     uint32_t objectID;
 
+    std::string name;
+
   public:
-    static std::shared_ptr<MeshInstance> create(std::shared_ptr<Mesh> masterMesh);
+    static std::shared_ptr<MeshInstance> create(const std::shared_ptr<Mesh>& masterMesh, const std::string& pName = "");
 
     std::shared_ptr<Mesh> getMesh() { return mesh; }
     [[nodiscard]] InstanceData getInstanceData() const;
@@ -44,11 +53,14 @@ class MeshInstance {
 
     void move(glm::vec3 position);
 
-    void setID(uint32_t id) { objectID = id; }
+    void setID(uint32_t id);
+    void setName(const std::string& pName) { name = pName; }
 
     glm::vec3 getPosition() { return pos; }
     glm::vec3 getRotation() { return rot; }
     glm::vec3 getScale() { return scale; }
+
+    std::string getName() { return name; }
 };
 
 #endif //CUBICAD_OBJECTINSTANCE_H

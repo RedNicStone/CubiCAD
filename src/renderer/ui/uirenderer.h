@@ -38,6 +38,8 @@ class UIRenderer {
                                        uint32_t imageCount,
                                        uint32_t subpass = 0);
 
+    void submitDrawable(const std::shared_ptr<UIDrawable>& drawable) { drawables.push_back(drawable); }
+
     void draw(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffer);
 
     void setHidden(bool hide);

@@ -43,11 +43,17 @@ class Mesh {
     uint32_t indexCount;
     uint32_t vertexCount;
 
+    std::string name;
+
   public:
-    static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>>& meshlets);
+    static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>>& meshlets, const std::string& pName = "");
+
+    void setName(const std::string& pName) { name = pName; }
 
     [[nodiscard]] uint32_t getIndexCount() const { return indexCount; }
     [[nodiscard]] uint32_t getVertexCount() const { return vertexCount; }
+
+    std::string getName() { return name; }
 
     std::vector<std::shared_ptr<Meshlet>>& getMeshlets() { return subMeshes; }
 

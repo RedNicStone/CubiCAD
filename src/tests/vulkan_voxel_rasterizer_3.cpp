@@ -36,12 +36,11 @@
 #include "../renderer/scene.h"
 #include "../renderer/ui/uirenderer.h"
 #include "../renderer/framebufferselector.h"
+#include "../renderer/ui/objectproperties.h"
 
 
-using ComplexNum = std::pair<long double, long double>;
-
-const uint32_t WIDTH = 1080;
-const uint32_t HEIGHT = 720;
+const uint32_t WIDTH = 1080 * 2;
+const uint32_t HEIGHT = 720 * 2;
 
 const int MAX_FRAMES_IN_FLIGHT = 2;
 
@@ -98,10 +97,12 @@ class MandelbrotApp {
     std::vector<std::shared_ptr<MeshInstance>> objects;
 
     std::shared_ptr<Camera> camera;
-    std::shared_ptr<UIRenderer> UI;
     std::shared_ptr<FramebufferSelector> objectBuffer;
     std::shared_ptr<Image> objectBufferImage;
     std::shared_ptr<ImageView> objectBufferImageView;
+
+    std::shared_ptr<UIRenderer> UI;
+    std::shared_ptr<ObjectProperties> properties;
 
     bool mouseCaptured = false;
     uint32_t imageCount;
@@ -142,6 +143,9 @@ class MandelbrotApp {
 
     void createUI() {
         UI = UIRenderer::create(graphicsQueue, commandPool, renderPass, window, imageCount, UISubpass);
+        properties = ObjectProperties::create(scene);
+        UI->submitDrawable(properties);
+        properties->setObjectByID(1);
     }
 
     void loadModels() {

@@ -17,14 +17,16 @@ class ObjectProperties : public UIDrawable {
   private:
     std::shared_ptr<Scene> scene;
 
-    uint32_t objectID;
+    std::shared_ptr<MeshInstance> object;
+
+    std::string objectName;
 
   public:
-    static std::shared_ptr<ObjectProperties> create();
+    static std::shared_ptr<ObjectProperties> create(const std::shared_ptr<Scene>& pScene);
 
-    void setObjectID(uint32_t vObjectID);
+    void setObjectByID(uint32_t objectID);
 
-    void drawUI() override();
+    void drawUI() override;
 };
 
 #endif //CUBICAD_OBJECTPROPERTIES_H

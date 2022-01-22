@@ -48,7 +48,6 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
 
     // Loop over shapes
     for (const auto& shape : shapes) {
-
         std::unordered_map<int, std::shared_ptr<Meshlet>> meshlets;
 
         // Loop over faces(polygon)
@@ -83,7 +82,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
             meshletVector.push_back(kv.second);
         }
 
-        meshes.push_back(Mesh::create(meshletVector));
+        meshes.push_back(Mesh::create(meshletVector, shape.name));
     }
 
     return meshes;
