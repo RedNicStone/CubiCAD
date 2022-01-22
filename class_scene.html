@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('class_scene.html',''); initResizable()
 <div class="dynheader">
 Collaboration diagram for Scene:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene__coll__graph.svg" width="202" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene__coll__graph.svg" width="202" height="455"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -138,6 +138,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a18d9b02ed3e1d23471ddfb3c62b759b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adab1af0c8f8889f64a4ef22a61df4736"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#adab1af0c8f8889f64a4ef22a61df4736">getCamera</a> ()</td></tr>
 <tr class="separator:adab1af0c8f8889f64a4ef22a61df4736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf72dd5cc7457fe086003d8115be295b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abf72dd5cc7457fe086003d8115be295b">getInstances</a> ()</td></tr>
+<tr class="separator:abf72dd5cc7457fe086003d8115be295b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adffab8839bc9108c2ba4a545978170a7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#adffab8839bc9108c2ba4a545978170a7">getInstanceByID</a> (uint32_t objectID)</td></tr>
+<tr class="separator:adffab8839bc9108c2ba4a545978170a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b8cec2e32546713915f8c6303c951f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3b8cec2e32546713915f8c6303c951f1">~Scene</a> ()</td></tr>
 <tr class="separator:a3b8cec2e32546713915f8c6303c951f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -369,6 +373,57 @@ Here is the caller graph for this function:</div>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adffab8839bc9108c2ba4a545978170a7" name="adffab8839bc9108c2ba4a545978170a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adffab8839bc9108c2ba4a545978170a7">&#9670;&nbsp;</a></span>getInstanceByID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; Scene::getInstanceByID </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>objectID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf72dd5cc7457fe086003d8115be295b" name="abf72dd5cc7457fe086003d8115be295b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf72dd5cc7457fe086003d8115be295b">&#9670;&nbsp;</a></span>getInstances()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &gt; Scene::getInstances </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>

@@ -17,11 +17,12 @@ var searchData=
   ['preferredflags_14',['preferredFlags',['../class_dynamic_buffer.html#abe3768f2aba0b18ef3f47479563f283a',1,'DynamicBuffer']]],
   ['presentfamily_15',['presentFamily',['../class_queue_family_handler.html#a158df943c776e075f8172ebb47a91372',1,'QueueFamilyHandler::presentFamily()'],['../struct_queue_family_indices.html#a49d58fc9a4711c034057f6d4fde814b9',1,'QueueFamilyIndices::presentFamily()']]],
   ['presentmodes_16',['presentModes',['../struct_swap_chain_support_details.html#ae4fff3c89a63ae4cf896b6b385e2dad9',1,'SwapChainSupportDetails']]],
-  ['presentqueue_17',['presentQueue',['../class_swap_chain.html#adc6867d4b921dae384e7b7df5f6355f7',1,'SwapChain::presentQueue()'],['../class_mandelbrot_app.html#abaa45c272a0bfb2276836dd8e4aefba8',1,'MandelbrotApp::presentQueue()']]],
+  ['presentqueue_17',['presentQueue',['../class_mandelbrot_app.html#abaa45c272a0bfb2276836dd8e4aefba8',1,'MandelbrotApp::presentQueue()'],['../class_swap_chain.html#adc6867d4b921dae384e7b7df5f6355f7',1,'SwapChain::presentQueue()']]],
   ['prevmousepos_18',['prevMousePos',['../class_mandelbrot_app.html#aed2337aa2c13aa4f50d19fe0e21e6a08',1,'MandelbrotApp']]],
   ['proj_19',['proj',['../struct_scene_data.html#a92f156e0ac3e8b65fcf58aa71056d85e',1,'SceneData']]],
   ['projection_20',['projection',['../class_camera.html#a43555a0ae83f9ec696ee257e5fd48cf2',1,'Camera']]],
-  ['publicrenderbus_21',['publicRenderBus',['../eventbus_8cpp.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp'],['../eventbus_8h.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp']]],
-  ['pushconstantranges_22',['pushConstantRanges',['../class_pipeline_layout.html#a79cb41488cc675c90d6ea5603e831d83',1,'PipelineLayout']]],
-  ['pvertexbuffer_23',['pVertexBuffer',['../class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#aad3907ed731f065e0e573082eaa9a36c',1,'CCAD_OT::OtGeometryCompiler']]]
+  ['properties_21',['properties',['../class_mandelbrot_app.html#ad7331c87533c516c3a1713426ca6742d',1,'MandelbrotApp']]],
+  ['publicrenderbus_22',['publicRenderBus',['../eventbus_8cpp.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp'],['../eventbus_8h.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp']]],
+  ['pushconstantranges_23',['pushConstantRanges',['../class_pipeline_layout.html#a79cb41488cc675c90d6ea5603e831d83',1,'PipelineLayout']]],
+  ['pvertexbuffer_24',['pVertexBuffer',['../class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#aad3907ed731f065e0e573082eaa9a36c',1,'CCAD_OT::OtGeometryCompiler']]]
 ];

@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_mesh_instance.html',''); initRes
 <div class="dynheader">
 Collaboration diagram for MeshInstance:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance__coll__graph.svg" width="147" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance__coll__graph.svg" width="147" height="396"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -123,17 +123,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a67648123dba5930bb7cc1aa84d68ea55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06c57883cbc5ea7773fd77de65531f12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a06c57883cbc5ea7773fd77de65531f12">setID</a> (uint32_t id)</td></tr>
 <tr class="separator:a06c57883cbc5ea7773fd77de65531f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc8ae998965e3e4ba20a0bb566f0991d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#acc8ae998965e3e4ba20a0bb566f0991d">setName</a> (const std::string &amp;pName)</td></tr>
+<tr class="separator:acc8ae998965e3e4ba20a0bb566f0991d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a063b8001be69c2ba23c707d6b2daf31e"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a063b8001be69c2ba23c707d6b2daf31e">getPosition</a> ()</td></tr>
 <tr class="separator:a063b8001be69c2ba23c707d6b2daf31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7533ca1d7afa8de9cb0ef73304f3f4c3"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a7533ca1d7afa8de9cb0ef73304f3f4c3">getRotation</a> ()</td></tr>
 <tr class="separator:a7533ca1d7afa8de9cb0ef73304f3f4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02cfc11784e93f0857a90ff2311bf628"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a02cfc11784e93f0857a90ff2311bf628">getScale</a> ()</td></tr>
 <tr class="separator:a02cfc11784e93f0857a90ff2311bf628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bfee7c68dd586b0e038e9cba2a29db"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#aa3bfee7c68dd586b0e038e9cba2a29db">getName</a> ()</td></tr>
+<tr class="separator:aa3bfee7c68dd586b0e038e9cba2a29db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2058aab788a123702db00904989c1141"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a2058aab788a123702db00904989c1141">create</a> (std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; masterMesh)</td></tr>
-<tr class="separator:a2058aab788a123702db00904989c1141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511dc5709b2a32317ad2f0f02c6740c4"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a511dc5709b2a32317ad2f0f02c6740c4">create</a> (const std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &amp;masterMesh, const std::string &amp;pName=&quot;&quot;)</td></tr>
+<tr class="separator:a511dc5709b2a32317ad2f0f02c6740c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -145,12 +149,22 @@ Private Attributes</h2></td></tr>
 <tr class="separator:af7ed8d7a0e260d5b6fcc52656be1de4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44e5778ba6ad9798b46c572595d2f551"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a44e5778ba6ad9798b46c572595d2f551">scale</a> = {1, 1, 1}</td></tr>
 <tr class="separator:a44e5778ba6ad9798b46c572595d2f551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae89397948b47faaa1b09087d13b60d6"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#aae89397948b47faaa1b09087d13b60d6">matRot</a></td></tr>
+<tr class="separator:aae89397948b47faaa1b09087d13b60d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec920e0a559cfb48f2442fccce06b307"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#aec920e0a559cfb48f2442fccce06b307">matPos</a></td></tr>
+<tr class="separator:aec920e0a559cfb48f2442fccce06b307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77b9d2c43d53cb0f2c295d93d26fc98f"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a77b9d2c43d53cb0f2c295d93d26fc98f">matScale</a></td></tr>
+<tr class="separator:a77b9d2c43d53cb0f2c295d93d26fc98f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a909a41bb3768fd89287c8910992f2"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a66a909a41bb3768fd89287c8910992f2">combined</a></td></tr>
+<tr class="separator:a66a909a41bb3768fd89287c8910992f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58b2daa8af1349216ee19d813e0dab97"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a58b2daa8af1349216ee19d813e0dab97">objectID</a></td></tr>
 <tr class="separator:a58b2daa8af1349216ee19d813e0dab97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ac4628947eeb3aecf74679826b9f9d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#ac4ac4628947eeb3aecf74679826b9f9d">name</a></td></tr>
+<tr class="separator:ac4ac4628947eeb3aecf74679826b9f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2058aab788a123702db00904989c1141" name="a2058aab788a123702db00904989c1141"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2058aab788a123702db00904989c1141">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a511dc5709b2a32317ad2f0f02c6740c4" name="a511dc5709b2a32317ad2f0f02c6740c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511dc5709b2a32317ad2f0f02c6740c4">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,9 +175,19 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; MeshInstance::create </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt;&#160;</td>
-          <td class="paramname"><em>masterMesh</em></td><td>)</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>masterMesh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pName</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -175,7 +199,7 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_a2058aab788a123702db00904989c1141_icgraph.svg" width="607" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_a511dc5709b2a32317ad2f0f02c6740c4_icgraph.svg" width="607" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -209,6 +233,31 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; MeshInstance::getMesh </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3bfee7c68dd586b0e038e9cba2a29db" name="aa3bfee7c68dd586b0e038e9cba2a29db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3bfee7c68dd586b0e038e9cba2a29db">&#9670;&nbsp;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MeshInstance::getName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -321,15 +370,33 @@ Here is the caller graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void MeshInstance::setID </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc8ae998965e3e4ba20a0bb566f0991d" name="acc8ae998965e3e4ba20a0bb566f0991d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc8ae998965e3e4ba20a0bb566f0991d">&#9670;&nbsp;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MeshInstance::setName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -397,6 +464,94 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a66a909a41bb3768fd89287c8910992f2" name="a66a909a41bb3768fd89287c8910992f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66a909a41bb3768fd89287c8910992f2">&#9670;&nbsp;</a></span>combined</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 MeshInstance::combined</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec920e0a559cfb48f2442fccce06b307" name="aec920e0a559cfb48f2442fccce06b307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec920e0a559cfb48f2442fccce06b307">&#9670;&nbsp;</a></span>matPos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 MeshInstance::matPos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae89397948b47faaa1b09087d13b60d6" name="aae89397948b47faaa1b09087d13b60d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae89397948b47faaa1b09087d13b60d6">&#9670;&nbsp;</a></span>matRot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 MeshInstance::matRot</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77b9d2c43d53cb0f2c295d93d26fc98f" name="a77b9d2c43d53cb0f2c295d93d26fc98f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b9d2c43d53cb0f2c295d93d26fc98f">&#9670;&nbsp;</a></span>matScale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 MeshInstance::matScale</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7e26897cd72ba054993ef140c5c8fd55" name="a7e26897cd72ba054993ef140c5c8fd55"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e26897cd72ba054993ef140c5c8fd55">&#9670;&nbsp;</a></span>mesh</h2>
 
@@ -408,6 +563,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_mesh.html">Mesh</a>&gt; MeshInstance::mesh</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4ac4628947eeb3aecf74679826b9f9d" name="ac4ac4628947eeb3aecf74679826b9f9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4ac4628947eeb3aecf74679826b9f9d">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MeshInstance::name</td>
         </tr>
       </table>
   </td>

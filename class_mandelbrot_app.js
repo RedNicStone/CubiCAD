@@ -82,6 +82,7 @@ var class_mandelbrot_app =
     [ "physicalDevice", "class_mandelbrot_app.html#a874434641d63c514004a3062524a2109", null ],
     [ "presentQueue", "class_mandelbrot_app.html#abaa45c272a0bfb2276836dd8e4aefba8", null ],
     [ "prevMousePos", "class_mandelbrot_app.html#aed2337aa2c13aa4f50d19fe0e21e6a08", null ],
+    [ "properties", "class_mandelbrot_app.html#ad7331c87533c516c3a1713426ca6742d", null ],
     [ "renderPass", "class_mandelbrot_app.html#a7d215ed2c6f58d01c42efe4785d7f24b", null ],
     [ "scene", "class_mandelbrot_app.html#abf621f1f9c14c07725bc3af1a843214e", null ],
     [ "shadingPipeline", "class_mandelbrot_app.html#adab8e1e888115d4f892dae38787861d3", null ],

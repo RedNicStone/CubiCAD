@@ -93,7 +93,6 @@ $(document).ready(function(){initNavTree('vulkan__voxel__rasterizer__3_8cpp.html
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">vulkan_voxel_rasterizer_3.cpp File Reference</div></div>
@@ -121,6 +120,7 @@ $(document).ready(function(){initNavTree('vulkan__voxel__rasterizer__3_8cpp.html
 <code>#include &quot;<a class="el" href="scene_8h_source.html">../renderer/scene.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="uirenderer_8h_source.html">../renderer/ui/uirenderer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="framebufferselector_8h_source.html">../renderer/framebufferselector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="objectproperties_8h_source.html">../renderer/ui/objectproperties.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for vulkan_voxel_rasterizer_3.cpp:</div>
 <div class="dyncontent">
@@ -144,11 +144,6 @@ Macros</h2></td></tr>
 <tr class="memitem:a53aeecf6b7ba36273b6998fbd206ca7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vulkan__voxel__rasterizer__3_8cpp.html#a53aeecf6b7ba36273b6998fbd206ca7d">GLM_FORCE_DEFAULT_ALIGNED_GENTYPES</a></td></tr>
 <tr class="separator:a53aeecf6b7ba36273b6998fbd206ca7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a148524a91f02c13ea45df29fc6b6d4d8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vulkan__voxel__rasterizer__3_8cpp.html#a148524a91f02c13ea45df29fc6b6d4d8">ComplexNum</a> = std::pair&lt; long double, long double &gt;</td></tr>
-<tr class="separator:a148524a91f02c13ea45df29fc6b6d4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vulkan__voxel__rasterizer__3_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
@@ -156,9 +151,9 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a110637c1f80f9ffe303710de239c3e4d"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vulkan__voxel__rasterizer__3_8cpp.html#a110637c1f80f9ffe303710de239c3e4d">WIDTH</a> = 1080</td></tr>
+<tr class="memitem:a110637c1f80f9ffe303710de239c3e4d"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vulkan__voxel__rasterizer__3_8cpp.html#a110637c1f80f9ffe303710de239c3e4d">WIDTH</a> = 1080 * 2</td></tr>
 <tr class="separator:a110637c1f80f9ffe303710de239c3e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4091c0fc85ce76fe88d5379d7230497"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vulkan__voxel__rasterizer__3_8cpp.html#af4091c0fc85ce76fe88d5379d7230497">HEIGHT</a> = 720</td></tr>
+<tr class="memitem:af4091c0fc85ce76fe88d5379d7230497"><td class="memItemLeft" align="right" valign="top">const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vulkan__voxel__rasterizer__3_8cpp.html#af4091c0fc85ce76fe88d5379d7230497">HEIGHT</a> = 720 * 2</td></tr>
 <tr class="separator:af4091c0fc85ce76fe88d5379d7230497"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7302e21aaabe341f71d799a7dd3f274f"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vulkan__voxel__rasterizer__3_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f">MAX_FRAMES_IN_FLIGHT</a> = 2</td></tr>
 <tr class="separator:a7302e21aaabe341f71d799a7dd3f274f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,21 +217,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define GLM_FORCE_RADIANS</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a148524a91f02c13ea45df29fc6b6d4d8" name="a148524a91f02c13ea45df29fc6b6d4d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a148524a91f02c13ea45df29fc6b6d4d8">&#9670;&nbsp;</a></span>ComplexNum</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="vulkan__voxel__rasterizer__2_8cpp.html#a148524a91f02c13ea45df29fc6b6d4d8">ComplexNum</a> =  std::pair&lt;long double, long double&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -317,7 +297,7 @@ Here is the call graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint32_t HEIGHT = 720</td>
+          <td class="memname">const uint32_t HEIGHT = 720 * 2</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -359,7 +339,7 @@ Here is the call graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint32_t WIDTH = 1080</td>
+          <td class="memname">const uint32_t WIDTH = 1080 * 2</td>
         </tr>
       </table>
 </div><div class="memdoc">

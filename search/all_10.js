@@ -48,11 +48,12 @@ var searchData=
   ['prevmousepos_45',['prevMousePos',['../class_mandelbrot_app.html#aed2337aa2c13aa4f50d19fe0e21e6a08',1,'MandelbrotApp']]],
   ['proj_46',['proj',['../struct_scene_data.html#a92f156e0ac3e8b65fcf58aa71056d85e',1,'SceneData']]],
   ['projection_47',['projection',['../class_camera.html#a43555a0ae83f9ec696ee257e5fd48cf2',1,'Camera']]],
-  ['publicrenderbus_48',['publicRenderBus',['../eventbus_8h.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp'],['../eventbus_8cpp.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp']]],
-  ['pushconstant_2ecpp_49',['pushconstant.cpp',['../pushconstant_8cpp.html',1,'']]],
-  ['pushconstant_2eh_50',['pushconstant.h',['../pushconstant_8h.html',1,'']]],
-  ['pushconstantrange_51',['PushConstantRange',['../class_push_constant_range.html',1,'PushConstantRange'],['../class_push_constant_range.html#a74748ceee8ad087a8e0af36a16a52d80',1,'PushConstantRange::PushConstantRange()']]],
-  ['pushconstantranges_52',['pushConstantRanges',['../class_pipeline_layout.html#a79cb41488cc675c90d6ea5603e831d83',1,'PipelineLayout']]],
-  ['pushparameters_53',['pushParameters',['../class_material_library.html#a926b79a4183235c9efa6b6ae075c1054',1,'MaterialLibrary']]],
-  ['pvertexbuffer_54',['pVertexBuffer',['../class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#aad3907ed731f065e0e573082eaa9a36c',1,'CCAD_OT::OtGeometryCompiler']]]
+  ['properties_48',['properties',['../class_mandelbrot_app.html#ad7331c87533c516c3a1713426ca6742d',1,'MandelbrotApp']]],
+  ['publicrenderbus_49',['publicRenderBus',['../eventbus_8cpp.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp'],['../eventbus_8h.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp']]],
+  ['pushconstant_2ecpp_50',['pushconstant.cpp',['../pushconstant_8cpp.html',1,'']]],
+  ['pushconstant_2eh_51',['pushconstant.h',['../pushconstant_8h.html',1,'']]],
+  ['pushconstantrange_52',['PushConstantRange',['../class_push_constant_range.html',1,'PushConstantRange'],['../class_push_constant_range.html#a74748ceee8ad087a8e0af36a16a52d80',1,'PushConstantRange::PushConstantRange()']]],
+  ['pushconstantranges_53',['pushConstantRanges',['../class_pipeline_layout.html#a79cb41488cc675c90d6ea5603e831d83',1,'PipelineLayout']]],
+  ['pushparameters_54',['pushParameters',['../class_material_library.html#a926b79a4183235c9efa6b6ae075c1054',1,'MaterialLibrary']]],
+  ['pvertexbuffer_55',['pVertexBuffer',['../class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#aad3907ed731f065e0e573082eaa9a36c',1,'CCAD_OT::OtGeometryCompiler']]]
 ];
