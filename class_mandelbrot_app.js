@@ -32,7 +32,6 @@ var class_mandelbrot_app =
     [ "drawFrame", "class_mandelbrot_app.html#ab3ce0f5ab6d2fb792b5217ceb4ffdc2d", null ],
     [ "drawFrame", "class_mandelbrot_app.html#ab3ce0f5ab6d2fb792b5217ceb4ffdc2d", null ],
     [ "findSupportedFormat", "class_mandelbrot_app.html#a0e9a1f7008ecc2fa2384a04801ee6098", null ],
-    [ "findSupportedFormat", "class_mandelbrot_app.html#a0e9a1f7008ecc2fa2384a04801ee6098", null ],
     [ "getAverageFramerate", "class_mandelbrot_app.html#ad980d3f644d7157d7a092bac9f8986f5", null ],
     [ "initVulkan", "class_mandelbrot_app.html#ad5c4a7e7fd79bc75fea87df0165005b6", null ],
     [ "initVulkan", "class_mandelbrot_app.html#ad5c4a7e7fd79bc75fea87df0165005b6", null ],

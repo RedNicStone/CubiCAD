@@ -22,13 +22,14 @@ var searchData=
   ['_7eshader_19',['~Shader',['../class_shader.html#aff01df87e8a102f270b5b135a295e59d',1,'Shader']]],
   ['_7estackallocator_20',['~StackAllocator',['../class_stack_allocator.html#af9c82e78eb9b22e3560b522b2b305656',1,'StackAllocator']]],
   ['_7eswapchain_21',['~SwapChain',['../class_swap_chain.html#a58c288346a3fa211fbcc2cec594bfa68',1,'SwapChain']]],
-  ['_7euirenderer_22',['~UIRenderer',['../class_u_i_renderer.html#a53b28c33842e6b163d48318e7c5bb372',1,'UIRenderer']]],
-  ['_7euniformbuffer_23',['~UniformBuffer',['../class_uniform_buffer.html#aed1896a3bb0033107663e860713f876e',1,'UniformBuffer']]],
-  ['_7evirtualallocation_24',['~VirtualAllocation',['../class_virtual_allocation.html#a5c2917fd2fbbcdab3e38d053fe7f89da',1,'VirtualAllocation']]],
-  ['_7evoxelcodecbase_25',['~VoxelCodecBase',['../class_voxel_codec_base.html#aa9823d739f141f866cb8638fd9cc3671',1,'VoxelCodecBase']]],
-  ['_7evoxelcodeclinear_26',['~VoxelCodecLinear',['../class_voxel_codec_linear.html#a9d7b7608dcf35a7bcf5f566167a286fa',1,'VoxelCodecLinear']]],
-  ['_7evoxelcodecoctreebase_27',['~VoxelCodecOctreeBase',['../class_voxel_codec_octree_base.html#a9bd1a8c721fc6d8d0be2eaec974881c1',1,'VoxelCodecOctreeBase']]],
-  ['_7evoxelcodecshuffle_28',['~VoxelCodecShuffle',['../class_voxel_codec_shuffle.html#ac330c2c7f3e2ad8547be795ae1726030',1,'VoxelCodecShuffle']]],
-  ['_7evoxelfragmentstreambase_29',['~VoxelFragmentStreamBase',['../class_voxel_fragment_stream_base.html#a2a80636bf5cd39e19fab403a7f4a2f97',1,'VoxelFragmentStreamBase']]],
-  ['_7ewindow_30',['~Window',['../class_window.html#a245d821e6016fa1f6970ccbbedd635f6',1,'Window']]]
+  ['_7euidrawable_22',['~UIDrawable',['../class_u_i_drawable.html#ad74c6614be89018e71ec2b1ce2f8c41e',1,'UIDrawable']]],
+  ['_7euirenderer_23',['~UIRenderer',['../class_u_i_renderer.html#a53b28c33842e6b163d48318e7c5bb372',1,'UIRenderer']]],
+  ['_7euniformbuffer_24',['~UniformBuffer',['../class_uniform_buffer.html#aed1896a3bb0033107663e860713f876e',1,'UniformBuffer']]],
+  ['_7evirtualallocation_25',['~VirtualAllocation',['../class_virtual_allocation.html#a5c2917fd2fbbcdab3e38d053fe7f89da',1,'VirtualAllocation']]],
+  ['_7evoxelcodecbase_26',['~VoxelCodecBase',['../class_voxel_codec_base.html#aa9823d739f141f866cb8638fd9cc3671',1,'VoxelCodecBase']]],
+  ['_7evoxelcodeclinear_27',['~VoxelCodecLinear',['../class_voxel_codec_linear.html#a9d7b7608dcf35a7bcf5f566167a286fa',1,'VoxelCodecLinear']]],
+  ['_7evoxelcodecoctreebase_28',['~VoxelCodecOctreeBase',['../class_voxel_codec_octree_base.html#a9bd1a8c721fc6d8d0be2eaec974881c1',1,'VoxelCodecOctreeBase']]],
+  ['_7evoxelcodecshuffle_29',['~VoxelCodecShuffle',['../class_voxel_codec_shuffle.html#ac330c2c7f3e2ad8547be795ae1726030',1,'VoxelCodecShuffle']]],
+  ['_7evoxelfragmentstreambase_30',['~VoxelFragmentStreamBase',['../class_voxel_fragment_stream_base.html#a2a80636bf5cd39e19fab403a7f4a2f97',1,'VoxelFragmentStreamBase']]],
+  ['_7ewindow_31',['~Window',['../class_window.html#a245d821e6016fa1f6970ccbbedd635f6',1,'Window']]]
 ];

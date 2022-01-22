@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_framebuffer_selector.html',''); 
 <div class="dynheader">
 Collaboration diagram for FramebufferSelector:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_framebuffer_selector__coll__graph.svg" width="176" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_framebuffer_selector__coll__graph.svg" width="176" height="220"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -111,8 +111,10 @@ Collaboration diagram for FramebufferSelector:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3af206ab5b548c5dd14b32ea20608dc5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_framebuffer_selector.html#a3af206ab5b548c5dd14b32ea20608dc5">getImage</a> ()</td></tr>
 <tr class="separator:a3af206ab5b548c5dd14b32ea20608dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f4266f985dea1e2a012a3d8a4537d0c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_framebuffer_selector.html#a5f4266f985dea1e2a012a3d8a4537d0c">getImageView</a> ()</td></tr>
-<tr class="separator:a5f4266f985dea1e2a012a3d8a4537d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7b1c77be6684c982e30e88cc4b5605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_framebuffer_selector.html#a3b7b1c77be6684c982e30e88cc4b5605">transferLayoutRead</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;commandBuffer)</td></tr>
+<tr class="separator:a3b7b1c77be6684c982e30e88cc4b5605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edb09ce9967ad5bca95978150ee4d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_framebuffer_selector.html#a3edb09ce9967ad5bca95978150ee4d47">transferLayoutWrite</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;commandBuffer)</td></tr>
+<tr class="separator:a3edb09ce9967ad5bca95978150ee4d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa969a6de0c50dfdd2b6652b2ebfc4ca"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_framebuffer_selector.html#afa969a6de0c50dfdd2b6652b2ebfc4ca">getImageData</a> ()</td></tr>
 <tr class="separator:afa969a6de0c50dfdd2b6652b2ebfc4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aece0ce7da101a8958f84bbff2d3d6d5c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_framebuffer_selector.html#aece0ce7da101a8958f84bbff2d3d6d5c">getIDAtPosition</a> (VkExtent2D position)</td></tr>
@@ -277,27 +279,38 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a5f4266f985dea1e2a012a3d8a4537d0c" name="a5f4266f985dea1e2a012a3d8a4537d0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f4266f985dea1e2a012a3d8a4537d0c">&#9670;&nbsp;</a></span>getImageView()</h2>
+<a id="a3b7b1c77be6684c982e30e88cc4b5605" name="a3b7b1c77be6684c982e30e88cc4b5605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b7b1c77be6684c982e30e88cc4b5605">&#9670;&nbsp;</a></span>transferLayoutRead()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; FramebufferSelector::getImageView </td>
+          <td class="memname">void FramebufferSelector::transferLayoutRead </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>commandBuffer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3edb09ce9967ad5bca95978150ee4d47" name="a3edb09ce9967ad5bca95978150ee4d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3edb09ce9967ad5bca95978150ee4d47">&#9670;&nbsp;</a></span>transferLayoutWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FramebufferSelector::transferLayoutWrite </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>commandBuffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

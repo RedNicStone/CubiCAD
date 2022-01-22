@@ -129,6 +129,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6ca6e450af983ffc10740c3ea325db07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2841757028fafcb1fae9da5c4111582"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ac2841757028fafcb1fae9da5c4111582">getArrayLayers</a> () const</td></tr>
 <tr class="separator:ac2841757028fafcb1fae9da5c4111582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47982512223ea89e7ab54f535dd55995"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a47982512223ea89e7ab54f535dd55995">transitionImageLayout</a> (const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool, VkImageLayout dst)</td></tr>
+<tr class="separator:a47982512223ea89e7ab54f535dd55995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce449d0c8e2dc5fd112c27ce2142f29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a4ce449d0c8e2dc5fd112c27ce2142f29">transitionImageLayout</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;commandPool, VkImageLayout dst, VkPipelineStageFlags dstStage, VkAccessFlags dstMask=0)</td></tr>
+<tr class="separator:a4ce449d0c8e2dc5fd112c27ce2142f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a150c2c9a573b0d8b91050426642ebb4a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a150c2c9a573b0d8b91050426642ebb4a">map</a> ()</td></tr>
 <tr class="separator:a150c2c9a573b0d8b91050426642ebb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a630dd4d080617bfe75d184165111cf53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a630dd4d080617bfe75d184165111cf53">unmap</a> ()</td></tr>
@@ -143,10 +147,10 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a33a72beb1be15be4292bd38933614793"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a33a72beb1be15be4292bd38933614793">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, VmaMemoryUsage memoryUsage, VkMemoryPropertyFlags preferredFlags, VkMemoryPropertyFlags requiredFlags, VkImageCreateInfo &amp;createInfo, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
-<tr class="separator:a33a72beb1be15be4292bd38933614793"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf9f8727b4ec835350ef036b98ea710b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#acf9f8727b4ec835350ef036b98ea710b">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const VkExtent2D &amp;size, uint32_t mip_level, VkFormat <a class="el" href="class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e">format</a>, VkImageUsageFlags usage, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
-<tr class="separator:acf9f8727b4ec835350ef036b98ea710b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a729f597dc28bd5261b1860643ed9513f"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a729f597dc28bd5261b1860643ed9513f">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, VmaMemoryUsage memoryUsage, VkMemoryPropertyFlags preferredFlags, VkMemoryPropertyFlags requiredFlags, VkImageCreateInfo &amp;createInfo, std::vector&lt; uint32_t &gt; &amp;accessingQueues, VkAccessFlags initialAccessMask=0, VkPipelineStageFlags initialPipelineStage=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT)</td></tr>
+<tr class="separator:a729f597dc28bd5261b1860643ed9513f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const VkExtent2D &amp;size, uint32_t mip_level, VkFormat <a class="el" href="class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e">format</a>, VkImageUsageFlags usage, std::vector&lt; uint32_t &gt; &amp;accessingQueues, VkAccessFlags initialAccessMask=0, VkPipelineStageFlags initialPipelineStage=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT)</td></tr>
+<tr class="separator:a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -166,6 +170,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:acabca646d85b455e9dc5342c1a940d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9d51a957011e2e329504d7920b91758"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#af9d51a957011e2e329504d7920b91758">arrayLayers</a></td></tr>
 <tr class="separator:af9d51a957011e2e329504d7920b91758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc53477760260ecc17abacbff2a04311"><td class="memItemLeft" align="right" valign="top">VkImageLayout&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#abc53477760260ecc17abacbff2a04311">currentLayout</a> = VK_IMAGE_LAYOUT_UNDEFINED</td></tr>
+<tr class="separator:abc53477760260ecc17abacbff2a04311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a38390ac9bea01e1e1df28da9baa7d0"><td class="memItemLeft" align="right" valign="top">VkAccessFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a8a38390ac9bea01e1e1df28da9baa7d0">currentAccessFlags</a> = 0</td></tr>
+<tr class="separator:a8a38390ac9bea01e1e1df28da9baa7d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de3db361431229bb725117046c1f921"><td class="memItemLeft" align="right" valign="top">VkPipelineStageFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a7de3db361431229bb725117046c1f921">currentStage</a> = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT</td></tr>
+<tr class="separator:a7de3db361431229bb725117046c1f921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -192,8 +202,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="acf9f8727b4ec835350ef036b98ea710b" name="acf9f8727b4ec835350ef036b98ea710b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf9f8727b4ec835350ef036b98ea710b">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
+<a id="a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8" name="a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +245,19 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; uint32_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>accessingQueues</em>&#160;</td>
+          <td class="paramname"><em>accessingQueues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkAccessFlags&#160;</td>
+          <td class="paramname"><em>initialAccessMask</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPipelineStageFlags&#160;</td>
+          <td class="paramname"><em>initialPipelineStage</em> = <code>VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -252,8 +274,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a33a72beb1be15be4292bd38933614793" name="a33a72beb1be15be4292bd38933614793"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33a72beb1be15be4292bd38933614793">&#9670;&nbsp;</a></span>create() <span class="overload">[2/2]</span></h2>
+<a id="a729f597dc28bd5261b1860643ed9513f" name="a729f597dc28bd5261b1860643ed9513f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729f597dc28bd5261b1860643ed9513f">&#9670;&nbsp;</a></span>create() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +317,19 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; uint32_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>accessingQueues</em>&#160;</td>
+          <td class="paramname"><em>accessingQueues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkAccessFlags&#160;</td>
+          <td class="paramname"><em>initialAccessMask</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPipelineStageFlags&#160;</td>
+          <td class="paramname"><em>initialPipelineStage</em> = <code>VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -312,7 +346,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a33a72beb1be15be4292bd38933614793_icgraph.svg" width="530" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a729f597dc28bd5261b1860643ed9513f_icgraph.svg" width="530" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -519,6 +553,80 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a4ce449d0c8e2dc5fd112c27ce2142f29" name="a4ce449d0c8e2dc5fd112c27ce2142f29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce449d0c8e2dc5fd112c27ce2142f29">&#9670;&nbsp;</a></span>transitionImageLayout() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Image::transitionImageLayout </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>commandPool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkImageLayout&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPipelineStageFlags&#160;</td>
+          <td class="paramname"><em>dstStage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkAccessFlags&#160;</td>
+          <td class="paramname"><em>dstMask</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47982512223ea89e7ab54f535dd55995" name="a47982512223ea89e7ab54f535dd55995"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47982512223ea89e7ab54f535dd55995">&#9670;&nbsp;</a></span>transitionImageLayout() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Image::transitionImageLayout </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>commandPool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkImageLayout&#160;</td>
+          <td class="paramname"><em>dst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a47982512223ea89e7ab54f535dd55995_cgraph.svg" width="408" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a630dd4d080617bfe75d184165111cf53" name="a630dd4d080617bfe75d184165111cf53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a630dd4d080617bfe75d184165111cf53">&#9670;&nbsp;</a></span>unmap()</h2>
 
@@ -592,6 +700,72 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">uint32_t Image::arrayLayers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8a38390ac9bea01e1e1df28da9baa7d0" name="a8a38390ac9bea01e1e1df28da9baa7d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a38390ac9bea01e1e1df28da9baa7d0">&#9670;&nbsp;</a></span>currentAccessFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkAccessFlags Image::currentAccessFlags = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc53477760260ecc17abacbff2a04311" name="abc53477760260ecc17abacbff2a04311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc53477760260ecc17abacbff2a04311">&#9670;&nbsp;</a></span>currentLayout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkImageLayout Image::currentLayout = VK_IMAGE_LAYOUT_UNDEFINED</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7de3db361431229bb725117046c1f921" name="a7de3db361431229bb725117046c1f921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7de3db361431229bb725117046c1f921">&#9670;&nbsp;</a></span>currentStage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkPipelineStageFlags Image::currentStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT</td>
         </tr>
       </table>
   </td>

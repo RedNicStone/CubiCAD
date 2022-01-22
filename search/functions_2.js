@@ -9,5 +9,6 @@ var searchData=
   ['bindpipeline_6',['bindPipeline',['../class_command_buffer.html#ae5ecd2d3ffffb04c4068a7f6bef64dd6',1,'CommandBuffer']]],
   ['bindvertexbuffer_7',['bindVertexBuffer',['../class_command_buffer.html#a05706ad77f7592eb97ba231447a702af',1,'CommandBuffer']]],
   ['bindvertexbuffers_8',['bindVertexBuffers',['../class_command_buffer.html#afc9dc15618fb9733b3cba8949084b024',1,'CommandBuffer']]],
-  ['build_9',['build',['../class_render_pass.html#a7c316af3042678e68ae4a14a253c4136',1,'RenderPass']]]
+  ['blitimage_9',['blitImage',['../class_command_buffer.html#a6871e09dace1f995778edea9360af467',1,'CommandBuffer']]],
+  ['build_10',['build',['../class_render_pass.html#a7c316af3042678e68ae4a14a253c4136',1,'RenderPass']]]
 ];
