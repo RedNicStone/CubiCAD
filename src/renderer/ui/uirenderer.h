@@ -2,6 +2,8 @@
 // Created by nic on 19/01/2022.
 //
 
+#pragma once
+
 #ifndef CUBICAD_UIRENDERER_H
 #define CUBICAD_UIRENDERER_H
 
@@ -12,9 +14,18 @@
 #include <imgui_internal.h>
 
 
+class UIDrawable {
+  public:
+    virtual void drawUI() {};
+
+    virtual ~UIDrawable()=default;
+};
+
 class UIRenderer {
   private:
     std::shared_ptr<DescriptorPool> ImGUIPool;
+
+    std::vector<std::shared_ptr<UIDrawable>> drawables;
 
     ImGuiContext* context = nullptr;
     bool hideUI = false;

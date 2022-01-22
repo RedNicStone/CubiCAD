@@ -6,6 +6,8 @@ layout(set = 0, binding = 0) uniform SceneInfo {
 
     uint nFrame;  // frame ID
     uint frameTime;  // frame time in ns
+    uint selectedID;  // currently selected object
+    uint hoveredID;  // currently hovered object
 } scene_info;
 
 layout(location = 0) in vec3 vert_pos;

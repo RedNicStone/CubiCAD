@@ -28,6 +28,8 @@ class DescriptorSet;
 
 class Buffer;
 
+class Image;
+
 class CommandBuffer : public VulkanClass<VkCommandBuffer> {
   private:
     std::shared_ptr<CommandPool> commandPool;
@@ -86,6 +88,19 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
 
     void copyBuffer(const std::shared_ptr<Buffer>& src, const std::shared_ptr<Buffer>& dst, std::vector<VkBufferCopy>
         copyRegions);
+
+    void copyImage(const std::shared_ptr<Image>& src,
+                   const std::shared_ptr<Image>& dst,
+                   std::vector<VkImageCopy> copyRegions,
+                   VkImageLayout srcLayout = VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
+                   VkImageLayout dstLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+
+    void blitImage(const std::shared_ptr<Image>& src,
+                   const std::shared_ptr<Image>& dst,
+                   std::vector<VkImageBlit> blitRegions,
+                   VkFilter filter = VK_FILTER_NEAREST,
+                   VkImageLayout srcLayout = VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
+                   VkImageLayout dstLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
 };
 
 #endif //CUBICAD_SRC_RENDERER_VULKAN_COMMANDBUFFER_H_

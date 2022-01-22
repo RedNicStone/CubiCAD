@@ -24,6 +24,8 @@ class UniformBuffer;
 
 class Buffer;
 
+class ImageView;
+
 class DescriptorSet : public VulkanClass<VkDescriptorSet> {
   private:
     std::shared_ptr<Device> device;

@@ -14,11 +14,15 @@
 #include "vulkanclass.h"
 #include "queues.h"
 #include "imageview.h"
+#include "commandpool.h"
+#include "buffer.h"
 
 #include <vector>
 
 
 class ImageView;
+
+class CommandBuffer;
 
 class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<Image> {
   private:
@@ -31,6 +35,9 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     VkFormat format;
     uint32_t mipLevels;
     uint32_t arrayLayers;
+    VkImageLayout currentLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    VkAccessFlags currentAccessFlags = 0;
+    VkPipelineStageFlags currentStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT;
 
   public:
     static std::shared_ptr<Image> create(const std::shared_ptr<Device>& pDevice,
@@ -38,14 +45,18 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
                                          VkMemoryPropertyFlags preferredFlags,
                                          VkMemoryPropertyFlags requiredFlags,
                                          VkImageCreateInfo &createInfo,
-                                         std::vector<uint32_t> &accessingQueues);
+                                         std::vector<uint32_t> &accessingQueues,
+                                         VkAccessFlags initialAccessMask = 0,
+                                         VkPipelineStageFlags initialPipelineStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
 
     static std::shared_ptr<Image> create(const std::shared_ptr<Device>& pDevice,
                                          const VkExtent2D &size,
                                          uint32_t mip_level,
                                          VkFormat format,
                                          VkImageUsageFlags usage,
-                                         std::vector<uint32_t> &accessingQueues);
+                                         std::vector<uint32_t> &accessingQueues,
+                                         VkAccessFlags initialAccessMask = 0,
+                                         VkPipelineStageFlags initialPipelineStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
 
     std::shared_ptr<ImageView> createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange);
 
@@ -60,6 +71,12 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     [[nodiscard]] uint32_t getMipLevels() const { return mipLevels; }
 
     [[nodiscard]] uint32_t getArrayLayers() const { return arrayLayers; }
+
+    void transitionImageLayout(const std::shared_ptr<CommandPool>& commandPool, VkImageLayout dst);
+
+    void transitionImageLayout(const std::shared_ptr<CommandBuffer>& commandPool, VkImageLayout dst,
+                               VkPipelineStageFlags dstStage,
+                               VkAccessFlags dstMask = 0);
 
     void* map();
     void unmap();

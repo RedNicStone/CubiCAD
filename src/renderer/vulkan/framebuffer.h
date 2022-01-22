@@ -23,6 +23,8 @@ class RenderPass;
 
 class SwapChain;
 
+class ImageView;
+
 class FrameBuffer {
   private:
     std::shared_ptr<Device> device;

@@ -184,3 +184,22 @@ void CommandBuffer::copyBuffer(const std::shared_ptr<Buffer>& src,
                                std::vector<VkBufferCopy> copyRegions) {
     vkCmdCopyBuffer(handle, src->getHandle(), dst->getHandle(), static_cast<uint32_t>(copyRegions.size()), copyRegions.data());
 }
+
+void CommandBuffer::copyImage(const std::shared_ptr<Image>& src,
+                              const std::shared_ptr<Image>& dst,
+                              std::vector<VkImageCopy> copyRegions,
+                              VkImageLayout srcLayout,
+                              VkImageLayout dstLayout) {
+    vkCmdCopyImage(handle, src->getHandle(), srcLayout, dst->getHandle(), dstLayout,
+                   static_cast<uint32_t>(copyRegions.size()), copyRegions.data());
+}
+
+void CommandBuffer::blitImage(const std::shared_ptr<Image>& src,
+                              const std::shared_ptr<Image>& dst,
+                              std::vector<VkImageBlit> blitRegions,
+                              VkFilter filter,
+                              VkImageLayout srcLayout,
+                              VkImageLayout dstLayout) {
+    vkCmdBlitImage(handle, src->getHandle(), srcLayout, dst->getHandle(), dstLayout,
+                   static_cast<uint32_t>(blitRegions.size()), blitRegions.data(), filter);
+}

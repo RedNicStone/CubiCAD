@@ -21,14 +21,14 @@ std::shared_ptr<FramebufferSelector> FramebufferSelector::create(const std::shar
     createInfo.format = VK_FORMAT_R32_UINT;
     createInfo.tiling = VK_IMAGE_TILING_LINEAR;
     createInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
-    createInfo.usage = VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
+    createInfo.usage = VK_IMAGE_USAGE_TRANSFER_SRC_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT;
     createInfo.samples = VK_SAMPLE_COUNT_1_BIT;
     createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
     createInfo.pQueueFamilyIndices = accessingQueues.data();
     createInfo.flags = 0;
 
-    objectSelector->image = Image::create(device, VMA_MEMORY_USAGE_GPU_ONLY, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
-                                          VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT, createInfo, accessingQueues);
+    objectSelector->image = Image::create(device, VMA_MEMORY_USAGE_UNKNOWN, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
+                                          VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, createInfo, accessingQueues);
 
     objectSelector->data = static_cast<uint32_t*>(objectSelector->image->map());
     objectSelector->extent = imageExtent;
@@ -44,6 +44,16 @@ std::shared_ptr<FramebufferSelector> FramebufferSelector::create(const std::shar
     objectSelector->imageLayout.rowPitch += imageExtent.width;
 
     return objectSelector;
+}
+
+void FramebufferSelector::transferLayoutRead(const std::shared_ptr<CommandBuffer>& commandBuffer) {
+    image->transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL, VK_PIPELINE_STAGE_HOST_BIT,
+    VK_ACCESS_HOST_READ_BIT);
+}
+
+void FramebufferSelector::transferLayoutWrite(const std::shared_ptr<CommandBuffer>& commandBuffer) {
+    image->transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_PIPELINE_STAGE_TRANSFER_BIT,
+                                 VK_ACCESS_TRANSFER_WRITE_BIT);
 }
 
 uint32_t FramebufferSelector::getIDAtPosition(VkExtent2D position) {

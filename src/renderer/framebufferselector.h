@@ -24,7 +24,9 @@ class FramebufferSelector {
                                                        VkExtent2D extent);
 
     std::shared_ptr<Image> getImage() { return image; }
-    std::shared_ptr<ImageView> getImageView() { return imageView; }
+
+    void transferLayoutRead(const std::shared_ptr<CommandBuffer>& commandBuffer);
+    void transferLayoutWrite(const std::shared_ptr<CommandBuffer>& commandBuffer);
 
     void* getImageData() { return data; }
     uint32_t getIDAtPosition(VkExtent2D position);

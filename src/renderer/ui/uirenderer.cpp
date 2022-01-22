@@ -78,6 +78,9 @@ void UIRenderer::draw(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffe
     ImGui::NewFrame();
 
     if (!hideUI) {
+        /*for (const auto& drawable : drawables) {
+            drawable->drawUI();
+        }*/
         ImGui::ShowDemoWindow();
     }
 

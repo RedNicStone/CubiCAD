@@ -77,6 +77,8 @@ void Scene::updateUBO() {
     camera->update();
     data->view = camera->getView();
     data->proj = camera->getProj();
+    data->selectedID = selectedID;
+    data->hoveredID = hoveredID;
 }
 
 void Scene::transferRenderData() {

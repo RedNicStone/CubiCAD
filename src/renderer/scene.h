@@ -27,7 +27,7 @@ struct SceneData {
     glm::uint nFrame{};  // frame ID
     glm::uint frameTime{};  // frame time in ns
     glm::uint selectedID{};
-    glm::uint hoverID{};
+    glm::uint hoveredID{};
 };
 
 class Scene {
@@ -64,6 +64,9 @@ class Scene {
     std::shared_ptr<DescriptorPoolManager> descriptorPool;
     std::shared_ptr<DescriptorSet> sceneDescriptorSet;
 
+    uint32_t selectedID{};
+    uint32_t hoveredID{};
+
     void transferRenderData();
 
   public:
@@ -74,6 +77,11 @@ class Scene {
 
     void setCamera(const std::shared_ptr<Camera>& pCamera);
     void updateUBO();
+
+    void setSelected(uint32_t objectID) { selectedID = objectID; }
+    void setHovered(uint32_t objectID) { hoveredID = objectID; }
+    [[nodiscard]] uint32_t getSelected() const { return selectedID; }
+    [[nodiscard]] uint32_t getHovered() const { return hoveredID; }
 
     void submitInstance(const std::shared_ptr<MeshInstance>& meshInstance);
 
