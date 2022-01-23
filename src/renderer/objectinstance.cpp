@@ -20,6 +20,12 @@ std::shared_ptr<MeshInstance> MeshInstance::create(const std::shared_ptr<Mesh>& 
     return meshInstance;
 }
 
+void MeshInstance::combineMatrices() {
+    combined = matPos
+        * matRot
+        * matScale;
+}
+
 InstanceData MeshInstance::getInstanceData() const {
     InstanceData data{};
     data.objectID = objectID;
@@ -31,9 +37,7 @@ InstanceData MeshInstance::getInstanceData() const {
 void MeshInstance::setPosition(glm::vec3 position) {
     pos = position;
     matPos = glm::translate(pos);
-    combined = matRot
-             * matPos
-             * matScale;
+    combineMatrices();
 }
 
 void MeshInstance::setRotation(glm::vec3 rotation) {
@@ -41,21 +45,17 @@ void MeshInstance::setRotation(glm::vec3 rotation) {
     matRot = glm::rotate(rot.x, glm::vec3(1, 0, 0))
            * glm::rotate(rot.y, glm::vec3(0, 1, 0))
            * glm::rotate(rot.z, glm::vec3(0, 0, 1));
-    combined = matRot
-             * matPos
-             * matScale;
+    combineMatrices();
 }
 
 void MeshInstance::setScale(glm::vec3 scaling) {
     scale = scaling;
     matScale = glm::scale(scale);
-    combined = matRot
-             * matPos
-             * matScale;
+    combineMatrices();
 }
 
 void MeshInstance::move(glm::vec3 position) {
-    pos += position;
+    setPosition(pos + position);
 }
 
 void MeshInstance::setID(uint32_t id) {

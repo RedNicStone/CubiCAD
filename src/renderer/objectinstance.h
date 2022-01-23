@@ -32,14 +32,16 @@ class MeshInstance {
     glm::vec3 rot = {0, 0, 0};
     glm::vec3 scale = {1, 1, 1};
 
-    glm::mat4 matRot;
-    glm::mat4 matPos;
-    glm::mat4 matScale;
+    glm::mat4 matRot = glm::mat4(1.0f);
+    glm::mat4 matPos = glm::mat4(1.0f);
+    glm::mat4 matScale = glm::mat4(1.0f);
     glm::mat4 combined;
 
-    uint32_t objectID;
+    uint32_t objectID = 1;
 
     std::string name;
+
+    void combineMatrices();
 
   public:
     static std::shared_ptr<MeshInstance> create(const std::shared_ptr<Mesh>& masterMesh, const std::string& pName = "");
@@ -61,6 +63,7 @@ class MeshInstance {
     glm::vec3 getScale() { return scale; }
 
     std::string getName() { return name; }
+    [[nodiscard]] uint32_t getID() const { return objectID; }
 };
 
 #endif //CUBICAD_OBJECTINSTANCE_H

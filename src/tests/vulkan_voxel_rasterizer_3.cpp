@@ -37,6 +37,7 @@
 #include "../renderer/ui/uirenderer.h"
 #include "../renderer/framebufferselector.h"
 #include "../renderer/ui/objectproperties.h"
+#include "../renderer/ui/objectlist.h"
 
 
 const uint32_t WIDTH = 1080 * 2;
@@ -102,7 +103,8 @@ class MandelbrotApp {
     std::shared_ptr<ImageView> objectBufferImageView;
 
     std::shared_ptr<UIRenderer> UI;
-    std::shared_ptr<ObjectProperties> properties;
+    std::shared_ptr<ObjectProperties> objectProperties;
+    std::shared_ptr<ObjectList> objectList;
 
     bool mouseCaptured = false;
     uint32_t imageCount;
@@ -110,6 +112,8 @@ class MandelbrotApp {
     std::vector<std::shared_ptr<Fence>> imagesInFlight;
 
     glm::dvec2 prevMousePos;
+    bool mouseDown = false;
+    bool escDown = false;
 
     //dexode::EventBus::Listener listener{publicRenderBus.getBus()};
 
@@ -143,9 +147,10 @@ class MandelbrotApp {
 
     void createUI() {
         UI = UIRenderer::create(graphicsQueue, commandPool, renderPass, window, imageCount, UISubpass);
-        properties = ObjectProperties::create(scene);
-        UI->submitDrawable(properties);
-        properties->setObjectByID(1);
+        objectProperties = ObjectProperties::create(scene);
+        UI->submitDrawable(objectProperties);
+        objectList = ObjectList::create(scene);
+        UI->submitDrawable(objectList);
     }
 
     void loadModels() {
@@ -159,7 +164,7 @@ class MandelbrotApp {
         auto material = Material::create(masterMaterial);
         model = modelLoader->import("resources/models/demo/primitives/cube.obj", material).front();
 
-        for (size_t i = 0; i < 500; i++) {
+        for (size_t i = 0; i < 50000; i++) {
             auto object = MeshInstance::create(model);
             object->setScale(glm::vec3(0.1f));
             object->setPosition(glm::normalize(glm::vec3(
@@ -262,21 +267,28 @@ class MandelbrotApp {
             auto deltaMousePos = currentMousePos - prevMousePos;
             prevMousePos = currentMousePos;
 
-            if (mouseCaptured && glfwGetKey(window->getWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-                glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-                mouseCaptured = false;
-                UI->setHidden(false);
-            }
-            if (!mouseCaptured && !io.WantCaptureMouse &&
-                glfwGetMouseButton(window->getWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-                if (scene->getHovered() > 0) {
-                    scene->setSelected(scene->getHovered());
+            if (!escDown && glfwGetKey(window->getWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+                if (mouseCaptured) {
+                    glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+                    mouseCaptured = false;
+                    UI->setHidden(false);
                 } else {
                     glfwSetInputMode(window->getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
                     mouseCaptured = true;
                     UI->setHidden(true);
                 }
+                escDown = true;
+            } else if (escDown && glfwGetKey(window->getWindow(), GLFW_KEY_ESCAPE) == GLFW_RELEASE)
+                escDown = false;
+
+            if (!mouseCaptured && !io.WantCaptureMouse) {
+                if (!mouseDown && glfwGetMouseButton(window->getWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+                    scene->setSelected(scene->getHovered());
+                    mouseDown = true;
+                } else if (mouseDown && glfwGetMouseButton(window->getWindow(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)
+                    mouseDown = false;
             }
+
             if (mouseCaptured) {
                 auto moveSpeed = 0.02f;
                 if (glfwGetKey(window->getWindow(), GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
@@ -303,13 +315,15 @@ class MandelbrotApp {
             }
         }
 
+        objectList->updateSelected();
         scene->updateUBO();
 
-        for (const auto& object : objects) {
+        /*for (const auto& object : objects) {
             object->setPosition(glm::normalize(glm::cross(object->getPosition(),
                                                           {0, 1, 0}) * glm::vec3(0.0005f)
                                                    + object->getPosition()) * glm::vec3(20));
-        }
+        }*/
+        objectProperties->setObjectByID(scene->getSelected());
     }
 
     void recreateSwapChain() {

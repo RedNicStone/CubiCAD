@@ -20,4 +20,4 @@ target_sources(imgui PRIVATE
 target_include_directories(imgui
         PUBLIC ${IMGUI_SOURCE_DIR}
         PUBLIC ${IMGUI_SOURCE_DIR}/backends
-        PUBLIC ${IMGUI_SOURCE_DIR}/mics/cpp)
+        PUBLIC ${IMGUI_SOURCE_DIR}/misc/cpp)

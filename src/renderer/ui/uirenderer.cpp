@@ -81,7 +81,7 @@ void UIRenderer::draw(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffe
         for (const auto& drawable : drawables) {
             drawable->drawUI();
         }
-        ImGui::ShowDemoWindow();
+        //ImGui::ShowDemoWindow();
     }
 
     ImGui::Render();
