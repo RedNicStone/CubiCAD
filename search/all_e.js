@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../class_shader.html#a8c8fba8311ca3a7cfeac5afeb346e51b',1,'Shader::name()'],['../class_mesh_instance.html#ac4ac4628947eeb3aecf74679826b9f9d',1,'MeshInstance::name()'],['../class_mesh.html#ac687e9dcfc7cc60b046fc2ec634200be',1,'Mesh::name()']]],
+  ['name_0',['name',['../class_shader.html#a8c8fba8311ca3a7cfeac5afeb346e51b',1,'Shader::name()'],['../class_mesh_instance.html#ac4ac4628947eeb3aecf74679826b9f9d',1,'MeshInstance::name()'],['../class_mesh.html#ac687e9dcfc7cc60b046fc2ec634200be',1,'Mesh::name()'],['../class_material.html#affe06990f884293d0fe2f39110f71730',1,'Material::name()'],['../class_master_material.html#a6c693ea0cbbaa51783cf2e533042c3dc',1,'MasterMaterial::name()']]],
   ['nextnode_1',['nextNode',['../class_voxel_codec_sparse_octree.html#abbf451580c307422df81741ba5f3465a',1,'VoxelCodecSparseOctree::nextNode(OctreePos pos) override'],['../class_voxel_codec_sparse_octree.html#ae9643b326693ced58404fc582b759490',1,'VoxelCodecSparseOctree::nextNode() override'],['../class_voxel_codec_octree_base.html#a79697aab6f90fc56cf92f426b8fb7807',1,'VoxelCodecOctreeBase::nextNode(OctreePos pos)'],['../class_voxel_codec_octree_base.html#a4862ec27f21a67dbcd26730cf2e064d7',1,'VoxelCodecOctreeBase::nextNode()']]],
   ['nextsubpass_2',['nextSubpass',['../class_command_buffer.html#a3f3c43ddde1476e49e9e93ec683b3123',1,'CommandBuffer']]],
   ['nframe_3',['nFrame',['../struct_scene_data.html#a7b7fc91b77e63271801c0b926aba89ba',1,'SceneData']]],

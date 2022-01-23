@@ -20,5 +20,7 @@ var searchData=
   ['instance_17',['instance',['../class_physical_device.html#a7dd4092684f73310680cd2687140770f',1,'PhysicalDevice::instance()'],['../class_window.html#a5077d65fc2eac2f426ba770cd8b00272',1,'Window::instance()'],['../class_mandelbrot_app.html#abdde7735754a6f4ccb4c13e6f0905551',1,'MandelbrotApp::instance()']]],
   ['instancebuffer_18',['instanceBuffer',['../class_scene.html#acc0e555c9f313e130de8888fcb299274',1,'Scene']]],
   ['instancebufferdata_19',['instanceBufferData',['../class_scene.html#ab340f781e639017d5cd47c0e45e4a74d',1,'Scene']]],
-  ['instances_20',['instances',['../class_scene.html#a25dfe61208f84baef0549c9986cc7bc4',1,'Scene']]]
+  ['instances_20',['instances',['../class_scene.html#a25dfe61208f84baef0549c9986cc7bc4',1,'Scene']]],
+  ['itemhovered_21',['itemHovered',['../class_object_list.html#a2dd400fd67b8865c6d51060a027b92c2',1,'ObjectList']]],
+  ['itemselected_22',['itemSelected',['../class_object_list.html#a0aa0d3206a0ad8359ea462803429fec3',1,'ObjectList']]]
 ];

@@ -18,14 +18,16 @@ var searchData=
   ['matpos_15',['matPos',['../class_mesh_instance.html#aec920e0a559cfb48f2442fccce06b307',1,'MeshInstance']]],
   ['matrot_16',['matRot',['../class_mesh_instance.html#aae89397948b47faaa1b09087d13b60d6',1,'MeshInstance']]],
   ['matscale_17',['matScale',['../class_mesh_instance.html#a77b9d2c43d53cb0f2c295d93d26fc98f',1,'MeshInstance']]],
-  ['max_5fframes_5fin_5fflight_18',['MAX_FRAMES_IN_FLIGHT',['../vulkan__voxel__rasterizer__2_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'MAX_FRAMES_IN_FLIGHT():&#160;vulkan_voxel_rasterizer_2.cpp'],['../vulkan__voxel__rasterizer__3_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'MAX_FRAMES_IN_FLIGHT():&#160;vulkan_voxel_rasterizer_3.cpp']]],
+  ['max_5fframes_5fin_5fflight_18',['MAX_FRAMES_IN_FLIGHT',['../vulkan__voxel__rasterizer__3_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'MAX_FRAMES_IN_FLIGHT():&#160;vulkan_voxel_rasterizer_3.cpp'],['../vulkan__voxel__rasterizer__2_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f',1,'MAX_FRAMES_IN_FLIGHT():&#160;vulkan_voxel_rasterizer_2.cpp']]],
   ['maxqueuecount_19',['maxQueueCount',['../struct_possible_queue_family.html#a620d98143069d52b46700d24e2fc6b11',1,'PossibleQueueFamily']]],
   ['memoryptr_20',['memoryPtr',['../struct_voxel_codec_octree_base_1_1_node_stack_element.html#ad1aa4e6191775ea03299f22a5ebe6c97',1,'VoxelCodecOctreeBase::NodeStackElement']]],
   ['memoryusage_21',['memoryUsage',['../class_dynamic_buffer.html#a9157aef8b767e07677fa618069028bb5',1,'DynamicBuffer']]],
   ['mesh_22',['mesh',['../class_mesh_instance.html#a7e26897cd72ba054993ef140c5c8fd55',1,'MeshInstance']]],
-  ['metallic_23',['metallic',['../struct_p_b_r_material_parameters.html#a01cae6fd7b9496f74cc33e43204bfcc7',1,'PBRMaterialParameters']]],
-  ['miplevels_24',['mipLevels',['../class_image.html#acabca646d85b455e9dc5342c1a940d21',1,'Image']]],
-  ['model_25',['model',['../class_camera.html#a0f466597be3dfd881ab42f8703b74c0e',1,'Camera::model()'],['../struct_instance_data.html#ac212f0d8e381b56fec9265ed559ddf39',1,'InstanceData::model()'],['../class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd',1,'MandelbrotApp::model()']]],
-  ['modelloader_26',['modelLoader',['../class_mandelbrot_app.html#a6f5b878e7208691e01d501e9094157dd',1,'MandelbrotApp']]],
-  ['mousecaptured_27',['mouseCaptured',['../class_mandelbrot_app.html#a5b183bf75c2fe14f32015215d23fd989',1,'MandelbrotApp']]]
+  ['meshname_23',['meshName',['../class_object_properties.html#afb4993aed6ebbf0efbf7e1fb4eb40127',1,'ObjectProperties']]],
+  ['metallic_24',['metallic',['../struct_p_b_r_material_parameters.html#a01cae6fd7b9496f74cc33e43204bfcc7',1,'PBRMaterialParameters']]],
+  ['miplevels_25',['mipLevels',['../class_image.html#acabca646d85b455e9dc5342c1a940d21',1,'Image']]],
+  ['model_26',['model',['../class_camera.html#a0f466597be3dfd881ab42f8703b74c0e',1,'Camera::model()'],['../struct_instance_data.html#ac212f0d8e381b56fec9265ed559ddf39',1,'InstanceData::model()'],['../class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd',1,'MandelbrotApp::model()']]],
+  ['modelloader_27',['modelLoader',['../class_mandelbrot_app.html#a6f5b878e7208691e01d501e9094157dd',1,'MandelbrotApp']]],
+  ['mousecaptured_28',['mouseCaptured',['../class_mandelbrot_app.html#a5b183bf75c2fe14f32015215d23fd989',1,'MandelbrotApp']]],
+  ['mousedown_29',['mouseDown',['../class_mandelbrot_app.html#aa640a5d6413ab159bb3c67ea60bfe837',1,'MandelbrotApp']]]
 ];

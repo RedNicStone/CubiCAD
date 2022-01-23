@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_mesh_instance.html',''); initRes
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_mesh_instance-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MeshInstance Class Reference</div></div>
@@ -103,7 +104,7 @@ $(document).ready(function(){initNavTree('class_mesh_instance.html',''); initRes
 <div class="dynheader">
 Collaboration diagram for MeshInstance:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance__coll__graph.svg" width="147" height="396"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance__coll__graph.svg" width="147" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -133,11 +134,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a02cfc11784e93f0857a90ff2311bf628"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3bfee7c68dd586b0e038e9cba2a29db"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#aa3bfee7c68dd586b0e038e9cba2a29db">getName</a> ()</td></tr>
 <tr class="separator:aa3bfee7c68dd586b0e038e9cba2a29db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf493a8dcf0fd9c404c34a9132de304b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#adf493a8dcf0fd9c404c34a9132de304b">getID</a> () const</td></tr>
+<tr class="separator:adf493a8dcf0fd9c404c34a9132de304b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a511dc5709b2a32317ad2f0f02c6740c4"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a511dc5709b2a32317ad2f0f02c6740c4">create</a> (const std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &amp;masterMesh, const std::string &amp;pName=&quot;&quot;)</td></tr>
 <tr class="separator:a511dc5709b2a32317ad2f0f02c6740c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a2813e6726e428d36aec578772b7b9dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a2813e6726e428d36aec578772b7b9dac">combineMatrices</a> ()</td></tr>
+<tr class="separator:a2813e6726e428d36aec578772b7b9dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -149,20 +157,51 @@ Private Attributes</h2></td></tr>
 <tr class="separator:af7ed8d7a0e260d5b6fcc52656be1de4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44e5778ba6ad9798b46c572595d2f551"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a44e5778ba6ad9798b46c572595d2f551">scale</a> = {1, 1, 1}</td></tr>
 <tr class="separator:a44e5778ba6ad9798b46c572595d2f551"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae89397948b47faaa1b09087d13b60d6"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#aae89397948b47faaa1b09087d13b60d6">matRot</a></td></tr>
+<tr class="memitem:aae89397948b47faaa1b09087d13b60d6"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#aae89397948b47faaa1b09087d13b60d6">matRot</a> = glm::mat4(1.0f)</td></tr>
 <tr class="separator:aae89397948b47faaa1b09087d13b60d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec920e0a559cfb48f2442fccce06b307"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#aec920e0a559cfb48f2442fccce06b307">matPos</a></td></tr>
+<tr class="memitem:aec920e0a559cfb48f2442fccce06b307"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#aec920e0a559cfb48f2442fccce06b307">matPos</a> = glm::mat4(1.0f)</td></tr>
 <tr class="separator:aec920e0a559cfb48f2442fccce06b307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77b9d2c43d53cb0f2c295d93d26fc98f"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a77b9d2c43d53cb0f2c295d93d26fc98f">matScale</a></td></tr>
+<tr class="memitem:a77b9d2c43d53cb0f2c295d93d26fc98f"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a77b9d2c43d53cb0f2c295d93d26fc98f">matScale</a> = glm::mat4(1.0f)</td></tr>
 <tr class="separator:a77b9d2c43d53cb0f2c295d93d26fc98f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66a909a41bb3768fd89287c8910992f2"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a66a909a41bb3768fd89287c8910992f2">combined</a></td></tr>
 <tr class="separator:a66a909a41bb3768fd89287c8910992f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58b2daa8af1349216ee19d813e0dab97"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a58b2daa8af1349216ee19d813e0dab97">objectID</a></td></tr>
+<tr class="memitem:a58b2daa8af1349216ee19d813e0dab97"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#a58b2daa8af1349216ee19d813e0dab97">objectID</a> = 1</td></tr>
 <tr class="separator:a58b2daa8af1349216ee19d813e0dab97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ac4628947eeb3aecf74679826b9f9d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_instance.html#ac4ac4628947eeb3aecf74679826b9f9d">name</a></td></tr>
 <tr class="separator:ac4ac4628947eeb3aecf74679826b9f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2813e6726e428d36aec578772b7b9dac" name="a2813e6726e428d36aec578772b7b9dac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2813e6726e428d36aec578772b7b9dac">&#9670;&nbsp;</a></span>combineMatrices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MeshInstance::combineMatrices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_a2813e6726e428d36aec578772b7b9dac_icgraph.svg" width="635" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a511dc5709b2a32317ad2f0f02c6740c4" name="a511dc5709b2a32317ad2f0f02c6740c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a511dc5709b2a32317ad2f0f02c6740c4">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -202,6 +241,31 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_a511dc5709b2a32317ad2f0f02c6740c4_icgraph.svg" width="607" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<a id="adf493a8dcf0fd9c404c34a9132de304b" name="adf493a8dcf0fd9c404c34a9132de304b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf493a8dcf0fd9c404c34a9132de304b">&#9670;&nbsp;</a></span>getID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t MeshInstance::getID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -362,6 +426,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_a67648123dba5930bb7cc1aa84d68ea55_cgraph.svg" width="634" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -424,6 +494,18 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_ab51aa102dd9b49b02d1d9a5ae38fd8fa_cgraph.svg" width="443" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_ab51aa102dd9b49b02d1d9a5ae38fd8fa_icgraph.svg" width="376" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -442,6 +524,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_ab8ee35983f3ece8e34b917be14b82d0c_cgraph.svg" width="444" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -460,6 +548,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_instance_ae44134b0650c4d3969a1c92eb7179529_cgraph.svg" width="430" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -496,7 +590,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::mat4 MeshInstance::matPos</td>
+          <td class="memname">glm::mat4 MeshInstance::matPos = glm::mat4(1.0f)</td>
         </tr>
       </table>
   </td>
@@ -518,7 +612,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::mat4 MeshInstance::matRot</td>
+          <td class="memname">glm::mat4 MeshInstance::matRot = glm::mat4(1.0f)</td>
         </tr>
       </table>
   </td>
@@ -540,7 +634,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::mat4 MeshInstance::matScale</td>
+          <td class="memname">glm::mat4 MeshInstance::matScale = glm::mat4(1.0f)</td>
         </tr>
       </table>
   </td>
@@ -606,7 +700,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t MeshInstance::objectID</td>
+          <td class="memname">uint32_t MeshInstance::objectID = 1</td>
         </tr>
       </table>
   </td>

@@ -70,6 +70,7 @@ var annotated_dup =
     [ "NVRaygenShader", "class_n_v_raygen_shader.html", null ],
     [ "NVShader", "class_n_v_shader.html", null ],
     [ "NVTaskShader", "class_n_v_task_shader.html", null ],
+    [ "ObjectList", "class_object_list.html", "class_object_list" ],
     [ "ObjectProperties", "class_object_properties.html", "class_object_properties" ],
     [ "optional", "structoptional.html", "structoptional" ],
     [ "PBRMaterialParameters", "struct_p_b_r_material_parameters.html", "struct_p_b_r_material_parameters" ],

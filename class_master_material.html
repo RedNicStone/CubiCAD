@@ -103,14 +103,18 @@ $(document).ready(function(){initNavTree('class_master_material.html',''); initR
 <div class="dynheader">
 Collaboration diagram for MasterMaterial:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material__coll__graph.svg" width="216" height="308"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_master_material__coll__graph.svg" width="216" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ad61454478d7d6102d3f225dbb3c9aa15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#ad61454478d7d6102d3f225dbb3c9aa15">setName</a> (const std::string &amp;pName)</td></tr>
+<tr class="separator:ad61454478d7d6102d3f225dbb3c9aa15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3ad1784dd8bb582223a60ac87edbf63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#ac3ad1784dd8bb582223a60ac87edbf63">updateDescriptorSetLayouts</a> (const std::shared_ptr&lt; <a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a> &gt; &amp;sceneLayout, bool enableDepthStencil=false)</td></tr>
 <tr class="separator:ac3ad1784dd8bb582223a60ac87edbf63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f2d79af9763a9f98d1fe3e2a4e41b9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#aa6f2d79af9763a9f98d1fe3e2a4e41b9">getName</a> ()</td></tr>
+<tr class="separator:aa6f2d79af9763a9f98d1fe3e2a4e41b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a011e052072c762e1b24159f914270db6"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a011e052072c762e1b24159f914270db6">getPipeline</a> ()</td></tr>
 <tr class="separator:a011e052072c762e1b24159f914270db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ba368be5a0fb7fabcccdea01db02314"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a7ba368be5a0fb7fabcccdea01db02314">getPipelineLayout</a> ()</td></tr>
@@ -149,6 +153,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a208b3d3ed443b20d5ab86156ee339bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e4d1459085e13e12a7e983519bfa54"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#ab9e4d1459085e13e12a7e983519bfa54">colorBlendStates</a></td></tr>
 <tr class="separator:ab9e4d1459085e13e12a7e983519bfa54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c693ea0cbbaa51783cf2e533042c3dc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a6c693ea0cbbaa51783cf2e533042c3dc">name</a></td></tr>
+<tr class="separator:a6c693ea0cbbaa51783cf2e533042c3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae5e8bce749f24f977a932353cc372ddd" name="ae5e8bce749f24f977a932353cc372ddd"></a>
@@ -236,6 +242,31 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aa6f2d79af9763a9f98d1fe3e2a4e41b9" name="aa6f2d79af9763a9f98d1fe3e2a4e41b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f2d79af9763a9f98d1fe3e2a4e41b9">&#9670;&nbsp;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MasterMaterial::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a011e052072c762e1b24159f914270db6" name="a011e052072c762e1b24159f914270db6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a011e052072c762e1b24159f914270db6">&#9670;&nbsp;</a></span>getPipeline()</h2>
 
@@ -299,6 +330,32 @@ Here is the caller graph for this function:</div>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; MasterMaterial::getRenderPass </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad61454478d7d6102d3f225dbb3c9aa15" name="ad61454478d7d6102d3f225dbb3c9aa15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad61454478d7d6102d3f225dbb3c9aa15">&#9670;&nbsp;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MasterMaterial::setName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -489,6 +546,28 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a>&gt; MasterMaterial::materialSetLayout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c693ea0cbbaa51783cf2e533042c3dc" name="a6c693ea0cbbaa51783cf2e533042c3dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c693ea0cbbaa51783cf2e533042c3dc">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MasterMaterial::name</td>
         </tr>
       </table>
   </td>

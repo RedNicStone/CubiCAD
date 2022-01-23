@@ -40,7 +40,7 @@ var searchData=
   ['resize_37',['resize',['../class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da',1,'VirtualStackAllocation::resize()'],['../class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c',1,'VirtualAllocation::resize()']]],
   ['resized_38',['resized',['../class_window.html#abfd6a085fe40e9011e695b2840640e2e',1,'Window']]],
   ['root_5fnode_39',['root_node',['../class_c_c_a_d___o_t_1_1_ot_octree.html#af1e01751604141ee577606c70aff5465',1,'CCAD_OT::OtOctree']]],
-  ['rot_40',['rot',['../class_mesh_instance.html#af7ed8d7a0e260d5b6fcc52656be1de4a',1,'MeshInstance']]],
+  ['rot_40',['rot',['../class_object_properties.html#a89225c66c36cc001c39d874977d1a7e6',1,'ObjectProperties::rot()'],['../class_mesh_instance.html#af7ed8d7a0e260d5b6fcc52656be1de4a',1,'MeshInstance::rot()']]],
   ['rotate_41',['rotate',['../class_camera.html#a25423f6fbeab3064b2a6185ee5727ad7',1,'Camera']]],
   ['rotation_42',['rotation',['../class_camera.html#a323b8cfd7f1518ddac7d36eb744a729a',1,'Camera']]],
   ['roughness_43',['roughness',['../struct_p_b_r_material_parameters.html#aed2c70ecad90c5f259c583b5c4ac666a',1,'PBRMaterialParameters']]],

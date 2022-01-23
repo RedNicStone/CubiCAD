@@ -1,5 +1,7 @@
 var class_mesh_instance =
 [
+    [ "combineMatrices", "class_mesh_instance.html#a2813e6726e428d36aec578772b7b9dac", null ],
+    [ "getID", "class_mesh_instance.html#adf493a8dcf0fd9c404c34a9132de304b", null ],
     [ "getInstanceData", "class_mesh_instance.html#ab4ae33e8b5abcd158ced288367fb4f34", null ],
     [ "getMesh", "class_mesh_instance.html#a30c9a3590cf3aa2156140f36529c8860", null ],
     [ "getName", "class_mesh_instance.html#aa3bfee7c68dd586b0e038e9cba2a29db", null ],

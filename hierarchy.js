@@ -115,6 +115,7 @@ var hierarchy =
     [ "SwapChain", "class_swap_chain.html", null ],
     [ "SwapChainSupportDetails", "struct_swap_chain_support_details.html", null ],
     [ "UIDrawable", "class_u_i_drawable.html", [
+      [ "ObjectList", "class_object_list.html", null ],
       [ "ObjectProperties", "class_object_properties.html", null ]
     ] ],
     [ "UIRenderer", "class_u_i_renderer.html", null ],
