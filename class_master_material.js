@@ -8,7 +8,6 @@ var class_master_material =
     [ "setName", "class_master_material.html#ad61454478d7d6102d3f225dbb3c9aa15", null ],
     [ "updateDescriptorSetLayouts", "class_master_material.html#ac3ad1784dd8bb582223a60ac87edbf63", null ],
     [ "colorBlendStates", "class_master_material.html#ab9e4d1459085e13e12a7e983519bfa54", null ],
-    [ "defaultParameters", "class_master_material.html#ac174656e76b31c0e77d2083764a254d5", null ],
     [ "device", "class_master_material.html#a110f2c3650366c684e272513906bd0fb", null ],
     [ "extent", "class_master_material.html#a71b6081e8971e33fe40ad2257c853962", null ],
     [ "masterMaterialSet", "class_master_material.html#a208b3d3ed443b20d5ab86156ee339bcc", null ],
