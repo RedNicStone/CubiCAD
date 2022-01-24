@@ -15,7 +15,7 @@
 class MasterMaterial;
 
 struct PBRMaterialParameters {
-    alignas(4)  glm::uint32 materialIndex;
+    alignas(4)  glm::uint32  materialIndex;
     alignas(16) glm::uvec3   diffuse;
     alignas(16) glm::uvec3   emission;
     alignas(16) glm::uvec3   normal;

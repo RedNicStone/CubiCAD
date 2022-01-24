@@ -164,7 +164,7 @@ class MandelbrotApp {
         auto material = Material::create(masterMaterial);
         model = modelLoader->import("resources/models/demo/primitives/cube.obj", material).front();
 
-        for (size_t i = 0; i < 50000; i++) {
+        for (size_t i = 0; i < 5000; i++) {
             auto object = MeshInstance::create(model);
             object->setScale(glm::vec3(0.1f));
             object->setPosition(glm::normalize(glm::vec3(
@@ -318,11 +318,11 @@ class MandelbrotApp {
         objectList->updateSelected();
         scene->updateUBO();
 
-        /*for (const auto& object : objects) {
+        for (const auto& object : objects) {
             object->setPosition(glm::normalize(glm::cross(object->getPosition(),
                                                           {0, 1, 0}) * glm::vec3(0.0005f)
                                                    + object->getPosition()) * glm::vec3(20));
-        }*/
+        }
         objectProperties->setObjectByID(scene->getSelected());
     }
 

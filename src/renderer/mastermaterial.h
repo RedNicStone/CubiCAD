@@ -11,6 +11,7 @@
 #include "material.h"
 #include "mesh.h"
 #include "objectinstance.h"
+#include "materialparameters.h"
 
 #include <utility>
 
@@ -25,7 +26,7 @@ class MasterMaterial {
   private:
     std::shared_ptr<Device> device;
 
-    std::shared_ptr<PBRMaterialParameters> defaultParameters;
+    //MaterialPropertyLayoutBuilt propertyLayout;
 
     VkExtent2D extent{};
     std::vector<std::shared_ptr<GraphicsShader>> shaders;
