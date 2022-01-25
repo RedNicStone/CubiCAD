@@ -26,7 +26,7 @@ class MasterMaterial {
   private:
     std::shared_ptr<Device> device;
 
-    //MaterialPropertyLayoutBuilt propertyLayout;
+    MaterialPropertyLayoutBuilt propertyLayout;
 
     VkExtent2D extent{};
     std::vector<std::shared_ptr<GraphicsShader>> shaders;
@@ -41,19 +41,25 @@ class MasterMaterial {
     uint32_t colorBlendStates;
 
     std::string name;
+    uint32_t subMaterials;
+
+    void generateMaterialSetLayout();
 
   public:
     static std::shared_ptr<MasterMaterial> create(const std::shared_ptr<Device>& pDevice, const
     std::vector<std::shared_ptr<GraphicsShader>>& vShaders, uint32_t
     vColorBlendStates, VkExtent2D vExtent, const std::shared_ptr<RenderPass>&
-    pRenderPass);
+    pRenderPass, const MaterialPropertyLayout& layout, const std::string& pName = "");
 
     void setName(const std::string& pName) { name = pName; }
 
     void updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout, bool
     enableDepthStencil = false);
 
+    size_t getParameterSize() { return propertyLayout.totalSize; }
+
     std::string getName() { return name; }
+    std::string generateMaterialName();
 
     std::shared_ptr<GraphicsPipeline> getPipeline() { return pipeline; };
     std::shared_ptr<PipelineLayout> getPipelineLayout() { return pipelineLayout; };

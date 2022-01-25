@@ -10,7 +10,6 @@
 std::shared_ptr<MeshInstance> MeshInstance::create(const std::shared_ptr<Mesh>& masterMesh, const std::string& pName) {
     auto meshInstance = std::make_shared<MeshInstance>();
     meshInstance->mesh = masterMesh;
-    meshInstance->objectID = 5;
     if (pName.empty()) {
         meshInstance->name = masterMesh->getName();
     } else {

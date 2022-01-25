@@ -1,0 +1,29 @@
+//
+// Created by nic on 25/01/2022.
+//
+
+#include "texture.h"
+
+
+std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device>& pDevice,
+                                         const std::shared_ptr<Queue>& renderQueue,
+                                         const std::shared_ptr<CommandPool>& transferPool, const std::string& filename,
+                                         const TextureQualitySettings& textureSettings, VkFormat format) {
+    auto texture = std::make_shared<Texture>();
+
+    int texWidth, texHeight, texChannels;
+    stbi_uc* data = stbi_load(filename.c_str(), &texWidth, &texHeight, &texChannels, STBI_rgb_alpha);
+
+    std::vector<uint32_t> accessingQueues { renderQueue->getQueueFamilyIndex() };
+
+    texture->image = Image::create(pDevice, { static_cast<uint32_t>(texWidth), static_cast<uint32_t>(texHeight) },
+                                   textureSettings.mipLevels, format,
+                                   VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT,
+                                   accessingQueues, VK_ACCESS_TRANSFER_WRITE_BIT);
+    texture->image->transferDataStaged(data, transferPool);
+
+    texture->imageView = texture->image->createImageView(VK_IMAGE_VIEW_TYPE_2D, { VK_IMAGE_ASPECT_COLOR_BIT, 0,
+                                                                                  textureSettings.mipLevels, 0, 1 });
+
+    return texture;
+}

@@ -23,9 +23,8 @@ void ObjectProperties::setObjectByID(uint32_t vObjectID) {
         meshName = object->getMesh()->getName();
         selectedMeshlet = 0;
         selectedMaterial = 0;
-    } else {
+    } else
         object = nullptr;
-    }
 }
 
 void ObjectProperties::drawUI() {

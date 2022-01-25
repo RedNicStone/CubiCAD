@@ -16,7 +16,9 @@
 
 #include "mastermaterial.h"
 #include "material.h"
-#include "vulkan/uniformbuffer.h"
+#include "descriptorpoolmanager.h"
+#include "dynamicbuffer.h"
+#include "vulkan/sampler.h"
 
 
 class MasterMaterial;
@@ -28,24 +30,24 @@ struct PBRMaterialParameters;
 class MaterialLibrary {
   private:
     std::shared_ptr<Device> device;
-    std::shared_ptr<Queue> transferQueue;
-    std::vector<glm::uint32> accessingQueueFamilyIndexes{};
+    std::shared_ptr<CommandPool> transferPool;
 
-    bool bufferOOD = false;  // is the material buffer out of date?
-    uint32_t materialCount{};  // how many materials are registered
-    std::shared_ptr<Buffer> materialBuffer;  // the material buffer
+    uint32_t bufferOODSize{};  // is the material buffer out of date?
+    uint32_t bufferSize;  // how many materials are registered
+    std::shared_ptr<DynamicBuffer> materialBuffer;  // the material buffer
 
-    std::shared_ptr<MasterMaterial> masterMaterial;
-    std::vector<std::shared_ptr<Material>> materials;
+    std::shared_ptr<DescriptorPoolManager> descriptorPool;
+
+    std::map<std::shared_ptr<MasterMaterial>, std::vector<std::shared_ptr<Material>>> materials;
 
   public:
     static std::shared_ptr<MaterialLibrary> create(const std::shared_ptr<Device>& pDevice,
-                                                               const std::shared_ptr<Queue>& pTransferQueue,
+                                                               const std::shared_ptr<CommandPool>& pTransferPool,
+                                                   const std::shared_ptr<DescriptorPoolManager>& pDescriptorPool,
                                                                const std::vector<std::shared_ptr<Queue>>&
-                                                               accessingQueues,
-                                                               size_t reservedMaterials = 256);
+                                                               accessingQueues);
 
-    std::shared_ptr<Material> registerShader(PBRMaterialParameters parameters);
+    std::shared_ptr<Material> registerShader(const std::shared_ptr<Material>& material);
 
     void pushParameters();
 };

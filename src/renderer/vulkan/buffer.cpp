@@ -114,14 +114,15 @@ void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& c
     transferDataStaged(src, commandPool, allocationInfo.size);
 }
 
-void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool, VkDeviceSize size) {
+void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool, VkDeviceSize size,
+                                VkDeviceSize offset) {
     std::vector<uint32_t> accessingQueues = { commandPool->getQueueFamily()->getQueueFamilyIndex() };
     auto stagingBuffer = Buffer::createHostStagingBuffer(device, size, accessingQueues);
     stagingBuffer->transferDataMapped(src, size);
 
     auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
     commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
-    commandBuffer->copyBuffer(stagingBuffer, shared_from_this(), { { 0, 0, size } });
+    commandBuffer->copyBuffer(stagingBuffer, shared_from_this(), { { 0, offset, size } });
     commandBuffer->endCommandBuffer();
 
     VkSubmitInfo submitInfo{};

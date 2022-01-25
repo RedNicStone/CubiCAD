@@ -8,47 +8,45 @@
 
 
 std::shared_ptr<MaterialLibrary> MaterialLibrary::create(const std::shared_ptr<Device>& pDevice,
-                                                         const std::shared_ptr<Queue>& pTransferQueue,
+                                                         const std::shared_ptr<CommandPool>& pTransferPool,
+                                                         const std::shared_ptr<DescriptorPoolManager>& pDescriptorPool,
                                                          const std::vector<std::shared_ptr<Queue>>&
-                                                         accessingQueues,
-                                                         size_t reservedMaterials) {
+                                                         accessingQueues) {
     auto library = std::make_shared<MaterialLibrary>();
     library->device = pDevice;
-    library->transferQueue = pTransferQueue;
-    library->materials = std::vector<std::shared_ptr<Material>>(reservedMaterials);
+    library->transferPool = pTransferPool;
+    library->descriptorPool = pDescriptorPool;
 
-    library->accessingQueueFamilyIndexes.reserve(accessingQueues.size() + 1);
-    library->accessingQueueFamilyIndexes.push_back(pTransferQueue->getQueueFamilyIndex());
+    std::vector<glm::uint32> accessingQueueFamilyIndexes{};
+    accessingQueueFamilyIndexes.reserve(accessingQueues.size() + 1);
+    accessingQueueFamilyIndexes.push_back(pTransferPool->getQueueFamily()->getQueueFamilyIndex());
     for (const auto& queue : accessingQueues) {
-        library->accessingQueueFamilyIndexes.push_back(queue->getQueueFamilyIndex());
+        accessingQueueFamilyIndexes.push_back(queue->getQueueFamilyIndex());
     }
-    library->materialBuffer = Buffer::create(pDevice, sizeof(PBRMaterialParameters) * reservedMaterials,
-                                             VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-                                             library->accessingQueueFamilyIndexes);
+
+    library->materialBuffer = DynamicBuffer::create(pDevice, accessingQueueFamilyIndexes, VMA_MEMORY_USAGE_GPU_ONLY,
+                                                    VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT |
+                                                    VK_BUFFER_USAGE_TRANSFER_DST_BIT);
 
     return library;
 }
 
-std::shared_ptr<Material> MaterialLibrary::registerShader(PBRMaterialParameters parameters) {
-    if (materialCount + 1 < materials.size()) {
-        //materials[materialCount + 1] = parameters;
-    } else {
-        //materials.push_back(parameters);
-        materials.resize(materials.capacity());
-
-        materialBuffer = Buffer::create(device, sizeof(PBRMaterialParameters) * materials.size(),
-                                        VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-                                        accessingQueueFamilyIndexes);
-    }
-    bufferOOD = true;
+std::shared_ptr<Material> MaterialLibrary::registerShader(const std::shared_ptr<Material>& material) {
+    materials[material->getMasterMaterial()].push_back(material);
+    bufferOODSize += material->getMasterMaterial()->getParameterSize();
 }
 
 void MaterialLibrary::pushParameters() {
-    if (bufferOOD) {
-        std::vector<PBRMaterialParameters> data(materials.size());
-        for (size_t i = 0; i < materials.size(); i++) {
-            //data[i] = materials[i].getParameters();
+    if (bufferOODSize > 0) {
+        std::vector<std::shared_ptr<Material>> materialVector{};
+        for (const auto& material : materials) {
+            materialVector.insert(materialVector.end(), material.second.begin(), material.second.end());
         }
-        //materialBuffer->transferDataStaged(data.data());
+
+        materialBuffer->getBufferPreserveContents(bufferSize + bufferOODSize, transferPool)
+                      ->transferDataStaged(materialVector.data() + bufferSize, transferPool, bufferOODSize, bufferSize);
+
+        bufferSize += bufferOODSize;
+        bufferOODSize = 0;
     }
 }

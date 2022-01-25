@@ -163,9 +163,9 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/libmorton)
 # add tinyobjloader
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/tinyobjloader)
 
-# add stb
-add_subdirectory(${CMAKE_SOURCE_DIR}/lib/stb-cmake)
+message(STATUS "Detected std libraries to include: ${TINYOBJLOADER_CMAKE_DIR}")
 
+# add stb
 # add Dear ImGUI
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib)
 
@@ -238,6 +238,7 @@ target_link_libraries(
         Dexode::EventBus
         libmorton
         tinyobjloader
+        stb
         imgui
 )
 

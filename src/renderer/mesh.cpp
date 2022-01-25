@@ -8,7 +8,11 @@
 std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &meshlets, const std::string& pName) {
     auto mesh = std::make_shared<Mesh>();
     mesh->subMeshes = meshlets;
-    mesh->name = pName;
+
+    if (pName.empty())
+        mesh->name = "UnnamedMesh";
+    else
+        mesh->name = pName;
 
     for (const auto& meshlet : meshlets) {
         mesh->indexCount += meshlet->indexData.size();

@@ -58,6 +58,27 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
                                          VkAccessFlags initialAccessMask = 0,
                                          VkPipelineStageFlags initialPipelineStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
 
+    static std::shared_ptr<Image> create(const std::shared_ptr<Device>& pDevice,
+                                         const VkExtent2D &size,
+                                         uint32_t mip_level,
+                                         VkFormat format,
+                                         VmaMemoryUsage memoryUsage,
+                                         VkImageUsageFlags usage,
+                                         std::vector<uint32_t> &accessingQueues,
+                                         VkAccessFlags initialAccessMask = 0,
+                                         VkPipelineStageFlags initialPipelineStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
+
+    static std::shared_ptr<Image> createHostStagingImage(const std::shared_ptr<Device>& pDevice,
+                                                         const VkExtent2D& size,
+                                                         VkFormat format,
+                                                         std::vector<uint32_t> &accessingQueues);
+
+    void transferDataMapped(void* src);
+    void transferDataMapped(void* src, size_t size);
+    void transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool);
+    void transferDataStaged(void *src, const std::shared_ptr<CommandPool> &commandPool, VkDeviceSize size,
+                            VkDeviceSize offset = 0);
+
     std::shared_ptr<ImageView> createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange);
 
     std::shared_ptr<Device> getDevice() { return device; }

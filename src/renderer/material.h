@@ -40,7 +40,8 @@ class Material {
     std::string name;
 
   public:
-    static std::shared_ptr<Material> create(std::shared_ptr<MasterMaterial> pMasterMaterial);
+    static std::shared_ptr<Material> create(const std::shared_ptr<MasterMaterial>& pMasterMaterial, const std::string&
+    pName = "");
 
     void setName(const std::string& pName) { name = pName; }
 
