@@ -8,7 +8,7 @@ var class_buffer =
     [ "transferDataMapped", "class_buffer.html#ac0ed538fd8efc829ca964147e4186e97", null ],
     [ "transferDataMapped", "class_buffer.html#ab3c15a93424ecbe1145b58092313e47d", null ],
     [ "transferDataStaged", "class_buffer.html#ac0bd0ae62b73b6a5115347f8a661054a", null ],
-    [ "transferDataStaged", "class_buffer.html#a92893c08b8a8d6738a472153ad179bf8", null ],
+    [ "transferDataStaged", "class_buffer.html#a76a99d870d0eda4e49303fa62b240442", null ],
     [ "unmap", "class_buffer.html#aaeecba2e74f8797e81816c433f7d573e", null ],
     [ "allocation", "class_buffer.html#af448b2ed65fd0fdc62d989243bbf0fb3", null ],
     [ "allocationInfo", "class_buffer.html#adee1c00a77b6829495fed66a5530cffb", null ],

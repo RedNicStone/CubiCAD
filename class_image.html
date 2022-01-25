@@ -115,6 +115,14 @@ Collaboration diagram for Image:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a03a852d06356b6eb8d0048d1de97f6de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a03a852d06356b6eb8d0048d1de97f6de">transferDataMapped</a> (void *src)</td></tr>
+<tr class="separator:a03a852d06356b6eb8d0048d1de97f6de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68d173a6d09e3f25f0a3fcad0da0ed3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a68d173a6d09e3f25f0a3fcad0da0ed3e">transferDataMapped</a> (void *src, size_t size)</td></tr>
+<tr class="separator:a68d173a6d09e3f25f0a3fcad0da0ed3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a3d322d16494f20df9f2ea929026b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ab7a3d322d16494f20df9f2ea929026b6">transferDataStaged</a> (void *src, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool)</td></tr>
+<tr class="separator:ab7a3d322d16494f20df9f2ea929026b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71829125e31fdab275345e1fd8104b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a71829125e31fdab275345e1fd8104b5b">transferDataStaged</a> (void *src, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool, VkDeviceSize size, VkDeviceSize offset=0)</td></tr>
+<tr class="separator:a71829125e31fdab275345e1fd8104b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae43d127122beb8f05c677f5f4db19c01"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ae43d127122beb8f05c677f5f4db19c01">createImageView</a> (VkImageViewType viewType, VkImageSubresourceRange subresourceRange)</td></tr>
 <tr class="separator:ae43d127122beb8f05c677f5f4db19c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28e8d6840b091f9c20b646d551e9eb97"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a28e8d6840b091f9c20b646d551e9eb97">getDevice</a> ()</td></tr>
@@ -151,6 +159,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a729f597dc28bd5261b1860643ed9513f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const VkExtent2D &amp;size, uint32_t mip_level, VkFormat <a class="el" href="class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e">format</a>, VkImageUsageFlags usage, std::vector&lt; uint32_t &gt; &amp;accessingQueues, VkAccessFlags initialAccessMask=0, VkPipelineStageFlags initialPipelineStage=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT)</td></tr>
 <tr class="separator:a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec17309e0c294550703a36fb3066d4d4"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#aec17309e0c294550703a36fb3066d4d4">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const VkExtent2D &amp;size, uint32_t mip_level, VkFormat <a class="el" href="class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e">format</a>, VmaMemoryUsage memoryUsage, VkImageUsageFlags usage, std::vector&lt; uint32_t &gt; &amp;accessingQueues, VkAccessFlags initialAccessMask=0, VkPipelineStageFlags initialPipelineStage=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT)</td></tr>
+<tr class="separator:aec17309e0c294550703a36fb3066d4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af095751a373294bb12ccda1727e671a7"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#af095751a373294bb12ccda1727e671a7">createHostStagingImage</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const VkExtent2D &amp;size, VkFormat <a class="el" href="class_image.html#a3261b28e4da1955ba89ad6665bfc2f8e">format</a>, std::vector&lt; uint32_t &gt; &amp;accessingQueues)</td></tr>
+<tr class="separator:af095751a373294bb12ccda1727e671a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -203,7 +215,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8" name="a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8">&#9670;&nbsp;</a></span>create() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,11 +283,95 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a2bba3c5ac4cc0ecf33d8f0c6c9c6f2d8_cgraph.svg" width="259" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aec17309e0c294550703a36fb3066d4d4" name="aec17309e0c294550703a36fb3066d4d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec17309e0c294550703a36fb3066d4d4">&#9670;&nbsp;</a></span>create() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt; Image::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pDevice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VkExtent2D &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>mip_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkFormat&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VmaMemoryUsage&#160;</td>
+          <td class="paramname"><em>memoryUsage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkImageUsageFlags&#160;</td>
+          <td class="paramname"><em>usage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>accessingQueues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkAccessFlags&#160;</td>
+          <td class="paramname"><em>initialAccessMask</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPipelineStageFlags&#160;</td>
+          <td class="paramname"><em>initialPipelineStage</em> = <code>VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <a id="a729f597dc28bd5261b1860643ed9513f" name="a729f597dc28bd5261b1860643ed9513f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a729f597dc28bd5261b1860643ed9513f">&#9670;&nbsp;</a></span>create() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a729f597dc28bd5261b1860643ed9513f">&#9670;&nbsp;</a></span>create() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -346,7 +442,67 @@ Additional Inherited Members</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a729f597dc28bd5261b1860643ed9513f_icgraph.svg" width="530" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_image_a729f597dc28bd5261b1860643ed9513f_icgraph.svg" width="100%" height="443"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="af095751a373294bb12ccda1727e671a7" name="af095751a373294bb12ccda1727e671a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af095751a373294bb12ccda1727e671a7">&#9670;&nbsp;</a></span>createHostStagingImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt; Image::createHostStagingImage </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pDevice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VkExtent2D &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkFormat&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>accessingQueues</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_af095751a373294bb12ccda1727e671a7_cgraph.svg" width="331" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_af095751a373294bb12ccda1727e671a7_icgraph.svg" width="639" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -553,6 +709,138 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a03a852d06356b6eb8d0048d1de97f6de" name="a03a852d06356b6eb8d0048d1de97f6de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03a852d06356b6eb8d0048d1de97f6de">&#9670;&nbsp;</a></span>transferDataMapped() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Image::transferDataMapped </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68d173a6d09e3f25f0a3fcad0da0ed3e" name="a68d173a6d09e3f25f0a3fcad0da0ed3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68d173a6d09e3f25f0a3fcad0da0ed3e">&#9670;&nbsp;</a></span>transferDataMapped() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Image::transferDataMapped </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7a3d322d16494f20df9f2ea929026b6" name="ab7a3d322d16494f20df9f2ea929026b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7a3d322d16494f20df9f2ea929026b6">&#9670;&nbsp;</a></span>transferDataStaged() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Image::transferDataStaged </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>commandPool</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_ab7a3d322d16494f20df9f2ea929026b6_cgraph.svg" width="187" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_ab7a3d322d16494f20df9f2ea929026b6_icgraph.svg" width="187" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a71829125e31fdab275345e1fd8104b5b" name="a71829125e31fdab275345e1fd8104b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71829125e31fdab275345e1fd8104b5b">&#9670;&nbsp;</a></span>transferDataStaged() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Image::transferDataStaged </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>commandPool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkDeviceSize&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkDeviceSize&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a71829125e31fdab275345e1fd8104b5b_cgraph.svg" width="632" height="130"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a4ce449d0c8e2dc5fd112c27ce2142f29" name="a4ce449d0c8e2dc5fd112c27ce2142f29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ce449d0c8e2dc5fd112c27ce2142f29">&#9670;&nbsp;</a></span>transitionImageLayout() <span class="overload">[1/2]</span></h2>
 
@@ -622,6 +910,12 @@ Here is the call graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a47982512223ea89e7ab54f535dd55995_cgraph.svg" width="408" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a47982512223ea89e7ab54f535dd55995_icgraph.svg" width="427" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

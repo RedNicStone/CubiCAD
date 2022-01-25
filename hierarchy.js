@@ -25,6 +25,12 @@ var hierarchy =
     [ "MasterMaterial", "class_master_material.html", null ],
     [ "Material", "class_material.html", null ],
     [ "MaterialLibrary", "class_material_library.html", null ],
+    [ "MaterialProperty", "struct_material_property.html", null ],
+    [ "MaterialPropertyBuiltGeneric", "struct_material_property_built_generic.html", [
+      [ "MaterialPropertyBuilt< T >", "struct_material_property_built.html", null ]
+    ] ],
+    [ "MaterialPropertyLayout", "struct_material_property_layout.html", null ],
+    [ "MaterialPropertyLayoutBuilt", "struct_material_property_layout_built.html", null ],
     [ "Mesh", "class_mesh.html", null ],
     [ "MeshInstance", "class_mesh_instance.html", null ],
     [ "Meshlet", "struct_meshlet.html", null ],
@@ -114,6 +120,9 @@ var hierarchy =
     ] ],
     [ "SwapChain", "class_swap_chain.html", null ],
     [ "SwapChainSupportDetails", "struct_swap_chain_support_details.html", null ],
+    [ "Texture", "class_texture.html", null ],
+    [ "TextureLibrary", "class_texture_library.html", null ],
+    [ "TextureQualitySettings", "struct_texture_quality_settings.html", null ],
     [ "UIDrawable", "class_u_i_drawable.html", [
       [ "ObjectList", "class_object_list.html", null ],
       [ "ObjectProperties", "class_object_properties.html", null ]
@@ -201,6 +210,9 @@ var hierarchy =
     ] ],
     [ "VulkanClass< VkRenderPass >", "class_vulkan_class.html", [
       [ "RenderPass", "class_render_pass.html", null ]
+    ] ],
+    [ "VulkanClass< VkSampler >", "class_vulkan_class.html", [
+      [ "Sampler", "class_sampler.html", null ]
     ] ],
     [ "VulkanClass< VkSemaphore >", "class_vulkan_class.html", [
       [ "Semaphore", "class_semaphore.html", null ]

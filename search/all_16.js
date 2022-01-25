@@ -68,5 +68,6 @@ var searchData=
   ['vulkanclass_3c_20vkpushconstantrange_20_3e_65',['VulkanClass&lt; VkPushConstantRange &gt;',['../class_vulkan_class.html',1,'']]],
   ['vulkanclass_3c_20vkqueue_20_3e_66',['VulkanClass&lt; VkQueue &gt;',['../class_vulkan_class.html',1,'']]],
   ['vulkanclass_3c_20vkrenderpass_20_3e_67',['VulkanClass&lt; VkRenderPass &gt;',['../class_vulkan_class.html',1,'']]],
-  ['vulkanclass_3c_20vksemaphore_20_3e_68',['VulkanClass&lt; VkSemaphore &gt;',['../class_vulkan_class.html',1,'']]]
+  ['vulkanclass_3c_20vksampler_20_3e_68',['VulkanClass&lt; VkSampler &gt;',['../class_vulkan_class.html',1,'']]],
+  ['vulkanclass_3c_20vksemaphore_20_3e_69',['VulkanClass&lt; VkSemaphore &gt;',['../class_vulkan_class.html',1,'']]]
 ];

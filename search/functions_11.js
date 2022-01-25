@@ -9,7 +9,7 @@ var searchData=
   ['recursive_5fiterate_5fnodes_5f_6',['recursive_iterate_nodes_',['../class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#a1b41486a5bbb8509281bd7bca5088ed9',1,'CCAD_OT::OtGeometryCompiler']]],
   ['refreshcurrentvoxelfragmentdata_7',['refreshCurrentVoxelFragmentData',['../class_voxel_fragment_stream_base.html#a45205d71c1d28e3004fc0dc22f0dbfc4',1,'VoxelFragmentStreamBase::refreshCurrentVoxelFragmentData()'],['../class_voxel_fragment_stream_buffered.html#a93fb0074968b9ea82301cfdda3474944',1,'VoxelFragmentStreamBuffered::refreshCurrentVoxelFragmentData()']]],
   ['registerqueuefamilyallocation_8',['registerQueueFamilyAllocation',['../class_queue_family_handler.html#a96cc55ca9e14920e29c9a9ba4275454d',1,'QueueFamilyHandler']]],
-  ['registershader_9',['registerShader',['../class_material_library.html#a58e1655e5a9b5013f5519bf307d06215',1,'MaterialLibrary']]],
+  ['registershader_9',['registerShader',['../class_material_library.html#ab00c10f7172383fcb1af964fd77e1b0c',1,'MaterialLibrary']]],
   ['remove_10',['remove',['../class_mandelbrot_app.html#a69b06411ed6947c7c03adc0245e698d5',1,'MandelbrotApp::remove(std::vector&lt; type &gt; &amp;v)'],['../class_mandelbrot_app.html#a69b06411ed6947c7c03adc0245e698d5',1,'MandelbrotApp::remove(std::vector&lt; type &gt; &amp;v)']]],
   ['renderbus_11',['RenderBus',['../class_render_bus.html#a850a5814fa5e24bdf5264afe8468dd08',1,'RenderBus']]],
   ['reset_12',['reset',['../class_command_pool.html#ae4ec3ceb91b21667b90134f2a2d09e51',1,'CommandPool::reset()'],['../class_descriptor_pool.html#a4de3e4b794ee5e62f8fda5370c85de31',1,'DescriptorPool::reset()']]],

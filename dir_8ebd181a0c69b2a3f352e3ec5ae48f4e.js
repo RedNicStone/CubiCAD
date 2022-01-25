@@ -42,6 +42,8 @@ var dir_8ebd181a0c69b2a3f352e3ec5ae48f4e =
     [ "queues.h", "queues_8h.html", "queues_8h" ],
     [ "renderpass.cpp", "renderpass_8cpp.html", null ],
     [ "renderpass.h", "renderpass_8h.html", "renderpass_8h" ],
+    [ "sampler.cpp", "sampler_8cpp.html", null ],
+    [ "sampler.h", "sampler_8h.html", "sampler_8h" ],
     [ "semaphore.cpp", "semaphore_8cpp.html", null ],
     [ "semaphore.h", "semaphore_8h.html", "semaphore_8h" ],
     [ "shader.cpp", "shader_8cpp.html", null ],

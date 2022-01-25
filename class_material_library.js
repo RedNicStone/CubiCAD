@@ -1,13 +1,12 @@
 var class_material_library =
 [
     [ "pushParameters", "class_material_library.html#a926b79a4183235c9efa6b6ae075c1054", null ],
-    [ "registerShader", "class_material_library.html#a58e1655e5a9b5013f5519bf307d06215", null ],
-    [ "accessingQueueFamilyIndexes", "class_material_library.html#a30cfc66e74e2bea24dfb7e0ef864adc0", null ],
-    [ "bufferOOD", "class_material_library.html#a1cb7f222ce09b80a238ada60d8d2fda6", null ],
+    [ "registerShader", "class_material_library.html#ab00c10f7172383fcb1af964fd77e1b0c", null ],
+    [ "bufferOODSize", "class_material_library.html#a961419073c62e9b2780b8c1c29e9c91f", null ],
+    [ "bufferSize", "class_material_library.html#a5d527a50faf6579285ab9c6b96fa97ee", null ],
+    [ "descriptorPool", "class_material_library.html#aa8f3c235314eb9aaad545f5ec8d3d5ac", null ],
     [ "device", "class_material_library.html#adc301b28f54c453b75cb246d0d95d934", null ],
-    [ "masterMaterial", "class_material_library.html#a7e9a6adfbcb85747941f58b537036a2c", null ],
-    [ "materialBuffer", "class_material_library.html#ad2393f4d26baad18543aee5f753c6cf2", null ],
-    [ "materialCount", "class_material_library.html#a31c2c993b7eccf9a9adec130f2546953", null ],
-    [ "materials", "class_material_library.html#a73efd1fb99b43dc60c048aa3d24da65a", null ],
-    [ "transferQueue", "class_material_library.html#ae164b307b5f378008dc48a233f3b1bf5", null ]
+    [ "materialBuffer", "class_material_library.html#a749af8a6b2993a12dadfa1d5ebeec288", null ],
+    [ "materials", "class_material_library.html#a6d206be9abf38e89e99c8385ec5f9e58", null ],
+    [ "transferPool", "class_material_library.html#a157bf7bcfcf2c9e744cfdc823263f731", null ]
 ];

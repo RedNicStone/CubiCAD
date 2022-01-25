@@ -125,6 +125,7 @@ var menudata={children:[
 {text:"File Members",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
 {text:"a",url:"globals.html#index_a"},
+{text:"b",url:"globals.html#index_b"},
 {text:"c",url:"globals.html#index_c"},
 {text:"d",url:"globals.html#index_d"},
 {text:"e",url:"globals.html#index_e"},
@@ -143,9 +144,14 @@ var menudata={children:[
 {text:"Variables",url:"globals_vars.html"},
 {text:"Typedefs",url:"globals_type.html"},
 {text:"Enumerations",url:"globals_enum.html"},
-{text:"Enumerator",url:"globals_eval.html"},
+{text:"Enumerator",url:"globals_eval.html",children:[
+{text:"c",url:"globals_eval.html#index_c"},
+{text:"m",url:"globals_eval.html#index_m"},
+{text:"o",url:"globals_eval.html#index_o"},
+{text:"r",url:"globals_eval.html#index_r"}]},
 {text:"Macros",url:"globals_defs.html",children:[
 {text:"c",url:"globals_defs.html#index_c"},
 {text:"g",url:"globals_defs.html#index_g"},
+{text:"s",url:"globals_defs.html#index_s"},
 {text:"t",url:"globals_defs.html#index_t"},
 {text:"v",url:"globals_defs.html#index_v"}]}]}]}]}

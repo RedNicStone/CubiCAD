@@ -18,13 +18,14 @@ var searchData=
   ['config_15',['config',['../class_model_loader.html#a3eb632e2e16c813d05e622581ad3dd91',1,'ModelLoader']]],
   ['construction_5fdepth_16',['construction_depth',['../struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html#a90a162e53837c4b38ffd0b80809ee5b8',1,'CCAD_OT::OtConstructOctreeInfo']]],
   ['context_17',['context',['../class_u_i_renderer.html#ab5581e6b2f15de2f3f65ff8b6fb1c53f',1,'UIRenderer']]],
-  ['currentaccessflags_18',['currentAccessFlags',['../class_image.html#a8a38390ac9bea01e1e1df28da9baa7d0',1,'Image']]],
-  ['currentfps_19',['currentFPS',['../class_mandelbrot_app.html#a4818beb64797578029f9bda48c09e749',1,'MandelbrotApp']]],
-  ['currentframe_20',['currentFrame',['../class_swap_chain.html#a329fd84b95b401acf321bdff4d3b1f6e',1,'SwapChain::currentFrame()'],['../class_mandelbrot_app.html#a4a1d41df34dd47bbe48fe8ea32704da4',1,'MandelbrotApp::currentFrame()']]],
-  ['currentframeindex_21',['currentFrameIndex',['../class_mandelbrot_app.html#a7580e08f56e31b7f46814f6d074e300b',1,'MandelbrotApp']]],
-  ['currentimageindex_22',['currentImageIndex',['../class_swap_chain.html#ad7d577853b225cca5afe2d16efcb859c',1,'SwapChain']]],
-  ['currentlayout_23',['currentLayout',['../class_image.html#abc53477760260ecc17abacbff2a04311',1,'Image']]],
-  ['currentpool_24',['currentPool',['../class_descriptor_pool_manager.html#a03990b836cee56904278e8234e52736f',1,'DescriptorPoolManager']]],
-  ['currentstage_25',['currentStage',['../class_image.html#a7de3db361431229bb725117046c1f921',1,'Image']]],
-  ['custom_5fnode_5ftemplate_26',['custom_node_template',['../struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html#aa2c260299cb264ff58716abdd708e203',1,'CCAD_OT::OtConstructOctreeInfo']]]
+  ['count_18',['count',['../struct_material_property.html#a1d7144974763bcf8d19e15a662ac6229',1,'MaterialProperty']]],
+  ['currentaccessflags_19',['currentAccessFlags',['../class_image.html#a8a38390ac9bea01e1e1df28da9baa7d0',1,'Image']]],
+  ['currentfps_20',['currentFPS',['../class_mandelbrot_app.html#a4818beb64797578029f9bda48c09e749',1,'MandelbrotApp']]],
+  ['currentframe_21',['currentFrame',['../class_swap_chain.html#a329fd84b95b401acf321bdff4d3b1f6e',1,'SwapChain::currentFrame()'],['../class_mandelbrot_app.html#a4a1d41df34dd47bbe48fe8ea32704da4',1,'MandelbrotApp::currentFrame()']]],
+  ['currentframeindex_22',['currentFrameIndex',['../class_mandelbrot_app.html#a7580e08f56e31b7f46814f6d074e300b',1,'MandelbrotApp']]],
+  ['currentimageindex_23',['currentImageIndex',['../class_swap_chain.html#ad7d577853b225cca5afe2d16efcb859c',1,'SwapChain']]],
+  ['currentlayout_24',['currentLayout',['../class_image.html#abc53477760260ecc17abacbff2a04311',1,'Image']]],
+  ['currentpool_25',['currentPool',['../class_descriptor_pool_manager.html#a03990b836cee56904278e8234e52736f',1,'DescriptorPoolManager']]],
+  ['currentstage_26',['currentStage',['../class_image.html#a7de3db361431229bb725117046c1f921',1,'Image']]],
+  ['custom_5fnode_5ftemplate_27',['custom_node_template',['../struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html#aa2c260299cb264ff58716abdd708e203',1,'CCAD_OT::OtConstructOctreeInfo']]]
 ];

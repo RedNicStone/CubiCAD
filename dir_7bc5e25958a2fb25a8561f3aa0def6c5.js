@@ -22,6 +22,7 @@ var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
     [ "material.h", "material_8h.html", "material_8h" ],
     [ "materiallibrary.cpp", "materiallibrary_8cpp.html", null ],
     [ "materiallibrary.h", "materiallibrary_8h.html", "materiallibrary_8h" ],
+    [ "materialparameters.cpp", "materialparameters_8cpp.html", "materialparameters_8cpp" ],
     [ "materialparameters.h", "materialparameters_8h.html", "materialparameters_8h" ],
     [ "mesh.cpp", "mesh_8cpp.html", null ],
     [ "mesh.h", "mesh_8h.html", "mesh_8h" ],
@@ -30,5 +31,9 @@ var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
     [ "objectinstance.cpp", "objectinstance_8cpp.html", null ],
     [ "objectinstance.h", "objectinstance_8h.html", "objectinstance_8h" ],
     [ "scene.cpp", "scene_8cpp.html", null ],
-    [ "scene.h", "scene_8h.html", "scene_8h" ]
+    [ "scene.h", "scene_8h.html", "scene_8h" ],
+    [ "texture.cpp", "texture_8cpp.html", null ],
+    [ "texture.h", "texture_8h.html", "texture_8h" ],
+    [ "texturelibrary.cpp", "texturelibrary_8cpp.html", null ],
+    [ "texturelibrary.h", "texturelibrary_8h.html", "texturelibrary_8h" ]
 ];
