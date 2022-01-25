@@ -160,7 +160,17 @@ class MandelbrotApp {
         auto fragmentShader = FragmentShader::create(device, "main", "resources/shaders/compiled/PBR_basic.frag.spv");
         std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
 
-        auto masterMaterial = MasterMaterial::create(device, shaders, 2, swapChainExtent, renderPass);
+        MaterialProperty materialProperty{};
+        materialProperty.input =
+            static_cast<MaterialPropertyInput>(MATERIAL_PROPERTY_INPUT_CONSTANT | MATERIAL_PROPERTY_INPUT_TEXTURE);
+        materialProperty.size = MATERIAL_PROPERTY_SIZE_8;
+        materialProperty.count = MATERIAL_PROPERTY_COUNT_3;
+        materialProperty.format = MATERIAL_PROPERTY_FORMAT_UINT;
+
+        MaterialPropertyLayout propertyLayout{{ materialProperty }};
+
+        auto masterMaterial = MasterMaterial::create(device, shaders, 2, swapChainExtent, propertyLayout, renderPass,
+                                                     "basicMaterial");
         auto material = Material::create(masterMaterial);
         model = modelLoader->import("resources/models/demo/primitives/cube.obj", material).front();
 

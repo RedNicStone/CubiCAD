@@ -47,9 +47,9 @@ class MasterMaterial {
 
   public:
     static std::shared_ptr<MasterMaterial> create(const std::shared_ptr<Device>& pDevice, const
-    std::vector<std::shared_ptr<GraphicsShader>>& vShaders, uint32_t
-    vColorBlendStates, VkExtent2D vExtent, const std::shared_ptr<RenderPass>&
-    pRenderPass, const MaterialPropertyLayout& layout, const std::string& pName = "");
+    std::vector<std::shared_ptr<GraphicsShader>>& vShaders, uint32_t vColorBlendStates, VkExtent2D vExtent, const MaterialPropertyLayout& layout, const
+                                                  std::shared_ptr<RenderPass>&
+    pRenderPass, const std::string& pName);
 
     void setName(const std::string& pName) { name = pName; }
 
