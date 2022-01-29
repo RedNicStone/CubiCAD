@@ -137,7 +137,7 @@ void ObjectProperties::drawUI() {
             ImGui::EndTabBar();
         }
     } else {
-
+        ImGui::Text("No object selected");
     }
     ImGui::End();
 }

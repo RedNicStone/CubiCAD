@@ -38,7 +38,8 @@
 #include "../renderer/framebufferselector.h"
 #include "../renderer/ui/objectproperties.h"
 #include "../renderer/ui/objectlist.h"
-
+#include "../renderer/ui/mainmenu.h"
+#include "../renderer/texturelibrary.h"
 
 const uint32_t WIDTH = 1080 * 2;
 const uint32_t HEIGHT = 720 * 2;
@@ -105,6 +106,8 @@ class MandelbrotApp {
     std::shared_ptr<UIRenderer> UI;
     std::shared_ptr<ObjectProperties> objectProperties;
     std::shared_ptr<ObjectList> objectList;
+    std::shared_ptr<MainMenu> menuBar;
+    std::shared_ptr<TextureLibrary> textureLibrary;
 
     bool mouseCaptured = false;
     uint32_t imageCount;
@@ -146,11 +149,18 @@ class MandelbrotApp {
     }
 
     void createUI() {
+        TextureQualitySettings settings{};
+        settings.mipLevels = 1;
+        settings.anisotropy = 0;
+        textureLibrary = TextureLibrary::create(device, graphicsQueue, commandPool, settings);
+
         UI = UIRenderer::create(graphicsQueue, commandPool, renderPass, window, imageCount, UISubpass);
         objectProperties = ObjectProperties::create(scene);
         UI->submitDrawable(objectProperties);
         objectList = ObjectList::create(scene);
         UI->submitDrawable(objectList);
+        menuBar = MainMenu::create(textureLibrary);
+        UI->submitDrawable(menuBar);
     }
 
     void loadModels() {
@@ -571,6 +581,7 @@ class MandelbrotApp {
 
         graphicsCommandBuffers[index]->endRenderPass();
 
+        objectBufferImage->setLayout(VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
         objectBufferImage->transitionImageLayout(graphicsCommandBuffers[index],
                                                  VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
                                                  VK_PIPELINE_STAGE_TRANSFER_BIT,

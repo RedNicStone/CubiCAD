@@ -2,6 +2,7 @@
 // Created by nic on 25/01/2022.
 //
 
+#define STB_IMAGE_IMPLEMENTATION
 #include "texture.h"
 
 
@@ -19,7 +20,7 @@ std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device>& pDevice,
     texture->image = Image::create(pDevice, { static_cast<uint32_t>(texWidth), static_cast<uint32_t>(texHeight) },
                                    textureSettings.mipLevels, format,
                                    VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT,
-                                   accessingQueues, VK_ACCESS_TRANSFER_WRITE_BIT);
+                                   accessingQueues);
     texture->image->transferDataStaged(data, transferPool);
 
     texture->imageView = texture->image->createImageView(VK_IMAGE_VIEW_TYPE_2D, { VK_IMAGE_ASPECT_COLOR_BIT, 0,

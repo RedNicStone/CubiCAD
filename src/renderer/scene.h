@@ -40,7 +40,6 @@ class Scene {
 
   private:
     std::shared_ptr<Camera> camera;
-
     std::shared_ptr<Device> device;
 
     std::shared_ptr<CommandPool> transferCommandPool;

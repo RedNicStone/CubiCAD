@@ -185,6 +185,14 @@ void CommandBuffer::copyBuffer(const std::shared_ptr<Buffer>& src,
     vkCmdCopyBuffer(handle, src->getHandle(), dst->getHandle(), static_cast<uint32_t>(copyRegions.size()), copyRegions.data());
 }
 
+void CommandBuffer::copyBufferImage(const std::shared_ptr<Buffer>& src,
+                              const std::shared_ptr<Image>& dst,
+                              std::vector<VkBufferImageCopy> copyRegions,
+                              VkImageLayout dstLayout) {
+    vkCmdCopyBufferToImage(handle, src->getHandle(), dst->getHandle(), dstLayout,
+                   static_cast<uint32_t>(copyRegions.size()), copyRegions.data());
+}
+
 void CommandBuffer::copyImage(const std::shared_ptr<Image>& src,
                               const std::shared_ptr<Image>& dst,
                               std::vector<VkImageCopy> copyRegions,

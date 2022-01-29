@@ -7,12 +7,14 @@
 #ifndef CUBICAD_TEXTURE_H
 #define CUBICAD_TEXTURE_H
 
-#define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
 #include "vulkan/imageview.h"
 #include "materialparameters.h"
 #include "texturelibrary.h"
+
+
+struct TextureQualitySettings;
 
 class Texture {
   private:
@@ -24,6 +26,9 @@ class Texture {
                                            const std::shared_ptr<Queue>& renderQueue,
                                            const std::shared_ptr<CommandPool>& transferPool, const std::string& filename,
                                            const TextureQualitySettings& textureSettings, VkFormat format);
+
+    std::shared_ptr<Image> getImage() { return image; }
+    std::shared_ptr<ImageView> getImageView() { return imageView; }
 
 };
 

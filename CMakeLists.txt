@@ -165,8 +165,9 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/tinyobjloader)
 
 message(STATUS "Detected std libraries to include: ${TINYOBJLOADER_CMAKE_DIR}")
 
-# add stb
 # add Dear ImGUI
+# add stb
+# add RapidJSON
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib)
 
 # add documentation targets
@@ -227,6 +228,8 @@ target_include_directories(
         PUBLIC tinyobjloader
         PUBLIC stb
         PUBLIC imgui
+        PUBLIC rapidjson
+        PUBLIC IconFontCppHeaders
 )
 
 target_link_libraries(
@@ -240,6 +243,8 @@ target_link_libraries(
         tinyobjloader
         stb
         imgui
+        rapidjson
+        IconFontCppHeaders
 )
 
 # make

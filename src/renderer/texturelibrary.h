@@ -11,6 +11,8 @@
 #include "texture.h"
 
 
+class Texture;
+
 struct TextureQualitySettings {
     float anisotropy;
     uint32_t mipLevels;
@@ -25,6 +27,8 @@ class TextureLibrary {
     std::shared_ptr<Sampler> imageSampler;
     TextureQualitySettings settings;
 
+    std::unordered_map<std::string, std::shared_ptr<Texture>> textures{};
+
   public:
     static std::shared_ptr<TextureLibrary> create(const std::shared_ptr<Device>& pDevice,
                                                   const std::shared_ptr<Queue>& renderQueue,
@@ -33,6 +37,8 @@ class TextureLibrary {
 
     std::shared_ptr<Texture> createTexture(const std::string& filename, VkFormat format);
 
+    std::shared_ptr<Device> getDevice() { return device; }
+    std::shared_ptr<Sampler> getSampler() { return imageSampler; }
 };
 
 #endif //CUBICAD_TEXTURELIBRARY_H

@@ -7,6 +7,8 @@
 
 #include <vulkan/vulkan.h>
 #include <vector>
+#include <glm/glm.hpp>
+#include <stdexcept>
 
 
 enum MaterialPropertyInput {

@@ -89,6 +89,11 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
     void copyBuffer(const std::shared_ptr<Buffer>& src, const std::shared_ptr<Buffer>& dst, std::vector<VkBufferCopy>
         copyRegions);
 
+    void copyBufferImage(const std::shared_ptr<Buffer>& src,
+                         const std::shared_ptr<Image>& dst,
+                         std::vector<VkBufferImageCopy> copyRegions,
+                         VkImageLayout dstLayout);
+
     void copyImage(const std::shared_ptr<Image>& src,
                    const std::shared_ptr<Image>& dst,
                    std::vector<VkImageCopy> copyRegions,

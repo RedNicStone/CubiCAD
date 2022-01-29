@@ -24,6 +24,8 @@ class ImageView;
 
 class CommandBuffer;
 
+class Buffer;
+
 class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<Image> {
   private:
     std::shared_ptr<Device> device;
@@ -73,6 +75,10 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
                                                          VkFormat format,
                                                          std::vector<uint32_t> &accessingQueues);
 
+    static std::shared_ptr<Buffer> createHostStagingBuffer(const std::shared_ptr<Device>& pDevice,
+                                                           VkDeviceSize size,
+                                                           std::vector<uint32_t> &accessingQueues);
+
     void transferDataMapped(void* src);
     void transferDataMapped(void* src, size_t size);
     void transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool);
@@ -93,9 +99,14 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
 
     [[nodiscard]] uint32_t getArrayLayers() const { return arrayLayers; }
 
+    [[nodiscard]] VkImageLayout getLayout() const { return currentLayout; }
+
+    void setLayout(VkImageLayout layout) { currentLayout = layout; }
+
     void transitionImageLayout(const std::shared_ptr<CommandPool>& commandPool, VkImageLayout dst);
 
-    void transitionImageLayout(const std::shared_ptr<CommandBuffer>& commandPool, VkImageLayout dst,
+    void transitionImageLayout(const std::shared_ptr<CommandBuffer>& commandPool,
+                               VkImageLayout dst,
                                VkPipelineStageFlags dstStage,
                                VkAccessFlags dstMask = 0);
 

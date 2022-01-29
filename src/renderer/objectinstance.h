@@ -37,7 +37,7 @@ class MeshInstance {
     glm::mat4 matScale = glm::mat4(1.0f);
     glm::mat4 combined;
 
-    uint32_t objectID = 1;
+    uint32_t objectID = 0;
 
     std::string name;
 

@@ -143,10 +143,22 @@ std::shared_ptr<Image> Image::createHostStagingImage(const std::shared_ptr<Devic
     createInfo.queueFamilyIndexCount = static_cast<uint32_t>(accessingQueues.size());
     createInfo.pQueueFamilyIndices = accessingQueues.data();
     createInfo.flags = 0;
+    createInfo.format = format;
 
     return Image::create(pDevice, VMA_MEMORY_USAGE_UNKNOWN, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
                                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
                                           createInfo, accessingQueues);
+}
+
+std::shared_ptr<Buffer> Image::createHostStagingBuffer(const std::shared_ptr<Device> &pDevice,
+                                                       VkDeviceSize size,
+                                                       std::vector<uint32_t> &accessingQueues) {
+    return Buffer::create(pDevice,
+                          size,
+                          VMA_MEMORY_USAGE_CPU_ONLY,
+                          0,
+                          VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+                          accessingQueues);
 }
 
 void Image::transferDataMapped(void *src) {
@@ -170,26 +182,27 @@ void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& co
 void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool, VkDeviceSize size,
                                 VkDeviceSize offset) {
     std::vector<uint32_t> accessingQueues = { commandPool->getQueueFamily()->getQueueFamilyIndex() };
-    auto stagingImage = Image::createHostStagingImage(device, { extent.width, extent.height }, format, accessingQueues);
+    auto stagingBuffer = Image::createHostStagingBuffer(device, allocationInfo.size, accessingQueues);
 
-    VkImageCopy imageCopy{};
-    imageCopy.extent = extent;
-    imageCopy.dstOffset = {0, 0, 0};
-    imageCopy.srcOffset = {0, 0, 0};
-    imageCopy.srcSubresource = { VK_IMAGE_ASPECT_COLOR_BIT, 1, 0, 1};
-    imageCopy.dstSubresource = { VK_IMAGE_ASPECT_COLOR_BIT, 1, 0, 1};
+    VkBufferImageCopy imageCopy{};
+    imageCopy.imageExtent = { extent.width, extent.height, 1 };
+    imageCopy.imageOffset = { 0, 0, 0 };
+
+    imageCopy.imageSubresource.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+    imageCopy.imageSubresource.mipLevel = 0;
+    imageCopy.imageSubresource.baseArrayLayer = 0;
+    imageCopy.imageSubresource.layerCount = 1;
+
+    imageCopy.bufferOffset = 0;
+    imageCopy.bufferRowLength = 0;
+    imageCopy.bufferImageHeight = 0;
 
     auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
-    stagingImage->transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
-                                        VK_PIPELINE_STAGE_HOST_BIT, VK_ACCESS_HOST_WRITE_BIT);
-    stagingImage->transferDataMapped(src, size);
-    stagingImage->transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
-                                        VK_PIPELINE_STAGE_TRANSFER_BIT, VK_ACCESS_TRANSFER_READ_BIT);
+    commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
+    stagingBuffer->transferDataMapped(src, size);
     transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
                                         VK_PIPELINE_STAGE_TRANSFER_BIT, VK_ACCESS_TRANSFER_WRITE_BIT);
-    commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
-    commandBuffer->copyImage(stagingImage, shared_from_this(), { imageCopy }, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
-                             currentLayout);
+    commandBuffer->copyBufferImage(stagingBuffer, shared_from_this(), { imageCopy }, currentLayout);
     transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
                           VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT, VK_ACCESS_SHADER_READ_BIT);
     commandBuffer->endCommandBuffer();
@@ -274,6 +287,7 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandBuffer> &commandB
                          1, &barrier);
 
     currentStage = dstStage;
+    currentLayout = dst;
 }
 
 void *Image::map() {

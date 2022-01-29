@@ -20,5 +20,7 @@ std::shared_ptr<TextureLibrary> TextureLibrary::create(const std::shared_ptr<Dev
 }
 
 std::shared_ptr<Texture> TextureLibrary::createTexture(const std::string &filename, VkFormat format) {
-    return Texture::create(device, renderQueue, transferPool, filename, settings, format);
+    if (textures[filename] == nullptr)
+        return Texture::create(device, renderQueue, transferPool, filename, settings, format);
+    return textures[filename];
 }

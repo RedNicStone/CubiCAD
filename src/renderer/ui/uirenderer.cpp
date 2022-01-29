@@ -53,6 +53,13 @@ std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue>& gra
 
     ImGui_ImplVulkan_Init(&initInfo, renderPass->getHandle());
 
+    ImGuiIO& io = ImGui::GetIO();
+    io.Fonts->AddFontFromFileTTF("resources/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf", FONT_SIZE);
+
+    static const ImWchar icons_ranges[] = { ICON_MIN_FK, ICON_MAX_FK, 0 };
+    ImFontConfig icons_config; icons_config.MergeMode = true; icons_config.PixelSnapH = true;
+    io.Fonts->AddFontFromFileTTF("resources/fonts/Fork-Awesome/fonts/forkawesome-webfont.ttf", FONT_SIZE, &icons_config, icons_ranges);
+
     auto transferBuffer = CommandBuffer::create(transferPool);
     transferBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
     ImGui_ImplVulkan_CreateFontsTexture(transferBuffer->getHandle());
@@ -68,6 +75,8 @@ std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue>& gra
     transferPool->getQueue()->waitForIdle();
 
     ImGui_ImplVulkan_DestroyFontUploadObjects();
+
+    ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 
     return uiRenderer;
 }

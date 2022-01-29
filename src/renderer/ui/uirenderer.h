@@ -7,11 +7,15 @@
 #ifndef CUBICAD_UIRENDERER_H
 #define CUBICAD_UIRENDERER_H
 
-#include "../vulkan/descriptorset.h"
+#define FONT_SIZE 24.0f
+
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_vulkan.h>
 #include <imgui_internal.h>
+#include <IconsForkAwesome.h>
+
+#include "../vulkan/descriptorset.h"
 
 
 class UIDrawable {
