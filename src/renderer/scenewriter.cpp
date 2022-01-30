@@ -14,13 +14,13 @@ std::shared_ptr<SceneWriter> SceneWriter::create(const std::shared_ptr<Scene>& s
 }
 
 void SceneWriter::readInstanceFromNode(const rapidjson::Value& value) {
-    if (!value.HasMember("name") || !value.HasMember("id") || !value.HasMember("mesh") ||
-        !value.HasMember("pos") || !value.HasMember("rot") || !value.HasMember("scale")) {
+    if (!value.HasMember("name") || !value.HasMember("mesh")
+     || !value.HasMember("pos")  || !value.HasMember("rot")  || !value.HasMember("scale")) {
         std::cerr << "Instance is missing a field, skipping" << std::endl;
         return;
     }
-    if (!value["name"].IsString() || !value["id"].IsInt64() || !value["mesh"].IsString() ||
-        !value["pos"].IsArray() || !value["rot"].IsArray() || !value["scale"].IsArray()) {
+    if (!value["name"].IsString() || !value["mesh"].IsString()
+     || !value["pos"].IsArray()   || !value["rot"].IsArray()   || !value["scale"].IsArray()) {
         std::cerr << "Instance field invalid, skipping" << std::endl;
         return;
     }
@@ -45,6 +45,29 @@ void SceneWriter::readInstanceFromNode(const rapidjson::Value& value) {
     instance->setPosition({ scale[0].GetFloat(), scale[1].GetFloat(), scale[2].GetFloat() });
 
     scene->submitInstance(instance);
+}
+
+rapidjson::Value SceneWriter::writeInstanceToNode(const std::shared_ptr<MeshInstance>& instance) {
+    rapidjson::Value node(rapidjson::kObjectType);
+
+    node.AddMember("name", instance->getName(), document.GetAllocator());
+    node.AddMember("mesh", instance->getMesh()->getName(), document.GetAllocator());
+
+    rapidjson::Value pos(rapidjson::kArrayType);
+    rapidjson::Value rot(rapidjson::kArrayType);
+    rapidjson::Value scale(rapidjson::kArrayType);
+
+    for (int i = 0; i < 3; i++) {
+        pos.PushBack(instance->getPosition()[i], document.GetAllocator());
+        rot.PushBack(instance->getRotation()[i], document.GetAllocator());
+        scale.PushBack(instance->getScale()[i], document.GetAllocator());
+    }
+
+    node.AddMember("pos", pos.Move(), document.GetAllocator());
+    node.AddMember("rot", rot.Move(), document.GetAllocator());
+    node.AddMember("scale", scale.Move(), document.GetAllocator());
+
+    return node;
 }
 
 void SceneWriter::readSceneFromDocument() {
@@ -81,6 +104,15 @@ void SceneWriter::readSceneFromDocument() {
     }
 }
 
+void SceneWriter::writeSceneToDocument() {
+    document.SetObject();
+
+    rapidjson::Value objectArray(rapidjson::kArrayType);
+    for (const auto& instance : scene->getInstances())
+        objectArray.PushBack(writeInstanceToNode(instance).Move(), document.GetAllocator());
+    document.AddMember("objects", objectArray, document.GetAllocator());
+}
+
 void SceneWriter::readScene() {
     std::FILE* file = fopen(filename.c_str(), "r");
     fseek(file, 0L, SEEK_END);
@@ -94,4 +126,20 @@ void SceneWriter::readScene() {
     fclose(file);
 
 
+}
+
+void SceneWriter::writeScene() {
+    std::ofstream fileStream(filename, std::ofstream::out | std::ofstream::trunc);
+    if (!fileStream.good()) {
+        std::cerr << "Unable to open file in write mode" << std::endl;
+        fileStream.close();
+        return;
+    }
+
+    rapidjson::BasicOStreamWrapper<std::ostream> stream(fileStream);
+    rapidjson::Writer<rapidjson::BasicOStreamWrapper<std::ostream>> writer(stream);
+    writeSceneToDocument();
+    document.Accept(writer);
+
+    fileStream.close();
 }

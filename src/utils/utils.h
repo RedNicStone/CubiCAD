@@ -9,6 +9,7 @@
 
 #include <vector>
 #include <boost/bimap.hpp>
+#include <unordered_set>
 
 
 class Utils {
@@ -19,6 +20,9 @@ class Utils {
 
     template <typename L, typename R>
     static boost::bimap<L, R> makeBimap(std::initializer_list<typename boost::bimap<L, R>::value_type> list);
+
+    template<typename type>
+    static void remove(std::vector<type> &v);
 };
 
 #endif //CUBICAD_UTILS_H

@@ -13,6 +13,8 @@ std::shared_ptr<ObjectList> ObjectList::create(const std::shared_ptr <Scene> &pS
 }
 
 void ObjectList::drawUI() {
+    updateSelected();
+
     if (firstStartup) {
         ImGui::SetNextWindowSize(ImVec2(400, 300));
         firstStartup = false;

@@ -4,8 +4,8 @@
 
 #pragma once
 
-#ifndef CUBICAD_TEXTURELIBRARY_H
-#define CUBICAD_TEXTURELIBRARY_H
+#ifndef CUBICAD_MESHLIBRARY_H
+#define CUBICAD_MESHLIBRARY_H
 
 #include "mesh.h"
 #include "modelloader.h"
@@ -24,4 +24,4 @@ class MeshLibrary {
                                                   const std::shared_ptr<Material>& material);
 };
 
-#endif //CUBICAD_TEXTURELIBRARY_H
+#endif //CUBICAD_MESHLIBRARY_H

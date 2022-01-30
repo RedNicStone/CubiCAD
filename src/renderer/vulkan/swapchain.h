@@ -55,8 +55,8 @@ class SwapChain {
     void recreateSwapChain();
 
   public:
-    void acquireNextFrame(const PreRenderAcquireFrameEvent &event);
-    void presentImage(const PostRenderPresentImageEvent &event);
+    void acquireNextFrame();
+    void presentImage();
     //construction
     static std::shared_ptr<SwapChain> create(const std::shared_ptr<Device> &pDevice,
                                              const std::shared_ptr<Window> &pWindow,

@@ -29,7 +29,7 @@ int main() {
 
     glfwInit();
 
-    auto instance = Instance::create("api_test", version, true);
+    auto instance = MeshInstance::create("api_test", version, true);
 
     Window::initWindows();
     auto window = Window::create(instance, "API Test " + std::to_string(version), 1080, 720);

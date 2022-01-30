@@ -19,10 +19,10 @@ class ObjectList : public UIDrawable {
     uint32_t itemSelected = 0;
     uint32_t itemHovered = 0;
 
+    void updateSelected();
+
   public:
     static std::shared_ptr<ObjectList> create(const std::shared_ptr<Scene>& pScene);
-
-    void updateSelected();
 
     void drawUI() override;
 };

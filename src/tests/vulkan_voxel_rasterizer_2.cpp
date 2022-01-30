@@ -77,7 +77,7 @@ class MandelbrotApp {
         lastTimeDelta;
 
     uint32_t version = VK_MAKE_VERSION(0, 3, 0);
-    std::shared_ptr<Instance> instance;
+    std::shared_ptr<MeshInstance> instance;
     std::shared_ptr<Window> window;
 
     std::shared_ptr<PhysicalDevice> physicalDevice;
@@ -221,7 +221,7 @@ class MandelbrotApp {
     void createInstance() {
         glfwInit();
 
-        instance = Instance::create("api_test", version, true);
+        instance = MeshInstance::create("api_test", version, true);
     }
 
     void setupDebugMessenger() {}

@@ -85,14 +85,6 @@ std::shared_ptr<SwapChain> SwapChain::create(const std::shared_ptr<Device> &pDev
 
     swapChain->createSyncObjects();
 
-    swapChain->listener.listen<PreRenderAcquireFrameEvent>([&swapChain](auto &&PH1) {
-      swapChain->acquireNextFrame(std::forward<decltype(PH1)>(PH1));
-    });
-
-    swapChain->listener.listen<PostRenderPresentImageEvent>([&swapChain](auto &&PH1) {
-      swapChain->presentImage(std::forward<decltype(PH1)>(PH1));
-    });
-
     return swapChain;
 }
 
@@ -225,13 +217,9 @@ void SwapChain::recreateSwapChain() {
     }
 
     vkDeviceWaitIdle(device->getHandle());
-
 }
 
-void SwapChain::acquireNextFrame(const PreRenderAcquireFrameEvent &event) {
-    if (event.device != device)
-        return;
-
+void SwapChain::acquireNextFrame() {
     inFlightFences[currentFrame]->waitForSignal();
 
     VkResult
@@ -276,10 +264,7 @@ void SwapChain::createSyncObjects() {
     imagesInFlight = std::vector<std::shared_ptr<Fence>>(imageCount, nullptr);
 }
 
-void SwapChain::presentImage(const PostRenderPresentImageEvent &event) {
-    if (event.device != device)
-        return;
-
+void SwapChain::presentImage() {
     VkSemaphore waitSemaphores[] = {renderFinishedSemaphores[currentFrame]->getHandle()};
 
     VkPresentInfoKHR presentInfo{};

@@ -28,6 +28,8 @@ class Window {
     VkExtent2D extend{};
     bool resized = false;
 
+    void* userPtr = nullptr;
+
     static void staticResizeCallback(GLFWwindow *window, int width, int height);
     void dynamicResizeCallback(int width, int height);
 
@@ -48,6 +50,10 @@ class Window {
     GLFWwindow *getWindow() { return window; }
 
     VkExtent2D getSurfaceExtend() { return extend; }
+
+    void setUserPointer(void* pointer) { userPtr = pointer; }
+
+    void *getUserPointer() { return userPtr; }
 
     static void initWindows();
 

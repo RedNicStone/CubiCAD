@@ -41,3 +41,13 @@ boost::bimap<L, R> Utils::makeBimap(std::initializer_list<typename boost::bimap<
 {
     return boost::bimap<L, R>(list.begin(), list.end());
 }
+
+template<typename type>
+void Utils::remove(std::vector<type> &v) {
+    std::unordered_set<type> s;
+    auto end = std::copy_if(v.begin(), v.end(), v.begin(), [&s](type const &i) {
+      return s.insert(i).second;
+    });
+
+    v.erase(end, v.end());
+}

@@ -56,7 +56,7 @@ class MasterMaterial {
     void updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout, bool
     enableDepthStencil = false);
 
-    size_t getParameterSize() { return propertyLayout.totalSize; }
+    [[nodiscard]] size_t getParameterSize() const { return propertyLayout.totalSize; }
 
     std::string getName() { return name; }
     std::string generateMaterialName();
