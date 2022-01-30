@@ -37,6 +37,7 @@ var annotated_dup =
     [ "Device", "class_device.html", "class_device" ],
     [ "DynamicBuffer", "class_dynamic_buffer.html", "class_dynamic_buffer" ],
     [ "Fence", "class_fence.html", "class_fence" ],
+    [ "FileStream", "struct_file_stream.html", "struct_file_stream" ],
     [ "FragmentShader", "class_fragment_shader.html", null ],
     [ "FrameBuffer", "class_frame_buffer.html", "class_frame_buffer" ],
     [ "FramebufferSelector", "class_framebuffer_selector.html", "class_framebuffer_selector" ],
@@ -138,5 +139,6 @@ var annotated_dup =
     [ "VoxelPosition", "struct_voxel_position.html", "struct_voxel_position" ],
     [ "VoxelRegion", "struct_voxel_region.html", "struct_voxel_region" ],
     [ "VulkanClass", "class_vulkan_class.html", "class_vulkan_class" ],
+    [ "VulkanRasterizer", "class_vulkan_rasterizer.html", "class_vulkan_rasterizer" ],
     [ "Window", "class_window.html", "class_window" ]
 ];

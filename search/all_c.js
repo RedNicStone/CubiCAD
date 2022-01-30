@@ -12,7 +12,7 @@ var searchData=
   ['libmorton_2eh_9',['LibMorton.h',['../_lib_morton_8h.html',1,'']]],
   ['line_5findices_10',['line_indices',['../struct_c_c_a_d___o_t_1_1_cube.html#a33aed633b5335b9ab12a0940fd896882',1,'CCAD_OT::Cube']]],
   ['listener_11',['listener',['../class_swap_chain.html#a19289a81bc3f7d09e85ef9ea73c1d376',1,'SwapChain']]],
-  ['loadmodels_12',['loadModels',['../class_mandelbrot_app.html#ae15547e49fb9d4a3b4ee4b9603dd1968',1,'MandelbrotApp']]],
+  ['loadmodels_12',['loadModels',['../class_mandelbrot_app.html#ae15547e49fb9d4a3b4ee4b9603dd1968',1,'MandelbrotApp::loadModels()'],['../class_vulkan_rasterizer.html#a0649950f85953da05358416d7616fc09',1,'VulkanRasterizer::loadModels()']]],
   ['loadmodule_13',['loadModule',['../class_shader.html#a47eabedcbcf3bc74a263d7e1918324a2',1,'Shader']]],
   ['logodescriptorset_14',['logoDescriptorSet',['../class_main_menu.html#a26727bd7ff18f93873c24336a36f332a',1,'MainMenu']]],
   ['logotexture_15',['logoTexture',['../class_main_menu.html#a0a607dd40d08a3c580423a58636dda0f',1,'MainMenu']]],

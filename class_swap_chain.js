@@ -1,7 +1,7 @@
 var class_swap_chain =
 [
     [ "~SwapChain", "class_swap_chain.html#a58c288346a3fa211fbcc2cec594bfa68", null ],
-    [ "acquireNextFrame", "class_swap_chain.html#aaf96bda98dc3e14e9c71ea1ccb09e139", null ],
+    [ "acquireNextFrame", "class_swap_chain.html#a85ad477a7769c4847ffe5dfa571fb61a", null ],
     [ "chooseSwapPresentMode", "class_swap_chain.html#aa1cba85a0ab83bb4ab3a2092af803e72", null ],
     [ "chooseSwapSurfaceFormat", "class_swap_chain.html#af77dc34c5c5a7adcd26f7180a3df1d73", null ],
     [ "cleanupSwapChain", "class_swap_chain.html#a1c1b739a8b245063604eba188d342556", null ],
@@ -18,7 +18,7 @@ var class_swap_chain =
     [ "getSwapChainImage", "class_swap_chain.html#abd4fa131ce78a2ba005445b8ac623ed0", null ],
     [ "getSwapChainImageView", "class_swap_chain.html#a5bfaf6f1ce7c80c8becb7c60e55a1b45", null ],
     [ "getSwapExtent", "class_swap_chain.html#adc8c869a51d54a4a224ef0fac68bf80c", null ],
-    [ "presentImage", "class_swap_chain.html#adc72dd5afe32e19cd331e30a2f73b62b", null ],
+    [ "presentImage", "class_swap_chain.html#af4ecbac85e210a16d19bacd984663caa", null ],
     [ "queryPresentModes", "class_swap_chain.html#a53e153bace197f261e233b282f308638", null ],
     [ "querySurfaceCapabilities", "class_swap_chain.html#a90b23e7be9f4f9b5ce24e9cd23a7ee13", null ],
     [ "querySurfaceFormats", "class_swap_chain.html#a620f7c053b6508c4fa559b479837987d", null ],

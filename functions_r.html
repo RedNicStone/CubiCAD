@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 <li>readScene()&#160;:&#160;<a class="el" href="class_scene_writer.html#a4bd866f075b2e5f88b8b6673afc21674">SceneWriter</a></li>
 <li>readSceneFromDocument()&#160;:&#160;<a class="el" href="class_scene_writer.html#a72747249f8b4e4a6e4af9f65212717dc">SceneWriter</a></li>
 <li>readWritePtr&#160;:&#160;<a class="el" href="class_voxel_codec_base.html#a983e3aa343fb39f783ab3d511e0af9a7">VoxelCodecBase</a></li>
-<li>recreateSwapChain()&#160;:&#160;<a class="el" href="class_mandelbrot_app.html#a733620a6533fb25a6ffa309886b74904">MandelbrotApp</a>, <a class="el" href="class_swap_chain.html#a6baddf7a59b17af49fac197ba9764383">SwapChain</a></li>
+<li>recreateSwapChain()&#160;:&#160;<a class="el" href="class_mandelbrot_app.html#a733620a6533fb25a6ffa309886b74904">MandelbrotApp</a>, <a class="el" href="class_render_manager.html#a3e54c122912e1b713b2f6357cdc370fb">RenderManager</a>, <a class="el" href="class_swap_chain.html#a6baddf7a59b17af49fac197ba9764383">SwapChain</a></li>
 <li>recursive_create_leaf_()&#160;:&#160;<a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#af03ecfa8e04704c4f890668d8398ad9b">CCAD_OT::OtOctree</a></li>
 <li>recursive_erase_()&#160;:&#160;<a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#afe7647556ff80406d93244eda0947548">CCAD_OT::OtOctree</a></li>
 <li>recursive_find_closest_()&#160;:&#160;<a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#ab7fbd28a7734f9595369d91cd6be7165">CCAD_OT::OtOctree</a></li>
@@ -108,12 +108,12 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 <li>refreshCurrentVoxelFragmentData()&#160;:&#160;<a class="el" href="class_voxel_fragment_stream_base.html#a45205d71c1d28e3004fc0dc22f0dbfc4">VoxelFragmentStreamBase</a>, <a class="el" href="class_voxel_fragment_stream_buffered.html#a93fb0074968b9ea82301cfdda3474944">VoxelFragmentStreamBuffered&lt; FragmentType &gt;</a></li>
 <li>registerQueueFamilyAllocation()&#160;:&#160;<a class="el" href="class_queue_family_handler.html#a96cc55ca9e14920e29c9a9ba4275454d">QueueFamilyHandler</a></li>
 <li>registerShader()&#160;:&#160;<a class="el" href="class_material_library.html#ab00c10f7172383fcb1af964fd77e1b0c">MaterialLibrary</a></li>
-<li>remove()&#160;:&#160;<a class="el" href="class_mandelbrot_app.html#a69b06411ed6947c7c03adc0245e698d5">MandelbrotApp</a></li>
+<li>remove()&#160;:&#160;<a class="el" href="class_mandelbrot_app.html#a69b06411ed6947c7c03adc0245e698d5">MandelbrotApp</a>, <a class="el" href="class_utils.html#ac44035a9bc80c570cfcd56ded0dad0a5">Utils</a></li>
 <li>RenderBus()&#160;:&#160;<a class="el" href="class_render_bus.html#a850a5814fa5e24bdf5264afe8468dd08">RenderBus</a></li>
 <li>renderFinishedSemaphores&#160;:&#160;<a class="el" href="class_swap_chain.html#a5525b70a1a72763ec03b2a422e4891eb">SwapChain</a></li>
+<li>renderManager&#160;:&#160;<a class="el" href="class_vulkan_rasterizer.html#adb13630e2295a7006aef05bdd22ef9b0">VulkanRasterizer</a></li>
 <li>renderPass&#160;:&#160;<a class="el" href="class_mandelbrot_app.html#a7d215ed2c6f58d01c42efe4785d7f24b">MandelbrotApp</a>, <a class="el" href="class_master_material.html#a1c4b51781834e532624c07aa7d262532">MasterMaterial</a>, <a class="el" href="class_render_manager.html#a580674496dc4a3fec8be6a9e99b2e195">RenderManager</a></li>
-<li>renderPool&#160;:&#160;<a class="el" href="class_render_manager.html#a7b8ce491eea45cc3b850c948da861cdf">RenderManager</a></li>
-<li>renderQueue&#160;:&#160;<a class="el" href="class_render_manager.html#a82840046fdf3a9fa3f10dce27ee19b21">RenderManager</a>, <a class="el" href="class_texture_library.html#a8ec503a6ea18705b5a9456342d3f5d81">TextureLibrary</a></li>
+<li>renderQueue&#160;:&#160;<a class="el" href="class_texture_library.html#a8ec503a6ea18705b5a9456342d3f5d81">TextureLibrary</a></li>
 <li>renderSubpass&#160;:&#160;<a class="el" href="class_render_manager.html#a64da4a9d7dd28ea26acdc01c9979eb58">RenderManager</a></li>
 <li>requiredFlags&#160;:&#160;<a class="el" href="class_dynamic_buffer.html#a813cd9a6c9aa2268b957f467da78645a">DynamicBuffer</a></li>
 <li>reset()&#160;:&#160;<a class="el" href="class_command_pool.html#ae4ec3ceb91b21667b90134f2a2d09e51">CommandPool</a>, <a class="el" href="class_descriptor_pool.html#a4de3e4b794ee5e62f8fda5370c85de31">DescriptorPool</a></li>
@@ -123,12 +123,13 @@ $(document).ready(function(){initNavTree('functions_r.html',''); initResizable()
 <li>resetState()&#160;:&#160;<a class="el" href="class_fence.html#af51544dbcd84cb7550ff8dd8a331183b">Fence</a></li>
 <li>resize()&#160;:&#160;<a class="el" href="class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c">VirtualAllocation</a>, <a class="el" href="class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da">VirtualStackAllocation</a></li>
 <li>resized&#160;:&#160;<a class="el" href="class_window.html#abfd6a085fe40e9011e695b2840640e2e">Window</a></li>
+<li>resizeSwapChain()&#160;:&#160;<a class="el" href="class_render_manager.html#ab087dc4ee1c6e377ca52ee44d1591c29">RenderManager</a></li>
 <li>root_node&#160;:&#160;<a class="el" href="class_c_c_a_d___o_t_1_1_ot_octree.html#af1e01751604141ee577606c70aff5465">CCAD_OT::OtOctree</a></li>
 <li>rot&#160;:&#160;<a class="el" href="class_mesh_instance.html#af7ed8d7a0e260d5b6fcc52656be1de4a">MeshInstance</a>, <a class="el" href="class_object_properties.html#a89225c66c36cc001c39d874977d1a7e6">ObjectProperties</a></li>
 <li>rotate()&#160;:&#160;<a class="el" href="class_camera.html#a25423f6fbeab3064b2a6185ee5727ad7">Camera</a></li>
 <li>rotation&#160;:&#160;<a class="el" href="class_camera.html#a323b8cfd7f1518ddac7d36eb744a729a">Camera</a></li>
 <li>roughness&#160;:&#160;<a class="el" href="struct_p_b_r_material_parameters.html#aed2c70ecad90c5f259c583b5c4ac666a">PBRMaterialParameters</a></li>
-<li>run()&#160;:&#160;<a class="el" href="class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f">MandelbrotApp</a></li>
+<li>run()&#160;:&#160;<a class="el" href="class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f">MandelbrotApp</a>, <a class="el" href="class_vulkan_rasterizer.html#add1cfb13a3ae242ca9eef6c1e9e42751">VulkanRasterizer</a></li>
 <li>runRenderLoop()&#160;:&#160;<a class="el" href="class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f">RenderBus</a></li>
 <li>runRenderLoop_()&#160;:&#160;<a class="el" href="class_render_bus.html#a0c6c79cea328c4475de527b874ce517a">RenderBus</a></li>
 </ul>

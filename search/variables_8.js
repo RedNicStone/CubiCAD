@@ -2,7 +2,7 @@ var searchData=
 [
   ['image_0',['image',['../class_texture.html#a2a482438d42ad7cac643c1dff58dabb0',1,'Texture::image()'],['../class_framebuffer_selector.html#a338a324f85605cac1a248968052b6153',1,'FramebufferSelector::image()'],['../class_image_view.html#acf3281a59cbfbe76013781e640904ba7',1,'ImageView::image()']]],
   ['imageavailablesemaphores_1',['imageAvailableSemaphores',['../class_swap_chain.html#a0b87e6a2de9ed87f19c95e84322272c7',1,'SwapChain']]],
-  ['imagecount_2',['imageCount',['../class_swap_chain.html#a9cec969d1ad3d0f5ad81809f5eeb2c73',1,'SwapChain::imageCount()'],['../class_mandelbrot_app.html#a4380e7987c7a15849d4f8b217f381900',1,'MandelbrotApp::imageCount()']]],
+  ['imagecount_2',['imageCount',['../class_render_manager.html#a4ea3ddb788f52e64f48dc7a6d37a07ed',1,'RenderManager::imageCount()'],['../class_swap_chain.html#a9cec969d1ad3d0f5ad81809f5eeb2c73',1,'SwapChain::imageCount()'],['../class_mandelbrot_app.html#a4380e7987c7a15849d4f8b217f381900',1,'MandelbrotApp::imageCount()']]],
   ['imageformat_3',['imageFormat',['../class_swap_chain.html#a4ccdde4e5fa00e750533132c59bdce25',1,'SwapChain']]],
   ['imagelayout_4',['imageLayout',['../class_framebuffer_selector.html#ab11fd743d592957dd54086f17a877d86',1,'FramebufferSelector']]],
   ['imagesampler_5',['imageSampler',['../class_texture_library.html#ad82f41d124a7bac10234dc0e06fedc8a',1,'TextureLibrary']]],
@@ -20,7 +20,7 @@ var searchData=
   ['indirectdrawcalls_17',['indirectDrawCalls',['../class_scene.html#a23d826cabef0fde333a57e6f27148133',1,'Scene']]],
   ['inflightfences_18',['inFlightFences',['../class_swap_chain.html#a6218e24e32fae988cb76387ee13908ed',1,'SwapChain']]],
   ['input_19',['input',['../struct_material_property.html#ad237adba18ea9b903009324badf137f9',1,'MaterialProperty::input()'],['../struct_material_property_built_generic.html#a9ea8a2e15e3d8cdb8ea1538e56cdb93b',1,'MaterialPropertyBuiltGeneric::input()']]],
-  ['instance_20',['instance',['../class_physical_device.html#a7dd4092684f73310680cd2687140770f',1,'PhysicalDevice::instance()'],['../class_window.html#a5077d65fc2eac2f426ba770cd8b00272',1,'Window::instance()'],['../class_mandelbrot_app.html#abdde7735754a6f4ccb4c13e6f0905551',1,'MandelbrotApp::instance()']]],
+  ['instance_20',['instance',['../class_window.html#a5077d65fc2eac2f426ba770cd8b00272',1,'Window::instance()'],['../class_vulkan_rasterizer.html#a84b9c6116ac93324ba050f411a7722fc',1,'VulkanRasterizer::instance()'],['../class_mandelbrot_app.html#aa81df26623304c56bdb89a12a357dd1b',1,'MandelbrotApp::instance()'],['../class_mandelbrot_app.html#ae9a3b42d14e457ade57025e35101f9e3',1,'MandelbrotApp::instance()'],['../class_physical_device.html#a7dd4092684f73310680cd2687140770f',1,'PhysicalDevice::instance()'],['../class_render_manager.html#aa4e816ffa4ebfc84ab912c9bfd485612',1,'RenderManager::instance()']]],
   ['instancebuffer_21',['instanceBuffer',['../class_scene.html#acc0e555c9f313e130de8888fcb299274',1,'Scene']]],
   ['instancebufferdata_22',['instanceBufferData',['../class_scene.html#ab340f781e639017d5cd47c0e45e4a74d',1,'Scene']]],
   ['instances_23',['instances',['../class_scene.html#a25dfe61208f84baef0549c9986cc7bc4',1,'Scene']]],

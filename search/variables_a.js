@@ -22,15 +22,16 @@ var searchData=
   ['maxqueuecount_19',['maxQueueCount',['../struct_possible_queue_family.html#a620d98143069d52b46700d24e2fc6b11',1,'PossibleQueueFamily']]],
   ['memoryptr_20',['memoryPtr',['../struct_voxel_codec_octree_base_1_1_node_stack_element.html#ad1aa4e6191775ea03299f22a5ebe6c97',1,'VoxelCodecOctreeBase::NodeStackElement']]],
   ['memoryusage_21',['memoryUsage',['../class_dynamic_buffer.html#a9157aef8b767e07677fa618069028bb5',1,'DynamicBuffer']]],
-  ['menubar_22',['menuBar',['../class_mandelbrot_app.html#a00565519ee1f0fae4dbcd9d9cf5f6731',1,'MandelbrotApp']]],
+  ['menubar_22',['menuBar',['../class_mandelbrot_app.html#a00565519ee1f0fae4dbcd9d9cf5f6731',1,'MandelbrotApp::menuBar()'],['../class_vulkan_rasterizer.html#affc76203c76e75c2ffaeb693f38572f0',1,'VulkanRasterizer::menuBar()']]],
   ['mesh_23',['mesh',['../class_mesh_instance.html#a7e26897cd72ba054993ef140c5c8fd55',1,'MeshInstance']]],
   ['meshes_24',['meshes',['../class_mesh_library.html#a67aa1bdac523541b67df3908f58cf408',1,'MeshLibrary']]],
   ['meshlibrary_25',['meshLibrary',['../class_render_manager.html#aa51143a130640ed4528ec23d21de20f8',1,'RenderManager']]],
   ['meshname_26',['meshName',['../class_object_properties.html#afb4993aed6ebbf0efbf7e1fb4eb40127',1,'ObjectProperties']]],
   ['metallic_27',['metallic',['../struct_p_b_r_material_parameters.html#a01cae6fd7b9496f74cc33e43204bfcc7',1,'PBRMaterialParameters']]],
   ['miplevels_28',['mipLevels',['../struct_texture_quality_settings.html#ad812b3e7038abb6efff11a2ca4646252',1,'TextureQualitySettings::mipLevels()'],['../class_image.html#acabca646d85b455e9dc5342c1a940d21',1,'Image::mipLevels()']]],
-  ['model_29',['model',['../class_camera.html#a0f466597be3dfd881ab42f8703b74c0e',1,'Camera::model()'],['../struct_instance_data.html#ac212f0d8e381b56fec9265ed559ddf39',1,'InstanceData::model()'],['../class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd',1,'MandelbrotApp::model()']]],
-  ['modelloader_30',['modelLoader',['../class_mesh_library.html#a61b66f56d5247087931d89badfca56f9',1,'MeshLibrary::modelLoader()'],['../class_mandelbrot_app.html#a6f5b878e7208691e01d501e9094157dd',1,'MandelbrotApp::modelLoader()']]],
-  ['mousecaptured_31',['mouseCaptured',['../class_mandelbrot_app.html#a5b183bf75c2fe14f32015215d23fd989',1,'MandelbrotApp']]],
-  ['mousedown_32',['mouseDown',['../class_mandelbrot_app.html#aa640a5d6413ab159bb3c67ea60bfe837',1,'MandelbrotApp']]]
+  ['model_29',['model',['../class_camera.html#a0f466597be3dfd881ab42f8703b74c0e',1,'Camera::model()'],['../struct_instance_data.html#ac212f0d8e381b56fec9265ed559ddf39',1,'InstanceData::model()'],['../class_mandelbrot_app.html#aed39aac51affd7a4dfedbdf98ae1dbcd',1,'MandelbrotApp::model()'],['../class_vulkan_rasterizer.html#a195bea31a82e12e4b2343a3a91ea9ab5',1,'VulkanRasterizer::model()']]],
+  ['modelloader_30',['modelLoader',['../class_mesh_library.html#a61b66f56d5247087931d89badfca56f9',1,'MeshLibrary::modelLoader()'],['../class_mandelbrot_app.html#a6f5b878e7208691e01d501e9094157dd',1,'MandelbrotApp::modelLoader()'],['../class_vulkan_rasterizer.html#a334bd5a104e3877f06cf2a8048d8beae',1,'VulkanRasterizer::modelLoader()']]],
+  ['mousecaptured_31',['mouseCaptured',['../class_render_manager.html#ab40089d8bb19e9b027f5788b4e731e29',1,'RenderManager::mouseCaptured()'],['../class_mandelbrot_app.html#a5b183bf75c2fe14f32015215d23fd989',1,'MandelbrotApp::mouseCaptured()']]],
+  ['mousedown_32',['mouseDown',['../class_mandelbrot_app.html#aa640a5d6413ab159bb3c67ea60bfe837',1,'MandelbrotApp']]],
+  ['mousespeed_33',['mouseSpeed',['../class_render_manager.html#ad7240806f8dd9f75633581e6776efe17',1,'RenderManager']]]
 ];

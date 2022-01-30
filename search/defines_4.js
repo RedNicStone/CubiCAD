@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tinyobjloader_5fimplementation_0',['TINYOBJLOADER_IMPLEMENTATION',['../modelloader_8cpp.html#af14fac7fbc250522a78849d58d5b0811',1,'modelloader.cpp']]],
-  ['tinyobjloader_5fuse_5fmapbox_5fearcut_1',['TINYOBJLOADER_USE_MAPBOX_EARCUT',['../modelloader_8cpp.html#ae7c9d0a9617b951a39c79bae20e27423',1,'modelloader.cpp']]]
+  ['stb_5fimage_5fimplementation_0',['STB_IMAGE_IMPLEMENTATION',['../texture_8cpp.html#a18372412ad2fc3ce1e3240b3cf0efe78',1,'texture.cpp']]]
 ];

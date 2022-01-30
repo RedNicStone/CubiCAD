@@ -15,6 +15,7 @@ var hierarchy =
       [ "QueueFamily", "class_queue_family.html", null ],
       [ "QueueFamilyHandler", "class_queue_family_handler.html", null ]
     ] ],
+    [ "FileStream", "struct_file_stream.html", null ],
     [ "FrameBuffer", "class_frame_buffer.html", null ],
     [ "FramebufferSelector", "class_framebuffer_selector.html", null ],
     [ "Scene::IndirectDrawCall", "struct_scene_1_1_indirect_draw_call.html", null ],
@@ -222,5 +223,6 @@ var hierarchy =
     [ "VulkanClass< VkSemaphore >", "class_vulkan_class.html", [
       [ "Semaphore", "class_semaphore.html", null ]
     ] ],
+    [ "VulkanRasterizer", "class_vulkan_rasterizer.html", null ],
     [ "Window", "class_window.html", null ]
 ];

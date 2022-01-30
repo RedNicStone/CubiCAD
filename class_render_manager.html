@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('class_render_manager.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_render_manager-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">RenderManager Class Reference</div></div>
@@ -102,77 +105,508 @@ $(document).ready(function(){initNavTree('class_render_manager.html',''); initRe
 <div class="dynheader">
 Collaboration diagram for RenderManager:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager__coll__graph.svg" width="140" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adca904cf6b14a976199a038026cda064"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#adca904cf6b14a976199a038026cda064">create</a> ()</td></tr>
-<tr class="separator:adca904cf6b14a976199a038026cda064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab087dc4ee1c6e377ca52ee44d1591c29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ab087dc4ee1c6e377ca52ee44d1591c29">resizeSwapChain</a> (uint32_t newImageCount=0)</td></tr>
+<tr class="separator:ab087dc4ee1c6e377ca52ee44d1591c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c50623b736ac72b1d019df1267c08c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a3c50623b736ac72b1d019df1267c08c4">drawFrame</a> ()</td></tr>
+<tr class="separator:a3c50623b736ac72b1d019df1267c08c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ad73ebab2e62c49c839e88800197195"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a6ad73ebab2e62c49c839e88800197195">processInputs</a> ()</td></tr>
+<tr class="separator:a6ad73ebab2e62c49c839e88800197195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2bca8aae567eb7b4ad29c865b3d8b9a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ae2bca8aae567eb7b4ad29c865b3d8b9a">getScene</a> ()</td></tr>
+<tr class="separator:ae2bca8aae567eb7b4ad29c865b3d8b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b065993a47ae7017772f21ee1e80439"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a5b065993a47ae7017772f21ee1e80439">getTextureLibrary</a> ()</td></tr>
+<tr class="separator:a5b065993a47ae7017772f21ee1e80439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24b4a116406a6e4a1cd4cc392d1c8633"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a24b4a116406a6e4a1cd4cc392d1c8633">getUIRenderer</a> ()</td></tr>
+<tr class="separator:a24b4a116406a6e4a1cd4cc392d1c8633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad0992d46593bcae5da445813f8f8c8c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aad0992d46593bcae5da445813f8f8c8c">getDevice</a> ()</td></tr>
+<tr class="separator:aad0992d46593bcae5da445813f8f8c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff158c93a4f17c64cb756213dd39e78"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aaff158c93a4f17c64cb756213dd39e78">getRenderPass</a> ()</td></tr>
+<tr class="separator:aaff158c93a4f17c64cb756213dd39e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a986454209acea0803e546949981371be"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a986454209acea0803e546949981371be">getExtend</a> ()</td></tr>
+<tr class="separator:a986454209acea0803e546949981371be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221c4de19c04ad31cc1e729b9eb60c3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a221c4de19c04ad31cc1e729b9eb60c3b">~RenderManager</a> ()</td></tr>
+<tr class="separator:a221c4de19c04ad31cc1e729b9eb60c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ae1e851c6d2e49c8855dd4c4587b4a0e2"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ae1e851c6d2e49c8855dd4c4587b4a0e2">create</a> (const std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt; &amp;<a class="el" href="class_render_manager.html#aa4e816ffa4ebfc84ab912c9bfd485612">instance</a>, const std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt; &amp;<a class="el" href="class_render_manager.html#adfd809d2332b0d68ad36ef6d08ffa15b">window</a>, const <a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a> &amp;textureQuality)</td></tr>
+<tr class="separator:ae1e851c6d2e49c8855dd4c4587b4a0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a20215629ec089cb4aa07a2d6096c1c54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a20215629ec089cb4aa07a2d6096c1c54">pickPhysicalDevice</a> ()</td></tr>
+<tr class="separator:a20215629ec089cb4aa07a2d6096c1c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98c2ffaac4f73709b8008b6e218c0f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aa98c2ffaac4f73709b8008b6e218c0f3">createLogicalDevice</a> ()</td></tr>
+<tr class="separator:aa98c2ffaac4f73709b8008b6e218c0f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65e7a5c0a757d951516b3a207dbb19db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a65e7a5c0a757d951516b3a207dbb19db">createCommandPools</a> ()</td></tr>
+<tr class="separator:a65e7a5c0a757d951516b3a207dbb19db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9be550fe988ee994b0cba1b46ef2ded"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ab9be550fe988ee994b0cba1b46ef2ded">createSwapChain</a> ()</td></tr>
+<tr class="separator:ab9be550fe988ee994b0cba1b46ef2ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47b4c7259640bcfc476a5cd8c129c2b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a47b4c7259640bcfc476a5cd8c129c2b8">createRenderPass</a> ()</td></tr>
+<tr class="separator:a47b4c7259640bcfc476a5cd8c129c2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e12fa2f425700718eec18fb52a1ef8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aa6e12fa2f425700718eec18fb52a1ef8">createFrameBuffer</a> ()</td></tr>
+<tr class="separator:aa6e12fa2f425700718eec18fb52a1ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f33ffbf6fa771b2a2132b4bd33de06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#af9f33ffbf6fa771b2a2132b4bd33de06">crateSceneObjects</a> ()</td></tr>
+<tr class="separator:af9f33ffbf6fa771b2a2132b4bd33de06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4542192299af39a3e8833b701c2a359e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a4542192299af39a3e8833b701c2a359e">crateUIObjects</a> ()</td></tr>
+<tr class="separator:a4542192299af39a3e8833b701c2a359e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f5991e4b82925a2571e6fabf1e8b7b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a2f5991e4b82925a2571e6fabf1e8b7b9">createRenderObjects</a> ()</td></tr>
+<tr class="separator:a2f5991e4b82925a2571e6fabf1e8b7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e54c122912e1b713b2f6357cdc370fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a3e54c122912e1b713b2f6357cdc370fb">recreateSwapChain</a> (bool newImageCount)</td></tr>
+<tr class="separator:a3e54c122912e1b713b2f6357cdc370fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba8724674ad397d01118c7f436bedbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#adba8724674ad397d01118c7f436bedbd">processMouseInputs</a> ()</td></tr>
+<tr class="separator:adba8724674ad397d01118c7f436bedbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a0f7540f079654ada7762f7368deca060"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a0f7540f079654ada7762f7368deca060">keyCallback</a> (GLFWwindow *glfwWindow, int key, int scancode, int action, int mods)</td></tr>
+<tr class="separator:a0f7540f079654ada7762f7368deca060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a778e5e362971c47f175cbf13ac66b10e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a778e5e362971c47f175cbf13ac66b10e">mouseButtonCallback</a> (GLFWwindow *glfwWindow, int button, int action, int mods)</td></tr>
+<tr class="separator:a778e5e362971c47f175cbf13ac66b10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:aa4e816ffa4ebfc84ab912c9bfd485612"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aa4e816ffa4ebfc84ab912c9bfd485612">instance</a></td></tr>
+<tr class="separator:aa4e816ffa4ebfc84ab912c9bfd485612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd809d2332b0d68ad36ef6d08ffa15b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#adfd809d2332b0d68ad36ef6d08ffa15b">window</a></td></tr>
+<tr class="separator:adfd809d2332b0d68ad36ef6d08ffa15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ea3ddb788f52e64f48dc7a6d37a07ed"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a4ea3ddb788f52e64f48dc7a6d37a07ed">imageCount</a></td></tr>
+<tr class="separator:a4ea3ddb788f52e64f48dc7a6d37a07ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a992380f53a02078b4a1800c95005a3eb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_physical_device.html">PhysicalDevice</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a992380f53a02078b4a1800c95005a3eb">physicalDevice</a></td></tr>
 <tr class="separator:a992380f53a02078b4a1800c95005a3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29152ab1c1f3884aa5a3b0f0b4384d3b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a29152ab1c1f3884aa5a3b0f0b4384d3b">device</a></td></tr>
 <tr class="separator:a29152ab1c1f3884aa5a3b0f0b4384d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82840046fdf3a9fa3f10dce27ee19b21"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a82840046fdf3a9fa3f10dce27ee19b21">renderQueue</a></td></tr>
-<tr class="separator:a82840046fdf3a9fa3f10dce27ee19b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00dbbe6147c5cd6873a6fc001089f4cf"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a00dbbe6147c5cd6873a6fc001089f4cf">graphicsQueue</a></td></tr>
+<tr class="separator:a00dbbe6147c5cd6873a6fc001089f4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0a9a16f8ff221d3ea0fb8f6d106ff33"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ac0a9a16f8ff221d3ea0fb8f6d106ff33">transferQueue</a></td></tr>
 <tr class="separator:ac0a9a16f8ff221d3ea0fb8f6d106ff33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3831e0a7958a0fdcaace300274cc68fe"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a3831e0a7958a0fdcaace300274cc68fe">computeQueue</a></td></tr>
+<tr class="separator:a3831e0a7958a0fdcaace300274cc68fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff81a325918d06f9fe022c0ba3fde5f8"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aff81a325918d06f9fe022c0ba3fde5f8">presentQueue</a></td></tr>
 <tr class="separator:aff81a325918d06f9fe022c0ba3fde5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee49ffa2b5f861a779cd6ccf6401cf1e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_swap_chain.html">SwapChain</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aee49ffa2b5f861a779cd6ccf6401cf1e">swapChain</a></td></tr>
-<tr class="separator:aee49ffa2b5f861a779cd6ccf6401cf1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90b498bf88e864e9257f17d48fea7a78"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a90b498bf88e864e9257f17d48fea7a78">frameBuffer</a></td></tr>
-<tr class="separator:a90b498bf88e864e9257f17d48fea7a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9109aece892081ea8f83170e087b9198"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a9109aece892081ea8f83170e087b9198">swapChainExtent</a></td></tr>
-<tr class="separator:a9109aece892081ea8f83170e087b9198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a457aba3d3843d67e6bed715d514f5962"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a457aba3d3843d67e6bed715d514f5962">depthImage</a></td></tr>
-<tr class="separator:a457aba3d3843d67e6bed715d514f5962"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ba14e1aff4a3cc488c5253d10d668c2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a3ba14e1aff4a3cc488c5253d10d668c2">depthImageView</a></td></tr>
-<tr class="separator:a3ba14e1aff4a3cc488c5253d10d668c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a580674496dc4a3fec8be6a9e99b2e195"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a580674496dc4a3fec8be6a9e99b2e195">renderPass</a></td></tr>
-<tr class="separator:a580674496dc4a3fec8be6a9e99b2e195"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64da4a9d7dd28ea26acdc01c9979eb58"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a64da4a9d7dd28ea26acdc01c9979eb58">renderSubpass</a></td></tr>
-<tr class="separator:a64da4a9d7dd28ea26acdc01c9979eb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15ccbb6a0b6860c5a5c3e9bffeb5f3ec"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a15ccbb6a0b6860c5a5c3e9bffeb5f3ec">UISubpass</a></td></tr>
-<tr class="separator:a15ccbb6a0b6860c5a5c3e9bffeb5f3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9209045058fe4f40526c74fe661e373"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_framebuffer_selector.html">FramebufferSelector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#af9209045058fe4f40526c74fe661e373">objectBuffer</a></td></tr>
-<tr class="separator:af9209045058fe4f40526c74fe661e373"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a216c4c4b3bcc5a4e9796a89ae9e65f22"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a216c4c4b3bcc5a4e9796a89ae9e65f22">objectBufferImage</a></td></tr>
-<tr class="separator:a216c4c4b3bcc5a4e9796a89ae9e65f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f1980bbae72180d84dbe73216ecf82"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a74f1980bbae72180d84dbe73216ecf82">objectBufferImageView</a></td></tr>
-<tr class="separator:a74f1980bbae72180d84dbe73216ecf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b8ce491eea45cc3b850c948da861cdf"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a7b8ce491eea45cc3b850c948da861cdf">renderPool</a></td></tr>
-<tr class="separator:a7b8ce491eea45cc3b850c948da861cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99739a51eb72ed86f0fda52ba8e7c464"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a99739a51eb72ed86f0fda52ba8e7c464">camera</a></td></tr>
 <tr class="separator:a99739a51eb72ed86f0fda52ba8e7c464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8fdfb3a09e4d46429c13347c98fc41c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aa8fdfb3a09e4d46429c13347c98fc41c">UIRenderer</a></td></tr>
-<tr class="separator:aa8fdfb3a09e4d46429c13347c98fc41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fb80bea1af31e125e929a5aef652204"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a6fb80bea1af31e125e929a5aef652204">uiRenderer</a></td></tr>
+<tr class="separator:a6fb80bea1af31e125e929a5aef652204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5194aa9919c46814d92d335272d1ad43"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a5194aa9919c46814d92d335272d1ad43">graphicsPool</a></td></tr>
+<tr class="separator:a5194aa9919c46814d92d335272d1ad43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac554d4401316bdd705977fe6081b1567"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ac554d4401316bdd705977fe6081b1567">transferPool</a></td></tr>
 <tr class="separator:ac554d4401316bdd705977fe6081b1567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52228363edc5fb3e003323242e6e5eb3"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a52228363edc5fb3e003323242e6e5eb3">computePool</a></td></tr>
+<tr class="separator:a52228363edc5fb3e003323242e6e5eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed3ac72fede8ad352e44a95ec3fcb39a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aed3ac72fede8ad352e44a95ec3fcb39a">presentPool</a></td></tr>
 <tr class="separator:aed3ac72fede8ad352e44a95ec3fcb39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbac92d261bc815d376a1370aa03ec82"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#adbac92d261bc815d376a1370aa03ec82">currentScene</a></td></tr>
-<tr class="separator:adbac92d261bc815d376a1370aa03ec82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c4f9ca5fcd4c504b959427325acf892"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a4c4f9ca5fcd4c504b959427325acf892">scene</a></td></tr>
+<tr class="separator:a4c4f9ca5fcd4c504b959427325acf892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81ad286c491eb7c12688b3f751ae8572"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene_writer.html">SceneWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a81ad286c491eb7c12688b3f751ae8572">sceneWriter</a></td></tr>
+<tr class="separator:a81ad286c491eb7c12688b3f751ae8572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8244ab8feed65769e1d3bd78ab547d96"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a8244ab8feed65769e1d3bd78ab547d96">poolManager</a></td></tr>
+<tr class="separator:a8244ab8feed65769e1d3bd78ab547d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8b00ecb16c5a8cd29c9d4d98bec0ce4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ad8b00ecb16c5a8cd29c9d4d98bec0ce4">textureQualitySettings</a></td></tr>
+<tr class="separator:ad8b00ecb16c5a8cd29c9d4d98bec0ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bfa8745790ad798727917e3410013ff"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_material_library.html">MaterialLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a8bfa8745790ad798727917e3410013ff">materialLibrary</a></td></tr>
 <tr class="separator:a8bfa8745790ad798727917e3410013ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2ab4d99d81b2a71df8ab8a3e8f12663"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#af2ab4d99d81b2a71df8ab8a3e8f12663">textureLibrary</a></td></tr>
 <tr class="separator:af2ab4d99d81b2a71df8ab8a3e8f12663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa51143a130640ed4528ec23d21de20f8"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_mesh_library.html">MeshLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aa51143a130640ed4528ec23d21de20f8">meshLibrary</a></td></tr>
 <tr class="separator:aa51143a130640ed4528ec23d21de20f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee49ffa2b5f861a779cd6ccf6401cf1e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_swap_chain.html">SwapChain</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aee49ffa2b5f861a779cd6ccf6401cf1e">swapChain</a></td></tr>
+<tr class="separator:aee49ffa2b5f861a779cd6ccf6401cf1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b498bf88e864e9257f17d48fea7a78"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_frame_buffer.html">FrameBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a90b498bf88e864e9257f17d48fea7a78">frameBuffer</a></td></tr>
+<tr class="separator:a90b498bf88e864e9257f17d48fea7a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9109aece892081ea8f83170e087b9198"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a9109aece892081ea8f83170e087b9198">swapChainExtent</a></td></tr>
+<tr class="separator:a9109aece892081ea8f83170e087b9198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580674496dc4a3fec8be6a9e99b2e195"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a580674496dc4a3fec8be6a9e99b2e195">renderPass</a></td></tr>
+<tr class="separator:a580674496dc4a3fec8be6a9e99b2e195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64da4a9d7dd28ea26acdc01c9979eb58"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a64da4a9d7dd28ea26acdc01c9979eb58">renderSubpass</a></td></tr>
+<tr class="separator:a64da4a9d7dd28ea26acdc01c9979eb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59317ef113607f4c80b8082b14b2ce50"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a59317ef113607f4c80b8082b14b2ce50">uiSubpass</a></td></tr>
+<tr class="separator:a59317ef113607f4c80b8082b14b2ce50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a457aba3d3843d67e6bed715d514f5962"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a457aba3d3843d67e6bed715d514f5962">depthImage</a></td></tr>
+<tr class="separator:a457aba3d3843d67e6bed715d514f5962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ba14e1aff4a3cc488c5253d10d668c2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a3ba14e1aff4a3cc488c5253d10d668c2">depthImageView</a></td></tr>
+<tr class="separator:a3ba14e1aff4a3cc488c5253d10d668c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9209045058fe4f40526c74fe661e373"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_framebuffer_selector.html">FramebufferSelector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#af9209045058fe4f40526c74fe661e373">objectBuffer</a></td></tr>
+<tr class="separator:af9209045058fe4f40526c74fe661e373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a216c4c4b3bcc5a4e9796a89ae9e65f22"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a216c4c4b3bcc5a4e9796a89ae9e65f22">objectBufferImage</a></td></tr>
+<tr class="separator:a216c4c4b3bcc5a4e9796a89ae9e65f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74f1980bbae72180d84dbe73216ecf82"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a74f1980bbae72180d84dbe73216ecf82">objectBufferImageView</a></td></tr>
+<tr class="separator:a74f1980bbae72180d84dbe73216ecf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40089d8bb19e9b027f5788b4e731e29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ab40089d8bb19e9b027f5788b4e731e29">mouseCaptured</a> = false</td></tr>
+<tr class="separator:ab40089d8bb19e9b027f5788b4e731e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7240806f8dd9f75633581e6776efe17"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ad7240806f8dd9f75633581e6776efe17">mouseSpeed</a> = 0.001f</td></tr>
+<tr class="separator:ad7240806f8dd9f75633581e6776efe17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="adca904cf6b14a976199a038026cda064" name="adca904cf6b14a976199a038026cda064"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adca904cf6b14a976199a038026cda064">&#9670;&nbsp;</a></span>create()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a221c4de19c04ad31cc1e729b9eb60c3b" name="a221c4de19c04ad31cc1e729b9eb60c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221c4de19c04ad31cc1e729b9eb60c3b">&#9670;&nbsp;</a></span>~RenderManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
+          <td class="memname">RenderManager::~RenderManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af9f33ffbf6fa771b2a2132b4bd33de06" name="af9f33ffbf6fa771b2a2132b4bd33de06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f33ffbf6fa771b2a2132b4bd33de06">&#9670;&nbsp;</a></span>crateSceneObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::crateSceneObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_af9f33ffbf6fa771b2a2132b4bd33de06_cgraph.svg" width="598" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_af9f33ffbf6fa771b2a2132b4bd33de06_icgraph.svg" width="440" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a4542192299af39a3e8833b701c2a359e" name="a4542192299af39a3e8833b701c2a359e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4542192299af39a3e8833b701c2a359e">&#9670;&nbsp;</a></span>crateUIObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::crateUIObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a4542192299af39a3e8833b701c2a359e_cgraph.svg" width="602" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a4542192299af39a3e8833b701c2a359e_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ae1e851c6d2e49c8855dd4c4587b4a0e2" name="ae1e851c6d2e49c8855dd4c4587b4a0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1e851c6d2e49c8855dd4c4587b4a0e2">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt; RenderManager::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>textureQuality</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_ae1e851c6d2e49c8855dd4c4587b4a0e2_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a65e7a5c0a757d951516b3a207dbb19db" name="a65e7a5c0a757d951516b3a207dbb19db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65e7a5c0a757d951516b3a207dbb19db">&#9670;&nbsp;</a></span>createCommandPools()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::createCommandPools </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a65e7a5c0a757d951516b3a207dbb19db_cgraph.svg" width="423" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a65e7a5c0a757d951516b3a207dbb19db_icgraph.svg" width="470" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aa6e12fa2f425700718eec18fb52a1ef8" name="aa6e12fa2f425700718eec18fb52a1ef8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6e12fa2f425700718eec18fb52a1ef8">&#9670;&nbsp;</a></span>createFrameBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::createFrameBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_aa6e12fa2f425700718eec18fb52a1ef8_cgraph.svg" width="386" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_aa6e12fa2f425700718eec18fb52a1ef8_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aa98c2ffaac4f73709b8008b6e218c0f3" name="aa98c2ffaac4f73709b8008b6e218c0f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98c2ffaac4f73709b8008b6e218c0f3">&#9670;&nbsp;</a></span>createLogicalDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::createLogicalDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_aa98c2ffaac4f73709b8008b6e218c0f3_cgraph.svg" width="388" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_aa98c2ffaac4f73709b8008b6e218c0f3_icgraph.svg" width="452" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a2f5991e4b82925a2571e6fabf1e8b7b9" name="a2f5991e4b82925a2571e6fabf1e8b7b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f5991e4b82925a2571e6fabf1e8b7b9">&#9670;&nbsp;</a></span>createRenderObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::createRenderObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a2f5991e4b82925a2571e6fabf1e8b7b9_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a47b4c7259640bcfc476a5cd8c129c2b8" name="a47b4c7259640bcfc476a5cd8c129c2b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b4c7259640bcfc476a5cd8c129c2b8">&#9670;&nbsp;</a></span>createRenderPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::createRenderPass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a47b4c7259640bcfc476a5cd8c129c2b8_cgraph.svg" width="420" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a47b4c7259640bcfc476a5cd8c129c2b8_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ab9be550fe988ee994b0cba1b46ef2ded" name="ab9be550fe988ee994b0cba1b46ef2ded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9be550fe988ee994b0cba1b46ef2ded">&#9670;&nbsp;</a></span>createSwapChain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::createSwapChain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_ab9be550fe988ee994b0cba1b46ef2ded_cgraph.svg" width="534" height="256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_ab9be550fe988ee994b0cba1b46ef2ded_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a3c50623b736ac72b1d019df1267c08c4" name="a3c50623b736ac72b1d019df1267c08c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c50623b736ac72b1d019df1267c08c4">&#9670;&nbsp;</a></span>drawFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::drawFrame </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -182,7 +616,412 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_adca904cf6b14a976199a038026cda064_cgraph.svg" width="559" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a3c50623b736ac72b1d019df1267c08c4_cgraph.svg" width="400" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="aad0992d46593bcae5da445813f8f8c8c" name="aad0992d46593bcae5da445813f8f8c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad0992d46593bcae5da445813f8f8c8c">&#9670;&nbsp;</a></span>getDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; RenderManager::getDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a986454209acea0803e546949981371be" name="a986454209acea0803e546949981371be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a986454209acea0803e546949981371be">&#9670;&nbsp;</a></span>getExtend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VkExtent2D RenderManager::getExtend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaff158c93a4f17c64cb756213dd39e78" name="aaff158c93a4f17c64cb756213dd39e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff158c93a4f17c64cb756213dd39e78">&#9670;&nbsp;</a></span>getRenderPass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; RenderManager::getRenderPass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2bca8aae567eb7b4ad29c865b3d8b9a" name="ae2bca8aae567eb7b4ad29c865b3d8b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2bca8aae567eb7b4ad29c865b3d8b9a">&#9670;&nbsp;</a></span>getScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; RenderManager::getScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b065993a47ae7017772f21ee1e80439" name="a5b065993a47ae7017772f21ee1e80439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b065993a47ae7017772f21ee1e80439">&#9670;&nbsp;</a></span>getTextureLibrary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; RenderManager::getTextureLibrary </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24b4a116406a6e4a1cd4cc392d1c8633" name="a24b4a116406a6e4a1cd4cc392d1c8633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24b4a116406a6e4a1cd4cc392d1c8633">&#9670;&nbsp;</a></span>getUIRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_u_i_renderer.html">UIRenderer</a> &gt; RenderManager::getUIRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f7540f079654ada7762f7368deca060" name="a0f7540f079654ada7762f7368deca060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f7540f079654ada7762f7368deca060">&#9670;&nbsp;</a></span>keyCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::keyCallback </td>
+          <td>(</td>
+          <td class="paramtype">GLFWwindow *&#160;</td>
+          <td class="paramname"><em>glfwWindow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scancode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>action</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mods</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a0f7540f079654ada7762f7368deca060_cgraph.svg" width="375" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a0f7540f079654ada7762f7368deca060_icgraph.svg" width="444" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a778e5e362971c47f175cbf13ac66b10e" name="a778e5e362971c47f175cbf13ac66b10e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a778e5e362971c47f175cbf13ac66b10e">&#9670;&nbsp;</a></span>mouseButtonCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::mouseButtonCallback </td>
+          <td>(</td>
+          <td class="paramtype">GLFWwindow *&#160;</td>
+          <td class="paramname"><em>glfwWindow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>button</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>action</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mods</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a778e5e362971c47f175cbf13ac66b10e_icgraph.svg" width="451" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a20215629ec089cb4aa07a2d6096c1c54" name="a20215629ec089cb4aa07a2d6096c1c54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20215629ec089cb4aa07a2d6096c1c54">&#9670;&nbsp;</a></span>pickPhysicalDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::pickPhysicalDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a20215629ec089cb4aa07a2d6096c1c54_icgraph.svg" width="447" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a6ad73ebab2e62c49c839e88800197195" name="a6ad73ebab2e62c49c839e88800197195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ad73ebab2e62c49c839e88800197195">&#9670;&nbsp;</a></span>processInputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::processInputs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adba8724674ad397d01118c7f436bedbd" name="adba8724674ad397d01118c7f436bedbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba8724674ad397d01118c7f436bedbd">&#9670;&nbsp;</a></span>processMouseInputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::processMouseInputs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e54c122912e1b713b2f6357cdc370fb" name="a3e54c122912e1b713b2f6357cdc370fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e54c122912e1b713b2f6357cdc370fb">&#9670;&nbsp;</a></span>recreateSwapChain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::recreateSwapChain </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>newImageCount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a3e54c122912e1b713b2f6357cdc370fb_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_render_manager_a3e54c122912e1b713b2f6357cdc370fb_icgraph.svg" width="444" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ab087dc4ee1c6e377ca52ee44d1591c29" name="ab087dc4ee1c6e377ca52ee44d1591c29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab087dc4ee1c6e377ca52ee44d1591c29">&#9670;&nbsp;</a></span>resizeSwapChain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::resizeSwapChain </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>newImageCount</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_ab087dc4ee1c6e377ca52ee44d1591c29_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -211,8 +1050,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="adbac92d261bc815d376a1370aa03ec82" name="adbac92d261bc815d376a1370aa03ec82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbac92d261bc815d376a1370aa03ec82">&#9670;&nbsp;</a></span>currentScene</h2>
+<a id="a52228363edc5fb3e003323242e6e5eb3" name="a52228363edc5fb3e003323242e6e5eb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52228363edc5fb3e003323242e6e5eb3">&#9670;&nbsp;</a></span>computePool</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +1060,29 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_scene.html">Scene</a>&gt; RenderManager::currentScene</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_command_pool.html">CommandPool</a>&gt; RenderManager::computePool</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3831e0a7958a0fdcaace300274cc68fe" name="a3831e0a7958a0fdcaace300274cc68fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3831e0a7958a0fdcaace300274cc68fe">&#9670;&nbsp;</a></span>computeQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_queue.html">Queue</a>&gt; RenderManager::computeQueue</td>
         </tr>
       </table>
   </td>
@@ -321,6 +1182,94 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a5194aa9919c46814d92d335272d1ad43" name="a5194aa9919c46814d92d335272d1ad43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5194aa9919c46814d92d335272d1ad43">&#9670;&nbsp;</a></span>graphicsPool</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_command_pool.html">CommandPool</a>&gt; RenderManager::graphicsPool</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00dbbe6147c5cd6873a6fc001089f4cf" name="a00dbbe6147c5cd6873a6fc001089f4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00dbbe6147c5cd6873a6fc001089f4cf">&#9670;&nbsp;</a></span>graphicsQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_queue.html">Queue</a>&gt; RenderManager::graphicsQueue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ea3ddb788f52e64f48dc7a6d37a07ed" name="a4ea3ddb788f52e64f48dc7a6d37a07ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ea3ddb788f52e64f48dc7a6d37a07ed">&#9670;&nbsp;</a></span>imageCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RenderManager::imageCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4e816ffa4ebfc84ab912c9bfd485612" name="aa4e816ffa4ebfc84ab912c9bfd485612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4e816ffa4ebfc84ab912c9bfd485612">&#9670;&nbsp;</a></span>instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_instance.html">Instance</a>&gt; RenderManager::instance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8bfa8745790ad798727917e3410013ff" name="a8bfa8745790ad798727917e3410013ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8bfa8745790ad798727917e3410013ff">&#9670;&nbsp;</a></span>materialLibrary</h2>
 
@@ -354,6 +1303,50 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_mesh_library.html">MeshLibrary</a>&gt; RenderManager::meshLibrary</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab40089d8bb19e9b027f5788b4e731e29" name="ab40089d8bb19e9b027f5788b4e731e29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab40089d8bb19e9b027f5788b4e731e29">&#9670;&nbsp;</a></span>mouseCaptured</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RenderManager::mouseCaptured = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7240806f8dd9f75633581e6776efe17" name="ad7240806f8dd9f75633581e6776efe17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7240806f8dd9f75633581e6776efe17">&#9670;&nbsp;</a></span>mouseSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float RenderManager::mouseSpeed = 0.001f</td>
         </tr>
       </table>
   </td>
@@ -453,6 +1446,28 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a8244ab8feed65769e1d3bd78ab547d96" name="a8244ab8feed65769e1d3bd78ab547d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8244ab8feed65769e1d3bd78ab547d96">&#9670;&nbsp;</a></span>poolManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a>&gt; RenderManager::poolManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aed3ac72fede8ad352e44a95ec3fcb39a" name="aed3ac72fede8ad352e44a95ec3fcb39a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed3ac72fede8ad352e44a95ec3fcb39a">&#9670;&nbsp;</a></span>presentPool</h2>
 
@@ -519,50 +1534,6 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a7b8ce491eea45cc3b850c948da861cdf" name="a7b8ce491eea45cc3b850c948da861cdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b8ce491eea45cc3b850c948da861cdf">&#9670;&nbsp;</a></span>renderPool</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_command_pool.html">CommandPool</a>&gt; RenderManager::renderPool</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a82840046fdf3a9fa3f10dce27ee19b21" name="a82840046fdf3a9fa3f10dce27ee19b21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82840046fdf3a9fa3f10dce27ee19b21">&#9670;&nbsp;</a></span>renderQueue</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_queue.html">Queue</a>&gt; RenderManager::renderQueue</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a64da4a9d7dd28ea26acdc01c9979eb58" name="a64da4a9d7dd28ea26acdc01c9979eb58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a64da4a9d7dd28ea26acdc01c9979eb58">&#9670;&nbsp;</a></span>renderSubpass</h2>
 
@@ -574,6 +1545,50 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">uint32_t RenderManager::renderSubpass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c4f9ca5fcd4c504b959427325acf892" name="a4c4f9ca5fcd4c504b959427325acf892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c4f9ca5fcd4c504b959427325acf892">&#9670;&nbsp;</a></span>scene</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_scene.html">Scene</a>&gt; RenderManager::scene</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81ad286c491eb7c12688b3f751ae8572" name="a81ad286c491eb7c12688b3f751ae8572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81ad286c491eb7c12688b3f751ae8572">&#9670;&nbsp;</a></span>sceneWriter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_scene_writer.html">SceneWriter</a>&gt; RenderManager::sceneWriter</td>
         </tr>
       </table>
   </td>
@@ -651,6 +1666,28 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="ad8b00ecb16c5a8cd29c9d4d98bec0ce4" name="ad8b00ecb16c5a8cd29c9d4d98bec0ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8b00ecb16c5a8cd29c9d4d98bec0ce4">&#9670;&nbsp;</a></span>textureQualitySettings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a> RenderManager::textureQualitySettings</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac554d4401316bdd705977fe6081b1567" name="ac554d4401316bdd705977fe6081b1567"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac554d4401316bdd705977fe6081b1567">&#9670;&nbsp;</a></span>transferPool</h2>
 
@@ -695,8 +1732,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aa8fdfb3a09e4d46429c13347c98fc41c" name="aa8fdfb3a09e4d46429c13347c98fc41c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8fdfb3a09e4d46429c13347c98fc41c">&#9670;&nbsp;</a></span>UIRenderer</h2>
+<a id="a6fb80bea1af31e125e929a5aef652204" name="a6fb80bea1af31e125e929a5aef652204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fb80bea1af31e125e929a5aef652204">&#9670;&nbsp;</a></span>uiRenderer</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -705,7 +1742,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_u_i_renderer.html">UIRenderer</a>&gt; RenderManager::UIRenderer</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_u_i_renderer.html">UIRenderer</a>&gt; RenderManager::uiRenderer</td>
         </tr>
       </table>
   </td>
@@ -717,8 +1754,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a15ccbb6a0b6860c5a5c3e9bffeb5f3ec" name="a15ccbb6a0b6860c5a5c3e9bffeb5f3ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15ccbb6a0b6860c5a5c3e9bffeb5f3ec">&#9670;&nbsp;</a></span>UISubpass</h2>
+<a id="a59317ef113607f4c80b8082b14b2ce50" name="a59317ef113607f4c80b8082b14b2ce50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59317ef113607f4c80b8082b14b2ce50">&#9670;&nbsp;</a></span>uiSubpass</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -727,7 +1764,29 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t RenderManager::UISubpass</td>
+          <td class="memname">uint32_t RenderManager::uiSubpass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfd809d2332b0d68ad36ef6d08ffa15b" name="adfd809d2332b0d68ad36ef6d08ffa15b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd809d2332b0d68ad36ef6d08ffa15b">&#9670;&nbsp;</a></span>window</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_window.html">Window</a>&gt; RenderManager::window</td>
         </tr>
       </table>
   </td>

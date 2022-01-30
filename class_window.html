@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('class_window.html',''); initResizable(
 <div class="dynheader">
 Collaboration diagram for Window:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_window__coll__graph.svg" width="186" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_window__coll__graph.svg" width="186" height="338"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -123,6 +123,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0a091d94124d3d94a2ce6fc30d9883a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85b65c4c085fcec484cd2f33d5d040fc"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a85b65c4c085fcec484cd2f33d5d040fc">getSurfaceExtend</a> ()</td></tr>
 <tr class="separator:a85b65c4c085fcec484cd2f33d5d040fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf319c45dfbe5bdc3e2ad04b8a9f7fa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#adf319c45dfbe5bdc3e2ad04b8a9f7fa1">setUserPointer</a> (void *pointer)</td></tr>
+<tr class="separator:adf319c45dfbe5bdc3e2ad04b8a9f7fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65305e6248c0118a189d908988d4bfd5"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a65305e6248c0118a189d908988d4bfd5">getUserPointer</a> ()</td></tr>
+<tr class="separator:a65305e6248c0118a189d908988d4bfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a245d821e6016fa1f6970ccbbedd635f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a245d821e6016fa1f6970ccbbedd635f6">~Window</a> ()</td></tr>
 <tr class="separator:a245d821e6016fa1f6970ccbbedd635f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -155,6 +159,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a1172a8d661edaaae4492e22332d3280a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfd6a085fe40e9011e695b2840640e2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#abfd6a085fe40e9011e695b2840640e2e">resized</a> = false</td></tr>
 <tr class="separator:abfd6a085fe40e9011e695b2840640e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac4ccfd16f6f9a7194cfd75ae71f4df9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#aac4ccfd16f6f9a7194cfd75ae71f4df9">userPtr</a> = nullptr</td></tr>
+<tr class="separator:aac4ccfd16f6f9a7194cfd75ae71f4df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a245d821e6016fa1f6970ccbbedd635f6" name="a245d821e6016fa1f6970ccbbedd635f6"></a>
@@ -229,7 +235,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_aca04f60c37e2fc5663dd24c80cf70b1b_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_aca04f60c37e2fc5663dd24c80cf70b1b_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -271,7 +277,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_ae53e48ceff3fe92ae028cc92257a1f56_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_ae53e48ceff3fe92ae028cc92257a1f56_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -352,6 +358,31 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a65305e6248c0118a189d908988d4bfd5" name="a65305e6248c0118a189d908988d4bfd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65305e6248c0118a189d908988d4bfd5">&#9670;&nbsp;</a></span>getUserPointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * Window::getUserPointer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0a091d94124d3d94a2ce6fc30d9883a8" name="a0a091d94124d3d94a2ce6fc30d9883a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a091d94124d3d94a2ce6fc30d9883a8">&#9670;&nbsp;</a></span>getWindow()</h2>
 
@@ -402,7 +433,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_ab50d41994a7da97e3829c1e3134fc281_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_ab50d41994a7da97e3829c1e3134fc281_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -447,6 +478,32 @@ Here is the caller graph for this function:</div>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>resized_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf319c45dfbe5bdc3e2ad04b8a9f7fa1" name="adf319c45dfbe5bdc3e2ad04b8a9f7fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf319c45dfbe5bdc3e2ad04b8a9f7fa1">&#9670;&nbsp;</a></span>setUserPointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::setUserPointer </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pointer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -507,7 +564,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_afbdfb8ba03018225dfc29866afd26d2a_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_window_afbdfb8ba03018225dfc29866afd26d2a_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -591,6 +648,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">VkSurfaceKHR Window::surface {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac4ccfd16f6f9a7194cfd75ae71f4df9" name="aac4ccfd16f6f9a7194cfd75ae71f4df9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac4ccfd16f6f9a7194cfd75ae71f4df9">&#9670;&nbsp;</a></span>userPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* Window::userPtr = nullptr</td>
         </tr>
       </table>
   </td>
