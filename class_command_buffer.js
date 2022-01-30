@@ -11,6 +11,7 @@ var class_command_buffer =
     [ "bindVertexBuffers", "class_command_buffer.html#afc9dc15618fb9733b3cba8949084b024", null ],
     [ "blitImage", "class_command_buffer.html#a6871e09dace1f995778edea9360af467", null ],
     [ "copyBuffer", "class_command_buffer.html#a60bd4e8ed325865b8b60b2ebc589abeb", null ],
+    [ "copyBufferImage", "class_command_buffer.html#a219ad9dec6b0169c45cebff744678398", null ],
     [ "copyImage", "class_command_buffer.html#afa36ee64276ba8c1019e970b0d3228e6", null ],
     [ "draw", "class_command_buffer.html#a78662ba08a6d36b572fa781a76e3bd36", null ],
     [ "drawIndexed", "class_command_buffer.html#aa521acf82918f7df7c9ea65226c6bf7e", null ],

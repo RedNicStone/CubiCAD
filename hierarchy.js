@@ -34,10 +34,12 @@ var hierarchy =
     [ "Mesh", "class_mesh.html", null ],
     [ "MeshInstance", "class_mesh_instance.html", null ],
     [ "Meshlet", "struct_meshlet.html", null ],
+    [ "MeshLibrary", "class_mesh_library.html", null ],
     [ "ModelLoader", "class_model_loader.html", null ],
     [ "VoxelCodecSparseOctree< Types >::Node", "struct_voxel_codec_sparse_octree_1_1_node.html", null ],
     [ "VoxelCodecOctreeBase::NodeStackElement", "struct_voxel_codec_octree_base_1_1_node_stack_element.html", null ],
     [ "optional< T >", "structoptional.html", null ],
+    [ "optional< uint32_t >", "structoptional.html", null ],
     [ "CCAD_OT::OtConstructOctreeInfo", "struct_c_c_a_d___o_t_1_1_ot_construct_octree_info.html", null ],
     [ "CCAD_OT::OtGeometryCompiler< T_index, T_vertex >", "class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html", null ],
     [ "CCAD_OT::OtMatInfo", "struct_c_c_a_d___o_t_1_1_ot_mat_info.html", [
@@ -74,8 +76,10 @@ var hierarchy =
       [ "PreRenderUpdateBuffersEvent", "struct_pre_render_update_buffers_event.html", null ],
       [ "RenderSubmitQueueEvent", "struct_render_submit_queue_event.html", null ]
     ] ],
+    [ "RenderManager", "class_render_manager.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "SceneData", "struct_scene_data.html", null ],
+    [ "SceneWriter", "class_scene_writer.html", null ],
     [ "CCAD_OT::SFINAECheck< T, T >", "struct_c_c_a_d___o_t_1_1_s_f_i_n_a_e_check.html", null ],
     [ "Shader", "class_shader.html", [
       [ "ComputeShader", "class_compute_shader.html", [
@@ -124,6 +128,7 @@ var hierarchy =
     [ "TextureLibrary", "class_texture_library.html", null ],
     [ "TextureQualitySettings", "struct_texture_quality_settings.html", null ],
     [ "UIDrawable", "class_u_i_drawable.html", [
+      [ "MainMenu", "class_main_menu.html", null ],
       [ "ObjectList", "class_object_list.html", null ],
       [ "ObjectProperties", "class_object_properties.html", null ]
     ] ],

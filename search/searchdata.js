@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "cfs",
   7: "cmopr",
   8: "cmopr",
-  9: "cgstv",
+  9: "cfgstv",
   10: "c"
 };
 
