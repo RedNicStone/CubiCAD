@@ -18,7 +18,9 @@
 #include "../utils/utils.h"
 
 
-class RenderManager {
+class SceneWriter;
+
+class RenderManager : public std::enable_shared_from_this<RenderManager> {
   private:
     // external objects
     std::shared_ptr<Instance> instance;
@@ -34,15 +36,16 @@ class RenderManager {
     std::shared_ptr<Queue> computeQueue;
     std::shared_ptr<Queue> presentQueue;
 
-    std::shared_ptr<Camera> camera;
-    std::shared_ptr<UIRenderer> uiRenderer;
-
     std::shared_ptr<CommandPool> graphicsPool;
     std::shared_ptr<CommandPool> transferPool;
     std::shared_ptr<CommandPool> computePool;
     std::shared_ptr<CommandPool> presentPool;
 
     // scene related objects
+    CameraModel cameraModel;
+    std::shared_ptr<Camera> camera;
+    std::shared_ptr<UIRenderer> uiRenderer;
+
     std::shared_ptr<Scene> scene;
     std::shared_ptr<SceneWriter> sceneWriter;
 
@@ -96,7 +99,8 @@ class RenderManager {
   public:
     static std::shared_ptr<RenderManager> create(const std::shared_ptr<Instance>& instance,
                                                  const std::shared_ptr<Window>& window,
-                                                 const TextureQualitySettings& textureQuality);
+                                                 const TextureQualitySettings& textureQuality,
+                                                 const CameraModel& cameraModel);
 
     void resizeSwapChain(uint32_t newImageCount = 0);
 
@@ -104,7 +108,10 @@ class RenderManager {
     void processInputs();
 
     std::shared_ptr<Scene> getScene() { return scene; }
+    std::shared_ptr<SceneWriter> getSceneWriter() { return sceneWriter; }
+    std::shared_ptr<MaterialLibrary> getMaterialLibrary() { return materialLibrary; }
     std::shared_ptr<TextureLibrary> getTextureLibrary() { return textureLibrary; }
+    std::shared_ptr<MeshLibrary> getMeshLibrary() { return meshLibrary; }
     std::shared_ptr<UIRenderer> getUIRenderer() { return uiRenderer; }
     std::shared_ptr<Device> getDevice() { return device; }
     std::shared_ptr<RenderPass> getRenderPass() { return renderPass; }

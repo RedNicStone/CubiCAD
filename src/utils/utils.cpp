@@ -4,10 +4,8 @@
 
 #include "utils.h"
 
-#include <vector>
 #include <string>
 #include <fstream>
-#include <boost/bimap.hpp>
 
 
 std::vector<char> Utils::readFile(const std::string &filename) {
@@ -34,20 +32,4 @@ uint_fast8_t Utils::getMSB(uint_fast64_t x)
     while (x >>= 1)
         res++;
     return res - 1;
-}
-
-template <typename L, typename R>
-boost::bimap<L, R> Utils::makeBimap(std::initializer_list<typename boost::bimap<L, R>::value_type> list)
-{
-    return boost::bimap<L, R>(list.begin(), list.end());
-}
-
-template<typename type>
-void Utils::remove(std::vector<type> &v) {
-    std::unordered_set<type> s;
-    auto end = std::copy_if(v.begin(), v.end(), v.begin(), [&s](type const &i) {
-      return s.insert(i).second;
-    });
-
-    v.erase(end, v.end());
 }

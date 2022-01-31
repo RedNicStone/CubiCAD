@@ -60,7 +60,7 @@ class SwapChain {
     //construction
     static std::shared_ptr<SwapChain> create(const std::shared_ptr<Device> &pDevice,
                                              const std::shared_ptr<Window> &pWindow,
-                                             std::shared_ptr<Queue> pQueue,
+                                             const std::shared_ptr<Queue> &pQueue,
                                              uint32_t imageCount_v,
                                              std::vector<uint32_t> &accessingQueues);
 

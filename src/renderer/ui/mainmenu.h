@@ -8,12 +8,15 @@
 #include <IconsForkAwesome.h>
 
 #include "../scene.h"
+#include "../scenewriter.h"
 #include "uirenderer.h"
 #include "../texture.h"
 
 
 class MainMenu : public UIDrawable {
   private:
+    std::shared_ptr<SceneWriter> sceneWriter;
+
     std::shared_ptr<Texture> logoTexture;
     VkDescriptorSet logoDescriptorSet;
 
@@ -22,7 +25,8 @@ class MainMenu : public UIDrawable {
     void drawAboutWindow();
 
   public:
-    static std::shared_ptr<MainMenu> create(const std::shared_ptr<TextureLibrary>& textureLibrary);
+    static std::shared_ptr<MainMenu> create(const std::shared_ptr<TextureLibrary>& textureLibrary,
+                                            const std::shared_ptr<SceneWriter>& sceneWriter);
 
     void drawUI() override;
 };

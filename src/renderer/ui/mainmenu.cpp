@@ -5,8 +5,10 @@
 #include "mainmenu.h"
 
 
-std::shared_ptr<MainMenu> MainMenu::create(const std::shared_ptr<TextureLibrary>& textureLibrary) {
+std::shared_ptr<MainMenu> MainMenu::create(const std::shared_ptr<TextureLibrary>& textureLibrary,
+                                           const std::shared_ptr<SceneWriter>& sceneWriter) {
     auto menubar = std::make_shared<MainMenu>();
+    menubar->sceneWriter = sceneWriter;
 
     menubar->logoTexture = textureLibrary->createTexture("resources/icons/cubicad_logo_rv1_452x128.png",
                                                          VK_FORMAT_R8G8B8A8_UNORM);
@@ -27,7 +29,9 @@ void MainMenu::drawUI() {
         {
             if (ImGui::MenuItem("New", "CTRL+N")) {}
             ImGui::Separator();
-            if (ImGui::MenuItem("Open", "CTRL+O")) {}
+            if (ImGui::MenuItem("Open", "CTRL+O")) {
+                sceneWriter->readScene();
+            }
             if (ImGui::BeginMenu("Open Recent")) {
                 ImGui::MenuItem("fish_hat.c");
                 ImGui::MenuItem("fish_hat.inl");
@@ -35,7 +39,9 @@ void MainMenu::drawUI() {
                 ImGui::EndMenu();
             }
             ImGui::Separator();
-            if (ImGui::MenuItem("Save", "CTRL+S")) {}
+            if (ImGui::MenuItem("Save", "CTRL+S")) {
+                sceneWriter->writeScene();
+            }
             if (ImGui::MenuItem("Save As", "CTRL+SHIFT+S")) {}
             ImGui::EndMenu();
         }

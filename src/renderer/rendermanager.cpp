@@ -7,7 +7,8 @@
 
 std::shared_ptr<RenderManager> RenderManager::create(const std::shared_ptr<Instance>& instance,
                                                      const std::shared_ptr<Window>& window,
-                                                     const TextureQualitySettings& textureQuality) {
+                                                     const TextureQualitySettings& textureQuality,
+                                                     const CameraModel& cameraModel) {
     auto renderManager = std::make_shared<RenderManager>();
 
     window->setUserPointer(renderManager.get());
@@ -15,6 +16,7 @@ std::shared_ptr<RenderManager> RenderManager::create(const std::shared_ptr<Insta
     renderManager->instance = instance;
     renderManager->window = window;
     renderManager->textureQualitySettings = textureQuality;
+    renderManager->cameraModel = cameraModel;
 
     renderManager->createRenderObjects();
 
@@ -71,13 +73,17 @@ void RenderManager::createCommandPools() {
 
 void RenderManager::createSwapChain() {
     std::vector<uint32_t>
-        renderPassQueues = {graphicsQueue->getQueueFamilyIndex(), presentQueue->getQueueFamilyIndex()};
+        renderPassQueues = { graphicsQueue->getQueueFamilyIndex(), presentQueue->getQueueFamilyIndex() };
     Utils::remove(renderPassQueues);
 
     std::vector<uint32_t>
         graphicsQueues = {graphicsQueue->getQueueFamilyIndex()};
 
     swapChain = SwapChain::create(device, window, presentQueue, 3, renderPassQueues);
+
+    imageCount = swapChain->getImageCount();
+    VkExtent2D extent = swapChain->getSwapExtent();
+    swapChainExtent = extent;
 
     renderPassQueues = {graphicsQueue->getQueueFamilyIndex() };
     depthImage = Image::create(device, swapChain->getSwapExtent(), 1, VK_FORMAT_D32_SFLOAT,
@@ -88,11 +94,7 @@ void RenderManager::createSwapChain() {
                                       VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT,
                                       graphicsQueues, VK_ACCESS_SHADER_WRITE_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
     objectBufferImageView = ImageView::create(objectBufferImage, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_COLOR_BIT);
-    objectBuffer = FramebufferSelector::create(device, graphicsQueue, window->getSurfaceExtend());
-
-    imageCount = swapChain->getImageCount();
-    VkExtent2D extent = swapChain->getSwapExtent();
-    swapChainExtent = extent;
+    objectBuffer = FramebufferSelector::create(device, graphicsQueue, extent);
 }
 
 void RenderManager::createRenderPass() {
@@ -163,6 +165,11 @@ void RenderManager::createFrameBuffer() {
 }
 
 void RenderManager::crateSceneObjects() {
+    camera = Camera::create(cameraModel, swapChainExtent);
+    scene = Scene::create(device, transferQueue, graphicsQueue, camera);
+    auto currentDir = std::string(get_current_dir_name());
+    sceneWriter = SceneWriter::create(shared_from_this(), currentDir);
+
     poolManager = DescriptorPoolManager::create(device);
 
     materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, { graphicsQueue });
@@ -175,6 +182,9 @@ void RenderManager::crateUIObjects() {
 }
 
 void RenderManager::createRenderObjects() {
+    glfwSetMouseButtonCallback(window->getWindow(), mouseButtonCallback);
+    glfwSetKeyCallback(window->getWindow(), keyCallback);
+
     pickPhysicalDevice();
     createLogicalDevice();
     createCommandPools();
@@ -183,15 +193,14 @@ void RenderManager::createRenderObjects() {
     createFrameBuffer();
     crateSceneObjects();
     crateUIObjects();
-
-    glfwSetMouseButtonCallback(window->getWindow(), mouseButtonCallback);
-    glfwSetKeyCallback(window->getWindow(), keyCallback);
 }
 
 void RenderManager::recreateSwapChain(bool newImageCount) {
     createSwapChain();
     createRenderPass();
     createFrameBuffer();
+    camera->updateCameraModel(cameraModel, swapChainExtent);
+
     if (newImageCount) {
         crateUIObjects();
     }
@@ -199,18 +208,16 @@ void RenderManager::recreateSwapChain(bool newImageCount) {
 
 void RenderManager::processMouseInputs() {
     if (glfwGetWindowAttrib(window->getWindow(), GLFW_HOVERED) == GLFW_TRUE) {
-        glm::dvec2 currentMousePos;
-        glfwGetCursorPos(window->getWindow(), reinterpret_cast<double *>(&currentMousePos.x),
-                         reinterpret_cast<double *>(&currentMousePos.y));
+        auto& io = UIRenderer::getIO();
 
-        if (!mouseCaptured) {
-            VkExtent2D mousePos { static_cast<uint32_t>(currentMousePos.x), static_cast<uint32_t>(currentMousePos.y) };
+        if (!mouseCaptured && !io.WantCaptureMouse) {
+            VkExtent2D mousePos { static_cast<uint32_t>(io.MousePos.x), static_cast<uint32_t>(io.MousePos.y) };
             uint32_t objectID = objectBuffer->getIDAtPosition(mousePos);
 
             scene->setHovered(objectID);
-        }
-
-        if (mouseCaptured) {
+        } else if (io.WantCaptureMouse) {
+            scene->setHovered(0);
+        } else if (mouseCaptured) {
             auto moveSpeed = 0.02f;
             if (glfwGetKey(window->getWindow(), GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
                 moveSpeed *= 3;
@@ -228,8 +235,8 @@ void RenderManager::processMouseInputs() {
                 camera->move(glm::cross(camera->getRotation(), {0, 1, 0}) * glm::vec3(moveSpeed));
             }
 
-            camera->rotate(ImGui::GetMouseDragDelta().x * mouseSpeed, {0, -1, 0});
-            camera->rotate(ImGui::GetMouseDragDelta().y * mouseSpeed,
+            camera->rotate(io.MouseDelta.x * mouseSpeed, {0, -1, 0});
+            camera->rotate(io.MouseDelta.y * mouseSpeed,
                            glm::normalize(glm::cross({0, 1, 0}, camera->getRotation())));
         }
     }
@@ -326,13 +333,14 @@ void RenderManager::drawFrame() {
 }
 
 void RenderManager::processInputs() {
+    processMouseInputs();
     scene->updateUBO();
 }
 
 void RenderManager::keyCallback(GLFWwindow* glfwWindow, int key, int scancode, int action, int mods) {
     auto renderManager =
         static_cast<RenderManager*>(static_cast<Window*>(glfwGetWindowUserPointer(glfwWindow))->getUserPointer());
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS && UIRenderer::getIO().WantCaptureKeyboard) {
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS && !UIRenderer::getIO().WantCaptureKeyboard) {
         if (renderManager->mouseCaptured)
             glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         else
@@ -346,7 +354,7 @@ void RenderManager::keyCallback(GLFWwindow* glfwWindow, int key, int scancode, i
 void RenderManager::mouseButtonCallback(GLFWwindow* glfwWindow, int button, int action, int mods) {
     auto renderManager =
         static_cast<RenderManager*>(static_cast<Window*>(glfwGetWindowUserPointer(glfwWindow))->getUserPointer());
-    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
+    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS && !UIRenderer::getIO().WantCaptureMouse)
         renderManager->scene->setSelected(renderManager->scene->getHovered());
 }
 

@@ -11,13 +11,13 @@
 
 std::shared_ptr<SwapChain> SwapChain::create(const std::shared_ptr<Device> &pDevice,
                                              const std::shared_ptr<Window> &pWindow,
-                                             std::shared_ptr<Queue> pQueue,
+                                             const std::shared_ptr<Queue> &pQueue,
                                              uint32_t imageCount_v,
                                              std::vector<uint32_t> &accessingQueues) {
     auto swapChain = std::make_shared<SwapChain>();
     swapChain->device = pDevice;
     swapChain->window = pWindow;
-    swapChain->presentQueue = std::move(pQueue);
+    swapChain->presentQueue = pQueue;
 
     vkGetPhysicalDeviceSurfaceCapabilitiesKHR(pDevice->getPhysicalDevice()->getHandle(),
                                               pWindow->getSurface(),
@@ -36,7 +36,7 @@ std::shared_ptr<SwapChain> SwapChain::create(const std::shared_ptr<Device> &pDev
     createInfo.minImageCount = swapChain->imageCount;
     createInfo.imageFormat = surfaceFormat.format;
     createInfo.imageColorSpace = surfaceFormat.colorSpace;
-    createInfo.imageExtent = pWindow->getSurfaceExtend();
+    createInfo.imageExtent = swapChain->capabilities.currentExtent;
     createInfo.imageArrayLayers = 1;
     createInfo.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
     createInfo.preTransform = swapChain->capabilities.currentTransform;

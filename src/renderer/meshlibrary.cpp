@@ -14,7 +14,9 @@ std::shared_ptr<MeshLibrary> MeshLibrary::create() {
 
 std::vector<std::shared_ptr<Mesh>> MeshLibrary::createMesh(const std::string &filename,
                                                            const std::shared_ptr<Material>& material) {
-    if (meshes[filename].empty())
-        return modelLoader->import(filename, material);
+    if (meshes[filename].empty()) {
+        auto mesh = modelLoader->import(filename, material);
+        meshes[filename] = mesh;
+    }
     return meshes[filename];
 }

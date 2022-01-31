@@ -88,7 +88,12 @@ class VulkanRasterizer {
         settings.anisotropy = 0.0f;
         settings.mipLevels = 1;
 
-        renderManager = RenderManager::create(instance, window, settings);
+        CameraModel cameraModel{};
+        cameraModel.fieldOfView = 75.0;
+        cameraModel.cameraMode = CAMERA_MODE_PERSPECTIVE_INFINITE;
+        cameraModel.clipNear = 0.1;
+
+        renderManager = RenderManager::create(instance, window, settings, cameraModel);
     }
 
     void init() {
@@ -105,11 +110,13 @@ class VulkanRasterizer {
         settings.mipLevels = 1;
         settings.anisotropy = 0;
 
-        objectProperties = ObjectProperties::create(scene);
+        objectProperties = ObjectProperties::create(renderManager->getScene());
         renderManager->getUIRenderer()->submitDrawable(objectProperties);
-        objectList = ObjectList::create(scene);
+        objectList = ObjectList::create(renderManager->getScene());
         renderManager->getUIRenderer()->submitDrawable(objectList);
-        menuBar = MainMenu::create(renderManager->getTextureLibrary());
+        renderManager->getSceneWriter()->setFilename(renderManager->getSceneWriter()->getFilename()
+                                                     + "/resources/saves/test.ccs");
+        menuBar = MainMenu::create(renderManager->getTextureLibrary(), renderManager->getSceneWriter());
         renderManager->getUIRenderer()->submitDrawable(menuBar);
     }
 
@@ -138,9 +145,10 @@ class VulkanRasterizer {
                                                      renderManager->getRenderPass(),
                                                      "basicMaterial");
         auto material = Material::create(masterMaterial);
-        model = modelLoader->import("resources/models/demo/primitives/cube.obj", material).front();
+        model = renderManager->getMeshLibrary()->createMesh("resources/models/demo/primitives/cube.obj", material)
+            .front();
 
-        for (size_t i = 0; i < 5000; i++) {
+        for (size_t i = 0; i < 10; i++) {
             auto object = MeshInstance::create(model);
             object->setScale(glm::vec3(0.1f));
             object->setPosition(glm::normalize(glm::vec3(
@@ -155,9 +163,9 @@ class VulkanRasterizer {
 
     void createScene() {
         for (const auto& object : objects)
-            scene->submitInstance(object);
-        scene->collectRenderBuffers();
-        scene->bakeMaterials(true);
+            renderManager->getScene()->submitInstance(object);
+        renderManager->getScene()->collectRenderBuffers();
+        renderManager->getScene()->bakeMaterials(true);
     }
 
     void mainLoop() {
@@ -166,7 +174,9 @@ class VulkanRasterizer {
         while (!glfwWindowShouldClose(window->getWindow())) {
             glfwPollEvents();
 
-            drawFrame();
+            renderManager->processInputs();
+            objectProperties->setObjectByID(renderManager->getScene()->getSelected());
+            renderManager->drawFrame();
         }
 
         std::cout << "exiting\n";
