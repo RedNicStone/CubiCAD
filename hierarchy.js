@@ -13,7 +13,8 @@ var hierarchy =
       [ "Image", "class_image.html", null ],
       [ "Instance", "class_instance.html", null ],
       [ "QueueFamily", "class_queue_family.html", null ],
-      [ "QueueFamilyHandler", "class_queue_family_handler.html", null ]
+      [ "QueueFamilyHandler", "class_queue_family_handler.html", null ],
+      [ "RenderManager", "class_render_manager.html", null ]
     ] ],
     [ "FileStream", "struct_file_stream.html", null ],
     [ "FrameBuffer", "class_frame_buffer.html", null ],
@@ -77,7 +78,6 @@ var hierarchy =
       [ "PreRenderUpdateBuffersEvent", "struct_pre_render_update_buffers_event.html", null ],
       [ "RenderSubmitQueueEvent", "struct_render_submit_queue_event.html", null ]
     ] ],
-    [ "RenderManager", "class_render_manager.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "SceneData", "struct_scene_data.html", null ],
     [ "SceneWriter", "class_scene_writer.html", null ],

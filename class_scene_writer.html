@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_scene_writer.html',''); initResi
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_scene_writer-members.html">List of all members</a>  </div>
@@ -104,7 +105,7 @@ $(document).ready(function(){initNavTree('class_scene_writer.html',''); initResi
 <div class="dynheader">
 Collaboration diagram for SceneWriter:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer__coll__graph.svg" width="199" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer__coll__graph.svg" width="199" height="279"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -114,11 +115,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4bd866f075b2e5f88b8b6673afc21674"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28723f2ea73dc5030df4919226aec09c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a28723f2ea73dc5030df4919226aec09c">writeScene</a> ()</td></tr>
 <tr class="separator:a28723f2ea73dc5030df4919226aec09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addcf6aef1cacf34b2c744573a960243d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#addcf6aef1cacf34b2c744573a960243d">setFilename</a> (const std::string &amp;newFilename)</td></tr>
+<tr class="separator:addcf6aef1cacf34b2c744573a960243d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2959d578403100b040f8cf77a58cbc76"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a2959d578403100b040f8cf77a58cbc76">getFilename</a> ()</td></tr>
+<tr class="separator:a2959d578403100b040f8cf77a58cbc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9dd3c95cd8a0969f27857c48231cd89f"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_scene_writer.html">SceneWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a9dd3c95cd8a0969f27857c48231cd89f">create</a> (const std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; &amp;<a class="el" href="class_scene_writer.html#a2f2d1066e911b26e940547980f81f7ec">scene</a>, const std::string &amp;<a class="el" href="class_scene_writer.html#a99ac09b28ffe06d35538bb0518d6594a">filename</a>)</td></tr>
-<tr class="separator:a9dd3c95cd8a0969f27857c48231cd89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb5a78e22746b41d03198f028bf76c76"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_scene_writer.html">SceneWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#acb5a78e22746b41d03198f028bf76c76">create</a> (const std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt; &amp;<a class="el" href="class_scene_writer.html#ad9854ebd154c0be5870fc8ae1ff7f6bb">renderManager</a>, const std::string &amp;<a class="el" href="class_scene_writer.html#a99ac09b28ffe06d35538bb0518d6594a">filename</a>)</td></tr>
+<tr class="separator:acb5a78e22746b41d03198f028bf76c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a877fc279e553fd794b7ddeae18319123"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a877fc279e553fd794b7ddeae18319123">material</a></td></tr>
+<tr class="separator:a877fc279e553fd794b7ddeae18319123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -126,6 +136,10 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a8f8f7406aeeaae1d252baf683a7a83bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4a34d0625fc63a5b022ed06545b25d7"><td class="memItemLeft" align="right" valign="top">rapidjson::Value&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#af4a34d0625fc63a5b022ed06545b25d7">writeInstanceToNode</a> (const std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &amp;instance)</td></tr>
 <tr class="separator:af4a34d0625fc63a5b022ed06545b25d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5087b1a9dd7a05f7dac6ceaacb577ae1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a5087b1a9dd7a05f7dac6ceaacb577ae1">readMeshesFromNode</a> (const rapidjson::Value &amp;value)</td></tr>
+<tr class="separator:a5087b1a9dd7a05f7dac6ceaacb577ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a917780e7dbca653b8a4c870c2cdab5da"><td class="memItemLeft" align="right" valign="top">rapidjson::Value&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a917780e7dbca653b8a4c870c2cdab5da">writeMeshesToNode</a> (const std::pair&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &gt; &amp;mesh)</td></tr>
+<tr class="separator:a917780e7dbca653b8a4c870c2cdab5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72747249f8b4e4a6e4af9f65212717dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a72747249f8b4e4a6e4af9f65212717dc">readSceneFromDocument</a> ()</td></tr>
 <tr class="separator:a72747249f8b4e4a6e4af9f65212717dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72c6c7e598104c64734acffae59d690a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a72c6c7e598104c64734acffae59d690a">writeSceneToDocument</a> ()</td></tr>
@@ -135,14 +149,14 @@ Private Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:abb3aa64f7c64373a20b485f18260ef06"><td class="memItemLeft" align="right" valign="top">rapidjson::Document&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#abb3aa64f7c64373a20b485f18260ef06">document</a></td></tr>
 <tr class="separator:abb3aa64f7c64373a20b485f18260ef06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f2d1066e911b26e940547980f81f7ec"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a2f2d1066e911b26e940547980f81f7ec">scene</a></td></tr>
-<tr class="separator:a2f2d1066e911b26e940547980f81f7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9854ebd154c0be5870fc8ae1ff7f6bb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#ad9854ebd154c0be5870fc8ae1ff7f6bb">renderManager</a></td></tr>
+<tr class="separator:ad9854ebd154c0be5870fc8ae1ff7f6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99ac09b28ffe06d35538bb0518d6594a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a99ac09b28ffe06d35538bb0518d6594a">filename</a></td></tr>
 <tr class="separator:a99ac09b28ffe06d35538bb0518d6594a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9dd3c95cd8a0969f27857c48231cd89f" name="a9dd3c95cd8a0969f27857c48231cd89f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dd3c95cd8a0969f27857c48231cd89f">&#9670;&nbsp;</a></span>create()</h2>
+<a id="acb5a78e22746b41d03198f028bf76c76" name="acb5a78e22746b41d03198f028bf76c76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb5a78e22746b41d03198f028bf76c76">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,8 +167,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_scene_writer.html">SceneWriter</a> &gt; SceneWriter::create </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>scene</em>, </td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>renderManager</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -171,6 +185,37 @@ Private Attributes</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_acb5a78e22746b41d03198f028bf76c76_icgraph.svg" width="623" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a2959d578403100b040f8cf77a58cbc76" name="a2959d578403100b040f8cf77a58cbc76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2959d578403100b040f8cf77a58cbc76">&#9670;&nbsp;</a></span>getFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string SceneWriter::getFilename </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -212,6 +257,32 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a8f8f7406aeeaae1d252baf683a7a83bf_icgraph.svg" width="424" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<a id="a5087b1a9dd7a05f7dac6ceaacb577ae1" name="a5087b1a9dd7a05f7dac6ceaacb577ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5087b1a9dd7a05f7dac6ceaacb577ae1">&#9670;&nbsp;</a></span>readMeshesFromNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneWriter::readMeshesFromNode </td>
+          <td>(</td>
+          <td class="paramtype">const rapidjson::Value &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -263,6 +334,32 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="addcf6aef1cacf34b2c744573a960243d" name="addcf6aef1cacf34b2c744573a960243d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addcf6aef1cacf34b2c744573a960243d">&#9670;&nbsp;</a></span>setFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneWriter::setFilename </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>newFilename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af4a34d0625fc63a5b022ed06545b25d7" name="af4a34d0625fc63a5b022ed06545b25d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4a34d0625fc63a5b022ed06545b25d7">&#9670;&nbsp;</a></span>writeInstanceToNode()</h2>
 
@@ -295,6 +392,38 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a917780e7dbca653b8a4c870c2cdab5da" name="a917780e7dbca653b8a4c870c2cdab5da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a917780e7dbca653b8a4c870c2cdab5da">&#9670;&nbsp;</a></span>writeMeshesToNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">rapidjson::Value SceneWriter::writeMeshesToNode </td>
+          <td>(</td>
+          <td class="paramtype">const std::pair&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mesh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a917780e7dbca653b8a4c870c2cdab5da_icgraph.svg" width="623" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <a id="a28723f2ea73dc5030df4919226aec09c" name="a28723f2ea73dc5030df4919226aec09c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28723f2ea73dc5030df4919226aec09c">&#9670;&nbsp;</a></span>writeScene()</h2>
 
@@ -312,7 +441,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a28723f2ea73dc5030df4919226aec09c_cgraph.svg" width="627" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a28723f2ea73dc5030df4919226aec09c_cgraph.svg" width="627" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -343,7 +472,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a72c6c7e598104c64734acffae59d690a_cgraph.svg" width="415" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a72c6c7e598104c64734acffae59d690a_cgraph.svg" width="415" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -400,8 +529,22 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2f2d1066e911b26e940547980f81f7ec" name="a2f2d1066e911b26e940547980f81f7ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f2d1066e911b26e940547980f81f7ec">&#9670;&nbsp;</a></span>scene</h2>
+<a id="a877fc279e553fd794b7ddeae18319123" name="a877fc279e553fd794b7ddeae18319123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a877fc279e553fd794b7ddeae18319123">&#9670;&nbsp;</a></span>material</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_material.html">Material</a>&gt; SceneWriter::material</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9854ebd154c0be5870fc8ae1ff7f6bb" name="ad9854ebd154c0be5870fc8ae1ff7f6bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9854ebd154c0be5870fc8ae1ff7f6bb">&#9670;&nbsp;</a></span>renderManager</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -410,7 +553,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_scene.html">Scene</a>&gt; SceneWriter::scene</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_render_manager.html">RenderManager</a>&gt; SceneWriter::renderManager</td>
         </tr>
       </table>
   </td>

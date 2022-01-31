@@ -120,12 +120,28 @@ $(document).ready(function(){initNavTree('utils_8h_source.html',''); initResizab
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_utils.html#ac44035a9bc80c570cfcd56ded0dad0a5">remove</a>(std::vector&lt;type&gt; &amp;v);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_UTILS_H</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> L, <span class="keyword">typename</span> R&gt;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_utils.html#af1a6b637c53cfd9dd4ef5d2dce27feab">   29</a></span>boost::bimap&lt;L, R&gt; <a class="code hl_function" href="class_utils.html#af1a6b637c53cfd9dd4ef5d2dce27feab">Utils::makeBimap</a>(std::initializer_list&lt;<span class="keyword">typename</span> boost::bimap&lt;L, R&gt;::value_type&gt; list)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">return</span> boost::bimap&lt;L, R&gt;(list.begin(), list.end());</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> type&gt;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_utils.html#ac44035a9bc80c570cfcd56ded0dad0a5">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_utils.html#ac44035a9bc80c570cfcd56ded0dad0a5">Utils::remove</a>(std::vector&lt;type&gt; &amp;v) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::unordered_set&lt;type&gt; s;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">auto</span> end = std::copy_if(v.begin(), v.end(), v.begin(), [&amp;s](type <span class="keyword">const</span> &amp;i) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      return s.insert(i).second;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    });</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    v.erase(end, v.end());</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_UTILS_H</span></div>
 <div class="ttc" id="aclass_utils_html"><div class="ttname"><a href="class_utils.html">Utils</a></div><div class="ttdef"><b>Definition:</b> utils.h:15</div></div>
-<div class="ttc" id="aclass_utils_html_a4824cdb98e936ad64e143723fb99f88f"><div class="ttname"><a href="class_utils.html#a4824cdb98e936ad64e143723fb99f88f">Utils::getMSB</a></div><div class="ttdeci">static uint_fast8_t getMSB(uint_fast64_t x)</div><div class="ttdef"><b>Definition:</b> utils.cpp:31</div></div>
-<div class="ttc" id="aclass_utils_html_a7e7d47e8b017fe7d4ae8802c7b0690cb"><div class="ttname"><a href="class_utils.html#a7e7d47e8b017fe7d4ae8802c7b0690cb">Utils::readFile</a></div><div class="ttdeci">static std::vector&lt; char &gt; readFile(const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> utils.cpp:13</div></div>
-<div class="ttc" id="aclass_utils_html_ac44035a9bc80c570cfcd56ded0dad0a5"><div class="ttname"><a href="class_utils.html#ac44035a9bc80c570cfcd56ded0dad0a5">Utils::remove</a></div><div class="ttdeci">static void remove(std::vector&lt; type &gt; &amp;v)</div><div class="ttdef"><b>Definition:</b> utils.cpp:46</div></div>
-<div class="ttc" id="aclass_utils_html_af1a6b637c53cfd9dd4ef5d2dce27feab"><div class="ttname"><a href="class_utils.html#af1a6b637c53cfd9dd4ef5d2dce27feab">Utils::makeBimap</a></div><div class="ttdeci">static boost::bimap&lt; L, R &gt; makeBimap(std::initializer_list&lt; typename boost::bimap&lt; L, R &gt;::value_type &gt; list)</div><div class="ttdef"><b>Definition:</b> utils.cpp:40</div></div>
+<div class="ttc" id="aclass_utils_html_a4824cdb98e936ad64e143723fb99f88f"><div class="ttname"><a href="class_utils.html#a4824cdb98e936ad64e143723fb99f88f">Utils::getMSB</a></div><div class="ttdeci">static uint_fast8_t getMSB(uint_fast64_t x)</div><div class="ttdef"><b>Definition:</b> utils.cpp:29</div></div>
+<div class="ttc" id="aclass_utils_html_a7e7d47e8b017fe7d4ae8802c7b0690cb"><div class="ttname"><a href="class_utils.html#a7e7d47e8b017fe7d4ae8802c7b0690cb">Utils::readFile</a></div><div class="ttdeci">static std::vector&lt; char &gt; readFile(const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> utils.cpp:11</div></div>
+<div class="ttc" id="aclass_utils_html_ac44035a9bc80c570cfcd56ded0dad0a5"><div class="ttname"><a href="class_utils.html#ac44035a9bc80c570cfcd56ded0dad0a5">Utils::remove</a></div><div class="ttdeci">static void remove(std::vector&lt; type &gt; &amp;v)</div><div class="ttdef"><b>Definition:</b> utils.h:35</div></div>
+<div class="ttc" id="aclass_utils_html_af1a6b637c53cfd9dd4ef5d2dce27feab"><div class="ttname"><a href="class_utils.html#af1a6b637c53cfd9dd4ef5d2dce27feab">Utils::makeBimap</a></div><div class="ttdeci">static boost::bimap&lt; L, R &gt; makeBimap(std::initializer_list&lt; typename boost::bimap&lt; L, R &gt;::value_type &gt; list)</div><div class="ttdef"><b>Definition:</b> utils.h:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

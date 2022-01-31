@@ -1,12 +1,12 @@
 var searchData=
 [
   ['scale_0',['scale',['../class_object_properties.html#a973284bdad65954ab7dd8a919ea68fe6',1,'ObjectProperties::scale()'],['../class_mesh_instance.html#a44e5778ba6ad9798b46c572595d2f551',1,'MeshInstance::scale()']]],
-  ['scene_1',['scene',['../class_scene_writer.html#a2f2d1066e911b26e940547980f81f7ec',1,'SceneWriter::scene()'],['../class_object_list.html#a3f7ae9b135a0ba7e93560f88cc8486a1',1,'ObjectList::scene()'],['../class_object_properties.html#adde432c070c13854290d39a46d65b37d',1,'ObjectProperties::scene()'],['../class_mandelbrot_app.html#abf621f1f9c14c07725bc3af1a843214e',1,'MandelbrotApp::scene()'],['../class_render_manager.html#a4c4f9ca5fcd4c504b959427325acf892',1,'RenderManager::scene()']]],
+  ['scene_1',['scene',['../class_object_list.html#a3f7ae9b135a0ba7e93560f88cc8486a1',1,'ObjectList::scene()'],['../class_object_properties.html#adde432c070c13854290d39a46d65b37d',1,'ObjectProperties::scene()'],['../class_mandelbrot_app.html#abf621f1f9c14c07725bc3af1a843214e',1,'MandelbrotApp::scene()'],['../class_render_manager.html#a4c4f9ca5fcd4c504b959427325acf892',1,'RenderManager::scene()']]],
   ['scenebindings_2',['sceneBindings',['../class_scene.html#a44a115503c209391850adb60390b7341',1,'Scene']]],
   ['scenedescriptorset_3',['sceneDescriptorSet',['../class_scene.html#acd1adb69bdb5272ba3cea9e2be181b4a',1,'Scene']]],
   ['sceneinfobuffer_4',['sceneInfoBuffer',['../class_scene.html#ad1b51b4e41497da8ce7315ba9b71bf2c',1,'Scene']]],
   ['sceneinfosetlayout_5',['sceneInfoSetLayout',['../class_scene.html#a0423a986c9d07cce66ef9e5cb1c903f9',1,'Scene']]],
-  ['scenewriter_6',['sceneWriter',['../class_render_manager.html#a81ad286c491eb7c12688b3f751ae8572',1,'RenderManager']]],
+  ['scenewriter_6',['sceneWriter',['../class_render_manager.html#a81ad286c491eb7c12688b3f751ae8572',1,'RenderManager::sceneWriter()'],['../class_main_menu.html#a793ab76f6df8f3fc1cfbd0ae286779f9',1,'MainMenu::sceneWriter()']]],
   ['selectedid_7',['selectedID',['../class_scene.html#a2e3630a031b4a55407e0702a984dcd9c',1,'Scene::selectedID()'],['../struct_scene_data.html#a0350c977dddf0a7f3ff55134357fb979',1,'SceneData::selectedID()']]],
   ['selectedmaterial_8',['selectedMaterial',['../class_object_properties.html#a773c7231c22a15791d058c5f0929d0eb',1,'ObjectProperties']]],
   ['selectedmeshlet_9',['selectedMeshlet',['../class_object_properties.html#a9ebc2cf619004306f818b1b3262af8c1',1,'ObjectProperties']]],

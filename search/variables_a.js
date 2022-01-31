@@ -7,7 +7,7 @@ var searchData=
   ['mastermaterialsetlayout_4',['masterMaterialSetLayout',['../class_master_material.html#a5bfee26c296ba4b1dae8cd424ff6f7e0',1,'MasterMaterial']]],
   ['mat_5',['mat',['../struct_c_c_a_d___o_t_1_1_vertex_data_type.html#a11a855b050b80b61cde493cac0343edd',1,'CCAD_OT::VertexDataType']]],
   ['mat_5ftype_6',['mat_type',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_shaded.html#a4c45ddabe16bc34fab23a43279124ef6',1,'CCAD_OT::OtMatInfoShaded']]],
-  ['material_7',['material',['../struct_meshlet.html#aa573cdbdbc8d9c27391c1f79a9390952',1,'Meshlet::material()'],['../struct_scene_1_1_indirect_draw_call.html#aeccc7843d9b550b71cc9b1312925e3a3',1,'Scene::IndirectDrawCall::material()']]],
+  ['material_7',['material',['../struct_meshlet.html#aa573cdbdbc8d9c27391c1f79a9390952',1,'Meshlet::material()'],['../struct_scene_1_1_indirect_draw_call.html#aeccc7843d9b550b71cc9b1312925e3a3',1,'Scene::IndirectDrawCall::material()'],['../class_scene_writer.html#a877fc279e553fd794b7ddeae18319123',1,'SceneWriter::material()']]],
   ['materialbuffer_8',['materialBuffer',['../class_material_library.html#a749af8a6b2993a12dadfa1d5ebeec288',1,'MaterialLibrary']]],
   ['materialindex_9',['materialIndex',['../struct_p_b_r_material_parameters.html#ad016e4851b9e3e377970f8f887073f2a',1,'PBRMaterialParameters']]],
   ['materialinfo_10',['materialInfo',['../struct_c_c_a_d___o_t_1_1_ot_surface_info.html#a9bb0258caeb55a53f61eec3db1d6a64d',1,'CCAD_OT::OtSurfaceInfo']]],
