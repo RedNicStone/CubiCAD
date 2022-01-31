@@ -248,6 +248,6 @@ var NAVTREEINDEX2 =
 "class_scene_writer.html":[2,0,85],
 "class_scene_writer.html#a28723f2ea73dc5030df4919226aec09c":[2,0,85,8],
 "class_scene_writer.html#a2959d578403100b040f8cf77a58cbc76":[2,0,85,0],
-"class_scene_writer.html#a4bd866f075b2e5f88b8b6673afc21674":[2,0,85,3],
-"class_scene_writer.html#a5087b1a9dd7a05f7dac6ceaacb577ae1":[2,0,85,2]
+"class_scene_writer.html#a3b4c2a67a37690d7901585e6cedd302f":[2,0,85,2],
+"class_scene_writer.html#a4bd866f075b2e5f88b8b6673afc21674":[2,0,85,3]
 };

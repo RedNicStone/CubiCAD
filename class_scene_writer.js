@@ -1,8 +1,8 @@
 var class_scene_writer =
 [
     [ "getFilename", "class_scene_writer.html#a2959d578403100b040f8cf77a58cbc76", null ],
-    [ "readInstanceFromNode", "class_scene_writer.html#a8f8f7406aeeaae1d252baf683a7a83bf", null ],
-    [ "readMeshesFromNode", "class_scene_writer.html#a5087b1a9dd7a05f7dac6ceaacb577ae1", null ],
+    [ "readInstanceFromNode", "class_scene_writer.html#af3de32453b125e419ef6250e8419e0f4", null ],
+    [ "readMeshesFromNode", "class_scene_writer.html#a3b4c2a67a37690d7901585e6cedd302f", null ],
     [ "readScene", "class_scene_writer.html#a4bd866f075b2e5f88b8b6673afc21674", null ],
     [ "readSceneFromDocument", "class_scene_writer.html#a72747249f8b4e4a6e4af9f65212717dc", null ],
     [ "setFilename", "class_scene_writer.html#addcf6aef1cacf34b2c744573a960243d", null ],

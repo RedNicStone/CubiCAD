@@ -132,12 +132,12 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a8f8f7406aeeaae1d252baf683a7a83bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a8f8f7406aeeaae1d252baf683a7a83bf">readInstanceFromNode</a> (const rapidjson::Value &amp;value)</td></tr>
-<tr class="separator:a8f8f7406aeeaae1d252baf683a7a83bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3de32453b125e419ef6250e8419e0f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#af3de32453b125e419ef6250e8419e0f4">readInstanceFromNode</a> (const rapidjson::Value &amp;value, std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &amp;meshMap)</td></tr>
+<tr class="separator:af3de32453b125e419ef6250e8419e0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4a34d0625fc63a5b022ed06545b25d7"><td class="memItemLeft" align="right" valign="top">rapidjson::Value&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#af4a34d0625fc63a5b022ed06545b25d7">writeInstanceToNode</a> (const std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &amp;instance)</td></tr>
 <tr class="separator:af4a34d0625fc63a5b022ed06545b25d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5087b1a9dd7a05f7dac6ceaacb577ae1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a5087b1a9dd7a05f7dac6ceaacb577ae1">readMeshesFromNode</a> (const rapidjson::Value &amp;value)</td></tr>
-<tr class="separator:a5087b1a9dd7a05f7dac6ceaacb577ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4c2a67a37690d7901585e6cedd302f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a3b4c2a67a37690d7901585e6cedd302f">readMeshesFromNode</a> (const rapidjson::Value &amp;value, std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &amp;meshMap)</td></tr>
+<tr class="separator:a3b4c2a67a37690d7901585e6cedd302f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a917780e7dbca653b8a4c870c2cdab5da"><td class="memItemLeft" align="right" valign="top">rapidjson::Value&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a917780e7dbca653b8a4c870c2cdab5da">writeMeshesToNode</a> (const std::pair&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &gt; &amp;mesh)</td></tr>
 <tr class="separator:a917780e7dbca653b8a4c870c2cdab5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72747249f8b4e4a6e4af9f65212717dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_writer.html#a72747249f8b4e4a6e4af9f65212717dc">readSceneFromDocument</a> ()</td></tr>
@@ -222,8 +222,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a8f8f7406aeeaae1d252baf683a7a83bf" name="a8f8f7406aeeaae1d252baf683a7a83bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f8f7406aeeaae1d252baf683a7a83bf">&#9670;&nbsp;</a></span>readInstanceFromNode()</h2>
+<a id="af3de32453b125e419ef6250e8419e0f4" name="af3de32453b125e419ef6250e8419e0f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3de32453b125e419ef6250e8419e0f4">&#9670;&nbsp;</a></span>readInstanceFromNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,8 +235,18 @@ Here is the caller graph for this function:</div>
           <td class="memname">void SceneWriter::readInstanceFromNode </td>
           <td>(</td>
           <td class="paramtype">const rapidjson::Value &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>meshMap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -248,20 +258,20 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a8f8f7406aeeaae1d252baf683a7a83bf_cgraph.svg" width="380" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_af3de32453b125e419ef6250e8419e0f4_cgraph.svg" width="380" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a8f8f7406aeeaae1d252baf683a7a83bf_icgraph.svg" width="424" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_af3de32453b125e419ef6250e8419e0f4_icgraph.svg" width="424" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a5087b1a9dd7a05f7dac6ceaacb577ae1" name="a5087b1a9dd7a05f7dac6ceaacb577ae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5087b1a9dd7a05f7dac6ceaacb577ae1">&#9670;&nbsp;</a></span>readMeshesFromNode()</h2>
+<a id="a3b4c2a67a37690d7901585e6cedd302f" name="a3b4c2a67a37690d7901585e6cedd302f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4c2a67a37690d7901585e6cedd302f">&#9670;&nbsp;</a></span>readMeshesFromNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,8 +283,18 @@ Here is the caller graph for this function:</div>
           <td class="memname">void SceneWriter::readMeshesFromNode </td>
           <td>(</td>
           <td class="paramtype">const rapidjson::Value &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>meshMap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -283,6 +303,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a3b4c2a67a37690d7901585e6cedd302f_icgraph.svg" width="480" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -328,7 +354,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a72747249f8b4e4a6e4af9f65212717dc_cgraph.svg" width="619" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_scene_writer_a72747249f8b4e4a6e4af9f65212717dc_cgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
