@@ -14,17 +14,20 @@ std::shared_ptr<SceneWriter> SceneWriter::create(const std::shared_ptr<RenderMan
     return sceneWriter;
 }
 
-void SceneWriter::readInstanceFromNode(const rapidjson::Value& value) {
+void SceneWriter::readInstanceFromNode(const rapidjson::Value& value,
+                                       std::unordered_map<std::string, std::shared_ptr<Mesh>>& meshMap) {
     if (!value.HasMember("name") || !value.HasMember("mesh")
      || !value.HasMember("pos")  || !value.HasMember("rot")  || !value.HasMember("scale")) {
         std::cerr << "Instance is missing a field, skipping" << std::endl;
         return;
     }
+
     if (!value["name"].IsString() || !value["mesh"].IsString()
      || !value["pos"].IsArray()   || !value["rot"].IsArray()   || !value["scale"].IsArray()) {
         std::cerr << "Instance field invalid, skipping" << std::endl;
         return;
     }
+
     auto pos = value["pos"].GetArray();
     auto rot = value["rot"].GetArray();
     auto scale = value["scale"].GetArray();
@@ -39,8 +42,7 @@ void SceneWriter::readInstanceFromNode(const rapidjson::Value& value) {
         }
     }
 
-    auto instance = MeshInstance::create(nullptr, value["name"].GetString());
-    instance->setID(static_cast<uint32_t>(value["id"].GetInt64()));
+    auto instance = MeshInstance::create(meshMap[value["mesh"].GetString()], value["name"].GetString());
     instance->setPosition({ pos[0].GetFloat(), pos[1].GetFloat(), pos[2].GetFloat() });
     instance->setPosition({ rot[0].GetFloat(), rot[1].GetFloat(), rot[2].GetFloat() });
     instance->setPosition({ scale[0].GetFloat(), scale[1].GetFloat(), scale[2].GetFloat() });
@@ -72,8 +74,7 @@ rapidjson::Value SceneWriter::writeInstanceToNode(const std::shared_ptr<MeshInst
 }
 
 void SceneWriter::readMeshesFromNode(const rapidjson::Value& value,
-                                     const std::unordered_map<std::string, std::vector<std::shared_ptr<Mesh>>>&
-                                         meshMap) {
+                                     std::unordered_map<std::string, std::shared_ptr<Mesh>>& meshMap) {
     if (!value.HasMember("file") || !value.HasMember("meshes")) {
         std::cerr << "MeshFiles is missing a field, skipping" << std::endl;
         return;
@@ -82,6 +83,7 @@ void SceneWriter::readMeshesFromNode(const rapidjson::Value& value,
         std::cerr << "MeshFiles field invalid, skipping" << std::endl;
         return;
     }
+
     auto meshNodes = value["meshes"].GetArray();
     auto meshes = renderManager->getMeshLibrary()->createMesh(value["file"].GetString(), material);
     for (uint x = 0; x < meshNodes.Size(); x++) {
@@ -132,31 +134,35 @@ void SceneWriter::readSceneFromDocument() {
         std::cerr << "File is not a valid CubiCAD save file" << std::endl;
         return;
     }
+
     if (!document.HasMember("materials")) {
         std::cerr << "File does not contain any materials" << std::endl;
     } else if (!document["materials"].IsArray()) {
         std::cerr << "File's material list has been corrupted" << std::endl;
     } else {
-        for (const auto& instance : document["materials"].GetArray()) {
-            readInstanceFromNode(instance);
+        for (const auto& mat : document["materials"].GetArray()) {
+            //readInstanceFromNode(mat);
         }
     }
-    if (!document.HasMember("meshes")) {
-        std::cerr << "File does not contain any meshes" << std::endl;
-    } else if (!document["meshes"].IsArray()) {
-        std::cerr << "File's mesh list has been corrupted" << std::endl;
+
+    std::unordered_map<std::string, std::shared_ptr<Mesh>> meshMap{};
+    if (!document.HasMember("meshFiles")) {
+        std::cerr << "File does not contain any mesh files" << std::endl;
+    } else if (!document["meshFiles"].IsArray()) {
+        std::cerr << "File's mesh file list has been corrupted" << std::endl;
     } else {
-        for (const auto& instance : document["meshes"].GetArray()) {
-            readInstanceFromNode(instance);
+        for (const auto& mesh : document["meshFiles"].GetArray()) {
+            readMeshesFromNode(mesh, meshMap);
         }
     }
+
     if (!document.HasMember("instances")) {
         std::cerr << "File does not contain any instances" << std::endl;
     } else if (!document["instances"].IsArray()) {
         std::cerr << "File's instance list has been corrupted" << std::endl;
     } else {
         for (const auto& instance : document["instances"].GetArray()) {
-            readInstanceFromNode(instance);
+            readInstanceFromNode(instance, meshMap);
         }
     }
 }

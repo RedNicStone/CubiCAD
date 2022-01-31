@@ -34,10 +34,12 @@ class SceneWriter {
 
     std::string filename;
 
-    void readInstanceFromNode(const rapidjson::Value& value);
+    void readInstanceFromNode(const rapidjson::Value& value,
+                              std::unordered_map<std::string, std::shared_ptr<Mesh>>& meshMap);
     rapidjson::Value writeInstanceToNode(const std::shared_ptr<MeshInstance>& instance);
 
-    void readMeshesFromNode(const rapidjson::Value& value);
+    void readMeshesFromNode(const rapidjson::Value& value,
+                            std::unordered_map<std::string, std::shared_ptr<Mesh>>& meshMap);
     rapidjson::Value writeMeshesToNode(const std::pair<std::string, std::vector<std::shared_ptr<Mesh>>>& mesh);
 
     void readSceneFromDocument();

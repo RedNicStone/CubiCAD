@@ -145,6 +145,7 @@ class VulkanRasterizer {
                                                      renderManager->getRenderPass(),
                                                      "basicMaterial");
         auto material = Material::create(masterMaterial);
+        renderManager->getSceneWriter()->material = material;
         model = renderManager->getMeshLibrary()->createMesh("resources/models/demo/primitives/cube.obj", material)
             .front();
 
