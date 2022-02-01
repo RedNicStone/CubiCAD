@@ -22,7 +22,11 @@ var annotated_dup =
       [ "VertexDataType", "struct_c_c_a_d___o_t_1_1_vertex_data_type.html", "struct_c_c_a_d___o_t_1_1_vertex_data_type" ],
       [ "VertexMemberCheck", "struct_c_c_a_d___o_t_1_1_vertex_member_check.html", null ]
     ] ],
+    [ "std", "namespacestd.html", [
+      [ "hash< Vertex >", "structstd_1_1hash_3_01_vertex_01_4.html", "structstd_1_1hash_3_01_vertex_01_4" ]
+    ] ],
     [ "Allocator", "class_allocator.html", "class_allocator" ],
+    [ "BoundingBox", "struct_bounding_box.html", "struct_bounding_box" ],
     [ "Buffer", "class_buffer.html", "class_buffer" ],
     [ "BufferView", "class_buffer_view.html", "class_buffer_view" ],
     [ "Camera", "class_camera.html", "class_camera" ],

@@ -14,5 +14,6 @@ var namespaces_dup =
       [ "morton3D_64_encode", "namespacelibmorton.html#a973910379db4076475eeedccb98cf19d", null ],
       [ "morton3D_decode", "namespacelibmorton.html#a1542df660235f16d6ee589fd0d908916", null ],
       [ "morton3D_encode", "namespacelibmorton.html#afb4fdae007f02c9414e67939544f66a8", null ]
-    ] ]
+    ] ],
+    [ "std", "namespacestd.html", "namespacestd" ]
 ];

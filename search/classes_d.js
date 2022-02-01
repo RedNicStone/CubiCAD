@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['raytracingshader_0',['RaytracingShader',['../class_raytracing_shader.html',1,'']]],
-  ['renderbus_1',['RenderBus',['../class_render_bus.html',1,'']]],
-  ['renderevent_2',['RenderEvent',['../struct_render_event.html',1,'']]],
-  ['rendermanager_3',['RenderManager',['../class_render_manager.html',1,'']]],
-  ['renderpass_4',['RenderPass',['../class_render_pass.html',1,'']]],
-  ['rendersubmitqueueevent_5',['RenderSubmitQueueEvent',['../struct_render_submit_queue_event.html',1,'']]]
+  ['queue_0',['Queue',['../class_queue.html',1,'']]],
+  ['queuefamily_1',['QueueFamily',['../class_queue_family.html',1,'']]],
+  ['queuefamilyhandler_2',['QueueFamilyHandler',['../class_queue_family_handler.html',1,'']]],
+  ['queuefamilyindices_3',['QueueFamilyIndices',['../struct_queue_family_indices.html',1,'']]]
 ];

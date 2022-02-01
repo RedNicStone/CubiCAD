@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_mesh.html',''); initResizable();
 <div class="dynheader">
 Collaboration diagram for Mesh:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh__coll__graph.svg" width="159" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh__coll__graph.svg" width="167" height="463"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -115,6 +115,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac9b9c8ccb25b32068fcc05632975140f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c14df866b9d28ac272b40622b74c8e5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a6c14df866b9d28ac272b40622b74c8e5">getVertexCount</a> () const</td></tr>
 <tr class="separator:a6c14df866b9d28ac272b40622b74c8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac267bb667dd7c1a97fe0511e8351b940"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ac267bb667dd7c1a97fe0511e8351b940">getMean</a> () const</td></tr>
+<tr class="separator:ac267bb667dd7c1a97fe0511e8351b940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac34baba69579c28ae29884ebb5ca05d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ac34baba69579c28ae29884ebb5ca05d4">getBoundingBox</a> () const</td></tr>
+<tr class="separator:ac34baba69579c28ae29884ebb5ca05d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7582c53a358e1f5f85c745e8845b45a2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a7582c53a358e1f5f85c745e8845b45a2">getName</a> ()</td></tr>
 <tr class="separator:a7582c53a358e1f5f85c745e8845b45a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64b20cc1816ae3ef0881e9d4a49c1e6b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a64b20cc1816ae3ef0881e9d4a49c1e6b">getMeshlets</a> ()</td></tr>
@@ -126,27 +130,31 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a621bb0859321ef8a60fcb5368ccdd48b"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a621bb0859321ef8a60fcb5368ccdd48b">create</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt; &amp;meshlets, const std::string &amp;pName=&quot;&quot;)</td></tr>
-<tr class="separator:a621bb0859321ef8a60fcb5368ccdd48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac612062e8c1a9c70137377cd76c149d1"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ac612062e8c1a9c70137377cd76c149d1">create</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt; &amp;meshlets, const <a class="el" href="struct_bounding_box.html">BoundingBox</a> &amp;bbox, const std::string &amp;pName=&quot;&quot;)</td></tr>
+<tr class="separator:ac612062e8c1a9c70137377cd76c149d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a2416d455f7a0cece9e44d2499aa028dc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a2416d455f7a0cece9e44d2499aa028dc">subMeshes</a></td></tr>
+<tr class="memitem:a2416d455f7a0cece9e44d2499aa028dc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a2416d455f7a0cece9e44d2499aa028dc">subMeshes</a> {}</td></tr>
 <tr class="separator:a2416d455f7a0cece9e44d2499aa028dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ab59aa21d3ba133a328aed08ca260de"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a5ab59aa21d3ba133a328aed08ca260de">firstIndex</a></td></tr>
+<tr class="memitem:a9e098a769852a1411a5cc8a7f486ab31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_bounding_box.html">BoundingBox</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a9e098a769852a1411a5cc8a7f486ab31">boundingBox</a></td></tr>
+<tr class="separator:a9e098a769852a1411a5cc8a7f486ab31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc22dad300a6825e27b6315806b77e33"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#adc22dad300a6825e27b6315806b77e33">mean</a></td></tr>
+<tr class="separator:adc22dad300a6825e27b6315806b77e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab59aa21d3ba133a328aed08ca260de"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a5ab59aa21d3ba133a328aed08ca260de">firstIndex</a> {}</td></tr>
 <tr class="separator:a5ab59aa21d3ba133a328aed08ca260de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaee748077ea8b4c8f2199a6a322ab334"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#aaee748077ea8b4c8f2199a6a322ab334">firstVertex</a></td></tr>
+<tr class="memitem:aaee748077ea8b4c8f2199a6a322ab334"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#aaee748077ea8b4c8f2199a6a322ab334">firstVertex</a> {}</td></tr>
 <tr class="separator:aaee748077ea8b4c8f2199a6a322ab334"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaafc29c9662dd7738199be753d3091a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#afaafc29c9662dd7738199be753d3091a">indexCount</a></td></tr>
+<tr class="memitem:afaafc29c9662dd7738199be753d3091a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#afaafc29c9662dd7738199be753d3091a">indexCount</a> {}</td></tr>
 <tr class="separator:afaafc29c9662dd7738199be753d3091a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31177b45a1d9008adf6aaaa6899f36b6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a31177b45a1d9008adf6aaaa6899f36b6">vertexCount</a></td></tr>
+<tr class="memitem:a31177b45a1d9008adf6aaaa6899f36b6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a31177b45a1d9008adf6aaaa6899f36b6">vertexCount</a> {}</td></tr>
 <tr class="separator:a31177b45a1d9008adf6aaaa6899f36b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac687e9dcfc7cc60b046fc2ec634200be"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ac687e9dcfc7cc60b046fc2ec634200be">name</a></td></tr>
 <tr class="separator:ac687e9dcfc7cc60b046fc2ec634200be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a621bb0859321ef8a60fcb5368ccdd48b" name="a621bb0859321ef8a60fcb5368ccdd48b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a621bb0859321ef8a60fcb5368ccdd48b">&#9670;&nbsp;</a></span>create()</h2>
+<a id="ac612062e8c1a9c70137377cd76c149d1" name="ac612062e8c1a9c70137377cd76c149d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac612062e8c1a9c70137377cd76c149d1">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,6 +167,12 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="struct_meshlet.html">Meshlet</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>meshlets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>bbox</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -181,9 +195,34 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_a621bb0859321ef8a60fcb5368ccdd48b_icgraph.svg" width="294" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_ac612062e8c1a9c70137377cd76c149d1_icgraph.svg" width="294" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<a id="ac34baba69579c28ae29884ebb5ca05d4" name="ac34baba69579c28ae29884ebb5ca05d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac34baba69579c28ae29884ebb5ca05d4">&#9670;&nbsp;</a></span>getBoundingBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_bounding_box.html">BoundingBox</a> Mesh::getBoundingBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -215,6 +254,31 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">uint32_t Mesh::getIndexCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac267bb667dd7c1a97fe0511e8351b940" name="ac267bb667dd7c1a97fe0511e8351b940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac267bb667dd7c1a97fe0511e8351b940">&#9670;&nbsp;</a></span>getMean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Mesh::getMean </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -359,6 +423,28 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9e098a769852a1411a5cc8a7f486ab31" name="a9e098a769852a1411a5cc8a7f486ab31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e098a769852a1411a5cc8a7f486ab31">&#9670;&nbsp;</a></span>boundingBox</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_bounding_box.html">BoundingBox</a> Mesh::boundingBox</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5ab59aa21d3ba133a328aed08ca260de" name="a5ab59aa21d3ba133a328aed08ca260de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ab59aa21d3ba133a328aed08ca260de">&#9670;&nbsp;</a></span>firstIndex</h2>
 
@@ -369,7 +455,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Mesh::firstIndex</td>
+          <td class="memname">uint32_t Mesh::firstIndex {}</td>
         </tr>
       </table>
   </td>
@@ -391,7 +477,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Mesh::firstVertex</td>
+          <td class="memname">uint32_t Mesh::firstVertex {}</td>
         </tr>
       </table>
   </td>
@@ -413,7 +499,29 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Mesh::indexCount</td>
+          <td class="memname">uint32_t Mesh::indexCount {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adc22dad300a6825e27b6315806b77e33" name="adc22dad300a6825e27b6315806b77e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc22dad300a6825e27b6315806b77e33">&#9670;&nbsp;</a></span>mean</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 Mesh::mean</td>
         </tr>
       </table>
   </td>
@@ -457,7 +565,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="struct_meshlet.html">Meshlet</a>&gt; &gt; Mesh::subMeshes</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="struct_meshlet.html">Meshlet</a>&gt; &gt; Mesh::subMeshes {}</td>
         </tr>
       </table>
   </td>
@@ -479,7 +587,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Mesh::vertexCount</td>
+          <td class="memname">uint32_t Mesh::vertexCount {}</td>
         </tr>
       </table>
   </td>

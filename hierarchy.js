@@ -3,6 +3,7 @@ var hierarchy =
     [ "Allocator", "class_allocator.html", [
       [ "StackAllocator", "class_stack_allocator.html", null ]
     ] ],
+    [ "BoundingBox", "struct_bounding_box.html", null ],
     [ "Camera", "class_camera.html", null ],
     [ "CameraModel", "struct_camera_model.html", null ],
     [ "CCAD_OT::Cube", "struct_c_c_a_d___o_t_1_1_cube.html", null ],
@@ -19,6 +20,7 @@ var hierarchy =
     [ "FileStream", "struct_file_stream.html", null ],
     [ "FrameBuffer", "class_frame_buffer.html", null ],
     [ "FramebufferSelector", "class_framebuffer_selector.html", null ],
+    [ "std::hash< Vertex >", "structstd_1_1hash_3_01_vertex_01_4.html", null ],
     [ "Scene::IndirectDrawCall", "struct_scene_1_1_indirect_draw_call.html", null ],
     [ "InstanceData", "struct_instance_data.html", null ],
     [ "MandelbrotApp", "class_mandelbrot_app.html", null ],
