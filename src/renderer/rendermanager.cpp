@@ -37,19 +37,19 @@ void RenderManager::createLogicalDevice() {
 
     optional<uint32_t> graphicsFamily = familyHandler->getOptimalQueueFamily(VK_QUEUE_GRAPHICS_BIT);
     if (graphicsFamily.has_value())
-        familyHandler->registerQueueFamilyAllocation(graphicsFamily.value(), 1);
+        familyHandler->appendQueueFamilyAllocations(graphicsFamily.value(), 1);
 
     optional<uint32_t> transferFamily = familyHandler->getOptimalQueueFamily(VK_QUEUE_TRANSFER_BIT);
-    if (graphicsFamily.has_value())
-        familyHandler->registerQueueFamilyAllocation(graphicsFamily.value(), 1);
+    if (transferFamily.has_value())
+        familyHandler->appendQueueFamilyAllocations(transferFamily.value(), 1);
 
     optional<uint32_t> computeFamily = familyHandler->getOptimalQueueFamily(VK_QUEUE_COMPUTE_BIT);
-    if (graphicsFamily.has_value())
-        familyHandler->registerQueueFamilyAllocation(graphicsFamily.value(), 1);
+    if (computeFamily.has_value())
+        familyHandler->appendQueueFamilyAllocations(computeFamily.value(), 1);
 
     optional<uint32_t> presentFamily = familyHandler->getOptimalPresentQueue(window);
     if (presentFamily.has_value())
-        familyHandler->registerQueueFamilyAllocation(presentFamily.value(), 1);
+        familyHandler->appendQueueFamilyAllocations(presentFamily.value(), 1);
 
     device = Device::create(physicalDevice, deviceExtensions, deviceFeatures);
 
