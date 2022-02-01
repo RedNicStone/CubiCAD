@@ -44,8 +44,8 @@ void SceneWriter::readInstanceFromNode(const rapidjson::Value& value,
 
     auto instance = MeshInstance::create(meshMap[value["mesh"].GetString()], value["name"].GetString());
     instance->setPosition({ pos[0].GetFloat(), pos[1].GetFloat(), pos[2].GetFloat() });
-    instance->setPosition({ rot[0].GetFloat(), rot[1].GetFloat(), rot[2].GetFloat() });
-    instance->setPosition({ scale[0].GetFloat(), scale[1].GetFloat(), scale[2].GetFloat() });
+    instance->setRotation({ rot[0].GetFloat(), rot[1].GetFloat(), rot[2].GetFloat() });
+    instance->setScale({ scale[0].GetFloat(), scale[1].GetFloat(), scale[2].GetFloat() });
 
     renderManager->getScene()->submitInstance(instance);
 }
@@ -96,7 +96,7 @@ void SceneWriter::readMeshesFromNode(const rapidjson::Value& value,
             return;
         }
         meshes[x]->setName(meshNodes[x]["name"].GetString());
-        for (uint y = 0; y < meshNodes[y]["materials"].Size(); y++) {
+        for (uint y = 0; y < meshNodes[x]["materials"].Size(); y++) {
             // do something pls
             //todo add material loading from save
         }
@@ -112,7 +112,7 @@ rapidjson::Value SceneWriter::writeMeshesToNode(const std::pair<std::string, std
     rapidjson::Value meshes(rapidjson::kArrayType);
     for (const auto& mesh : pair.second) {
         rapidjson::Value meshNode(rapidjson::kObjectType);
-        meshNode.AddMember("file", filename, document.GetAllocator());
+        meshNode.AddMember("name", mesh->getName(), document.GetAllocator());
 
         rapidjson::Value meshletArray(rapidjson::kArrayType);
         for (const auto& meshlet : mesh->getMeshlets()) {
@@ -173,7 +173,7 @@ void SceneWriter::writeSceneToDocument() {
     rapidjson::Value objectArray(rapidjson::kArrayType);
     for (const auto& instance : renderManager->getScene()->getInstances())
         objectArray.PushBack(writeInstanceToNode(instance).Move(), document.GetAllocator());
-    document.AddMember("objects", objectArray, document.GetAllocator());
+    document.AddMember("instances", objectArray, document.GetAllocator());
 
     rapidjson::Value meshArray(rapidjson::kArrayType);
     for (const auto& meshes : renderManager->getMeshLibrary()->getMeshes())
@@ -191,6 +191,7 @@ void SceneWriter::readScene() {
 
     rapidjson::BasicIStreamWrapper<std::istream> stream(fileStream);
     document.ParseStream(stream);
+    readSceneFromDocument();
 
     fileStream.close();
 }

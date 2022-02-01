@@ -50,8 +50,14 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
     for (const auto& shape : shapes) {
         std::unordered_map<int, std::shared_ptr<Meshlet>> meshlets;
 
+        BoundingBox bbox{};
+        bbox.pos1 = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data());
+        bbox.pos2 = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data());
+
         // Loop over faces(polygon)
         for (size_t f = 0; f < shape.mesh.num_face_vertices.size(); f++) {
+            std::unordered_map<Vertex, uint32_t> uniqueVertices{};
+
             int materialID = shape.mesh.material_ids[f];
             if (meshlets[materialID] == nullptr) {
                 meshlets[materialID] = std::make_shared<Meshlet>();
@@ -62,15 +68,21 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
                 tinyobj::index_t idx = shape.mesh.indices[f * 3 + v];
 
                 Vertex vertex{};
-                vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + 3*size_t(idx.vertex_index));
+                vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + size_t(idx.vertex_index));
                 if (idx.texcoord_index >= 0) {
                     vertex.uv = *reinterpret_cast<const glm::vec2*>(attrib.texcoords.data()
                         + 2*size_t(idx.texcoord_index));
                 }
-                meshlets[materialID]->vertexData.push_back(vertex);
 
-                meshlets[materialID]->indexData.push_back(static_cast<uint32_t>(meshlets[materialID]->indexData.size
-                ()));
+                bbox.pos1 = glm::min(bbox.pos1, vertex.pos);
+                bbox.pos2 = glm::max(bbox.pos1, vertex.pos);
+
+                if (uniqueVertices.count(vertex) == 0) {
+                    uniqueVertices[vertex] = static_cast<uint32_t>(meshlets[materialID]->vertexData.size());
+                    meshlets[materialID]->vertexData.push_back(vertex);
+                }
+
+                meshlets[materialID]->indexData.push_back(uniqueVertices[vertex]);
             }
         }
 
@@ -82,7 +94,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
             meshletVector.push_back(kv.second);
         }
 
-        meshes.push_back(Mesh::create(meshletVector, shape.name));
+        meshes.push_back(Mesh::create(meshletVector, bbox, shape.name));
     }
 
     return meshes;

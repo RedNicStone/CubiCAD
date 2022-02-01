@@ -146,10 +146,10 @@ class VulkanRasterizer {
                                                      "basicMaterial");
         auto material = Material::create(masterMaterial);
         renderManager->getSceneWriter()->material = material;
-        model = renderManager->getMeshLibrary()->createMesh("resources/models/demo/primitives/cube.obj", material)
+        model = renderManager->getMeshLibrary()->createMesh("resources/models/demo/sponza/sponza.obj", material)
             .front();
 
-        for (size_t i = 0; i < 10; i++) {
+        for (size_t i = 0; i < 1; i++) {
             auto object = MeshInstance::create(model);
             object->setScale(glm::vec3(0.1f));
             object->setPosition(glm::normalize(glm::vec3(
