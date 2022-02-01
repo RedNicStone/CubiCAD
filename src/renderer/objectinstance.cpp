@@ -35,7 +35,7 @@ InstanceData MeshInstance::getInstanceData() const {
 
 void MeshInstance::setPosition(glm::vec3 position) {
     pos = position;
-    matPos = glm::translate(pos);
+    matPos = glm::translate(pos - mesh->getMean());
     combineMatrices();
 }
 

@@ -1,0 +1,113 @@
+newmtl Bin
+Kd 0.0 0 0
+Ns 256
+d 1
+illum 3
+Ka 0 0 0
+Ks 0.9 0.9 .9
+
+newmtl BlackWoodLacquer
+Kd 0.078481 0.078481 0.078481
+Ns 3
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.15 0.15 0.15
+
+newmtl Ceramic
+Kd 0.95 0.95 0.95
+Ns 512
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.05 0.05 0.05
+
+newmtl DarkBorder
+Kd 1 1 1
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0 0 0
+
+newmtl DarkPlastic
+Kd 0.1 0.1 0.1
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0 0 0
+
+newmtl Label
+Kd 0.8 0.8 0.8
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0 0 0
+map_Kd textures\Label_BaseColor.png
+
+newmtl Light
+Kd 0.5 0.5 0.5
+Ke 10 10 10
+Ns 256
+illum 2
+Ks 0.0 0.0 0.0
+
+newmtl Mirror
+Kd 0 0 0
+Ns 8192
+d 1
+illum 3
+Ka 0 0 0
+Ks 0.99 0.99 0.99
+
+newmtl Plastic
+Kd 0.01 0.01 0.01
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0 0 0
+
+newmtl Towel
+Kd 0.8 0.8 0.8
+Ns 1
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.0 0.0 0.0
+
+newmtl Trims
+Kd 1 1 1
+Ns 3
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.2 0.2 0.2
+
+newmtl Wall
+Kd .98 .98 .98
+Ns 256
+d 1
+illum 2
+Ka 0 0 0
+Ks 0 0 0
+
+newmtl Wood
+Kd 0.48 0.48 0.48
+Ns 5
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.04 0.04 0.04
+map_Kd textures\Wood_BaseColor.jpg
+
+newmtl WoodFloor
+Kd 1 1 1
+Ns 5
+d 1
+illum 2
+Ka 0 0 0
+Ks 0.04 0.04 0.04
+map_Kd textures\WoodFloor_BaseColor.jpg

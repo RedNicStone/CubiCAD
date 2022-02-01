@@ -1,0 +1,34 @@
+San Miguel 2.1
+
+Known bugs (to be fixed soon): 
+
+- Some bump and normal maps are not correctly mapped in the MTL
+- Some surfaces are too glossy
+- No refraction on glass and water
+- Reflection maps are low dynamic range
+
+---------------------
+
+San Miguel, modelled by and copyright Guillermo M. Leal Llaguno (http://www.evvisual.com/)
+
+2017 version improved by Morgan McGuire, Guedis Cardenas, and Michael Mara at Williams College
+and Nicholas Hull at NVIDIA with permission from Mr. Llaguno.
+
+This model is free for research and educational use with attribution.
+
+http://casual-effects.com/data
+
+________________________________________________________
+
+This scene was modeled by Guillermo M. Leal Llaguno of Evolucien Visual, 
+based on a hacienda that he visited in San Miguel de Allende, Mexico. 
+
+We began with Guillermo's original 3DS Max file and flattened the instancing
+from the original for convenience in research use. We then exported it as an
+OBJ file, corrected the geometry and materials, converted materials to PNG
+and integrated the alpha mattes, and constructed a low-polygon 
+version.
+
+For example, on the cover of the PBRT2 book, you can see that there
+are chairs in the fountain and no legs on the tables! We fixed these
+and many more problems.
