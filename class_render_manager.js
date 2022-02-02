@@ -31,6 +31,7 @@ var class_render_manager =
     [ "depthImage", "class_render_manager.html#a457aba3d3843d67e6bed715d514f5962", null ],
     [ "depthImageView", "class_render_manager.html#a3ba14e1aff4a3cc488c5253d10d668c2", null ],
     [ "device", "class_render_manager.html#a29152ab1c1f3884aa5a3b0f0b4384d3b", null ],
+    [ "drawCommandBuffer", "class_render_manager.html#a7b5789135445c4d6f72b7752ef4dc956", null ],
     [ "frameBuffer", "class_render_manager.html#a90b498bf88e864e9257f17d48fea7a78", null ],
     [ "graphicsPool", "class_render_manager.html#a5194aa9919c46814d92d335272d1ad43", null ],
     [ "graphicsQueue", "class_render_manager.html#a00dbbe6147c5cd6873a6fc001089f4cf", null ],

@@ -68,11 +68,11 @@ var NAVTREEINDEX =
 "_allocation_handler_8cpp.html",
 "class_dynamic_buffer.html#ad12ff4367acfe377f988606a1588f363",
 "class_mesh.html#adc22dad300a6825e27b6315806b77e33",
-"class_scene_writer.html#a28723f2ea73dc5030df4919226aec09c",
-"class_window.html",
-"mesh_8h.html#a816ab7d5c2ce1f0a01216042837beb93",
+"class_scene_writer.html",
+"class_vulkan_rasterizer.html#affc76203c76e75c2ffaeb693f38572f0",
+"mesh_8h.html#a53aeecf6b7ba36273b6998fbd206ca7d",
 "struct_c_c_a_d___o_t_1_1_ot_node_info_rendered.html",
-"vulkan__voxel__rasterizer__2_8cpp.html#a7302e21aaabe341f71d799a7dd3f274f"
+"vulkan__voxel__rasterizer__2_8cpp.html#a53aeecf6b7ba36273b6998fbd206ca7d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"class_scene_writer.html":[2,0,87],
 "class_scene_writer.html#a28723f2ea73dc5030df4919226aec09c":[2,0,87,8],
 "class_scene_writer.html#a2959d578403100b040f8cf77a58cbc76":[2,0,87,0],
 "class_scene_writer.html#a3b4c2a67a37690d7901585e6cedd302f":[2,0,87,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "class_vulkan_rasterizer.html#adb13630e2295a7006aef05bdd22ef9b0":[2,0,120,16],
 "class_vulkan_rasterizer.html#add1cfb13a3ae242ca9eef6c1e9e42751":[2,0,120,8],
 "class_vulkan_rasterizer.html#af8cebd6eafc132a5c14b2515121ae11f":[2,0,120,17],
-"class_vulkan_rasterizer.html#afdbc57016d139bcab3ee3b983ca77227":[2,0,120,3],
-"class_vulkan_rasterizer.html#affc76203c76e75c2ffaeb693f38572f0":[2,0,120,10]
+"class_vulkan_rasterizer.html#afdbc57016d139bcab3ee3b983ca77227":[2,0,120,3]
 };
