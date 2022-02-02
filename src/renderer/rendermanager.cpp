@@ -173,12 +173,12 @@ void RenderManager::crateSceneObjects() {
     poolManager = DescriptorPoolManager::create(device);
 
     materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, { graphicsQueue });
-    textureLibrary = TextureLibrary::create(device, graphicsQueue, transferPool, textureQualitySettings);
+    textureLibrary = TextureLibrary::create(device, graphicsQueue, graphicsPool, textureQualitySettings);
     meshLibrary = MeshLibrary::create();
 }
 
 void RenderManager::crateUIObjects() {
-    uiRenderer = UIRenderer::create(graphicsQueue, transferPool, renderPass, window, imageCount, uiSubpass);
+    uiRenderer = UIRenderer::create(graphicsQueue, graphicsPool, renderPass, window, imageCount, uiSubpass);
 }
 
 void RenderManager::createRenderObjects() {
@@ -255,43 +255,43 @@ void RenderManager::drawFrame() {
     uint32_t index = swapChain->getCurrentImageIndex();
 
     // allocate command buffer
-    auto commandBuffer = CommandBuffer::create(graphicsPool);
+    drawCommandBuffer = CommandBuffer::create(graphicsPool);
 
     std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
     std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
 
     // begin recording instructions
-    commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
+    drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
     // clear and begin render pass
     std::vector<VkClearValue> clearColor(3);
     clearColor[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
     clearColor[1].depthStencil = {1.0, 0};
     clearColor[2].color = { { 0.0f, 0.0f, 0.0f, 1.0f } };
-    commandBuffer->beginRenderPass(renderPass, frameBuffer, clearColor,
+    drawCommandBuffer->beginRenderPass(renderPass, frameBuffer, clearColor,
                                                    index, frameBuffer->getExtent(), {0, 0});
 
     // write all commands to draw the scene
-    scene->bakeGraphicsBuffer(commandBuffer);
+    scene->bakeGraphicsBuffer(drawCommandBuffer);
 
     // begin next subpass
-    commandBuffer->nextSubpass();
+    drawCommandBuffer->nextSubpass();
 
     // write all commands to draw the UI
-    uiRenderer->draw(commandBuffer);
+    uiRenderer->draw(drawCommandBuffer);
 
     // end the render pass
-    commandBuffer->endRenderPass();
+    drawCommandBuffer->endRenderPass();
 
     // transition the object buffer into a layout we can copy from
     objectBufferImage->setLayout(VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
-    objectBufferImage->transitionImageLayout(commandBuffer,
+    objectBufferImage->transitionImageLayout(drawCommandBuffer,
                                              VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
                                              VK_PIPELINE_STAGE_TRANSFER_BIT,
                                              VK_ACCESS_TRANSFER_READ_BIT);
 
     // transition the CPU sided object buffer into a layout we can copy to
-    objectBuffer->transferLayoutWrite(commandBuffer);
+    objectBuffer->transferLayoutWrite(drawCommandBuffer);
 
     VkImageSubresourceLayers imageLayers{};
     imageLayers.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
@@ -308,22 +308,22 @@ void RenderManager::drawFrame() {
 
     // copy GPU sided object buffer to the CPU sided object buffer
     // todo? only copy region of interest ?
-    commandBuffer->copyImage(objectBufferImage, objectBuffer->getImage(), copyRegions);
+    drawCommandBuffer->copyImage(objectBufferImage, objectBuffer->getImage(), copyRegions);
 
     // transition the object buffer into a layout we can write to from the fragment shader
-    objectBufferImage->transitionImageLayout(commandBuffer,
+    objectBufferImage->transitionImageLayout(drawCommandBuffer,
                                              VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL,
                                              VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
                                              VK_ACCESS_SHADER_WRITE_BIT);
 
     // transition the CPU sided object buffer into a layout we can read from
-    objectBuffer->transferLayoutRead(commandBuffer);
+    objectBuffer->transferLayoutRead(drawCommandBuffer);
 
     // compile all commands [resource intensive part]
-    commandBuffer->endCommandBuffer();
+    drawCommandBuffer->endCommandBuffer();
 
     // submit the buffer for execution
-    commandBuffer->submitToQueue(signalSemaphores, { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
+    drawCommandBuffer->submitToQueue(signalSemaphores, { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
                                                  waitSemaphores,
                                                  graphicsQueue,
                                                  swapChain->getPresentFence());
@@ -359,6 +359,10 @@ void RenderManager::mouseButtonCallback(GLFWwindow* glfwWindow, int button, int 
 }
 
 RenderManager::~RenderManager() {
+    graphicsQueue->waitForIdle();
+    transferQueue->waitForIdle();
+    computeQueue->waitForIdle();
+    presentQueue->waitForIdle();
     device->waitIdle();
 }
 

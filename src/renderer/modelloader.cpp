@@ -80,9 +80,11 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
                 if (uniqueVertices.count(vertex) == 0) {
                     uniqueVertices[vertex] = static_cast<uint32_t>(meshlets[materialID]->vertexData.size());
                     meshlets[materialID]->vertexData.push_back(vertex);
+                    meshlets[materialID]->indexData.push_back(static_cast<uint32_t>(
+                        meshlets[materialID]->vertexData.size()));
+                } else {
+                    meshlets[materialID]->indexData.push_back(uniqueVertices[vertex]);
                 }
-
-                meshlets[materialID]->indexData.push_back(uniqueVertices[vertex]);
             }
         }
 

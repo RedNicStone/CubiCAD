@@ -41,6 +41,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<CommandPool> computePool;
     std::shared_ptr<CommandPool> presentPool;
 
+    std::shared_ptr<CommandBuffer> drawCommandBuffer;
+
     // scene related objects
     CameraModel cameraModel;
     std::shared_ptr<Camera> camera;

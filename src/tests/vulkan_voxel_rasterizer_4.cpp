@@ -146,12 +146,12 @@ class VulkanRasterizer {
                                                      "basicMaterial");
         auto material = Material::create(masterMaterial);
         renderManager->getSceneWriter()->material = material;
-        model = renderManager->getMeshLibrary()->createMesh("resources/models/demo/sponza/sponza.obj", material)
+        model = renderManager->getMeshLibrary()->createMesh("/home/nic/Downloads/viking-room/viking-room.obj", material)
             .front();
 
-        for (size_t i = 0; i < 1; i++) {
+        for (size_t i = 0; i < 10; i++) {
             auto object = MeshInstance::create(model);
-            object->setScale(glm::vec3(0.1f));
+            object->setScale(glm::vec3(10.0f));
             object->setPosition(glm::normalize(glm::vec3(
                 static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
                 static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
