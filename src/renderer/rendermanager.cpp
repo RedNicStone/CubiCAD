@@ -366,3 +366,8 @@ RenderManager::~RenderManager() {
     device->waitIdle();
 }
 
+void RenderManager::updateRenderData() {
+    materialLibrary->pushParameters();
+    scene->bakeMaterials(true);
+}
+

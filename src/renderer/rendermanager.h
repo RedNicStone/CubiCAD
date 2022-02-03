@@ -106,6 +106,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
 
     void resizeSwapChain(uint32_t newImageCount = 0);
 
+    void updateRenderData();
     void drawFrame();
     void processInputs();
 
@@ -117,6 +118,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<UIRenderer> getUIRenderer() { return uiRenderer; }
     std::shared_ptr<Device> getDevice() { return device; }
     std::shared_ptr<RenderPass> getRenderPass() { return renderPass; }
+    std::shared_ptr<DescriptorPoolManager> getDescriptorManager() { return poolManager; }
 
     VkExtent2D getExtend() { return swapChainExtent; }
 

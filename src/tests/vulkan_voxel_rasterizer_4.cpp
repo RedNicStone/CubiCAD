@@ -139,12 +139,24 @@ class VulkanRasterizer {
         materialProperty.format = MATERIAL_PROPERTY_FORMAT_UINT;
 
         MaterialPropertyLayout propertyLayout{{ materialProperty }};
+        auto layoutBuilt = buildLayout(propertyLayout);
 
         auto masterMaterial = MasterMaterial::create(renderManager->getDevice(), shaders, 2, renderManager->getExtend(),
-                                                     propertyLayout,
+                                                     layoutBuilt,
                                                      renderManager->getRenderPass(),
+                                                     renderManager->getDescriptorManager(),
                                                      "basicMaterial");
-        auto material = Material::create(masterMaterial);
+        masterMaterial->updateImageSampler(renderManager->getTextureLibrary());
+
+        auto texture = renderManager->getTextureLibrary()->createTexture("/home/nic/Downloads/viking-room/viking-room"
+                                                                         ".png", VK_FORMAT_R8G8B8A8_UNORM);
+
+        char* parameters = new char[layoutBuilt.totalSize];
+        auto data = glm::vec3(1, 1, 1);
+        memcpy(parameters, layoutBuilt.properties[0]->cast(&data), layoutBuilt.properties[0]->getSize());
+
+        auto material = Material::create(masterMaterial, renderManager->getDescriptorManager(), { texture },
+                                         parameters);
         renderManager->getSceneWriter()->material = material;
         model = renderManager->getMeshLibrary()->createMesh("/home/nic/Downloads/viking-room/viking-room.obj", material)
             .front();

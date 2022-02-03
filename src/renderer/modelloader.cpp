@@ -54,9 +54,10 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
         bbox.pos1 = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data());
         bbox.pos2 = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data());
 
+        std::unordered_map<Vertex, uint32_t> uniqueVertices{};
+
         // Loop over faces(polygon)
         for (size_t f = 0; f < shape.mesh.num_face_vertices.size(); f++) {
-            std::unordered_map<Vertex, uint32_t> uniqueVertices{};
 
             int materialID = shape.mesh.material_ids[f];
             if (meshlets[materialID] == nullptr) {
@@ -68,8 +69,11 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
                 tinyobj::index_t idx = shape.mesh.indices[f * 3 + v];
 
                 Vertex vertex{};
-                vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + size_t(idx.vertex_index));
+                vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + 3*size_t(idx.vertex_index));
                 if (idx.texcoord_index >= 0) {
+                    vertex.uv = {        attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 0)],
+                                  1.0f - attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 1)]
+                    };
                     vertex.uv = *reinterpret_cast<const glm::vec2*>(attrib.texcoords.data()
                         + 2*size_t(idx.texcoord_index));
                 }
@@ -79,12 +83,11 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
 
                 if (uniqueVertices.count(vertex) == 0) {
                     uniqueVertices[vertex] = static_cast<uint32_t>(meshlets[materialID]->vertexData.size());
-                    meshlets[materialID]->vertexData.push_back(vertex);
                     meshlets[materialID]->indexData.push_back(static_cast<uint32_t>(
-                        meshlets[materialID]->vertexData.size()));
-                } else {
+                                                                  meshlets[materialID]->vertexData.size()));
+                    meshlets[materialID]->vertexData.push_back(vertex);
+                } else
                     meshlets[materialID]->indexData.push_back(uniqueVertices[vertex]);
-                }
             }
         }
 

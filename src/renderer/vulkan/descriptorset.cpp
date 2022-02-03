@@ -133,8 +133,20 @@ void DescriptorSet::updateImage(const std::shared_ptr<ImageView> &imageView,
     vkUpdateDescriptorSets(device->getHandle(), 1, &write, 0, nullptr);
 }
 
-DescriptorSet::~DescriptorSet() {
-    vkFreeDescriptorSets(device->getHandle(), pool->getHandle(), 1, &handle);
+void DescriptorSet::updateImageSampler(const std::shared_ptr<Sampler> &sampler,
+                                               uint32_t binding) {
+    VkDescriptorImageInfo samplerInfo = {};
+    samplerInfo.sampler = sampler->getHandle();
+
+    VkWriteDescriptorSet write = {};
+    write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    write.dstSet = handle;
+    write.dstBinding = binding;
+    write.descriptorType = VK_DESCRIPTOR_TYPE_SAMPLER;
+    write.descriptorCount = 1;
+    write.pImageInfo = &samplerInfo;
+
+    vkUpdateDescriptorSets(device->getHandle(), 1, &write, 0, nullptr);
 }
 
 void DescriptorSet::updateUniformBuffer(const std::shared_ptr<UniformBuffer> &buffer,
@@ -196,4 +208,32 @@ void DescriptorSet::updateUniformBuffer(std::vector<std::shared_ptr<UniformBuffe
                            writeDescriptorSets.data(),
                            0,
                            nullptr);
+}
+
+void DescriptorSet::updateUniformBuffer(const std::shared_ptr<Buffer> &buffer,
+                                        uint32_t binding,
+                                        VkDeviceSize size,
+                                        VkDeviceSize offset,
+                                        uint32_t arrayElement) {
+    VkDescriptorBufferInfo info{};
+    info.buffer = buffer->getHandle();
+    info.range = size;
+    info.offset = offset;
+
+    VkWriteDescriptorSet write{};
+    write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    write.dstSet = handle;
+    write.dstBinding = binding;
+    write.dstArrayElement = arrayElement;
+    write.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    write.descriptorCount = 1;
+    write.pBufferInfo = &info;
+    write.pImageInfo = nullptr;
+    write.pTexelBufferView = nullptr;
+
+    vkUpdateDescriptorSets(device->getHandle(), 1, &write, 0, nullptr);
+}
+
+DescriptorSet::~DescriptorSet() {
+    vkFreeDescriptorSets(device->getHandle(), pool->getHandle(), 1, &handle);
 }

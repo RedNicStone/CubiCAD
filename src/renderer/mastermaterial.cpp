@@ -6,27 +6,30 @@
 
 
 std::shared_ptr<MasterMaterial> MasterMaterial::create(const std::shared_ptr<Device>& pDevice, const
-std::vector<std::shared_ptr<GraphicsShader>>& vShaders, uint32_t vColorBlendStates, VkExtent2D vExtent, const MaterialPropertyLayout& layout, const
+std::vector<std::shared_ptr<GraphicsShader>>& vShaders, uint32_t vColorBlendStates, VkExtent2D vExtent, const
+MaterialPropertyLayoutBuilt& layout, const
 std::shared_ptr<RenderPass>&
-pRenderPass, const std::string& pName) {
+pRenderPass, const std::shared_ptr<DescriptorPoolManager>& descriptorManager, const std::string& pName) {
     auto material = std::make_shared<MasterMaterial>();
     material->device = pDevice;
     material->extent = vExtent;
     material->shaders = vShaders;
     material->renderPass = pRenderPass;
     material->colorBlendStates = vColorBlendStates;
-    material->propertyLayout = buildLayout(layout);
+    material->propertyLayout = layout;
 
     if (pName.empty())
         material->name = "UnnamedMaterial";
     else
         material->name = pName;
 
+    material->generateMaterialSetLayout();
+    material->masterMaterialSet = descriptorManager->allocate(material->masterMaterialSetLayout);
     return material;
 }
 
 void MasterMaterial::generateMaterialSetLayout() {
-    std::vector<VkDescriptorSetLayoutBinding> layoutBindings(3);
+    std::vector<VkDescriptorSetLayoutBinding> layoutBindings(2);
     layoutBindings[0].binding = 0;
     layoutBindings[0].pImmutableSamplers = nullptr;
     layoutBindings[0].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
@@ -36,28 +39,30 @@ void MasterMaterial::generateMaterialSetLayout() {
     layoutBindings[1].binding = 1;
     layoutBindings[1].pImmutableSamplers = nullptr;
     layoutBindings[1].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    layoutBindings[1].descriptorType = VK_DESCRIPTOR_TYPE_SAMPLER;
-    layoutBindings[1].descriptorCount = 1;
-
-    layoutBindings[2].binding = 2;
-    layoutBindings[2].pImmutableSamplers = nullptr;
-    layoutBindings[2].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    layoutBindings[2].descriptorType = VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE;
+    layoutBindings[1].descriptorType = VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE;
 
     uint32_t imageCount = 0;
     for (const auto& property : propertyLayout.properties)
         if (property->input & MATERIAL_PROPERTY_INPUT_TEXTURE)
             imageCount++;
 
-    layoutBindings[2].descriptorCount = imageCount;
+    layoutBindings[1].descriptorCount = imageCount;
+    
+    std::vector<VkDescriptorSetLayoutBinding> masterLayoutBindings(1);
+    masterLayoutBindings[0].binding = 0;
+    masterLayoutBindings[0].pImmutableSamplers = nullptr;
+    masterLayoutBindings[0].stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    masterLayoutBindings[0].descriptorType = VK_DESCRIPTOR_TYPE_SAMPLER;
+    masterLayoutBindings[0].descriptorCount = 1;
 
     materialSetLayout = DescriptorSetLayout::create(device, layoutBindings);
+    masterMaterialSetLayout = DescriptorSetLayout::create(device, masterLayoutBindings);
 }
 
-void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout, bool
-enableDepthStencil) {
-    std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{ sceneLayout/*, masterMaterialSetLayout,
-                                                                         materialSetLayout*/ }; //todo
+void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout>& sceneLayout,
+                                                bool enableDepthStencil) {
+    std::vector<std::shared_ptr<DescriptorSetLayout>> descriptorLayouts{ sceneLayout, masterMaterialSetLayout,
+                                                                         materialSetLayout };
 
     pipelineLayout = PipelineLayout::create(device, descriptorLayouts);
 
@@ -77,6 +82,10 @@ enableDepthStencil) {
     pipeline = GraphicsPipeline::create(device, pipelineLayout, shaders, renderPass, colorBlendStates, extent,
                                         VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, VK_CULL_MODE_NONE,
                                         VK_FRONT_FACE_CLOCKWISE, bindingDescription, attributeDescription, enableDepthStencil);
+}
+
+void MasterMaterial::updateImageSampler(const std::shared_ptr<TextureLibrary> &textureLibrary) {
+    masterMaterialSet->updateImageSampler(textureLibrary->getSampler(), 0);
 }
 
 std::string MasterMaterial::generateMaterialName() {

@@ -18,6 +18,7 @@
 #include "descriptorpool.h"
 #include "imageview.h"
 #include "uniformbuffer.h"
+#include "sampler.h"
 
 
 class UniformBuffer;
@@ -53,7 +54,15 @@ class DescriptorSet : public VulkanClass<VkDescriptorSet> {
                              std::vector<VkDeviceSize> offset = {},
                              std::vector<uint32_t> arrayElement = {});
 
-    //void updateCombinedImageSampler()  // todo implement samplers
+    void updateUniformBuffer(const std::shared_ptr<Buffer>& buffer,
+                             uint32_t binding,
+                             VkDeviceSize size,
+                             VkDeviceSize offset = 0,
+                             uint32_t arrayElement = 0);
+
+    void updateImageSampler(const std::shared_ptr<Sampler> &sampler,
+                                    uint32_t binding);
+
     void updateStorageBuffer(const std::shared_ptr<Buffer> &buffer,
                              uint32_t binding,
                              uint32_t arrayElement = 0,

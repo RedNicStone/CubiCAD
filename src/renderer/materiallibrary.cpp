@@ -33,20 +33,28 @@ std::shared_ptr<MaterialLibrary> MaterialLibrary::create(const std::shared_ptr<D
 
 std::shared_ptr<Material> MaterialLibrary::registerShader(const std::shared_ptr<Material>& material) {
     materials[material->getMasterMaterial()].push_back(material);
+    material->updateParameterBufferOffset(bufferSize + bufferOODSize);
     bufferOODSize += material->getMasterMaterial()->getParameterSize();
 }
 
 void MaterialLibrary::pushParameters() {
     if (bufferOODSize > 0) {
-        std::vector<std::shared_ptr<Material>> materialVector{};
-        for (const auto& material : materials) {
-            materialVector.insert(materialVector.end(), material.second.begin(), material.second.end());
-        }
+        std::vector<char> parameterBuffer(bufferSize + bufferOODSize);
+        for (const auto& pair : materials)
+            for (const auto& material : pair.second)
+                parameterBuffer.insert(parameterBuffer.end(), static_cast<char*>(material->getParameters()),
+                                       static_cast<char*>(material->getParameters()) + pair.first->getParameterSize());
 
+        auto prevBuffer = materialBuffer->getBuffer();
         materialBuffer->getBufferPreserveContents(bufferSize + bufferOODSize, transferPool)
-                      ->transferDataStaged(materialVector.data() + bufferSize, transferPool, bufferOODSize, bufferSize);
+                      ->transferDataStaged(parameterBuffer.data() + bufferSize, transferPool, bufferOODSize, bufferSize);
 
         bufferSize += bufferOODSize;
         bufferOODSize = 0;
+
+        if (prevBuffer != materialBuffer->getBuffer())
+            for (const auto& pair : materials)
+                for (const auto& material : pair.second)
+                    material->updateParameterBuffer(materialBuffer->getBuffer());
     }
 }
