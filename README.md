@@ -1,6 +1,6 @@
 \
 <a href="link" style="text-align: center">
-<img src="resources/icons/cubicad_logo_rv1.svg" alt="CubiCAD" width="75%" align="center"/></a>
+<img src="resources/icons/cubicad_logo_rv1.svg" alt="CubiCAD" width="100%" align="center"/></a>
 
 ---
 [![Build](https://img.shields.io/badge/powered_by-VULKAN-red.svg?style=for-the-badge)]()
