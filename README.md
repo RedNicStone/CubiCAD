@@ -1,3 +1,4 @@
+\
 ![CubiCAD](resources/icons/cubicad_logo_rv1.svg)
 
 ---
