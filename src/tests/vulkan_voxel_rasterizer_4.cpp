@@ -135,8 +135,8 @@ class VulkanRasterizer {
         materialProperty.input =
             static_cast<MaterialPropertyInput>(MATERIAL_PROPERTY_INPUT_CONSTANT | MATERIAL_PROPERTY_INPUT_TEXTURE);
         materialProperty.size = MATERIAL_PROPERTY_SIZE_8;
-        materialProperty.count = MATERIAL_PROPERTY_COUNT_3;
-        materialProperty.format = MATERIAL_PROPERTY_FORMAT_UINT;
+        materialProperty.count = MATERIAL_PROPERTY_COUNT_4;
+        materialProperty.format = MATERIAL_PROPERTY_FORMAT_SRGB;
 
         MaterialPropertyLayout propertyLayout{{ materialProperty }};
         auto layoutBuilt = buildLayout(propertyLayout);
@@ -149,7 +149,7 @@ class VulkanRasterizer {
         masterMaterial->updateImageSampler(renderManager->getTextureLibrary());
 
         auto texture = renderManager->getTextureLibrary()->createTexture("/home/nic/Downloads/viking-room/viking-room"
-                                                                         ".png", VK_FORMAT_R8G8B8A8_UNORM);
+                                                                         ".png", layoutBuilt.properties[0]->pixelFormat);
 
         char* parameters = new char[layoutBuilt.totalSize];
         auto data = glm::vec3(1, 1, 1);
@@ -161,17 +161,14 @@ class VulkanRasterizer {
         model = renderManager->getMeshLibrary()->createMesh("/home/nic/Downloads/viking-room/viking-room.obj", material)
             .front();
 
-        for (size_t i = 0; i < 10; i++) {
-            auto object = MeshInstance::create(model);
-            object->setScale(glm::vec3(10.0f));
-            object->setPosition(glm::normalize(glm::vec3(
-                static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
-                static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
-                static_cast <float> (rand()) / static_cast <float> (RAND_MAX))
-                - glm::vec3(0.5f)) *
-            glm::vec3(20));
-            objects.push_back(object);
-        }
+        for (size_t x = 0; x < 20; x++)
+            for (size_t y = 0; y < 20; y++)
+                for (size_t z = 0; z < 20; z++) {
+                    auto object = MeshInstance::create(model);
+                    object->setScale(glm::vec3(10.0f));
+                    object->setPosition(glm::vec3(x, y, z) * glm::vec3(3));
+                    objects.push_back(object);
+                }
     }
 
     void createScene() {

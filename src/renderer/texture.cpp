@@ -23,7 +23,7 @@ std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device>& pDevice,
                                    accessingQueues);
     texture->image->transferDataStaged(data, transferPool,
                                        static_cast<VkDeviceSize>(
-                                           static_cast<uint>(texWidth * texHeight * texChannels)));
+                                           static_cast<uint>(texWidth * texHeight * 4)));
 
     texture->imageView = texture->image->createImageView(VK_IMAGE_VIEW_TYPE_2D, { VK_IMAGE_ASPECT_COLOR_BIT, 0,
                                                                                   textureSettings.mipLevels, 0, 1 });

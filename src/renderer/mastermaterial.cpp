@@ -72,7 +72,7 @@ void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<Descriptor
     };
     std::vector<VkVertexInputAttributeDescription> attributeDescription {
         { 0, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, pos) },
-        { 1, 0, VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex, uv) },
+        { 1, 0, VK_FORMAT_R16G16_UNORM, offsetof(Vertex, uv) },
         { 2, 1, VK_FORMAT_R32_UINT, offsetof(InstanceData, objectID) },
         { 3, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 0 },
         { 4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 1 },

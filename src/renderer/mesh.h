@@ -31,7 +31,7 @@ struct BoundingBox {
 
 struct Vertex {
     glm::vec3 pos;
-    glm::vec2 uv;
+    glm::u16vec2 uv;
 
     bool operator ==(const Vertex& other) const {
         return pos == other.pos && uv == other.uv;

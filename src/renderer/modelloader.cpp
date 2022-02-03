@@ -71,11 +71,10 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
                 Vertex vertex{};
                 vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + 3*size_t(idx.vertex_index));
                 if (idx.texcoord_index >= 0) {
-                    vertex.uv = {        attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 0)],
-                                  1.0f - attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 1)]
+                    vertex.uv =
+                        { (       attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 0)]) * UINT16_MAX,
+                          (1.0f - attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 1)]) * UINT16_MAX
                     };
-                    vertex.uv = *reinterpret_cast<const glm::vec2*>(attrib.texcoords.data()
-                        + 2*size_t(idx.texcoord_index));
                 }
 
                 bbox.pos1 = glm::min(bbox.pos1, vertex.pos);

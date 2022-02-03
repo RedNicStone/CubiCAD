@@ -119,7 +119,7 @@ void DescriptorSet::updateImage(const std::shared_ptr<ImageView> &imageView,
                                 uint32_t arrayElement) {
     VkDescriptorImageInfo info = {};
     info.imageView = imageView->getHandle();
-    info.imageLayout = VK_IMAGE_LAYOUT_GENERAL;
+    info.imageLayout = imageView->getImage()->getLayout();
 
     VkWriteDescriptorSet write = {};
     write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;

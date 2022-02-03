@@ -45,6 +45,6 @@ float xor(float an) {
 void main() {
     vec4 color = texture(sampler2D(color, samp), vert_uv);
     float brightness = (int(vert_instance_id == scene_info.selectedID) * 2 + int(vert_instance_id == scene_info.hoveredID)) / 3.0f;
-    pixel_color = vec4(color + vec4(vec3(brightness), 1.0f));
+    pixel_color = vec4(color + vec4(vec3(brightness) / 3, 1.0f));
     instance_id = vert_instance_id;
 }
