@@ -1,5 +1,16 @@
 var NAVTREEINDEX6 =
 {
+"struct_c_c_a_d___o_t_1_1_ot_node.html#a6989b8cbe96fd9d517bbcbae12f43861":[0,0,0,9,5],
+"struct_c_c_a_d___o_t_1_1_ot_node.html#a8c96d3e218d8b3e783b2173748e32884":[0,0,0,9,1],
+"struct_c_c_a_d___o_t_1_1_ot_node.html#a8c96d3e218d8b3e783b2173748e32884":[2,0,0,9,1],
+"struct_c_c_a_d___o_t_1_1_ot_node.html#aa48041619787206890784ff72fb1f040":[2,0,0,9,8],
+"struct_c_c_a_d___o_t_1_1_ot_node.html#aa48041619787206890784ff72fb1f040":[0,0,0,9,8],
+"struct_c_c_a_d___o_t_1_1_ot_node.html#ac5ead1f8746ea9a457766b07f87956f1":[0,0,0,9,2],
+"struct_c_c_a_d___o_t_1_1_ot_node.html#ac5ead1f8746ea9a457766b07f87956f1":[2,0,0,9,2],
+"struct_c_c_a_d___o_t_1_1_ot_node_info.html":[2,0,0,10],
+"struct_c_c_a_d___o_t_1_1_ot_node_info.html":[0,0,0,10],
+"struct_c_c_a_d___o_t_1_1_ot_node_info.html#aea6e854fe9d6735ce954a99af6d72e1d":[2,0,0,10,0],
+"struct_c_c_a_d___o_t_1_1_ot_node_info.html#aea6e854fe9d6735ce954a99af6d72e1d":[0,0,0,10,0],
 "struct_c_c_a_d___o_t_1_1_ot_node_info_rendered.html":[0,0,0,11],
 "struct_c_c_a_d___o_t_1_1_ot_node_info_rendered.html":[2,0,0,11],
 "struct_c_c_a_d___o_t_1_1_ot_node_info_rendered.html#a0810c88cf96cc14b353df8a898694cf3":[2,0,0,11,0],
@@ -238,16 +249,5 @@ var NAVTREEINDEX6 =
 "vec__abs_8h_source.html":[3,0,0,0,2],
 "vectors_8cpp.html":[3,0,0,2,2],
 "vectors_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[3,0,0,2,2,0],
-"voxels_8cpp.html":[3,0,0,2,3],
-"voxels_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[3,0,0,2,3,0],
-"vulkan__voxel__rasterizer_8cpp.html":[3,0,0,2,4],
-"vulkan__voxel__rasterizer_8cpp.html#a53aeecf6b7ba36273b6998fbd206ca7d":[3,0,0,2,4,0],
-"vulkan__voxel__rasterizer_8cpp.html#a816ab7d5c2ce1f0a01216042837beb93":[3,0,0,2,4,2],
-"vulkan__voxel__rasterizer_8cpp.html#aa53e0967978ad7a8792f6961156ec968":[3,0,0,2,4,1],
-"vulkan__voxel__rasterizer_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[3,0,0,2,4,3],
-"vulkan__voxel__rasterizer__2_8cpp.html":[3,0,0,2,5],
-"vulkan__voxel__rasterizer__2_8cpp.html#a01f70da5135a8b83a8503403cbb12b89":[3,0,0,2,5,13],
-"vulkan__voxel__rasterizer__2_8cpp.html#a110637c1f80f9ffe303710de239c3e4d":[3,0,0,2,5,14],
-"vulkan__voxel__rasterizer__2_8cpp.html#a148524a91f02c13ea45df29fc6b6d4d8":[3,0,0,2,5,6],
-"vulkan__voxel__rasterizer__2_8cpp.html#a49efd1f0915380f5061abe035382f615":[3,0,0,2,5,8]
+"voxels_8cpp.html":[3,0,0,2,3]
 };

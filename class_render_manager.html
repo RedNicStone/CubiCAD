@@ -119,6 +119,8 @@ Collaboration diagram for RenderManager:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab087dc4ee1c6e377ca52ee44d1591c29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ab087dc4ee1c6e377ca52ee44d1591c29">resizeSwapChain</a> (uint32_t newImageCount=0)</td></tr>
 <tr class="separator:ab087dc4ee1c6e377ca52ee44d1591c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46bda20725ceb8e5ab8031a6ac812310"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a46bda20725ceb8e5ab8031a6ac812310">updateRenderData</a> ()</td></tr>
+<tr class="separator:a46bda20725ceb8e5ab8031a6ac812310"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c50623b736ac72b1d019df1267c08c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a3c50623b736ac72b1d019df1267c08c4">drawFrame</a> ()</td></tr>
 <tr class="separator:a3c50623b736ac72b1d019df1267c08c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ad73ebab2e62c49c839e88800197195"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a6ad73ebab2e62c49c839e88800197195">processInputs</a> ()</td></tr>
@@ -139,6 +141,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aad0992d46593bcae5da445813f8f8c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaff158c93a4f17c64cb756213dd39e78"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#aaff158c93a4f17c64cb756213dd39e78">getRenderPass</a> ()</td></tr>
 <tr class="separator:aaff158c93a4f17c64cb756213dd39e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a593be76185c696a41b06e2eedcbf7380"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a593be76185c696a41b06e2eedcbf7380">getDescriptorManager</a> ()</td></tr>
+<tr class="separator:a593be76185c696a41b06e2eedcbf7380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a986454209acea0803e546949981371be"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a986454209acea0803e546949981371be">getExtend</a> ()</td></tr>
 <tr class="separator:a986454209acea0803e546949981371be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a221c4de19c04ad31cc1e729b9eb60c3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a221c4de19c04ad31cc1e729b9eb60c3b">~RenderManager</a> ()</td></tr>
@@ -644,6 +648,31 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a593be76185c696a41b06e2eedcbf7380" name="a593be76185c696a41b06e2eedcbf7380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a593be76185c696a41b06e2eedcbf7380">&#9670;&nbsp;</a></span>getDescriptorManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt; RenderManager::getDescriptorManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aad0992d46593bcae5da445813f8f8c8c" name="aad0992d46593bcae5da445813f8f8c8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad0992d46593bcae5da445813f8f8c8c">&#9670;&nbsp;</a></span>getDevice()</h2>
 
@@ -1145,6 +1174,23 @@ Here is the call graph for this function:</div>
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_ab087dc4ee1c6e377ca52ee44d1591c29_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
+
+</div>
+</div>
+<a id="a46bda20725ceb8e5ab8031a6ac812310" name="a46bda20725ceb8e5ab8031a6ac812310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46bda20725ceb8e5ab8031a6ac812310">&#9670;&nbsp;</a></span>updateRenderData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RenderManager::updateRenderData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
