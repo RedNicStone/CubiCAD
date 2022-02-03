@@ -170,7 +170,7 @@ var NAVTREEINDEX6 =
 "struct_vertex.html":[2,0,103],
 "struct_vertex.html#a80a54a84866d511b63bcc6f38899bed9":[2,0,103,0],
 "struct_vertex.html#a858242dc7b40c034c5e13c589b30cfb4":[2,0,103,1],
-"struct_vertex.html#a8d5cc8548016889746f251d98377ec8a":[2,0,103,2],
+"struct_vertex.html#ae1e72da6073d6020b2a1991a7c417ebb":[2,0,103,2],
 "struct_virtual_stack_allocation_1_1_mapped_page.html":[2,0,106,0],
 "struct_virtual_stack_allocation_1_1_mapped_page.html#acfc8ea3d51a7e7716f17b75a58f2c42e":[2,0,106,0,0],
 "struct_voxel_codec_octree_base_1_1_node_stack_element.html":[2,0,109,0],
