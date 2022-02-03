@@ -11,9 +11,9 @@
 
 ### A fast and modern vulkan rendering engine
 
-![](/home/nic/CLionProjects/CubiCAD/resources/screenshots/demo_vikingroom_8000.png)
+![](resources/screenshots/demo_vikingroom_8000.png)
 
-Currently in **heavy development** and barely usable at its current state.
+At the moment in **heavy development** and barely usable at its current state.
 
 ## Features
 
@@ -36,8 +36,8 @@ Currently in **heavy development** and barely usable at its current state.
 - And of course **fully open source**!!
 
 ## Building
-The project can be built using CMake and gcc.
-All project dependencies except for vulkan, cmake, std libraries and gcc should be included in this repository.
+The project can be built using CMake and gcc.\
+All project dependencies except for vulkan, cmake, std libraries and gcc should be included in this repository.\
 **MAKE SURE YOU HAVE THE VULKAN SDK INSTALLED BEFORE BUILDING**. You can download lunarG's version [there](https://www.lunarg.com/vulkan-sdk/).
 
 First, start by cloning the repository:
