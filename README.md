@@ -1,6 +1,8 @@
-# CubiCAD
+![CubiCAD](resources/icons/cubicad_logo_rv1.svg)
+
+---
 [![Build](https://img.shields.io/badge/powered_by-VULKAN-red.svg?style=for-the-badge)]()
-[![forthebadge](https://img.shields.io/badge/runs_on-my_machine-orange.svg?style=for-the-badge)]()
+[![Runs on my machine](https://img.shields.io/badge/runs_on-my_machine-orange.svg?style=for-the-badge)]()
 [![Build](https://img.shields.io/badge/created_with-C++-green.svg?style=for-the-badge)]()
 
 [![Linux](https://img.shields.io/badge/os-linux-lightgray.svg?style=flat-square)]()
