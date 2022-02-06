@@ -44,7 +44,6 @@ class Material {
 
   public:
     static std::shared_ptr<Material> create(const std::shared_ptr<MasterMaterial>& pMasterMaterial,
-                                            const std::shared_ptr<DescriptorPoolManager>& descriptorManager,
                                             const std::vector<std::shared_ptr<Texture>>& textures,
                                             void *parameters,
                                             const std::string& pName = "");

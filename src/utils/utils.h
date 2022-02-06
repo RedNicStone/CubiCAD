@@ -12,6 +12,9 @@
 #include <unordered_set>
 
 
+//static inline constexpr uint32_t hash(const std::string_view data) noexcept;
+//static inline constexpr uint32_t operator"" _hash(const char* str, size_t len) noexcept;
+
 class Utils {
   public:
     static std::vector<char> readFile(const std::string &filename);
@@ -39,6 +42,19 @@ void Utils::remove(std::vector<type> &v) {
     });
 
     v.erase(end, v.end());
+}
+
+constexpr uint32_t hash(const std::string_view data) noexcept {
+    uint32_t hash = 5381;
+
+    for(const char *c = data.data(); c < data.data() + data.size(); ++c)
+        hash = ((hash << 5) + hash) + (unsigned char) *c;
+
+    return hash;
+}
+
+constexpr uint32_t operator"" _hash(const char *str, size_t len) noexcept {
+    return hash(std::string_view{str, len});
 }
 
 #endif //CUBICAD_UTILS_H

@@ -23,6 +23,7 @@ pRenderPass, const std::shared_ptr<DescriptorPoolManager>& descriptorManager, co
     else
         material->name = pName;
 
+    material->descriptorManager = descriptorManager;
     material->generateMaterialSetLayout();
     material->masterMaterialSet = descriptorManager->allocate(material->masterMaterialSetLayout);
     return material;

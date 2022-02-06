@@ -33,3 +33,4 @@ uint_fast8_t Utils::getMSB(uint_fast64_t x)
         res++;
     return res - 1;
 }
+

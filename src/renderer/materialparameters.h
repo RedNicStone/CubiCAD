@@ -60,6 +60,8 @@ struct MaterialPropertyBuiltGeneric {
     MaterialPropertyInput input{};
     VkFormat pixelFormat{};
 
+    std::string attributeName{};
+
     [[nodiscard]] virtual void* allocate() const {};
     virtual void* cast(void* obj) const {};
     [[nodiscard]] virtual size_t getSize() const { return 0; }

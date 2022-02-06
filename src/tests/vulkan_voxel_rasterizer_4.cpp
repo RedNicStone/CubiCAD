@@ -116,7 +116,7 @@ class VulkanRasterizer {
         renderManager->getUIRenderer()->submitDrawable(objectList);
         renderManager->getSceneWriter()->setFilename(renderManager->getSceneWriter()->getFilename()
                                                      + "/resources/saves/test.ccs");
-        menuBar = MainMenu::create(renderManager->getTextureLibrary(), renderManager->getSceneWriter());
+        menuBar = MainMenu::create(renderManager);
         renderManager->getUIRenderer()->submitDrawable(menuBar);
     }
 
@@ -161,9 +161,9 @@ class VulkanRasterizer {
         model = renderManager->getMeshLibrary()->createMesh("/home/nic/Downloads/viking-room/viking-room.obj", material)
             .front();
 
-        for (size_t x = 0; x < 20; x++)
-            for (size_t y = 0; y < 20; y++)
-                for (size_t z = 0; z < 20; z++) {
+        for (size_t x = 0; x < 1; x++)
+            for (size_t y = 0; y < 1; y++)
+                for (size_t z = 0; z < 1; z++) {
                     auto object = MeshInstance::create(model);
                     object->setScale(glm::vec3(10.0f));
                     object->setPosition(glm::vec3(x, y, z) * glm::vec3(3));
