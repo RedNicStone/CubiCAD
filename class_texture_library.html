@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_texture_library.html',''); initR
 <div class="dynheader">
 Collaboration diagram for TextureLibrary:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_texture_library__coll__graph.svg" width="164" height="346"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_texture_library__coll__graph.svg" width="164" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -115,6 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4f5a7b0be372a2f028e146f93fc64af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0f63f82fff899b6730eab332af2db24"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_sampler.html">Sampler</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#ad0f63f82fff899b6730eab332af2db24">getSampler</a> ()</td></tr>
 <tr class="separator:ad0f63f82fff899b6730eab332af2db24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b37651bf4803f4b971c4a6d588d111e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a9b37651bf4803f4b971c4a6d588d111e">getDefaultTexture</a> ()</td></tr>
+<tr class="separator:a9b37651bf4803f4b971c4a6d588d111e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -133,6 +135,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ad82f41d124a7bac10234dc0e06fedc8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f43af39b074c40ab1dd6e17921b0524"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a2f43af39b074c40ab1dd6e17921b0524">settings</a></td></tr>
 <tr class="separator:a2f43af39b074c40ab1dd6e17921b0524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34e1c6ebe9bc86d77b375c1da016f6a1"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a34e1c6ebe9bc86d77b375c1da016f6a1">defaultTexture</a></td></tr>
+<tr class="separator:a34e1c6ebe9bc86d77b375c1da016f6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04fb27614d94097125e4a9bb0a1e3cbf"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a04fb27614d94097125e4a9bb0a1e3cbf">textures</a> {}</td></tr>
 <tr class="separator:a04fb27614d94097125e4a9bb0a1e3cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -191,7 +195,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_texture_library_aa8905251fa5e575eff741fa978eae401_icgraph.svg" width="635" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_texture_library_aa8905251fa5e575eff741fa978eae401_icgraph.svg" width="642" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -228,6 +232,31 @@ Here is the call graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="class_texture_library_a414fd2975f62d890de3cc711db38aa8b_cgraph.svg" width="503" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
+
+</div>
+</div>
+<a id="a9b37651bf4803f4b971c4a6d588d111e" name="a9b37651bf4803f4b971c4a6d588d111e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b37651bf4803f4b971c4a6d588d111e">&#9670;&nbsp;</a></span>getDefaultTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; TextureLibrary::getDefaultTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -282,6 +311,28 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a34e1c6ebe9bc86d77b375c1da016f6a1" name="a34e1c6ebe9bc86d77b375c1da016f6a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34e1c6ebe9bc86d77b375c1da016f6a1">&#9670;&nbsp;</a></span>defaultTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_texture.html">Texture</a>&gt; TextureLibrary::defaultTexture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a848070076e9709e26d564a57db97ac31" name="a848070076e9709e26d564a57db97ac31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a848070076e9709e26d564a57db97ac31">&#9670;&nbsp;</a></span>device</h2>
 

@@ -67,12 +67,12 @@ var NAVTREEINDEX =
 [
 "_allocation_handler_8cpp.html",
 "class_dynamic_buffer.html#ab8d3ee7193752312deddf498f96c11ff",
-"class_material_library.html#adc301b28f54c453b75cb246d0d95d934",
-"class_scene.html#a5eb3ad80f2336e39757b3ea61052392a",
-"class_vulkan_class.html#ab80d85ecc859b610cedefe8f0974b8c7",
-"materialparameters_8h.html#ab1fb05fec9e7b4b80228a663019d3297",
-"struct_c_c_a_d___o_t_1_1_ot_node.html#a23ff303eaaf51d3207e5700a682bc0f9",
-"utils_8h.html#a6a2854f5473fd18643d94cf402923b91"
+"class_material_library.html#aa8f3c235314eb9aaad545f5ec8d3d5ac",
+"class_scene.html#a44a115503c209391850adb60390b7341",
+"class_voxel_fragment_stream_buffered.html#a8c412477faba00eaafaa1c6ce9d26430",
+"materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93aac7c37c00015f6fe95ba9dd5b70119bc",
+"struct_c_c_a_d___o_t_1_1_ot_mat_info_textured.html#ae86c7c57aa9521f9f57b3fe26a82d506",
+"union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#ac929aba0a8bab0145875e5d1ac6a3e55"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

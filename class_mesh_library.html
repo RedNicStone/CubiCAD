@@ -109,15 +109,15 @@ Collaboration diagram for MeshLibrary:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac0b4441dd015ac52738498740e5ad16f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#ac0b4441dd015ac52738498740e5ad16f">createMesh</a> (const std::string &amp;filename, const std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; &amp;material)</td></tr>
-<tr class="separator:ac0b4441dd015ac52738498740e5ad16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec66872929b8534654e5e7c073fdd28b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#aec66872929b8534654e5e7c073fdd28b">createMesh</a> (const std::string &amp;filename, const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;material)</td></tr>
+<tr class="separator:aec66872929b8534654e5e7c073fdd28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9fd411bc7b21e8da873f567b33d488c"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#ac9fd411bc7b21e8da873f567b33d488c">getMeshes</a> ()</td></tr>
 <tr class="separator:ac9fd411bc7b21e8da873f567b33d488c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a19fb3a7539fd79d9b9db9f7f996546eb"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh_library.html">MeshLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#a19fb3a7539fd79d9b9db9f7f996546eb">create</a> ()</td></tr>
-<tr class="separator:a19fb3a7539fd79d9b9db9f7f996546eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3c816d442454c82fa75b37698ee7f5d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_mesh_library.html">MeshLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#ae3c816d442454c82fa75b37698ee7f5d">create</a> (const std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; &amp;textureLibrary, const std::shared_ptr&lt; <a class="el" href="class_material_library.html">MaterialLibrary</a> &gt; &amp;materialLibrary)</td></tr>
+<tr class="separator:ae3c816d442454c82fa75b37698ee7f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -127,8 +127,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a67aa1bdac523541b67df3908f58cf408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a19fb3a7539fd79d9b9db9f7f996546eb" name="a19fb3a7539fd79d9b9db9f7f996546eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19fb3a7539fd79d9b9db9f7f996546eb">&#9670;&nbsp;</a></span>create()</h2>
+<a id="ae3c816d442454c82fa75b37698ee7f5d" name="ae3c816d442454c82fa75b37698ee7f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c816d442454c82fa75b37698ee7f5d">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,8 +139,19 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_mesh_library.html">MeshLibrary</a> &gt; MeshLibrary::create </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>textureLibrary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_material_library.html">MaterialLibrary</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>materialLibrary</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -152,20 +163,20 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_library_a19fb3a7539fd79d9b9db9f7f996546eb_cgraph.svg" width="332" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_library_ae3c816d442454c82fa75b37698ee7f5d_cgraph.svg" width="332" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_library_a19fb3a7539fd79d9b9db9f7f996546eb_icgraph.svg" width="623" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_mesh_library_ae3c816d442454c82fa75b37698ee7f5d_icgraph.svg" width="630" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="ac0b4441dd015ac52738498740e5ad16f" name="ac0b4441dd015ac52738498740e5ad16f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0b4441dd015ac52738498740e5ad16f">&#9670;&nbsp;</a></span>createMesh()</h2>
+<a id="aec66872929b8534654e5e7c073fdd28b" name="aec66872929b8534654e5e7c073fdd28b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec66872929b8534654e5e7c073fdd28b">&#9670;&nbsp;</a></span>createMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +190,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>material</em>&#160;</td>
         </tr>
         <tr>

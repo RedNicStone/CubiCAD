@@ -12,7 +12,6 @@ var class_vulkan_rasterizer =
     [ "instance", "class_vulkan_rasterizer.html#a84b9c6116ac93324ba050f411a7722fc", null ],
     [ "menuBar", "class_vulkan_rasterizer.html#affc76203c76e75c2ffaeb693f38572f0", null ],
     [ "model", "class_vulkan_rasterizer.html#a195bea31a82e12e4b2343a3a91ea9ab5", null ],
-    [ "modelLoader", "class_vulkan_rasterizer.html#a334bd5a104e3877f06cf2a8048d8beae", null ],
     [ "objectList", "class_vulkan_rasterizer.html#a7194927a29e9577789402cf11c6dd841", null ],
     [ "objectProperties", "class_vulkan_rasterizer.html#ab642206f2aa2d3095d2337926781080f", null ],
     [ "objects", "class_vulkan_rasterizer.html#aa3cfe72fb7e24245bc0257302eed46c0", null ],

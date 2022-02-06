@@ -103,21 +103,21 @@ $(document).ready(function(){initNavTree('class_material_library.html',''); init
 <div class="dynheader">
 Collaboration diagram for MaterialLibrary:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library__coll__graph.svg" width="147" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library__coll__graph.svg" width="147" height="220"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab00c10f7172383fcb1af964fd77e1b0c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#ab00c10f7172383fcb1af964fd77e1b0c">registerShader</a> (const std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; &amp;material)</td></tr>
-<tr class="separator:ab00c10f7172383fcb1af964fd77e1b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6291b4eccf9ccbee1cef7a4f84b6b113"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a6291b4eccf9ccbee1cef7a4f84b6b113">registerShader</a> (const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;masterMaterial, void *parameters, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &gt; textures={}, const std::string &amp;name=&quot;&quot;)</td></tr>
+<tr class="separator:a6291b4eccf9ccbee1cef7a4f84b6b113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a926b79a4183235c9efa6b6ae075c1054"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a926b79a4183235c9efa6b6ae075c1054">pushParameters</a> ()</td></tr>
 <tr class="separator:a926b79a4183235c9efa6b6ae075c1054"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af3b1fc40678d30d5921d0f1f1ebfa461"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_material_library.html">MaterialLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#af3b1fc40678d30d5921d0f1f1ebfa461">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;pTransferPool, const std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt; &amp;pDescriptorPool, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &gt; &amp;accessingQueues)</td></tr>
-<tr class="separator:af3b1fc40678d30d5921d0f1f1ebfa461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa7d877455a7fa8add2c07027f86aa47"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_material_library.html">MaterialLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#afa7d877455a7fa8add2c07027f86aa47">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;pTransferPool, const std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt; &amp;pDescriptorPool, const std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; &amp;<a class="el" href="class_material_library.html#aa11d60929fa8b3e5f5db61658f74a54a">textureLibrary</a>, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &gt; &amp;accessingQueues)</td></tr>
+<tr class="separator:afa7d877455a7fa8add2c07027f86aa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -133,12 +133,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a749af8a6b2993a12dadfa1d5ebeec288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8f3c235314eb9aaad545f5ec8d3d5ac"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#aa8f3c235314eb9aaad545f5ec8d3d5ac">descriptorPool</a></td></tr>
 <tr class="separator:aa8f3c235314eb9aaad545f5ec8d3d5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa11d60929fa8b3e5f5db61658f74a54a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#aa11d60929fa8b3e5f5db61658f74a54a">textureLibrary</a></td></tr>
+<tr class="separator:aa11d60929fa8b3e5f5db61658f74a54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d206be9abf38e89e99c8385ec5f9e58"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt;, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a6d206be9abf38e89e99c8385ec5f9e58">materials</a></td></tr>
 <tr class="separator:a6d206be9abf38e89e99c8385ec5f9e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af3b1fc40678d30d5921d0f1f1ebfa461" name="af3b1fc40678d30d5921d0f1f1ebfa461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3b1fc40678d30d5921d0f1f1ebfa461">&#9670;&nbsp;</a></span>create()</h2>
+<a id="afa7d877455a7fa8add2c07027f86aa47" name="afa7d877455a7fa8add2c07027f86aa47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa7d877455a7fa8add2c07027f86aa47">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,6 +169,12 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>textureLibrary</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>accessingQueues</em>&#160;</td>
         </tr>
@@ -185,13 +193,13 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library_af3b1fc40678d30d5921d0f1f1ebfa461_cgraph.svg" width="356" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library_afa7d877455a7fa8add2c07027f86aa47_cgraph.svg" width="356" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library_af3b1fc40678d30d5921d0f1f1ebfa461_icgraph.svg" width="638" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library_afa7d877455a7fa8add2c07027f86aa47_icgraph.svg" width="644" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -214,8 +222,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ab00c10f7172383fcb1af964fd77e1b0c" name="ab00c10f7172383fcb1af964fd77e1b0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab00c10f7172383fcb1af964fd77e1b0c">&#9670;&nbsp;</a></span>registerShader()</h2>
+<a id="a6291b4eccf9ccbee1cef7a4f84b6b113" name="a6291b4eccf9ccbee1cef7a4f84b6b113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6291b4eccf9ccbee1cef7a4f84b6b113">&#9670;&nbsp;</a></span>registerShader()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,12 +231,40 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; MaterialLibrary::registerShader </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>material</em></td><td>)</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>masterMaterial</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>parameters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>textures</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library_a6291b4eccf9ccbee1cef7a4f84b6b113_cgraph.svg" width="326" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
@@ -354,6 +390,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::map&lt;std::shared_ptr&lt;<a class="el" href="class_master_material.html">MasterMaterial</a>&gt;, std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_material.html">Material</a>&gt; &gt; &gt; MaterialLibrary::materials</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa11d60929fa8b3e5f5db61658f74a54a" name="aa11d60929fa8b3e5f5db61658f74a54a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11d60929fa8b3e5f5db61658f74a54a">&#9670;&nbsp;</a></span>textureLibrary</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_texture_library.html">TextureLibrary</a>&gt; MaterialLibrary::textureLibrary</td>
         </tr>
       </table>
   </td>

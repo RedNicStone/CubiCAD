@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 596;
+var viewWidth = 601;
 var viewHeight = 78;
 var sectionId = 'dynsection-2';
 </script>
@@ -58,8 +58,8 @@ var sectionId = 'dynsection-2';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="504,-22.5 504,-41.5 588,-41.5 588,-22.5 504,-22.5"/>
-<text text-anchor="middle" x="546" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">Sampler::create</text>
+<polygon fill="#bfbfbf" stroke="black" points="509,-22.5 509,-41.5 593,-41.5 593,-22.5 509,-22.5"/>
+<text text-anchor="middle" x="551" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">Sampler::create</text>
 </a>
 </g>
 </g>
@@ -67,47 +67,47 @@ var sectionId = 'dynsection-2';
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="class_texture_library.html#aa8905251fa5e575eff741fa978eae401" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="358,-22.5 358,-41.5 468,-41.5 468,-22.5 358,-22.5"/>
-<text text-anchor="middle" x="413" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextureLibrary::create</text>
+<polygon fill="none" stroke="black" points="363,-22.5 363,-41.5 473,-41.5 473,-22.5 363,-22.5"/>
+<text text-anchor="middle" x="418" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextureLibrary::create</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M493.91,-32C485.54,-32 476.84,-32 468.4,-32"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="493.91,-35.5 503.91,-32 493.91,-28.5 493.91,-35.5"/>
+<path fill="none" stroke="midnightblue" d="M498.91,-32C490.54,-32 481.84,-32 473.4,-32"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="498.91,-35.5 508.91,-32 498.91,-28.5 498.91,-35.5"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="class_render_manager.html#af9f33ffbf6fa771b2a2132b4bd33de06" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="183,-39 183,-69 322,-69 322,-39 183,-39"/>
-<text text-anchor="start" x="191" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">RenderManager::crateScene</text>
-<text text-anchor="middle" x="252.5" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">Objects</text>
+<g id="a_node3"><a xlink:href="class_render_manager.html#a34e5f071f12097fbc5e950651dcce086" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="183,-39 183,-69 327,-69 327,-39 183,-39"/>
+<text text-anchor="start" x="191" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">RenderManager::createScene</text>
+<text text-anchor="middle" x="255" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">Objects</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node2&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M347.77,-40.91C339.35,-42.08 330.7,-43.28 322.21,-44.46"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="348.47,-44.35 357.9,-39.51 347.51,-37.42 348.47,-44.35"/>
+<path fill="none" stroke="midnightblue" d="M352.78,-40.78C344.33,-41.93 335.63,-43.12 327.07,-44.29"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="353.51,-44.21 362.94,-39.39 352.56,-37.27 353.51,-44.21"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="class_mandelbrot_app.html#a82a763408b810cdfa31c88080d97f8a1" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="190.5,-0.5 190.5,-19.5 314.5,-19.5 314.5,-0.5 190.5,-0.5"/>
-<text text-anchor="middle" x="252.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MandelbrotApp::createUI</text>
+<polygon fill="none" stroke="black" points="193,-0.5 193,-19.5 317,-19.5 317,-0.5 193,-0.5"/>
+<text text-anchor="middle" x="255" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">MandelbrotApp::createUI</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node2&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M347.96,-23.11C336.99,-21.59 325.61,-20.01 314.71,-18.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="347.51,-26.58 357.9,-24.49 348.47,-19.65 347.51,-26.58"/>
+<path fill="none" stroke="midnightblue" d="M352.77,-23.22C341.02,-21.62 328.79,-19.95 317.13,-18.35"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="352.56,-26.73 362.94,-24.61 353.51,-19.79 352.56,-26.73"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -122,8 +122,8 @@ var sectionId = 'dynsection-2';
 <!-- Node3&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
 <title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M172.6,-54C164.16,-54 155.61,-54 147.25,-54"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="172.81,-57.5 182.81,-54 172.81,-50.5 172.81,-57.5"/>
+<path fill="none" stroke="midnightblue" d="M172.52,-54C164.04,-54 155.46,-54 147.09,-54"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="172.8,-57.5 182.8,-54 172.8,-50.5 172.8,-57.5"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
@@ -137,8 +137,8 @@ var sectionId = 'dynsection-2';
 <!-- Node5&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M179.71,-10C165.97,-10 151.67,-10 138.21,-10"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="180.09,-13.5 190.09,-10 180.09,-6.5 180.09,-13.5"/>
+<path fill="none" stroke="midnightblue" d="M182.88,-10C168.09,-10 152.6,-10 138.11,-10"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="182.98,-13.5 192.98,-10 182.98,-6.5 182.98,-13.5"/>
 </g>
 </g>
 </svg>
