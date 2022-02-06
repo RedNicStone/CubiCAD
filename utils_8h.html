@@ -92,7 +92,8 @@ $(document).ready(function(){initNavTree('utils_8h.html',''); initResizable(); }
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">utils.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -123,6 +124,13 @@ Classes</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:abe1a76281acdca5eecfdf60db5440259"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#abe1a76281acdca5eecfdf60db5440259">CUBICAD_UTILS_H</a></td></tr>
 <tr class="separator:abe1a76281acdca5eecfdf60db5440259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6a2854f5473fd18643d94cf402923b91"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a6a2854f5473fd18643d94cf402923b91">hash</a> (const std::string_view data) noexcept</td></tr>
+<tr class="separator:a6a2854f5473fd18643d94cf402923b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a969d7f15d59893f12aa22cac515358bf"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a969d7f15d59893f12aa22cac515358bf">operator&quot;&quot;_hash</a> (const char *str, size_t len) noexcept</td></tr>
+<tr class="separator:a969d7f15d59893f12aa22cac515358bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="abe1a76281acdca5eecfdf60db5440259" name="abe1a76281acdca5eecfdf60db5440259"></a>
@@ -136,6 +144,87 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a6a2854f5473fd18643d94cf402923b91" name="a6a2854f5473fd18643d94cf402923b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a2854f5473fd18643d94cf402923b91">&#9670;&nbsp;</a></span>hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t hash </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="utils_8h_a6a2854f5473fd18643d94cf402923b91_cgraph.svg" width="62" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="utils_8h_a6a2854f5473fd18643d94cf402923b91_icgraph.svg" width="474" height="170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a969d7f15d59893f12aa22cac515358bf" name="a969d7f15d59893f12aa22cac515358bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a969d7f15d59893f12aa22cac515358bf">&#9670;&nbsp;</a></span>operator&quot;&quot;_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t operator&quot;&quot;_hash </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="utils_8h_a969d7f15d59893f12aa22cac515358bf_cgraph.svg" width="222" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>

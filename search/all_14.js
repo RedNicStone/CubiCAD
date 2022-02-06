@@ -9,7 +9,7 @@ var searchData=
   ['texture_2eh_6',['texture.h',['../texture_8h.html',1,'']]],
   ['textured_7',['textured',['../union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#ac929aba0a8bab0145875e5d1ac6a3e55',1,'CCAD_OT::OtMatInfoUnion']]],
   ['texturelibrary_8',['TextureLibrary',['../class_texture_library.html',1,'']]],
-  ['texturelibrary_9',['textureLibrary',['../class_render_manager.html#af2ab4d99d81b2a71df8ab8a3e8f12663',1,'RenderManager::textureLibrary()'],['../class_mandelbrot_app.html#ae3112337d57c34f8a396cfd07258b1ce',1,'MandelbrotApp::textureLibrary()']]],
+  ['texturelibrary_9',['textureLibrary',['../class_model_loader.html#a41eb8aba2cde292d577316a5dfdcb6a7',1,'ModelLoader::textureLibrary()'],['../class_render_manager.html#af2ab4d99d81b2a71df8ab8a3e8f12663',1,'RenderManager::textureLibrary()'],['../class_mandelbrot_app.html#ae3112337d57c34f8a396cfd07258b1ce',1,'MandelbrotApp::textureLibrary()']]],
   ['texturelibrary_2ecpp_10',['texturelibrary.cpp',['../texturelibrary_8cpp.html',1,'']]],
   ['texturelibrary_2eh_11',['texturelibrary.h',['../texturelibrary_8h.html',1,'']]],
   ['texturequalitysettings_12',['TextureQualitySettings',['../struct_texture_quality_settings.html',1,'']]],

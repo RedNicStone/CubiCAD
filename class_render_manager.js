@@ -20,6 +20,7 @@ var class_render_manager =
     [ "getSceneWriter", "class_render_manager.html#aa059def771f1f220bbc29a19fd045f5a", null ],
     [ "getTextureLibrary", "class_render_manager.html#a5b065993a47ae7017772f21ee1e80439", null ],
     [ "getUIRenderer", "class_render_manager.html#a24b4a116406a6e4a1cd4cc392d1c8633", null ],
+    [ "loadMesh", "class_render_manager.html#a2f31284af1488dafec33339d20ce1444", null ],
     [ "pickPhysicalDevice", "class_render_manager.html#a20215629ec089cb4aa07a2d6096c1c54", null ],
     [ "processInputs", "class_render_manager.html#a6ad73ebab2e62c49c839e88800197195", null ],
     [ "processMouseInputs", "class_render_manager.html#adba8724674ad397d01118c7f436bedbd", null ],

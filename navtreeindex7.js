@@ -1,5 +1,17 @@
 var NAVTREEINDEX7 =
 {
+"utils_8h.html#a6a2854f5473fd18643d94cf402923b91":[3,0,0,3,1,2],
+"utils_8h.html#a969d7f15d59893f12aa22cac515358bf":[3,0,0,3,1,3],
+"utils_8h.html#abe1a76281acdca5eecfdf60db5440259":[3,0,0,3,1,1],
+"utils_8h_source.html":[3,0,0,3,1],
+"vec__abs_8cpp.html":[3,0,0,0,1],
+"vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b":[3,0,0,0,1,0],
+"vec__abs_8h.html":[3,0,0,0,2],
+"vec__abs_8h.html#a50708f839cfadf60c6cadd7a706bf7a2":[3,0,0,0,2,1],
+"vec__abs_8h_source.html":[3,0,0,0,2],
+"vectors_8cpp.html":[3,0,0,2,2],
+"vectors_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[3,0,0,2,2,0],
+"voxels_8cpp.html":[3,0,0,2,3],
 "voxels_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[3,0,0,2,3,0],
 "vulkan__voxel__rasterizer_8cpp.html":[3,0,0,2,4],
 "vulkan__voxel__rasterizer_8cpp.html#a53aeecf6b7ba36273b6998fbd206ca7d":[3,0,0,2,4,0],

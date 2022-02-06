@@ -95,6 +95,7 @@ $(document).ready(function(){initNavTree('class_main_menu.html',''); initResizab
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_main_menu-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MainMenu Class Reference</div></div>
 </div><!--header-->
@@ -104,18 +105,20 @@ $(document).ready(function(){initNavTree('class_main_menu.html',''); initResizab
 <div class="dynheader">
 Inheritance diagram for MainMenu:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_menu__inherit__graph.svg" width="156" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_menu__inherit__graph.svg" width="202" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Collaboration diagram for MainMenu:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_menu__coll__graph.svg" width="156" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_menu__coll__graph.svg" width="202" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a1a60aaf4a5dc93612a5135fbbd24045a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a1a60aaf4a5dc93612a5135fbbd24045a">openOBJFileDialog</a> ()</td></tr>
+<tr class="separator:a1a60aaf4a5dc93612a5135fbbd24045a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a145443e727ad96c4e165265acbd272eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a145443e727ad96c4e165265acbd272eb">drawUI</a> () override</td></tr>
 <tr class="separator:a145443e727ad96c4e165265acbd272eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_u_i_drawable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_u_i_drawable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_u_i_drawable.html">UIDrawable</a></td></tr>
@@ -126,8 +129,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a33cd128a0b8f45b67f0253005188c761"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_main_menu.html">MainMenu</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a33cd128a0b8f45b67f0253005188c761">create</a> (const std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; &amp;textureLibrary, const std::shared_ptr&lt; <a class="el" href="class_scene_writer.html">SceneWriter</a> &gt; &amp;<a class="el" href="class_main_menu.html#a793ab76f6df8f3fc1cfbd0ae286779f9">sceneWriter</a>)</td></tr>
-<tr class="separator:a33cd128a0b8f45b67f0253005188c761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7749fe19e2312a734e23b2979df9cf29"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_main_menu.html">MainMenu</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a7749fe19e2312a734e23b2979df9cf29">create</a> (const std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt; &amp;<a class="el" href="class_main_menu.html#a7ac1c3b6d9ac5031f7efd0a2a6724e33">renderManager</a>)</td></tr>
+<tr class="separator:a7749fe19e2312a734e23b2979df9cf29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -136,18 +139,27 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a793ab76f6df8f3fc1cfbd0ae286779f9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_scene_writer.html">SceneWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a793ab76f6df8f3fc1cfbd0ae286779f9">sceneWriter</a></td></tr>
-<tr class="separator:a793ab76f6df8f3fc1cfbd0ae286779f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac1c3b6d9ac5031f7efd0a2a6724e33"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a7ac1c3b6d9ac5031f7efd0a2a6724e33">renderManager</a></td></tr>
+<tr class="separator:a7ac1c3b6d9ac5031f7efd0a2a6724e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a607dd40d08a3c580423a58636dda0f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a0a607dd40d08a3c580423a58636dda0f">logoTexture</a></td></tr>
 <tr class="separator:a0a607dd40d08a3c580423a58636dda0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26727bd7ff18f93873c24336a36f332a"><td class="memItemLeft" align="right" valign="top">VkDescriptorSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a26727bd7ff18f93873c24336a36f332a">logoDescriptorSet</a></td></tr>
 <tr class="separator:a26727bd7ff18f93873c24336a36f332a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a199fe3cc6366a9fb25f646fc7ae6e2a1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#a199fe3cc6366a9fb25f646fc7ae6e2a1">lastFileName</a></td></tr>
+<tr class="separator:a199fe3cc6366a9fb25f646fc7ae6e2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcf308e62771da5bdb6d2d7fa44cac8d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#adcf308e62771da5bdb6d2d7fa44cac8d">showAboutWindow</a></td></tr>
 <tr class="separator:adcf308e62771da5bdb6d2d7fa44cac8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac234da8e5c08970fbbbfa43b22c62b92"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#ac234da8e5c08970fbbbfa43b22c62b92">showOpenOBJFileDialog</a></td></tr>
+<tr class="separator:ac234da8e5c08970fbbbfa43b22c62b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:aa2b4542044257bb15ade28a61332139b"><td class="memItemLeft" align="right" valign="top">static const constexpr char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_menu.html#aa2b4542044257bb15ade28a61332139b">OPEN_OBJ_FILE_DIALOG_TITLE</a> = &quot;Import from OBJ&quot;</td></tr>
+<tr class="separator:aa2b4542044257bb15ade28a61332139b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a33cd128a0b8f45b67f0253005188c761" name="a33cd128a0b8f45b67f0253005188c761"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33cd128a0b8f45b67f0253005188c761">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a7749fe19e2312a734e23b2979df9cf29" name="a7749fe19e2312a734e23b2979df9cf29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7749fe19e2312a734e23b2979df9cf29">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,19 +170,9 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_main_menu.html">MainMenu</a> &gt; MainMenu::create </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>textureLibrary</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>renderManager</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_scene_writer.html">SceneWriter</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>sceneWriter</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -182,7 +184,7 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_main_menu_a33cd128a0b8f45b67f0253005188c761_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_main_menu_a7749fe19e2312a734e23b2979df9cf29_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -246,13 +248,58 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_menu_a145443e727ad96c4e165265acbd272eb_cgraph.svg" width="386" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_menu_a145443e727ad96c4e165265acbd272eb_cgraph.svg" width="388" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a1a60aaf4a5dc93612a5135fbbd24045a" name="a1a60aaf4a5dc93612a5135fbbd24045a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a60aaf4a5dc93612a5135fbbd24045a">&#9670;&nbsp;</a></span>openOBJFileDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MainMenu::openOBJFileDialog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_main_menu_a1a60aaf4a5dc93612a5135fbbd24045a_icgraph.svg" width="388" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a199fe3cc6366a9fb25f646fc7ae6e2a1" name="a199fe3cc6366a9fb25f646fc7ae6e2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a199fe3cc6366a9fb25f646fc7ae6e2a1">&#9670;&nbsp;</a></span>lastFileName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string MainMenu::lastFileName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a26727bd7ff18f93873c24336a36f332a" name="a26727bd7ff18f93873c24336a36f332a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a26727bd7ff18f93873c24336a36f332a">&#9670;&nbsp;</a></span>logoDescriptorSet</h2>
 
@@ -297,8 +344,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a793ab76f6df8f3fc1cfbd0ae286779f9" name="a793ab76f6df8f3fc1cfbd0ae286779f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a793ab76f6df8f3fc1cfbd0ae286779f9">&#9670;&nbsp;</a></span>sceneWriter</h2>
+<a id="aa2b4542044257bb15ade28a61332139b" name="aa2b4542044257bb15ade28a61332139b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b4542044257bb15ade28a61332139b">&#9670;&nbsp;</a></span>OPEN_OBJ_FILE_DIALOG_TITLE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +354,29 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_scene_writer.html">SceneWriter</a>&gt; MainMenu::sceneWriter</td>
+          <td class="memname">const constexpr char* MainMenu::OPEN_OBJ_FILE_DIALOG_TITLE = &quot;Import from OBJ&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ac1c3b6d9ac5031f7efd0a2a6724e33" name="a7ac1c3b6d9ac5031f7efd0a2a6724e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac1c3b6d9ac5031f7efd0a2a6724e33">&#9670;&nbsp;</a></span>renderManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_render_manager.html">RenderManager</a>&gt; MainMenu::renderManager</td>
         </tr>
       </table>
   </td>
@@ -330,6 +399,28 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">bool MainMenu::showAboutWindow</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac234da8e5c08970fbbbfa43b22c62b92" name="ac234da8e5c08970fbbbfa43b22c62b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac234da8e5c08970fbbbfa43b22c62b92">&#9670;&nbsp;</a></span>showOpenOBJFileDialog</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MainMenu::showOpenOBJFileDialog</td>
         </tr>
       </table>
   </td>

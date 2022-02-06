@@ -35,9 +35,9 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="class_model_loader.html#affd2b8840989f0bdf63c952775bb082e" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="188,-190.5 188,-209.5 292,-209.5 292,-190.5 188,-190.5"/>
-<text text-anchor="middle" x="240" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">ModelLoader::create</text>
+<g id="a_node4"><a xlink:href="class_master_material.html#a7daa9481348380046f68f55f9738ea61" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="183.5,-190.5 183.5,-209.5 296.5,-209.5 296.5,-190.5 183.5,-190.5"/>
+<text text-anchor="middle" x="240" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">MasterMaterial::create</text>
 </a>
 </g>
 </g>
@@ -50,39 +50,39 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="class_master_material.html#a7daa9481348380046f68f55f9738ea61" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="183.5,-152.5 183.5,-171.5 296.5,-171.5 296.5,-152.5 183.5,-152.5"/>
-<text text-anchor="middle" x="240" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">MasterMaterial::create</text>
+<g id="a_node5"><a xlink:href="class_material.html#addd449c7dc0cd6629526b2acdbe76762" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="198.5,-152.5 198.5,-171.5 281.5,-171.5 281.5,-152.5 198.5,-152.5"/>
+<text text-anchor="middle" x="240" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">Material::create</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M114.89,-133.59C136.89,-138.63 164.05,-144.84 187.35,-150.18"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="186.88,-153.66 197.41,-152.48 188.45,-146.84 186.88,-153.66"/>
+<path fill="none" stroke="midnightblue" d="M114.89,-133.59C137.24,-138.71 164.92,-145.04 188.46,-150.43"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="187.74,-153.86 198.27,-152.68 189.31,-147.03 187.74,-153.86"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="class_material.html#a6b9948a82b6bd9fb6fa5eee6254a1993" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="198.5,-114.5 198.5,-133.5 281.5,-133.5 281.5,-114.5 198.5,-114.5"/>
-<text text-anchor="middle" x="240" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">Material::create</text>
+<g id="a_node6"><a xlink:href="class_mesh_instance.html#a511dc5709b2a32317ad2f0f02c6740c4" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="185,-114.5 185,-133.5 295,-133.5 295,-114.5 185,-114.5"/>
+<text text-anchor="middle" x="240" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">MeshInstance::create</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
 <title>Node1&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M144.36,-124C159.07,-124 174.27,-124 188.07,-124"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="188.33,-127.5 198.33,-124 188.33,-120.5 188.33,-127.5"/>
+<path fill="none" stroke="midnightblue" d="M144.36,-124C154.47,-124 164.82,-124 174.78,-124"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="175,-127.5 185,-124 175,-120.5 175,-127.5"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="class_mesh_instance.html#a511dc5709b2a32317ad2f0f02c6740c4" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="185,-76.5 185,-95.5 295,-95.5 295,-76.5 185,-76.5"/>
-<text text-anchor="middle" x="240" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">MeshInstance::create</text>
+<g id="a_node7"><a xlink:href="class_model_loader.html#a31c9aa31bf2d9778696ab75f4431a523" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="188,-76.5 188,-95.5 292,-95.5 292,-76.5 188,-76.5"/>
+<text text-anchor="middle" x="240" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">ModelLoader::create</text>
 </a>
 </g>
 </g>

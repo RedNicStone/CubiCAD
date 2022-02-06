@@ -11,7 +11,7 @@ var searchData=
   ['materialbuffer_8',['materialBuffer',['../class_material_library.html#a749af8a6b2993a12dadfa1d5ebeec288',1,'MaterialLibrary']]],
   ['materialindex_9',['materialIndex',['../struct_p_b_r_material_parameters.html#ad016e4851b9e3e377970f8f887073f2a',1,'PBRMaterialParameters']]],
   ['materialinfo_10',['materialInfo',['../struct_c_c_a_d___o_t_1_1_ot_surface_info.html#a9bb0258caeb55a53f61eec3db1d6a64d',1,'CCAD_OT::OtSurfaceInfo']]],
-  ['materiallibrary_11',['materialLibrary',['../class_render_manager.html#a8bfa8745790ad798727917e3410013ff',1,'RenderManager']]],
+  ['materiallibrary_11',['materialLibrary',['../class_model_loader.html#a6b0aa36b64d58e359bee67d75640dcc1',1,'ModelLoader::materialLibrary()'],['../class_render_manager.html#a8bfa8745790ad798727917e3410013ff',1,'RenderManager::materialLibrary()']]],
   ['materials_12',['materials',['../class_material_library.html#a6d206be9abf38e89e99c8385ec5f9e58',1,'MaterialLibrary']]],
   ['materialset_13',['materialSet',['../class_material.html#a18b4911cb71bfc4db72ed283fa26bd63',1,'Material']]],
   ['materialsetlayout_14',['materialSetLayout',['../class_master_material.html#abeba80e16ad2a5b811aad7db56843570',1,'MasterMaterial']]],
