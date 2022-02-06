@@ -30,12 +30,13 @@ void ObjectList::drawUI() {
     for (const auto &instance: scene->getInstances())
         meshes[instance->getMesh()].push_back(instance);
 
+    itemSelected = 0;
+    itemHovered = 0;
+
     for (const auto &mesh: meshes) {
         ImGuiTreeNodeFlags
             base_flags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_Bullet;
 
-        itemSelected = 0;
-        itemHovered = 0;
         if (ImGui::TreeNode(mesh.first->getName().c_str())) {
             for (const auto &instance: mesh.second) {
                 ImGuiTreeNodeFlags node_flags = base_flags;

@@ -14,15 +14,17 @@ std::shared_ptr<ObjectProperties> ObjectProperties::create(const std::shared_ptr
 
 void ObjectProperties::setObjectByID(uint32_t vObjectID) {
     if (vObjectID > 0) {
-        objectID = static_cast<int>(vObjectID);
-        object = scene->getInstanceByID(vObjectID);
-        objectName = object->getName();
-        pos = object->getPosition();
-        rot = object->getRotation();
-        scale = object->getScale();
-        meshName = object->getMesh()->getName();
-        selectedMeshlet = 0;
-        selectedMaterial = 0;
+        if (static_cast<int>(vObjectID) != objectID) {
+            objectID = static_cast<int>(vObjectID);
+            object = scene->getInstanceByID(vObjectID);
+            objectName = object->getName();
+            pos = object->getPosition();
+            rot = object->getRotation();
+            scale = object->getScale();
+            meshName = object->getMesh()->getName();
+            selectedMeshlet = 0;
+            selectedMaterial = 0;
+        }
     } else
         object = nullptr;
 }
