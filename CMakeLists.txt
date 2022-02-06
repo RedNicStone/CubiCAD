@@ -163,7 +163,8 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/lib/libmorton)
 # add tinyobjloader
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/tinyobjloader)
 
-message(STATUS "Detected std libraries to include: ${TINYOBJLOADER_CMAKE_DIR}")
+# add nativefiledialog-extended
+add_subdirectory(${CMAKE_SOURCE_DIR}/lib/nativefiledialog-extended)
 
 # add Dear ImGUI
 # add stb
@@ -230,6 +231,7 @@ target_include_directories(
         PUBLIC imgui
         PUBLIC rapidjson
         PUBLIC IconFontCppHeaders
+        PUBLIC nfd
 )
 
 target_link_libraries(
@@ -245,6 +247,7 @@ target_link_libraries(
         imgui
         rapidjson
         IconFontCppHeaders
+        nfd
 )
 
 # make

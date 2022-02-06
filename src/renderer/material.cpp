@@ -8,7 +8,6 @@
 
 
 std::shared_ptr<Material> Material::create(const std::shared_ptr<MasterMaterial>& pMasterMaterial,
-                                           const std::shared_ptr<DescriptorPoolManager>& descriptorManager,
                                            const std::vector<std::shared_ptr<Texture>>& textures,
                                            void *parameters,
                                            const std::string& pName) {
@@ -16,9 +15,11 @@ std::shared_ptr<Material> Material::create(const std::shared_ptr<MasterMaterial>
     material->masterMaterial = pMasterMaterial;
     material->parameters = parameters;
 
-    material->materialSet = descriptorManager->allocate(pMasterMaterial->getMaterialDescriptorSetLayout());
+    material->materialSet = pMasterMaterial->getDescriptorManager()
+        ->allocate(pMasterMaterial->getMaterialDescriptorSetLayout());
     for (uint32_t i = 0; i < textures.size(); i++) {
-        material->materialSet->updateImage(textures[i]->getImageView(), VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, i + 1);
+        if (textures[i] != nullptr)
+            material->materialSet->updateImage(textures[i]->getImageView(), VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, i + 1);
     }
 
     if (pName.empty())
@@ -30,7 +31,7 @@ std::shared_ptr<Material> Material::create(const std::shared_ptr<MasterMaterial>
 }
 
 void Material::updateParameterBuffer(const std::shared_ptr<Buffer>& buffer) {
-    materialSet->updateUniformBuffer(buffer, 0, masterMaterial->getParameterSize(), parameterBufferOffset);
+    materialSet->updateUniformBuffer(buffer, 0, masterMaterial->getPropertySize(), parameterBufferOffset);
 }
 
 Material::~Material() {

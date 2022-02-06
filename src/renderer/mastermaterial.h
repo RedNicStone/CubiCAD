@@ -36,6 +36,7 @@ class MasterMaterial {
     std::shared_ptr<GraphicsPipeline> pipeline;
     std::shared_ptr<PipelineLayout> pipelineLayout;
 
+    std::shared_ptr<DescriptorPoolManager> descriptorManager;
     std::shared_ptr<DescriptorSetLayout> materialSetLayout;
     std::shared_ptr<DescriptorSetLayout> masterMaterialSetLayout;
     std::shared_ptr<DescriptorSet> masterMaterialSet;
@@ -60,7 +61,8 @@ class MasterMaterial {
                                     bool enableDepthStencil = false);
     void updateImageSampler(const std::shared_ptr<TextureLibrary>& textureLibrary);
 
-    [[nodiscard]] size_t getParameterSize() const { return propertyLayout.totalSize; }
+    [[nodiscard]] size_t getPropertySize() const { return propertyLayout.totalSize; }
+    MaterialPropertyLayoutBuilt getPropertyLayout() { return propertyLayout; }
 
     std::string getName() { return name; }
     std::string generateMaterialName();
@@ -71,6 +73,7 @@ class MasterMaterial {
     std::shared_ptr<DescriptorSetLayout> getMaterialDescriptorSetLayout() { return materialSetLayout; };
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return masterMaterialSet; };
     std::shared_ptr<RenderPass> getRenderPass() { return renderPass; };
+    std::shared_ptr<DescriptorPoolManager> getDescriptorManager() { return descriptorManager; };
 };
 
 #endif //CUBICAD_MASTERMATERIAL_H

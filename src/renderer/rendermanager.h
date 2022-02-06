@@ -110,6 +110,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void drawFrame();
     void processInputs();
 
+    void loadMesh(const std::string& filename);
+
     std::shared_ptr<Scene> getScene() { return scene; }
     std::shared_ptr<SceneWriter> getSceneWriter() { return sceneWriter; }
     std::shared_ptr<MaterialLibrary> getMaterialLibrary() { return materialLibrary; }

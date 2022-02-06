@@ -5,15 +5,16 @@
 #include "mainmenu.h"
 
 
-std::shared_ptr<MainMenu> MainMenu::create(const std::shared_ptr<TextureLibrary>& textureLibrary,
-                                           const std::shared_ptr<SceneWriter>& sceneWriter) {
-    auto menubar = std::make_shared<MainMenu>();
-    menubar->sceneWriter = sceneWriter;
+std::shared_ptr<MainMenu> MainMenu::create(const std::shared_ptr<RenderManager>& renderManager) {
+    NFD_Init();
 
-    menubar->logoTexture = textureLibrary->createTexture("resources/icons/cubicad_logo_rv1_452x128.png",
+    auto menubar = std::make_shared<MainMenu>();
+    menubar->renderManager = renderManager;
+
+    menubar->logoTexture = renderManager->getTextureLibrary()->createTexture("resources/icons/cubicad_logo_rv1_452x128.png",
                                                          VK_FORMAT_R8G8B8A8_UNORM);
 
-    menubar->logoDescriptorSet = ImGui_ImplVulkan_AddTexture(textureLibrary->getSampler()->getHandle(),
+    menubar->logoDescriptorSet = ImGui_ImplVulkan_AddTexture(renderManager->getTextureLibrary()->getSampler()->getHandle(),
                                                              menubar->logoTexture->getImageView()->getHandle(),
                                                              menubar->logoTexture->getImage()->getLayout());
 
@@ -30,7 +31,7 @@ void MainMenu::drawUI() {
             if (ImGui::MenuItem("New", "CTRL+N")) {}
             ImGui::Separator();
             if (ImGui::MenuItem("Open", "CTRL+O")) {
-                sceneWriter->readScene();
+                renderManager->getSceneWriter()->readScene();
             }
             if (ImGui::BeginMenu("Open Recent")) {
                 ImGui::MenuItem("fish_hat.c");
@@ -40,14 +41,15 @@ void MainMenu::drawUI() {
             }
             ImGui::Separator();
             if (ImGui::MenuItem("Save", "CTRL+S")) {
-                sceneWriter->writeScene();
+                renderManager->getSceneWriter()->writeScene();
             }
             if (ImGui::MenuItem("Save As", "CTRL+SHIFT+S")) {}
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Instance"))
         {
-            if (ImGui::MenuItem("Import from obj", "CTRL+I")) {}
+            if (ImGui::MenuItem(OPEN_OBJ_FILE_DIALOG_TITLE, "CTRL+I"))
+                showOpenOBJFileDialog = true;
             ImGui::Separator();
             if (ImGui::MenuItem("Duplicate", "CTRL+D")) {}
             if (ImGui::MenuItem("Delete", "DELETE")) {}
@@ -65,6 +67,14 @@ void MainMenu::drawUI() {
 
     if (showAboutWindow)
         drawAboutWindow();
+
+    if (showOpenOBJFileDialog) {
+        ImGui::OpenPopup(OPEN_OBJ_FILE_DIALOG_TITLE);
+        showOpenOBJFileDialog = false;
+    }
+
+    if (openOBJFileDialog())
+        ImGui::CloseCurrentPopup();
 }
 
 void MainMenu::drawAboutWindow() {
@@ -91,4 +101,32 @@ void MainMenu::drawAboutWindow() {
                 "- Vulkan & Vulkan Memory Allocator\n");
 
     ImGui::End();
+}
+
+bool MainMenu::openOBJFileDialog() {
+    ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(), ImGuiCond_Always, {0.5f, 0.5f});
+    if (ImGui::BeginPopupModal(OPEN_OBJ_FILE_DIALOG_TITLE, nullptr,
+                           ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove)) {
+        ImGui::InputText("##filename", &lastFileName);
+        ImGui::SameLine();
+        if (ImGui::Button(ICON_FK_FOLDER_OPEN)) {
+            nfdchar_t* outPath;
+            nfdfilteritem_t filterItem[1] = {{"Wavefront files", "obj"}};
+            nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 1, nullptr);
+
+            if (result == NFD_OKAY) {
+                lastFileName = outPath;
+                NFD_FreePath(outPath);
+            }
+        }
+        if (ImGui::Button("Load object")) {
+            renderManager->loadMesh(lastFileName);
+            ImGui::CloseCurrentPopup();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel"))
+            ImGui::CloseCurrentPopup();
+
+        ImGui::EndPopup();
+    }
 }

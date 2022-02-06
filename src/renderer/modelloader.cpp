@@ -8,7 +8,8 @@
 #include "modelloader.h"
 
 
-std::shared_ptr<ModelLoader> ModelLoader::create() {
+std::shared_ptr<ModelLoader> ModelLoader::create(const std::shared_ptr<TextureLibrary>& textureLibrary,
+                                                 const std::shared_ptr<MaterialLibrary>& materialLibrary) {
     auto modelLoader = std::make_shared<ModelLoader>();
 
     modelLoader->config.triangulate = true;
@@ -18,11 +19,98 @@ std::shared_ptr<ModelLoader> ModelLoader::create() {
 
     modelLoader->reader = tinyobj::ObjReader();
 
+    modelLoader->textureLibrary = textureLibrary;
+    modelLoader->materialLibrary = materialLibrary;
+
     return modelLoader;
 }
 
-std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename, const std::shared_ptr<Material>&
-    material) {
+void ModelLoader::loadMaterialProperties(char* property, const MaterialPropertyBuiltGeneric* materialProperty,
+                                         tinyobj::material_t material) {
+    switch (hash(materialProperty->attributeName)) {
+        case "diffuse"_hash:
+            memcpy(&material.diffuse, property, materialProperty->getSize());
+            break;
+        case "emission"_hash:
+            memcpy(&material.emission, property, materialProperty->getSize());
+            break;
+        case "transparency"_hash:
+            memcpy(&material.transmittance, property, materialProperty->getSize());
+            break;
+        case "specular"_hash:
+            memcpy(&material.specular, property, materialProperty->getSize());
+            break;
+        case "roughness"_hash:
+            memcpy(&material.roughness, property, materialProperty->getSize());
+            break;
+        case "metallic"_hash:
+            memcpy(&material.metallic, property, materialProperty->getSize());
+            break;
+        case "sheen"_hash:
+            memcpy(&material.sheen, property, materialProperty->getSize());
+            break;
+        case "clear_coat_thickness"_hash:
+            memcpy(&material.clearcoat_thickness, property, materialProperty->getSize());
+            break;
+        case "clear_coat_roughness"_hash:
+            memcpy(&material.clearcoat_roughness, property, materialProperty->getSize());
+            break;
+        case "anisotropy"_hash:
+            memcpy(&material.anisotropy, property, materialProperty->getSize());
+            break;
+        case "anisotropy_rotation"_hash:
+            memcpy(&material.anisotropy_rotation, property, materialProperty->getSize());
+            break;
+    }
+}
+
+std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const MaterialPropertyLayoutBuilt&
+materialLayout, const tinyobj::material_t& material, const std::shared_ptr<TextureLibrary>& textureLibrary) {
+    auto textures = std::vector<std::shared_ptr<Texture>>(materialLayout.properties.size(), nullptr);
+    for (size_t i = 0; i < materialLayout.properties.size(); i++) {
+        switch (hash(materialLayout.properties[i]->attributeName)) {
+            case "diffuse"_hash:
+                if (material.diffuse_texname.empty())
+                    textures[i] =
+                        textureLibrary->createTexture(material.diffuse_texname,
+                                                      materialLayout.properties[i]->pixelFormat);
+                break;
+            case "emission"_hash:
+                if (material.emissive_texname.empty())
+                    textures[i] =
+                        textureLibrary->createTexture(material.diffuse_texname,
+                                                      materialLayout.properties[i]->pixelFormat);
+                break;
+            case "specular"_hash:
+                if (material.specular_texname.empty())
+                    textures[i] =
+                        textureLibrary->createTexture(material.diffuse_texname,
+                                                      materialLayout.properties[i]->pixelFormat);
+                break;
+            case "roughness"_hash:
+                if (material.roughness_texname.empty())
+                    textures[i] =
+                        textureLibrary->createTexture(material.diffuse_texname,
+                                                      materialLayout.properties[i]->pixelFormat);
+                break;
+            case "metallic"_hash:
+                if (material.metallic_texname.empty())
+                    textures[i] =
+                        textureLibrary->createTexture(material.diffuse_texname,
+                                                      materialLayout.properties[i]->pixelFormat);
+                break;
+            case "sheen"_hash:
+                if (material.sheen_texname.empty())
+                    textures[i] =
+                        textureLibrary->createTexture(material.diffuse_texname,
+                                                      materialLayout.properties[i]->pixelFormat);
+                break;
+        }
+    }
+}
+
+std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename,
+                                                       const std::shared_ptr<MasterMaterial>& masterMaterial) {
     if(!reader.ParseFromFile(filename, config)) {
         if (!reader.Error().empty()) {
             throw std::runtime_error(reader.Error());
@@ -39,12 +127,23 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
     auto& materials = reader.GetMaterials();
 
     std::vector<std::shared_ptr<Mesh>> meshes;
-    //std::vector<std::shared_ptr<Material>> surfaceMaterials;
+    std::vector<std::shared_ptr<Material>> surfaceMaterials;
     meshes.reserve(shapes.size());
+    surfaceMaterials.reserve(materials.size());
 
-    /*for (const auto& material : materials) {
+    for (const auto& material : materials) {
+        char* properties = new char[masterMaterial->getPropertySize()];
+        size_t offset = 0;
+        for (const auto& property : masterMaterial->getPropertyLayout().properties) {
+            loadMaterialProperties(properties + offset, property, material);
+            offset += property->getSize();
+        }
+        auto textures = loadMaterialTextures(masterMaterial->getPropertyLayout(), material, textureLibrary);
 
-    }*/
+        auto mat = Material::create(masterMaterial, textures, properties, material.name);
+        surfaceMaterials.push_back(mat);
+        materialLibrary->registerShader(mat);
+    }
 
     // Loop over shapes
     for (const auto& shape : shapes) {
@@ -62,6 +161,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
             int materialID = shape.mesh.material_ids[f];
             if (meshlets[materialID] == nullptr) {
                 meshlets[materialID] = std::make_shared<Meshlet>();
+                meshlets[materialID]->material = surfaceMaterials[static_cast<unsigned long>(materialID)];
             }
 
             // Loop over vertices in the face.
@@ -92,11 +192,6 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
 
         std::vector<std::shared_ptr<Meshlet>> meshletVector;
         meshletVector.reserve(meshlets.size());
-
-        for (const auto& kv : meshlets) {
-            kv.second->material = material;
-            meshletVector.push_back(kv.second);
-        }
 
         meshes.push_back(Mesh::create(meshletVector, bbox, shape.name));
     }
