@@ -8,13 +8,13 @@
 #include "modelloader.h"
 
 
-std::shared_ptr<ModelLoader> ModelLoader::create(const std::shared_ptr<TextureLibrary>& textureLibrary,
-                                                 const std::shared_ptr<MaterialLibrary>& materialLibrary) {
+std::shared_ptr<ModelLoader> ModelLoader::create(const std::shared_ptr<TextureLibrary> &textureLibrary,
+                                                 const std::shared_ptr<MaterialLibrary> &materialLibrary) {
     auto modelLoader = std::make_shared<ModelLoader>();
 
     modelLoader->config.triangulate = true;
     modelLoader->config.triangulation_method = "earcut";
-    modelLoader->config.mtl_search_path = "./";
+    modelLoader->config.mtl_search_path = "";
     modelLoader->config.vertex_color = false;
 
     modelLoader->reader = tinyobj::ObjReader();
@@ -25,47 +25,38 @@ std::shared_ptr<ModelLoader> ModelLoader::create(const std::shared_ptr<TextureLi
     return modelLoader;
 }
 
-void ModelLoader::loadMaterialProperties(char* property, const MaterialPropertyBuiltGeneric* materialProperty,
+void ModelLoader::loadMaterialProperties(char *property,
+                                         const MaterialPropertyBuiltGeneric *materialProperty,
                                          tinyobj::material_t material) {
     switch (hash(materialProperty->attributeName)) {
-        case "diffuse"_hash:
-            memcpy(&material.diffuse, property, materialProperty->getSize());
+        case "diffuse"_hash:memcpy(&material.diffuse, property, materialProperty->getSize());
             break;
-        case "emission"_hash:
-            memcpy(&material.emission, property, materialProperty->getSize());
+        case "emission"_hash:memcpy(&material.emission, property, materialProperty->getSize());
             break;
-        case "transparency"_hash:
-            memcpy(&material.transmittance, property, materialProperty->getSize());
+        case "transparency"_hash:memcpy(&material.transmittance, property, materialProperty->getSize());
             break;
-        case "specular"_hash:
-            memcpy(&material.specular, property, materialProperty->getSize());
+        case "specular"_hash:memcpy(&material.specular, property, materialProperty->getSize());
             break;
-        case "roughness"_hash:
-            memcpy(&material.roughness, property, materialProperty->getSize());
+        case "roughness"_hash:memcpy(&material.roughness, property, materialProperty->getSize());
             break;
-        case "metallic"_hash:
-            memcpy(&material.metallic, property, materialProperty->getSize());
+        case "metallic"_hash:memcpy(&material.metallic, property, materialProperty->getSize());
             break;
-        case "sheen"_hash:
-            memcpy(&material.sheen, property, materialProperty->getSize());
+        case "sheen"_hash:memcpy(&material.sheen, property, materialProperty->getSize());
             break;
-        case "clear_coat_thickness"_hash:
-            memcpy(&material.clearcoat_thickness, property, materialProperty->getSize());
+        case "clear_coat_thickness"_hash:memcpy(&material.clearcoat_thickness, property, materialProperty->getSize());
             break;
-        case "clear_coat_roughness"_hash:
-            memcpy(&material.clearcoat_roughness, property, materialProperty->getSize());
+        case "clear_coat_roughness"_hash:memcpy(&material.clearcoat_roughness, property, materialProperty->getSize());
             break;
-        case "anisotropy"_hash:
-            memcpy(&material.anisotropy, property, materialProperty->getSize());
+        case "anisotropy"_hash:memcpy(&material.anisotropy, property, materialProperty->getSize());
             break;
-        case "anisotropy_rotation"_hash:
-            memcpy(&material.anisotropy_rotation, property, materialProperty->getSize());
+        case "anisotropy_rotation"_hash:memcpy(&material.anisotropy_rotation, property, materialProperty->getSize());
             break;
     }
 }
 
-std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const MaterialPropertyLayoutBuilt&
-materialLayout, const tinyobj::material_t& material, const std::shared_ptr<TextureLibrary>& textureLibrary) {
+std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const MaterialPropertyLayoutBuilt &materialLayout,
+                                                                        const tinyobj::material_t &material,
+                                                                        const std::shared_ptr<TextureLibrary> &textureLibrary) {
     auto textures = std::vector<std::shared_ptr<Texture>>(materialLayout.properties.size(), nullptr);
     for (size_t i = 0; i < materialLayout.properties.size(); i++) {
         switch (hash(materialLayout.properties[i]->attributeName)) {
@@ -109,9 +100,9 @@ materialLayout, const tinyobj::material_t& material, const std::shared_ptr<Textu
     }
 }
 
-std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filename,
-                                                       const std::shared_ptr<MasterMaterial>& masterMaterial) {
-    if(!reader.ParseFromFile(filename, config)) {
+std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filename,
+                                                       const std::shared_ptr<MasterMaterial> &masterMaterial) {
+    if (!reader.ParseFromFile(filename, config)) {
         if (!reader.Error().empty()) {
             throw std::runtime_error(reader.Error());
         }
@@ -122,19 +113,19 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
         std::cout << "TinyObjReader: " << reader.Warning();
     }
 
-    auto& attrib = reader.GetAttrib();
-    auto& shapes = reader.GetShapes();
-    auto& materials = reader.GetMaterials();
+    auto &attrib = reader.GetAttrib();
+    auto &shapes = reader.GetShapes();
+    auto &materials = reader.GetMaterials();
 
     std::vector<std::shared_ptr<Mesh>> meshes;
     std::vector<std::shared_ptr<Material>> surfaceMaterials;
     meshes.reserve(shapes.size());
     surfaceMaterials.reserve(materials.size());
 
-    for (const auto& material : materials) {
-        char* properties = new char[masterMaterial->getPropertySize()];
+    for (const auto &material: materials) {
+        char *properties = new char[masterMaterial->getPropertySize()];
         size_t offset = 0;
-        for (const auto& property : masterMaterial->getPropertyLayout().properties) {
+        for (const auto &property: masterMaterial->getPropertyLayout().properties) {
             loadMaterialProperties(properties + offset, property, material);
             offset += property->getSize();
         }
@@ -146,12 +137,12 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
     }
 
     // Loop over shapes
-    for (const auto& shape : shapes) {
+    for (const auto &shape: shapes) {
         std::unordered_map<int, std::shared_ptr<Meshlet>> meshlets;
 
         BoundingBox bbox{};
-        bbox.pos1 = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data());
-        bbox.pos2 = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data());
+        bbox.pos1 = *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data());
+        bbox.pos2 = *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data());
 
         std::unordered_map<Vertex, uint32_t> uniqueVertices{};
 
@@ -169,12 +160,12 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string& filena
                 tinyobj::index_t idx = shape.mesh.indices[f * 3 + v];
 
                 Vertex vertex{};
-                vertex.pos = *reinterpret_cast<const glm::vec3*>(attrib.vertices.data() + 3*size_t(idx.vertex_index));
+                vertex.pos =
+                    *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data() + 3 * size_t(idx.vertex_index));
                 if (idx.texcoord_index >= 0) {
                     vertex.uv =
-                        { (       attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 0)]) * UINT16_MAX,
-                          (1.0f - attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 1)]) * UINT16_MAX
-                    };
+                        {(attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 0)]) * UINT16_MAX,
+                         (1.0f - attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 1)]) * UINT16_MAX};
                 }
 
                 bbox.pos1 = glm::min(bbox.pos1, vertex.pos);

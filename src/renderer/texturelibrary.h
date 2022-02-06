@@ -30,14 +30,15 @@ class TextureLibrary {
     std::unordered_map<std::string, std::shared_ptr<Texture>> textures{};
 
   public:
-    static std::shared_ptr<TextureLibrary> create(const std::shared_ptr<Device>& pDevice,
-                                                  const std::shared_ptr<Queue>& renderQueue,
-                                                  const std::shared_ptr<CommandPool>& transferPool,
-                                                  const TextureQualitySettings& settings);
+    static std::shared_ptr<TextureLibrary> create(const std::shared_ptr<Device> &pDevice,
+                                                  const std::shared_ptr<Queue> &renderQueue,
+                                                  const std::shared_ptr<CommandPool> &transferPool,
+                                                  const TextureQualitySettings &settings);
 
-    std::shared_ptr<Texture> createTexture(const std::string& filename, VkFormat format);
+    std::shared_ptr<Texture> createTexture(const std::string &filename, VkFormat format);
 
     std::shared_ptr<Device> getDevice() { return device; }
+
     std::shared_ptr<Sampler> getSampler() { return imageSampler; }
 };
 

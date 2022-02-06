@@ -44,6 +44,7 @@ class FrameBuffer {
                                                std::vector<std::vector<std::shared_ptr<ImageView>>> &imageViews);
 
     VkFramebuffer getFramebuffer(uint32_t i) { return frameBuffers[i]; }
+
     VkExtent2D getExtent() { return extent; }
 
     ~FrameBuffer();

@@ -136,9 +136,7 @@ uint32_t QueueFamilyHandler::getEnablesQueueFamilyCount() {
 void QueueFamilyHandler::createQueues() {
     for (uint32_t i = 0; i < possibleFamilies.size(); i++)
         if (possibleFamilies[i].queueCount)
-            families.push_back(QueueFamily::create(shared_from_this(),
-                                                   i,
-                                                   possibleFamilies[i].queueCount));
+            families.push_back(QueueFamily::create(shared_from_this(), i, possibleFamilies[i].queueCount));
 }
 
 void QueueFamilyHandler::getQueues(const std::shared_ptr<Device> &pDevice) {

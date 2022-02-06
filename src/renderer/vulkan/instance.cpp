@@ -46,9 +46,9 @@ void Instance::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoE
 }
 
 VkResult Instance::CreateDebugUtilsMessengerEXT(VkInstance instance,
-                                                    const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo,
-                                                    const VkAllocationCallbacks *pAllocator,
-                                                    VkDebugUtilsMessengerEXT *pDebugMessenger) {
+                                                const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo,
+                                                const VkAllocationCallbacks *pAllocator,
+                                                VkDebugUtilsMessengerEXT *pDebugMessenger) {
     auto func = (PFN_vkCreateDebugUtilsMessengerEXT) vkGetInstanceProcAddr(instance, "vkCreateDebugUtilsMessengerEXT");
     if (func != nullptr) {
         return func(instance, pCreateInfo, pAllocator, pDebugMessenger);
@@ -130,8 +130,8 @@ std::vector<const char *> Instance::getRequiredExtensions(bool validationLayerEx
 }
 
 std::shared_ptr<Instance> Instance::create(const char *appName,
-                                                   uint32_t appVersion,
-                                                   bool shouldEnableValidationLayers) {
+                                           uint32_t appVersion,
+                                           bool shouldEnableValidationLayers) {
     auto instance = std::make_shared<Instance>();
     instance->enableValidationLayers = shouldEnableValidationLayers;
 

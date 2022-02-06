@@ -23,18 +23,17 @@ class RenderPass;
 class GraphicsPipeline : public PipelineBase {
   public:
     static std::shared_ptr<GraphicsPipeline> create(std::shared_ptr<Device> pDevice,
-    std::shared_ptr<PipelineLayout> pLayout,
-        std::vector<std::shared_ptr<GraphicsShader>> &shaders,
-    const std::shared_ptr<RenderPass> &renderPass,
+                                                    std::shared_ptr<PipelineLayout> pLayout,
+                                                    std::vector<std::shared_ptr<GraphicsShader>> &shaders,
+                                                    const std::shared_ptr<RenderPass> &renderPass,
                                                     uint32_t colorBlendStates,
-        VkExtent2D extent,
-    VkPrimitiveTopology topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST,
+                                                    VkExtent2D extent,
+                                                    VkPrimitiveTopology topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST,
                                                     VkCullModeFlags cullMode = VK_CULL_MODE_BACK_BIT,
-        VkFrontFace frontFace = VK_FRONT_FACE_CLOCKWISE,
-                                                    std::vector<VkVertexInputBindingDescription>
-                                                    bindingDescription = {},
-                                                    std::vector<VkVertexInputAttributeDescription>
-                                                    attributeDescription = {}, bool enableDepthStencil = false);
+                                                    VkFrontFace frontFace = VK_FRONT_FACE_CLOCKWISE,
+                                                    std::vector<VkVertexInputBindingDescription> bindingDescription = {},
+                                                    std::vector<VkVertexInputAttributeDescription> attributeDescription = {},
+                                                    bool enableDepthStencil = false);
 
     VkPipelineBindPoint getBindPoint() final { return VK_PIPELINE_BIND_POINT_GRAPHICS; }
 

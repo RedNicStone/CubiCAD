@@ -33,16 +33,16 @@ struct Vertex {
     glm::vec3 pos;
     glm::u16vec2 uv;
 
-    bool operator ==(const Vertex& other) const {
+    bool operator==(const Vertex &other) const {
         return pos == other.pos && uv == other.uv;
     }
 };
 
 namespace std {
-  template<> struct hash<Vertex> {
-      size_t operator()(Vertex const& vertex) const {
-          return (std::hash<glm::vec3>{}(vertex.pos) ^
-                 (std::hash<glm::vec2>{}(vertex.uv) << 1));
+  template<>
+  struct hash<Vertex> {
+      size_t operator()(Vertex const &vertex) const {
+          return (std::hash<glm::vec3>{}(vertex.pos) ^ (std::hash<glm::vec2>{}(vertex.uv) << 1));
       }
   };
 }
@@ -68,20 +68,23 @@ class Mesh {
     std::string name;
 
   public:
-    static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>>& meshlets,
-                                        const BoundingBox& bbox,
-                                        const std::string& pName = "");
+    static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
+                                        const BoundingBox &bbox,
+                                        const std::string &pName = "");
 
-    void setName(const std::string& pName) { name = pName; }
+    void setName(const std::string &pName) { name = pName; }
 
     [[nodiscard]] uint32_t getIndexCount() const { return indexCount; }
+
     [[nodiscard]] uint32_t getVertexCount() const { return vertexCount; }
+
     [[nodiscard]] glm::vec3 getMean() const { return mean; }
+
     [[nodiscard]] BoundingBox getBoundingBox() const { return boundingBox; }
 
     std::string getName() { return name; }
 
-    std::vector<std::shared_ptr<Meshlet>>& getMeshlets() { return subMeshes; }
+    std::vector<std::shared_ptr<Meshlet>> &getMeshlets() { return subMeshes; }
 
     [[nodiscard]] VkDrawIndexedIndirectCommand getDrawCommand() const;
     void setOffsets(uint32_t vFirstIndex, uint32_t vFirstVertex);

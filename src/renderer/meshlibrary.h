@@ -21,7 +21,7 @@ class MeshLibrary {
     static std::shared_ptr<MeshLibrary> create();
 
     std::vector<std::shared_ptr<Mesh>> createMesh(const std::string &filename,
-                                                  const std::shared_ptr<Material>& material);
+                                                  const std::shared_ptr<Material> &material);
 
     std::unordered_map<std::string, std::vector<std::shared_ptr<Mesh>>> getMeshes() { return meshes; }
 };

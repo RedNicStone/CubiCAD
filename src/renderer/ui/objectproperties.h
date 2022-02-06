@@ -31,7 +31,7 @@ class ObjectProperties : public UIDrawable {
     uint32_t selectedMaterial = 0;
 
   public:
-    static std::shared_ptr<ObjectProperties> create(const std::shared_ptr<Scene>& pScene);
+    static std::shared_ptr<ObjectProperties> create(const std::shared_ptr<Scene> &pScene);
 
     void setObjectByID(uint32_t vObjectID);
 

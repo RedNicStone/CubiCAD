@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 #include "../voxel/VoxelFragmentTypes.h"
@@ -18,9 +17,8 @@ int main() {
     std::cout << sizeof(fragment::getFragmentType<0>()) << std::endl;
 
     AllocationHandler allocationHandler = AllocationHandler();
-    auto linearCodec = VoxelCodecLinear<uint16_t, uint32_t, uint64_t>::Allocate(&allocationHandler,
-                                                                                {8, 8, 8});
-    std::cout << *static_cast<uint64_t*>(linearCodec->getElementPtr());
+    auto linearCodec = VoxelCodecLinear<uint16_t, uint32_t, uint64_t>::Allocate(&allocationHandler, {8, 8, 8});
+    std::cout << *static_cast<uint64_t *>(linearCodec->getElementPtr());
 
     return 0;
 }

@@ -41,13 +41,12 @@ class MaterialLibrary {
     std::map<std::shared_ptr<MasterMaterial>, std::vector<std::shared_ptr<Material>>> materials;
 
   public:
-    static std::shared_ptr<MaterialLibrary> create(const std::shared_ptr<Device>& pDevice,
-                                                               const std::shared_ptr<CommandPool>& pTransferPool,
-                                                   const std::shared_ptr<DescriptorPoolManager>& pDescriptorPool,
-                                                               const std::vector<std::shared_ptr<Queue>>&
-                                                               accessingQueues);
+    static std::shared_ptr<MaterialLibrary> create(const std::shared_ptr<Device> &pDevice,
+                                                   const std::shared_ptr<CommandPool> &pTransferPool,
+                                                   const std::shared_ptr<DescriptorPoolManager> &pDescriptorPool,
+                                                   const std::vector<std::shared_ptr<Queue>> &accessingQueues);
 
-    std::shared_ptr<Material> registerShader(const std::shared_ptr<Material>& material);
+    std::shared_ptr<Material> registerShader(const std::shared_ptr<Material> &material);
 
     void pushParameters();
 };

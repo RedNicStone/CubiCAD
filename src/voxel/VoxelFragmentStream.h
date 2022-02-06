@@ -14,34 +14,39 @@
 
 class VoxelFragmentStreamBase {
   protected:
-    size_v          voxelIndex                          {};
-    VoxelCodecBase  codec                               {};
+    size_v voxelIndex{};
+    VoxelCodecBase codec{};
 
   public:
     [[nodiscard]]
-    size_v          getVoxelIndex() const               { return voxelIndex; }
-    void            setVoxelIndex(size_v index)         { voxelIndex = index; }
-    void            skipVoxel()                         { voxelIndex++; }
-    void            skipVoxels(size_v count)            { voxelIndex += count; }
+    size_v getVoxelIndex() const { return voxelIndex; }
 
-    virtual void *  getCurrentVoxelFragment()           {};
-    virtual void *  getNextVoxelFragment()              {};
+    void setVoxelIndex(size_v index) { voxelIndex = index; }
 
-    virtual void *  refreshCurrentVoxelFragmentData()   {};
+    void skipVoxel() { voxelIndex++; }
 
-    virtual         ~VoxelFragmentStreamBase()          = default;;
+    void skipVoxels(size_v count) { voxelIndex += count; }
+
+    virtual void *getCurrentVoxelFragment() {};
+
+    virtual void *getNextVoxelFragment() {};
+
+    virtual void *refreshCurrentVoxelFragmentData() {};
+
+    virtual         ~VoxelFragmentStreamBase() = default;;
 };
 
 template<class FragmentType>
 class VoxelFragmentStreamBuffered : public VoxelFragmentStreamBase {
   private:
-    void *  data{};
+    void *data{};
 
   public:
-    void *  getCurrentVoxelFragment() override { return data; }
-    void *  getNextVoxelFragment() override;
+    void *getCurrentVoxelFragment() override { return data; }
 
-    void *  refreshCurrentVoxelFragmentData() override;
+    void *getNextVoxelFragment() override;
+
+    void *refreshCurrentVoxelFragmentData() override;
 };
 
 template<class FragmentType>

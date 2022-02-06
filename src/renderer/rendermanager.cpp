@@ -5,10 +5,10 @@
 #include "rendermanager.h"
 
 
-std::shared_ptr<RenderManager> RenderManager::create(const std::shared_ptr<Instance>& instance,
-                                                     const std::shared_ptr<Window>& window,
-                                                     const TextureQualitySettings& textureQuality,
-                                                     const CameraModel& cameraModel) {
+std::shared_ptr<RenderManager> RenderManager::create(const std::shared_ptr<Instance> &instance,
+                                                     const std::shared_ptr<Window> &window,
+                                                     const TextureQualitySettings &textureQuality,
+                                                     const CameraModel &cameraModel) {
     auto renderManager = std::make_shared<RenderManager>();
 
     window->setUserPointer(renderManager.get());
@@ -28,7 +28,7 @@ void RenderManager::pickPhysicalDevice() {
 }
 
 void RenderManager::createLogicalDevice() {
-    const std::vector<const char *> deviceExtensions = { VK_KHR_SWAPCHAIN_EXTENSION_NAME };
+    const std::vector<const char *> deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 
     VkPhysicalDeviceFeatures deviceFeatures{};
     deviceFeatures.shaderFloat64 = VK_TRUE;
@@ -73,11 +73,10 @@ void RenderManager::createCommandPools() {
 
 void RenderManager::createSwapChain() {
     std::vector<uint32_t>
-        renderPassQueues = { graphicsQueue->getQueueFamilyIndex(), presentQueue->getQueueFamilyIndex() };
+        renderPassQueues = {graphicsQueue->getQueueFamilyIndex(), presentQueue->getQueueFamilyIndex()};
     Utils::remove(renderPassQueues);
 
-    std::vector<uint32_t>
-        graphicsQueues = {graphicsQueue->getQueueFamilyIndex()};
+    std::vector<uint32_t> graphicsQueues = {graphicsQueue->getQueueFamilyIndex()};
 
     swapChain = SwapChain::create(device, window, presentQueue, 3, renderPassQueues);
 
@@ -85,14 +84,25 @@ void RenderManager::createSwapChain() {
     VkExtent2D extent = swapChain->getSwapExtent();
     swapChainExtent = extent;
 
-    renderPassQueues = {graphicsQueue->getQueueFamilyIndex() };
-    depthImage = Image::create(device, swapChain->getSwapExtent(), 1, VK_FORMAT_D32_SFLOAT,
-                               VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, renderPassQueues);
+    renderPassQueues = {graphicsQueue->getQueueFamilyIndex()};
+    depthImage =
+        Image::create(device,
+                      swapChain->getSwapExtent(),
+                      1,
+                      VK_FORMAT_D32_SFLOAT,
+                      VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT,
+                      renderPassQueues);
     depthImageView = ImageView::create(depthImage, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_DEPTH_BIT);
 
-    objectBufferImage = Image::create(device, swapChain->getSwapExtent(), 1, VK_FORMAT_R32_UINT,
-                                      VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT,
-                                      graphicsQueues, VK_ACCESS_SHADER_WRITE_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
+    objectBufferImage =
+        Image::create(device,
+                      swapChain->getSwapExtent(),
+                      1,
+                      VK_FORMAT_R32_UINT,
+                      VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT,
+                      graphicsQueues,
+                      VK_ACCESS_SHADER_WRITE_BIT,
+                      VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
     objectBufferImageView = ImageView::create(objectBufferImage, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_COLOR_BIT);
     objectBuffer = FramebufferSelector::create(device, graphicsQueue, extent);
 }
@@ -102,21 +112,26 @@ void RenderManager::createRenderPass() {
     renderPass = RenderPass::create(device);
 
     uint32_t swapChainAttachment = renderPass->submitSwapChainAttachment(swapChain, true);
-    uint32_t depthAttachment = renderPass->submitImageAttachment(depthImage->getFormat(), VK_SAMPLE_COUNT_1_BIT,
-                                                                 VK_ATTACHMENT_LOAD_OP_CLEAR,
-                                                                 VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                 VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                                                                 VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                 VK_IMAGE_LAYOUT_UNDEFINED,
-                                                                 VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
-    uint32_t objectIDAttachment = renderPass->submitImageAttachment(objectBufferImage->getFormat(),
-                                                                    VK_SAMPLE_COUNT_1_BIT,
-                                                                    VK_ATTACHMENT_LOAD_OP_CLEAR,
-                                                                    VK_ATTACHMENT_STORE_OP_STORE,
-                                                                    VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                                                                    VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                    VK_IMAGE_LAYOUT_UNDEFINED,
-                                                                    VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
+    uint32_t
+        depthAttachment =
+        renderPass->submitImageAttachment(depthImage->getFormat(),
+                                          VK_SAMPLE_COUNT_1_BIT,
+                                          VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                          VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                          VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                          VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                          VK_IMAGE_LAYOUT_UNDEFINED,
+                                          VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
+    uint32_t
+        objectIDAttachment =
+        renderPass->submitImageAttachment(objectBufferImage->getFormat(),
+                                          VK_SAMPLE_COUNT_1_BIT,
+                                          VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                          VK_ATTACHMENT_STORE_OP_STORE,
+                                          VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                          VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                          VK_IMAGE_LAYOUT_UNDEFINED,
+                                          VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
 
     VkAttachmentReference colorAttachmentRef{};
     colorAttachmentRef.attachment = swapChainAttachment;
@@ -130,8 +145,8 @@ void RenderManager::createRenderPass() {
     objectIDAttachmentRef.attachment = objectIDAttachment;
     objectIDAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-    std::vector<VkAttachmentReference> shadingPipelineColorReference = { colorAttachmentRef, objectIDAttachmentRef };
-    std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = { };
+    std::vector<VkAttachmentReference> shadingPipelineColorReference = {colorAttachmentRef, objectIDAttachmentRef};
+    std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = {};
     renderSubpass =
         renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                   shadingPipelineColorReference,
@@ -139,8 +154,8 @@ void RenderManager::createRenderPass() {
                                   &depthAttachmentRef,
                                   0);
 
-    std::vector<VkAttachmentReference> UIPipelineColorReference = { colorAttachmentRef };
-    std::vector<VkAttachmentReference> UIPipelineAttachmentReference = { };
+    std::vector<VkAttachmentReference> UIPipelineColorReference = {colorAttachmentRef};
+    std::vector<VkAttachmentReference> UIPipelineAttachmentReference = {};
     uiSubpass =
         renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                   UIPipelineColorReference,
@@ -155,11 +170,8 @@ void RenderManager::createRenderPass() {
 }
 
 void RenderManager::createFrameBuffer() {
-    std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount,
-                                                                    std::vector<std::shared_ptr<ImageView>>{
-                                                                        depthImageView,
-                                                                        objectBufferImageView
-                                                                    });
+    std::vector<std::vector<std::shared_ptr<ImageView>>>
+        imageViews(imageCount, std::vector<std::shared_ptr<ImageView>>{depthImageView, objectBufferImageView});
 
     frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
 }
@@ -172,7 +184,7 @@ void RenderManager::crateSceneObjects() {
 
     poolManager = DescriptorPoolManager::create(device);
 
-    materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, { graphicsQueue });
+    materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, {graphicsQueue});
     textureLibrary = TextureLibrary::create(device, graphicsQueue, graphicsPool, textureQualitySettings);
     meshLibrary = MeshLibrary::create();
 }
@@ -208,10 +220,10 @@ void RenderManager::recreateSwapChain(bool newImageCount) {
 
 void RenderManager::processMouseInputs() {
     if (glfwGetWindowAttrib(window->getWindow(), GLFW_HOVERED) == GLFW_TRUE) {
-        auto& io = UIRenderer::getIO();
+        auto &io = UIRenderer::getIO();
 
         if (!mouseCaptured && !io.WantCaptureMouse) {
-            VkExtent2D mousePos { static_cast<uint32_t>(io.MousePos.x), static_cast<uint32_t>(io.MousePos.y) };
+            VkExtent2D mousePos{static_cast<uint32_t>(io.MousePos.x), static_cast<uint32_t>(io.MousePos.y)};
             uint32_t objectID = objectBuffer->getIDAtPosition(mousePos);
 
             scene->setHovered(objectID);
@@ -236,8 +248,7 @@ void RenderManager::processMouseInputs() {
             }
 
             camera->rotate(io.MouseDelta.x * mouseSpeed, {0, -1, 0});
-            camera->rotate(io.MouseDelta.y * mouseSpeed,
-                           glm::normalize(glm::cross({0, 1, 0}, camera->getRotation())));
+            camera->rotate(io.MouseDelta.y * mouseSpeed, glm::normalize(glm::cross({0, 1, 0}, camera->getRotation())));
         }
     }
 }
@@ -267,9 +278,8 @@ void RenderManager::drawFrame() {
     std::vector<VkClearValue> clearColor(3);
     clearColor[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
     clearColor[1].depthStencil = {1.0, 0};
-    clearColor[2].color = { { 0.0f, 0.0f, 0.0f, 1.0f } };
-    drawCommandBuffer->beginRenderPass(renderPass, frameBuffer, clearColor,
-                                                   index, frameBuffer->getExtent(), {0, 0});
+    clearColor[2].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
+    drawCommandBuffer->beginRenderPass(renderPass, frameBuffer, clearColor, index, frameBuffer->getExtent(), {0, 0});
 
     // write all commands to draw the scene
     scene->bakeGraphicsBuffer(drawCommandBuffer);
@@ -323,10 +333,11 @@ void RenderManager::drawFrame() {
     drawCommandBuffer->endCommandBuffer();
 
     // submit the buffer for execution
-    drawCommandBuffer->submitToQueue(signalSemaphores, { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
-                                                 waitSemaphores,
-                                                 graphicsQueue,
-                                                 swapChain->getPresentFence());
+    drawCommandBuffer->submitToQueue(signalSemaphores,
+                                     {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT},
+                                     waitSemaphores,
+                                     graphicsQueue,
+                                     swapChain->getPresentFence());
 
     // present the image and advance swap chain
     swapChain->presentImage();
@@ -337,23 +348,25 @@ void RenderManager::processInputs() {
     scene->updateUBO();
 }
 
-void RenderManager::keyCallback(GLFWwindow* glfwWindow, int key, int scancode, int action, int mods) {
-    auto renderManager =
-        static_cast<RenderManager*>(static_cast<Window*>(glfwGetWindowUserPointer(glfwWindow))->getUserPointer());
+void RenderManager::keyCallback(GLFWwindow *glfwWindow, int key, int scancode, int action, int mods) {
+    auto
+        renderManager =
+        static_cast<RenderManager *>(static_cast<Window *>(glfwGetWindowUserPointer(glfwWindow))->getUserPointer());
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS && !UIRenderer::getIO().WantCaptureKeyboard) {
         if (renderManager->mouseCaptured)
             glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         else
             glfwSetInputMode(glfwWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-        renderManager->mouseCaptured =! renderManager->mouseCaptured;
+        renderManager->mouseCaptured = !renderManager->mouseCaptured;
         renderManager->uiRenderer->setHidden(renderManager->mouseCaptured);
     }
 }
 
-void RenderManager::mouseButtonCallback(GLFWwindow* glfwWindow, int button, int action, int mods) {
-    auto renderManager =
-        static_cast<RenderManager*>(static_cast<Window*>(glfwGetWindowUserPointer(glfwWindow))->getUserPointer());
+void RenderManager::mouseButtonCallback(GLFWwindow *glfwWindow, int button, int action, int mods) {
+    auto
+        renderManager =
+        static_cast<RenderManager *>(static_cast<Window *>(glfwGetWindowUserPointer(glfwWindow))->getUserPointer());
     if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS && !UIRenderer::getIO().WantCaptureMouse)
         renderManager->scene->setSelected(renderManager->scene->getHovered());
 }
@@ -373,7 +386,7 @@ void RenderManager::updateRenderData() {
 
 void RenderManager::loadMesh(const std::string &filename) {
     auto meshes = meshLibrary->createMesh(filename, scene->getInstances()[0]->getMesh()->getMeshlets()[0]->material);
-    for (const auto& mesh : meshes)
+    for (const auto &mesh: meshes)
         scene->submitInstance(MeshInstance::create(mesh));
 }
 

@@ -22,7 +22,7 @@ class UIDrawable {
   public:
     virtual void drawUI() {};
 
-    virtual ~UIDrawable()=default;
+    virtual ~UIDrawable() = default;
 };
 
 class UIRenderer {
@@ -31,24 +31,25 @@ class UIRenderer {
 
     std::vector<std::shared_ptr<UIDrawable>> drawables;
 
-    ImGuiContext* context = nullptr;
+    ImGuiContext *context = nullptr;
     bool hideUI = false;
 
   public:
-    static std::shared_ptr<UIRenderer> create(const std::shared_ptr<Queue>& graphicsQueue,
-                                       const std::shared_ptr<CommandPool>& transferPool,
-                                       const std::shared_ptr<RenderPass>& renderPass,
-                                       const std::shared_ptr<Window>& window,
-                                       uint32_t imageCount,
-                                       uint32_t subpass = 0);
+    static std::shared_ptr<UIRenderer> create(const std::shared_ptr<Queue> &graphicsQueue,
+                                              const std::shared_ptr<CommandPool> &transferPool,
+                                              const std::shared_ptr<RenderPass> &renderPass,
+                                              const std::shared_ptr<Window> &window,
+                                              uint32_t imageCount,
+                                              uint32_t subpass = 0);
 
-    void submitDrawable(const std::shared_ptr<UIDrawable>& drawable) { drawables.push_back(drawable); }
+    void submitDrawable(const std::shared_ptr<UIDrawable> &drawable) { drawables.push_back(drawable); }
 
-    void draw(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffer);
+    void draw(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 
     void setHidden(bool hide);
 
-    static ImGuiIO& getIO() { return ImGui::GetIO(); }
+    static ImGuiIO &getIO() { return ImGui::GetIO(); }
+
     [[nodiscard]] bool getHidden() const { return hideUI; }
 
     ~UIRenderer();

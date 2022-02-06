@@ -146,7 +146,7 @@ class StackAllocator : public Allocator {
      * @param size Size in bytes
      * @return Pointer to allocation
      */
-    VirtualStackAllocation* makeAllocation(size_t size) override;
+    VirtualStackAllocation *makeAllocation(size_t size) override;
 
     /** Finds or, if required, creates pages
      * @param numberOfPages How many pages should be created

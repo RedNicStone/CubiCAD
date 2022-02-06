@@ -74,9 +74,9 @@ int main() {
     uint32_t
         renderPassID =
         renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                 attachments,
-                                 nullptr,
-                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
+                                  attachments,
+                                  nullptr,
+                                  VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
     renderPass->submitDependency(VK_SUBPASS_EXTERNAL, renderPassID, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
     renderPass->build();
 
@@ -123,9 +123,8 @@ int main() {
 
     auto pipeline = GraphicsPipeline::create(device, layout, shaders, renderPass, swapChain->getSwapExtent());
 
-    std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(swapChain->getImageCount(),
-                                                                    std::vector<std::shared_ptr<ImageView>>
-        ());
+    std::vector<std::vector<std::shared_ptr<ImageView>>>
+        imageViews(swapChain->getImageCount(), std::vector<std::shared_ptr<ImageView>>());
 
     auto frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
 
@@ -141,13 +140,17 @@ int main() {
         graphicsBuffers[i]->beginCommandBuffer();
 
         std::vector<VkClearValue> clearColors = {{{{0.0f, 0.0f, 0.0f, 1.0f}}}};
-        graphicsBuffers[i]->beginRenderPass(renderPass, frameBuffer, clearColors, i, swapChain->getSwapExtent(),
-                                           VkOffset2D{0, 0});
+        graphicsBuffers[i]->beginRenderPass(renderPass,
+                                            frameBuffer,
+                                            clearColors,
+                                            i,
+                                            swapChain->getSwapExtent(),
+                                            VkOffset2D{0, 0});
 
         graphicsBuffers[i]->bindPipeline(pipeline);
 
-        std::vector<std::shared_ptr<DescriptorSet>> pDescriptorSets = { descriptorSets[i] };
-        std::vector<uint32_t> offsets { };
+        std::vector<std::shared_ptr<DescriptorSet>> pDescriptorSets = {descriptorSets[i]};
+        std::vector<uint32_t> offsets{};
         graphicsBuffers[i]->bindDescriptorSets(pDescriptorSets, pipeline, offsets);
 
         graphicsBuffers[i]->draw(6);
@@ -159,40 +162,38 @@ int main() {
 
     dexode::EventBus::Listener listener{publicRenderBus.getBus()};
     listener.listen<RenderSubmitQueueEvent>([&](const auto &event) {
-        //swapChain.getPresentFence()->waitForSignal();
-        //swapChain.getPresentFence()->resetState();
+      //swapChain.getPresentFence()->waitForSignal();
+      //swapChain.getPresentFence()->resetState();
 
-        std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
-        std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
-        std::cout << "submitting using image index: " << swapChain->getCurrentImageIndex() << std::endl;
-        std::cout << "submitting using image: " << swapChain->getCurrentFrame() << std::endl;
-        graphicsBuffers[swapChain->getCurrentImageIndex()]->submitToQueue(signalSemaphores,
-                                                                   { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
-                                                                   waitSemaphores,
-                                                                   graphicsQueue,
-                                                                   swapChain->getPresentFence());
+      std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
+      std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
+      std::cout << "submitting using image index: " << swapChain->getCurrentImageIndex() << std::endl;
+      std::cout << "submitting using image: " << swapChain->getCurrentFrame() << std::endl;
+      graphicsBuffers[swapChain->getCurrentImageIndex()]->submitToQueue(signalSemaphores,
+                                                                        {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT},
+                                                                        waitSemaphores,
+                                                                        graphicsQueue,
+                                                                        swapChain->getPresentFence());
 
-
-        while (graphicsQueue->hasWorkSubmitted()) {
-            std::this_thread::sleep_for(std::chrono::nanoseconds(100));
-        }
+      while (graphicsQueue->hasWorkSubmitted()) {
+          std::this_thread::sleep_for(std::chrono::nanoseconds(100));
+      }
     });
 
     static auto startTime = std::chrono::high_resolution_clock::now();
     auto frameTime = startTime;
     listener.listen<PreRenderUpdateBuffersEvent>([&](const auto &event) {
-        FrameInfoObject* handle = frameInfoBuffers[swapChain->getCurrentImageIndex()]->getDataHandle();
-        handle->frameCount++;
-        handle->frameID = static_cast<unsigned char>(swapChain->getCurrentImageIndex());
+      FrameInfoObject *handle = frameInfoBuffers[swapChain->getCurrentImageIndex()]->getDataHandle();
+      handle->frameCount++;
+      handle->frameID = static_cast<unsigned char>(swapChain->getCurrentImageIndex());
 
-        auto currentTime = std::chrono::high_resolution_clock::now();
+      auto currentTime = std::chrono::high_resolution_clock::now();
 
-        handle->frameTime = std::chrono::duration<uint16_t, std::chrono::nanoseconds::period>
-            (currentTime - frameTime).count();
-        handle->time = std::chrono::duration<uint32_t, std::chrono::nanoseconds::period>
-            (currentTime - startTime).count();
+      handle->frameTime =
+          std::chrono::duration<uint16_t, std::chrono::nanoseconds::period>(currentTime - frameTime).count();
+      handle->time = std::chrono::duration<uint32_t, std::chrono::nanoseconds::period>(currentTime - startTime).count();
 
-        frameTime = startTime;
+      frameTime = startTime;
     });
 
     publicRenderBus.getBus()->process();
@@ -207,8 +208,12 @@ int main() {
 
     while (true) {
         uint32_t imageIndex;
-        vkAcquireNextImageKHR(device->getHandle(), swapChain->getHandle(), UINT64_MAX, imageAvailableSemaphore->getHandle(),
-                              VK_NULL_HANDLE, &imageIndex);
+        vkAcquireNextImageKHR(device->getHandle(),
+                              swapChain->getHandle(),
+                              UINT64_MAX,
+                              imageAvailableSemaphore->getHandle(),
+                              VK_NULL_HANDLE,
+                              &imageIndex);
 
         VkSubmitInfo submitInfo{};
         submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;

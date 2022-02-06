@@ -7,28 +7,22 @@
 #include <utility>
 
 
-std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue>& graphicsQueue,
-                                               const std::shared_ptr<CommandPool>& transferPool,
-                                               const std::shared_ptr<RenderPass>& renderPass,
-                                               const std::shared_ptr<Window>& window,
+std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue> &graphicsQueue,
+                                               const std::shared_ptr<CommandPool> &transferPool,
+                                               const std::shared_ptr<RenderPass> &renderPass,
+                                               const std::shared_ptr<Window> &window,
                                                uint32_t imageCount,
                                                uint32_t subpass) {
     auto uiRenderer = std::make_shared<UIRenderer>();
 
-    std::vector<VkDescriptorPoolSize> poolSizes =
-        {
-            { VK_DESCRIPTOR_TYPE_SAMPLER, 1000 },
-            { VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000 },
-            { VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000 },
-            { VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000 },
-            { VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000 },
-            { VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000 },
-            { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000 },
-            { VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000 },
-            { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000 },
-            { VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000 },
-            { VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000 }
-        };
+    std::vector<VkDescriptorPoolSize>
+        poolSizes =
+        {{VK_DESCRIPTOR_TYPE_SAMPLER, 1000}, {VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000},
+         {VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000}, {VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000},
+         {VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000}, {VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000},
+         {VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000}, {VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000},
+         {VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000}, {VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000},
+         {VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000}};
 
     uiRenderer->ImGUIPool = DescriptorPool::create(renderPass->getDevice(), poolSizes, 1000);
 
@@ -53,25 +47,31 @@ std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue>& gra
 
     ImGui_ImplVulkan_Init(&initInfo, renderPass->getHandle());
 
-    ImGuiIO& io = ImGui::GetIO();
+    ImGuiIO &io = ImGui::GetIO();
     io.Fonts->AddFontFromFileTTF("resources/fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf", FONT_SIZE);
 
-    static const ImWchar icons_ranges[] = { ICON_MIN_FK, ICON_MAX_FK, 0 };
-    ImFontConfig icons_config; icons_config.MergeMode = true; icons_config.PixelSnapH = true;
-    io.Fonts->AddFontFromFileTTF("resources/fonts/Fork-Awesome/fonts/forkawesome-webfont.ttf", FONT_SIZE, &icons_config, icons_ranges);
+    static const ImWchar icons_ranges[] = {ICON_MIN_FK, ICON_MAX_FK, 0};
+    ImFontConfig icons_config;
+    icons_config.MergeMode = true;
+    icons_config.PixelSnapH = true;
+    io.Fonts
+        ->AddFontFromFileTTF("resources/fonts/Fork-Awesome/fonts/forkawesome-webfont.ttf",
+                             FONT_SIZE,
+                             &icons_config,
+                             icons_ranges);
 
     auto transferBuffer = CommandBuffer::create(transferPool);
     transferBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
     ImGui_ImplVulkan_CreateFontsTexture(transferBuffer->getHandle());
     transferBuffer->endCommandBuffer();
 
-    std::vector<uint32_t> accessingQueues = { transferPool->getQueueFamily()->getQueueFamilyIndex() };
+    std::vector<uint32_t> accessingQueues = {transferPool->getQueueFamily()->getQueueFamilyIndex()};
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers = transferBuffer->getHandlePtr();
 
-    transferPool->getQueue()->submitCommandBuffer({ submitInfo });
+    transferPool->getQueue()->submitCommandBuffer({submitInfo});
     transferPool->getQueue()->waitForIdle();
 
     ImGui_ImplVulkan_DestroyFontUploadObjects();
@@ -81,13 +81,13 @@ std::shared_ptr<UIRenderer> UIRenderer::create(const std::shared_ptr<Queue>& gra
     return uiRenderer;
 }
 
-void UIRenderer::draw(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffer) {
+void UIRenderer::draw(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer) {
     ImGui_ImplVulkan_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
     if (!hideUI) {
-        for (const auto& drawable : drawables) {
+        for (const auto &drawable: drawables) {
             drawable->drawUI();
         }
         //ImGui::ShowDemoWindow();

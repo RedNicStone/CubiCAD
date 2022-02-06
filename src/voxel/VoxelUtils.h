@@ -10,6 +10,7 @@
 
 #include "LibMorton.h"
 
+
 #ifdef USE_UINT32_INDICES
 typedef uint_fast32_t size_v;
 typedef uint_fast16_t size_n;
@@ -26,13 +27,11 @@ namespace libmorton {
       return morton3D_64_encode(x, y, z);
   }
 
-  inline void morton2D_decode(const size_v morton,
-                              size_n& x, size_n& y) {
+  inline void morton2D_decode(const size_v morton, size_n &x, size_n &y) {
       return morton2D_64_decode(morton, x, y);
   }
 
-  inline void morton3D_decode(const size_v morton,
-                              size_n& x, size_n& y, size_n& z) {
+  inline void morton3D_decode(const size_v morton, size_n &x, size_n &y, size_n &z) {
       return morton3D_64_decode(morton, x, y, z);
   }
 }

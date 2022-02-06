@@ -39,12 +39,12 @@ class DescriptorSet : public VulkanClass<VkDescriptorSet> {
 
     static std::shared_ptr<DescriptorSet> create(std::shared_ptr<DescriptorSetLayout> pLayout,
                                                  const std::shared_ptr<DescriptorPool> &pPool,
-                                                 VkResult& result);
+                                                 VkResult &result);
 
     static std::vector<std::shared_ptr<DescriptorSet>> create(std::vector<std::shared_ptr<DescriptorSetLayout>> pLayout,
-                                                 const std::shared_ptr<DescriptorPool> &pPool);
+                                                              const std::shared_ptr<DescriptorPool> &pPool);
 
-    void updateUniformBuffer(const std::shared_ptr<UniformBuffer>& buffer,
+    void updateUniformBuffer(const std::shared_ptr<UniformBuffer> &buffer,
                              uint32_t binding,
                              VkDeviceSize offset = 0,
                              uint32_t arrayElement = 0);
@@ -54,14 +54,13 @@ class DescriptorSet : public VulkanClass<VkDescriptorSet> {
                              std::vector<VkDeviceSize> offset = {},
                              std::vector<uint32_t> arrayElement = {});
 
-    void updateUniformBuffer(const std::shared_ptr<Buffer>& buffer,
+    void updateUniformBuffer(const std::shared_ptr<Buffer> &buffer,
                              uint32_t binding,
                              VkDeviceSize size,
                              VkDeviceSize offset = 0,
                              uint32_t arrayElement = 0);
 
-    void updateImageSampler(const std::shared_ptr<Sampler> &sampler,
-                                    uint32_t binding);
+    void updateImageSampler(const std::shared_ptr<Sampler> &sampler, uint32_t binding);
 
     void updateStorageBuffer(const std::shared_ptr<Buffer> &buffer,
                              uint32_t binding,
@@ -70,8 +69,10 @@ class DescriptorSet : public VulkanClass<VkDescriptorSet> {
                              VkDeviceSize range = VK_WHOLE_SIZE);
 
     void updateImage(const std::shared_ptr<ImageView> &imageView, uint32_t binding, uint32_t arrayElement = 0);
-    void updateImage(const std::shared_ptr<ImageView> &imageView, VkDescriptorType type, uint32_t binding, uint32_t
-    arrayElement = 0);
+    void updateImage(const std::shared_ptr<ImageView> &imageView,
+                     VkDescriptorType type,
+                     uint32_t binding,
+                     uint32_t arrayElement = 0);
 
     std::shared_ptr<Device> getDevice() { return device; }
 

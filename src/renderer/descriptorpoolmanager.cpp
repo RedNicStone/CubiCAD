@@ -6,6 +6,7 @@
 
 #include <utility>
 
+
 std::shared_ptr<DescriptorPoolManager> DescriptorPoolManager::create(std::shared_ptr<Device> pDevice) {
     auto poolManager = std::make_shared<DescriptorPoolManager>();
     poolManager->device = std::move(pDevice);
@@ -23,7 +24,7 @@ std::shared_ptr<DescriptorSet> DescriptorPoolManager::allocate(std::shared_ptr<D
     VkResult result;
     try {
         set = DescriptorSet::create(std::move(layout), currentPool);
-    } catch (std::runtime_error& e) {
+    } catch (std::runtime_error &e) {
         if (result == VK_ERROR_OUT_OF_POOL_MEMORY) {
             //allocate a new pool and retry
             currentPool = grabPool();
@@ -43,19 +44,18 @@ std::shared_ptr<DescriptorPool> DescriptorPoolManager::grabPool() {
         auto pool = freePools.back();
         freePools.pop_back();
         return pool;
-    }
-    else {
+    } else {
         std::vector<VkDescriptorPoolSize> sizes;
         sizes.reserve(descriptorSizes.sizes.size());
-        for (auto sz : descriptorSizes.sizes) {
-            sizes.push_back({ sz.first, uint32_t(sz.second * 1000) });
+        for (auto sz: descriptorSizes.sizes) {
+            sizes.push_back({sz.first, uint32_t(sz.second * 1000)});
         }
         return DescriptorPool::create(device, sizes, 1000);
     }
 }
 
 void DescriptorPoolManager::resetPools() {
-    for (const auto& pool : usedPools) {
+    for (const auto &pool: usedPools) {
         pool->reset();
     }
 

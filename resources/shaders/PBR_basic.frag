@@ -1,13 +1,13 @@
 #version 450
 
 layout(set = 0, binding = 0) uniform SceneInfo {
-    mat4 view;  // view matrix
-    mat4 proj;  // projection matrix
+    mat4 view;// view matrix
+    mat4 proj;// projection matrix
 
-    uint nFrame;  // frame ID
-    uint frameTime;  // frame time in ns
-    uint selectedID;  // currently selected object
-    uint hoveredID;  // currently hovered object
+    uint nFrame;// frame ID
+    uint frameTime;// frame time in ns
+    uint selectedID;// currently selected object
+    uint hoveredID;// currently hovered object
 } scene_info;
 layout(set = 1, binding = 0) uniform sampler samp;
 layout(set = 2, binding = 0) uniform ShaderProperties {
@@ -25,15 +25,15 @@ float xor(float an) {
     vec2 p = 256.0 * vert_uv;
 
     float x = 0.0;
-    for( int i=0; i<7; i++ )
+    for (int i=0; i<7; i++)
     {
         vec2 a = floor(p);
         vec2 b = fract(p);
 
-        x += mod( a.x + a.y, 2.0 ) *
+        x += mod(a.x + a.y, 2.0) *
 
         // the following line implements the smooth xor
-        mix( 1.0, 1.5*pow(4.0*(1.0-b.x)*b.x*(1.0-b.y)*b.y,0.25), an );
+        mix(1.0, 1.5*pow(4.0*(1.0-b.x)*b.x*(1.0-b.y)*b.y, 0.25), an);
 
         p /= 2.0;
         x /= 2.0;

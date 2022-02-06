@@ -83,11 +83,16 @@ class SwapChain {
     [[nodiscard]] uint32_t getCurrentFrame() const { return currentFrame; }
 
     [[nodiscard]] uint32_t getCurrentImageIndex() const { return currentImageIndex; }
-    [[nodiscard]] uint32_t* getCurrentImageIndex_() { return &currentImageIndex; }
 
-    std::vector<std::shared_ptr<Semaphore>> getRenderSignalSemaphores() { return {renderFinishedSemaphores[currentFrame]}; }
+    [[nodiscard]] uint32_t *getCurrentImageIndex_() { return &currentImageIndex; }
 
-    std::vector<std::shared_ptr<Semaphore>> getRenderWaitSemaphores() { return {imageAvailableSemaphores[currentFrame]}; }
+    std::vector<std::shared_ptr<Semaphore>> getRenderSignalSemaphores() {
+        return {renderFinishedSemaphores[currentFrame]};
+    }
+
+    std::vector<std::shared_ptr<Semaphore>> getRenderWaitSemaphores() {
+        return {imageAvailableSemaphores[currentFrame]};
+    }
 
     std::shared_ptr<Fence> getPresentFence() { return inFlightFences[currentFrame]; }
 

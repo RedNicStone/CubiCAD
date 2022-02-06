@@ -5,8 +5,8 @@
 #include "sampler.h"
 
 
-std::shared_ptr<Sampler> Sampler::create(const std::shared_ptr<Device>& pDevice, float anisotropy) {
-    auto sampler =  std::make_shared<Sampler>();
+std::shared_ptr<Sampler> Sampler::create(const std::shared_ptr<Device> &pDevice, float anisotropy) {
+    auto sampler = std::make_shared<Sampler>();
     sampler->device = pDevice;
 
     VkSamplerCreateInfo createInfo{};

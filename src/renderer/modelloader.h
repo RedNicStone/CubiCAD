@@ -22,19 +22,18 @@ class ModelLoader {
     std::shared_ptr<MaterialLibrary> materialLibrary;
 
   public:
-    static std::shared_ptr<ModelLoader> create(const std::shared_ptr<TextureLibrary>& textureLibrary,
-                                               const std::shared_ptr<MaterialLibrary>& materialLibrary);
+    static std::shared_ptr<ModelLoader> create(const std::shared_ptr<TextureLibrary> &textureLibrary,
+                                               const std::shared_ptr<MaterialLibrary> &materialLibrary);
 
-    static void loadMaterialProperties(char* property, const MaterialPropertyBuiltGeneric* materialProperty,
-                                       tinyobj::material_t
-    material);
-    static std::vector<std::shared_ptr<Texture>> loadMaterialTextures(const MaterialPropertyLayoutBuilt&
-    materialLayout, const
-    tinyobj::material_t&
-    material, const std::shared_ptr<TextureLibrary>& textureLibrary);
+    static void loadMaterialProperties(char *property,
+                                       const MaterialPropertyBuiltGeneric *materialProperty,
+                                       tinyobj::material_t material);
+    static std::vector<std::shared_ptr<Texture>> loadMaterialTextures(const MaterialPropertyLayoutBuilt &materialLayout,
+                                                                      const tinyobj::material_t &material,
+                                                                      const std::shared_ptr<TextureLibrary> &textureLibrary);
 
-    std::vector<std::shared_ptr<Mesh>> import(const std::string& filename,
-                                              const std::shared_ptr<MasterMaterial>& masterMaterial);
+    std::vector<std::shared_ptr<Mesh>> import(const std::string &filename,
+                                              const std::shared_ptr<MasterMaterial> &masterMaterial);
 };
 
 #endif //CUBICAD_MODELLOADER_H

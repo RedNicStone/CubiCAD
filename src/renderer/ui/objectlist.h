@@ -22,7 +22,7 @@ class ObjectList : public UIDrawable {
     void updateSelected();
 
   public:
-    static std::shared_ptr<ObjectList> create(const std::shared_ptr<Scene>& pScene);
+    static std::shared_ptr<ObjectList> create(const std::shared_ptr<Scene> &pScene);
 
     void drawUI() override;
 };

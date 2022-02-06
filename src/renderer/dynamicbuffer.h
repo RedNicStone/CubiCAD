@@ -23,21 +23,21 @@ class DynamicBuffer {
     VkMemoryPropertyFlags requiredFlags;
 
     bool mapped = false;
-    void* data;
+    void *data;
 
   public:
-    static std::shared_ptr<DynamicBuffer> create(const std::shared_ptr<Device>& pDevice,
-                                                 const std::vector<uint32_t>& vAccessingQueues,
+    static std::shared_ptr<DynamicBuffer> create(const std::shared_ptr<Device> &pDevice,
+                                                 const std::vector<uint32_t> &vAccessingQueues,
                                                  VmaMemoryUsage vMemoryUsage,
                                                  VkBufferUsageFlags vBufferUsage,
                                                  VkMemoryPropertyFlags vPreferredFlags = 0,
                                                  VkMemoryPropertyFlags vRequiredFlags = 0);
 
     std::shared_ptr<Buffer> getBuffer(VkDeviceSize size = 0);
-    std::shared_ptr<Buffer> getBufferPreserveContents(VkDeviceSize size, const std::shared_ptr<CommandPool>&
-        commandPool);
+    std::shared_ptr<Buffer> getBufferPreserveContents(VkDeviceSize size,
+                                                      const std::shared_ptr<CommandPool> &commandPool);
 
-    void** map();
+    void **map();
     void unmap();
 };
 

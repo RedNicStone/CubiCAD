@@ -5,17 +5,17 @@
 #include "framebufferselector.h"
 
 
-std::shared_ptr<FramebufferSelector> FramebufferSelector::create(const std::shared_ptr<Device>& device,
-                                                                 const std::shared_ptr<Queue>& renderQueue,
+std::shared_ptr<FramebufferSelector> FramebufferSelector::create(const std::shared_ptr<Device> &device,
+                                                                 const std::shared_ptr<Queue> &renderQueue,
                                                                  VkExtent2D imageExtent) {
     auto objectSelector = std::make_shared<FramebufferSelector>();
 
-    std::vector<uint32_t> accessingQueues{ renderQueue->getQueueFamilyIndex() };
+    std::vector<uint32_t> accessingQueues{renderQueue->getQueueFamilyIndex()};
 
     VkImageCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
     createInfo.imageType = VK_IMAGE_TYPE_2D;
-    createInfo.extent = { imageExtent.width, imageExtent.height, 1};
+    createInfo.extent = {imageExtent.width, imageExtent.height, 1};
     createInfo.mipLevels = 1;
     createInfo.arrayLayers = 1;
     createInfo.format = VK_FORMAT_R32_UINT;
@@ -27,10 +27,15 @@ std::shared_ptr<FramebufferSelector> FramebufferSelector::create(const std::shar
     createInfo.pQueueFamilyIndices = accessingQueues.data();
     createInfo.flags = 0;
 
-    objectSelector->image = Image::create(device, VMA_MEMORY_USAGE_UNKNOWN, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
-                                          VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, createInfo, accessingQueues);
+    objectSelector->image =
+        Image::create(device,
+                      VMA_MEMORY_USAGE_UNKNOWN,
+                      VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
+                      VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+                      createInfo,
+                      accessingQueues);
 
-    objectSelector->data = static_cast<uint32_t*>(objectSelector->image->map());
+    objectSelector->data = static_cast<uint32_t *>(objectSelector->image->map());
     objectSelector->extent = imageExtent;
 
     VkImageSubresource imageSubresource{};
@@ -38,7 +43,9 @@ std::shared_ptr<FramebufferSelector> FramebufferSelector::create(const std::shar
     imageSubresource.arrayLayer = 0;
     imageSubresource.mipLevel = 0;
 
-    vkGetImageSubresourceLayout(device->getHandle(), objectSelector->image->getHandle(), &imageSubresource,
+    vkGetImageSubresourceLayout(device->getHandle(),
+                                objectSelector->image->getHandle(),
+                                &imageSubresource,
                                 &(objectSelector->imageLayout));
     objectSelector->imageLayout.rowPitch %= imageExtent.width;
     objectSelector->imageLayout.rowPitch += imageExtent.width;
@@ -46,13 +53,17 @@ std::shared_ptr<FramebufferSelector> FramebufferSelector::create(const std::shar
     return objectSelector;
 }
 
-void FramebufferSelector::transferLayoutRead(const std::shared_ptr<CommandBuffer>& commandBuffer) {
-    image->transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL, VK_PIPELINE_STAGE_HOST_BIT,
-    VK_ACCESS_HOST_READ_BIT);
+void FramebufferSelector::transferLayoutRead(const std::shared_ptr<CommandBuffer> &commandBuffer) {
+    image->transitionImageLayout(commandBuffer,
+                                 VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
+                                 VK_PIPELINE_STAGE_HOST_BIT,
+                                 VK_ACCESS_HOST_READ_BIT);
 }
 
-void FramebufferSelector::transferLayoutWrite(const std::shared_ptr<CommandBuffer>& commandBuffer) {
-    image->transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_PIPELINE_STAGE_TRANSFER_BIT,
+void FramebufferSelector::transferLayoutWrite(const std::shared_ptr<CommandBuffer> &commandBuffer) {
+    image->transitionImageLayout(commandBuffer,
+                                 VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
+                                 VK_PIPELINE_STAGE_TRANSFER_BIT,
                                  VK_ACCESS_TRANSFER_WRITE_BIT);
 }
 

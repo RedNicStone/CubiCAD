@@ -95,14 +95,14 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void processMouseInputs();
 
     // callbacks
-    static void keyCallback(GLFWwindow* glfwWindow, int key, int scancode, int action, int mods);
-    static void mouseButtonCallback(GLFWwindow* glfwWindow, int button, int action, int mods);
+    static void keyCallback(GLFWwindow *glfwWindow, int key, int scancode, int action, int mods);
+    static void mouseButtonCallback(GLFWwindow *glfwWindow, int button, int action, int mods);
 
   public:
-    static std::shared_ptr<RenderManager> create(const std::shared_ptr<Instance>& instance,
-                                                 const std::shared_ptr<Window>& window,
-                                                 const TextureQualitySettings& textureQuality,
-                                                 const CameraModel& cameraModel);
+    static std::shared_ptr<RenderManager> create(const std::shared_ptr<Instance> &instance,
+                                                 const std::shared_ptr<Window> &window,
+                                                 const TextureQualitySettings &textureQuality,
+                                                 const CameraModel &cameraModel);
 
     void resizeSwapChain(uint32_t newImageCount = 0);
 
@@ -110,16 +110,24 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void drawFrame();
     void processInputs();
 
-    void loadMesh(const std::string& filename);
+    void loadMesh(const std::string &filename);
 
     std::shared_ptr<Scene> getScene() { return scene; }
+
     std::shared_ptr<SceneWriter> getSceneWriter() { return sceneWriter; }
+
     std::shared_ptr<MaterialLibrary> getMaterialLibrary() { return materialLibrary; }
+
     std::shared_ptr<TextureLibrary> getTextureLibrary() { return textureLibrary; }
+
     std::shared_ptr<MeshLibrary> getMeshLibrary() { return meshLibrary; }
+
     std::shared_ptr<UIRenderer> getUIRenderer() { return uiRenderer; }
+
     std::shared_ptr<Device> getDevice() { return device; }
+
     std::shared_ptr<RenderPass> getRenderPass() { return renderPass; }
+
     std::shared_ptr<DescriptorPoolManager> getDescriptorManager() { return poolManager; }
 
     VkExtent2D getExtend() { return swapChainExtent; }

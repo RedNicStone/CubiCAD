@@ -4,21 +4,21 @@
 
 #include "AllocationHandler.h"
 
+
 VirtualStackAllocation::VirtualStackAllocation(StackAllocator *allocator,
                                                size_t size_,
-                                               const std::vector<std::shared_ptr<char[]>>& pages,
+                                               const std::vector<std::shared_ptr<char[]>> &pages,
                                                uint8_t page_size) {
     pAllocator = allocator;
     size = size_;
     pageSize = page_size;
 
-    for (std::shared_ptr<char[]> page : pages)
+    for (std::shared_ptr<char[]> page: pages)
         mappedPages.push_back({page});
 }
 
 char *VirtualStackAllocation::getData(size_t address) {
-    return static_cast<char*>(
-        (mappedPages.data() + (address >> pageSize))->pData.get())
+    return static_cast<char *>((mappedPages.data() + (address >> pageSize))->pData.get())
         + (address & ((1 << pageSize) - 1));
 }
 
@@ -27,8 +27,8 @@ void VirtualStackAllocation::resize(size_t newSize) {
     if (page_count > mappedPages.size()) {
         size_t new_page_count = page_count - mappedPages.size();
         std::vector<std::shared_ptr<char[]>> pages = pAllocator->findOrCreatePages(new_page_count);
-        for (const std::shared_ptr<char[]>& page : pages) {
-            mappedPages.push_back({ page });
+        for (const std::shared_ptr<char[]> &page: pages) {
+            mappedPages.push_back({page});
         }
     } else if (page_count < mappedPages.size()) {
         size_t discarded_page_count = mappedPages.size() - page_count;
@@ -45,8 +45,8 @@ void StackAllocator::createPages(size_t numberOfPages) {
     size_t current_page_count = physicalAllocations.size();
     physicalAllocations.reserve(current_page_count + numberOfPages);
     for (size_t x = 0; x < chunk_count; x++) {
-        std::shared_ptr<char[]> data = std::unique_ptr<char[]>(new char[((size_t) 1 << pageSize) <<
-                                                                        allocationChunkSize]);
+        std::shared_ptr<char[]>
+            data = std::unique_ptr<char[]>(new char[((size_t) 1 << pageSize) << allocationChunkSize]);
         for (size_t y = 0; y < 1 << allocationChunkSize; y++) {
             physicalAllocations.emplace_back(std::shared_ptr<char[]>{data, data.get() + (y * 1 << pageSize)});
         }
@@ -88,7 +88,7 @@ StackAllocator::StackAllocator(uint8_t page_size, uint8_t allocation_chunk_size)
     allocationChunkSize = allocation_chunk_size;
 }
 
-VirtualStackAllocation* StackAllocator::makeAllocation(size_t size) {
+VirtualStackAllocation *StackAllocator::makeAllocation(size_t size) {
     size_t page_count = (size + (1 << pageSize) - 1) >> pageSize;
     std::vector<std::shared_ptr<char[]>> pages = findOrCreatePages(page_count);
     VirtualStackAllocation allocation = VirtualStackAllocation(this, size, pages, pageSize);

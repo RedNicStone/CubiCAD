@@ -23,7 +23,9 @@ class RenderManager;
 
 struct FileStream {
     std::ofstream charStream;
-    void Put (char c) { charStream.put (c); }
+
+    void Put(char c) { charStream.put(c); }
+
     void Flush() {}
 };
 
@@ -34,27 +36,28 @@ class SceneWriter {
 
     std::string filename;
 
-    void readInstanceFromNode(const rapidjson::Value& value,
-                              std::unordered_map<std::string, std::shared_ptr<Mesh>>& meshMap);
-    rapidjson::Value writeInstanceToNode(const std::shared_ptr<MeshInstance>& instance);
+    void readInstanceFromNode(const rapidjson::Value &value,
+                              std::unordered_map<std::string, std::shared_ptr<Mesh>> &meshMap);
+    rapidjson::Value writeInstanceToNode(const std::shared_ptr<MeshInstance> &instance);
 
-    void readMeshesFromNode(const rapidjson::Value& value,
-                            std::unordered_map<std::string, std::shared_ptr<Mesh>>& meshMap);
-    rapidjson::Value writeMeshesToNode(const std::pair<std::string, std::vector<std::shared_ptr<Mesh>>>& mesh);
+    void readMeshesFromNode(const rapidjson::Value &value,
+                            std::unordered_map<std::string, std::shared_ptr<Mesh>> &meshMap);
+    rapidjson::Value writeMeshesToNode(const std::pair<std::string, std::vector<std::shared_ptr<Mesh>>> &mesh);
 
     void readSceneFromDocument();
     void writeSceneToDocument();
 
   public:
-    static std::shared_ptr<SceneWriter> create(const std::shared_ptr<RenderManager>& renderManager,
-                                               const std::string& filename);
+    static std::shared_ptr<SceneWriter> create(const std::shared_ptr<RenderManager> &renderManager,
+                                               const std::string &filename);
 
     std::shared_ptr<Material> material;
 
     void readScene();
     void writeScene();
 
-    void setFilename(const std::string& newFilename) { filename = newFilename; }
+    void setFilename(const std::string &newFilename) { filename = newFilename; }
+
     std::string getFilename() { return filename; }
 };
 

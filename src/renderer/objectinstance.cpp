@@ -7,7 +7,7 @@
 #include <utility>
 
 
-std::shared_ptr<MeshInstance> MeshInstance::create(const std::shared_ptr<Mesh>& masterMesh, const std::string& pName) {
+std::shared_ptr<MeshInstance> MeshInstance::create(const std::shared_ptr<Mesh> &masterMesh, const std::string &pName) {
     auto meshInstance = std::make_shared<MeshInstance>();
     meshInstance->mesh = masterMesh;
     if (pName.empty()) {
@@ -20,9 +20,7 @@ std::shared_ptr<MeshInstance> MeshInstance::create(const std::shared_ptr<Mesh>& 
 }
 
 void MeshInstance::combineMatrices() {
-    combined = matPos
-        * matRot
-        * matScale;
+    combined = matPos * matRot * matScale;
 }
 
 InstanceData MeshInstance::getInstanceData() const {
@@ -41,9 +39,10 @@ void MeshInstance::setPosition(glm::vec3 position) {
 
 void MeshInstance::setRotation(glm::vec3 rotation) {
     rot = rotation;
-    matRot = glm::rotate(rot.x, glm::vec3(1, 0, 0))
-           * glm::rotate(rot.y, glm::vec3(0, 1, 0))
-           * glm::rotate(rot.z, glm::vec3(0, 0, 1));
+    matRot =
+        glm::rotate(rot.x, glm::vec3(1, 0, 0))
+            * glm::rotate(rot.y, glm::vec3(0, 1, 0))
+            * glm::rotate(rot.z, glm::vec3(0, 0, 1));
     combineMatrices();
 }
 

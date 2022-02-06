@@ -20,8 +20,8 @@ std::shared_ptr<DescriptorSet> DescriptorSet::create(std::shared_ptr<DescriptorS
     allocateInfo.descriptorSetCount = 1;
     allocateInfo.pSetLayouts = descriptorSet->setLayout->getHandlePtr();
 
-    if (vkAllocateDescriptorSets(descriptorSet->device->getHandle(), &allocateInfo, &descriptorSet->handle) !=
-    VK_SUCCESS) {
+    if (vkAllocateDescriptorSets(descriptorSet->device->getHandle(), &allocateInfo, &descriptorSet->handle)
+        != VK_SUCCESS) {
         throw std::runtime_error("could not create descriptor set!");
     }
 
@@ -30,7 +30,7 @@ std::shared_ptr<DescriptorSet> DescriptorSet::create(std::shared_ptr<DescriptorS
 
 std::shared_ptr<DescriptorSet> DescriptorSet::create(std::shared_ptr<DescriptorSetLayout> pLayout,
                                                      const std::shared_ptr<DescriptorPool> &pPool,
-                                                     VkResult& result) {
+                                                     VkResult &result) {
     auto descriptorSet = std::make_shared<DescriptorSet>();
     descriptorSet->device = pPool->getDevice();
     descriptorSet->pool = pPool;
@@ -53,8 +53,8 @@ std::shared_ptr<DescriptorSet> DescriptorSet::create(std::shared_ptr<DescriptorS
 
 std::vector<std::shared_ptr<DescriptorSet>> DescriptorSet::create(std::vector<std::shared_ptr<DescriptorSetLayout>> pLayout,
                                                                   const std::shared_ptr<DescriptorPool> &pPool) {
-    auto descriptorSets = std::vector<std::shared_ptr<DescriptorSet>>(pLayout.size(), std::make_shared<DescriptorSet>
-        ());
+    auto
+        descriptorSets = std::vector<std::shared_ptr<DescriptorSet>>(pLayout.size(), std::make_shared<DescriptorSet>());
     auto setLayouts = std::vector<VkDescriptorSetLayout>(pLayout.size());
 
     for (uint32_t i = 0; i < pLayout.size(); i++) {
@@ -69,8 +69,8 @@ std::vector<std::shared_ptr<DescriptorSet>> DescriptorSet::create(std::vector<st
 
     auto descriptorSetHandles = std::vector<VkDescriptorSet>(pLayout.size());
 
-    if (vkAllocateDescriptorSets(pPool->getDevice()->getHandle(), &allocateInfo, descriptorSetHandles.data()) !=
-        VK_SUCCESS) {
+    if (vkAllocateDescriptorSets(pPool->getDevice()->getHandle(), &allocateInfo, descriptorSetHandles.data())
+        != VK_SUCCESS) {
         throw std::runtime_error("could not create descriptor set!");
     }
 
@@ -107,9 +107,7 @@ void DescriptorSet::updateStorageBuffer(const std::shared_ptr<Buffer> &buffer,
     vkUpdateDescriptorSets(device->getHandle(), 1, &write, 0, nullptr);
 }
 
-void DescriptorSet::updateImage(const std::shared_ptr<ImageView> &imageView,
-                                       uint32_t binding,
-                                       uint32_t arrayElement) {
+void DescriptorSet::updateImage(const std::shared_ptr<ImageView> &imageView, uint32_t binding, uint32_t arrayElement) {
     updateImage(imageView, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, binding, arrayElement);
 }
 
@@ -133,8 +131,7 @@ void DescriptorSet::updateImage(const std::shared_ptr<ImageView> &imageView,
     vkUpdateDescriptorSets(device->getHandle(), 1, &write, 0, nullptr);
 }
 
-void DescriptorSet::updateImageSampler(const std::shared_ptr<Sampler> &sampler,
-                                               uint32_t binding) {
+void DescriptorSet::updateImageSampler(const std::shared_ptr<Sampler> &sampler, uint32_t binding) {
     VkDescriptorImageInfo samplerInfo = {};
     samplerInfo.sampler = sampler->getHandle();
 

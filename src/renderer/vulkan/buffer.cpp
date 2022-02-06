@@ -9,7 +9,7 @@
 #include "buffer.h"
 
 
-std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
+std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device> &pDevice,
                                        VkDeviceSize size,
                                        VmaMemoryUsage memoryUsage,
                                        VkBufferUsageFlags bufferUsage,
@@ -17,7 +17,7 @@ std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
     return Buffer::create(pDevice, size, memoryUsage, 0, 0, bufferUsage, std::move(accessingQueues));
 }
 
-std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
+std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device> &pDevice,
                                        VkDeviceSize size,
                                        VmaMemoryUsage memoryUsage,
                                        VkMemoryPropertyFlags preferredFlags,
@@ -26,7 +26,7 @@ std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
     return Buffer::create(pDevice, size, memoryUsage, preferredFlags, 0, bufferUsage, std::move(accessingQueues));
 }
 
-std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
+std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device> &pDevice,
                                        VkDeviceSize size,
                                        VmaMemoryUsage memoryUsage,
                                        VkMemoryPropertyFlags preferredFlags,
@@ -67,7 +67,7 @@ std::shared_ptr<Buffer> Buffer::create(const std::shared_ptr<Device>& pDevice,
     return buffer;
 }
 
-std::shared_ptr<Buffer> Buffer::createHostStagingBuffer(const std::shared_ptr<Device>& pDevice,
+std::shared_ptr<Buffer> Buffer::createHostStagingBuffer(const std::shared_ptr<Device> &pDevice,
                                                         VkDeviceSize size,
                                                         std::vector<uint32_t> &accessingQueues) {
     return Buffer::create(pDevice,
@@ -110,19 +110,21 @@ void Buffer::transferDataMapped(void *src, size_t size) {
     vmaUnmapMemory(device->getAllocator(), allocation);
 }
 
-void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool) {
+void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool> &commandPool) {
     transferDataStaged(src, commandPool, allocationInfo.size);
 }
 
-void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool, VkDeviceSize size,
+void Buffer::transferDataStaged(void *src,
+                                const std::shared_ptr<CommandPool> &commandPool,
+                                VkDeviceSize size,
                                 VkDeviceSize offset) {
-    std::vector<uint32_t> accessingQueues = { commandPool->getQueueFamily()->getQueueFamilyIndex() };
+    std::vector<uint32_t> accessingQueues = {commandPool->getQueueFamily()->getQueueFamilyIndex()};
     auto stagingBuffer = Buffer::createHostStagingBuffer(device, size, accessingQueues);
     stagingBuffer->transferDataMapped(src, size);
 
     auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
     commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
-    commandBuffer->copyBuffer(stagingBuffer, shared_from_this(), { { 0, offset, size } });
+    commandBuffer->copyBuffer(stagingBuffer, shared_from_this(), {{0, offset, size}});
     commandBuffer->endCommandBuffer();
 
     VkSubmitInfo submitInfo{};
@@ -130,6 +132,6 @@ void Buffer::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& c
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers = commandBuffer->getHandlePtr();
 
-    commandPool->getQueue()->submitCommandBuffer({ submitInfo });
+    commandPool->getQueue()->submitCommandBuffer({submitInfo});
     commandPool->getQueue()->waitForIdle();
 }

@@ -41,6 +41,7 @@
 #include "../renderer/ui/mainmenu.h"
 #include "../renderer/texturelibrary.h"
 
+
 const uint32_t WIDTH = 1080 * 2;
 const uint32_t HEIGHT = 720 * 2;
 
@@ -177,22 +178,21 @@ class MandelbrotApp {
         materialProperty.count = MATERIAL_PROPERTY_COUNT_3;
         materialProperty.format = MATERIAL_PROPERTY_FORMAT_UINT;
 
-        MaterialPropertyLayout propertyLayout{{ materialProperty }};
+        MaterialPropertyLayout propertyLayout{{materialProperty}};
 
-        auto masterMaterial = MasterMaterial::create(device, shaders, 2, swapChainExtent, propertyLayout, renderPass,
-                                                     "basicMaterial");
+        auto
+            masterMaterial =
+            MasterMaterial::create(device, shaders, 2, swapChainExtent, propertyLayout, renderPass, "basicMaterial");
         auto material = Material::create(masterMaterial);
         model = modelLoader->import("resources/models/demo/primitives/cube.obj", material).front();
 
         for (size_t i = 0; i < 5000; i++) {
             auto object = MeshInstance::create(model);
             object->setScale(glm::vec3(0.1f));
-            object->setPosition(glm::normalize(glm::vec3(
-                static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
-                static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
-                static_cast <float> (rand()) / static_cast <float> (RAND_MAX))
-                - glm::vec3(0.5f)) *
-            glm::vec3(20));
+            object->setPosition(glm::normalize(glm::vec3(static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
+                                                         static_cast <float> (rand()) / static_cast <float> (RAND_MAX),
+                                                         static_cast <float> (rand()) / static_cast <float> (RAND_MAX))
+                                                   - glm::vec3(0.5f)) * glm::vec3(20));
             objects.push_back(object);
         }
     }
@@ -208,7 +208,7 @@ class MandelbrotApp {
 
         scene = Scene::create(device, graphicsQueue, graphicsQueue, camera);
 
-        for (const auto& object : objects)
+        for (const auto &object: objects)
             scene->submitInstance(object);
         scene->collectRenderBuffers();
         scene->bakeMaterials(true);
@@ -278,10 +278,11 @@ class MandelbrotApp {
                 scene->setHovered(objectID);
             }
 
-            auto& io = UIRenderer::getIO();
+            auto &io = UIRenderer::getIO();
 
             glm::dvec2 currentMousePos;
-            glfwGetCursorPos(window->getWindow(), reinterpret_cast<double *>(&currentMousePos.x),
+            glfwGetCursorPos(window->getWindow(),
+                             reinterpret_cast<double *>(&currentMousePos.x),
                              reinterpret_cast<double *>(&currentMousePos.y));
             currentMousePos -= glm::dvec2(WIDTH, HEIGHT);
             auto deltaMousePos = currentMousePos - prevMousePos;
@@ -327,7 +328,6 @@ class MandelbrotApp {
                     camera->move(glm::cross(camera->getRotation(), {0, 1, 0}) * glm::vec3(moveSpeed));
                 }
 
-
                 const auto mouseSpeed = 0.001f;
                 camera->rotate((float) deltaMousePos.x * mouseSpeed, {0, -1, 0});
                 camera->rotate((float) deltaMousePos.y * mouseSpeed,
@@ -338,9 +338,8 @@ class MandelbrotApp {
         objectList->updateSelected();
         scene->updateUBO();
 
-        for (const auto& object : objects) {
-            object->setPosition(glm::normalize(glm::cross(object->getPosition(),
-                                                          {0, 1, 0}) * glm::vec3(0.0005f)
+        for (const auto &object: objects) {
+            object->setPosition(glm::normalize(glm::cross(object->getPosition(), {0, 1, 0}) * glm::vec3(0.0005f)
                                                    + object->getPosition()) * glm::vec3(20));
         }
         objectProperties->setObjectByID(scene->getSelected());
@@ -421,19 +420,29 @@ class MandelbrotApp {
             renderPassQueues = {graphicsQueue->getQueueFamilyIndex(), presentQueue->getQueueFamilyIndex()};
         remove(renderPassQueues);
 
-        std::vector<uint32_t>
-            graphicsQueues = {graphicsQueue->getQueueFamilyIndex()};
+        std::vector<uint32_t> graphicsQueues = {graphicsQueue->getQueueFamilyIndex()};
 
         swapChain = SwapChain::create(device, window, presentQueue, 3, renderPassQueues);
 
-        renderPassQueues = {graphicsQueue->getQueueFamilyIndex() };
-        depthImage = Image::create(device, swapChain->getSwapExtent(), 1, VK_FORMAT_D32_SFLOAT,
-                                   VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, renderPassQueues);
+        renderPassQueues = {graphicsQueue->getQueueFamilyIndex()};
+        depthImage =
+            Image::create(device,
+                          swapChain->getSwapExtent(),
+                          1,
+                          VK_FORMAT_D32_SFLOAT,
+                          VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT,
+                          renderPassQueues);
         depthImageView = ImageView::create(depthImage, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_DEPTH_BIT);
 
-        objectBufferImage = Image::create(device, swapChain->getSwapExtent(), 1, VK_FORMAT_R32_UINT,
-                                          VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT,
-                                          graphicsQueues, VK_ACCESS_SHADER_WRITE_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
+        objectBufferImage =
+            Image::create(device,
+                          swapChain->getSwapExtent(),
+                          1,
+                          VK_FORMAT_R32_UINT,
+                          VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT,
+                          graphicsQueues,
+                          VK_ACCESS_SHADER_WRITE_BIT,
+                          VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
         objectBufferImageView = ImageView::create(objectBufferImage, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_COLOR_BIT);
 
         objectBuffer = FramebufferSelector::create(device, graphicsQueue, window->getSurfaceExtend());
@@ -474,21 +483,26 @@ class MandelbrotApp {
         renderPass = RenderPass::create(device);
 
         uint32_t swapChainAttachment = renderPass->submitSwapChainAttachment(swapChain, true);
-        uint32_t depthAttachment = renderPass->submitImageAttachment(depthImage->getFormat(), VK_SAMPLE_COUNT_1_BIT,
-                                                                     VK_ATTACHMENT_LOAD_OP_CLEAR,
-                                                                     VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                     VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                                                                     VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                     VK_IMAGE_LAYOUT_UNDEFINED,
-                                                                     VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
-        uint32_t objectIDAttachment = renderPass->submitImageAttachment(objectBufferImage->getFormat(),
-                                                                        VK_SAMPLE_COUNT_1_BIT,
-                                                                     VK_ATTACHMENT_LOAD_OP_CLEAR,
-                                                                     VK_ATTACHMENT_STORE_OP_STORE,
-                                                                     VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                                                                     VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                     VK_IMAGE_LAYOUT_UNDEFINED,
-                                                                     VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
+        uint32_t
+            depthAttachment =
+            renderPass->submitImageAttachment(depthImage->getFormat(),
+                                              VK_SAMPLE_COUNT_1_BIT,
+                                              VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                              VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                              VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                              VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                              VK_IMAGE_LAYOUT_UNDEFINED,
+                                              VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
+        uint32_t
+            objectIDAttachment =
+            renderPass->submitImageAttachment(objectBufferImage->getFormat(),
+                                              VK_SAMPLE_COUNT_1_BIT,
+                                              VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                              VK_ATTACHMENT_STORE_OP_STORE,
+                                              VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                              VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                              VK_IMAGE_LAYOUT_UNDEFINED,
+                                              VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
 
         VkAttachmentReference colorAttachmentRef{};
         colorAttachmentRef.attachment = swapChainAttachment;
@@ -502,17 +516,18 @@ class MandelbrotApp {
         objectIDAttachmentRef.attachment = objectIDAttachment;
         objectIDAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-        std::vector<VkAttachmentReference> shadingPipelineColorReference = { colorAttachmentRef, objectIDAttachmentRef };
-        std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = { };
-        uint32_t shadingSubpass =
+        std::vector<VkAttachmentReference> shadingPipelineColorReference = {colorAttachmentRef, objectIDAttachmentRef};
+        std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = {};
+        uint32_t
+            shadingSubpass =
             renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                       shadingPipelineColorReference,
                                       shadingPipelineAttachmentReference,
                                       &depthAttachmentRef,
                                       0);
 
-        std::vector<VkAttachmentReference> UIPipelineColorReference = { colorAttachmentRef };
-        std::vector<VkAttachmentReference> UIPipelineAttachmentReference = { };
+        std::vector<VkAttachmentReference> UIPipelineColorReference = {colorAttachmentRef};
+        std::vector<VkAttachmentReference> UIPipelineAttachmentReference = {};
         UISubpass =
             renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                       UIPipelineColorReference,
@@ -527,11 +542,8 @@ class MandelbrotApp {
     }
 
     void createFrameBuffers() {
-        std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount,
-                                                                        std::vector<std::shared_ptr<ImageView>>{
-            depthImageView,
-            objectBufferImageView
-        });
+        std::vector<std::vector<std::shared_ptr<ImageView>>>
+            imageViews(imageCount, std::vector<std::shared_ptr<ImageView>>{depthImageView, objectBufferImageView});
 
         frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
     }
@@ -543,7 +555,7 @@ class MandelbrotApp {
     void createGraphicsCommandBuffers() {
         graphicsCommandBuffers.resize(imageCount);
 
-        for (auto & graphicsCommandBuffer : graphicsCommandBuffers) {
+        for (auto &graphicsCommandBuffer: graphicsCommandBuffers) {
             graphicsCommandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
         }
     }
@@ -569,9 +581,13 @@ class MandelbrotApp {
         std::vector<VkClearValue> clearColor(3);
         clearColor[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
         clearColor[1].depthStencil = {1.0, 0};
-        clearColor[2].color = { { 0.0f, 0.0f, 0.0f, 1.0f } };
-        graphicsCommandBuffers[index]->beginRenderPass(renderPass, frameBuffer, clearColor,
-                                                       index, frameBuffer->getExtent(), {0, 0});
+        clearColor[2].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
+        graphicsCommandBuffers[index]->beginRenderPass(renderPass,
+                                                       frameBuffer,
+                                                       clearColor,
+                                                       index,
+                                                       frameBuffer->getExtent(),
+                                                       {0, 0});
 
         scene->bakeGraphicsBuffer(graphicsCommandBuffers[index]);
 
@@ -613,10 +629,11 @@ class MandelbrotApp {
 
         graphicsCommandBuffers[index]->endCommandBuffer();
 
-        graphicsCommandBuffers[index]->submitToQueue(signalSemaphores, { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
-                                     waitSemaphores,
-                                     graphicsQueue,
-                                     swapChain->getPresentFence());
+        graphicsCommandBuffers[index]->submitToQueue(signalSemaphores,
+                                                     {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT},
+                                                     waitSemaphores,
+                                                     graphicsQueue,
+                                                     swapChain->getPresentFence());
 
         swapChain->presentImage({device});
     }

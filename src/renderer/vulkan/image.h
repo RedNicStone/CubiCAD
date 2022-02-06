@@ -42,7 +42,7 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     VkPipelineStageFlags currentStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT;
 
   public:
-    static std::shared_ptr<Image> create(const std::shared_ptr<Device>& pDevice,
+    static std::shared_ptr<Image> create(const std::shared_ptr<Device> &pDevice,
                                          VmaMemoryUsage memoryUsage,
                                          VkMemoryPropertyFlags preferredFlags,
                                          VkMemoryPropertyFlags requiredFlags,
@@ -51,7 +51,7 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
                                          VkAccessFlags initialAccessMask = 0,
                                          VkPipelineStageFlags initialPipelineStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
 
-    static std::shared_ptr<Image> create(const std::shared_ptr<Device>& pDevice,
+    static std::shared_ptr<Image> create(const std::shared_ptr<Device> &pDevice,
                                          const VkExtent2D &size,
                                          uint32_t mip_level,
                                          VkFormat format,
@@ -60,7 +60,7 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
                                          VkAccessFlags initialAccessMask = 0,
                                          VkPipelineStageFlags initialPipelineStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
 
-    static std::shared_ptr<Image> create(const std::shared_ptr<Device>& pDevice,
+    static std::shared_ptr<Image> create(const std::shared_ptr<Device> &pDevice,
                                          const VkExtent2D &size,
                                          uint32_t mip_level,
                                          VkFormat format,
@@ -70,19 +70,21 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
                                          VkAccessFlags initialAccessMask = 0,
                                          VkPipelineStageFlags initialPipelineStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
 
-    static std::shared_ptr<Image> createHostStagingImage(const std::shared_ptr<Device>& pDevice,
-                                                         const VkExtent2D& size,
+    static std::shared_ptr<Image> createHostStagingImage(const std::shared_ptr<Device> &pDevice,
+                                                         const VkExtent2D &size,
                                                          VkFormat format,
                                                          std::vector<uint32_t> &accessingQueues);
 
-    static std::shared_ptr<Buffer> createHostStagingBuffer(const std::shared_ptr<Device>& pDevice,
+    static std::shared_ptr<Buffer> createHostStagingBuffer(const std::shared_ptr<Device> &pDevice,
                                                            VkDeviceSize size,
                                                            std::vector<uint32_t> &accessingQueues);
 
-    void transferDataMapped(void* src);
-    void transferDataMapped(void* src, size_t size);
-    void transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool);
-    void transferDataStaged(void *src, const std::shared_ptr<CommandPool> &commandPool, VkDeviceSize size,
+    void transferDataMapped(void *src);
+    void transferDataMapped(void *src, size_t size);
+    void transferDataStaged(void *src, const std::shared_ptr<CommandPool> &commandPool);
+    void transferDataStaged(void *src,
+                            const std::shared_ptr<CommandPool> &commandPool,
+                            VkDeviceSize size,
                             VkDeviceSize offset = 0);
 
     std::shared_ptr<ImageView> createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange);
@@ -103,14 +105,14 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
 
     void setLayout(VkImageLayout layout) { currentLayout = layout; }
 
-    void transitionImageLayout(const std::shared_ptr<CommandPool>& commandPool, VkImageLayout dst);
+    void transitionImageLayout(const std::shared_ptr<CommandPool> &commandPool, VkImageLayout dst);
 
-    void transitionImageLayout(const std::shared_ptr<CommandBuffer>& commandPool,
+    void transitionImageLayout(const std::shared_ptr<CommandBuffer> &commandPool,
                                VkImageLayout dst,
                                VkPipelineStageFlags dstStage,
                                VkAccessFlags dstMask = 0);
 
-    void* map();
+    void *map();
     void unmap();
 
     ~Image();

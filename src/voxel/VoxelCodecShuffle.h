@@ -6,6 +6,7 @@
 
 #ifndef CUBICAD_VOXELCODECSHUFFLE_H_
 #define CUBICAD_VOXELCODECSHUFFLE_H_
+
 #include <memory>
 #include <cstring>
 
@@ -16,7 +17,7 @@
 #include "VoxelUtils.h"
 
 
-template <typename T, T... S, typename F>
+template<typename T, T... S, typename F>
 constexpr void for_sequence(std::integer_sequence<T, S...>, F f) {
     (static_cast<void>(f(std::integral_constant<T, S>{})), ...);
 }
@@ -34,35 +35,34 @@ class VoxelCodecShuffle : public VoxelCodecBase {
     //! work on
 
   private:
-    using       fragment =                      VoxelFragment<Types...>;
+    using fragment = VoxelFragment<Types...>;
 
   public:
-    static std::shared_ptr<VoxelCodecShuffle<Types...>>
-    Allocate(AllocationHandler* handler, VoxelRegion region);
+    static std::shared_ptr<VoxelCodecShuffle<Types...>> Allocate(AllocationHandler *handler, VoxelRegion region);
 
-    ~VoxelCodecShuffle()             override;
+    ~VoxelCodecShuffle() override;
 
-    void        skipVoxel()                     override;
-    void        skipVoxels(size_v count)        override;
-    void        jumpToVoxel(size_v index)       override;
+    void skipVoxel() override;
+    void skipVoxels(size_v count) override;
+    void jumpToVoxel(size_v index) override;
 
-    void *      getElementPtr()                 override;
-    void        copyElementToPtr(void * dst)    override;
-    void        copyElementFromPtr(void *src)   override;
+    void *getElementPtr() override;
+    void copyElementToPtr(void *dst) override;
+    void copyElementFromPtr(void *src) override;
 };
 
 template<typename ...Types>
-std::shared_ptr<VoxelCodecShuffle<Types...>> VoxelCodecShuffle<Types...>::Allocate(AllocationHandler* handler,
+std::shared_ptr<VoxelCodecShuffle<Types...>> VoxelCodecShuffle<Types...>::Allocate(AllocationHandler *handler,
                                                                                    VoxelRegion region) {
     static_assert(std::is_class_v<fragment>, "Types must be a valid parameter pack for VoxelFragment");
 
     std::shared_ptr<VoxelCodecShuffle<Types...>> codec = std::make_shared<VoxelCodecShuffle<Types...>>();
 
-    codec->allocationSize       = region;
-    codec->size                 = region.x * region.y * region.z;
-    codec->allocationPtr        = handler->makeAllocation(codec->size * fragment::getFragmentTotalSize());
-    codec->allocationHandler    = handler;
-    codec->readWritePtr         = codec->allocationPtr;
+    codec->allocationSize = region;
+    codec->size = region.x * region.y * region.z;
+    codec->allocationPtr = handler->makeAllocation(codec->size * fragment::getFragmentTotalSize());
+    codec->allocationHandler = handler;
+    codec->readWritePtr = codec->allocationPtr;
 
     return codec;
 }
@@ -91,22 +91,18 @@ void VoxelCodecShuffle<Types...>::jumpToVoxel(size_v index) {
 }
 
 template<class ...Types>
-void * VoxelCodecShuffle<Types...>::getElementPtr() {
+void *VoxelCodecShuffle<Types...>::getElementPtr() {
     return readWritePtr;
 }
 
 template<typename... Types>
-void VoxelCodecShuffle<Types...>::copyElementToPtr(void * dst) {
-    memcpy(static_cast<char *>(dst),
-           static_cast<char *>(readWritePtr),
-           (fragment::getFragmentTotalSize()));
+void VoxelCodecShuffle<Types...>::copyElementToPtr(void *dst) {
+    memcpy(static_cast<char *>(dst), static_cast<char *>(readWritePtr), (fragment::getFragmentTotalSize()));
 }
 
 template<typename... Types>
 void VoxelCodecShuffle<Types...>::copyElementFromPtr(void *src) {
-    memcpy(static_cast<char *>(readWritePtr),
-           static_cast<char *>(dst),
-           (fragment::getFragmentTotalSize()));
+    memcpy(static_cast<char *>(readWritePtr), static_cast<char *>(dst), (fragment::getFragmentTotalSize()));
 }
 
 #endif //CUBICADVOXELTYPES__VOXELCODECSHUFFLE_H_

@@ -28,12 +28,12 @@ class MainMenu : public UIDrawable {
     bool showAboutWindow;
     bool showOpenOBJFileDialog;
 
-    static const constexpr char* OPEN_OBJ_FILE_DIALOG_TITLE = "Import from OBJ";
+    static const constexpr char *OPEN_OBJ_FILE_DIALOG_TITLE = "Import from OBJ";
 
     void drawAboutWindow();
 
   public:
-    static std::shared_ptr<MainMenu> create(const std::shared_ptr<RenderManager>& renderManager);
+    static std::shared_ptr<MainMenu> create(const std::shared_ptr<RenderManager> &renderManager);
 
     bool openOBJFileDialog();
 

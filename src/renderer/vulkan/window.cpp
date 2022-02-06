@@ -25,9 +25,9 @@ void Window::initWindows() {
 }
 
 std::shared_ptr<Window> Window::create(std::shared_ptr<Instance> pInstance,
-                                                        const std::string &title,
-                                                        int width,
-                                                        int height) {
+                                       const std::string &title,
+                                       int width,
+                                       int height) {
     auto window = std::make_shared<Window>();
     window->instance = std::move(pInstance);
 

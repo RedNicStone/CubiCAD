@@ -26,8 +26,7 @@ std::vector<char> Utils::readFile(const std::string &filename) {
     return buffer;
 }
 
-uint_fast8_t Utils::getMSB(uint_fast64_t x)
-{
+uint_fast8_t Utils::getMSB(uint_fast64_t x) {
     uint_fast8_t res = 0;
     while (x >>= 1)
         res++;

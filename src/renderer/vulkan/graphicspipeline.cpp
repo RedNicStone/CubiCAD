@@ -16,10 +16,8 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
                                                            VkPrimitiveTopology topology,
                                                            VkCullModeFlags cullMode,
                                                            VkFrontFace frontFace,
-                                                           std::vector<VkVertexInputBindingDescription>
-                                                               bindingDescription,
-                                                           std::vector<VkVertexInputAttributeDescription>
-                                                               attributeDescription,
+                                                           std::vector<VkVertexInputBindingDescription> bindingDescription,
+                                                           std::vector<VkVertexInputAttributeDescription> attributeDescription,
                                                            bool enableDepthStencil) {
     auto graphicsPipeline = std::make_shared<GraphicsPipeline>();
     graphicsPipeline->device = std::move(pDevice);
@@ -79,8 +77,8 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
 
     VkPipelineColorBlendAttachmentState attachmentState{};
     attachmentState.blendEnable = VK_FALSE;
-    attachmentState.colorWriteMask = VK_COLOR_COMPONENT_R_BIT | VK_COLOR_COMPONENT_G_BIT | VK_COLOR_COMPONENT_B_BIT |
-        VK_COLOR_COMPONENT_A_BIT;
+    attachmentState.colorWriteMask =
+        VK_COLOR_COMPONENT_R_BIT | VK_COLOR_COMPONENT_G_BIT | VK_COLOR_COMPONENT_B_BIT | VK_COLOR_COMPONENT_A_BIT;
 
     std::vector<VkPipelineColorBlendAttachmentState> attachmentStates(colorBlendStates, attachmentState);
 
@@ -127,11 +125,11 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
     }
 
     if (vkCreateGraphicsPipelines(graphicsPipeline->device->getHandle(),
-                              VK_NULL_HANDLE,
-                              1,
-                              &pipelineInfo,
-                              nullptr,
-                              &graphicsPipeline->handle) != VK_SUCCESS) {
+                                  VK_NULL_HANDLE,
+                                  1,
+                                  &pipelineInfo,
+                                  nullptr,
+                                  &graphicsPipeline->handle) != VK_SUCCESS) {
         throw std::runtime_error("Could not create render pipeline!");
     }
 

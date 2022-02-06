@@ -44,9 +44,10 @@ class MeshInstance {
     void combineMatrices();
 
   public:
-    static std::shared_ptr<MeshInstance> create(const std::shared_ptr<Mesh>& masterMesh, const std::string& pName = "");
+    static std::shared_ptr<MeshInstance> create(const std::shared_ptr<Mesh> &masterMesh, const std::string &pName = "");
 
     std::shared_ptr<Mesh> getMesh() { return mesh; }
+
     [[nodiscard]] InstanceData getInstanceData() const;
 
     void setPosition(glm::vec3 position);
@@ -56,13 +57,17 @@ class MeshInstance {
     void move(glm::vec3 position);
 
     void setID(uint32_t id);
-    void setName(const std::string& pName) { name = pName; }
+
+    void setName(const std::string &pName) { name = pName; }
 
     glm::vec3 getPosition() { return pos; }
+
     glm::vec3 getRotation() { return rot; }
+
     glm::vec3 getScale() { return scale; }
 
     std::string getName() { return name; }
+
     [[nodiscard]] uint32_t getID() const { return objectID; }
 };
 

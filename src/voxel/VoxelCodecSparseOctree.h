@@ -10,6 +10,7 @@
 #include "VoxelCodecOctreeBase.h"
 #include "../utils/utils.h"
 
+
 template<typename ...Types>
 class VoxelCodecSparseOctree : public VoxelCodecOctreeBase {
     //! this class a sparse voxel octree codec, stored according to:
@@ -29,13 +30,15 @@ class VoxelCodecSparseOctree : public VoxelCodecOctreeBase {
         uint8_t leafMask;
     };
 
-    bool leaf  {};     //!< is the current node a leaf?
+    bool leaf{};     //!< is the current node a leaf?
 
     void _enterNode();
 
   public:
-    bool isLeaf()    override    { return isLeaf; }
-    bool holdsData() override    { return true; }
+    bool isLeaf() override { return isLeaf; }
+
+    bool holdsData() override { return true; }
+
     OctreePosFlag getChild() override;
     OctreePosFlag getLeaf() override;
 
@@ -68,7 +71,7 @@ bool VoxelCodecSparseOctree<Types...>::enterNode() {
     if (leaf)  // a leaf can't have children
         return false;
 
-    Node* currentNode = *nodeStack.top();  // acquire current node (static)
+    Node *currentNode = *nodeStack.top();  // acquire current node (static)
     if (currentNode->validMask == 0x00)  // check any node exists
         return false;
 
@@ -78,14 +81,15 @@ bool VoxelCodecSparseOctree<Types...>::enterNode() {
 
     uint_fast64_t pNextNode;  // pointer to next node
     if (currentNode->childPtr & 0x1) {  // childPtr is a far pointer
-        pNextNode = (*allocation.getData(nodeStack.top().nodePtr + ((currentNode->childPtr >> 1) + 1) * 4)
-                                         + 1) * 4;  // get value of far pointer
+        pNextNode =
+            (*allocation.getData(nodeStack.top().nodePtr + ((currentNode->childPtr >> 1) + 1) * 4) + 1)
+                * 4;  // get value of far pointer
     } else {  // childPtr is a normal pointer
         pNextNode = (currentNode->childPtr >> 1) + 1;  // align with node pattern
     }
     pNextNode += nodeStack.top().nodePtr;  // add current pointer to nextNode pointer
-    char* memPtr = allocation.getData(pNextNode);  // get physical pointer to nextNode
-    nodeStack.push( { pNextNode, memPtr, first_node } );  // push node to stack
+    char *memPtr = allocation.getData(pNextNode);  // get physical pointer to nextNode
+    nodeStack.push({pNextNode, memPtr, first_node});  // push node to stack
 }
 
 template<typename... Types>
@@ -105,8 +109,8 @@ bool VoxelCodecSparseOctree<Types...>::nextNode() {
     auto next_node = static_cast<OctreePos>(getMSB(valid & !prev_node_bitmask));
     leaf = (*nodeStack.top().memoryPtr) & (1 << next_node)
 
-    char* memPtr = allocation.getData(nodeStack.top().nodePtr);
-    nodeStack.push( { pNextNode, memPtr, next_node } );
+    char *memPtr = allocation.getData(nodeStack.top().nodePtr);
+    nodeStack.push({pNextNode, memPtr, next_node});
 }
 
 template<typename... Types>

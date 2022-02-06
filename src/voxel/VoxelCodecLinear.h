@@ -17,7 +17,7 @@
 #include "VoxelUtils.h"
 
 
-template <typename T, T... S, typename F>
+template<typename T, T... S, typename F>
 constexpr void for_sequence(std::integer_sequence<T, S...>, F f) {
     (static_cast<void>(f(std::integral_constant<T, S>{})), ...);
 }
@@ -36,35 +36,34 @@ class VoxelCodecLinear : public VoxelCodecBase {
     //! stream
 
   private:
-    using       fragment =                      VoxelFragment<Types...>;
+    using fragment = VoxelFragment<Types...>;
 
   public:
-    static std::shared_ptr<VoxelCodecLinear<Types...>>
-                Allocate(AllocationHandler* handler, VoxelRegion region);
+    static std::shared_ptr<VoxelCodecLinear<Types...>> Allocate(AllocationHandler *handler, VoxelRegion region);
 
-                ~VoxelCodecLinear()             override;
+    ~VoxelCodecLinear() override;
 
-    void        skipVoxel()                     override;
-    void        skipVoxels(size_v count)        override;
-    void        jumpToVoxel(size_v index)       override;
+    void skipVoxel() override;
+    void skipVoxels(size_v count) override;
+    void jumpToVoxel(size_v index) override;
 
-    void *      getElementPtr()                 override;
-    void        copyElementToPtr(void * dst)    override;
-    void        copyElementFromPtr(void *src)   override;
+    void *getElementPtr() override;
+    void copyElementToPtr(void *dst) override;
+    void copyElementFromPtr(void *src) override;
 };
 
 template<typename ...Types>
-std::shared_ptr<VoxelCodecLinear<Types...>> VoxelCodecLinear<Types...>::Allocate(AllocationHandler* handler,
+std::shared_ptr<VoxelCodecLinear<Types...>> VoxelCodecLinear<Types...>::Allocate(AllocationHandler *handler,
                                                                                  VoxelRegion region) {
     static_assert(std::is_class_v<fragment>, "Types must be a valid parameter pack for VoxelFragment");
-    
+
     std::shared_ptr<VoxelCodecLinear<Types...>> codec = std::make_shared<VoxelCodecLinear<Types...>>();
-    
-    codec->allocationSize       = region;
-    codec->size                 = region.x * region.y * region.z;
-    codec->allocationPtr        = handler->makeAllocation(codec->size * fragment::getFragmentTotalSize());
-    codec->allocationHandler    = handler;
-    codec->readWritePtr         = codec->allocationPtr;
+
+    codec->allocationSize = region;
+    codec->size = region.x * region.y * region.z;
+    codec->allocationPtr = handler->makeAllocation(codec->size * fragment::getFragmentTotalSize());
+    codec->allocationHandler = handler;
+    codec->readWritePtr = codec->allocationPtr;
 
     return codec;
 }
@@ -93,12 +92,13 @@ void VoxelCodecLinear<Types...>::jumpToVoxel(size_v index) {
 }
 
 template<class ...Types>
-void * VoxelCodecLinear<Types...>::getElementPtr() {
-    char * res = new char[fragment::getFragmentTotalSize()];
+void *VoxelCodecLinear<Types...>::getElementPtr() {
+    char *res = new char[fragment::getFragmentTotalSize()];
 
     for_sequence(std::make_index_sequence<fragment::getFragmentCount()>(), [&](const auto N) {
       std::size_t offset = (fragment::template getFragmentOffset<N>());
-      memcpy(res + offset, static_cast<char *>(readWritePtr) + size * offset,
+      memcpy(res + offset,
+             static_cast<char *>(readWritePtr) + size * offset,
              (fragment::template getFragmentSize<N>()));
     });
 
@@ -106,10 +106,11 @@ void * VoxelCodecLinear<Types...>::getElementPtr() {
 }
 
 template<typename... Types>
-void VoxelCodecLinear<Types...>::copyElementToPtr(void * dst) {
+void VoxelCodecLinear<Types...>::copyElementToPtr(void *dst) {
     for_sequence(std::make_index_sequence<fragment::getFragmentCount()>(), [&](const auto N) {
       std::size_t offset = (fragment::template getFragmentOffset<N>());
-      memcpy(static_cast<char *>(dst) + offset, static_cast<char *>(readWritePtr) + size * offset,
+      memcpy(static_cast<char *>(dst) + offset,
+             static_cast<char *>(readWritePtr) + size * offset,
              (fragment::template getFragmentSize<N>()));
     });
 }
@@ -118,7 +119,8 @@ template<typename... Types>
 void VoxelCodecLinear<Types...>::copyElementFromPtr(void *src) {
     for_sequence(std::make_index_sequence<fragment::getFragmentCount()>(), [&](const auto N) {
       std::size_t offset = (fragment::template getFragmentOffset<N>());
-      memcpy(static_cast<char *>(readWritePtr) + size * offset, static_cast<char *>(src) + offset,
+      memcpy(static_cast<char *>(readWritePtr) + size * offset,
+             static_cast<char *>(src) + offset,
              (fragment::template getFragmentSize<N>()));
     });
 }

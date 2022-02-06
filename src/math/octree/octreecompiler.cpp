@@ -20,7 +20,7 @@ namespace CCAD_OT {
 
       OtNodeInfo node_info = node.getInfo();
       if (node_info.getType() & OT_FLAG_INFO_TYPE_RENDERED)
-          for (const auto surface_info : static_cast<OtNodeInfoRendered>(node_info).surfaceInfo)
+          for (const auto surface_info: static_cast<OtNodeInfoRendered>(node_info).surfaceInfo)
               if (surface_info != nullptr)
                   generate_data_(surface_info, pos_x, pos_y, pos_z, level);
 
@@ -57,9 +57,9 @@ namespace CCAD_OT {
           }
           case OT_DRAW_MODE_WIREFRAME: {
               size_t index_offset = vertexData.size();
-              for (auto &index : Cube::line_indices)
+              for (auto &index: Cube::line_indices)
                   indexDataLines.push_back(index + index_offset);
-              for (auto &coord : Cube::vertices) {
+              for (auto &coord: Cube::vertices) {
                   T_vertex vertex = T_vertex();
                   vertex.pos = coord;
                   vertex.color = info.materialInfo.solid.color;
@@ -69,9 +69,9 @@ namespace CCAD_OT {
           }
           case OT_DRAW_MODE_SOLID: {
               size_t index_offset = vertexData.size();
-              for (auto &index : Cube::face_indices)
+              for (auto &index: Cube::face_indices)
                   indexDataFaces.push_back(index + index_offset);
-              for (auto &coord : Cube::vertices) {
+              for (auto &coord: Cube::vertices) {
                   T_vertex vertex = T_vertex();
                   vertex.pos = coord;
                   vertex.color = info.materialInfo.solid.color;
@@ -81,9 +81,9 @@ namespace CCAD_OT {
           }
           case OT_DRAW_MODE_TEXTURED: {
               size_t index_offset = vertexData.size();
-              for (auto &index : Cube::face_indices)
+              for (auto &index: Cube::face_indices)
                   indexDataFaces.push_back(index + index_offset);
-              for (auto &coord : Cube::vertices) {
+              for (auto &coord: Cube::vertices) {
                   T_vertex vertex = T_vertex();
                   vertex.pos = coord;
                   vertex.color = info.materialInfo.textured.uv;  // todo tex index
@@ -93,9 +93,9 @@ namespace CCAD_OT {
           }
           case OT_DRAW_MODE_SHADED: {
               size_t index_offset = vertexData.size();
-              for (auto &index : Cube::face_indices)
+              for (auto &index: Cube::face_indices)
                   indexDataFaces.push_back(index + index_offset);
-              for (auto &coord : Cube::vertices) {
+              for (auto &coord: Cube::vertices) {
                   T_vertex vertex = T_vertex();
                   vertex.pos = coord;
                   vertex.color = info.materialInfo.shaded.uv;
@@ -106,9 +106,9 @@ namespace CCAD_OT {
           }
           case OT_DRAW_MODE_DEBUG: {
               size_t index_offset = vertexData.size();
-              for (auto &index : Cube::face_indices)
+              for (auto &index: Cube::face_indices)
                   indexDataFaces.push_back(index + index_offset);
-              for (auto &coord : Cube::vertices) {
+              for (auto &coord: Cube::vertices) {
                   T_vertex vertex = T_vertex();
                   vertex.pos = coord;
                   vertex.mat = 1;  // todo debug channel

@@ -27,7 +27,6 @@ class VoxelFragment {
     static constexpr decltype(auto) getFragmentType();
 };
 
-
 template<typename ...Types>
 constexpr size_v VoxelFragment<Types...>::getFragmentTotalSize() {
     return (sizeof(Types) + ...);
@@ -51,7 +50,7 @@ constexpr size_v VoxelFragment<Types...>::getFragmentSize() {
 
 template<typename ...Types, std::size_t ...I>
 constexpr auto get_size_to_n(std::index_sequence<I...>) {
-    constexpr size_t values[] = { sizeof(Types)... };
+    constexpr size_t values[] = {sizeof(Types)...};
     return (values[I] + ...);
 }
 

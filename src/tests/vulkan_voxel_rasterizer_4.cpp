@@ -42,6 +42,7 @@
 #include "../renderer/texturelibrary.h"
 #include "../renderer/rendermanager.h"
 
+
 const uint32_t WIDTH = 1080 * 2;
 const uint32_t HEIGHT = 720 * 2;
 
@@ -114,8 +115,8 @@ class VulkanRasterizer {
         renderManager->getUIRenderer()->submitDrawable(objectProperties);
         objectList = ObjectList::create(renderManager->getScene());
         renderManager->getUIRenderer()->submitDrawable(objectList);
-        renderManager->getSceneWriter()->setFilename(renderManager->getSceneWriter()->getFilename()
-                                                     + "/resources/saves/test.ccs");
+        renderManager->getSceneWriter()
+            ->setFilename(renderManager->getSceneWriter()->getFilename() + "/resources/saves/test.ccs");
         menuBar = MainMenu::create(renderManager);
         renderManager->getUIRenderer()->submitDrawable(menuBar);
     }
@@ -123,12 +124,10 @@ class VulkanRasterizer {
     void loadModels() {
         modelLoader = ModelLoader::create();
 
-        auto vertexShader = VertexShader::create(renderManager->getDevice(),
-                                                 "main", "resources/shaders/compiled/"
-                                                         "PBR_basic.vert.spv");
-        auto fragmentShader = FragmentShader::create(renderManager->getDevice(),
-                                                     "main", "resources/shaders/compiled/"
-                                                             "PBR_basic.frag.spv");
+        auto vertexShader = VertexShader::create(renderManager->getDevice(), "main", "resources/shaders/compiled/"
+                                                                                     "PBR_basic.vert.spv");
+        auto fragmentShader = FragmentShader::create(renderManager->getDevice(), "main", "resources/shaders/compiled/"
+                                                                                         "PBR_basic.frag.spv");
         std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
 
         MaterialProperty materialProperty{};
@@ -138,28 +137,35 @@ class VulkanRasterizer {
         materialProperty.count = MATERIAL_PROPERTY_COUNT_4;
         materialProperty.format = MATERIAL_PROPERTY_FORMAT_SRGB;
 
-        MaterialPropertyLayout propertyLayout{{ materialProperty }};
+        MaterialPropertyLayout propertyLayout{{materialProperty}};
         auto layoutBuilt = buildLayout(propertyLayout);
 
-        auto masterMaterial = MasterMaterial::create(renderManager->getDevice(), shaders, 2, renderManager->getExtend(),
-                                                     layoutBuilt,
-                                                     renderManager->getRenderPass(),
-                                                     renderManager->getDescriptorManager(),
-                                                     "basicMaterial");
+        auto
+            masterMaterial =
+            MasterMaterial::create(renderManager->getDevice(),
+                                   shaders,
+                                   2,
+                                   renderManager->getExtend(),
+                                   layoutBuilt,
+                                   renderManager->getRenderPass(),
+                                   renderManager->getDescriptorManager(),
+                                   "basicMaterial");
         masterMaterial->updateImageSampler(renderManager->getTextureLibrary());
 
         auto texture = renderManager->getTextureLibrary()->createTexture("/home/nic/Downloads/viking-room/viking-room"
-                                                                         ".png", layoutBuilt.properties[0]->pixelFormat);
+                                                                         ".png",
+                                                                         layoutBuilt.properties[0]->pixelFormat);
 
-        char* parameters = new char[layoutBuilt.totalSize];
+        char *parameters = new char[layoutBuilt.totalSize];
         auto data = glm::vec3(1, 1, 1);
         memcpy(parameters, layoutBuilt.properties[0]->cast(&data), layoutBuilt.properties[0]->getSize());
 
-        auto material = Material::create(masterMaterial, renderManager->getDescriptorManager(), { texture },
-                                         parameters);
+        auto material = Material::create(masterMaterial, renderManager->getDescriptorManager(), {texture}, parameters);
         renderManager->getSceneWriter()->material = material;
-        model = renderManager->getMeshLibrary()->createMesh("/home/nic/Downloads/viking-room/viking-room.obj", material)
-            .front();
+        model =
+            renderManager->getMeshLibrary()
+                ->createMesh("/home/nic/Downloads/viking-room/viking-room.obj", material)
+                .front();
 
         for (size_t x = 0; x < 1; x++)
             for (size_t y = 0; y < 1; y++)
@@ -172,7 +178,7 @@ class VulkanRasterizer {
     }
 
     void createScene() {
-        for (const auto& object : objects)
+        for (const auto &object: objects)
             renderManager->getScene()->submitInstance(object);
         renderManager->getScene()->collectRenderBuffers();
         renderManager->getScene()->bakeMaterials(true);

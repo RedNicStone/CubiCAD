@@ -18,7 +18,7 @@ class Sampler : public VulkanClass<VkSampler> {
     std::shared_ptr<Device> device;
 
   public:
-    static std::shared_ptr<Sampler> create(const std::shared_ptr<Device>& pDevice, float anisotropy);
+    static std::shared_ptr<Sampler> create(const std::shared_ptr<Device> &pDevice, float anisotropy);
 
     ~Sampler();
 };

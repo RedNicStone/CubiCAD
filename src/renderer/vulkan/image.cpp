@@ -9,7 +9,7 @@
 #include "image.h"
 
 
-std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
+std::shared_ptr<Image> Image::create(const std::shared_ptr<Device> &pDevice,
                                      VmaMemoryUsage memoryUsage,
                                      VkMemoryPropertyFlags preferredFlags,
                                      VkMemoryPropertyFlags requiredFlags,
@@ -54,7 +54,7 @@ std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
     return image;
 }
 
-std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
+std::shared_ptr<Image> Image::create(const std::shared_ptr<Device> &pDevice,
                                      const VkExtent2D &size,
                                      uint32_t mip_level,
                                      VkFormat format,
@@ -62,12 +62,18 @@ std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
                                      std::vector<uint32_t> &accessingQueues,
                                      VkAccessFlags initialAccessMask,
                                      VkPipelineStageFlags initialPipelineStage) {
-    return Image::create(pDevice, size, mip_level, format, VMA_MEMORY_USAGE_GPU_ONLY, usage, accessingQueues,
+    return Image::create(pDevice,
+                         size,
+                         mip_level,
+                         format,
+                         VMA_MEMORY_USAGE_GPU_ONLY,
+                         usage,
+                         accessingQueues,
                          initialAccessMask,
                          initialPipelineStage);
 }
 
-std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
+std::shared_ptr<Image> Image::create(const std::shared_ptr<Device> &pDevice,
                                      const VkExtent2D &size,
                                      uint32_t mip_level,
                                      VkFormat format,
@@ -124,15 +130,15 @@ std::shared_ptr<Image> Image::create(const std::shared_ptr<Device>& pDevice,
     return image;
 }
 
-std::shared_ptr<Image> Image::createHostStagingImage(const std::shared_ptr<Device>& pDevice,
-                                                      const VkExtent2D& size,
-                                                      VkFormat format,
-                                                      std::vector<uint32_t> &accessingQueues) {
+std::shared_ptr<Image> Image::createHostStagingImage(const std::shared_ptr<Device> &pDevice,
+                                                     const VkExtent2D &size,
+                                                     VkFormat format,
+                                                     std::vector<uint32_t> &accessingQueues) {
 
     VkImageCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
     createInfo.imageType = VK_IMAGE_TYPE_2D;
-    createInfo.extent = { size.width, size.height, 0 };
+    createInfo.extent = {size.width, size.height, 0};
     createInfo.mipLevels = 1;
     createInfo.arrayLayers = 1;
     createInfo.format = VK_FORMAT_R32_UINT;
@@ -145,9 +151,12 @@ std::shared_ptr<Image> Image::createHostStagingImage(const std::shared_ptr<Devic
     createInfo.flags = 0;
     createInfo.format = format;
 
-    return Image::create(pDevice, VMA_MEMORY_USAGE_UNKNOWN, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
-                                          VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-                                          createInfo, accessingQueues);
+    return Image::create(pDevice,
+                         VMA_MEMORY_USAGE_UNKNOWN,
+                         VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
+                         VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+                         createInfo,
+                         accessingQueues);
 }
 
 std::shared_ptr<Buffer> Image::createHostStagingBuffer(const std::shared_ptr<Device> &pDevice,
@@ -175,18 +184,20 @@ void Image::transferDataMapped(void *src, size_t size) {
     vmaUnmapMemory(device->getAllocator(), allocation);
 }
 
-void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool) {
+void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool> &commandPool) {
     transferDataStaged(src, commandPool, allocationInfo.size);
 }
 
-void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& commandPool, VkDeviceSize size,
-                                VkDeviceSize offset) {
-    std::vector<uint32_t> accessingQueues = { commandPool->getQueueFamily()->getQueueFamilyIndex() };
+void Image::transferDataStaged(void *src,
+                               const std::shared_ptr<CommandPool> &commandPool,
+                               VkDeviceSize size,
+                               VkDeviceSize offset) {
+    std::vector<uint32_t> accessingQueues = {commandPool->getQueueFamily()->getQueueFamilyIndex()};
     auto stagingBuffer = Image::createHostStagingBuffer(device, allocationInfo.size, accessingQueues);
 
     VkBufferImageCopy imageCopy{};
-    imageCopy.imageExtent = { extent.width, extent.height, 1 };
-    imageCopy.imageOffset = { 0, 0, 0 };
+    imageCopy.imageExtent = {extent.width, extent.height, 1};
+    imageCopy.imageOffset = {0, 0, 0};
 
     imageCopy.imageSubresource.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
     imageCopy.imageSubresource.mipLevel = 0;
@@ -200,11 +211,15 @@ void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& co
     auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
     commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
     stagingBuffer->transferDataMapped(src, size);
-    transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
-                                        VK_PIPELINE_STAGE_TRANSFER_BIT, VK_ACCESS_TRANSFER_WRITE_BIT);
-    commandBuffer->copyBufferImage(stagingBuffer, shared_from_this(), { imageCopy }, currentLayout);
-    transitionImageLayout(commandBuffer, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
-                          VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT, VK_ACCESS_SHADER_READ_BIT);
+    transitionImageLayout(commandBuffer,
+                          VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
+                          VK_PIPELINE_STAGE_TRANSFER_BIT,
+                          VK_ACCESS_TRANSFER_WRITE_BIT);
+    commandBuffer->copyBufferImage(stagingBuffer, shared_from_this(), {imageCopy}, currentLayout);
+    transitionImageLayout(commandBuffer,
+                          VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                          VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
+                          VK_ACCESS_SHADER_READ_BIT);
     commandBuffer->endCommandBuffer();
 
     VkSubmitInfo submitInfo{};
@@ -212,7 +227,7 @@ void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool>& co
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers = commandBuffer->getHandlePtr();
 
-    commandPool->getQueue()->submitCommandBuffer({ submitInfo });
+    commandPool->getQueue()->submitCommandBuffer({submitInfo});
     commandPool->getQueue()->waitForIdle();
 }
 
@@ -220,9 +235,8 @@ std::shared_ptr<ImageView> Image::createImageView(VkImageViewType viewType, VkIm
     return ImageView::create(shared_from_this(), viewType, subresourceRange);
 }
 
-void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPool,
-                                  VkImageLayout dst) {
-    std::vector<uint32_t> accessingQueues = { commandPool->getQueueFamily()->getQueueFamilyIndex() };
+void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPool, VkImageLayout dst) {
+    std::vector<uint32_t> accessingQueues = {commandPool->getQueueFamily()->getQueueFamilyIndex()};
 
     VkImageMemoryBarrier barrier{};
     barrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
@@ -241,12 +255,7 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPoo
 
     auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
     commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
-    vkCmdPipelineBarrier(commandBuffer->getHandle(),
-                         0, 0,
-                         0,
-                         0, nullptr,
-                         0, nullptr,
-                         1, &barrier);
+    vkCmdPipelineBarrier(commandBuffer->getHandle(), 0, 0, 0, 0, nullptr, 0, nullptr, 1, &barrier);
     commandBuffer->endCommandBuffer();
 
     VkSubmitInfo submitInfo{};
@@ -254,7 +263,7 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPoo
     submitInfo.commandBufferCount = 1;
     submitInfo.pCommandBuffers = commandBuffer->getHandlePtr();
 
-    commandPool->getQueue()->submitCommandBuffer({ submitInfo });
+    commandPool->getQueue()->submitCommandBuffer({submitInfo});
     commandPool->getQueue()->waitForIdle();
 }
 
@@ -279,12 +288,7 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandBuffer> &commandB
 
     currentAccessFlags = dstMask;
 
-    vkCmdPipelineBarrier(commandBuffer->getHandle(),
-                         currentStage, dstStage,
-                         0,
-                         0, nullptr,
-                         0, nullptr,
-                         1, &barrier);
+    vkCmdPipelineBarrier(commandBuffer->getHandle(), currentStage, dstStage, 0, 0, nullptr, 0, nullptr, 1, &barrier);
 
     currentStage = dstStage;
     currentLayout = dst;

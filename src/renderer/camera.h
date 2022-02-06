@@ -18,10 +18,10 @@
 
 
 enum CameraMode : uint8_t {
-    CAMERA_MODE_PERSPECTIVE_INFINITE    = 1,
-    CAMERA_MODE_PERSPECTIVE_FINITE      = 2,
-    CAMERA_MODE_ORTHOGRAPHIC_INFINITE   = 3,
-    CAMERA_MODE_ORTHOGRAPHIC_FINITE     = 4
+    CAMERA_MODE_PERSPECTIVE_INFINITE = 1,
+    CAMERA_MODE_PERSPECTIVE_FINITE = 2,
+    CAMERA_MODE_ORTHOGRAPHIC_INFINITE = 3,
+    CAMERA_MODE_ORTHOGRAPHIC_FINITE = 4
 };
 
 struct CameraModel {
@@ -55,9 +55,11 @@ class Camera {
     void lookAt(glm::vec3 pos);
 
     glm::vec3 getPosition() { return position; }
+
     glm::vec3 getRotation() { return rotation; }
 
     glm::mat4 getView() { return view; }
+
     glm::mat4 getProj() { return projection; }
 };
 

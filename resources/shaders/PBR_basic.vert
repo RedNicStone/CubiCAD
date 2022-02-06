@@ -1,13 +1,13 @@
 #version 450
 
 layout(set = 0, binding = 0) uniform SceneInfo {
-    mat4 view;  // view matrix
-    mat4 proj;  // projection matrix
+    mat4 view;// view matrix
+    mat4 proj;// projection matrix
 
-    uint nFrame;  // frame ID
-    uint frameTime;  // frame time in ns
-    uint selectedID;  // currently selected object
-    uint hoveredID;  // currently hovered object
+    uint nFrame;// frame ID
+    uint frameTime;// frame time in ns
+    uint selectedID;// currently selected object
+    uint hoveredID;// currently hovered object
 } scene_info;
 
 layout(location = 0) in vec3 vert_pos;

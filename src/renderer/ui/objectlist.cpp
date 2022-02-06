@@ -5,7 +5,7 @@
 #include "objectlist.h"
 
 
-std::shared_ptr<ObjectList> ObjectList::create(const std::shared_ptr <Scene> &pScene) {
+std::shared_ptr<ObjectList> ObjectList::create(const std::shared_ptr<Scene> &pScene) {
     auto objectList = std::make_shared<ObjectList>();
     objectList->scene = pScene;
 
@@ -26,19 +26,18 @@ void ObjectList::drawUI() {
         return;
     }
 
-    std::unordered_map<std::shared_ptr<Mesh>,
-                       std::vector<std::shared_ptr<MeshInstance>>> meshes{};
-    for (const auto& instance : scene->getInstances())
+    std::unordered_map<std::shared_ptr<Mesh>, std::vector<std::shared_ptr<MeshInstance>>> meshes{};
+    for (const auto &instance: scene->getInstances())
         meshes[instance->getMesh()].push_back(instance);
 
-    for (const auto& mesh : meshes) {
-        ImGuiTreeNodeFlags base_flags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen |
-            ImGuiTreeNodeFlags_Bullet;
+    for (const auto &mesh: meshes) {
+        ImGuiTreeNodeFlags
+            base_flags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_Bullet;
 
         itemSelected = 0;
         itemHovered = 0;
         if (ImGui::TreeNode(mesh.first->getName().c_str())) {
-            for (const auto &instance : mesh.second) {
+            for (const auto &instance: mesh.second) {
                 ImGuiTreeNodeFlags node_flags = base_flags;
                 if (scene->getSelected() == instance->getID())
                     node_flags |= ImGuiTreeNodeFlags_Selected;

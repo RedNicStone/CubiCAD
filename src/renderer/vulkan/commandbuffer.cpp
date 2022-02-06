@@ -26,7 +26,7 @@ void CommandBuffer::submitToQueue(std::vector<std::shared_ptr<Semaphore>> &signa
                                   std::vector<VkPipelineStageFlags> waitStageMask,
                                   std::vector<std::shared_ptr<Semaphore>> &waitSemaphores,
                                   const std::shared_ptr<Queue> &queue,
-                                  const std::shared_ptr<Fence>& triggerFence) {
+                                  const std::shared_ptr<Fence> &triggerFence) {
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
 
@@ -129,7 +129,7 @@ void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet
 }
 
 void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
-                                                                       const std::shared_ptr<PipelineBase> &pipeline) {
+                                       const std::shared_ptr<PipelineBase> &pipeline) {
     std::vector<uint32_t> offsets{};
     bindDescriptorSets(descriptorSets, pipeline->getLayout(), pipeline->getBindPoint(), offsets);
 }
@@ -139,18 +139,23 @@ void CommandBuffer::bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint
     vkCmdBindVertexBuffers(handle, binding, 1, &bufferHandle, &offset);
 }
 
-void CommandBuffer::bindVertexBuffers(const std::vector<std::shared_ptr<Buffer>> &buffers, uint32_t binding, std::vector<VkDeviceSize>
-    offsets) {
+void CommandBuffer::bindVertexBuffers(const std::vector<std::shared_ptr<Buffer>> &buffers,
+                                      uint32_t binding,
+                                      std::vector<VkDeviceSize> offsets) {
     std::vector<VkBuffer> bufferHandle{};
     bufferHandle.reserve(buffers.size());
-    for (const auto& buffer : buffers) {
+    for (const auto &buffer: buffers) {
         bufferHandle.push_back(buffer->getHandle());
     }
     if (offsets.empty()) {
         offsets = std::vector<VkDeviceSize>(buffers.size(), 0);
     }
 
-    vkCmdBindVertexBuffers(handle, binding, static_cast<uint32_t>(bufferHandle.size()), bufferHandle.data(), offsets.data());
+    vkCmdBindVertexBuffers(handle,
+                           binding,
+                           static_cast<uint32_t>(bufferHandle.size()),
+                           bufferHandle.data(),
+                           offsets.data());
 }
 
 void CommandBuffer::bindIndexBuffer(const std::shared_ptr<Buffer> &buffer, VkIndexType type, VkDeviceSize offset) {
@@ -169,45 +174,68 @@ void CommandBuffer::drawIndexed(uint32_t indexCount,
     vkCmdDrawIndexed(handle, indexCount, instanceCount, firstIndex, vertexOffset, firstInstance);
 }
 
-void CommandBuffer::drawIndirect(const std::shared_ptr<Buffer> &buffer, uint32_t
-drawCount, VkDeviceSize offset, uint32_t stride) {
+void CommandBuffer::drawIndirect(const std::shared_ptr<Buffer> &buffer,
+                                 uint32_t drawCount,
+                                 VkDeviceSize offset,
+                                 uint32_t stride) {
     vkCmdDrawIndirect(handle, buffer->getHandle(), offset, drawCount, stride);
 }
 
-void CommandBuffer::drawIndexedIndirect(const std::shared_ptr<Buffer> &buffer, uint32_t
-drawCount, VkDeviceSize offset, uint32_t stride) {
+void CommandBuffer::drawIndexedIndirect(const std::shared_ptr<Buffer> &buffer,
+                                        uint32_t drawCount,
+                                        VkDeviceSize offset,
+                                        uint32_t stride) {
     vkCmdDrawIndexedIndirect(handle, buffer->getHandle(), offset, drawCount, stride);
 }
 
-void CommandBuffer::copyBuffer(const std::shared_ptr<Buffer>& src,
-                               const std::shared_ptr<Buffer>& dst,
+void CommandBuffer::copyBuffer(const std::shared_ptr<Buffer> &src,
+                               const std::shared_ptr<Buffer> &dst,
                                std::vector<VkBufferCopy> copyRegions) {
-    vkCmdCopyBuffer(handle, src->getHandle(), dst->getHandle(), static_cast<uint32_t>(copyRegions.size()), copyRegions.data());
+    vkCmdCopyBuffer(handle,
+                    src->getHandle(),
+                    dst->getHandle(),
+                    static_cast<uint32_t>(copyRegions.size()),
+                    copyRegions.data());
 }
 
-void CommandBuffer::copyBufferImage(const std::shared_ptr<Buffer>& src,
-                              const std::shared_ptr<Image>& dst,
-                              std::vector<VkBufferImageCopy> copyRegions,
-                              VkImageLayout dstLayout) {
-    vkCmdCopyBufferToImage(handle, src->getHandle(), dst->getHandle(), dstLayout,
-                   static_cast<uint32_t>(copyRegions.size()), copyRegions.data());
+void CommandBuffer::copyBufferImage(const std::shared_ptr<Buffer> &src,
+                                    const std::shared_ptr<Image> &dst,
+                                    std::vector<VkBufferImageCopy> copyRegions,
+                                    VkImageLayout dstLayout) {
+    vkCmdCopyBufferToImage(handle,
+                           src->getHandle(),
+                           dst->getHandle(),
+                           dstLayout,
+                           static_cast<uint32_t>(copyRegions.size()),
+                           copyRegions.data());
 }
 
-void CommandBuffer::copyImage(const std::shared_ptr<Image>& src,
-                              const std::shared_ptr<Image>& dst,
+void CommandBuffer::copyImage(const std::shared_ptr<Image> &src,
+                              const std::shared_ptr<Image> &dst,
                               std::vector<VkImageCopy> copyRegions,
                               VkImageLayout srcLayout,
                               VkImageLayout dstLayout) {
-    vkCmdCopyImage(handle, src->getHandle(), srcLayout, dst->getHandle(), dstLayout,
-                   static_cast<uint32_t>(copyRegions.size()), copyRegions.data());
+    vkCmdCopyImage(handle,
+                   src->getHandle(),
+                   srcLayout,
+                   dst->getHandle(),
+                   dstLayout,
+                   static_cast<uint32_t>(copyRegions.size()),
+                   copyRegions.data());
 }
 
-void CommandBuffer::blitImage(const std::shared_ptr<Image>& src,
-                              const std::shared_ptr<Image>& dst,
+void CommandBuffer::blitImage(const std::shared_ptr<Image> &src,
+                              const std::shared_ptr<Image> &dst,
                               std::vector<VkImageBlit> blitRegions,
                               VkFilter filter,
                               VkImageLayout srcLayout,
                               VkImageLayout dstLayout) {
-    vkCmdBlitImage(handle, src->getHandle(), srcLayout, dst->getHandle(), dstLayout,
-                   static_cast<uint32_t>(blitRegions.size()), blitRegions.data(), filter);
+    vkCmdBlitImage(handle,
+                   src->getHandle(),
+                   srcLayout,
+                   dst->getHandle(),
+                   dstLayout,
+                   static_cast<uint32_t>(blitRegions.size()),
+                   blitRegions.data(),
+                   filter);
 }

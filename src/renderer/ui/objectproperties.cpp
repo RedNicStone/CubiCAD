@@ -5,7 +5,7 @@
 #include "objectproperties.h"
 
 
-std::shared_ptr<ObjectProperties> ObjectProperties::create(const std::shared_ptr<Scene>& pScene) {
+std::shared_ptr<ObjectProperties> ObjectProperties::create(const std::shared_ptr<Scene> &pScene) {
     auto objectProperties = std::make_shared<ObjectProperties>();
     objectProperties->scene = pScene;
 
@@ -43,11 +43,14 @@ void ObjectProperties::drawUI() {
         ImGuiTabBarFlags tabFlags = ImGuiTabBarFlags_None;
         if (ImGui::BeginTabBar("Properties", tabFlags)) {
             if (ImGui::BeginTabItem("Object")) {
-                ImGui::BeginDisabled(); {
+                ImGui::BeginDisabled();
+                {
                     ImGui::DragInt("Object ID", &objectID);
-                } ImGui::EndDisabled();
+                }
+                ImGui::EndDisabled();
                 if (ImGui::InputText("Object Name",
-                                     &objectName, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+                                     &objectName,
+                                     ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
                     object->setName(objectName);
 
                 float speed = 0.1f;
@@ -62,17 +65,18 @@ void ObjectProperties::drawUI() {
             }
             if (ImGui::BeginTabItem("Mesh")) {
                 if (ImGui::InputText("Mesh Name",
-                                     &meshName, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+                                     &meshName,
+                                     ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
                     object->getMesh()->setName(meshName);
 
                 ImGui::Separator();
                 ImGui::Text("Meshlets");
 
-                const auto& meshlets = object->getMesh()->getMeshlets();
+                const auto &meshlets = object->getMesh()->getMeshlets();
                 for (uint32_t i = 0; i < meshlets.size(); i++) {
-                    if (ImGui::Selectable(
-                        ("Meshlet with " + std::to_string(meshlets[i]->vertexData.size()) + " vertices").c_str(),
-                        i == selectedMeshlet)) {
+                    if (ImGui::Selectable(("Meshlet with "
+                        + std::to_string(meshlets[i]->vertexData.size())
+                        + " vertices").c_str(), i == selectedMeshlet)) {
                         selectedMeshlet = i;
                     }
                 }
@@ -81,26 +85,28 @@ void ObjectProperties::drawUI() {
                 ImGui::Text("Meshlet Properties");
 
                 if (selectedMeshlet < meshlets.size()) {
-                    ImGui::BeginDisabled(); {
+                    ImGui::BeginDisabled();
+                    {
                         auto temp = static_cast<int>(meshlets[selectedMeshlet]->vertexData.size());
                         ImGui::DragInt("Vertices", &temp);
                         temp = static_cast<int>(meshlets[selectedMeshlet]->indexData.size());
                         ImGui::DragInt("Indices", &temp);
                         std::string materialName = "Testing material #1";
                         ImGui::InputText("Material", &materialName);
-                    } ImGui::EndDisabled();
+                    }
+                    ImGui::EndDisabled();
                 }
 
                 ImGui::EndTabItem();
             }
             if (ImGui::BeginTabItem("Material")) {
-                std::unordered_map<std::shared_ptr<MasterMaterial>,
-                                   std::vector<std::shared_ptr<Material>>> materials{};
+                std::unordered_map<std::shared_ptr<MasterMaterial>, std::vector<std::shared_ptr<Material>>> materials{};
 
                 uint32_t id = 0;
-                for (const auto& masterMaterial : materials) {
-                    ImGuiTreeNodeFlags base_flags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen |
-                        ImGuiTreeNodeFlags_Bullet;
+                for (const auto &masterMaterial: materials) {
+                    ImGuiTreeNodeFlags
+                        base_flags =
+                        ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_Bullet;
 
                     ImGuiTreeNodeFlags root_flags{};
                     if (selectedMaterial == id)
@@ -109,7 +115,7 @@ void ObjectProperties::drawUI() {
                     if (ImGui::TreeNodeEx(masterMaterial.first->getName().c_str(), root_flags)) {
                         id++;
 
-                        for (const auto &material : masterMaterial.second) {
+                        for (const auto &material: masterMaterial.second) {
                             ImGuiTreeNodeFlags node_flags = base_flags;
                             if (id == selectedMaterial)
                                 node_flags |= ImGuiTreeNodeFlags_Selected;

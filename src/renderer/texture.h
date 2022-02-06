@@ -22,12 +22,15 @@ class Texture {
     std::shared_ptr<ImageView> imageView;
 
   public:
-    static std::shared_ptr<Texture> create(const std::shared_ptr<Device>& pDevice,
-                                           const std::shared_ptr<Queue>& renderQueue,
-                                           const std::shared_ptr<CommandPool>& transferPool, const std::string& filename,
-                                           const TextureQualitySettings& textureSettings, VkFormat format);
+    static std::shared_ptr<Texture> create(const std::shared_ptr<Device> &pDevice,
+                                           const std::shared_ptr<Queue> &renderQueue,
+                                           const std::shared_ptr<CommandPool> &transferPool,
+                                           const std::string &filename,
+                                           const TextureQualitySettings &textureSettings,
+                                           VkFormat format);
 
     std::shared_ptr<Image> getImage() { return image; }
+
     std::shared_ptr<ImageView> getImageView() { return imageView; }
 
 };

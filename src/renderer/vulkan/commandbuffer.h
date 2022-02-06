@@ -42,7 +42,7 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
                        std::vector<VkPipelineStageFlags> waitStageMask,
                        std::vector<std::shared_ptr<Semaphore>> &waitSemaphores,
                        const std::shared_ptr<Queue> &queue,
-                       const std::shared_ptr<Fence>& triggerFence);
+                       const std::shared_ptr<Fence> &triggerFence);
 
     void beginCommandBuffer(VkCommandBufferUsageFlags flags = 0);
     void resetCommandBuffer(VkCommandBufferResetFlags flags = 0);
@@ -67,9 +67,10 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
                             const std::shared_ptr<PipelineBase> &pipeline,
                             std::vector<uint32_t> &offsets);
     void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
-        const std::shared_ptr<PipelineBase> &pipeline);
+                            const std::shared_ptr<PipelineBase> &pipeline);
     void bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t binding, VkDeviceSize offset = 0);
-    void bindVertexBuffers(const std::vector<std::shared_ptr<Buffer>> &buffers, uint32_t binding,
+    void bindVertexBuffers(const std::vector<std::shared_ptr<Buffer>> &buffers,
+                           uint32_t binding,
                            std::vector<VkDeviceSize> offsets = {});
     void bindIndexBuffer(const std::shared_ptr<Buffer> &buffer, VkIndexType type, VkDeviceSize offset = 0);
 
@@ -79,29 +80,32 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
                      uint32_t firstIndex = 0,
                      int32_t vertexOffset = 0,
                      uint32_t firstInstance = 0);
-    void drawIndirect(const std::shared_ptr<Buffer> &buffer, uint32_t drawCount, VkDeviceSize offset = 0, uint32_t
-    stride = 0);
+    void drawIndirect(const std::shared_ptr<Buffer> &buffer,
+                      uint32_t drawCount,
+                      VkDeviceSize offset = 0,
+                      uint32_t stride = 0);
     void drawIndexedIndirect(const std::shared_ptr<Buffer> &buffer,
                              uint32_t drawCount,
                              VkDeviceSize offset = 0,
                              uint32_t stride = 0);
 
-    void copyBuffer(const std::shared_ptr<Buffer>& src, const std::shared_ptr<Buffer>& dst, std::vector<VkBufferCopy>
-        copyRegions);
+    void copyBuffer(const std::shared_ptr<Buffer> &src,
+                    const std::shared_ptr<Buffer> &dst,
+                    std::vector<VkBufferCopy> copyRegions);
 
-    void copyBufferImage(const std::shared_ptr<Buffer>& src,
-                         const std::shared_ptr<Image>& dst,
+    void copyBufferImage(const std::shared_ptr<Buffer> &src,
+                         const std::shared_ptr<Image> &dst,
                          std::vector<VkBufferImageCopy> copyRegions,
                          VkImageLayout dstLayout);
 
-    void copyImage(const std::shared_ptr<Image>& src,
-                   const std::shared_ptr<Image>& dst,
+    void copyImage(const std::shared_ptr<Image> &src,
+                   const std::shared_ptr<Image> &dst,
                    std::vector<VkImageCopy> copyRegions,
                    VkImageLayout srcLayout = VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
                    VkImageLayout dstLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
 
-    void blitImage(const std::shared_ptr<Image>& src,
-                   const std::shared_ptr<Image>& dst,
+    void blitImage(const std::shared_ptr<Image> &src,
+                   const std::shared_ptr<Image> &dst,
                    std::vector<VkImageBlit> blitRegions,
                    VkFilter filter = VK_FILTER_NEAREST,
                    VkImageLayout srcLayout = VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,

@@ -28,16 +28,16 @@ class Window {
     VkExtent2D extend{};
     bool resized = false;
 
-    void* userPtr = nullptr;
+    void *userPtr = nullptr;
 
     static void staticResizeCallback(GLFWwindow *window, int width, int height);
     void dynamicResizeCallback(int width, int height);
 
   public:
     static std::shared_ptr<Window> create(std::shared_ptr<Instance> pInstance,
-                                                           const std::string &title,
-                                                           int width,
-                                                           int height);
+                                          const std::string &title,
+                                          int width,
+                                          int height);
 
     [[nodiscard]] bool getResized() const { return resized; }
 
@@ -51,7 +51,7 @@ class Window {
 
     VkExtent2D getSurfaceExtend() { return extend; }
 
-    void setUserPointer(void* pointer) { userPtr = pointer; }
+    void setUserPointer(void *pointer) { userPtr = pointer; }
 
     void *getUserPointer() { return userPtr; }
 

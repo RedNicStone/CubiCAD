@@ -14,20 +14,14 @@
 class DescriptorPoolManager {
   public:
     struct PoolSizes {
-        std::vector<std::pair<VkDescriptorType,float>> sizes =
-            {
-                { VK_DESCRIPTOR_TYPE_SAMPLER, .5f },
-                { VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, .5f },
-                { VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, .5f },
-                { VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, .5f },
-                { VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, .5f },
-                { VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, .5f },
-                { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 8.f },
-                { VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 4.f },
-                { VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, .5f },
-                { VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, .5f },
-                { VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 0.5f }
-            };
+        std::vector<std::pair<VkDescriptorType, float>>
+            sizes =
+            {{VK_DESCRIPTOR_TYPE_SAMPLER, .5f}, {VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, .5f},
+             {VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, .5f}, {VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, .5f},
+             {VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, .5f}, {VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, .5f},
+             {VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 8.f}, {VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 4.f},
+             {VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, .5f}, {VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, .5f},
+             {VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 0.5f}};
     };
 
   private:

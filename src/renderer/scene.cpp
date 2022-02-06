@@ -8,14 +8,14 @@
 std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
                                      const std::shared_ptr<Queue> &pTransferQueue,
                                      const std::shared_ptr<Queue> &pGraphicsQueue,
-                                     const std::shared_ptr<Camera>& pCamera) {
+                                     const std::shared_ptr<Camera> &pCamera) {
     auto scene = std::make_shared<Scene>();
     scene->device = pDevice;
 
-    scene->transferCommandPool = CommandPool::create(pDevice, pTransferQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
+    scene->transferCommandPool =
+        CommandPool::create(pDevice, pTransferQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
 
-    std::vector<uint32_t> accessingQueues{ pTransferQueue->getQueueFamilyIndex(),
-                                           pGraphicsQueue->getQueueFamilyIndex() };
+    std::vector<uint32_t> accessingQueues{pTransferQueue->getQueueFamilyIndex(), pGraphicsQueue->getQueueFamilyIndex()};
 
     auto end = accessingQueues.end();
     for (auto it = accessingQueues.begin(); it != end; ++it) {
@@ -23,27 +23,25 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     }
     accessingQueues.erase(end, accessingQueues.end());
 
-    scene->instanceBuffer = DynamicBuffer::create(pDevice,
-                                                  accessingQueues,
-                                           VMA_MEMORY_USAGE_GPU_ONLY,
-                                                  VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
-                                           VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-                                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
-    scene->indirectCommandBuffer = DynamicBuffer::create(pDevice,
-                                                         accessingQueues,
-                                           VMA_MEMORY_USAGE_GPU_ONLY,
-                                                         VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT,
-                                           VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
-                                           VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
+    scene->instanceBuffer =
+        DynamicBuffer::create(pDevice,
+                              accessingQueues,
+                              VMA_MEMORY_USAGE_GPU_ONLY,
+                              VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
+                              VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+                              VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
+    scene->indirectCommandBuffer =
+        DynamicBuffer::create(pDevice,
+                              accessingQueues,
+                              VMA_MEMORY_USAGE_GPU_ONLY,
+                              VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT,
+                              VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
+                              VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
 
-    scene->vertexBuffer = DynamicBuffer::create(pDevice,
-                                                accessingQueues,
-                                                  VMA_MEMORY_USAGE_GPU_ONLY,
-                                                VK_BUFFER_USAGE_VERTEX_BUFFER_BIT);
-    scene->indexBuffer = DynamicBuffer::create(pDevice,
-                                               accessingQueues,
-                                                         VMA_MEMORY_USAGE_GPU_ONLY,
-                                                         VK_BUFFER_USAGE_INDEX_BUFFER_BIT);
+    scene->vertexBuffer =
+        DynamicBuffer::create(pDevice, accessingQueues, VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_VERTEX_BUFFER_BIT);
+    scene->indexBuffer =
+        DynamicBuffer::create(pDevice, accessingQueues, VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_INDEX_BUFFER_BIT);
 
     scene->descriptorPool = DescriptorPoolManager::create(pDevice);
 
@@ -64,7 +62,7 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     scene->instanceBufferData = scene->instanceBuffer->map();
     scene->indirectCommandBufferData = scene->indirectCommandBuffer->map();
 
-    auto* data = static_cast<SceneData *>(scene->sceneInfoBuffer->getDataHandle());
+    auto *data = static_cast<SceneData *>(scene->sceneInfoBuffer->getDataHandle());
     data->view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
     scene->camera = pCamera;
@@ -72,12 +70,12 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     return scene;
 }
 
-void Scene::setCamera(const std::shared_ptr<Camera>& pCamera) {
+void Scene::setCamera(const std::shared_ptr<Camera> &pCamera) {
     camera = pCamera;
 }
 
 void Scene::updateUBO() {
-    auto* data = static_cast<SceneData *>(sceneInfoBuffer->getDataHandle());
+    auto *data = static_cast<SceneData *>(sceneInfoBuffer->getDataHandle());
 
     camera->update();
     data->view = camera->getView();
@@ -89,7 +87,7 @@ void Scene::updateUBO() {
 void Scene::transferRenderData() {
     auto currentTime = std::chrono::high_resolution_clock::now();
 
-    auto* data = static_cast<SceneData *>(sceneInfoBuffer->getDataHandle());
+    auto *data = static_cast<SceneData *>(sceneInfoBuffer->getDataHandle());
     data->frameTime = static_cast<glm::uint32>(
         std::chrono::duration_cast<std::chrono::nanoseconds>(lastFrameTime - currentTime).count());
     data->nFrame++;
@@ -100,34 +98,34 @@ void Scene::transferRenderData() {
     std::vector<InstanceData> instanceData;
     std::vector<VkDrawIndexedIndirectCommand> indirectDrawData;
 
-    std::unordered_map<std::shared_ptr<Meshlet>,
-                       std::vector<std::shared_ptr<MeshInstance>>> meshletDraws{};
-    for (const auto& instance : instances) {
-        for (const auto& meshlet : instance->getMesh()->getMeshlets()) {
+    std::unordered_map<std::shared_ptr<Meshlet>, std::vector<std::shared_ptr<MeshInstance>>> meshletDraws{};
+    for (const auto &instance: instances) {
+        for (const auto &meshlet: instance->getMesh()->getMeshlets()) {
             meshletDraws[meshlet].push_back(instance);
         }
     }
     std::unordered_map<std::shared_ptr<Material>,
-                       std::vector<std::pair<std::shared_ptr<Meshlet>,
-                                             std::vector<std::shared_ptr<MeshInstance>>>>> materialDraws{};
-    for (const auto& meshletDraw : meshletDraws) {
+                       std::vector<std::pair<std::shared_ptr<Meshlet>, std::vector<std::shared_ptr<MeshInstance>>>>>
+        materialDraws{};
+    for (const auto &meshletDraw: meshletDraws) {
         materialDraws[meshletDraw.first->material].push_back(meshletDraw);
     }
     std::unordered_map<std::shared_ptr<MasterMaterial>,
                        std::vector<std::pair<std::shared_ptr<Material>,
-                                   std::vector<std::pair<std::shared_ptr<Meshlet>,
-                                               std::vector<std::shared_ptr<MeshInstance>>>>>>> masterMaterialDraws{};
-    for (const auto& materialDraw : materialDraws) {
+                                             std::vector<std::pair<std::shared_ptr<Meshlet>,
+                                                                   std::vector<std::shared_ptr<MeshInstance>>>>>>>
+        masterMaterialDraws{};
+    for (const auto &materialDraw: materialDraws) {
         masterMaterialDraws[materialDraw.first->getMasterMaterial()].push_back(materialDraw);
     }
-    for (const auto& drawCall : masterMaterialDraws) {
-        for (const auto& materialCall : drawCall.second) {
+    for (const auto &drawCall: masterMaterialDraws) {
+        for (const auto &materialCall: drawCall.second) {
             IndirectDrawCall indirectDrawCall{};
             indirectDrawCall.material = materialCall.first;
             indirectDrawCall.drawCallOffset = static_cast<uint32_t>(indirectDrawData.size());
 
-            for (const auto& meshletCall : materialCall.second) {
-                for (const auto& instanceCall : meshletCall.second) {
+            for (const auto &meshletCall: materialCall.second) {
+                for (const auto &instanceCall: meshletCall.second) {
                     instanceData.push_back(instanceCall->getInstanceData());
                 }
 
@@ -137,22 +135,22 @@ void Scene::transferRenderData() {
                 indirectDrawData.push_back(drawCommand);
             }
 
-            indirectDrawCall.drawCallLength = static_cast<uint32_t>(indirectDrawData.size())
-                - indirectDrawCall.drawCallOffset;
+            indirectDrawCall.drawCallLength =
+                static_cast<uint32_t>(indirectDrawData.size()) - indirectDrawCall.drawCallOffset;
             indirectDrawCalls.push_back(indirectDrawCall);
         }
     }
 
     instanceBuffer->getBuffer(instanceData.size() * sizeof(InstanceData));
-    indirectCommandBuffer->getBuffer(indirectDrawData.size() * sizeof
-        (VkDrawIndexedIndirectCommand));
+    indirectCommandBuffer->getBuffer(indirectDrawData.size() * sizeof(VkDrawIndexedIndirectCommand));
 
     memcpy(*instanceBufferData, instanceData.data(), instanceData.size() * sizeof(InstanceData));
-    memcpy(*indirectCommandBufferData, indirectDrawData.data(), indirectDrawData.size() * sizeof
-    (VkDrawIndexedIndirectCommand));
+    memcpy(*indirectCommandBufferData,
+           indirectDrawData.data(),
+           indirectDrawData.size() * sizeof(VkDrawIndexedIndirectCommand));
 }
 
-void Scene::submitInstance(const std::shared_ptr<MeshInstance>& meshInstance) {
+void Scene::submitInstance(const std::shared_ptr<MeshInstance> &meshInstance) {
     if (meshInstance->getID() == 0)
         meshInstance->setID(static_cast<uint32_t>(instances.size() + 1));
     instances.push_back(meshInstance);
@@ -166,41 +164,41 @@ void Scene::collectRenderBuffers() {
     std::vector<uint32_t> indexData;
 
     std::unordered_set<std::shared_ptr<Mesh>> meshes;
-    for (const auto& instance : instances) {
+    for (const auto &instance: instances) {
         meshes.insert(instance->getMesh());
     }
-    for (const auto& mesh : meshes) {
+    for (const auto &mesh: meshes) {
         mesh->setOffsets(static_cast<uint32_t>(indexData.size()), static_cast<uint32_t>(vertexData.size()));
-        auto& meshlets = mesh->getMeshlets();
-        for (const auto& meshlet : meshlets) {
+        auto &meshlets = mesh->getMeshlets();
+        for (const auto &meshlet: meshlets) {
             vertexData.insert(vertexData.end(), meshlet->vertexData.begin(), meshlet->vertexData.end());
             indexData.insert(indexData.end(), meshlet->indexData.begin(), meshlet->indexData.end());
         }
     }
 
     if (!vertexData.empty())
-        vertexBuffer->getBuffer(sizeof(Vertex) * vertexData.size())->transferDataStaged(vertexData.data(),
-                                                                                 transferCommandPool, sizeof(Vertex) * vertexData.size());
+        vertexBuffer->getBuffer(sizeof(Vertex) * vertexData.size())
+            ->transferDataStaged(vertexData.data(), transferCommandPool, sizeof(Vertex) * vertexData.size());
 
     if (!indexData.empty())
-        indexBuffer->getBuffer(sizeof(uint32_t) * indexData.size())->transferDataStaged(indexData.data(),
-                                                                                  transferCommandPool, sizeof(uint32_t) * indexData.size());
+        indexBuffer->getBuffer(sizeof(uint32_t) * indexData.size())
+            ->transferDataStaged(indexData.data(), transferCommandPool, sizeof(uint32_t) * indexData.size());
 }
 
 void Scene::bakeMaterials(bool enableDepthStencil) {
     std::unordered_set<std::shared_ptr<MasterMaterial>> masterMaterials{};
-    for (const auto& instance : instances) {
-        for (const auto& meshlet : instance->getMesh()->getMeshlets()) {
+    for (const auto &instance: instances) {
+        for (const auto &meshlet: instance->getMesh()->getMeshlets()) {
             masterMaterials.insert(meshlet->material->getMasterMaterial());
         }
     }
 
-    for (const auto& masterMaterial : masterMaterials) {
+    for (const auto &masterMaterial: masterMaterials) {
         masterMaterial->updateDescriptorSetLayouts(sceneInfoSetLayout, enableDepthStencil);
     }
 }
 
-void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer>& graphicsCommandBuffer) {
+void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer) {
     transferRenderData();
 
     std::vector<std::shared_ptr<Buffer>> vertexBuffers = {vertexBuffer->getBuffer(), instanceBuffer->getBuffer()};
@@ -208,7 +206,7 @@ void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer>& graphicsCom
     graphicsCommandBuffer->bindIndexBuffer(indexBuffer->getBuffer(), VK_INDEX_TYPE_UINT32);
 
     std::shared_ptr<MasterMaterial> previousMasterMaterial = nullptr;
-    for (const auto& drawCall : indirectDrawCalls) {
+    for (const auto &drawCall: indirectDrawCalls) {
         std::shared_ptr<MasterMaterial> currentMasterMaterial = drawCall.material->getMasterMaterial();
         if (currentMasterMaterial != previousMasterMaterial) {
             if (previousMasterMaterial != nullptr) {
@@ -216,17 +214,18 @@ void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer>& graphicsCom
             }
             previousMasterMaterial = currentMasterMaterial;
             graphicsCommandBuffer->bindPipeline(currentMasterMaterial->getPipeline());
-            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ sceneDescriptorSet,
-                                                                        currentMasterMaterial->getDescriptorSet(),
-                                                                        drawCall.material->getDescriptorSet() };
+            std::vector<std::shared_ptr<DescriptorSet>>
+                descriptorSets
+                {sceneDescriptorSet, currentMasterMaterial->getDescriptorSet(), drawCall.material->getDescriptorSet()};
             graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());
         } else {
-            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ drawCall.material->getDescriptorSet() };
+            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{drawCall.material->getDescriptorSet()};
             graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());
         }
 
-        graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer->getBuffer(), drawCall.drawCallLength, drawCall
-        .drawCallOffset);
+        graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer->getBuffer(),
+                                                   drawCall.drawCallLength,
+                                                   drawCall.drawCallOffset);
     }
 }
 

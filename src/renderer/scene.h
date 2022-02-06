@@ -49,8 +49,8 @@ class Scene {
     std::vector<IndirectDrawCall> indirectDrawCalls{};
     std::shared_ptr<DynamicBuffer> instanceBuffer;  // the instance buffer
     std::shared_ptr<DynamicBuffer> indirectCommandBuffer;  // the indirect command buffer
-    void** instanceBufferData{};
-    void** indirectCommandBufferData{};
+    void **instanceBufferData{};
+    void **indirectCommandBufferData{};
 
     std::shared_ptr<DynamicBuffer> vertexBuffer;
     std::shared_ptr<DynamicBuffer> indexBuffer;
@@ -69,20 +69,23 @@ class Scene {
     void transferRenderData();
 
   public:
-    static std::shared_ptr<Scene> create(const std::shared_ptr<Device>& pDevice,
-                                  const std::shared_ptr<Queue>& pTransferQueue,
-                                  const std::shared_ptr<Queue>& pGraphicsQueue,
-                                  const std::shared_ptr<Camera>& pCamera);
+    static std::shared_ptr<Scene> create(const std::shared_ptr<Device> &pDevice,
+                                         const std::shared_ptr<Queue> &pTransferQueue,
+                                         const std::shared_ptr<Queue> &pGraphicsQueue,
+                                         const std::shared_ptr<Camera> &pCamera);
 
-    void setCamera(const std::shared_ptr<Camera>& pCamera);
+    void setCamera(const std::shared_ptr<Camera> &pCamera);
     void updateUBO();
 
     void setSelected(uint32_t objectID) { selectedID = objectID; }
+
     void setHovered(uint32_t objectID) { hoveredID = objectID; }
+
     [[nodiscard]] uint32_t getSelected() const { return selectedID; }
+
     [[nodiscard]] uint32_t getHovered() const { return hoveredID; }
 
-    void submitInstance(const std::shared_ptr<MeshInstance>& meshInstance);
+    void submitInstance(const std::shared_ptr<MeshInstance> &meshInstance);
 
     void collectRenderBuffers();
     void bakeMaterials(bool enableDepthStencil = false);
@@ -90,7 +93,9 @@ class Scene {
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 
     std::shared_ptr<Camera> getCamera() { return camera; }
+
     std::vector<std::shared_ptr<MeshInstance>> getInstances() { return instances; }
+
     std::shared_ptr<MeshInstance> getInstanceByID(uint32_t objectID) { return instances[objectID - 1]; }
 
     ~Scene();

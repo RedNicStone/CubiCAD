@@ -322,8 +322,9 @@ class MandelbrotApp {
         colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
         std::vector<VkAttachmentReference> shadingPipelineColorReference = {colorAttachmentRef};
-        std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = { };
-        uint32_t shadingSubpass =
+        std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = {};
+        uint32_t
+            shadingSubpass =
             renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                       shadingPipelineColorReference,
                                       shadingPipelineAttachmentReference,
@@ -372,8 +373,8 @@ class MandelbrotApp {
     }
 
     void createFrameBuffers() {
-        std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount,
-                                                                        std::vector<std::shared_ptr<ImageView>>());
+        std::vector<std::vector<std::shared_ptr<ImageView>>>
+            imageViews(imageCount, std::vector<std::shared_ptr<ImageView>>());
 
         frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
     }
@@ -387,7 +388,7 @@ class MandelbrotApp {
         graphicsPoolSize.type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
         graphicsPoolSize.descriptorCount = static_cast<uint32_t>(imageCount);
 
-        std::vector<VkDescriptorPoolSize> descriptorPoolSizes = { graphicsPoolSize };
+        std::vector<VkDescriptorPoolSize> descriptorPoolSizes = {graphicsPoolSize};
 
         graphicsDescriptorPool = DescriptorPool::create(device, descriptorPoolSizes);
     }
@@ -471,7 +472,7 @@ class MandelbrotApp {
         std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
         std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
         graphicsCommandBuffers[swapChain->getCurrentImageIndex()]->submitToQueue(signalSemaphores,
-                                                                                 { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT },
+                                                                                 {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT},
                                                                                  waitSemaphores,
                                                                                  graphicsQueue,
                                                                                  swapChain->getPresentFence());

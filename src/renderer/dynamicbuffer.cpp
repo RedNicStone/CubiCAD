@@ -7,12 +7,12 @@
 #include <utility>
 
 
-std::shared_ptr<DynamicBuffer> DynamicBuffer::create(const std::shared_ptr<Device>& pDevice,
-                                              const std::vector<uint32_t>& vAccessingQueues,
-                                              VmaMemoryUsage vMemoryUsage,
-                                              VkBufferUsageFlags vBufferUsage,
-                                              VkMemoryPropertyFlags vPreferredFlags,
-                                              VkMemoryPropertyFlags vRequiredFlags) {
+std::shared_ptr<DynamicBuffer> DynamicBuffer::create(const std::shared_ptr<Device> &pDevice,
+                                                     const std::vector<uint32_t> &vAccessingQueues,
+                                                     VmaMemoryUsage vMemoryUsage,
+                                                     VkBufferUsageFlags vBufferUsage,
+                                                     VkMemoryPropertyFlags vPreferredFlags,
+                                                     VkMemoryPropertyFlags vRequiredFlags) {
     auto buffer = std::make_shared<DynamicBuffer>();
 
     buffer->device = pDevice;
@@ -31,28 +31,35 @@ std::shared_ptr<Buffer> DynamicBuffer::getBuffer(VkDeviceSize size) {
             buffer->unmap();
         if (size == 0)
             size = 65536;
-        buffer = Buffer::create(device, size, memoryUsage, preferredFlags, requiredFlags, bufferUsage |
-        VK_BUFFER_USAGE_TRANSFER_DST_BIT,
-                                accessingQueues);
+        buffer =
+            Buffer::create(device,
+                           size,
+                           memoryUsage,
+                           preferredFlags,
+                           requiredFlags,
+                           bufferUsage | VK_BUFFER_USAGE_TRANSFER_DST_BIT,
+                           accessingQueues);
         if (mapped)
             data = buffer->map();
     }
     return buffer;
 }
 
-std::shared_ptr<Buffer> DynamicBuffer::getBufferPreserveContents(VkDeviceSize size, const std::shared_ptr<CommandPool>&
-commandPool) {
+std::shared_ptr<Buffer> DynamicBuffer::getBufferPreserveContents(VkDeviceSize size,
+                                                                 const std::shared_ptr<CommandPool> &commandPool) {
     if (buffer == nullptr) {
         buffer = Buffer::create(device, size, memoryUsage, preferredFlags, requiredFlags, bufferUsage, accessingQueues);
     }
     if (size > buffer->getSize()) {
         if (mapped)
             buffer->unmap();
-        auto newBuffer = Buffer::create(device, size, memoryUsage, preferredFlags, requiredFlags, bufferUsage, accessingQueues);
+        auto
+            newBuffer =
+            Buffer::create(device, size, memoryUsage, preferredFlags, requiredFlags, bufferUsage, accessingQueues);
 
         auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
         commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
-        commandBuffer->copyBuffer(buffer, newBuffer, { { 0, 0, buffer->getSize() } });
+        commandBuffer->copyBuffer(buffer, newBuffer, {{0, 0, buffer->getSize()}});
         commandBuffer->endCommandBuffer();
 
         VkSubmitInfo submitInfo{};
@@ -60,7 +67,7 @@ commandPool) {
         submitInfo.commandBufferCount = 1;
         submitInfo.pCommandBuffers = commandBuffer->getHandlePtr();
 
-        commandPool->getQueue()->submitCommandBuffer({ submitInfo });
+        commandPool->getQueue()->submitCommandBuffer({submitInfo});
 
         buffer = newBuffer;
         if (mapped)

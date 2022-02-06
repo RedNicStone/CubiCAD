@@ -5,9 +5,9 @@
 #include "mesh.h"
 
 
-std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>>& meshlets,
-                                    const BoundingBox& bbox,
-                    const std::string& pName) {
+std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
+                                   const BoundingBox &bbox,
+                                   const std::string &pName) {
     auto mesh = std::make_shared<Mesh>();
     mesh->subMeshes = meshlets;
 
@@ -22,7 +22,7 @@ std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>>& 
     else
         mesh->name = pName;
 
-    for (const auto& meshlet : meshlets) {
+    for (const auto &meshlet: meshlets) {
         mesh->indexCount += meshlet->indexData.size();
         mesh->vertexCount += meshlet->vertexData.size();
     }

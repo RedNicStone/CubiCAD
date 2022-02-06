@@ -18,10 +18,10 @@ class MasterMaterial;
 class DescriptorPoolManager;
 
 struct PBRMaterialParameters {
-    alignas(4)  glm::uint32  materialIndex;
-    alignas(16) glm::uvec3   diffuse;
-    alignas(16) glm::uvec3   emission;
-    alignas(16) glm::uvec3   normal;
+    alignas(4)  glm::uint32 materialIndex;
+    alignas(16) glm::uvec3 diffuse;
+    alignas(16) glm::uvec3 emission;
+    alignas(16) glm::uvec3 normal;
     alignas(4)  glm::float32 transparency;
     alignas(4)  glm::float32 roughness;
     alignas(4)  glm::float32 metallic;
@@ -43,20 +43,23 @@ class Material {
     std::string name;
 
   public:
-    static std::shared_ptr<Material> create(const std::shared_ptr<MasterMaterial>& pMasterMaterial,
-                                            const std::vector<std::shared_ptr<Texture>>& textures,
+    static std::shared_ptr<Material> create(const std::shared_ptr<MasterMaterial> &pMasterMaterial,
+                                            const std::vector<std::shared_ptr<Texture>> &textures,
                                             void *parameters,
-                                            const std::string& pName = "");
+                                            const std::string &pName = "");
 
-    void updateParameterBuffer(const std::shared_ptr<Buffer>& buffer);
+    void updateParameterBuffer(const std::shared_ptr<Buffer> &buffer);
+
     void updateParameterBufferOffset(size_t offset) { parameterBufferOffset = offset; }
 
-    void setName(const std::string& pName) { name = pName; }
+    void setName(const std::string &pName) { name = pName; }
 
     std::string getName() { return name; }
+
     void *getParameters() { return parameters; }
 
     std::shared_ptr<MasterMaterial> getMasterMaterial() { return masterMaterial; }
+
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return materialSet; }
 
     ~Material();

@@ -21,21 +21,32 @@ std::shared_ptr<Camera> Camera::create(CameraModel cameraModel, VkExtent2D windo
 void Camera::updateCameraModel(CameraModel cameraModel, VkExtent2D window) {
     auto fov = glm::radians(cameraModel.fieldOfView);
     switch (cameraModel.cameraMode) {
-        case CAMERA_MODE_PERSPECTIVE_INFINITE:
-            projection = glm::infinitePerspective(fov,
-                                                  (double) window.width / window.height, cameraModel.clipNear);
+        case CAMERA_MODE_PERSPECTIVE_INFINITE: projection =
+                                                   glm::infinitePerspective(fov,
+                                                                            (double) window.width / window.height,
+                                                                            cameraModel.clipNear);
             break;
-        case CAMERA_MODE_PERSPECTIVE_FINITE:
-            projection = glm::perspective(fov, (double) window.width / window.height,
-                                          cameraModel.clipNear, cameraModel.clipFar);
+        case CAMERA_MODE_PERSPECTIVE_FINITE: projection =
+                                                 glm::perspective(fov,
+                                                                  (double) window.width / window.height,
+                                                                  cameraModel.clipNear,
+                                                                  cameraModel.clipFar);
             break;
         case CAMERA_MODE_ORTHOGRAPHIC_INFINITE:
-            projection = glm::ortho(-window.width / 2, window.width / 2, -window.height / 2, window.height / 2);
+            projection =
+                glm::ortho(-window.width / 2,
+                           window.width / 2,
+                           -window.height / 2,
+                           window.height / 2);
             break;
         case CAMERA_MODE_ORTHOGRAPHIC_FINITE:
-            projection = glm::ortho((double) -window.width / 2,(double)  window.width / 2,
-                                    (double) -window.height / 2, (double) window.height / 2,
-                                    cameraModel.clipNear, cameraModel.clipFar);
+            projection =
+                glm::ortho((double) -window.width / 2,
+                           (double) window.width / 2,
+                           (double) -window.height / 2,
+                           (double) window.height / 2,
+                           cameraModel.clipNear,
+                           cameraModel.clipFar);
             break;
     }
     projection[1][1] *= -1;
