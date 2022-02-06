@@ -13,7 +13,7 @@ VirtualStackAllocation::VirtualStackAllocation(StackAllocator *allocator,
     size = size_;
     pageSize = page_size;
 
-    for (std::shared_ptr<char[]> page: pages)
+    for (const std::shared_ptr<char[]>& page: pages)
         mappedPages.push_back({page});
 }
 

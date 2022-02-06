@@ -25,6 +25,10 @@ class MasterMaterial;
 
 class Material;
 
+class Texture;
+
+class TextureLibrary;
+
 struct PBRMaterialParameters;
 
 class MaterialLibrary {
@@ -37,6 +41,7 @@ class MaterialLibrary {
     std::shared_ptr<DynamicBuffer> materialBuffer;  // the material buffer
 
     std::shared_ptr<DescriptorPoolManager> descriptorPool;
+    std::shared_ptr<TextureLibrary> textureLibrary;
 
     std::map<std::shared_ptr<MasterMaterial>, std::vector<std::shared_ptr<Material>>> materials;
 
@@ -44,9 +49,13 @@ class MaterialLibrary {
     static std::shared_ptr<MaterialLibrary> create(const std::shared_ptr<Device> &pDevice,
                                                    const std::shared_ptr<CommandPool> &pTransferPool,
                                                    const std::shared_ptr<DescriptorPoolManager> &pDescriptorPool,
+                                                   const std::shared_ptr<TextureLibrary>& textureLibrary,
                                                    const std::vector<std::shared_ptr<Queue>> &accessingQueues);
 
-    std::shared_ptr<Material> registerShader(const std::shared_ptr<Material> &material);
+    std::shared_ptr<Material> registerShader(const std::shared_ptr<MasterMaterial> &masterMaterial,
+                                             void *parameters,
+                                             std::vector<std::shared_ptr<Texture>> textures = {},
+                                             const std::string& name = "");
 
     void pushParameters();
 };

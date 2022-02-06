@@ -206,7 +206,7 @@ void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCom
     graphicsCommandBuffer->bindIndexBuffer(indexBuffer->getBuffer(), VK_INDEX_TYPE_UINT32);
 
     std::shared_ptr<MasterMaterial> previousMasterMaterial = nullptr;
-    for (const auto &drawCall: indirectDrawCalls) {
+    for (const auto &drawCall : indirectDrawCalls) {
         std::shared_ptr<MasterMaterial> currentMasterMaterial = drawCall.material->getMasterMaterial();
         if (currentMasterMaterial != previousMasterMaterial) {
             if (previousMasterMaterial != nullptr) {
@@ -214,13 +214,13 @@ void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCom
             }
             previousMasterMaterial = currentMasterMaterial;
             graphicsCommandBuffer->bindPipeline(currentMasterMaterial->getPipeline());
-            std::vector<std::shared_ptr<DescriptorSet>>
-                descriptorSets
-                {sceneDescriptorSet, currentMasterMaterial->getDescriptorSet(), drawCall.material->getDescriptorSet()};
+            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets =
+                { sceneDescriptorSet, currentMasterMaterial->getDescriptorSet(),
+                  drawCall.material->getDescriptorSet() };
             graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());
         } else {
-            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{drawCall.material->getDescriptorSet()};
-            graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline());
+            std::vector<std::shared_ptr<DescriptorSet>> descriptorSets{ drawCall.material->getDescriptorSet() };
+            graphicsCommandBuffer->bindDescriptorSets(descriptorSets, currentMasterMaterial->getPipeline(), 2);
         }
 
         graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer->getBuffer(),

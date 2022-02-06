@@ -122,6 +122,8 @@ bool MainMenu::openOBJFileDialog() {
         }
         if (ImGui::Button("Load object")) {
             renderManager->loadMesh(lastFileName);
+            renderManager->getScene()->bakeMaterials(true);
+            renderManager->getScene()->collectRenderBuffers();
             ImGui::CloseCurrentPopup();
         }
         ImGui::SameLine();

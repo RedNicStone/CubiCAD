@@ -107,7 +107,8 @@ void CommandBuffer::bindPipeline(const std::shared_ptr<GraphicsPipeline> &pipeli
 void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
                                        const std::shared_ptr<PipelineLayout> &layout,
                                        VkPipelineBindPoint bindPoint,
-                                       std::vector<uint32_t> &offsets) {
+                                       std::vector<uint32_t> &offsets,
+                                       uint32_t firstSet) {
     std::vector<VkDescriptorSet> descriptorHandles(descriptorSets.size());
     for (size_t i = 0; i < descriptorSets.size(); i++) {
         descriptorHandles[i] = descriptorSets[i]->getHandle();
@@ -115,7 +116,7 @@ void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet
     vkCmdBindDescriptorSets(handle,
                             bindPoint,
                             layout->getHandle(),
-                            0,
+                            firstSet,
                             static_cast<uint32_t>(descriptorHandles.size()),
                             descriptorHandles.data(),
                             static_cast<uint32_t>(offsets.size()),
@@ -124,14 +125,16 @@ void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet
 
 void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
                                        const std::shared_ptr<PipelineBase> &pipeline,
-                                       std::vector<uint32_t> &offsets) {
-    bindDescriptorSets(descriptorSets, pipeline->getLayout(), pipeline->getBindPoint(), offsets);
+                                       std::vector<uint32_t> &offsets,
+                                       uint32_t firstSet) {
+    bindDescriptorSets(descriptorSets, pipeline->getLayout(), pipeline->getBindPoint(), offsets, firstSet);
 }
 
 void CommandBuffer::bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
-                                       const std::shared_ptr<PipelineBase> &pipeline) {
+                                       const std::shared_ptr<PipelineBase> &pipeline,
+                                       uint32_t firstSet) {
     std::vector<uint32_t> offsets{};
-    bindDescriptorSets(descriptorSets, pipeline->getLayout(), pipeline->getBindPoint(), offsets);
+    bindDescriptorSets(descriptorSets, pipeline->getLayout(), pipeline->getBindPoint(), offsets, firstSet);
 }
 
 void CommandBuffer::bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t binding, VkDeviceSize offset) {

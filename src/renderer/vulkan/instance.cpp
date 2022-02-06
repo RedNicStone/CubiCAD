@@ -47,11 +47,10 @@ void Instance::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoE
 
 VkResult Instance::CreateDebugUtilsMessengerEXT(VkInstance instance,
                                                 const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo,
-                                                const VkAllocationCallbacks *pAllocator,
                                                 VkDebugUtilsMessengerEXT *pDebugMessenger) {
     auto func = (PFN_vkCreateDebugUtilsMessengerEXT) vkGetInstanceProcAddr(instance, "vkCreateDebugUtilsMessengerEXT");
     if (func != nullptr) {
-        return func(instance, pCreateInfo, pAllocator, pDebugMessenger);
+        return func(instance, pCreateInfo, 0, pDebugMessenger);
     } else {
         return VK_ERROR_EXTENSION_NOT_PRESENT;
     }
@@ -180,7 +179,7 @@ std::shared_ptr<Instance> Instance::create(const char *appName,
     VkDebugUtilsMessengerCreateInfoEXT debugMessengerCreateInfo;
     populateDebugMessengerCreateInfo(debugMessengerCreateInfo);
 
-    if (CreateDebugUtilsMessengerEXT(instance->handle, &debugMessengerCreateInfo, nullptr, &instance->debugMessenger)
+    if (CreateDebugUtilsMessengerEXT(instance->handle, &debugMessengerCreateInfo, &instance->debugMessenger)
         != VK_SUCCESS) {
         throw std::runtime_error("failed to set up debug messenger!");
     }

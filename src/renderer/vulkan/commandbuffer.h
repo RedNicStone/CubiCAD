@@ -62,12 +62,15 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
     void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
                             const std::shared_ptr<PipelineLayout> &layout,
                             VkPipelineBindPoint bindPoint,
-                            std::vector<uint32_t> &offsets);
+                            std::vector<uint32_t> &offsets,
+                            uint32_t firstSet = 0);
     void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
                             const std::shared_ptr<PipelineBase> &pipeline,
-                            std::vector<uint32_t> &offsets);
+                            std::vector<uint32_t> &offsets,
+                            uint32_t firstSet = 0);
     void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
-                            const std::shared_ptr<PipelineBase> &pipeline);
+                            const std::shared_ptr<PipelineBase> &pipeline,
+                            uint32_t firstSet = 0);
     void bindVertexBuffer(const std::shared_ptr<Buffer> &buffer, uint32_t binding, VkDeviceSize offset = 0);
     void bindVertexBuffers(const std::vector<std::shared_ptr<Buffer>> &buffers,
                            uint32_t binding,

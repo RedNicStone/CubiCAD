@@ -49,6 +49,8 @@ struct MaterialProperty {
     MaterialPropertyFormat format;
     MaterialPropertySize size;
     MaterialPropertyCount count;
+
+    std::string attributeName;
 };
 
 struct MaterialPropertyLayout {
@@ -84,7 +86,7 @@ struct MaterialPropertyLayoutBuilt {
     std::vector<MaterialPropertyBuiltGeneric *> properties{};
 };
 
-MaterialPropertyBuiltGeneric *buildProperty(MaterialProperty property);
+MaterialPropertyBuiltGeneric *buildProperty(const MaterialProperty& property);
 MaterialPropertyLayoutBuilt buildLayout(const MaterialPropertyLayout &layout);
 
 #endif //CUBICAD_MATERIALPARAMETERS_H

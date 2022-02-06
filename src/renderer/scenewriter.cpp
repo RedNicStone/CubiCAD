@@ -91,7 +91,7 @@ void SceneWriter::readMeshesFromNode(const rapidjson::Value &value,
     }
 
     auto meshNodes = value["meshes"].GetArray();
-    auto meshes = renderManager->getMeshLibrary()->createMesh(value["file"].GetString(), material);
+    auto meshes = renderManager->getMeshLibrary()->createMesh(value["file"].GetString(), renderManager->getDefaultMaterial());
     for (uint x = 0; x < meshNodes.Size(); x++) {
         if (!meshNodes[x].HasMember("name") || !meshNodes[x].HasMember("materials")) {
             std::cerr << "Mesh is missing a field, skipping" << std::endl;

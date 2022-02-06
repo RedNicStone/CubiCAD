@@ -67,4 +67,4 @@ class VoxelFragmentStreamTypeConverting : public VoxelFragmentStreamBuffered<Fra
 
 };
 
-#endif //CUBICADVOXELTYPES_VOXELFRAGMENTSTREAM_H
+#endif //CUBICAD_VOXELFRAGMENTSTREAM_H

@@ -9,6 +9,7 @@
 
 #include <tiny_obj_loader.h>
 #include <iostream>
+#include <filesystem>
 
 #include "mesh.h"
 
@@ -30,7 +31,10 @@ class ModelLoader {
                                        tinyobj::material_t material);
     static std::vector<std::shared_ptr<Texture>> loadMaterialTextures(const MaterialPropertyLayoutBuilt &materialLayout,
                                                                       const tinyobj::material_t &material,
-                                                                      const std::shared_ptr<TextureLibrary> &textureLibrary);
+                                                                      const std::shared_ptr<TextureLibrary> &textureLibrary,
+                                                                      const std::string& modelFilename);
+    static std::string locateTexture(const std::string &textureFilename,
+                                     const std::string &modelFilename);
 
     std::vector<std::shared_ptr<Mesh>> import(const std::string &filename,
                                               const std::shared_ptr<MasterMaterial> &masterMaterial);

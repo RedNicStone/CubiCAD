@@ -78,6 +78,6 @@ namespace CCAD_OT {
       void recursive_iterate_nodes_(OtNodePrimitive &node, int pos_x, int pos_z, int pos_y, int level);
       void generate_data_(const OtSurfaceInfo &info, int pos_x, int pos_z, int pos_y, int level);
   };
-};
+}
 
 #endif //CUBICAD_OCTREE_COMPILER_H

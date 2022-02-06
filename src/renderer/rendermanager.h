@@ -58,6 +58,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<TextureLibrary> textureLibrary;
     std::shared_ptr<MeshLibrary> meshLibrary;
 
+    std::shared_ptr<MasterMaterial> defaultMaterial;
+
     // objects affected by resize
     std::shared_ptr<SwapChain> swapChain;
     std::shared_ptr<FrameBuffer> frameBuffer;
@@ -85,8 +87,9 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void createSwapChain();
     void createRenderPass();
     void createFrameBuffer();
-    void crateSceneObjects();
-    void crateUIObjects();
+    void createSceneObjects();
+    void createDefaultMaterial();
+    void createUIObjects();
 
     void createRenderObjects();
     void recreateSwapChain(bool newImageCount);
@@ -113,22 +116,15 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void loadMesh(const std::string &filename);
 
     std::shared_ptr<Scene> getScene() { return scene; }
-
     std::shared_ptr<SceneWriter> getSceneWriter() { return sceneWriter; }
-
     std::shared_ptr<MaterialLibrary> getMaterialLibrary() { return materialLibrary; }
-
     std::shared_ptr<TextureLibrary> getTextureLibrary() { return textureLibrary; }
-
     std::shared_ptr<MeshLibrary> getMeshLibrary() { return meshLibrary; }
-
     std::shared_ptr<UIRenderer> getUIRenderer() { return uiRenderer; }
-
     std::shared_ptr<Device> getDevice() { return device; }
-
     std::shared_ptr<RenderPass> getRenderPass() { return renderPass; }
-
     std::shared_ptr<DescriptorPoolManager> getDescriptorManager() { return poolManager; }
+    std::shared_ptr<MasterMaterial> getDefaultMaterial() { return defaultMaterial; }
 
     VkExtent2D getExtend() { return swapChainExtent; }
 

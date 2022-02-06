@@ -190,8 +190,7 @@ void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool> &co
 
 void Image::transferDataStaged(void *src,
                                const std::shared_ptr<CommandPool> &commandPool,
-                               VkDeviceSize size,
-                               VkDeviceSize offset) {
+                               VkDeviceSize size, [[maybe_unused]] VkDeviceSize offset) {
     std::vector<uint32_t> accessingQueues = {commandPool->getQueueFamily()->getQueueFamilyIndex()};
     auto stagingBuffer = Image::createHostStagingBuffer(device, allocationInfo.size, accessingQueues);
 

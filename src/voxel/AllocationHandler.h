@@ -214,4 +214,4 @@ class AllocationHandler {       //! class to handle allocations. Automatically r
     void                freeAllocation(void* handle);
 };*/
 
-#endif //CUBICAD__ALLOCATIONHANDLER_H_
+#endif //CUBICAD_ALLOCATIONHANDLER_H_

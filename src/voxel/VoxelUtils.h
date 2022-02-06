@@ -37,4 +37,4 @@ namespace libmorton {
 }
 #endif
 
-#endif //CUBICADVOXELTYPES_VOXELUTILS_H
+#endif //CUBICAD_VOXELUTILS_H

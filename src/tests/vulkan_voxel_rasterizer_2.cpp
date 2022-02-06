@@ -88,7 +88,7 @@ class MandelbrotApp {
 
     std::shared_ptr<SwapChain> swapChain;
     std::shared_ptr<FrameBuffer> frameBuffer;
-    VkExtent2D swapChainExtent;
+    VkExtent2D swapChainExtent{};
 
     std::shared_ptr<RenderPass> renderPass;
     std::shared_ptr<DescriptorSetLayout> descriptorSetsLayout;
@@ -102,13 +102,13 @@ class MandelbrotApp {
 
     std::vector<std::shared_ptr<CommandBuffer>> graphicsCommandBuffers;
 
-    std::array<float, 60> lastFrameDeltas;
+    std::array<float, 60> lastFrameDeltas{};
     size_t currentFrame = 0;
     size_t currentFrameIndex = 0;
     float currentFPS = 0;
 
     bool framebufferResized = false;
-    uint32_t imageCount;
+    uint32_t imageCount{};
 
     std::shared_ptr<DescriptorPool> graphicsDescriptorPool;
     std::vector<std::shared_ptr<DescriptorSet>> descriptorSets;

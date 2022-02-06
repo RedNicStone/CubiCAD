@@ -18,10 +18,11 @@ class MeshLibrary {
     std::unordered_map<std::string, std::vector<std::shared_ptr<Mesh>>> meshes;
 
   public:
-    static std::shared_ptr<MeshLibrary> create();
+    static std::shared_ptr<MeshLibrary> create(const std::shared_ptr<TextureLibrary> &textureLibrary,
+                                               const std::shared_ptr<MaterialLibrary> &materialLibrary);
 
     std::vector<std::shared_ptr<Mesh>> createMesh(const std::string &filename,
-                                                  const std::shared_ptr<Material> &material);
+                                                  const std::shared_ptr<MasterMaterial> &material);
 
     std::unordered_map<std::string, std::vector<std::shared_ptr<Mesh>>> getMeshes() { return meshes; }
 };

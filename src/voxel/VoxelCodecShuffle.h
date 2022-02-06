@@ -105,4 +105,4 @@ void VoxelCodecShuffle<Types...>::copyElementFromPtr(void *src) {
     memcpy(static_cast<char *>(readWritePtr), static_cast<char *>(dst), (fragment::getFragmentTotalSize()));
 }
 
-#endif //CUBICADVOXELTYPES__VOXELCODECSHUFFLE_H_
+#endif //CUBICAD_VOXELCODECSHUFFLE_H_

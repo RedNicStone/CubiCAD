@@ -125,4 +125,4 @@ void VoxelCodecLinear<Types...>::copyElementFromPtr(void *src) {
     });
 }
 
-#endif //CUBICADVOXELTYPES__VOXELCODECLINEAR_H_
+#endif //CUBICAD_VOXELCODECLINEAR_H_

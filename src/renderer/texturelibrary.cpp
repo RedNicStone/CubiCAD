@@ -16,6 +16,9 @@ std::shared_ptr<TextureLibrary> TextureLibrary::create(const std::shared_ptr<Dev
     textureLibrary->device = pDevice;
     textureLibrary->settings = settings;
 
+    textureLibrary->defaultTexture = textureLibrary->createTexture("resources/textures/default_4096x4096.png",
+                                                                  VK_FORMAT_R8G8B8A8_UNORM);
+
     return textureLibrary;
 }
 

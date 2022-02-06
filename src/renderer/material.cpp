@@ -18,8 +18,7 @@ std::shared_ptr<Material> Material::create(const std::shared_ptr<MasterMaterial>
     material->materialSet =
         pMasterMaterial->getDescriptorManager()->allocate(pMasterMaterial->getMaterialDescriptorSetLayout());
     for (uint32_t i = 0; i < textures.size(); i++) {
-        if (textures[i] != nullptr)
-            material->materialSet->updateImage(textures[i]->getImageView(), VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, i + 1);
+        material->materialSet->updateImage(textures[i]->getImageView(), VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, i + 1);
     }
 
     if (pName.empty())

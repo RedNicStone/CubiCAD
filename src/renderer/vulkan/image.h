@@ -84,8 +84,7 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     void transferDataStaged(void *src, const std::shared_ptr<CommandPool> &commandPool);
     void transferDataStaged(void *src,
                             const std::shared_ptr<CommandPool> &commandPool,
-                            VkDeviceSize size,
-                            VkDeviceSize offset = 0);
+                            VkDeviceSize size, [[maybe_unused]] VkDeviceSize offset = 0);
 
     std::shared_ptr<ImageView> createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange);
 

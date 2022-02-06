@@ -51,15 +51,11 @@ class Material {
     void updateParameterBuffer(const std::shared_ptr<Buffer> &buffer);
 
     void updateParameterBufferOffset(size_t offset) { parameterBufferOffset = offset; }
-
     void setName(const std::string &pName) { name = pName; }
 
     std::string getName() { return name; }
-
     void *getParameters() { return parameters; }
-
     std::shared_ptr<MasterMaterial> getMasterMaterial() { return masterMaterial; }
-
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return materialSet; }
 
     ~Material();

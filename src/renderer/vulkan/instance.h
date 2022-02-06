@@ -17,10 +17,10 @@
 #include "physicaldevice.h"
 
 
-static VKAPI_ATTR VKAPI_CALL VkBool32 debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
-                                                    VkDebugUtilsMessageTypeFlagsEXT messageType,
+static VKAPI_ATTR VKAPI_CALL VkBool32 debugCallback([[maybe_unused]] VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
+                                                    [[maybe_unused]] VkDebugUtilsMessageTypeFlagsEXT messageType,
                                                     const VkDebugUtilsMessengerCallbackDataEXT *pCallbackData,
-                                                    void *pUserData) {
+                                                    [[maybe_unused]] void *pUserData) {
     std::cerr << "validation layer: " << pCallbackData->pMessage << std::endl;
 
     return VK_FALSE;
@@ -42,7 +42,6 @@ class Instance : public VulkanClass<VkInstance>, public std::enable_shared_from_
 
     static VkResult CreateDebugUtilsMessengerEXT(VkInstance instance,
                                                  const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo,
-                                                 const VkAllocationCallbacks *pAllocator,
                                                  VkDebugUtilsMessengerEXT *pDebugMessenger);
 
     static void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT &createInfo);

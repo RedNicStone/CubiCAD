@@ -71,4 +71,4 @@ constexpr decltype(auto) VoxelFragment<Types...>::getFragmentType() {
     return typename std::tuple_element<nFragment, std::tuple<Types...>>::type();
 }
 
-#endif //CUBICADVOXELTYPES__VOXELFRAGMENTTYPES_H_
+#endif //CUBICAD_VOXELFRAGMENTTYPES_H_

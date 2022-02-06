@@ -61,4 +61,4 @@ void VoxelCodecBase::jumpToVoxel(VoxelPosition pos) {
     jumpToVoxel(libmorton::morton3D_encode(pos.x, pos.y, pos.z));
 }
 
-#endif //CUBICADVOXELTYPES__VOXELCODECBASE_H_
+#endif //CUBICAD_VOXELCODECBASE_H_

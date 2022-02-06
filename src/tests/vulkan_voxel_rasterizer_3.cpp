@@ -82,13 +82,13 @@ class MandelbrotApp {
 
     std::shared_ptr<SwapChain> swapChain;
     std::shared_ptr<FrameBuffer> frameBuffer;
-    VkExtent2D swapChainExtent;
+    VkExtent2D swapChainExtent{};
 
     std::shared_ptr<Image> depthImage;
     std::shared_ptr<ImageView> depthImageView;
 
     std::shared_ptr<RenderPass> renderPass;
-    uint32_t UISubpass;
+    uint32_t UISubpass{};
 
     std::shared_ptr<CommandPool> commandPool;
 
@@ -111,11 +111,11 @@ class MandelbrotApp {
     std::shared_ptr<TextureLibrary> textureLibrary;
 
     bool mouseCaptured = false;
-    uint32_t imageCount;
+    uint32_t imageCount{};
 
     std::vector<std::shared_ptr<Fence>> imagesInFlight;
 
-    glm::dvec2 prevMousePos;
+    glm::dvec2 prevMousePos{};
     bool mouseDown = false;
     bool escDown = false;
 

@@ -5,7 +5,7 @@
 #include "materialparameters.h"
 
 
-MaterialPropertyBuiltGeneric *buildProperty(MaterialProperty property) {
+MaterialPropertyBuiltGeneric *buildProperty(const MaterialProperty& property) {
     VkFormat pixelFormat = VK_FORMAT_UNDEFINED;
     if (property.input == MATERIAL_PROPERTY_INPUT_TEXTURE) {
         switch (property.size) {
@@ -236,6 +236,7 @@ MaterialPropertyBuiltGeneric *buildProperty(MaterialProperty property) {
 
     built->input = property.input;
     built->pixelFormat = pixelFormat;
+    built->attributeName = property.attributeName;
 
     return built;
 }

@@ -69,7 +69,6 @@ class VulkanRasterizer {
     std::shared_ptr<Instance> instance;
     std::shared_ptr<Window> window;
 
-    std::shared_ptr<ModelLoader> modelLoader;
     std::shared_ptr<Mesh> model;
     std::vector<std::shared_ptr<MeshInstance>> objects;
 
@@ -122,59 +121,9 @@ class VulkanRasterizer {
     }
 
     void loadModels() {
-        modelLoader = ModelLoader::create();
-
-        auto vertexShader = VertexShader::create(renderManager->getDevice(), "main", "resources/shaders/compiled/"
-                                                                                     "PBR_basic.vert.spv");
-        auto fragmentShader = FragmentShader::create(renderManager->getDevice(), "main", "resources/shaders/compiled/"
-                                                                                         "PBR_basic.frag.spv");
-        std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
-
-        MaterialProperty materialProperty{};
-        materialProperty.input =
-            static_cast<MaterialPropertyInput>(MATERIAL_PROPERTY_INPUT_CONSTANT | MATERIAL_PROPERTY_INPUT_TEXTURE);
-        materialProperty.size = MATERIAL_PROPERTY_SIZE_8;
-        materialProperty.count = MATERIAL_PROPERTY_COUNT_4;
-        materialProperty.format = MATERIAL_PROPERTY_FORMAT_SRGB;
-
-        MaterialPropertyLayout propertyLayout{{materialProperty}};
-        auto layoutBuilt = buildLayout(propertyLayout);
-
-        auto
-            masterMaterial =
-            MasterMaterial::create(renderManager->getDevice(),
-                                   shaders,
-                                   2,
-                                   renderManager->getExtend(),
-                                   layoutBuilt,
-                                   renderManager->getRenderPass(),
-                                   renderManager->getDescriptorManager(),
-                                   "basicMaterial");
-        masterMaterial->updateImageSampler(renderManager->getTextureLibrary());
-
-        auto texture = renderManager->getTextureLibrary()->createTexture("/home/nic/Downloads/viking-room/viking-room"
-                                                                         ".png",
-                                                                         layoutBuilt.properties[0]->pixelFormat);
-
-        char *parameters = new char[layoutBuilt.totalSize];
-        auto data = glm::vec3(1, 1, 1);
-        memcpy(parameters, layoutBuilt.properties[0]->cast(&data), layoutBuilt.properties[0]->getSize());
-
-        auto material = Material::create(masterMaterial, renderManager->getDescriptorManager(), {texture}, parameters);
-        renderManager->getSceneWriter()->material = material;
-        model =
-            renderManager->getMeshLibrary()
-                ->createMesh("/home/nic/Downloads/viking-room/viking-room.obj", material)
-                .front();
-
-        for (size_t x = 0; x < 1; x++)
-            for (size_t y = 0; y < 1; y++)
-                for (size_t z = 0; z < 1; z++) {
-                    auto object = MeshInstance::create(model);
-                    object->setScale(glm::vec3(10.0f));
-                    object->setPosition(glm::vec3(x, y, z) * glm::vec3(3));
-                    objects.push_back(object);
-                }
+        objects.push_back(MeshInstance::create(renderManager->getMeshLibrary()->createMesh
+        ("/home/nic/Downloads/viking-room/viking-room.obj",
+                                                             renderManager->getDefaultMaterial()).front()));
     }
 
     void createScene() {

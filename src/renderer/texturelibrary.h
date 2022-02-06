@@ -27,6 +27,8 @@ class TextureLibrary {
     std::shared_ptr<Sampler> imageSampler;
     TextureQualitySettings settings;
 
+    std::shared_ptr<Texture> defaultTexture;
+
     std::unordered_map<std::string, std::shared_ptr<Texture>> textures{};
 
   public:
@@ -38,8 +40,8 @@ class TextureLibrary {
     std::shared_ptr<Texture> createTexture(const std::string &filename, VkFormat format);
 
     std::shared_ptr<Device> getDevice() { return device; }
-
     std::shared_ptr<Sampler> getSampler() { return imageSampler; }
+    std::shared_ptr<Texture> getDefaultTexture() { return defaultTexture; }
 };
 
 #endif //CUBICAD_TEXTURELIBRARY_H

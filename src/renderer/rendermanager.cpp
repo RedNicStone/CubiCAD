@@ -176,7 +176,7 @@ void RenderManager::createFrameBuffer() {
     frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
 }
 
-void RenderManager::crateSceneObjects() {
+void RenderManager::createSceneObjects() {
     camera = Camera::create(cameraModel, swapChainExtent);
     scene = Scene::create(device, transferQueue, graphicsQueue, camera);
     auto currentDir = std::string(get_current_dir_name());
@@ -184,12 +184,42 @@ void RenderManager::crateSceneObjects() {
 
     poolManager = DescriptorPoolManager::create(device);
 
-    materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, {graphicsQueue});
     textureLibrary = TextureLibrary::create(device, graphicsQueue, graphicsPool, textureQualitySettings);
-    meshLibrary = MeshLibrary::create();
+    materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, textureLibrary, {graphicsQueue});
+    meshLibrary = MeshLibrary::create(textureLibrary, materialLibrary);
 }
 
-void RenderManager::crateUIObjects() {
+void RenderManager::createDefaultMaterial() {
+    auto vertexShader = VertexShader::create(device, "main", "resources/shaders/compiled/"
+                                                                                 "PBR_basic.vert.spv");
+    auto fragmentShader = FragmentShader::create(device, "main", "resources/shaders/compiled/"
+                                                                                     "PBR_basic.frag.spv");
+    std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
+
+    MaterialProperty materialProperty{};
+    materialProperty.input =
+        static_cast<MaterialPropertyInput>(MATERIAL_PROPERTY_INPUT_CONSTANT | MATERIAL_PROPERTY_INPUT_TEXTURE);
+    materialProperty.size = MATERIAL_PROPERTY_SIZE_8;
+    materialProperty.count = MATERIAL_PROPERTY_COUNT_4;
+    materialProperty.format = MATERIAL_PROPERTY_FORMAT_SRGB;
+    materialProperty.attributeName = "diffuse";
+
+    MaterialPropertyLayout propertyLayout{{materialProperty}};
+    auto layoutBuilt = buildLayout(propertyLayout);
+
+    defaultMaterial =
+        MasterMaterial::create(device,
+                               shaders,
+                               2,
+                               swapChainExtent,
+                               layoutBuilt,
+                               renderPass,
+                               poolManager,
+                               "basicMaterial");
+    defaultMaterial->updateImageSampler(textureLibrary);
+}
+
+void RenderManager::createUIObjects() {
     uiRenderer = UIRenderer::create(graphicsQueue, graphicsPool, renderPass, window, imageCount, uiSubpass);
 }
 
@@ -203,18 +233,20 @@ void RenderManager::createRenderObjects() {
     createSwapChain();
     createRenderPass();
     createFrameBuffer();
-    crateSceneObjects();
-    crateUIObjects();
+    createSceneObjects();
+    createDefaultMaterial();
+    createUIObjects();
 }
 
 void RenderManager::recreateSwapChain(bool newImageCount) {
     createSwapChain();
     createRenderPass();
     createFrameBuffer();
+    createDefaultMaterial();
     camera->updateCameraModel(cameraModel, swapChainExtent);
 
     if (newImageCount) {
-        crateUIObjects();
+        createUIObjects();
     }
 }
 
@@ -385,7 +417,7 @@ void RenderManager::updateRenderData() {
 }
 
 void RenderManager::loadMesh(const std::string &filename) {
-    auto meshes = meshLibrary->createMesh(filename, scene->getInstances()[0]->getMesh()->getMeshlets()[0]->material);
+    auto meshes = meshLibrary->createMesh(filename, defaultMaterial);
     for (const auto &mesh: meshes)
         scene->submitInstance(MeshInstance::create(mesh));
 }
