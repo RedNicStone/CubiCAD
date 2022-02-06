@@ -8,10 +8,10 @@
 [![Build](https://img.shields.io/badge/created_with-C++-green.svg?style=for-the-badge)]()
 
 [![Linux](https://img.shields.io/badge/os-linux-lightgray.svg?style=flat-square)]()
-[![Linux](https://img.shields.io/github/languages/top/RedNicStone/CubiCAD?style=flat-square)]()
-[![Linux](https://img.shields.io/github/stars/RedNicStone/CubiCAD?style=flat-square)]()
-[![Linux](https://img.shields.io/github/commit-activity/w/RedNicStone/CubiCAD?style=flat-square)]()
-[![Linux](https://img.shields.io/github/last-commit/RedNicStone/CubiCAD?style=flat-square)]()
+[![Language](https://img.shields.io/github/languages/top/RedNicStone/CubiCAD?style=flat-square)]()
+[![Stars](https://img.shields.io/github/stars/RedNicStone/CubiCAD?style=flat-square)]()
+[![Commit frequency](https://img.shields.io/github/commit-activity/w/RedNicStone/CubiCAD?style=flat-square)]()
+[![Last commit](https://img.shields.io/github/last-commit/RedNicStone/CubiCAD?style=flat-square)]()
 
 ### A fast and modern vulkan rendering engine
 
