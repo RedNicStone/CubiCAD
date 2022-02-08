@@ -122,7 +122,7 @@ class VulkanRasterizer {
 
     void loadModels() {
         objects.push_back(MeshInstance::create(renderManager->getMeshLibrary()->createMesh
-        ("/home/nic/Downloads/viking-room/viking-room.obj",
+        ("resources/models/demo/viking-room/viking-room.obj",
                                                              renderManager->getDefaultMaterial()).front()));
     }
 
