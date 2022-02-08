@@ -8,6 +8,7 @@
 #define CUBICAD_TEXTURE_H
 
 #include <stb_image.h>
+#include <filesystem>
 
 #include "vulkan/imageview.h"
 #include "materialparameters.h"
