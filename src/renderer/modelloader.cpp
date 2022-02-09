@@ -173,7 +173,8 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
             int materialID = shape.mesh.material_ids[f];
             if (meshlets[materialID] == nullptr) {
                 meshlets[materialID] = std::make_shared<Meshlet>();
-                meshlets[materialID]->material = surfaceMaterials[static_cast<unsigned long>(materialID)];
+                if (materialID >= 0)
+                    meshlets[materialID]->material = surfaceMaterials[static_cast<unsigned long>(materialID)];
             }
 
             // Loop over vertices in the face.

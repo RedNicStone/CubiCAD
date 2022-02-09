@@ -15,6 +15,9 @@ std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device> &pDevice,
                                          VkFormat format) {
     auto texture = std::make_shared<Texture>();
 
+    if (!std::filesystem::exists(filename))
+        throw std::runtime_error("Could not open texture file at location: " + filename);
+
     int texWidth, texHeight, texChannels;
     stbi_uc *data = stbi_load(filename.c_str(), &texWidth, &texHeight, &texChannels, STBI_rgb_alpha);
 
