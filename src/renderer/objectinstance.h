@@ -35,7 +35,7 @@ class MeshInstance {
     glm::mat4 matRot = glm::mat4(1.0f);
     glm::mat4 matPos = glm::mat4(1.0f);
     glm::mat4 matScale = glm::mat4(1.0f);
-    glm::mat4 combined;
+    glm::mat4 combined = glm::mat4(1.0f);
 
     uint32_t objectID = 0;
 
