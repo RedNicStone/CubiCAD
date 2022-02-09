@@ -24,7 +24,19 @@ std::shared_ptr<RenderManager> RenderManager::create(const std::shared_ptr<Insta
 }
 
 void RenderManager::pickPhysicalDevice() {
-    physicalDevice = instance->getPhysicalDevice()[0];  // todo make device selection "smart"
+    for (const auto& possiblePhysicalDevice : instance->getPhysicalDevices()) {
+        VkPhysicalDeviceProperties deviceProperties;
+        vkGetPhysicalDeviceProperties(possiblePhysicalDevice->getHandle(), &deviceProperties);
+
+        std::string name = deviceProperties.deviceName;
+        std::cout << " * " << name;
+        if (name.find("llvmpipe") == std::string::npos) { // check if device is virtual
+            physicalDevice = possiblePhysicalDevice;
+            std::cout << "  [USING]";
+        }
+        std::cout << std::endl;
+
+    }
 }
 
 void RenderManager::createLogicalDevice() {
