@@ -184,18 +184,18 @@ std::shared_ptr<QueueFamily> QueueFamily::create(const std::shared_ptr<QueueFami
     queueFamily->familyHandler = pFamilyHandler;
     queueFamily->queueFamily = family;
     queueFamily->queueCount = count;
+    queueFamily->queuePriority = 1.0f;
 
     return queueFamily;
 }
 
 VkDeviceQueueCreateInfo QueueFamily::getCreateInfo() const {
-    float queue_priority = 1.0f;
 
     VkDeviceQueueCreateInfo queue_create_info{};
     queue_create_info.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
     queue_create_info.queueFamilyIndex = queueFamily;
     queue_create_info.queueCount = queueCount;
-    queue_create_info.pQueuePriorities = &queue_priority;
+    queue_create_info.pQueuePriorities = &queuePriority;
 
     return queue_create_info;
 }

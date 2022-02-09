@@ -87,6 +87,8 @@ class QueueFamily : public std::enable_shared_from_this<QueueFamily> {
     uint32_t queueFamily;
     uint32_t queueCount;
 
+    float queuePriority;
+
   public:
     static std::shared_ptr<QueueFamily> create(const std::shared_ptr<QueueFamilyHandler> &pFamilyHandler,
                                                uint32_t family,
