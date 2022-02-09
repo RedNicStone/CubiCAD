@@ -121,9 +121,9 @@ class VulkanRasterizer {
     }
 
     void loadModels() {
-        objects.push_back(MeshInstance::create(renderManager->getMeshLibrary()->createMesh
-        ("/home/nic/Downloads/viking-room/viking-room.obj",
-                                                             renderManager->getDefaultMaterial()).front()));
+        renderManager->loadMesh("/home/nic/Downloads/viking-room/viking-room.obj");
+        renderManager->getScene()->bakeMaterials(true);
+        renderManager->getScene()->collectRenderBuffers();
     }
 
     void createScene() {
