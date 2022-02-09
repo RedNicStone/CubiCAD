@@ -51,7 +51,9 @@ void MainMenu::drawUI() {
             if (ImGui::MenuItem(OPEN_OBJ_FILE_DIALOG_TITLE, "CTRL+I"))
                 showOpenOBJFileDialog = true;
             ImGui::Separator();
-            if (ImGui::MenuItem("Duplicate", "CTRL+D")) {}
+            if (ImGui::MenuItem("Duplicate", "CTRL+D")) {
+                
+            }
             if (ImGui::MenuItem("Delete", "DELETE")) {}
             ImGui::Separator();
             if (ImGui::BeginMenu("Add Primitive")) {
