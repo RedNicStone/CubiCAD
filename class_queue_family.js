@@ -8,5 +8,6 @@ var class_queue_family =
     [ "familyHandler", "class_queue_family.html#a40c1117bf981e7d3facbe9e531efdb8d", null ],
     [ "queueCount", "class_queue_family.html#a22499c6787dbbc888e5245c3b44b1705", null ],
     [ "queueFamily", "class_queue_family.html#a5acc27a01176c71d63bf55a296e308dc", null ],
+    [ "queuePriority", "class_queue_family.html#a1f9b7b5d4346d4b04a9ac09bd0539d57", null ],
     [ "queues", "class_queue_family.html#afca0ddcd21f98d7271c6882910289180", null ]
 ];

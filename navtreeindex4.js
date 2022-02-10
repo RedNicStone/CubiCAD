@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"class_voxel_fragment_stream_buffered.html#a0bc69efc6115f8acecd5d7d3c46ba75f":[2,0,115,3],
 "class_voxel_fragment_stream_buffered.html#a8c412477faba00eaafaa1c6ce9d26430":[2,0,115,1],
 "class_voxel_fragment_stream_buffered.html#a93fb0074968b9ea82301cfdda3474944":[2,0,115,2],
 "class_voxel_fragment_stream_type_converting.html":[2,0,116],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93a24fa10353fb0df6f5f22940ab49bc37d":[3,0,0,1,19,6,1],
 "materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93a29b1a47be6c7598d9aea862bd8847524":[3,0,0,1,19,6,8],
 "materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93a43a5fe3fd2a0aa9bd9c032e7f16bd578":[3,0,0,1,19,6,3],
-"materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93a50eec0083f90da138aaea2f4e61f30f9":[3,0,0,1,19,6,4],
-"materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93aa114883fde9a12b6e8af8a3fc3919131":[3,0,0,1,19,6,9]
+"materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93a50eec0083f90da138aaea2f4e61f30f9":[3,0,0,1,19,6,4]
 };

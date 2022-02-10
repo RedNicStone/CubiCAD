@@ -14,7 +14,8 @@ var searchData=
   ['queuefamilyhandler_11',['QueueFamilyHandler',['../class_queue_family_handler.html',1,'']]],
   ['queuefamilyhandler_12',['queueFamilyHandler',['../class_physical_device.html#ace47ec3dca4bfd07d1b7b517658b2848',1,'PhysicalDevice']]],
   ['queuefamilyindices_13',['QueueFamilyIndices',['../struct_queue_family_indices.html',1,'']]],
-  ['queues_14',['queues',['../class_queue_family.html#afca0ddcd21f98d7271c6882910289180',1,'QueueFamily']]],
-  ['queues_2ecpp_15',['queues.cpp',['../queues_8cpp.html',1,'']]],
-  ['queues_2eh_16',['queues.h',['../queues_8h.html',1,'']]]
+  ['queuepriority_14',['queuePriority',['../class_queue_family.html#a1f9b7b5d4346d4b04a9ac09bd0539d57',1,'QueueFamily']]],
+  ['queues_15',['queues',['../class_queue_family.html#afca0ddcd21f98d7271c6882910289180',1,'QueueFamily']]],
+  ['queues_2ecpp_16',['queues.cpp',['../queues_8cpp.html',1,'']]],
+  ['queues_2eh_17',['queues.h',['../queues_8h.html',1,'']]]
 ];
