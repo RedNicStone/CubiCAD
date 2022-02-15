@@ -10,6 +10,7 @@ std::shared_ptr<MainMenu> MainMenu::create(const std::shared_ptr<RenderManager> 
 
     auto menubar = std::make_shared<MainMenu>();
     menubar->renderManager = renderManager;
+    menubar->lastFileNames = {""};
 
     menubar->logoTexture =
         renderManager->getTextureLibrary()
@@ -29,15 +30,14 @@ void MainMenu::drawUI() {
             showAboutWindow = !showAboutWindow;
 
         if (ImGui::BeginMenu("File")) {
-            if (ImGui::MenuItem("New", "CTRL+N")) {}
+            if (ImGui::MenuItem("New", "CTRL+N")) {
+                showConfirmDiscardDialog = true;
+            }
             ImGui::Separator();
             if (ImGui::MenuItem("Open", "CTRL+O")) {
                 renderManager->getSceneWriter()->readScene();
             }
             if (ImGui::BeginMenu("Open Recent")) {
-                ImGui::MenuItem("fish_hat.c");
-                ImGui::MenuItem("fish_hat.inl");
-                ImGui::MenuItem("fish_hat.h");
                 ImGui::EndMenu();
             }
             ImGui::Separator();
@@ -50,9 +50,26 @@ void MainMenu::drawUI() {
         if (ImGui::BeginMenu("Instance")) {
             if (ImGui::MenuItem(OPEN_OBJ_FILE_DIALOG_TITLE, "CTRL+I"))
                 showOpenOBJFileDialog = true;
+            if (ImGui::BeginMenu("Import recent")) {
+                for (size_t i = 0; i < lastFileNames.size() && i < 20; i++) {
+                    if (!lastFileNames[lastFileNames.size() - i - 1].empty()) {
+                        auto meshFile = std::filesystem::path(lastFileNames[lastFileNames.size() - i - 1]);
+                        if (ImGui::MenuItem(meshFile.filename().c_str())) {
+                            if (i != 0)
+                                lastFileNames.push_back(lastFileNames[lastFileNames.size() - i - 1]);
+                            showOpenOBJFileDialog = true;
+                        }
+                    }
+                }
+                ImGui::EndMenu();
+            }
             ImGui::Separator();
             if (ImGui::MenuItem("Duplicate", "CTRL+D")) {
-                
+                if (renderManager->getScene()->getSelected() != 0) {
+                    auto instance = renderManager->getScene()->getInstanceByID(renderManager->getScene()->getSelected
+                        ());
+                    renderManager->getScene()->submitInstance(MeshInstance::create(instance->getMesh(), instance->getName()));
+                }
             }
             if (ImGui::MenuItem("Delete", "DELETE")) {}
             ImGui::Separator();
@@ -75,8 +92,13 @@ void MainMenu::drawUI() {
         showOpenOBJFileDialog = false;
     }
 
-    if (openOBJFileDialog())
-        ImGui::CloseCurrentPopup();
+    if (showConfirmDiscardDialog) {
+        ImGui::OpenPopup(CONFIRM_DISCARD_DIALOG_TITLE);
+        showConfirmDiscardDialog = false;
+    }
+
+    openOBJFileDialog();
+    confirmDiscardDialog();
 }
 
 void MainMenu::drawAboutWindow() {
@@ -110,7 +132,7 @@ bool MainMenu::openOBJFileDialog() {
     if (ImGui::BeginPopupModal(OPEN_OBJ_FILE_DIALOG_TITLE,
                                nullptr,
                                ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove)) {
-        ImGui::InputText("##filename", &lastFileName);
+        ImGui::InputText("##filename", &(lastFileNames.back()));
         ImGui::SameLine();
         if (ImGui::Button(ICON_FK_FOLDER_OPEN)) {
             nfdchar_t *outPath;
@@ -118,16 +140,42 @@ bool MainMenu::openOBJFileDialog() {
             nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 1, nullptr);
 
             if (result == NFD_OKAY) {
-                lastFileName = outPath;
+                if (lastFileNames.back() != outPath)
+                    lastFileNames.emplace_back(outPath);
                 NFD_FreePath(outPath);
             }
         }
         if (ImGui::Button("Load object")) {
-            renderManager->loadMesh(lastFileName);
+            renderManager->loadMesh(lastFileNames.back());
             renderManager->getScene()->bakeMaterials(true);
             renderManager->getScene()->collectRenderBuffers();
             ImGui::CloseCurrentPopup();
         }
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel"))
+            ImGui::CloseCurrentPopup();
+
+        ImGui::EndPopup();
+    }
+}
+
+void MainMenu::confirmDiscardDialog() {
+    ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(), ImGuiCond_Always, {0.5f, 0.5f});
+    if (ImGui::BeginPopupModal(CONFIRM_DISCARD_DIALOG_TITLE,
+                               nullptr,
+                               ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove)) {
+        ImGui::Text("Are you sure you want to discard all unsaved changes?");
+        ImGuiStyle& style = ImGui::GetStyle();
+        style.Colors[ImGuiCol_Button]                = ImVec4(0.92f, 0.23f, 0.08f, 0.49f);
+        style.Colors[ImGuiCol_ButtonHovered]         = ImVec4(0.97f, 0.25f, 0.10f, 0.68f);
+        style.Colors[ImGuiCol_ButtonActive]          = ImVec4(1.00f, 0.30f, 0.15f, 1.00f);
+        if (ImGui::Button("Discard changes")) {
+            renderManager->getScene()->clear();
+            ImGui::CloseCurrentPopup();
+        }
+        style.Colors[ImGuiCol_Button]                 = ImVec4(0.26f, 0.59f, 0.98f, 0.40f);
+        style.Colors[ImGuiCol_ButtonHovered]          = ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+        style.Colors[ImGuiCol_ButtonActive]           = ImVec4(0.06f, 0.53f, 0.98f, 1.00f);
         ImGui::SameLine();
         if (ImGui::Button("Cancel"))
             ImGui::CloseCurrentPopup();

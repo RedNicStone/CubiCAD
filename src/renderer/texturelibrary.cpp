@@ -24,7 +24,14 @@ std::shared_ptr<TextureLibrary> TextureLibrary::create(const std::shared_ptr<Dev
 
 std::shared_ptr<Texture> TextureLibrary::createTexture(const std::string &filename, VkFormat format) {
     if (textures[filename] == nullptr) {
-        auto tex = Texture::create(device, renderQueue, transferPool, filename, settings, format);
+        std::shared_ptr<Texture> tex;
+        try {
+            tex = Texture::create(device, renderQueue, transferPool, filename, settings, format);
+        } catch (const std::runtime_error &error) {
+            std::cerr << "Unable to load texture at address: '" << filename << "'. Texture loader threw:\n"
+                      << error.what();
+            tex = defaultTexture;
+        }
         textures[filename] = tex;
         return tex;
     }

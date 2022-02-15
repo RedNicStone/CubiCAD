@@ -156,6 +156,10 @@ void Scene::submitInstance(const std::shared_ptr<MeshInstance> &meshInstance) {
     instances.push_back(meshInstance);
 }
 
+void Scene::clear() {
+    instances.clear();
+}
+
 void Scene::collectRenderBuffers() {
     if (instances.empty())
         return;
