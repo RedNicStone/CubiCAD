@@ -4,6 +4,7 @@ var class_scene =
     [ "~Scene", "class_scene.html#a3b8cec2e32546713915f8c6303c951f1", null ],
     [ "bakeGraphicsBuffer", "class_scene.html#a18d9b02ed3e1d23471ddfb3c62b759b2", null ],
     [ "bakeMaterials", "class_scene.html#a55c89f3cb667c2ccce9bf2f0ed63815e", null ],
+    [ "clear", "class_scene.html#a70e5b1218abb729d70d9f41b107017f9", null ],
     [ "collectRenderBuffers", "class_scene.html#ad95b93a5f79949bb04f75133f8b476a4", null ],
     [ "getCamera", "class_scene.html#adab1af0c8f8889f64a4ef22a61df4736", null ],
     [ "getHovered", "class_scene.html#a404d3746108c6405b48b35e6104d8f6f", null ],

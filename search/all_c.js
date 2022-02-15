@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['lastfilename_0',['lastFileName',['../class_main_menu.html#a199fe3cc6366a9fb25f646fc7ae6e2a1',1,'MainMenu']]],
+  ['lastfilenames_0',['lastFileNames',['../class_main_menu.html#a8b42fb175f6398dc6d09685e826fdf4c',1,'MainMenu']]],
   ['lastframedeltas_1',['lastFrameDeltas',['../class_mandelbrot_app.html#a7c6b710886fe6a3c87fde1aca0e3b210',1,'MandelbrotApp']]],
   ['lastframetime_2',['lastFrameTime',['../class_scene.html#a56a5dda71789b1364cf68677e1aa00fa',1,'Scene']]],
   ['lastfreepage_3',['lastFreePage',['../class_stack_allocator.html#acc4f10272061c0048822e27d0ce4fdac',1,'StackAllocator']]],

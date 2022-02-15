@@ -67,12 +67,12 @@ var NAVTREEINDEX =
 [
 "_allocation_handler_8cpp.html",
 "class_dynamic_buffer.html#ab8d3ee7193752312deddf498f96c11ff",
-"class_material_library.html#aa8f3c235314eb9aaad545f5ec8d3d5ac",
-"class_scene.html#a404d3746108c6405b48b35e6104d8f6f",
-"class_voxel_fragment_stream_buffered.html#a0bc69efc6115f8acecd5d7d3c46ba75f",
-"materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93aa114883fde9a12b6e8af8a3fc3919131",
-"struct_c_c_a_d___o_t_1_1_ot_mat_info_textured.html#ae86c7c57aa9521f9f57b3fe26a82d506",
-"union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#aa379da389b403df55fe033bbd40d07f2"
+"class_material_library.html#a961419073c62e9b2780b8c1c29e9c91f",
+"class_scene.html#a3970951ef9b670604f78ce3a495e7077",
+"class_voxel_fragment_stream_base.html#a7557b5d14ec826a95136777024860447",
+"materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93a29b1a47be6c7598d9aea862bd8847524",
+"struct_c_c_a_d___o_t_1_1_ot_mat_info_textured.html",
+"union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#a93ba49ff05e9a02c65a0f833bf6d3e2a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
