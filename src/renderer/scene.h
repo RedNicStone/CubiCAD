@@ -86,6 +86,7 @@ class Scene {
     [[nodiscard]] uint32_t getHovered() const { return hoveredID; }
 
     void submitInstance(const std::shared_ptr<MeshInstance> &meshInstance);
+    void clear();
 
     void collectRenderBuffers();
     void bakeMaterials(bool enableDepthStencil = false);

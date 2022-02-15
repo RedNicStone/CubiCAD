@@ -21,6 +21,9 @@ std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device> &pDevice,
     int texWidth, texHeight, texChannels;
     stbi_uc *data = stbi_load(filename.c_str(), &texWidth, &texHeight, &texChannels, STBI_rgb_alpha);
 
+    if (!data)
+        throw std::runtime_error("Texture file invalid at location: " + filename);
+
     std::vector<uint32_t> accessingQueues{renderQueue->getQueueFamilyIndex()};
 
     texture->image =
@@ -32,6 +35,7 @@ std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device> &pDevice,
                       accessingQueues);
     texture->image->transferDataStaged(data, transferPool, static_cast<VkDeviceSize>(
         static_cast<uint>(texWidth * texHeight * 4)));
+    delete[] data;
 
     texture->imageView =
         texture->image

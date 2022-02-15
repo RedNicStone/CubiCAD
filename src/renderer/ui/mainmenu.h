@@ -23,19 +23,22 @@ class MainMenu : public UIDrawable {
     std::shared_ptr<Texture> logoTexture;
     VkDescriptorSet logoDescriptorSet;
 
-    std::string lastFileName;
+    std::vector<std::string> lastFileNames;
 
     bool showAboutWindow;
     bool showOpenOBJFileDialog;
+    bool showConfirmDiscardDialog;
 
     static const constexpr char *OPEN_OBJ_FILE_DIALOG_TITLE = "Import from OBJ";
+    static const constexpr char *CONFIRM_DISCARD_DIALOG_TITLE = "Confirm to discard changes";
 
     void drawAboutWindow();
 
+    bool openOBJFileDialog();
+    void confirmDiscardDialog();
+
   public:
     static std::shared_ptr<MainMenu> create(const std::shared_ptr<RenderManager> &renderManager);
-
-    bool openOBJFileDialog();
 
     void drawUI() override;
 };
