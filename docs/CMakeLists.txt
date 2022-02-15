@@ -1,4 +1,4 @@
-option(BUILD_DOC "Build documentation" TRUE)
+option(BUILD_DOC "Build documentation" FALSE)
 
 if(BUILD_DOC)
     find_package(Doxygen REQUIRED dot OPTIONAL_COMPONENTS mscgen dia)
