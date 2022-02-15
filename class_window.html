@@ -101,6 +101,9 @@ $(document).ready(function(){initNavTree('class_window.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 
+<p>class that handles window creation, resizing and destruction  
+ <a href="class_window.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="window_8h_source.html">window.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Window:</div>
@@ -162,7 +165,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aac4ccfd16f6f9a7194cfd75ae71f4df9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#aac4ccfd16f6f9a7194cfd75ae71f4df9">userPtr</a> = nullptr</td></tr>
 <tr class="separator:aac4ccfd16f6f9a7194cfd75ae71f4df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >class that handles window creation, resizing and destruction </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a245d821e6016fa1f6970ccbbedd635f6" name="a245d821e6016fa1f6970ccbbedd635f6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a245d821e6016fa1f6970ccbbedd635f6">&#9670;&nbsp;</a></span>~Window()</h2>
 
@@ -274,6 +279,13 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td></td></tr>
+    <tr><td class="paramname">height</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -555,6 +567,14 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >callback for when the window has been resized. Sets resized to true </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>pointer to the glfw window </td></tr>
+    <tr><td class="paramname">width</td><td>new width </td></tr>
+    <tr><td class="paramname">height</td><td>new height </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
