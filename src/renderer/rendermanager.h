@@ -20,6 +20,15 @@
 
 class SceneWriter;
 
+enum RenderTarget : uint32_t {
+    RENDER_TARGET_DEFAULT       = 3,
+    RENDER_TARGET_DEPTH         = 0,
+    RENDER_TARGET_POSITION      = 1,
+    RENDER_TARGET_NORMAL        = 2,
+    RENDER_TARGET_DIFFUSE       = 3,
+    RENDER_TARGET_MAX           = 3
+};
+
 class RenderManager : public std::enable_shared_from_this<RenderManager> {
   private:
     // external objects
@@ -66,8 +75,11 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     VkExtent2D swapChainExtent;
 
     std::shared_ptr<RenderPass> renderPass;
-    uint32_t renderSubpass;
+
     uint32_t uiSubpass;
+
+    std::vector<std::shared_ptr<Image>> renderTargets;
+    std::vector<std::shared_ptr<ImageView>> renderTargetViews;
 
     std::shared_ptr<Image> depthImage;
     std::shared_ptr<ImageView> depthImageView;
@@ -79,6 +91,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     // input objects
     bool mouseCaptured = false;
     const float mouseSpeed = 0.001f;
+
+    RenderTarget activePresentTarget = RENDER_TARGET_DEFAULT;
 
     // creation procedures
     void pickPhysicalDevice();

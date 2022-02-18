@@ -96,15 +96,36 @@ void RenderManager::createSwapChain() {
     VkExtent2D extent = swapChain->getSwapExtent();
     swapChainExtent = extent;
 
-    renderPassQueues = {graphicsQueue->getQueueFamilyIndex()};
-    depthImage =
-        Image::create(device,
-                      swapChain->getSwapExtent(),
-                      1,
-                      VK_FORMAT_D32_SFLOAT,
-                      VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT,
-                      renderPassQueues);
-    depthImageView = ImageView::create(depthImage, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_DEPTH_BIT);
+    renderTargets.clear();
+    renderTargetViews.clear();
+    renderTargets.resize(RENDER_TARGET_MAX);
+    renderTargetViews.resize(RENDER_TARGET_MAX);
+    for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++) {
+        VkFormat imageFormat;
+        if (i == RENDER_TARGET_DEPTH)
+            imageFormat = VK_FORMAT_D32_SFLOAT;
+        else if (i == RENDER_TARGET_NORMAL)
+            imageFormat = VK_FORMAT_R8G8B8_UNORM;
+
+        VkImageUsageFlags imageUsage = VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT;
+        if (i == RENDER_TARGET_DEPTH)
+            imageUsage |= VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+        else
+            imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
+
+        renderTargets[i] = Image::create(device,
+                                         swapChain->getSwapExtent(),
+                                         1,
+                                         imageFormat,
+                                         imageUsage,
+                                         graphicsQueues);
+
+        VkImageAspectFlags imageAspect = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
+        if (i == RENDER_TARGET_DEPTH)
+            imageAspect |= VK_IMAGE_ASPECT_DEPTH_BIT;
+
+        renderTargetViews[i] = ImageView::create(renderTargets[i], VK_IMAGE_VIEW_TYPE_2D, imageAspect);
+    }
 
     objectBufferImage =
         Image::create(device,
@@ -120,20 +141,10 @@ void RenderManager::createSwapChain() {
 }
 
 void RenderManager::createRenderPass() {
-
     renderPass = RenderPass::create(device);
 
     uint32_t swapChainAttachment = renderPass->submitSwapChainAttachment(swapChain, true);
-    uint32_t
-        depthAttachment =
-        renderPass->submitImageAttachment(depthImage->getFormat(),
-                                          VK_SAMPLE_COUNT_1_BIT,
-                                          VK_ATTACHMENT_LOAD_OP_CLEAR,
-                                          VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                          VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                                          VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                          VK_IMAGE_LAYOUT_UNDEFINED,
-                                          VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
+
     uint32_t
         objectIDAttachment =
         renderPass->submitImageAttachment(objectBufferImage->getFormat(),
@@ -145,45 +156,72 @@ void RenderManager::createRenderPass() {
                                           VK_IMAGE_LAYOUT_UNDEFINED,
                                           VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
 
-    VkAttachmentReference colorAttachmentRef{};
-    colorAttachmentRef.attachment = swapChainAttachment;
-    colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+    std::vector<uint32_t> attachments(RENDER_TARGET_MAX);
+    std::vector<VkAttachmentReference> attachmentReferences(RENDER_TARGET_MAX);
+    for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++) {
+        attachments.push_back(renderPass->submitImageAttachment(renderTargets[i]->getFormat(),
+                                                                VK_SAMPLE_COUNT_1_BIT,
+                                                                VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                                                VK_ATTACHMENT_STORE_OP_STORE,
+                                                                VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                                                VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                                VK_IMAGE_LAYOUT_UNDEFINED,
+                                                                VK_IMAGE_LAYOUT_UNDEFINED));
 
-    VkAttachmentReference depthAttachmentRef{};
-    depthAttachmentRef.attachment = depthAttachment;
-    depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+        attachmentReferences[i].attachment = attachments[i];
+        attachmentReferences[i].layout = renderTargets[i]->getLayout();
+    }
+
+    VkAttachmentReference swapChainAttachmentRef{};
+    swapChainAttachmentRef.attachment = swapChainAttachment;
+    swapChainAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
     VkAttachmentReference objectIDAttachmentRef{};
     objectIDAttachmentRef.attachment = objectIDAttachment;
     objectIDAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-    std::vector<VkAttachmentReference> shadingPipelineColorReference = {colorAttachmentRef, objectIDAttachmentRef};
-    std::vector<VkAttachmentReference> shadingPipelineAttachmentReference = {};
-    renderSubpass =
+    std::vector<VkAttachmentReference> geometryPipelineColorReference(attachmentReferences);
+    geometryPipelineColorReference.push_back(objectIDAttachmentRef);
+    std::vector<VkAttachmentReference> geometryPipelineInputReference = {};
+    uint32_t geometrySubpass =
         renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                  shadingPipelineColorReference,
-                                  shadingPipelineAttachmentReference,
-                                  &depthAttachmentRef,
+                                  geometryPipelineColorReference,
+                                  geometryPipelineInputReference,
+                                  &attachmentReferences[RENDER_TARGET_DEPTH],
                                   0);
 
-    std::vector<VkAttachmentReference> UIPipelineColorReference = {colorAttachmentRef};
-    std::vector<VkAttachmentReference> UIPipelineAttachmentReference = {};
-    uiSubpass =
+    std::vector<VkAttachmentReference> shadingPipelineColorReference = {swapChainAttachmentRef};
+    std::vector<VkAttachmentReference> shadingPipelineInputReference(attachmentReferences);
+    uint32_t shadingSubpass =
         renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                  UIPipelineColorReference,
-                                  UIPipelineAttachmentReference,
+                                  shadingPipelineColorReference,
+                                  shadingPipelineInputReference,
                                   nullptr,
                                   0);
 
-    renderPass->submitDependency(VK_SUBPASS_EXTERNAL, renderSubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
-    renderPass->submitDependency(renderSubpass, uiSubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
+    std::vector<VkAttachmentReference> UIPipelineColorReference = {swapChainAttachmentRef};
+    std::vector<VkAttachmentReference> UIPipelineInputReference = {};
+    uiSubpass =
+        renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
+                                  UIPipelineColorReference,
+                                  UIPipelineInputReference,
+                                  nullptr,
+                                  0);
+
+    renderPass->submitDependency(VK_SUBPASS_EXTERNAL, geometrySubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
+    renderPass->submitDependency(geometrySubpass, shadingSubpass, VK_ACCESS_COLOR_ATTACHMENT_READ_BIT,
+                                 VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
+    renderPass->submitDependency(geometrySubpass, uiSubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
 
     renderPass->build();
 }
 
 void RenderManager::createFrameBuffer() {
-    std::vector<std::vector<std::shared_ptr<ImageView>>>
-        imageViews(imageCount, std::vector<std::shared_ptr<ImageView>>{depthImageView, objectBufferImageView});
+    std::vector<std::shared_ptr<ImageView>> frameViews(RENDER_TARGET_MAX);
+    for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++)
+        frameViews[i] = renderTargetViews[i];
+
+    std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount, frameViews);
 
     frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
 }
@@ -318,7 +356,7 @@ void RenderManager::drawFrame() {
     // begin recording instructions
     drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
-    // clear and begin render pass
+    // clear and begin render pass (Geometry)
     std::vector<VkClearValue> clearColor(3);
     clearColor[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
     clearColor[1].depthStencil = {1.0, 0};
@@ -328,7 +366,10 @@ void RenderManager::drawFrame() {
     // write all commands to draw the scene
     scene->bakeGraphicsBuffer(drawCommandBuffer);
 
-    // begin next subpass
+    // begin next subpass (Shading)
+    drawCommandBuffer->nextSubpass();
+
+    // begin next subpass (UI)
     drawCommandBuffer->nextSubpass();
 
     // write all commands to draw the UI
