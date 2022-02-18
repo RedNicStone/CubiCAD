@@ -43,7 +43,7 @@ void RenderManager::createLogicalDevice() {
     const std::vector<const char *> deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 
     VkPhysicalDeviceFeatures deviceFeatures{};
-    deviceFeatures.shaderFloat64 = VK_TRUE;
+    deviceFeatures.multiDrawIndirect = VK_TRUE;
 
     auto familyHandler = physicalDevice->getQueueFamilyHandler();
 
