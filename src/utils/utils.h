@@ -26,6 +26,8 @@ class Utils {
 
     template<typename type>
     static void remove(std::vector<type> &v);
+
+    static void replaceAll(std::string& str, const std::string& from, const std::string& to);
 };
 
 template<typename L, typename R>
