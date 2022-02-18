@@ -16,6 +16,7 @@
 #include "scene.h"
 #include "scenewriter.h"
 #include "../utils/utils.h"
+#include "shadingpipeline.h"
 
 
 class SceneWriter;
@@ -88,6 +89,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<Image> objectBufferImage;
     std::shared_ptr<ImageView> objectBufferImageView;
 
+    std::shared_ptr<ShadingPipeline> viewportSelector;
+
     // input objects
     bool mouseCaptured = false;
     const float mouseSpeed = 0.001f;
@@ -102,6 +105,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void createRenderPass();
     void createFrameBuffer();
     void createSceneObjects();
+    void createPostProcessingPipelines();
     void createDefaultMaterial();
     void createUIObjects();
 

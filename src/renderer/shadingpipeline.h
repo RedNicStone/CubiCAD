@@ -11,12 +11,17 @@
 
 class ShadingPipeline {
   private:
-    std::shared_ptr<VertexShader> vertexShader;
-    std::shared_ptr<FragmentShader> fragmentShader;
     std::shared_ptr<GraphicsPipeline> pipeline;
 
+    std::vector<std::shared_ptr<DescriptorSet>> descriptorSets;
+
   public:
-    static std::shared_ptr<ShadingPipeline> create();
+    static std::shared_ptr<ShadingPipeline> create(const std::shared_ptr<RenderPass>& renderPass,
+                                                   const std::vector<std::shared_ptr<DescriptorSet>>&
+                                                   descriptorSets,
+                                                   const std::shared_ptr<GraphicsShader>& shader,
+                                                   const VkExtent2D& extend,
+                                                   uint32_t colorBlendStates);
 
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 };

@@ -22,9 +22,9 @@ class RenderPass;
 
 class GraphicsPipeline : public PipelineBase {
   public:
-    static std::shared_ptr<GraphicsPipeline> create(std::shared_ptr<Device> pDevice,
-                                                    std::shared_ptr<PipelineLayout> pLayout,
-                                                    std::vector<std::shared_ptr<GraphicsShader>> &shaders,
+    static std::shared_ptr<GraphicsPipeline> create(const std::shared_ptr<Device>& pDevice,
+                                                    const std::shared_ptr<PipelineLayout>& pLayout,
+                                                    const std::vector<std::shared_ptr<GraphicsShader>> &shaders,
                                                     const std::shared_ptr<RenderPass> &renderPass,
                                                     uint32_t colorBlendStates,
                                                     VkExtent2D extent,

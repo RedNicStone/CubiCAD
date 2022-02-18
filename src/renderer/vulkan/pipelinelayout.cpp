@@ -7,11 +7,13 @@
 #include <utility>
 
 
-std::shared_ptr<PipelineLayout> PipelineLayout::create(std::shared_ptr<Device> pDevice,
-                                                       std::vector<std::shared_ptr<DescriptorSetLayout>> &descriptorLayouts,
-                                                       std::vector<std::shared_ptr<PushConstantRange>> &pushConstants) {
+std::shared_ptr<PipelineLayout> PipelineLayout::create(const std::shared_ptr<Device>& pDevice,
+                                                       const std::vector<std::shared_ptr<DescriptorSetLayout>>
+                                                       &descriptorLayouts,
+                                                       const std::vector<std::shared_ptr<PushConstantRange>>
+                                                       &pushConstants) {
     auto pipelineLayout = std::make_shared<PipelineLayout>();
-    pipelineLayout->device = std::move(pDevice);
+    pipelineLayout->device = pDevice;
 
     VkPipelineLayoutCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
@@ -38,10 +40,11 @@ std::shared_ptr<PipelineLayout> PipelineLayout::create(std::shared_ptr<Device> p
     return pipelineLayout;
 }
 
-std::shared_ptr<PipelineLayout> PipelineLayout::create(std::shared_ptr<Device> pDevice,
-                                                       std::vector<std::shared_ptr<DescriptorSetLayout>> &descriptorLayouts) {
+std::shared_ptr<PipelineLayout> PipelineLayout::create(const std::shared_ptr<Device>& pDevice,
+                                                       const std::vector<std::shared_ptr<DescriptorSetLayout>>
+                                                       &descriptorLayouts) {
     auto pipelineLayout = std::make_shared<PipelineLayout>();
-    pipelineLayout->device = std::move(pDevice);
+    pipelineLayout->device = pDevice;
 
     VkPipelineLayoutCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
@@ -63,10 +66,11 @@ std::shared_ptr<PipelineLayout> PipelineLayout::create(std::shared_ptr<Device> p
     return pipelineLayout;
 }
 
-std::shared_ptr<PipelineLayout> PipelineLayout::create(std::shared_ptr<Device> pDevice,
-                                                       std::vector<std::shared_ptr<PushConstantRange>> &pushConstants) {
+std::shared_ptr<PipelineLayout> PipelineLayout::create(const std::shared_ptr<Device>& pDevice,
+                                                       const std::vector<std::shared_ptr<PushConstantRange>>
+                                                       &pushConstants) {
     auto pipelineLayout = std::make_shared<PipelineLayout>();
-    pipelineLayout->device = std::move(pDevice);
+    pipelineLayout->device = pDevice;
 
     VkPipelineLayoutCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;

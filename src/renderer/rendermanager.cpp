@@ -475,3 +475,11 @@ void RenderManager::loadMesh(const std::string &filename) {
         scene->submitInstance(MeshInstance::create(mesh));
 }
 
+void RenderManager::createPostProcessingPipelines() {
+    auto shader = FragmentShader::create(device, "main", "resources/shaders/viewport_selector.frag");
+
+    std::shared_ptr<DescriptorSetLayout> viewportDescriptor = DescriptorSetLayout::create(device, );
+
+    viewportSelector = ShadingPipeline::create(device, renderPass, shader, , swapChainExtent, 1);
+}
+
