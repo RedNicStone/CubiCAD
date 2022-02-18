@@ -86,11 +86,11 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
     void drawIndirect(const std::shared_ptr<Buffer> &buffer,
                       uint32_t drawCount,
                       VkDeviceSize offset = 0,
-                      uint32_t stride = 0);
+                      uint32_t stride = sizeof(VkDrawIndirectCommand));
     void drawIndexedIndirect(const std::shared_ptr<Buffer> &buffer,
                              uint32_t drawCount,
                              VkDeviceSize offset = 0,
-                             uint32_t stride = 0);
+                             uint32_t stride = sizeof(VkDrawIndexedIndirectCommand));
 
     void copyBuffer(const std::shared_ptr<Buffer> &src,
                     const std::shared_ptr<Buffer> &dst,
