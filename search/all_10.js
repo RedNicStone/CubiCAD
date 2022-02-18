@@ -19,7 +19,7 @@ var searchData=
   ['physicalpage_16',['PhysicalPage',['../struct_stack_allocator_1_1_physical_page.html#a209e7dba1825afbd2053f92d7d1f8a0d',1,'StackAllocator::PhysicalPage::PhysicalPage()'],['../struct_stack_allocator_1_1_physical_page.html#a4d1804694c42249b7e62d061024d8490',1,'StackAllocator::PhysicalPage::PhysicalPage(std::shared_ptr&lt; char[]&gt; data)'],['../struct_stack_allocator_1_1_physical_page.html',1,'StackAllocator::PhysicalPage']]],
   ['pickphysicaldevice_17',['pickPhysicalDevice',['../class_mandelbrot_app.html#a0590556c463f4640369b5c777d1a86f3',1,'MandelbrotApp::pickPhysicalDevice()'],['../class_render_manager.html#a20215629ec089cb4aa07a2d6096c1c54',1,'RenderManager::pickPhysicalDevice()'],['../class_mandelbrot_app.html#a0590556c463f4640369b5c777d1a86f3',1,'MandelbrotApp::pickPhysicalDevice()']]],
   ['pindexbuffer_18',['pIndexBuffer',['../class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#a4ffbde01ba8cd2eff2672dd37c261ad5',1,'CCAD_OT::OtGeometryCompiler']]],
-  ['pipeline_19',['pipeline',['../class_master_material.html#a75ed0ca384b95ee272768b4ca2f08828',1,'MasterMaterial']]],
+  ['pipeline_19',['pipeline',['../class_master_material.html#a75ed0ca384b95ee272768b4ca2f08828',1,'MasterMaterial::pipeline()'],['../class_shading_pipeline.html#a7623e492fa8702783fdaf4727c03101a',1,'ShadingPipeline::pipeline()']]],
   ['pipelinebase_20',['PipelineBase',['../class_pipeline_base.html',1,'']]],
   ['pipelinebase_2ecpp_21',['pipelinebase.cpp',['../pipelinebase_8cpp.html',1,'']]],
   ['pipelinebase_2eh_22',['pipelinebase.h',['../pipelinebase_8h.html',1,'']]],

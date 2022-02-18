@@ -38,6 +38,8 @@ var dir_7bc5e25958a2fb25a8561f3aa0def6c5 =
     [ "scene.h", "scene_8h.html", "scene_8h" ],
     [ "scenewriter.cpp", "scenewriter_8cpp.html", null ],
     [ "scenewriter.h", "scenewriter_8h.html", "scenewriter_8h" ],
+    [ "shadingpipeline.cpp", "shadingpipeline_8cpp.html", null ],
+    [ "shadingpipeline.h", "shadingpipeline_8h.html", "shadingpipeline_8h" ],
     [ "texture.cpp", "texture_8cpp.html", "texture_8cpp" ],
     [ "texture.h", "texture_8h.html", "texture_8h" ],
     [ "texturelibrary.cpp", "texturelibrary_8cpp.html", null ],

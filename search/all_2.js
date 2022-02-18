@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['bakegraphicsbuffer_0',['bakeGraphicsBuffer',['../class_scene.html#a18d9b02ed3e1d23471ddfb3c62b759b2',1,'Scene']]],
+  ['bakegraphicsbuffer_0',['bakeGraphicsBuffer',['../class_scene.html#a18d9b02ed3e1d23471ddfb3c62b759b2',1,'Scene::bakeGraphicsBuffer()'],['../class_shading_pipeline.html#ae508f91fb36dffcc44e83012f1c26bf5',1,'ShadingPipeline::bakeGraphicsBuffer()']]],
   ['bakematerials_1',['bakeMaterials',['../class_scene.html#a55c89f3cb667c2ccce9bf2f0ed63815e',1,'Scene']]],
   ['begincommandbuffer_2',['beginCommandBuffer',['../class_command_buffer.html#a3bbfa16550570f699241b21ca3ca0ba7',1,'CommandBuffer']]],
   ['beginrenderpass_3',['beginRenderPass',['../class_command_buffer.html#a4d1d88ce289b4fa12095d23e8d4bb791',1,'CommandBuffer']]],

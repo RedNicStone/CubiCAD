@@ -113,6 +113,7 @@ var annotated_dup =
     [ "SceneWriter", "class_scene_writer.html", "class_scene_writer" ],
     [ "Semaphore", "class_semaphore.html", "class_semaphore" ],
     [ "Shader", "class_shader.html", "class_shader" ],
+    [ "ShadingPipeline", "class_shading_pipeline.html", "class_shading_pipeline" ],
     [ "StackAllocator", "class_stack_allocator.html", "class_stack_allocator" ],
     [ "SwapChain", "class_swap_chain.html", "class_swap_chain" ],
     [ "SwapChainSupportDetails", "struct_swap_chain_support_details.html", "struct_swap_chain_support_details" ],

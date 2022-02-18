@@ -125,6 +125,7 @@ var hierarchy =
         [ "NVTaskShader", "class_n_v_task_shader.html", null ]
       ] ]
     ] ],
+    [ "ShadingPipeline", "class_shading_pipeline.html", null ],
     [ "SwapChain", "class_swap_chain.html", null ],
     [ "SwapChainSupportDetails", "struct_swap_chain_support_details.html", null ],
     [ "Texture", "class_texture.html", null ],

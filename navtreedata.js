@@ -51,7 +51,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -68,11 +68,11 @@ var NAVTREEINDEX =
 "_allocation_handler_8cpp.html",
 "class_dynamic_buffer.html#ab8d3ee7193752312deddf498f96c11ff",
 "class_material_library.html#a961419073c62e9b2780b8c1c29e9c91f",
-"class_scene.html#a3970951ef9b670604f78ce3a495e7077",
-"class_voxel_fragment_stream_base.html#a7557b5d14ec826a95136777024860447",
-"materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93a29b1a47be6c7598d9aea862bd8847524",
-"struct_c_c_a_d___o_t_1_1_ot_mat_info_textured.html",
-"union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#a93ba49ff05e9a02c65a0f833bf6d3e2a"
+"class_scene.html#a25dfe61208f84baef0549c9986cc7bc4",
+"class_voxel_fragment_stream_base.html#a2a80636bf5cd39e19fab403a7f4a2f97",
+"mastermaterial_8cpp.html",
+"shader_8h.html#ae2fd96808b8e75bd0e106ebd5e6b8867",
+"structoptional.html#adf29965f691b9dc4c3eed862fbea8460"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
