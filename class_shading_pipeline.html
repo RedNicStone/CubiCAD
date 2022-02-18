@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_shading_pipeline.html',''); init
 <div class="dynheader">
 Collaboration diagram for ShadingPipeline:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_shading_pipeline__coll__graph.svg" width="166" height="132"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_shading_pipeline__coll__graph.svg" width="166" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -114,17 +114,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:afb9142d1f5799fa80657116bf5becddd"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_shading_pipeline.html">ShadingPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shading_pipeline.html#afb9142d1f5799fa80657116bf5becddd">create</a> ()</td></tr>
-<tr class="separator:afb9142d1f5799fa80657116bf5becddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b8808170e4dd045421d24d8482cb70"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_shading_pipeline.html">ShadingPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shading_pipeline.html#a67b8808170e4dd045421d24d8482cb70">create</a> (const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;renderPass, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;<a class="el" href="class_shading_pipeline.html#a9ff2ce0f2a05a02ed801c362bd6b87a7">descriptorSets</a>, const std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &amp;shader, const VkExtent2D &amp;extend, uint32_t colorBlendStates)</td></tr>
+<tr class="separator:a67b8808170e4dd045421d24d8482cb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aa853df108da9b3e0a239c13ce79279f0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_vertex_shader.html">VertexShader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shading_pipeline.html#aa853df108da9b3e0a239c13ce79279f0">vertexShader</a></td></tr>
-<tr class="separator:aa853df108da9b3e0a239c13ce79279f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af59a61d629ed63962df3fc9d0ab34da4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_fragment_shader.html">FragmentShader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shading_pipeline.html#af59a61d629ed63962df3fc9d0ab34da4">fragmentShader</a></td></tr>
-<tr class="separator:af59a61d629ed63962df3fc9d0ab34da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7623e492fa8702783fdaf4727c03101a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shading_pipeline.html#a7623e492fa8702783fdaf4727c03101a">pipeline</a></td></tr>
 <tr class="separator:a7623e492fa8702783fdaf4727c03101a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff2ce0f2a05a02ed801c362bd6b87a7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shading_pipeline.html#a9ff2ce0f2a05a02ed801c362bd6b87a7">descriptorSets</a></td></tr>
+<tr class="separator:a9ff2ce0f2a05a02ed801c362bd6b87a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae508f91fb36dffcc44e83012f1c26bf5" name="ae508f91fb36dffcc44e83012f1c26bf5"></a>
@@ -145,8 +143,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="afb9142d1f5799fa80657116bf5becddd" name="afb9142d1f5799fa80657116bf5becddd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb9142d1f5799fa80657116bf5becddd">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a67b8808170e4dd045421d24d8482cb70" name="a67b8808170e4dd045421d24d8482cb70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67b8808170e4dd045421d24d8482cb70">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,8 +155,37 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_shading_pipeline.html">ShadingPipeline</a> &gt; ShadingPipeline::create </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>renderPass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>descriptorSets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_graphics_shader.html">GraphicsShader</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VkExtent2D &amp;&#160;</td>
+          <td class="paramname"><em>extend</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>colorBlendStates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -170,15 +197,21 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_shading_pipeline_afb9142d1f5799fa80657116bf5becddd_cgraph.svg" width="526" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_shading_pipeline_a67b8808170e4dd045421d24d8482cb70_cgraph.svg" width="634" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_shading_pipeline_a67b8808170e4dd045421d24d8482cb70_icgraph.svg" width="399" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af59a61d629ed63962df3fc9d0ab34da4" name="af59a61d629ed63962df3fc9d0ab34da4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af59a61d629ed63962df3fc9d0ab34da4">&#9670;&nbsp;</a></span>fragmentShader</h2>
+<a id="a9ff2ce0f2a05a02ed801c362bd6b87a7" name="a9ff2ce0f2a05a02ed801c362bd6b87a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ff2ce0f2a05a02ed801c362bd6b87a7">&#9670;&nbsp;</a></span>descriptorSets</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +220,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_fragment_shader.html">FragmentShader</a>&gt; ShadingPipeline::fragmentShader</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_descriptor_set.html">DescriptorSet</a>&gt; &gt; ShadingPipeline::descriptorSets</td>
         </tr>
       </table>
   </td>
@@ -210,28 +243,6 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a>&gt; ShadingPipeline::pipeline</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa853df108da9b3e0a239c13ce79279f0" name="aa853df108da9b3e0a239c13ce79279f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa853df108da9b3e0a239c13ce79279f0">&#9670;&nbsp;</a></span>vertexShader</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_vertex_shader.html">VertexShader</a>&gt; ShadingPipeline::vertexShader</td>
         </tr>
       </table>
   </td>

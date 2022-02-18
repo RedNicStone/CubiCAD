@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"class_scene.html#a1b0b3a618374ae3fb39bee81911e2d5b":[2,0,85,19],
+"class_scene.html#a23d826cabef0fde333a57e6f27148133":[2,0,85,24],
 "class_scene.html#a25dfe61208f84baef0549c9986cc7bc4":[2,0,85,27],
 "class_scene.html#a2e3630a031b4a55407e0702a984dcd9c":[2,0,85,33],
 "class_scene.html#a3970951ef9b670604f78ce3a495e7077":[2,0,85,34],
@@ -59,9 +61,8 @@ var NAVTREEINDEX3 =
 "class_shader.html#aff01df87e8a102f270b5b135a295e59d":[2,0,89,0],
 "class_shading_pipeline.html":[2,0,90],
 "class_shading_pipeline.html#a7623e492fa8702783fdaf4727c03101a":[2,0,90,2],
-"class_shading_pipeline.html#aa853df108da9b3e0a239c13ce79279f0":[2,0,90,3],
+"class_shading_pipeline.html#a9ff2ce0f2a05a02ed801c362bd6b87a7":[2,0,90,1],
 "class_shading_pipeline.html#ae508f91fb36dffcc44e83012f1c26bf5":[2,0,90,0],
-"class_shading_pipeline.html#af59a61d629ed63962df3fc9d0ab34da4":[2,0,90,1],
 "class_stack_allocator.html":[2,0,91],
 "class_stack_allocator.html#a1e54d82ff328c44457e5330a1732c0da":[2,0,91,7],
 "class_stack_allocator.html#a2977c437d49efded08c272e2d72f5074":[2,0,91,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "class_voxel_fragment.html":[2,0,114],
 "class_voxel_fragment.html#a4c0675aaf57340cd6daa8ec9a9eac68d":[2,0,114,0],
 "class_voxel_fragment_stream_base.html":[2,0,115],
-"class_voxel_fragment_stream_base.html#a0915f844a3fc34888f8c19f297da8bc1":[2,0,115,7],
-"class_voxel_fragment_stream_base.html#a1cfe0362fe9dbeb1389c02a82c7a2fcb":[2,0,115,5]
+"class_voxel_fragment_stream_base.html#a0915f844a3fc34888f8c19f297da8bc1":[2,0,115,7]
 };

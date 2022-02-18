@@ -5,6 +5,7 @@ var class_render_manager =
     [ "createDefaultMaterial", "class_render_manager.html#aa04e5bcc41eaf66bd29d811e39d71c3c", null ],
     [ "createFrameBuffer", "class_render_manager.html#aa6e12fa2f425700718eec18fb52a1ef8", null ],
     [ "createLogicalDevice", "class_render_manager.html#aa98c2ffaac4f73709b8008b6e218c0f3", null ],
+    [ "createPostProcessingPipelines", "class_render_manager.html#a45a6fffe5f74da37695476732b53d33b", null ],
     [ "createRenderObjects", "class_render_manager.html#a2f5991e4b82925a2571e6fabf1e8b7b9", null ],
     [ "createRenderPass", "class_render_manager.html#a47b4c7259640bcfc476a5cd8c129c2b8", null ],
     [ "createSceneObjects", "class_render_manager.html#a34e5f071f12097fbc5e950651dcce086", null ],
@@ -68,5 +69,6 @@ var class_render_manager =
     [ "transferQueue", "class_render_manager.html#ac0a9a16f8ff221d3ea0fb8f6d106ff33", null ],
     [ "uiRenderer", "class_render_manager.html#a6fb80bea1af31e125e929a5aef652204", null ],
     [ "uiSubpass", "class_render_manager.html#a59317ef113607f4c80b8082b14b2ce50", null ],
+    [ "viewportSelector", "class_render_manager.html#ada7d1c0e2a89d1b990f15b202511f029", null ],
     [ "window", "class_render_manager.html#adfd809d2332b0d68ad36ef6d08ffa15b", null ]
 ];
