@@ -112,11 +112,15 @@ std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const Ma
 
 std::string ModelLoader::locateTexture(const std::string &textureFilename,
                                        const std::string &modelFilename) {
-    auto textureFile = std::filesystem::path(textureFilename);
-    if (!std::filesystem::exists(textureFile)) {
+    if (textureFilename.empty())
+        return "";
+    auto textureFilenameV = textureFilename;
+    Utils::replaceAll(textureFilenameV, "\\", "/");
+    auto textureFile = std::filesystem::path(textureFilenameV);
+    if (!std::filesystem::exists(textureFile) || std::filesystem::is_directory(textureFile)) {
         auto modelFile = std::filesystem::path(modelFilename);
         textureFile = modelFile.parent_path() / textureFile;
-        if (!std::filesystem::exists(textureFile))
+        if (!std::filesystem::exists(textureFile) || std::filesystem::is_directory(textureFile))
             return "";
     }
     return textureFile;
