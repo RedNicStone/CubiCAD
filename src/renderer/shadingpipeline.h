@@ -21,7 +21,8 @@ class ShadingPipeline {
                                                    descriptorSets,
                                                    const std::shared_ptr<GraphicsShader>& shader,
                                                    const VkExtent2D& extend,
-                                                   uint32_t colorBlendStates);
+                                                   uint32_t colorBlendStates,
+                                                   uint32_t subpass = 0);
 
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 };

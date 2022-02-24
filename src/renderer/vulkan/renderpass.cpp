@@ -61,14 +61,16 @@ uint32_t RenderPass::submitSubpass(VkPipelineBindPoint bindPoint,
     return static_cast<uint32_t>(subpasses.size() - 1);
 }
 
-void RenderPass::submitDependency(uint32_t src, uint32_t dst, VkAccessFlags srcAccess, VkAccessFlags dstAccess) {
+void RenderPass::submitDependency(uint32_t src, uint32_t dst, VkAccessFlags srcAccess, VkAccessFlags dstAccess,
+                                  VkPipelineStageFlags srcPipeline, VkPipelineStageFlags dstPipeline) {
     VkSubpassDependency dependency{};
     dependency.srcSubpass = src;
     dependency.dstSubpass = dst;
-    dependency.srcStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    dependency.srcStageMask = srcPipeline;
     dependency.srcAccessMask = srcAccess;
-    dependency.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    dependency.dstStageMask = dstPipeline;
     dependency.dstAccessMask = dstAccess;
+    dependency.dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
 
     dependencies.push_back(dependency);
 }

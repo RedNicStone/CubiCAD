@@ -18,8 +18,11 @@ layout(set = 2, binding = 1) uniform texture2D color;
 flat layout(location = 0) in uint vert_instance_id;
 layout(location = 1) in vec2 vert_uv;
 
-layout(location = 0) out vec4 pixel_color;
-layout(location = 1) out uint instance_id;
+layout(location = 0) out vec4 shading_diffuse;
+layout(location = 1) out vec4 shading_pos;
+layout(location = 2) out vec2 shading_normal;
+
+layout(location = 3) out uint backbuffer_instance_id;
 
 float xor(float an) {
     vec2 p = 256.0 * vert_uv;
@@ -45,6 +48,6 @@ float xor(float an) {
 void main() {
     vec4 color = texture(sampler2D(color, samp), vert_uv);
     float brightness = (int(vert_instance_id == scene_info.selectedID) * 2 + int(vert_instance_id == scene_info.hoveredID)) / 3.0f;
-    pixel_color = vec4(color + vec4(vec3(brightness) / 3, 1.0f));
-    instance_id = vert_instance_id;
+    shading_diffuse = vec4(color + vec4(vec3(brightness) / 3, 1.0f));
+    backbuffer_instance_id = vert_instance_id;
 }

@@ -10,10 +10,11 @@ std::shared_ptr<ShadingPipeline> ShadingPipeline::create(const std::shared_ptr<R
                                                          descriptorSets,
                                                          const std::shared_ptr<GraphicsShader>& shader,
                                                          const VkExtent2D& extend,
-                                                         uint32_t colorBlendStates) {
+                                                         uint32_t colorBlendStates,
+                                                         uint32_t subpass) {
     auto shadingPipeline = std::make_shared<ShadingPipeline>();
 
-    auto vertexShader = VertexShader::create(renderPass->getDevice(), "main", "resources/compiled/quad.vert.spv");
+    auto vertexShader = VertexShader::create(renderPass->getDevice(), "main", "resources/shaders/compiled/quad.vert.spv");
 
     std::vector<std::shared_ptr<GraphicsShader>> shaders = {vertexShader, shader};
 
@@ -25,7 +26,9 @@ std::shared_ptr<ShadingPipeline> ShadingPipeline::create(const std::shared_ptr<R
     auto pipelineLayout = PipelineLayout::create(renderPass->getDevice(), descriptorSetLayouts);
 
     shadingPipeline->pipeline = GraphicsPipeline::create(renderPass->getDevice(), pipelineLayout, shaders, renderPass,
-                                                         colorBlendStates, extend);
+                                                         colorBlendStates, extend, VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP,
+                                                         VK_CULL_MODE_NONE,VK_FRONT_FACE_CLOCKWISE, {},
+                                                         {}, false, subpass);
 
     shadingPipeline->descriptorSets = descriptorSets;
 
@@ -37,5 +40,5 @@ void ShadingPipeline::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &g
 
     graphicsCommandBuffer->bindDescriptorSets(descriptorSets, pipeline);
 
-    graphicsCommandBuffer->draw(6);
+    graphicsCommandBuffer->draw(4);
 }

@@ -22,12 +22,12 @@
 class SceneWriter;
 
 enum RenderTarget : uint32_t {
-    RENDER_TARGET_DEFAULT       = 3,
-    RENDER_TARGET_DEPTH         = 0,
+    RENDER_TARGET_DEFAULT       = 0,
+    RENDER_TARGET_DIFFUSE       = 0,
     RENDER_TARGET_POSITION      = 1,
     RENDER_TARGET_NORMAL        = 2,
-    RENDER_TARGET_DIFFUSE       = 3,
-    RENDER_TARGET_MAX           = 3
+    RENDER_TARGET_DEPTH         = 3,
+    RENDER_TARGET_MAX           = 4
 };
 
 class RenderManager : public std::enable_shared_from_this<RenderManager> {
@@ -53,6 +53,9 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
 
     std::shared_ptr<CommandBuffer> drawCommandBuffer;
 
+    std::shared_ptr<DescriptorSet> viewportDescriptor;
+    std::shared_ptr<UniformBuffer> viewportUniform;
+
     // scene related objects
     CameraModel cameraModel;
     std::shared_ptr<Camera> camera;
@@ -77,6 +80,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
 
     std::shared_ptr<RenderPass> renderPass;
 
+    uint32_t shadingSubpass;
     uint32_t uiSubpass;
 
     std::vector<std::shared_ptr<Image>> renderTargets;

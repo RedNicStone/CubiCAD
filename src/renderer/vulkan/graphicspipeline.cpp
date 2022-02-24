@@ -18,7 +18,8 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(const std::shared_ptr
                                                            VkFrontFace frontFace,
                                                            std::vector<VkVertexInputBindingDescription> bindingDescription,
                                                            std::vector<VkVertexInputAttributeDescription> attributeDescription,
-                                                           bool enableDepthStencil) {
+                                                           bool enableDepthStencil,
+                                                           uint32_t subpass) {
     auto graphicsPipeline = std::make_shared<GraphicsPipeline>();
     graphicsPipeline->device = pDevice;
     graphicsPipeline->layout = pLayout;
@@ -105,7 +106,7 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(const std::shared_ptr
     pipelineInfo.pColorBlendState = &colorBlending;
     pipelineInfo.layout = graphicsPipeline->layout->getHandle();
     pipelineInfo.renderPass = renderPass->getHandle();
-    pipelineInfo.subpass = 0;
+    pipelineInfo.subpass = subpass;
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
 
     if (enableDepthStencil) {

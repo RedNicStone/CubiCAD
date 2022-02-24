@@ -104,14 +104,20 @@ void RenderManager::createSwapChain() {
         VkFormat imageFormat;
         if (i == RENDER_TARGET_DEPTH)
             imageFormat = VK_FORMAT_D32_SFLOAT;
-        else if (i == RENDER_TARGET_NORMAL)
-            imageFormat = VK_FORMAT_R8G8B8_UNORM;
+        else if (i == RENDER_TARGET_POSITION)
+            imageFormat = VK_FORMAT_R32G32B32A32_SFLOAT;
+        else
+            imageFormat = VK_FORMAT_R8G8B8A8_UNORM;
 
         VkImageUsageFlags imageUsage = VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT;
         if (i == RENDER_TARGET_DEPTH)
             imageUsage |= VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
         else
             imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
+
+        VkImageLayout layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+        if (i == RENDER_TARGET_DEPTH)
+            layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
         renderTargets[i] = Image::create(device,
                                          swapChain->getSwapExtent(),
@@ -120,9 +126,13 @@ void RenderManager::createSwapChain() {
                                          imageUsage,
                                          graphicsQueues);
 
-        VkImageAspectFlags imageAspect = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
+        renderTargets[i]->setLayout(VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+
+        VkImageAspectFlags imageAspect;
         if (i == RENDER_TARGET_DEPTH)
-            imageAspect |= VK_IMAGE_ASPECT_DEPTH_BIT;
+            imageAspect = VK_IMAGE_ASPECT_DEPTH_BIT;
+        else
+            imageAspect = VK_IMAGE_ASPECT_COLOR_BIT;
 
         renderTargetViews[i] = ImageView::create(renderTargets[i], VK_IMAGE_VIEW_TYPE_2D, imageAspect);
     }
@@ -157,19 +167,27 @@ void RenderManager::createRenderPass() {
                                           VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
 
     std::vector<uint32_t> attachments(RENDER_TARGET_MAX);
-    std::vector<VkAttachmentReference> attachmentReferences(RENDER_TARGET_MAX);
+    std::vector<VkAttachmentReference> outputAttachmentReferences(RENDER_TARGET_MAX);
+    std::vector<VkAttachmentReference> inputAttachmentReferences(RENDER_TARGET_MAX);
     for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++) {
-        attachments.push_back(renderPass->submitImageAttachment(renderTargets[i]->getFormat(),
+        VkImageLayout layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+        if (i == RENDER_TARGET_DEPTH)
+            layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+
+        attachments[i] = (renderPass->submitImageAttachment(renderTargets[i]->getFormat(),
                                                                 VK_SAMPLE_COUNT_1_BIT,
                                                                 VK_ATTACHMENT_LOAD_OP_CLEAR,
                                                                 VK_ATTACHMENT_STORE_OP_STORE,
                                                                 VK_ATTACHMENT_LOAD_OP_DONT_CARE,
                                                                 VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                VK_IMAGE_LAYOUT_UNDEFINED,
-                                                                VK_IMAGE_LAYOUT_UNDEFINED));
+                                                            VK_IMAGE_LAYOUT_UNDEFINED,
+                                                                layout));
 
-        attachmentReferences[i].attachment = attachments[i];
-        attachmentReferences[i].layout = renderTargets[i]->getLayout();
+        outputAttachmentReferences[i].attachment = attachments[i];
+        outputAttachmentReferences[i].layout = layout;
+
+        inputAttachmentReferences[i].attachment = attachments[i];
+        inputAttachmentReferences[i].layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
     }
 
     VkAttachmentReference swapChainAttachmentRef{};
@@ -180,21 +198,22 @@ void RenderManager::createRenderPass() {
     objectIDAttachmentRef.attachment = objectIDAttachment;
     objectIDAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-    std::vector<VkAttachmentReference> geometryPipelineColorReference(attachmentReferences);
-    geometryPipelineColorReference.push_back(objectIDAttachmentRef);
+    std::vector<VkAttachmentReference> geometryPipelineOutputReference(outputAttachmentReferences);
+    geometryPipelineOutputReference.erase(geometryPipelineOutputReference.begin() + RENDER_TARGET_DEPTH);
+    geometryPipelineOutputReference.push_back(objectIDAttachmentRef);
     std::vector<VkAttachmentReference> geometryPipelineInputReference = {};
     uint32_t geometrySubpass =
         renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                  geometryPipelineColorReference,
+                                  geometryPipelineOutputReference,
                                   geometryPipelineInputReference,
-                                  &attachmentReferences[RENDER_TARGET_DEPTH],
+                                  &outputAttachmentReferences[RENDER_TARGET_DEPTH],
                                   0);
 
-    std::vector<VkAttachmentReference> shadingPipelineColorReference = {swapChainAttachmentRef};
-    std::vector<VkAttachmentReference> shadingPipelineInputReference(attachmentReferences);
-    uint32_t shadingSubpass =
+    std::vector<VkAttachmentReference> shadingPipelineOutputReference = {swapChainAttachmentRef};
+    std::vector<VkAttachmentReference> shadingPipelineInputReference(inputAttachmentReferences);
+    shadingSubpass =
         renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                  shadingPipelineColorReference,
+                                  shadingPipelineOutputReference,
                                   shadingPipelineInputReference,
                                   nullptr,
                                   0);
@@ -208,18 +227,24 @@ void RenderManager::createRenderPass() {
                                   nullptr,
                                   0);
 
-    renderPass->submitDependency(VK_SUBPASS_EXTERNAL, geometrySubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
+    renderPass->submitDependency(VK_SUBPASS_EXTERNAL, geometrySubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
+                                 VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT, VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
     renderPass->submitDependency(geometrySubpass, shadingSubpass, VK_ACCESS_COLOR_ATTACHMENT_READ_BIT,
-                                 VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
-    renderPass->submitDependency(geometrySubpass, uiSubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT);
+                                 VK_ACCESS_SHADER_READ_BIT,
+                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
+    renderPass->submitDependency(shadingSubpass, uiSubpass, 0, VK_ACCESS_SHADER_READ_BIT,
+                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
+    renderPass->submitDependency(uiSubpass, VK_SUBPASS_EXTERNAL, 0, VK_ACCESS_MEMORY_READ_BIT,
+                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT);
 
     renderPass->build();
 }
 
 void RenderManager::createFrameBuffer() {
-    std::vector<std::shared_ptr<ImageView>> frameViews(RENDER_TARGET_MAX);
+    std::vector<std::shared_ptr<ImageView>> frameViews(RENDER_TARGET_MAX + 1);
+    frameViews[0] = objectBufferImageView;
     for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++)
-        frameViews[i] = renderTargetViews[i];
+        frameViews[i + 1] = renderTargetViews[i];
 
     std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount, frameViews);
 
@@ -260,7 +285,7 @@ void RenderManager::createDefaultMaterial() {
     defaultMaterial =
         MasterMaterial::create(device,
                                shaders,
-                               2,
+                               RENDER_TARGET_MAX,
                                swapChainExtent,
                                layoutBuilt,
                                renderPass,
@@ -286,6 +311,7 @@ void RenderManager::createRenderObjects() {
     createSceneObjects();
     createDefaultMaterial();
     createUIObjects();
+    createPostProcessingPipelines();
 }
 
 void RenderManager::recreateSwapChain(bool newImageCount) {
@@ -293,6 +319,7 @@ void RenderManager::recreateSwapChain(bool newImageCount) {
     createRenderPass();
     createFrameBuffer();
     createDefaultMaterial();
+    createPostProcessingPipelines();
     camera->updateCameraModel(cameraModel, swapChainExtent);
 
     if (newImageCount) {
@@ -357,10 +384,13 @@ void RenderManager::drawFrame() {
     drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
     // clear and begin render pass (Geometry)
-    std::vector<VkClearValue> clearColor(3);
+    std::vector<VkClearValue> clearColor(RENDER_TARGET_MAX + 2);
     clearColor[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
-    clearColor[1].depthStencil = {1.0, 0};
-    clearColor[2].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
+    clearColor[1].color = {{0, 0, 0, 1}};
+    clearColor[RENDER_TARGET_DEPTH + 2].depthStencil    = {1.0, 0};
+    clearColor[RENDER_TARGET_DIFFUSE + 2].color         = {{0.0f, 0.0f, 0.0f, 1.0f}};
+    clearColor[RENDER_TARGET_POSITION + 2].color        = {{0.0f, 0.0f, 0.0f, 1.0f}};
+    clearColor[RENDER_TARGET_NORMAL + 2].color          = {{0.0f, 0.0f, 0.0f, 1.0f}};
     drawCommandBuffer->beginRenderPass(renderPass, frameBuffer, clearColor, index, frameBuffer->getExtent(), {0, 0});
 
     // write all commands to draw the scene
@@ -368,6 +398,8 @@ void RenderManager::drawFrame() {
 
     // begin next subpass (Shading)
     drawCommandBuffer->nextSubpass();
+
+    viewportSelector->bakeGraphicsBuffer(drawCommandBuffer);
 
     // begin next subpass (UI)
     drawCommandBuffer->nextSubpass();
@@ -476,10 +508,22 @@ void RenderManager::loadMesh(const std::string &filename) {
 }
 
 void RenderManager::createPostProcessingPipelines() {
-    auto shader = FragmentShader::create(device, "main", "resources/shaders/viewport_selector.frag");
+    auto shader = FragmentShader::create(device, "main", "resources/shaders/compiled/viewport_selector.frag.spv");
 
-    std::shared_ptr<DescriptorSetLayout> viewportDescriptor = DescriptorSetLayout::create(device, );
+    std::vector<VkDescriptorSetLayoutBinding> bindings = {
+        {0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr},
+        {1, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, RENDER_TARGET_MAX, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr}
+    };
 
-    viewportSelector = ShadingPipeline::create(device, renderPass, shader, , swapChainExtent, 1);
+    std::shared_ptr<DescriptorSetLayout> viewportDescriptorLayout = DescriptorSetLayout::create(device, bindings);
+    viewportDescriptor = poolManager->allocate(viewportDescriptorLayout);
+
+    viewportSelector = ShadingPipeline::create(renderPass, { viewportDescriptor }, shader, swapChainExtent,
+                                               1, 1);
+
+    viewportDescriptor->updateImages(renderTargetViews, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1);
+
+    viewportUniform = UniformBuffer::create(device, transferQueue, sizeof(uint32_t));
+    viewportDescriptor->updateUniformBuffer(viewportUniform, 0);
 }
 

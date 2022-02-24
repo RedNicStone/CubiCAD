@@ -156,7 +156,11 @@ class VulkanRasterizer {
     void createInstance() {
         glfwInit();
 
+#if NDEBUG
+        instance = Instance::create("api_test", version, false);
+#else
         instance = Instance::create("api_test", version, true);
+#endif
     }
 };
 
