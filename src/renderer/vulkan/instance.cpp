@@ -175,13 +175,15 @@ std::shared_ptr<Instance> Instance::create(const char *appName,
     if (vkCreateInstance(&createInfo, nullptr, &instance->handle) != VK_SUCCESS) {
         throw std::runtime_error("failed to crate vulkan instance!");
     }
-    //todo add configurable extensions
-    VkDebugUtilsMessengerCreateInfoEXT debugMessengerCreateInfo;
-    populateDebugMessengerCreateInfo(debugMessengerCreateInfo);
 
-    if (CreateDebugUtilsMessengerEXT(instance->handle, &debugMessengerCreateInfo, &instance->debugMessenger)
-        != VK_SUCCESS) {
-        throw std::runtime_error("failed to set up debug messenger!");
+    if (instance->enableValidationLayers) {
+        VkDebugUtilsMessengerCreateInfoEXT debugMessengerCreateInfo;
+        populateDebugMessengerCreateInfo(debugMessengerCreateInfo);
+
+        if (CreateDebugUtilsMessengerEXT(instance->handle, &debugMessengerCreateInfo, &instance->debugMessenger)
+            != VK_SUCCESS) {
+            throw std::runtime_error("failed to set up debug messenger!");
+        }
     }
 
     instance->createPhysicalDevices();

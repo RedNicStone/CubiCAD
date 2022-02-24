@@ -67,7 +67,9 @@ class RenderPass : public VulkanClass<VkRenderPass> {
                            VkAttachmentReference *depthAttachment,
                            VkPipelineStageFlags stage);
 
-    void submitDependency(uint32_t src, uint32_t dst, VkAccessFlags srcAccess, VkAccessFlags dstAccess);
+    void submitDependency(uint32_t src, uint32_t dst, VkAccessFlags srcAccess, VkAccessFlags dstAccess,
+                          VkPipelineStageFlags srcPipeline = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
+                          VkPipelineStageFlags dstPipeline = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
 
     void build();
 

@@ -121,7 +121,7 @@ class VulkanRasterizer {
     }
 
     void loadModels() {
-        renderManager->loadMesh("/home/nic/Downloads/viking-room/viking-room.obj");
+        renderManager->loadMesh("resources/models/demo/viking-room/viking-room.obj");
         renderManager->getScene()->bakeMaterials(true);
         renderManager->getScene()->collectRenderBuffers();
     }
@@ -156,7 +156,11 @@ class VulkanRasterizer {
     void createInstance() {
         glfwInit();
 
+#if NDEBUG
+        instance = Instance::create("api_test", version, false);
+#else
         instance = Instance::create("api_test", version, true);
+#endif
     }
 };
 

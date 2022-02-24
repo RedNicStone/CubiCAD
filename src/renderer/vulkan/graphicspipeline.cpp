@@ -7,9 +7,9 @@
 #include <utility>
 
 
-std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Device> pDevice,
-                                                           std::shared_ptr<PipelineLayout> pLayout,
-                                                           std::vector<std::shared_ptr<GraphicsShader>> &shaders,
+std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(const std::shared_ptr<Device>& pDevice,
+                                                           const std::shared_ptr<PipelineLayout>& pLayout,
+                                                           const std::vector<std::shared_ptr<GraphicsShader>> &shaders,
                                                            const std::shared_ptr<RenderPass> &renderPass,
                                                            uint32_t colorBlendStates,
                                                            VkExtent2D extent,
@@ -18,10 +18,11 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
                                                            VkFrontFace frontFace,
                                                            std::vector<VkVertexInputBindingDescription> bindingDescription,
                                                            std::vector<VkVertexInputAttributeDescription> attributeDescription,
-                                                           bool enableDepthStencil) {
+                                                           bool enableDepthStencil,
+                                                           uint32_t subpass) {
     auto graphicsPipeline = std::make_shared<GraphicsPipeline>();
-    graphicsPipeline->device = std::move(pDevice);
-    graphicsPipeline->layout = std::move(pLayout);
+    graphicsPipeline->device = pDevice;
+    graphicsPipeline->layout = pLayout;
 
     std::vector<VkPipelineShaderStageCreateInfo> shaderStages;
     shaderStages.reserve(shaders.size());
@@ -105,7 +106,7 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(std::shared_ptr<Devic
     pipelineInfo.pColorBlendState = &colorBlending;
     pipelineInfo.layout = graphicsPipeline->layout->getHandle();
     pipelineInfo.renderPass = renderPass->getHandle();
-    pipelineInfo.subpass = 0;
+    pipelineInfo.subpass = subpass;
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
 
     if (enableDepthStencil) {

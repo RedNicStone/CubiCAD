@@ -1,8 +1,8 @@
 #version 450
 
-layout(location = 0) in vec2 fragUV;
+layout(location = 0) in vec2 frag_uv;
 
-layout(location = 0) out vec4 outColor;
+layout(location = 0) out vec4 present_color;
 
 layout(binding = 0) uniform FrameInfoObject {
     uint frameCount;
@@ -12,5 +12,5 @@ layout(binding = 0) uniform FrameInfoObject {
 } frameInfo;
 
 void main() {
-    outColor = vec4(fragUV, (frameInfo.frameCount % 4095) / 4095.0, 0);
+    present_color = vec4(frag_uv, (frameInfo.frameCount % 4095) / 4095.0, 0);
 }

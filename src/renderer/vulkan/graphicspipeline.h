@@ -22,9 +22,9 @@ class RenderPass;
 
 class GraphicsPipeline : public PipelineBase {
   public:
-    static std::shared_ptr<GraphicsPipeline> create(std::shared_ptr<Device> pDevice,
-                                                    std::shared_ptr<PipelineLayout> pLayout,
-                                                    std::vector<std::shared_ptr<GraphicsShader>> &shaders,
+    static std::shared_ptr<GraphicsPipeline> create(const std::shared_ptr<Device>& pDevice,
+                                                    const std::shared_ptr<PipelineLayout>& pLayout,
+                                                    const std::vector<std::shared_ptr<GraphicsShader>> &shaders,
                                                     const std::shared_ptr<RenderPass> &renderPass,
                                                     uint32_t colorBlendStates,
                                                     VkExtent2D extent,
@@ -33,7 +33,8 @@ class GraphicsPipeline : public PipelineBase {
                                                     VkFrontFace frontFace = VK_FRONT_FACE_CLOCKWISE,
                                                     std::vector<VkVertexInputBindingDescription> bindingDescription = {},
                                                     std::vector<VkVertexInputAttributeDescription> attributeDescription = {},
-                                                    bool enableDepthStencil = false);
+                                                    bool enableDepthStencil = false,
+                                                    uint32_t subpass = 0);
 
     VkPipelineBindPoint getBindPoint() final { return VK_PIPELINE_BIND_POINT_GRAPHICS; }
 

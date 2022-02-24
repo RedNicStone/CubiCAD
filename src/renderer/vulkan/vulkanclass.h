@@ -9,15 +9,20 @@
 
 #include <vulkan/vulkan.h>
 
-
+/// this class is a parent class for all vulkan object wrapping classes
+/// \tparam T vulkan class that is being wrapped
 template<typename T>
 class VulkanClass {
   protected:
-    T handle = VK_NULL_HANDLE;
+    T handle = VK_NULL_HANDLE; //< native vulkan handle
 
   public:
+    /// function to acquire native vulkan handle
+    /// \return vulkan handle
     T getHandle() const { return handle; }
 
+    /// function to acquire pointer to native vulkan handle (unsafe)
+    /// \return pointer to vulkan handle
     T *getHandlePtr() { return &handle; }
 
     //virtual ~VulkanClass() = default;

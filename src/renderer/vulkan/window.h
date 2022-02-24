@@ -19,18 +19,27 @@
 
 class Instance;
 
+/// class that handles window creation, resizing and destruction
 class Window {
   private:
-    std::shared_ptr<Instance> instance;
+    std::shared_ptr<Instance> instance; //< instance that owns the window
 
-    GLFWwindow *window = nullptr;
-    VkSurfaceKHR surface{};
-    VkExtent2D extend{};
-    bool resized = false;
+    GLFWwindow *window = nullptr; //< pointer to glfw window
+    VkSurfaceKHR surface{}; //< vulkan handle to the physical window surface
+    VkExtent2D extend{}; //< extend of the window surface
+    bool resized = false; //< boolean to store if the window has resized
 
-    void *userPtr = nullptr;
+    void *userPtr = nullptr; //< user pointer to be used for glfw interrupt callbacks
 
+    /// callback for when the window has been resized. Sets resized to true
+    /// \param window pointer to the glfw window
+    /// \param width new width
+    /// \param height new height
     static void staticResizeCallback(GLFWwindow *window, int width, int height);
+
+    /// 
+    /// \param width
+    /// \param height
     void dynamicResizeCallback(int width, int height);
 
   public:
