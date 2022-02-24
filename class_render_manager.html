@@ -223,6 +223,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aed3ac72fede8ad352e44a95ec3fcb39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b5789135445c4d6f72b7752ef4dc956"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a7b5789135445c4d6f72b7752ef4dc956">drawCommandBuffer</a></td></tr>
 <tr class="separator:a7b5789135445c4d6f72b7752ef4dc956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace7bd4193232c242bbcd1a0f50d9aadd"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ace7bd4193232c242bbcd1a0f50d9aadd">viewportDescriptor</a></td></tr>
+<tr class="separator:ace7bd4193232c242bbcd1a0f50d9aadd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2b0e5b3c3a1b39c2ea02b9e87751edb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ae2b0e5b3c3a1b39c2ea02b9e87751edb">viewportUniform</a></td></tr>
+<tr class="separator:ae2b0e5b3c3a1b39c2ea02b9e87751edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cf2ce738775ad5bff54f8d02501d621"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_camera_model.html">CameraModel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a9cf2ce738775ad5bff54f8d02501d621">cameraModel</a></td></tr>
 <tr class="separator:a9cf2ce738775ad5bff54f8d02501d621"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99739a51eb72ed86f0fda52ba8e7c464"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a99739a51eb72ed86f0fda52ba8e7c464">camera</a></td></tr>
@@ -253,6 +257,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a9109aece892081ea8f83170e087b9198"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a580674496dc4a3fec8be6a9e99b2e195"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a580674496dc4a3fec8be6a9e99b2e195">renderPass</a></td></tr>
 <tr class="separator:a580674496dc4a3fec8be6a9e99b2e195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc6d2738171f05ebda4005ae1544086f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#afc6d2738171f05ebda4005ae1544086f">shadingSubpass</a></td></tr>
+<tr class="separator:afc6d2738171f05ebda4005ae1544086f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59317ef113607f4c80b8082b14b2ce50"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a59317ef113607f4c80b8082b14b2ce50">uiSubpass</a></td></tr>
 <tr class="separator:a59317ef113607f4c80b8082b14b2ce50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30992f0967b4ef7f43f5a2a69cbd352b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a30992f0967b4ef7f43f5a2a69cbd352b">renderTargets</a></td></tr>
@@ -524,7 +530,13 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a45a6fffe5f74da37695476732b53d33b_cgraph.svg" width="100%" height="483"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a45a6fffe5f74da37695476732b53d33b_cgraph.svg" width="100%" height="510"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a45a6fffe5f74da37695476732b53d33b_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -2010,6 +2022,28 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="afc6d2738171f05ebda4005ae1544086f" name="afc6d2738171f05ebda4005ae1544086f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc6d2738171f05ebda4005ae1544086f">&#9670;&nbsp;</a></span>shadingSubpass</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RenderManager::shadingSubpass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aee49ffa2b5f861a779cd6ccf6401cf1e" name="aee49ffa2b5f861a779cd6ccf6401cf1e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee49ffa2b5f861a779cd6ccf6401cf1e">&#9670;&nbsp;</a></span>swapChain</h2>
 
@@ -2186,6 +2220,28 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="ace7bd4193232c242bbcd1a0f50d9aadd" name="ace7bd4193232c242bbcd1a0f50d9aadd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace7bd4193232c242bbcd1a0f50d9aadd">&#9670;&nbsp;</a></span>viewportDescriptor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_set.html">DescriptorSet</a>&gt; RenderManager::viewportDescriptor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ada7d1c0e2a89d1b990f15b202511f029" name="ada7d1c0e2a89d1b990f15b202511f029"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada7d1c0e2a89d1b990f15b202511f029">&#9670;&nbsp;</a></span>viewportSelector</h2>
 
@@ -2197,6 +2253,28 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_shading_pipeline.html">ShadingPipeline</a>&gt; RenderManager::viewportSelector</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2b0e5b3c3a1b39c2ea02b9e87751edb" name="ae2b0e5b3c3a1b39c2ea02b9e87751edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b0e5b3c3a1b39c2ea02b9e87751edb">&#9670;&nbsp;</a></span>viewportUniform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&gt; RenderManager::viewportUniform</td>
         </tr>
       </table>
   </td>

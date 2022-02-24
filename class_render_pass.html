@@ -123,8 +123,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6c1ed57bea5d7a5940926d1353c5db69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38c62d88f71b8f31f198b7a0c54cef60"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a38c62d88f71b8f31f198b7a0c54cef60">submitSubpass</a> (VkPipelineBindPoint bindPoint, std::vector&lt; VkAttachmentReference &gt; &amp;colorAttachments, std::vector&lt; VkAttachmentReference &gt; &amp;inputAttachments, VkAttachmentReference *depthAttachment, VkPipelineStageFlags stage)</td></tr>
 <tr class="separator:a38c62d88f71b8f31f198b7a0c54cef60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eddc619ad7def8a9db7fea50cfffd01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a8eddc619ad7def8a9db7fea50cfffd01">submitDependency</a> (uint32_t src, uint32_t dst, VkAccessFlags srcAccess, VkAccessFlags dstAccess)</td></tr>
-<tr class="separator:a8eddc619ad7def8a9db7fea50cfffd01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a843afa55f483289f1a66332f74ea4cfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a843afa55f483289f1a66332f74ea4cfc">submitDependency</a> (uint32_t src, uint32_t dst, VkAccessFlags srcAccess, VkAccessFlags dstAccess, VkPipelineStageFlags srcPipeline=VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VkPipelineStageFlags dstPipeline=VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT)</td></tr>
+<tr class="separator:a843afa55f483289f1a66332f74ea4cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c316af3042678e68ae4a14a253c4136"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#a7c316af3042678e68ae4a14a253c4136">build</a> ()</td></tr>
 <tr class="separator:a7c316af3042678e68ae4a14a253c4136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9f11d59071ff4e08f15d8ea740275c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_pass.html#ae9f11d59071ff4e08f15d8ea740275c4">~RenderPass</a> ()</td></tr>
@@ -252,8 +252,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a8eddc619ad7def8a9db7fea50cfffd01" name="a8eddc619ad7def8a9db7fea50cfffd01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8eddc619ad7def8a9db7fea50cfffd01">&#9670;&nbsp;</a></span>submitDependency()</h2>
+<a id="a843afa55f483289f1a66332f74ea4cfc" name="a843afa55f483289f1a66332f74ea4cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a843afa55f483289f1a66332f74ea4cfc">&#9670;&nbsp;</a></span>submitDependency()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -280,7 +280,19 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkAccessFlags&#160;</td>
-          <td class="paramname"><em>dstAccess</em>&#160;</td>
+          <td class="paramname"><em>dstAccess</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPipelineStageFlags&#160;</td>
+          <td class="paramname"><em>srcPipeline</em> = <code>VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPipelineStageFlags&#160;</td>
+          <td class="paramname"><em>dstPipeline</em> = <code>VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

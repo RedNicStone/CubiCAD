@@ -6,6 +6,7 @@ var class_descriptor_set =
     [ "getPool", "class_descriptor_set.html#aed2f0a31da88ae30b9da0a00243105e4", null ],
     [ "updateImage", "class_descriptor_set.html#a35931a8d5106020ddc7617e800a138fa", null ],
     [ "updateImage", "class_descriptor_set.html#a23f619098d1dfda570b9e54b7fd115fe", null ],
+    [ "updateImages", "class_descriptor_set.html#ad2ef363abbd76d89aa88579ab76076ae", null ],
     [ "updateImageSampler", "class_descriptor_set.html#a75a06f6288e73489bf2cd3e6d1dbd34a", null ],
     [ "updateStorageBuffer", "class_descriptor_set.html#a28cf1e0776751aec4cbba26ffbf80b4d", null ],
     [ "updateUniformBuffer", "class_descriptor_set.html#a91cd3605b7ebef7669cdc25ac363c999", null ],

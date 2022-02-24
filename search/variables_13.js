@@ -9,7 +9,9 @@ var searchData=
   ['vertexdata_6',['vertexData',['../class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#a7b4f769661affa3ab992fa287e6f5d3d',1,'CCAD_OT::OtGeometryCompiler::vertexData()'],['../struct_meshlet.html#a6922ae38da6483e137f383807050e9ed',1,'Meshlet::vertexData()']]],
   ['vertices_7',['vertices',['../struct_c_c_a_d___o_t_1_1_cube.html#a33f984b39ff128629357d98e224b0d86',1,'CCAD_OT::Cube']]],
   ['view_8',['view',['../class_camera.html#add93fedd6b9a6a6e2c784aeda624de83',1,'Camera::view()'],['../struct_scene_data.html#a1d711d162744e74ef7cf773c341b96f0',1,'SceneData::view()']]],
-  ['viewportselector_9',['viewportSelector',['../class_render_manager.html#ada7d1c0e2a89d1b990f15b202511f029',1,'RenderManager']]],
-  ['virtualallocations_10',['virtualAllocations',['../class_stack_allocator.html#a77d23412ffbe5db51d2c3c51efea8de7',1,'StackAllocator']]],
-  ['voxelindex_11',['voxelIndex',['../class_voxel_codec_base.html#a65a47193f78216788b84147b1273a037',1,'VoxelCodecBase::voxelIndex()'],['../class_voxel_fragment_stream_base.html#a7557b5d14ec826a95136777024860447',1,'VoxelFragmentStreamBase::voxelIndex()']]]
+  ['viewportdescriptor_9',['viewportDescriptor',['../class_render_manager.html#ace7bd4193232c242bbcd1a0f50d9aadd',1,'RenderManager']]],
+  ['viewportselector_10',['viewportSelector',['../class_render_manager.html#ada7d1c0e2a89d1b990f15b202511f029',1,'RenderManager']]],
+  ['viewportuniform_11',['viewportUniform',['../class_render_manager.html#ae2b0e5b3c3a1b39c2ea02b9e87751edb',1,'RenderManager']]],
+  ['virtualallocations_12',['virtualAllocations',['../class_stack_allocator.html#a77d23412ffbe5db51d2c3c51efea8de7',1,'StackAllocator']]],
+  ['voxelindex_13',['voxelIndex',['../class_voxel_codec_base.html#a65a47193f78216788b84147b1273a037',1,'VoxelCodecBase::voxelIndex()'],['../class_voxel_fragment_stream_base.html#a7557b5d14ec826a95136777024860447',1,'VoxelFragmentStreamBase::voxelIndex()']]]
 ];

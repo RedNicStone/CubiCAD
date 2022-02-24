@@ -61,6 +61,7 @@ var class_render_manager =
     [ "renderTargetViews", "class_render_manager.html#a36c2cfe54e14bb7210c9b14d8b28eb5e", null ],
     [ "scene", "class_render_manager.html#a4c4f9ca5fcd4c504b959427325acf892", null ],
     [ "sceneWriter", "class_render_manager.html#a81ad286c491eb7c12688b3f751ae8572", null ],
+    [ "shadingSubpass", "class_render_manager.html#afc6d2738171f05ebda4005ae1544086f", null ],
     [ "swapChain", "class_render_manager.html#aee49ffa2b5f861a779cd6ccf6401cf1e", null ],
     [ "swapChainExtent", "class_render_manager.html#a9109aece892081ea8f83170e087b9198", null ],
     [ "textureLibrary", "class_render_manager.html#af2ab4d99d81b2a71df8ab8a3e8f12663", null ],
@@ -69,6 +70,8 @@ var class_render_manager =
     [ "transferQueue", "class_render_manager.html#ac0a9a16f8ff221d3ea0fb8f6d106ff33", null ],
     [ "uiRenderer", "class_render_manager.html#a6fb80bea1af31e125e929a5aef652204", null ],
     [ "uiSubpass", "class_render_manager.html#a59317ef113607f4c80b8082b14b2ce50", null ],
+    [ "viewportDescriptor", "class_render_manager.html#ace7bd4193232c242bbcd1a0f50d9aadd", null ],
     [ "viewportSelector", "class_render_manager.html#ada7d1c0e2a89d1b990f15b202511f029", null ],
+    [ "viewportUniform", "class_render_manager.html#ae2b0e5b3c3a1b39c2ea02b9e87751edb", null ],
     [ "window", "class_render_manager.html#adfd809d2332b0d68ad36ef6d08ffa15b", null ]
 ];
