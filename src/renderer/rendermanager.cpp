@@ -43,7 +43,7 @@ void RenderManager::createLogicalDevice() {
     const std::vector<const char *> deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 
     VkPhysicalDeviceFeatures deviceFeatures{};
-    deviceFeatures.shaderFloat64 = VK_TRUE;
+    deviceFeatures.multiDrawIndirect = VK_TRUE;
 
     auto familyHandler = physicalDevice->getQueueFamilyHandler();
 
@@ -271,15 +271,15 @@ void RenderManager::createDefaultMaterial() {
                                                                                      "PBR_basic.frag.spv");
     std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
 
-    MaterialProperty materialProperty{};
-    materialProperty.input =
+    std::vector<MaterialProperty> materialProperties(1);
+    materialProperties[0].input =
         static_cast<MaterialPropertyInput>(MATERIAL_PROPERTY_INPUT_CONSTANT | MATERIAL_PROPERTY_INPUT_TEXTURE);
-    materialProperty.size = MATERIAL_PROPERTY_SIZE_8;
-    materialProperty.count = MATERIAL_PROPERTY_COUNT_4;
-    materialProperty.format = MATERIAL_PROPERTY_FORMAT_SRGB;
-    materialProperty.attributeName = "diffuse";
+    materialProperties[0].size = MATERIAL_PROPERTY_SIZE_8;
+    materialProperties[0].count = MATERIAL_PROPERTY_COUNT_4;
+    materialProperties[0].format = MATERIAL_PROPERTY_FORMAT_SRGB;
+    materialProperties[0].attributeName = "diffuse";
 
-    MaterialPropertyLayout propertyLayout{{materialProperty}};
+    MaterialPropertyLayout propertyLayout{materialProperties};
     auto layoutBuilt = buildLayout(propertyLayout);
 
     defaultMaterial =
@@ -512,8 +512,12 @@ void RenderManager::createPostProcessingPipelines() {
 
     std::vector<VkDescriptorSetLayoutBinding> bindings = {
         {0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr},
-        {1, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, RENDER_TARGET_MAX, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr}
     };
+    bindings.reserve(RENDER_TARGET_MAX + 1);
+    for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++) {
+        bindings.push_back({i + 1, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1, VK_SHADER_STAGE_FRAGMENT_BIT,
+                            nullptr});
+    }
 
     std::shared_ptr<DescriptorSetLayout> viewportDescriptorLayout = DescriptorSetLayout::create(device, bindings);
     viewportDescriptor = poolManager->allocate(viewportDescriptorLayout);

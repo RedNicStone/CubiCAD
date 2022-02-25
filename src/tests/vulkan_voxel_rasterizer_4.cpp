@@ -121,7 +121,7 @@ class VulkanRasterizer {
     }
 
     void loadModels() {
-        renderManager->loadMesh("resources/models/demo/viking-room/viking-room.obj");
+        renderManager->loadMesh("/home/nic/Downloads/breakfast_room/breakfast_room_reexp.obj");
         renderManager->getScene()->bakeMaterials(true);
         renderManager->getScene()->collectRenderBuffers();
     }

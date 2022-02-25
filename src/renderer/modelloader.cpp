@@ -194,23 +194,30 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
                 bbox.pos2 = glm::max(bbox.pos1, vertex.pos);
 
                 if (uniqueVertices.count(vertex) == 0) {
-                    uniqueVertices[vertex] = static_cast<uint32_t>(meshlets[materialID]->vertexData.size());
+                    uniqueVertices[vertex] = static_cast<uint32_t>(uniqueVertices.size());
                     meshlets[materialID]->indexData.push_back(static_cast<uint32_t>(
-                                                                  meshlets[materialID]->vertexData.size()));
-                    meshlets[materialID]->vertexData.push_back(vertex);
+                                                                  uniqueVertices.size()));
                 } else
                     meshlets[materialID]->indexData.push_back(uniqueVertices[vertex]);
             }
         }
 
+        auto key_selector = [](auto pair){return pair.first;};
+        auto value_selector = [](auto pair){return pair.second;};
+
         std::vector<std::shared_ptr<Meshlet>> meshletVector;
         meshletVector.reserve(meshlets.size());
-
         for (const auto& kv : meshlets) {
             meshletVector.push_back(kv.second);
         }
 
-        meshes.push_back(Mesh::create(meshletVector, bbox, shape.name));
+        std::vector<Vertex> vertexVector;
+        vertexVector.reserve(uniqueVertices.size());
+        for (const auto& kv : uniqueVertices) {
+            vertexVector.push_back(kv.first);
+        }
+
+        meshes.push_back(Mesh::create(meshletVector, vertexVector, bbox, shape.name));
     }
 
     return meshes;

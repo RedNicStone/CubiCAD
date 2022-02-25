@@ -17,10 +17,13 @@ layout(location = 3) in mat4 instance_model;
 
 layout(location = 0) out uint fragment_instance_id;
 layout(location = 1) out vec2 fragment_uv;
+layout(location = 3) out vec3 fragment_pos;
 
 void main() {
-    gl_Position = scene_info.proj * scene_info.view * instance_model * vec4(vert_pos, 1.0);
+    vec4 absPos = instance_model * vec4(vert_pos, 1.0);
+    gl_Position = scene_info.proj * scene_info.view * absPos;
 
     fragment_instance_id = instance_id;
     fragment_uv = vert_uv;
+    fragment_pos = absPos.xyz;
 }

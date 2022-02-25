@@ -174,8 +174,8 @@ void Scene::collectRenderBuffers() {
     for (const auto &mesh: meshes) {
         mesh->setOffsets(static_cast<uint32_t>(indexData.size()), static_cast<uint32_t>(vertexData.size()));
         auto &meshlets = mesh->getMeshlets();
+        vertexData.insert(vertexData.end(), mesh->getVertexData().begin(), mesh->getVertexData().end());
         for (const auto &meshlet: meshlets) {
-            vertexData.insert(vertexData.end(), meshlet->vertexData.begin(), meshlet->vertexData.end());
             indexData.insert(indexData.end(), meshlet->indexData.begin(), meshlet->indexData.end());
         }
     }
@@ -228,8 +228,8 @@ void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCom
         }
 
         graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer->getBuffer(),
-                                                   drawCall.drawCallLength,
-                                                   drawCall.drawCallOffset);
+                                                   1,
+                                                   0);
     }
 }
 

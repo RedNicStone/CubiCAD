@@ -70,6 +70,8 @@ void ObjectProperties::drawUI() {
                                      &meshName,
                                      ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
                     object->getMesh()->setName(meshName);
+                auto temp = static_cast<int>(object->getMesh()->getVertexCount());
+                ImGui::DragInt("Vertices", &temp);
 
                 ImGui::Separator();
                 ImGui::Text("Meshlets");
@@ -77,7 +79,7 @@ void ObjectProperties::drawUI() {
                 const auto &meshlets = object->getMesh()->getMeshlets();
                 for (uint32_t i = 0; i < meshlets.size(); i++) {
                     if (ImGui::Selectable(("Meshlet with "
-                        + std::to_string(meshlets[i]->vertexData.size())
+                        + std::to_string(meshlets[i]->indexData.size())
                         + " vertices").c_str(), i == selectedMeshlet)) {
                         selectedMeshlet = i;
                     }
@@ -89,8 +91,6 @@ void ObjectProperties::drawUI() {
                 if (selectedMeshlet < meshlets.size()) {
                     ImGui::BeginDisabled();
                     {
-                        auto temp = static_cast<int>(meshlets[selectedMeshlet]->vertexData.size());
-                        ImGui::DragInt("Vertices", &temp);
                         temp = static_cast<int>(meshlets[selectedMeshlet]->indexData.size());
                         ImGui::DragInt("Indices", &temp);
                         std::string materialName = "Testing material #1";
