@@ -125,14 +125,14 @@ void Scene::transferRenderData() {
             indirectDrawCall.drawCallOffset = static_cast<uint32_t>(indirectDrawData.size());
 
             for (const auto &meshletCall: materialCall.second) {
+                VkDrawIndexedIndirectCommand drawCommand = meshletCall.second.front()->getMesh()->getDrawCommand();
+                drawCommand.firstInstance = static_cast<uint32_t>(instanceData.size());
+                drawCommand.instanceCount = static_cast<uint32_t>(meshletCall.second.size());
+                indirectDrawData.push_back(drawCommand);
+
                 for (const auto &instanceCall: meshletCall.second) {
                     instanceData.push_back(instanceCall->getInstanceData());
                 }
-
-                VkDrawIndexedIndirectCommand drawCommand = meshletCall.second.front()->getMesh()->getDrawCommand();
-                drawCommand.firstInstance = 0;
-                drawCommand.instanceCount = static_cast<uint32_t>(meshletCall.second.size());
-                indirectDrawData.push_back(drawCommand);
             }
 
             indirectDrawCall.drawCallLength =
