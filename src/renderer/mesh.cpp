@@ -6,6 +6,7 @@
 
 
 std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
+                                   const std::vector<Vertex>& vertexData,
                                    const BoundingBox &bbox,
                                    const std::string &pName) {
     auto mesh = std::make_shared<Mesh>();
@@ -16,6 +17,7 @@ std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &
     mesh->boundingBox.pos1 -= mean;
     mesh->boundingBox.pos2 -= mean;
     mesh->mean = mean;
+    mesh->vertexData = vertexData;
 
     if (pName.empty())
         mesh->name = "UnnamedMesh";
@@ -24,7 +26,6 @@ std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &
 
     for (const auto &meshlet: meshlets) {
         mesh->indexCount += meshlet->indexData.size();
-        mesh->vertexCount += meshlet->vertexData.size();
     }
 
     return mesh;

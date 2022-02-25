@@ -49,7 +49,6 @@ namespace std {
 
 struct Meshlet {
     std::vector<uint32_t> indexData{};
-    std::vector<Vertex> vertexData{};
     std::shared_ptr<Material> material;
 };
 
@@ -63,20 +62,24 @@ class Mesh {
     uint32_t firstIndex{};
     uint32_t firstVertex{};
     uint32_t indexCount{};
-    uint32_t vertexCount{};
+
+    std::vector<Vertex> vertexData{};
 
     std::string name;
 
   public:
     static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
+                                        const std::vector<Vertex>& vertexData,
                                         const BoundingBox &bbox,
                                         const std::string &pName = "");
 
     void setName(const std::string &pName) { name = pName; }
 
+    const std::vector<Vertex>& getVertexData() { return vertexData; }
+
     [[nodiscard]] uint32_t getIndexCount() const { return indexCount; }
 
-    [[nodiscard]] uint32_t getVertexCount() const { return vertexCount; }
+    [[nodiscard]] uint32_t getVertexCount() const { return static_cast<uint32_t>(vertexData.size()); }
 
     [[nodiscard]] glm::vec3 getMean() const { return mean; }
 

@@ -17,6 +17,7 @@ layout(set = 2, binding = 1) uniform texture2D color;
 
 flat layout(location = 0) in uint vert_instance_id;
 layout(location = 1) in vec2 vert_uv;
+layout(location = 3) in vec3 vert_pos;
 
 layout(location = 0) out vec4 shading_diffuse;
 layout(location = 1) out vec4 shading_pos;
@@ -49,5 +50,6 @@ void main() {
     vec4 color = texture(sampler2D(color, samp), vert_uv);
     float brightness = (int(vert_instance_id == scene_info.selectedID) * 2 + int(vert_instance_id == scene_info.hoveredID)) / 3.0f;
     shading_diffuse = vec4(color + vec4(vec3(brightness) / 3, 1.0f));
+    shading_pos = vec4(vert_pos, 0.0);
     backbuffer_instance_id = vert_instance_id;
 }
