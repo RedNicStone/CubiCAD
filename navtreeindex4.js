@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"class_voxel_codec_sparse_octree.html#af7196c899a1bf2c265c5cda9360fce76":[2,0,113,12],
 "class_voxel_fragment.html":[2,0,114],
 "class_voxel_fragment.html#a4c0675aaf57340cd6daa8ec9a9eac68d":[2,0,114,0],
 "class_voxel_fragment_stream_base.html":[2,0,115],
@@ -74,8 +75,8 @@ var NAVTREEINDEX4 =
 "commandpool_8h.html":[3,0,0,1,1,7],
 "commandpool_8h.html#a264fdc1a32140fb8453d5055d8b3287e":[3,0,0,1,1,7,1],
 "commandpool_8h_source.html":[3,0,0,1,1,7],
-"concept_c_c_a_d___o_t_1_1_index_type.html":[0,0,0,20],
 "concept_c_c_a_d___o_t_1_1_index_type.html":[1,0,0],
+"concept_c_c_a_d___o_t_1_1_index_type.html":[0,0,0,20],
 "concepts.html":[1],
 "descriptorlayout_8cpp.html":[3,0,0,1,1,8],
 "descriptorlayout_8h.html":[3,0,0,1,1,9],
@@ -128,8 +129,8 @@ var NAVTREEINDEX4 =
 "framebufferselector_8cpp.html":[3,0,0,1,10],
 "framebufferselector_8h.html":[3,0,0,1,11],
 "framebufferselector_8h_source.html":[3,0,0,1,11],
-"functions.html":[2,3,0,0],
 "functions.html":[2,3,0],
+"functions.html":[2,3,0,0],
 "functions_a.html":[2,3,0,1],
 "functions_b.html":[2,3,0,2],
 "functions_c.html":[2,3,0,3],
@@ -138,8 +139,8 @@ var NAVTREEINDEX4 =
 "functions_enum.html":[2,3,4],
 "functions_eval.html":[2,3,5],
 "functions_f.html":[2,3,0,6],
-"functions_func.html":[2,3,1],
 "functions_func.html":[2,3,1,0],
+"functions_func.html":[2,3,1],
 "functions_func_a.html":[2,3,1,1],
 "functions_func_b.html":[2,3,1,2],
 "functions_func_c.html":[2,3,1,3],
@@ -181,8 +182,8 @@ var NAVTREEINDEX4 =
 "functions_type.html":[2,3,3],
 "functions_u.html":[2,3,0,21],
 "functions_v.html":[2,3,0,22],
-"functions_vars.html":[2,3,2,0],
 "functions_vars.html":[2,3,2],
+"functions_vars.html":[2,3,2,0],
 "functions_vars_b.html":[2,3,2,1],
 "functions_vars_c.html":[2,3,2,2],
 "functions_vars_d.html":[2,3,2,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "imageview_8h.html#a05cb25530db0647ba1f0bf7e309509ba":[3,0,0,1,1,25,1],
 "imageview_8h_source.html":[3,0,0,1,1,25],
 "index.html":[],
-"instance_8cpp.html":[3,0,0,1,1,26],
-"instance_8h.html":[3,0,0,1,1,27]
+"instance_8cpp.html":[3,0,0,1,1,26]
 };

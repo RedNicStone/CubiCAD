@@ -68,10 +68,10 @@ var NAVTREEINDEX =
 "_allocation_handler_8cpp.html",
 "class_dynamic_buffer.html#ab21b00292d7f53b2626de714141f8b3e",
 "class_material_library.html#a926b79a4183235c9efa6b6ae075c1054",
-"class_scene.html",
-"class_voxel_fragment.html",
-"instance_8h.html#ad4e232f0ca3600455ed1afb555daeaf0",
-"semaphore_8h.html",
+"class_sampler.html#afbbbd238b78dd3024686c852b69fa64e",
+"class_voxel_codec_sparse_octree.html#af7196c899a1bf2c265c5cda9360fce76",
+"instance_8h.html",
+"semaphore_8cpp.html",
 "structoptional.html#a5fcd27e1ee81ffc29606ac241349f0c4"
 ];
 

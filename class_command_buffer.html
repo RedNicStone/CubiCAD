@@ -147,10 +147,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a78662ba08a6d36b572fa781a76e3bd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa521acf82918f7df7c9ea65226c6bf7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aa521acf82918f7df7c9ea65226c6bf7e">drawIndexed</a> (uint32_t indexCount, uint32_t instanceCount=0, uint32_t firstIndex=0, int32_t vertexOffset=0, uint32_t firstInstance=0)</td></tr>
 <tr class="separator:aa521acf82918f7df7c9ea65226c6bf7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a953f85adb62f9dbabca3b12a19167492"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a953f85adb62f9dbabca3b12a19167492">drawIndirect</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t drawCount, VkDeviceSize offset=0, uint32_t stride=0)</td></tr>
-<tr class="separator:a953f85adb62f9dbabca3b12a19167492"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a558608a850e025c4e5a283e4ec11febf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a558608a850e025c4e5a283e4ec11febf">drawIndexedIndirect</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t drawCount, VkDeviceSize offset=0, uint32_t stride=0)</td></tr>
-<tr class="separator:a558608a850e025c4e5a283e4ec11febf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77a97a1f6ded8b413f5c74dac157f79b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a77a97a1f6ded8b413f5c74dac157f79b">drawIndirect</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t drawCount, VkDeviceSize offset=0, uint32_t stride=<a class="el" href="vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b">sizeof</a>(VkDrawIndirectCommand))</td></tr>
+<tr class="separator:a77a97a1f6ded8b413f5c74dac157f79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3932fd9ca028d0a66e775ccd0a9eee5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ac3932fd9ca028d0a66e775ccd0a9eee5">drawIndexedIndirect</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t drawCount, VkDeviceSize offset=0, uint32_t stride=<a class="el" href="vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b">sizeof</a>(VkDrawIndexedIndirectCommand))</td></tr>
+<tr class="separator:ac3932fd9ca028d0a66e775ccd0a9eee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60bd4e8ed325865b8b60b2ebc589abeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a60bd4e8ed325865b8b60b2ebc589abeb">copyBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;src, const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;dst, std::vector&lt; VkBufferCopy &gt; copyRegions)</td></tr>
 <tr class="separator:a60bd4e8ed325865b8b60b2ebc589abeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a219ad9dec6b0169c45cebff744678398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a219ad9dec6b0169c45cebff744678398">copyBufferImage</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;src, const std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt; &amp;dst, std::vector&lt; VkBufferImageCopy &gt; copyRegions, VkImageLayout dstLayout)</td></tr>
@@ -816,8 +816,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a558608a850e025c4e5a283e4ec11febf" name="a558608a850e025c4e5a283e4ec11febf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a558608a850e025c4e5a283e4ec11febf">&#9670;&nbsp;</a></span>drawIndexedIndirect()</h2>
+<a id="ac3932fd9ca028d0a66e775ccd0a9eee5" name="ac3932fd9ca028d0a66e775ccd0a9eee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3932fd9ca028d0a66e775ccd0a9eee5">&#9670;&nbsp;</a></span>drawIndexedIndirect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -844,7 +844,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>stride</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>stride</em> = <code><a class="el" href="vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b">sizeof</a>(VkDrawIndexedIndirectCommand)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -856,8 +856,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a953f85adb62f9dbabca3b12a19167492" name="a953f85adb62f9dbabca3b12a19167492"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a953f85adb62f9dbabca3b12a19167492">&#9670;&nbsp;</a></span>drawIndirect()</h2>
+<a id="a77a97a1f6ded8b413f5c74dac157f79b" name="a77a97a1f6ded8b413f5c74dac157f79b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77a97a1f6ded8b413f5c74dac157f79b">&#9670;&nbsp;</a></span>drawIndirect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -884,7 +884,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>stride</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>stride</em> = <code><a class="el" href="vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b">sizeof</a>(VkDrawIndirectCommand)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

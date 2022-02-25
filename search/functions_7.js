@@ -46,7 +46,7 @@ var searchData=
   ['getfragmenttotalsize_43',['getFragmentTotalSize',['../class_voxel_fragment.html#a14c9f49c133e447e40752088920400e3',1,'VoxelFragment']]],
   ['getfragmenttype_44',['getFragmentType',['../class_voxel_fragment.html#aaca02785ed8c0fddd11187c1a5d66451',1,'VoxelFragment::getFragmentType()'],['../class_voxel_fragment.html#a4c0675aaf57340cd6daa8ec9a9eac68d',1,'VoxelFragment::getFragmentType()']]],
   ['getframebuffer_45',['getFramebuffer',['../class_frame_buffer.html#a0c8211d7d25ee5c3c2292de2fc352f4d',1,'FrameBuffer']]],
-  ['gethandle_46',['getHandle',['../class_swap_chain.html#a18bea82319dfb2c695e75b145dde9c5e',1,'SwapChain::getHandle()'],['../class_vulkan_class.html#a914c142e905262efbd473aeb5bdfb0e8',1,'VulkanClass::getHandle() const']]],
+  ['gethandle_46',['getHandle',['../class_vulkan_class.html#a914c142e905262efbd473aeb5bdfb0e8',1,'VulkanClass::getHandle()'],['../class_swap_chain.html#a18bea82319dfb2c695e75b145dde9c5e',1,'SwapChain::getHandle()']]],
   ['gethandleptr_47',['getHandlePtr',['../class_vulkan_class.html#a84fba320d4eecc0f0f0a959b0231b8de',1,'VulkanClass']]],
   ['gethandler_48',['getHandler',['../class_queue_family.html#a7b1a3e0e0eeecee8874da05d8ac9fd8e',1,'QueueFamily']]],
   ['gethidden_49',['getHidden',['../class_u_i_renderer.html#acef9c9dcca061e5d0f83a48115c9c63f',1,'UIRenderer']]],
@@ -130,8 +130,9 @@ var searchData=
   ['getuserpointer_127',['getUserPointer',['../class_window.html#a65305e6248c0118a189d908988d4bfd5',1,'Window']]],
   ['getvalidationlayers_128',['getValidationLayers',['../class_instance.html#a4c704127d65563aa749ae671692dd34f',1,'Instance']]],
   ['getvertexcount_129',['getVertexCount',['../class_mesh.html#a6c14df866b9d28ac272b40622b74c8e5',1,'Mesh']]],
-  ['getview_130',['getView',['../class_camera.html#a9fd979b84ae4959a77a85090976137db',1,'Camera']]],
-  ['getvoxelindex_131',['getVoxelIndex',['../class_voxel_fragment_stream_base.html#a3126f1121ac4db36420557ec55973552',1,'VoxelFragmentStreamBase']]],
-  ['getwindow_132',['getWindow',['../class_window.html#a0a091d94124d3d94a2ce6fc30d9883a8',1,'Window']]],
-  ['grabpool_133',['grabPool',['../class_descriptor_pool_manager.html#a1b63c77b3534248db0e83263d5d31b3c',1,'DescriptorPoolManager']]]
+  ['getvertexdata_130',['getVertexData',['../class_mesh.html#aa7f8ceccf68c6f33b4f50ac05d5f6d7e',1,'Mesh']]],
+  ['getview_131',['getView',['../class_camera.html#a9fd979b84ae4959a77a85090976137db',1,'Camera']]],
+  ['getvoxelindex_132',['getVoxelIndex',['../class_voxel_fragment_stream_base.html#a3126f1121ac4db36420557ec55973552',1,'VoxelFragmentStreamBase']]],
+  ['getwindow_133',['getWindow',['../class_window.html#a0a091d94124d3d94a2ce6fc30d9883a8',1,'Window']]],
+  ['grabpool_134',['grabPool',['../class_descriptor_pool_manager.html#a1b63c77b3534248db0e83263d5d31b3c',1,'DescriptorPoolManager']]]
 ];
