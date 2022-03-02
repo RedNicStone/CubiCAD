@@ -173,8 +173,8 @@ void Scene::collectRenderBuffers() {
     }
     for (const auto &mesh: meshes) {
         mesh->setOffsets(static_cast<uint32_t>(indexData.size()), static_cast<uint32_t>(vertexData.size()));
-        auto &meshlets = mesh->getMeshlets();
         vertexData.insert(vertexData.end(), mesh->getVertexData().begin(), mesh->getVertexData().end());
+        auto &meshlets = mesh->getMeshlets();
         for (const auto &meshlet: meshlets) {
             indexData.insert(indexData.end(), meshlet->indexData.begin(), meshlet->indexData.end());
         }

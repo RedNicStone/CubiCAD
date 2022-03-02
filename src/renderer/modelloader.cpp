@@ -170,6 +170,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
         bbox.pos2 = *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data());
 
         std::unordered_map<Vertex, uint32_t> uniqueVertices{};
+        uint32_t vertexIndex = 0;
 
         // Loop over faces(polygon)
         for (size_t f = 0; f < shape.mesh.num_face_vertices.size(); f++) {
@@ -194,20 +195,18 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
                          (1.0f - attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 1)]) * UINT16_MAX};
                 }
 
-                bbox.pos1 = glm::min(bbox.pos1, vertex.pos);
-                bbox.pos2 = glm::max(bbox.pos1, vertex.pos);
-
                 if (uniqueVertices.count(vertex) == 0) {
-                    uniqueVertices[vertex] = static_cast<uint32_t>(uniqueVertices.size());
+                    uniqueVertices[vertex] = static_cast<uint32_t>(vertexIndex);
                     meshlets[materialID]->indexData.push_back(static_cast<uint32_t>(
-                                                                  uniqueVertices.size()));
+                                                                  vertexIndex));
+                    vertexIndex++;
+
+                    bbox.pos1 = glm::min(bbox.pos1, vertex.pos);
+                    bbox.pos2 = glm::max(bbox.pos1, vertex.pos);
                 } else
                     meshlets[materialID]->indexData.push_back(uniqueVertices[vertex]);
             }
         }
-
-        auto key_selector = [](auto pair){return pair.first;};
-        auto value_selector = [](auto pair){return pair.second;};
 
         std::vector<std::shared_ptr<Meshlet>> meshletVector;
         meshletVector.reserve(meshlets.size());
@@ -216,9 +215,9 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
         }
 
         std::vector<Vertex> vertexVector;
-        vertexVector.reserve(uniqueVertices.size());
+        vertexVector.resize(uniqueVertices.size());
         for (const auto& kv : uniqueVertices) {
-            vertexVector.push_back(kv.first);
+            vertexVector[kv.second] = kv.first;
         }
 
         meshes.push_back(Mesh::create(meshletVector, vertexVector, bbox, shape.name));
