@@ -132,10 +132,11 @@ $(document).ready(function(){initNavTree('modelloader_8h_source.html',''); initR
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                                     <span class="keyword">const</span> std::string &amp;modelFilename);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::vector&lt;std::shared_ptr&lt;Mesh&gt;&gt; <span class="keyword">import</span>(<span class="keyword">const</span> std::string &amp;filename,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                                              <span class="keyword">const</span> std::shared_ptr&lt;MasterMaterial&gt; &amp;masterMaterial);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_MODELLOADER_H</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                                              <span class="keyword">const</span> std::shared_ptr&lt;MasterMaterial&gt; &amp;masterMaterial,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                                              <span class="keywordtype">bool</span> normalizePos = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">//CUBICAD_MODELLOADER_H</span></div>
 <div class="ttc" id="aclass_model_loader_html"><div class="ttname"><a href="class_model_loader.html">ModelLoader</a></div><div class="ttdef"><b>Definition:</b> modelloader.h:17</div></div>
 <div class="ttc" id="aclass_model_loader_html_a251aa81af2f4e99f6ba15a363136cfbe"><div class="ttname"><a href="class_model_loader.html#a251aa81af2f4e99f6ba15a363136cfbe">ModelLoader::reader</a></div><div class="ttdeci">tinyobj::ObjReader reader</div><div class="ttdef"><b>Definition:</b> modelloader.h:19</div></div>
 <div class="ttc" id="aclass_model_loader_html_a31c9aa31bf2d9778696ab75f4431a523"><div class="ttname"><a href="class_model_loader.html#a31c9aa31bf2d9778696ab75f4431a523">ModelLoader::create</a></div><div class="ttdeci">static std::shared_ptr&lt; ModelLoader &gt; create(const std::shared_ptr&lt; TextureLibrary &gt; &amp;textureLibrary, const std::shared_ptr&lt; MaterialLibrary &gt; &amp;materialLibrary)</div><div class="ttdef"><b>Definition:</b> modelloader.cpp:11</div></div>

@@ -109,8 +109,8 @@ Collaboration diagram for MeshLibrary:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aec66872929b8534654e5e7c073fdd28b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#aec66872929b8534654e5e7c073fdd28b">createMesh</a> (const std::string &amp;filename, const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;material)</td></tr>
-<tr class="separator:aec66872929b8534654e5e7c073fdd28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a532b2801f6e53715390314576c7a1509"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#a532b2801f6e53715390314576c7a1509">createMesh</a> (const std::string &amp;filename, const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;material, bool normalizePos=false)</td></tr>
+<tr class="separator:a532b2801f6e53715390314576c7a1509"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9fd411bc7b21e8da873f567b33d488c"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#ac9fd411bc7b21e8da873f567b33d488c">getMeshes</a> ()</td></tr>
 <tr class="separator:ac9fd411bc7b21e8da873f567b33d488c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -175,8 +175,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aec66872929b8534654e5e7c073fdd28b" name="aec66872929b8534654e5e7c073fdd28b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec66872929b8534654e5e7c073fdd28b">&#9670;&nbsp;</a></span>createMesh()</h2>
+<a id="a532b2801f6e53715390314576c7a1509" name="a532b2801f6e53715390314576c7a1509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a532b2801f6e53715390314576c7a1509">&#9670;&nbsp;</a></span>createMesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +191,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>material</em>&#160;</td>
+          <td class="paramname"><em>material</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>normalizePos</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
