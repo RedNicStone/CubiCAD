@@ -228,8 +228,9 @@ void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCom
         }
 
         graphicsCommandBuffer->drawIndexedIndirect(indirectCommandBuffer->getBuffer(),
-                                                   1,
-                                                   0);
+                                                   drawCall.drawCallLength,
+                                                   drawCall.drawCallOffset * sizeof(VkDrawIndexedIndirectCommand),
+                                                   sizeof(VkDrawIndexedIndirectCommand));
     }
 }
 
