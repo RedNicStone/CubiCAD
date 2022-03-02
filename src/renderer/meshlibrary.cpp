@@ -14,9 +14,10 @@ std::shared_ptr<MeshLibrary> MeshLibrary::create(const std::shared_ptr<TextureLi
 }
 
 std::vector<std::shared_ptr<Mesh>> MeshLibrary::createMesh(const std::string &filename,
-                                                           const std::shared_ptr<MasterMaterial> &material) {
+                                                           const std::shared_ptr<MasterMaterial> &material,
+                                                           bool normalizePos) {
     if (meshes[filename].empty()) {
-        auto mesh = modelLoader->import(filename, material);
+        auto mesh = modelLoader->import(filename, material, normalizePos);
         meshes[filename] = mesh;
     }
     return meshes[filename];

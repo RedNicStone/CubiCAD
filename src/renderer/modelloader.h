@@ -37,7 +37,8 @@ class ModelLoader {
                                      const std::string &modelFilename);
 
     std::vector<std::shared_ptr<Mesh>> import(const std::string &filename,
-                                              const std::shared_ptr<MasterMaterial> &masterMaterial);
+                                              const std::shared_ptr<MasterMaterial> &masterMaterial,
+                                              bool normalizePos = false);
 };
 
 #endif //CUBICAD_MODELLOADER_H

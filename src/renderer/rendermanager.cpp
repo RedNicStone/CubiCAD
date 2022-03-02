@@ -501,8 +501,9 @@ void RenderManager::updateRenderData() {
     scene->bakeMaterials(true);
 }
 
-void RenderManager::loadMesh(const std::string &filename) {
-    auto meshes = meshLibrary->createMesh(filename, defaultMaterial);
+void RenderManager::loadMesh(const std::string &filename,
+                             bool normalizePos) {
+    auto meshes = meshLibrary->createMesh(filename, defaultMaterial, normalizePos);
     for (const auto &mesh: meshes)
         scene->submitInstance(MeshInstance::create(mesh));
 }

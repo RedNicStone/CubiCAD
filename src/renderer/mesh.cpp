@@ -8,15 +8,18 @@
 std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
                                    const std::vector<Vertex>& vertexData,
                                    const BoundingBox &bbox,
-                                   const std::string &pName) {
+                                   const std::string &pName,
+                                   bool normalizePos) {
     auto mesh = std::make_shared<Mesh>();
     mesh->subMeshes = meshlets;
 
     mesh->boundingBox = bbox;
-    glm::vec3 mean = (bbox.pos1 + bbox.pos2) / glm::vec3(2);
-    mesh->boundingBox.pos1 -= mean;
-    mesh->boundingBox.pos2 -= mean;
-    mesh->mean = mean;
+    if (normalizePos) {
+        glm::vec3 mean = (bbox.pos1 + bbox.pos2) / glm::vec3(2);
+        mesh->boundingBox.pos1 -= mean;
+        mesh->boundingBox.pos2 -= mean;
+        mesh->mean = mean;
+    }
     mesh->vertexData = vertexData;
 
     if (pName.empty())

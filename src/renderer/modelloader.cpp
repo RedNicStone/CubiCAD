@@ -127,7 +127,8 @@ std::string ModelLoader::locateTexture(const std::string &textureFilename,
 }
 
 std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filename,
-                                                       const std::shared_ptr<MasterMaterial> &masterMaterial) {
+                                                       const std::shared_ptr<MasterMaterial> &masterMaterial,
+                                                       bool normalizePos) {
     if (!reader.ParseFromFile(filename, config)) {
         if (!reader.Error().empty()) {
             throw std::runtime_error(reader.Error());
@@ -220,7 +221,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
             vertexVector[kv.second] = kv.first;
         }
 
-        meshes.push_back(Mesh::create(meshletVector, vertexVector, bbox, shape.name));
+        meshes.push_back(Mesh::create(meshletVector, vertexVector, bbox, shape.name, normalizePos));
     }
 
     return meshes;

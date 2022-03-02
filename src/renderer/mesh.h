@@ -71,7 +71,8 @@ class Mesh {
     static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
                                         const std::vector<Vertex>& vertexData,
                                         const BoundingBox &bbox,
-                                        const std::string &pName = "");
+                                        const std::string &pName = "",
+                                        bool normalizePos = false);
 
     void setName(const std::string &pName) { name = pName; }
 

@@ -22,7 +22,8 @@ class MeshLibrary {
                                                const std::shared_ptr<MaterialLibrary> &materialLibrary);
 
     std::vector<std::shared_ptr<Mesh>> createMesh(const std::string &filename,
-                                                  const std::shared_ptr<MasterMaterial> &material);
+                                                  const std::shared_ptr<MasterMaterial> &material,
+                                                  bool normalizePos = false);
 
     std::unordered_map<std::string, std::vector<std::shared_ptr<Mesh>>> getMeshes() { return meshes; }
 };
