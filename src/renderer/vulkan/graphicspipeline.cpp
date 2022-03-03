@@ -19,7 +19,9 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(const std::shared_ptr
                                                            std::vector<VkVertexInputBindingDescription> bindingDescription,
                                                            std::vector<VkVertexInputAttributeDescription> attributeDescription,
                                                            bool enableDepthStencil,
-                                                           uint32_t subpass) {
+                                                           uint32_t subpass,
+                                                           const std::vector<VkSpecializationInfo*>
+                                                               &shaderSpecialization) {
     auto graphicsPipeline = std::make_shared<GraphicsPipeline>();
     graphicsPipeline->device = pDevice;
     graphicsPipeline->layout = pLayout;
@@ -28,6 +30,9 @@ std::shared_ptr<GraphicsPipeline> GraphicsPipeline::create(const std::shared_ptr
     shaderStages.reserve(shaders.size());
     for (auto &shader: shaders) {
         shaderStages.push_back(shader->pipelineStageInfo());
+    }
+    for (size_t i = 0; i < shaderSpecialization.size(); ++i) {
+        shaderStages[i].pSpecializationInfo = shaderSpecialization[i];
     }
 
     VkPipelineVertexInputStateCreateInfo vertexInputInfo{};

@@ -11,8 +11,9 @@
 #include <stdexcept>
 
 
-enum MaterialPropertyInput {
-    MATERIAL_PROPERTY_INPUT_CONSTANT = 0, MATERIAL_PROPERTY_INPUT_TEXTURE = 1 << 0,
+enum MaterialPropertyInput : uint32_t {
+    MATERIAL_PROPERTY_INPUT_CONSTANT = 0,
+    MATERIAL_PROPERTY_INPUT_TEXTURE = 1,
 };
 
 enum MaterialPropertyFormat {

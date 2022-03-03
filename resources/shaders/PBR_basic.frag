@@ -11,9 +11,9 @@ layout(set = 0, binding = 0) uniform SceneInfo {
 } scene_info;
 layout(set = 1, binding = 0) uniform sampler samp;
 layout(set = 2, binding = 0) uniform ShaderProperties {
-    vec4 color;
+    vec4 diffuse;
 } properties;
-layout(set = 2, binding = 1) uniform texture2D color;
+layout(set = 2, binding = 1) uniform texture2D diffuse;
 
 flat layout(location = 0) in uint vert_instance_id;
 layout(location = 1) in vec2 vert_uv;
@@ -24,6 +24,8 @@ layout(location = 1) out vec4 shading_pos;
 layout(location = 2) out vec2 shading_normal;
 
 layout(location = 3) out uint backbuffer_instance_id;
+
+layout (constant_id = 0) const int USE_DIFFUSE_TEX = 0;
 
 float xor(float an) {
     vec2 p = 256.0 * vert_uv;
@@ -47,7 +49,11 @@ float xor(float an) {
 }
 
 void main() {
-    vec4 color = texture(sampler2D(color, samp), vert_uv);
+    vec4 color;
+    if (USE_DIFFUSE_TEX == 1)
+        color = texture(sampler2D(diffuse, samp), vert_uv);
+    else
+        color = properties.diffuse ;
     float brightness = (int(vert_instance_id == scene_info.selectedID) * 2 + int(vert_instance_id == scene_info.hoveredID)) / 3.0f;
     shading_diffuse = vec4(color + vec4(vec3(brightness) / 3, 1.0f));
     shading_pos = vec4(vert_pos, 0.0);

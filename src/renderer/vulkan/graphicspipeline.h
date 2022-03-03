@@ -34,7 +34,9 @@ class GraphicsPipeline : public PipelineBase {
                                                     std::vector<VkVertexInputBindingDescription> bindingDescription = {},
                                                     std::vector<VkVertexInputAttributeDescription> attributeDescription = {},
                                                     bool enableDepthStencil = false,
-                                                    uint32_t subpass = 0);
+                                                    uint32_t subpass = 0,
+                                                    const std::vector<VkSpecializationInfo*>& shaderSpecialization =
+                                                        {});
 
     VkPipelineBindPoint getBindPoint() final { return VK_PIPELINE_BIND_POINT_GRAPHICS; }
 
