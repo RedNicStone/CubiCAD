@@ -85,7 +85,6 @@ var annotated_dup =
     [ "ObjectList", "class_object_list.html", "class_object_list" ],
     [ "ObjectProperties", "class_object_properties.html", "class_object_properties" ],
     [ "optional", "structoptional.html", "structoptional" ],
-    [ "PBRMaterialParameters", "struct_p_b_r_material_parameters.html", "struct_p_b_r_material_parameters" ],
     [ "PhysicalDevice", "class_physical_device.html", "class_physical_device" ],
     [ "PipelineBase", "class_pipeline_base.html", "class_pipeline_base" ],
     [ "PipelineLayout", "class_pipeline_layout.html", "class_pipeline_layout" ],

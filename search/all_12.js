@@ -40,7 +40,7 @@ var searchData=
   ['rendermanager_37',['RenderManager',['../class_render_manager.html',1,'']]],
   ['rendermanager_2ecpp_38',['rendermanager.cpp',['../rendermanager_8cpp.html',1,'']]],
   ['rendermanager_2eh_39',['rendermanager.h',['../rendermanager_8h.html',1,'']]],
-  ['renderpass_40',['renderPass',['../class_mandelbrot_app.html#a7d215ed2c6f58d01c42efe4785d7f24b',1,'MandelbrotApp::renderPass()'],['../class_render_manager.html#a580674496dc4a3fec8be6a9e99b2e195',1,'RenderManager::renderPass()'],['../class_master_material.html#a1c4b51781834e532624c07aa7d262532',1,'MasterMaterial::renderPass()']]],
+  ['renderpass_40',['renderPass',['../class_render_manager.html#a580674496dc4a3fec8be6a9e99b2e195',1,'RenderManager::renderPass()'],['../class_mandelbrot_app.html#a7d215ed2c6f58d01c42efe4785d7f24b',1,'MandelbrotApp::renderPass()'],['../class_master_material.html#a1c4b51781834e532624c07aa7d262532',1,'MasterMaterial::renderPass()']]],
   ['renderpass_41',['RenderPass',['../class_render_pass.html',1,'']]],
   ['renderpass_2ecpp_42',['renderpass.cpp',['../renderpass_8cpp.html',1,'']]],
   ['renderpass_2eh_43',['renderpass.h',['../renderpass_8h.html',1,'']]],
@@ -64,8 +64,7 @@ var searchData=
   ['rot_61',['rot',['../class_mesh_instance.html#af7ed8d7a0e260d5b6fcc52656be1de4a',1,'MeshInstance::rot()'],['../class_object_properties.html#a89225c66c36cc001c39d874977d1a7e6',1,'ObjectProperties::rot()']]],
   ['rotate_62',['rotate',['../class_camera.html#a25423f6fbeab3064b2a6185ee5727ad7',1,'Camera']]],
   ['rotation_63',['rotation',['../class_camera.html#a323b8cfd7f1518ddac7d36eb744a729a',1,'Camera']]],
-  ['roughness_64',['roughness',['../struct_p_b_r_material_parameters.html#aed2c70ecad90c5f259c583b5c4ac666a',1,'PBRMaterialParameters']]],
-  ['run_65',['run',['../class_vulkan_rasterizer.html#add1cfb13a3ae242ca9eef6c1e9e42751',1,'VulkanRasterizer::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()']]],
-  ['runrenderloop_66',['runRenderLoop',['../class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f',1,'RenderBus']]],
-  ['runrenderloop_5f_67',['runRenderLoop_',['../class_render_bus.html#a0c6c79cea328c4475de527b874ce517a',1,'RenderBus']]]
+  ['run_64',['run',['../class_vulkan_rasterizer.html#add1cfb13a3ae242ca9eef6c1e9e42751',1,'VulkanRasterizer::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()']]],
+  ['runrenderloop_65',['runRenderLoop',['../class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f',1,'RenderBus']]],
+  ['runrenderloop_5f_66',['runRenderLoop_',['../class_render_bus.html#a0c6c79cea328c4475de527b874ce517a',1,'RenderBus']]]
 ];

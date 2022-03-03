@@ -65,7 +65,6 @@ var hierarchy =
     ] ],
     [ "CCAD_OT::OtOctree", "class_c_c_a_d___o_t_1_1_ot_octree.html", null ],
     [ "CCAD_OT::OtSurfaceInfo", "struct_c_c_a_d___o_t_1_1_ot_surface_info.html", null ],
-    [ "PBRMaterialParameters", "struct_p_b_r_material_parameters.html", null ],
     [ "StackAllocator::PhysicalPage", "struct_stack_allocator_1_1_physical_page.html", null ],
     [ "DescriptorPoolManager::PoolSizes", "struct_descriptor_pool_manager_1_1_pool_sizes.html", null ],
     [ "PossibleQueueFamily", "struct_possible_queue_family.html", null ],

@@ -24,9 +24,9 @@ var materialparameters_8h =
       [ "MATERIAL_PROPERTY_FORMAT_SRGB", "materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93a29b1a47be6c7598d9aea862bd8847524", null ],
       [ "MATERIAL_PROPERTY_FORMAT_MAX_ENUM", "materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93aa114883fde9a12b6e8af8a3fc3919131", null ]
     ] ],
-    [ "MaterialPropertyInput", "materialparameters_8h.html#ab1fb05fec9e7b4b80228a663019d3297", [
-      [ "MATERIAL_PROPERTY_INPUT_CONSTANT", "materialparameters_8h.html#ab1fb05fec9e7b4b80228a663019d3297ac39829b3998f9b7b7c5631a453496898", null ],
-      [ "MATERIAL_PROPERTY_INPUT_TEXTURE", "materialparameters_8h.html#ab1fb05fec9e7b4b80228a663019d3297af4cb5eb80fe4bd3b25d86ca06db86c5e", null ]
+    [ "MaterialPropertyInput", "materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6e", [
+      [ "MATERIAL_PROPERTY_INPUT_CONSTANT", "materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6eac39829b3998f9b7b7c5631a453496898", null ],
+      [ "MATERIAL_PROPERTY_INPUT_TEXTURE", "materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6eaf4cb5eb80fe4bd3b25d86ca06db86c5e", null ]
     ] ],
     [ "MaterialPropertySize", "materialparameters_8h.html#ae14bb1d8c0b18d35108fec4cd1c3f669", [
       [ "MATERIAL_PROPERTY_SIZE_8", "materialparameters_8h.html#ae14bb1d8c0b18d35108fec4cd1c3f669abc20979edb974a17c5df0b6f22c7c1b8", null ],

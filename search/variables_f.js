@@ -12,6 +12,5 @@ var searchData=
   ['resized_9',['resized',['../class_window.html#abfd6a085fe40e9011e695b2840640e2e',1,'Window']]],
   ['root_5fnode_10',['root_node',['../class_c_c_a_d___o_t_1_1_ot_octree.html#af1e01751604141ee577606c70aff5465',1,'CCAD_OT::OtOctree']]],
   ['rot_11',['rot',['../class_mesh_instance.html#af7ed8d7a0e260d5b6fcc52656be1de4a',1,'MeshInstance::rot()'],['../class_object_properties.html#a89225c66c36cc001c39d874977d1a7e6',1,'ObjectProperties::rot()']]],
-  ['rotation_12',['rotation',['../class_camera.html#a323b8cfd7f1518ddac7d36eb744a729a',1,'Camera']]],
-  ['roughness_13',['roughness',['../struct_p_b_r_material_parameters.html#aed2c70ecad90c5f259c583b5c4ac666a',1,'PBRMaterialParameters']]]
+  ['rotation_12',['rotation',['../class_camera.html#a323b8cfd7f1518ddac7d36eb744a729a',1,'Camera']]]
 ];
