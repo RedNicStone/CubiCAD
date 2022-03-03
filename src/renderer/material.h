@@ -17,22 +17,6 @@ class MasterMaterial;
 
 class DescriptorPoolManager;
 
-struct PBRMaterialParameters {
-    alignas(4)  glm::uint32 materialIndex;
-    alignas(16) glm::uvec3 diffuse;
-    alignas(16) glm::uvec3 emission;
-    alignas(16) glm::uvec3 normal;
-    alignas(4)  glm::float32 transparency;
-    alignas(4)  glm::float32 roughness;
-    alignas(4)  glm::float32 metallic;
-    alignas(4)  glm::float32 specular;
-    alignas(4)  glm::float32 sheen;
-    alignas(4)  glm::float32 clearCoatThickness;
-    alignas(4)  glm::float32 clearCoatRoughness;
-    alignas(4)  glm::float32 anisotropy;
-    alignas(4)  glm::float32 anisotropyRotation;
-};
-
 class Material {
   private:
     std::shared_ptr<MasterMaterial> masterMaterial;
