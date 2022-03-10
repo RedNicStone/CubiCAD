@@ -5,6 +5,7 @@ var materialparameters_8h =
     [ "MaterialPropertyBuiltGeneric", "struct_material_property_built_generic.html", "struct_material_property_built_generic" ],
     [ "MaterialPropertyBuilt< T >", "struct_material_property_built.html", "struct_material_property_built" ],
     [ "MaterialPropertyLayoutBuilt", "struct_material_property_layout_built.html", "struct_material_property_layout_built" ],
+    [ "MaterialPropertyInputFlag", "materialparameters_8h.html#a0516cf9db45d9b2caccb22523770c144", null ],
     [ "MaterialPropertyCount", "materialparameters_8h.html#ae8d860fed4a433ad15ead484f5b73c96", [
       [ "MATERIAL_PROPERTY_COUNT_1", "materialparameters_8h.html#ae8d860fed4a433ad15ead484f5b73c96a85f9e503cfc93412be19e4af6fea4d92", null ],
       [ "MATERIAL_PROPERTY_COUNT_2", "materialparameters_8h.html#ae8d860fed4a433ad15ead484f5b73c96a2953210689624f9a22336cbda423df50", null ],
@@ -35,6 +36,6 @@ var materialparameters_8h =
       [ "MATERIAL_PROPERTY_SIZE_64", "materialparameters_8h.html#ae14bb1d8c0b18d35108fec4cd1c3f669a4295fc4d15ab67ae97ef666cfcfaade5", null ],
       [ "MATERIAL_PROPERTY_SIZE_MAX_ENUM", "materialparameters_8h.html#ae14bb1d8c0b18d35108fec4cd1c3f669af9d3eaaa86bd40e48073d257df971a29", null ]
     ] ],
-    [ "buildLayout", "materialparameters_8h.html#a59fb9231365864f141c11f1aa4d67f6f", null ],
+    [ "buildLayout", "materialparameters_8h.html#ad19af1f50a41ceac79efdeeafc07a8ab", null ],
     [ "buildProperty", "materialparameters_8h.html#a6d0d74203f8507f343dd66edcc0d472f", null ]
 ];

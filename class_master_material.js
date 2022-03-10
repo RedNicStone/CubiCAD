@@ -9,7 +9,7 @@ var class_master_material =
     [ "getName", "class_master_material.html#aa6f2d79af9763a9f98d1fe3e2a4e41b9", null ],
     [ "getPipeline", "class_master_material.html#a011e052072c762e1b24159f914270db6", null ],
     [ "getPipelineLayout", "class_master_material.html#a7ba368be5a0fb7fabcccdea01db02314", null ],
-    [ "getPropertyLayout", "class_master_material.html#a811ae4a1b47804296c6de80119f737b6", null ],
+    [ "getPropertyLayout", "class_master_material.html#aba012ac68feef40a19b942c35f05114b", null ],
     [ "getPropertySize", "class_master_material.html#a9552e43a574c40659d38905983121a23", null ],
     [ "getRenderPass", "class_master_material.html#ade1341446c1c2e231824fb7f3aa50751", null ],
     [ "setName", "class_master_material.html#ad61454478d7d6102d3f225dbb3c9aa15", null ],
@@ -25,7 +25,7 @@ var class_master_material =
     [ "name", "class_master_material.html#a6c693ea0cbbaa51783cf2e533042c3dc", null ],
     [ "pipeline", "class_master_material.html#a75ed0ca384b95ee272768b4ca2f08828", null ],
     [ "pipelineLayout", "class_master_material.html#ac26457daa0433ba9844ef378da39936e", null ],
-    [ "propertyLayout", "class_master_material.html#a6bd3c298798001d2969cac1141e45755", null ],
+    [ "propertyLayout", "class_master_material.html#a783a9add84388da4e0d37639d3cc6bf9", null ],
     [ "renderPass", "class_master_material.html#a1c4b51781834e532624c07aa7d262532", null ],
     [ "shaders", "class_master_material.html#ae713e1f2972f5a13ec432861c6c66b06", null ],
     [ "subMaterials", "class_master_material.html#a92207660e1c1c0598f503639e3fb5204", null ]

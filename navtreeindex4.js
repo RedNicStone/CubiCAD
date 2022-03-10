@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"class_voxel_codec_sparse_octree.html#ae9643b326693ced58404fc582b759490":[2,0,112,10],
+"class_voxel_codec_sparse_octree.html#af5e6c16e8ed66a819ca63f02b2e8fd4f":[2,0,112,8],
 "class_voxel_codec_sparse_octree.html#af7196c899a1bf2c265c5cda9360fce76":[2,0,112,12],
 "class_voxel_fragment.html":[2,0,113],
 "class_voxel_fragment.html#a4c0675aaf57340cd6daa8ec9a9eac68d":[2,0,113,0],
@@ -139,8 +141,8 @@ var NAVTREEINDEX4 =
 "functions_enum.html":[2,3,4],
 "functions_eval.html":[2,3,5],
 "functions_f.html":[2,3,0,6],
-"functions_func.html":[2,3,1],
 "functions_func.html":[2,3,1,0],
+"functions_func.html":[2,3,1],
 "functions_func_a.html":[2,3,1,1],
 "functions_func_b.html":[2,3,1,2],
 "functions_func_c.html":[2,3,1,3],
@@ -182,8 +184,8 @@ var NAVTREEINDEX4 =
 "functions_type.html":[2,3,3],
 "functions_u.html":[2,3,0,21],
 "functions_v.html":[2,3,0,22],
-"functions_vars.html":[2,3,2],
 "functions_vars.html":[2,3,2,0],
+"functions_vars.html":[2,3,2],
 "functions_vars_b.html":[2,3,2,1],
 "functions_vars_c.html":[2,3,2,2],
 "functions_vars_d.html":[2,3,2,3],
@@ -212,8 +214,8 @@ var NAVTREEINDEX4 =
 "functions_y.html":[2,3,0,25],
 "functions_z.html":[2,3,0,26],
 "functions_~.html":[2,3,0,27],
-"globals.html":[3,1,0,0],
 "globals.html":[3,1,0],
+"globals.html":[3,1,0,0],
 "globals_b.html":[3,1,0,1],
 "globals_c.html":[3,1,0,2],
 "globals_d.html":[3,1,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "imageview_8cpp.html":[3,0,0,1,1,24],
 "imageview_8h.html":[3,0,0,1,1,25],
 "imageview_8h.html#a05cb25530db0647ba1f0bf7e309509ba":[3,0,0,1,1,25,1],
-"imageview_8h_source.html":[3,0,0,1,1,25],
-"index.html":[],
-"instance_8cpp.html":[3,0,0,1,1,26]
+"imageview_8h_source.html":[3,0,0,1,1,25]
 };

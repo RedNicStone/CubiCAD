@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"class_sampler.html":[2,0,83],
+"class_sampler.html#aa0d5ab62adb6c35e49359cff342a9c19":[2,0,83,1],
 "class_sampler.html#afbbbd238b78dd3024686c852b69fa64e":[2,0,83,0],
 "class_scene.html":[2,0,84],
 "class_scene.html#a0423a986c9d07cce66ef9e5cb1c903f9":[2,0,84,32],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "class_voxel_codec_sparse_octree.html#a83e1380e77c6f77a44910c73eba1fe0d":[2,0,112,2],
 "class_voxel_codec_sparse_octree.html#a8b0c081bbbdedeb307d0b91c0999f3a6":[2,0,112,7],
 "class_voxel_codec_sparse_octree.html#ab3695180e3264492804f4297e66a4c2d":[2,0,112,5],
-"class_voxel_codec_sparse_octree.html#abbf451580c307422df81741ba5f3465a":[2,0,112,11],
-"class_voxel_codec_sparse_octree.html#ae9643b326693ced58404fc582b759490":[2,0,112,10],
-"class_voxel_codec_sparse_octree.html#af5e6c16e8ed66a819ca63f02b2e8fd4f":[2,0,112,8]
+"class_voxel_codec_sparse_octree.html#abbf451580c307422df81741ba5f3465a":[2,0,112,11]
 };

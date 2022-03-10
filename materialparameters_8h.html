@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('materialparameters_8h.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">materialparameters.h File Reference</div></div>
@@ -101,10 +102,11 @@ $(document).ready(function(){initNavTree('materialparameters_8h.html',''); initR
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;glm/glm.hpp&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for materialparameters.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="materialparameters_8h__incl.svg" width="426" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="materialparameters_8h__incl.svg" width="518" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -129,10 +131,15 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_material_property_layout_built.html">MaterialPropertyLayoutBuilt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a0516cf9db45d9b2caccb22523770c144"><td class="memItemLeft" align="right" valign="top">typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materialparameters_8h.html#a0516cf9db45d9b2caccb22523770c144">MaterialPropertyInputFlag</a></td></tr>
+<tr class="separator:a0516cf9db45d9b2caccb22523770c144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a6105e85bf40e6409d1bc5d121440ae6e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6e">MaterialPropertyInput</a> : uint32_t { <a class="el" href="materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6eac39829b3998f9b7b7c5631a453496898">MATERIAL_PROPERTY_INPUT_CONSTANT</a> = 0
-, <a class="el" href="materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6eaf4cb5eb80fe4bd3b25d86ca06db86c5e">MATERIAL_PROPERTY_INPUT_TEXTURE</a> = 1
+<tr class="memitem:a6105e85bf40e6409d1bc5d121440ae6e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6e">MaterialPropertyInput</a> : uint32_t { <a class="el" href="materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6eac39829b3998f9b7b7c5631a453496898">MATERIAL_PROPERTY_INPUT_CONSTANT</a> = 1
+, <a class="el" href="materialparameters_8h.html#a6105e85bf40e6409d1bc5d121440ae6eaf4cb5eb80fe4bd3b25d86ca06db86c5e">MATERIAL_PROPERTY_INPUT_TEXTURE</a> = 2
  }</td></tr>
 <tr class="separator:a6105e85bf40e6409d1bc5d121440ae6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04412b708d3bae506f32517f21d4bd93"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materialparameters_8h.html#a04412b708d3bae506f32517f21d4bd93">MaterialPropertyFormat</a> { <br />
@@ -176,9 +183,24 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a6d0d74203f8507f343dd66edcc0d472f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_material_property_built_generic.html">MaterialPropertyBuiltGeneric</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materialparameters_8h.html#a6d0d74203f8507f343dd66edcc0d472f">buildProperty</a> (const <a class="el" href="struct_material_property.html">MaterialProperty</a> &amp;property)</td></tr>
 <tr class="separator:a6d0d74203f8507f343dd66edcc0d472f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59fb9231365864f141c11f1aa4d67f6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_material_property_layout_built.html">MaterialPropertyLayoutBuilt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materialparameters_8h.html#a59fb9231365864f141c11f1aa4d67f6f">buildLayout</a> (const <a class="el" href="struct_material_property_layout.html">MaterialPropertyLayout</a> &amp;layout)</td></tr>
-<tr class="separator:a59fb9231365864f141c11f1aa4d67f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad19af1f50a41ceac79efdeeafc07a8ab"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="struct_material_property_layout_built.html">MaterialPropertyLayoutBuilt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="materialparameters_8h.html#ad19af1f50a41ceac79efdeeafc07a8ab">buildLayout</a> (const <a class="el" href="struct_material_property_layout.html">MaterialPropertyLayout</a> &amp;layout)</td></tr>
+<tr class="separator:ad19af1f50a41ceac79efdeeafc07a8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a0516cf9db45d9b2caccb22523770c144" name="a0516cf9db45d9b2caccb22523770c144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0516cf9db45d9b2caccb22523770c144">&#9670;&nbsp;</a></span>MaterialPropertyInputFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef uint32_t <a class="el" href="materialparameters_8h.html#a0516cf9db45d9b2caccb22523770c144">MaterialPropertyInputFlag</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ae8d860fed4a433ad15ead484f5b73c96" name="ae8d860fed4a433ad15ead484f5b73c96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8d860fed4a433ad15ead484f5b73c96">&#9670;&nbsp;</a></span>MaterialPropertyCount</h2>
@@ -267,14 +289,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a59fb9231365864f141c11f1aa4d67f6f" name="a59fb9231365864f141c11f1aa4d67f6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59fb9231365864f141c11f1aa4d67f6f">&#9670;&nbsp;</a></span>buildLayout()</h2>
+<a id="ad19af1f50a41ceac79efdeeafc07a8ab" name="ad19af1f50a41ceac79efdeeafc07a8ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad19af1f50a41ceac79efdeeafc07a8ab">&#9670;&nbsp;</a></span>buildLayout()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_material_property_layout_built.html">MaterialPropertyLayoutBuilt</a> buildLayout </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="struct_material_property_layout_built.html">MaterialPropertyLayoutBuilt</a> &gt; buildLayout </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_material_property_layout.html">MaterialPropertyLayout</a> &amp;&#160;</td>
           <td class="paramname"><em>layout</em></td><td>)</td>
@@ -285,13 +307,13 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="materialparameters_8h_a59fb9231365864f141c11f1aa4d67f6f_cgraph.svg" width="244" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="materialparameters_8h_ad19af1f50a41ceac79efdeeafc07a8ab_cgraph.svg" width="244" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="materialparameters_8h_a59fb9231365864f141c11f1aa4d67f6f_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="materialparameters_8h_ad19af1f50a41ceac79efdeeafc07a8ab_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 

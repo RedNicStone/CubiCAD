@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_material_library.html',''); init
 <div class="dynheader">
 Collaboration diagram for MaterialLibrary:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library__coll__graph.svg" width="147" height="220"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_material_library__coll__graph.svg" width="147" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -125,12 +125,16 @@ Private Attributes</h2></td></tr>
 <tr class="separator:adc301b28f54c453b75cb246d0d95d934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a157bf7bcfcf2c9e744cfdc823263f731"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a157bf7bcfcf2c9e744cfdc823263f731">transferPool</a></td></tr>
 <tr class="separator:a157bf7bcfcf2c9e744cfdc823263f731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2bcbc53de1f0a4e67ff21f65fdccab6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#ad2bcbc53de1f0a4e67ff21f65fdccab6">alignment</a></td></tr>
+<tr class="separator:ad2bcbc53de1f0a4e67ff21f65fdccab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a961419073c62e9b2780b8c1c29e9c91f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a961419073c62e9b2780b8c1c29e9c91f">bufferOODSize</a> {}</td></tr>
 <tr class="separator:a961419073c62e9b2780b8c1c29e9c91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d527a50faf6579285ab9c6b96fa97ee"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a5d527a50faf6579285ab9c6b96fa97ee">bufferSize</a></td></tr>
 <tr class="separator:a5d527a50faf6579285ab9c6b96fa97ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a749af8a6b2993a12dadfa1d5ebeec288"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_dynamic_buffer.html">DynamicBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a749af8a6b2993a12dadfa1d5ebeec288">materialBuffer</a></td></tr>
 <tr class="separator:a749af8a6b2993a12dadfa1d5ebeec288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e2b377ed6f9c09593d5514a0f93b15e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a1e2b377ed6f9c09593d5514a0f93b15e">prevBuffer</a> {}</td></tr>
+<tr class="separator:a1e2b377ed6f9c09593d5514a0f93b15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8f3c235314eb9aaad545f5ec8d3d5ac"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#aa8f3c235314eb9aaad545f5ec8d3d5ac">descriptorPool</a></td></tr>
 <tr class="separator:aa8f3c235314eb9aaad545f5ec8d3d5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa11d60929fa8b3e5f5db61658f74a54a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#aa11d60929fa8b3e5f5db61658f74a54a">textureLibrary</a></td></tr>
@@ -269,6 +273,28 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad2bcbc53de1f0a4e67ff21f65fdccab6" name="ad2bcbc53de1f0a4e67ff21f65fdccab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2bcbc53de1f0a4e67ff21f65fdccab6">&#9670;&nbsp;</a></span>alignment</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t MaterialLibrary::alignment</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a961419073c62e9b2780b8c1c29e9c91f" name="a961419073c62e9b2780b8c1c29e9c91f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a961419073c62e9b2780b8c1c29e9c91f">&#9670;&nbsp;</a></span>bufferOODSize</h2>
 
@@ -390,6 +416,28 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::map&lt;std::shared_ptr&lt;<a class="el" href="class_master_material.html">MasterMaterial</a>&gt;, std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_material.html">Material</a>&gt; &gt; &gt; MaterialLibrary::materials</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e2b377ed6f9c09593d5514a0f93b15e" name="a1e2b377ed6f9c09593d5514a0f93b15e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e2b377ed6f9c09593d5514a0f93b15e">&#9670;&nbsp;</a></span>prevBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_buffer.html">Buffer</a>&gt; MaterialLibrary::prevBuffer {}</td>
         </tr>
       </table>
   </td>
