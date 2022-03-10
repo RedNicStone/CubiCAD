@@ -272,7 +272,8 @@ void RenderManager::createDefaultMaterial() {
     std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
 
     std::vector<MaterialProperty> materialProperties(1);
-    materialProperties[0].input = MATERIAL_PROPERTY_INPUT_CONSTANT | MATERIAL_PROPERTY_INPUT_TEXTURE;
+    materialProperties[0].input =
+        static_cast<MaterialPropertyInput>(MATERIAL_PROPERTY_INPUT_CONSTANT | MATERIAL_PROPERTY_INPUT_TEXTURE);
     materialProperties[0].size = MATERIAL_PROPERTY_SIZE_8;
     materialProperties[0].count = MATERIAL_PROPERTY_COUNT_4;
     materialProperties[0].format = MATERIAL_PROPERTY_FORMAT_SRGB;
@@ -358,6 +359,53 @@ void RenderManager::processMouseInputs() {
             camera->rotate(io.MouseDelta.x * mouseSpeed, {0, -1, 0});
             camera->rotate(io.MouseDelta.y * mouseSpeed, glm::normalize(glm::cross({0, 1, 0}, camera->getRotation())));
         }
+
+        if (!io.WantCaptureKeyboard) {
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_0) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_1) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_DIFFUSE;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_2) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_DEPTH;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_3) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_POSITION;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_4) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_NORMAL;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_5) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_UV;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_6) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_7) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_8) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_9) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_9) == GLFW_PRESS) {
+                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
+                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
+            }
+        }
     }
 }
 
@@ -384,12 +432,12 @@ void RenderManager::drawFrame() {
 
     // clear and begin render pass (Geometry)
     std::vector<VkClearValue> clearColor(RENDER_TARGET_MAX + 2);
-    clearColor[0].color = {{0.0f, 0.0f, 0.0f, 1.0f}};
-    clearColor[1].color = {{0, 0, 0, 1}};
+    clearColor[0].color                                 = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[1].color                                 = {{0.0f, 0.0f, 0.0f, 0.0f}};
     clearColor[RENDER_TARGET_DEPTH + 2].depthStencil    = {1.0, 0};
-    clearColor[RENDER_TARGET_DIFFUSE + 2].color         = {{0.0f, 0.0f, 0.0f, 1.0f}};
-    clearColor[RENDER_TARGET_POSITION + 2].color        = {{0.0f, 0.0f, 0.0f, 1.0f}};
-    clearColor[RENDER_TARGET_NORMAL + 2].color          = {{0.0f, 0.0f, 0.0f, 1.0f}};
+    clearColor[RENDER_TARGET_DIFFUSE + 2].color         = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_POSITION + 2].color        = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_NORMAL + 2].color          = {{0.0f, 0.0f, 0.0f, 0.0f}};
     drawCommandBuffer->beginRenderPass(renderPass, frameBuffer, clearColor, index, frameBuffer->getExtent(), {0, 0});
 
     // write all commands to draw the scene

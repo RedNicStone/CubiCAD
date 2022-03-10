@@ -30,6 +30,15 @@ enum RenderTarget : uint32_t {
     RENDER_TARGET_MAX           = 4
 };
 
+enum SelectableRenderTarget : uint32_t {
+    SELECTABLE_RENDER_TARGET_DIFFUSE       = 0,
+    SELECTABLE_RENDER_TARGET_DEPTH         = 1,
+    SELECTABLE_RENDER_TARGET_POSITION      = 2,
+    SELECTABLE_RENDER_TARGET_NORMAL        = 3,
+    SELECTABLE_RENDER_TARGET_UV            = 4,
+    SELECTABLE_RENDER_TARGET_MAX           = 5
+};
+
 class RenderManager : public std::enable_shared_from_this<RenderManager> {
   private:
     // external objects
@@ -99,7 +108,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     bool mouseCaptured = false;
     const float mouseSpeed = 0.001f;
 
-    RenderTarget activePresentTarget = RENDER_TARGET_DEFAULT;
+    SelectableRenderTarget activePresentTarget = SELECTABLE_RENDER_TARGET_DIFFUSE;
 
     // creation procedures
     void pickPhysicalDevice();
