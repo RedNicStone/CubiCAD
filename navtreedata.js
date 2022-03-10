@@ -71,8 +71,8 @@ var NAVTREEINDEX =
 "class_sampler.html",
 "class_voxel_codec_sparse_octree.html#ae9643b326693ced58404fc582b759490",
 "index.html",
-"scenewriter_8h.html#a2f2eef0ee4477f3fe5874703a66e997f",
-"structstd_1_1hash_3_01_vertex_01_4.html#a6ca0b0b4c01c345481ca4ae6a3b791e1"
+"scene_8h.html#a379c8a27e025bad76e63e2122166c4f3",
+"structoptional.html#aa840f6692296e5791bd622ba028e4801"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -30,7 +30,7 @@ var class_render_manager =
     [ "recreateSwapChain", "class_render_manager.html#a3e54c122912e1b713b2f6357cdc370fb", null ],
     [ "resizeSwapChain", "class_render_manager.html#ab087dc4ee1c6e377ca52ee44d1591c29", null ],
     [ "updateRenderData", "class_render_manager.html#a46bda20725ceb8e5ab8031a6ac812310", null ],
-    [ "activePresentTarget", "class_render_manager.html#aa1312610cc1ea73a09024a62981bef94", null ],
+    [ "activePresentTarget", "class_render_manager.html#aa3cb7b57ccca2fc5079a998adbd53d9e", null ],
     [ "camera", "class_render_manager.html#a99739a51eb72ed86f0fda52ba8e7c464", null ],
     [ "cameraModel", "class_render_manager.html#a9cf2ce738775ad5bff54f8d02501d621", null ],
     [ "computePool", "class_render_manager.html#a52228363edc5fb3e003323242e6e5eb3", null ],
