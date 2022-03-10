@@ -28,7 +28,7 @@ class MasterMaterial {
   private:
     std::shared_ptr<Device> device;
 
-    MaterialPropertyLayoutBuilt propertyLayout;
+    std::shared_ptr<MaterialPropertyLayoutBuilt> propertyLayout;
 
     VkExtent2D extent{};
     std::vector<std::shared_ptr<GraphicsShader>> shaders;
@@ -53,7 +53,7 @@ class MasterMaterial {
                                                   const std::vector<std::shared_ptr<GraphicsShader>> &vShaders,
                                                   uint32_t vColorBlendStates,
                                                   VkExtent2D vExtent,
-                                                  const MaterialPropertyLayoutBuilt &layout,
+                                                  const std::shared_ptr<MaterialPropertyLayoutBuilt> &layout,
                                                   const std::shared_ptr<RenderPass> &pRenderPass,
                                                   const std::shared_ptr<DescriptorPoolManager> &descriptorManager,
                                                   const std::string &pName);
@@ -62,8 +62,8 @@ class MasterMaterial {
     void updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout> &sceneLayout,
                                     bool enableDepthStencil = false);
     void updateImageSampler(const std::shared_ptr<TextureLibrary> &textureLibrary);
-    [[nodiscard]] size_t getPropertySize() const { return propertyLayout.totalSize; }
-    MaterialPropertyLayoutBuilt getPropertyLayout() { return propertyLayout; }
+    [[nodiscard]] size_t getPropertySize() const { return propertyLayout->totalSize; }
+    std::shared_ptr<MaterialPropertyLayoutBuilt> getPropertyLayout() { return propertyLayout; }
     std::string getName() { return name; }
 
     std::string generateMaterialName();

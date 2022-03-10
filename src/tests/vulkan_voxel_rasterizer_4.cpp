@@ -121,7 +121,7 @@ class VulkanRasterizer {
     }
 
     void loadModels() {
-        renderManager->loadMesh("resources/models/demo/viking-room/viking-room.obj");
+        renderManager->loadMesh("/home/nic/Downloads/models/Octree_demos/living_room/living_room.obj");
         renderManager->getScene()->bakeMaterials(true);
         renderManager->getScene()->collectRenderBuffers();
     }
@@ -130,7 +130,7 @@ class VulkanRasterizer {
         for (const auto &object: objects)
             renderManager->getScene()->submitInstance(object);
         renderManager->getScene()->collectRenderBuffers();
-        renderManager->getScene()->bakeMaterials(true);
+        renderManager->updateRenderData();
     }
 
     void mainLoop() {

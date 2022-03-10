@@ -55,56 +55,56 @@ void ModelLoader::loadMaterialProperties(char *property,
         }
 }
 
-std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const MaterialPropertyLayoutBuilt &materialLayout,
+std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const std::shared_ptr<MaterialPropertyLayoutBuilt> &materialLayout,
                                                                         const tinyobj::material_t &material,
                                                                         const std::shared_ptr<TextureLibrary> &textureLibrary,
                                                                         const std::string& modelFilename) {
-    auto textures = std::vector<std::shared_ptr<Texture>>(materialLayout.properties.size(), nullptr);
-    for (size_t i = 0; i < materialLayout.properties.size(); i++) {
-        if (materialLayout.properties[i]->input & MATERIAL_PROPERTY_INPUT_TEXTURE) {
+    auto textures = std::vector<std::shared_ptr<Texture>>(materialLayout->properties.size(), nullptr);
+    for (size_t i = 0; i < materialLayout->properties.size(); i++) {
+        if (materialLayout->properties[i]->input & MATERIAL_PROPERTY_INPUT_TEXTURE) {
             std::string texFile;
-            switch (hash(materialLayout.properties[i]->attributeName)) {
+            switch (hash(materialLayout->properties[i]->attributeName)) {
                 case "diffuse"_hash:
                     texFile = locateTexture(material.diffuse_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
                             textureLibrary->createTexture(texFile,
-                                                          materialLayout.properties[i]->pixelFormat);
+                                                          materialLayout->properties[i]->pixelFormat);
                     break;
                 case "emission"_hash:
                     texFile = locateTexture(material.emissive_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
                             textureLibrary->createTexture(texFile,
-                                                          materialLayout.properties[i]->pixelFormat);
+                                                          materialLayout->properties[i]->pixelFormat);
                     break;
                 case "specular"_hash:
                     texFile = locateTexture(material.specular_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
                             textureLibrary->createTexture(texFile,
-                                                          materialLayout.properties[i]->pixelFormat);
+                                                          materialLayout->properties[i]->pixelFormat);
                     break;
                 case "roughness"_hash:
                     texFile = locateTexture(material.roughness_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
                             textureLibrary->createTexture(texFile,
-                                                          materialLayout.properties[i]->pixelFormat);
+                                                          materialLayout->properties[i]->pixelFormat);
                     break;
                 case "metallic"_hash:
                     texFile = locateTexture(material.metallic_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
                             textureLibrary->createTexture(texFile,
-                                                          materialLayout.properties[i]->pixelFormat);
+                                                          materialLayout->properties[i]->pixelFormat);
                     break;
                 case "sheen"_hash:
                     texFile = locateTexture(material.sheen_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
                             textureLibrary->createTexture(texFile,
-                                                          materialLayout.properties[i]->pixelFormat);
+                                                          materialLayout->properties[i]->pixelFormat);
                     break;
             }
         }
@@ -155,7 +155,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
     for (const auto &material: materials) {
         char *properties = new char[masterMaterial->getPropertySize()];
         size_t offset = 0;
-        for (const auto &property: masterMaterial->getPropertyLayout().properties) {
+        for (const auto &property: masterMaterial->getPropertyLayout()->properties) {
             loadMaterialProperties(properties + offset, property, material);
             offset += property->getSize();
         }

@@ -53,7 +53,7 @@ void main() {
     if (USE_DIFFUSE_TEX == 1)
         color = texture(sampler2D(diffuse, samp), vert_uv);
     else
-        color = properties.diffuse ;
+        color = properties.diffuse;
     float brightness = (int(vert_instance_id == scene_info.selectedID) * 2 + int(vert_instance_id == scene_info.hoveredID)) / 3.0f;
     shading_diffuse = vec4(color + vec4(vec3(brightness) / 3, 1.0f));
     shading_pos = vec4(vert_pos, 0.0);

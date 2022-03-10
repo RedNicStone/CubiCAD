@@ -18,6 +18,10 @@ std::shared_ptr<MaterialLibrary> MaterialLibrary::create(const std::shared_ptr<D
     library->descriptorPool = pDescriptorPool;
     library->textureLibrary = textureLibrary;
 
+    VkPhysicalDeviceProperties properties{};
+    vkGetPhysicalDeviceProperties(pDevice->getPhysicalDevice()->getHandle(), &properties);
+    library->alignment = properties.limits.minUniformBufferOffsetAlignment;
+
     std::vector<glm::uint32> accessingQueueFamilyIndexes{};
     accessingQueueFamilyIndexes.reserve(accessingQueues.size() + 1);
     accessingQueueFamilyIndexes.push_back(pTransferPool->getQueueFamily()->getQueueFamilyIndex());
@@ -44,7 +48,8 @@ std::shared_ptr<Material> MaterialLibrary::registerShader(const std::shared_ptr<
     auto material = Material::create(masterMaterial, textures, parameters, name);
     materials[masterMaterial].push_back(material);
     material->updateParameterBufferOffset(bufferSize + bufferOODSize);
-    bufferOODSize += material->getMasterMaterial()->getPropertySize();
+    bufferOODSize += material->getMasterMaterial()->getPropertySize()
+        + (alignment - (material->getMasterMaterial()->getPropertySize() % alignment)) % alignment;
 
     return material;
 }
@@ -52,22 +57,27 @@ std::shared_ptr<Material> MaterialLibrary::registerShader(const std::shared_ptr<
 void MaterialLibrary::pushParameters() {
     if (bufferOODSize > 0) {
         std::vector<char> parameterBuffer(bufferSize + bufferOODSize);
+        size_t p{};
         for (const auto &pair: materials)
-            for (const auto &material: pair.second)
-                parameterBuffer.insert(parameterBuffer.end(),
+            for (const auto &material: pair.second) {
+                parameterBuffer.insert(parameterBuffer.begin() + static_cast<long>(p),
                                        static_cast<char *>(material->getParameters()),
                                        static_cast<char *>(material->getParameters()) + pair.first->getPropertySize());
+                p += pair.first->getPropertySize()
+                    + (alignment - (pair.first->getPropertySize() % alignment)) % alignment;
+            }
 
-        auto prevBuffer = materialBuffer->getBuffer();
         materialBuffer->getBufferPreserveContents(bufferSize + bufferOODSize, transferPool)
             ->transferDataStaged(parameterBuffer.data() + bufferSize, transferPool, bufferOODSize, bufferSize);
 
         bufferSize += bufferOODSize;
         bufferOODSize = 0;
 
-        if (prevBuffer != materialBuffer->getBuffer())
+        if (prevBuffer != materialBuffer->getBuffer()) {
             for (const auto &pair: materials)
                 for (const auto &material: pair.second)
                     material->updateParameterBuffer(materialBuffer->getBuffer());
+            prevBuffer = materialBuffer->getBuffer();
+        }
     }
 }

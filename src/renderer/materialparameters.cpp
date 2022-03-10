@@ -7,7 +7,7 @@
 
 MaterialPropertyBuiltGeneric *buildProperty(const MaterialProperty& property) {
     VkFormat pixelFormat = VK_FORMAT_UNDEFINED;
-    if (property.input == MATERIAL_PROPERTY_INPUT_TEXTURE) {
+    if (property.input & MATERIAL_PROPERTY_INPUT_TEXTURE) {
         switch (property.size) {
             case MATERIAL_PROPERTY_SIZE_8:pixelFormat = static_cast<VkFormat>(9);
                 switch (property.format) {
@@ -74,7 +74,7 @@ MaterialPropertyBuiltGeneric *buildProperty(const MaterialProperty& property) {
         }
     }
     MaterialPropertyBuiltGeneric *built;
-    if (property.input == MATERIAL_PROPERTY_INPUT_CONSTANT) {
+    if (property.input & MATERIAL_PROPERTY_INPUT_CONSTANT) {
         switch (property.format) {
             case MATERIAL_PROPERTY_FORMAT_USCALED:
             case MATERIAL_PROPERTY_FORMAT_UINT:
@@ -241,16 +241,16 @@ MaterialPropertyBuiltGeneric *buildProperty(const MaterialProperty& property) {
     return built;
 }
 
-MaterialPropertyLayoutBuilt buildLayout(const MaterialPropertyLayout &layout) {
-    MaterialPropertyLayoutBuilt layoutBuilt{};
+std::shared_ptr<MaterialPropertyLayoutBuilt> buildLayout(const MaterialPropertyLayout &layout) {
+    std::shared_ptr<MaterialPropertyLayoutBuilt> layoutBuilt = std::make_shared<MaterialPropertyLayoutBuilt>();
     size_t totalSize = 0;
     for (const auto &property: layout.properties) {
         auto builtProperty = buildProperty(property);
         if (builtProperty == nullptr)
             throw std::runtime_error("Unable to build material property");
-        layoutBuilt.properties.push_back(builtProperty);
+        layoutBuilt->properties.push_back(builtProperty);
         totalSize += builtProperty->getSize();
     }
-    layoutBuilt.totalSize = totalSize;
+    layoutBuilt->totalSize = totalSize;
     return layoutBuilt;
 }

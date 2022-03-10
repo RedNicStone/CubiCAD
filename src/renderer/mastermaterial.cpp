@@ -9,7 +9,7 @@ std::shared_ptr<MasterMaterial> MasterMaterial::create(const std::shared_ptr<Dev
                                                        const std::vector<std::shared_ptr<GraphicsShader>> &vShaders,
                                                        uint32_t vColorBlendStates,
                                                        VkExtent2D vExtent,
-                                                       const MaterialPropertyLayoutBuilt &layout,
+                                                       const std::shared_ptr<MaterialPropertyLayoutBuilt> &layout,
                                                        const std::shared_ptr<RenderPass> &pRenderPass,
                                                        const std::shared_ptr<DescriptorPoolManager> &descriptorManager,
                                                        const std::string &pName) {
@@ -46,7 +46,7 @@ void MasterMaterial::generateMaterialSetLayout() {
     layoutBindings[1].descriptorType = VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE;
 
     uint32_t imageCount = 0;
-    for (const auto &property: propertyLayout.properties)
+    for (const auto &property: propertyLayout->properties)
         if (property->input & MATERIAL_PROPERTY_INPUT_TEXTURE)
             imageCount++;
 
@@ -85,15 +85,15 @@ void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<Descriptor
          {6, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 3}};
 
     std::vector<VkSpecializationMapEntry> specializationMap;
-    specializationMap.reserve(propertyLayout.properties.size());
-    for (size_t i = 0; i < propertyLayout.properties.size(); i++) {
+    specializationMap.reserve(propertyLayout->properties.size());
+    for (size_t i = 0; i < propertyLayout->properties.size(); i++) {
         specializationMap.push_back(
             { static_cast<uint32_t>(i), static_cast<uint32_t>(i * sizeof(uint32_t)), sizeof(uint32_t) });
     }
 
     std::vector<uint32_t> specializationData;
-    specializationData.reserve(propertyLayout.properties.size());
-    for (const auto& layout : propertyLayout.properties)
+    specializationData.reserve(propertyLayout->properties.size());
+    for (const auto& layout : propertyLayout->properties)
         specializationData.push_back(layout->input);
 
     VkSpecializationInfo specialization{};

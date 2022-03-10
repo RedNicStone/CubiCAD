@@ -29,7 +29,7 @@ class ModelLoader {
     static void loadMaterialProperties(char *property,
                                        const MaterialPropertyBuiltGeneric *materialProperty,
                                        tinyobj::material_t material);
-    static std::vector<std::shared_ptr<Texture>> loadMaterialTextures(const MaterialPropertyLayoutBuilt &materialLayout,
+    static std::vector<std::shared_ptr<Texture>> loadMaterialTextures(const std::shared_ptr<MaterialPropertyLayoutBuilt> &materialLayout,
                                                                       const tinyobj::material_t &material,
                                                                       const std::shared_ptr<TextureLibrary> &textureLibrary,
                                                                       const std::string& modelFilename);

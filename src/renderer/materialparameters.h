@@ -9,12 +9,15 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include <stdexcept>
+#include <memory>
 
 
 enum MaterialPropertyInput : uint32_t {
-    MATERIAL_PROPERTY_INPUT_CONSTANT = 0,
-    MATERIAL_PROPERTY_INPUT_TEXTURE = 1,
+    MATERIAL_PROPERTY_INPUT_CONSTANT = 1,
+    MATERIAL_PROPERTY_INPUT_TEXTURE = 2,
 };
+
+typedef uint32_t MaterialPropertyInputFlag;
 
 enum MaterialPropertyFormat {
     MATERIAL_PROPERTY_FORMAT_UINT = 0,
@@ -46,7 +49,7 @@ enum MaterialPropertyCount {
 };
 
 struct MaterialProperty {
-    MaterialPropertyInput input;
+    MaterialPropertyInputFlag input;
     MaterialPropertyFormat format;
     MaterialPropertySize size;
     MaterialPropertyCount count;
@@ -59,8 +62,9 @@ struct MaterialPropertyLayout {
 };
 
 struct MaterialPropertyBuiltGeneric {
-    MaterialPropertyInput input{};
+    MaterialPropertyInputFlag input{};
     VkFormat pixelFormat{};
+    size_t size{};
 
     std::string attributeName{};
 
@@ -68,26 +72,33 @@ struct MaterialPropertyBuiltGeneric {
 
     virtual void *cast(void *obj) const {};
 
-    [[nodiscard]] virtual size_t getSize() const { return 0; }
+    [[nodiscard]] virtual size_t getSize() const { return size; }
 
     virtual ~MaterialPropertyBuiltGeneric() = default;
 };
 
 template<typename T>
 struct MaterialPropertyBuilt : public MaterialPropertyBuiltGeneric {
+    MaterialPropertyBuilt() {
+        size = sizeof(T);
+    }
+
     [[nodiscard]] void *allocate() const override { return new T; }
 
     void *cast(void *obj) const override { return static_cast<T *>(obj); }
-
-    [[nodiscard]] size_t getSize() const override { return sizeof(T); }
 };
 
 struct MaterialPropertyLayoutBuilt {
     size_t totalSize;
     std::vector<MaterialPropertyBuiltGeneric *> properties{};
+
+    ~MaterialPropertyLayoutBuilt() {
+        for (const auto property : properties)
+            delete property;
+    }
 };
 
 MaterialPropertyBuiltGeneric *buildProperty(const MaterialProperty& property);
-MaterialPropertyLayoutBuilt buildLayout(const MaterialPropertyLayout &layout);
+std::shared_ptr<MaterialPropertyLayoutBuilt> buildLayout(const MaterialPropertyLayout &layout);
 
 #endif //CUBICAD_MATERIALPARAMETERS_H

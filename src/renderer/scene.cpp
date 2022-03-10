@@ -213,9 +213,6 @@ void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCom
     for (const auto &drawCall : indirectDrawCalls) {
         std::shared_ptr<MasterMaterial> currentMasterMaterial = drawCall.material->getMasterMaterial();
         if (currentMasterMaterial != previousMasterMaterial) {
-            if (previousMasterMaterial != nullptr) {
-                graphicsCommandBuffer->endRenderPass();
-            }
             previousMasterMaterial = currentMasterMaterial;
             graphicsCommandBuffer->bindPipeline(currentMasterMaterial->getPipeline());
             std::vector<std::shared_ptr<DescriptorSet>> descriptorSets =

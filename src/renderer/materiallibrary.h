@@ -29,16 +29,16 @@ class Texture;
 
 class TextureLibrary;
 
-struct PBRMaterialParameters;
-
 class MaterialLibrary {
   private:
     std::shared_ptr<Device> device;
     std::shared_ptr<CommandPool> transferPool;
 
+    size_t alignment;
     uint32_t bufferOODSize{};  // is the material buffer out of date?
     uint32_t bufferSize;  // how many materials are registered
     std::shared_ptr<DynamicBuffer> materialBuffer;  // the material buffer
+    std::shared_ptr<Buffer> prevBuffer{};
 
     std::shared_ptr<DescriptorPoolManager> descriptorPool;
     std::shared_ptr<TextureLibrary> textureLibrary;
