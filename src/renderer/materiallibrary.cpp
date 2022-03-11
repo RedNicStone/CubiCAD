@@ -38,7 +38,7 @@ std::shared_ptr<MaterialLibrary> MaterialLibrary::create(const std::shared_ptr<D
     return library;
 }
 
-std::shared_ptr<Material> MaterialLibrary::registerShader(const std::shared_ptr<MasterMaterial> &masterMaterial,
+std::shared_ptr<Material> MaterialLibrary::createMaterial(const std::shared_ptr<MasterMaterial> &masterMaterial,
                                                           void *parameters,
                                                           std::vector<std::shared_ptr<Texture>> textures,
                                                           const std::string& name) {

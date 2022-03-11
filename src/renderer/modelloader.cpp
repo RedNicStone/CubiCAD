@@ -161,7 +161,7 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
         }
         auto textures = loadMaterialTextures(masterMaterial->getPropertyLayout(), material, textureLibrary, filename);
 
-        auto mat = materialLibrary->registerShader(masterMaterial, properties, textures, material.name);
+        auto mat = materialLibrary->createMaterial(masterMaterial, properties, textures, material.name);
         surfaceMaterials.push_back(mat);
     }
 

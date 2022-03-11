@@ -19,6 +19,7 @@
 #include "descriptorpoolmanager.h"
 #include "dynamicbuffer.h"
 #include "vulkan/sampler.h"
+#include "mastermaterialtemplate.h"
 
 
 class MasterMaterial;
@@ -52,7 +53,15 @@ class MaterialLibrary {
                                                    const std::shared_ptr<TextureLibrary>& textureLibrary,
                                                    const std::vector<std::shared_ptr<Queue>> &accessingQueues);
 
-    std::shared_ptr<Material> registerShader(const std::shared_ptr<MasterMaterial> &masterMaterial,
+    std::shared_ptr<MasterMaterial> createMasterMaterial(const std::shared_ptr<MasterMaterialTemplate>
+        &masterMaterialTemplate,
+                                                         uint32_t vColorBlendStates,
+                                                         VkExtent2D vExtent,
+                                                         const std::shared_ptr<MaterialPropertyLayoutBuilt> &layout,
+                                                         const std::shared_ptr<RenderPass> &pRenderPass,
+                                                         const std::string &pName);
+
+    std::shared_ptr<Material> createMaterial(const std::shared_ptr<MasterMaterial> &masterMaterial,
                                              void *parameters,
                                              std::vector<std::shared_ptr<Texture>> textures = {},
                                              const std::string& name = "");
