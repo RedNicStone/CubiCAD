@@ -20,21 +20,28 @@ vec3 calculateScreenSpaceNormal(vec3 p) {
 }
 
 void main() {
-    if (frag_uv.x < 0.5) {
-        if (frag_uv.y < 0.5)
-            present_color = subpassLoad(geometry_diffuse);
-        else
-            present_color = subpassLoad(geometry_pos);
-    } else {
-        if (frag_uv.y < 0.5) {
-            vec4 normal = subpassLoad(geometry_normal);
-            if (normal.z == 0) {
-                vec3 pos = subpassLoad(geometry_pos).xyz;
-                present_color = vec4(calculateScreenSpaceNormal(pos), 1.0);
-            } else
-                present_color = normal;
-        }
-        else
-            present_color = vec4(subpassLoad(geometry_depth).x);
+    switch (selector_info.selected_channel) {
+        case 0:
+        present_color = subpassLoad(geometry_diffuse);
+        break;
+        case 1:
+        present_color = vec4(subpassLoad(geometry_depth).x);
+        break;
+        case 2:
+        present_color = subpassLoad(geometry_pos);
+        break;
+        case 3:
+        vec4 normal = subpassLoad(geometry_normal);
+        if (normal.z == 0.0) {
+            vec3 pos = subpassLoad(geometry_pos).xyz;
+            present_color = vec4(calculateScreenSpaceNormal(pos), 1.0);
+        } else
+        present_color = normal;
+        break;
+        case 4:
+        present_color = vec4(subpassLoad(geometry_diffuse).w * frag_uv, sqrt(1 - subpassLoad(geometry_depth).x), 1.0);
+        break;
+        default:
+        present_color = vec4(0.0, 0.0, 0.0, 1.0);
     }
 }

@@ -30,27 +30,27 @@ void ModelLoader::loadMaterialProperties(char *property,
                                          tinyobj::material_t material) {
     if (materialProperty->input & MATERIAL_PROPERTY_INPUT_CONSTANT)
         switch (hash(materialProperty->attributeName)) {
-            case "diffuse"_hash:memcpy(&material.diffuse, property, materialProperty->getSize());
+            case "diffuse"_hash:memcpy(property, &material.diffuse, materialProperty->getSize());
                 break;
-            case "emission"_hash:memcpy(&material.emission, property, materialProperty->getSize());
+            case "emission"_hash:memcpy(property, &material.emission, materialProperty->getSize());
                 break;
-            case "transparency"_hash:memcpy(&material.transmittance, property, materialProperty->getSize());
+            case "transparency"_hash:memcpy(property, &material.transmittance, materialProperty->getSize());
                 break;
-            case "specular"_hash:memcpy(&material.specular, property, materialProperty->getSize());
+            case "specular"_hash:memcpy(property, &material.specular, materialProperty->getSize());
                 break;
-            case "roughness"_hash:memcpy(&material.roughness, property, materialProperty->getSize());
+            case "roughness"_hash:memcpy(property, &material.roughness, materialProperty->getSize());
                 break;
-            case "metallic"_hash:memcpy(&material.metallic, property, materialProperty->getSize());
+            case "metallic"_hash:memcpy(property, &material.metallic, materialProperty->getSize());
                 break;
-            case "sheen"_hash:memcpy(&material.sheen, property, materialProperty->getSize());
+            case "sheen"_hash:memcpy(property, &material.sheen, materialProperty->getSize());
                 break;
-            case "clear_coat_thickness"_hash:memcpy(&material.clearcoat_thickness, property, materialProperty->getSize());
+            case "clear_coat_thickness"_hash:memcpy(property, &material.clearcoat_thickness, materialProperty->getSize());
                 break;
-            case "clear_coat_roughness"_hash:memcpy(&material.clearcoat_roughness, property, materialProperty->getSize());
+            case "clear_coat_roughness"_hash:memcpy(property, &material.clearcoat_roughness, materialProperty->getSize());
                 break;
-            case "anisotropy"_hash:memcpy(&material.anisotropy, property, materialProperty->getSize());
+            case "anisotropy"_hash:memcpy(property, &material.anisotropy, materialProperty->getSize());
                 break;
-            case "anisotropy_rotation"_hash:memcpy(&material.anisotropy_rotation, property, materialProperty->getSize());
+            case "anisotropy_rotation"_hash:memcpy(property, &material.anisotropy_rotation, materialProperty->getSize());
                 break;
         }
 }
