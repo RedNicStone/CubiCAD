@@ -50,7 +50,7 @@ float xor(float an) {
 
 void main() {
     vec4 color;
-    if (USE_DIFFUSE_TEX == 1)
+    if (USE_DIFFUSE_TEX == 2)
         color = texture(sampler2D(diffuse, samp), vert_uv);
     else
         color = properties.diffuse;

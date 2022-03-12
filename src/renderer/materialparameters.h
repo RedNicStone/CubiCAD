@@ -101,4 +101,6 @@ struct MaterialPropertyLayoutBuilt {
 MaterialPropertyBuiltGeneric *buildProperty(const MaterialProperty& property);
 std::shared_ptr<MaterialPropertyLayoutBuilt> buildLayout(const MaterialPropertyLayout &layout);
 
+std::shared_ptr<MaterialPropertyLayoutBuilt> copyLayout(const std::shared_ptr<MaterialPropertyLayoutBuilt>& layout);
+
 #endif //CUBICAD_MATERIALPARAMETERS_H

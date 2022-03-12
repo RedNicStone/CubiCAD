@@ -11,12 +11,18 @@ std::shared_ptr<MaterialLibrary> MaterialLibrary::create(const std::shared_ptr<D
                                                          const std::shared_ptr<CommandPool> &pTransferPool,
                                                          const std::shared_ptr<DescriptorPoolManager> &pDescriptorPool,
                                                          const std::shared_ptr<TextureLibrary>& textureLibrary,
-                                                         const std::vector<std::shared_ptr<Queue>> &accessingQueues) {
+                                                         const std::vector<std::shared_ptr<Queue>> &accessingQueues,
+                                                         const std::shared_ptr<RenderPass> &renderPass,
+                                                         uint32_t colorBlendStates,
+                                                         VkExtent2D extent) {
     auto library = std::make_shared<MaterialLibrary>();
     library->device = pDevice;
     library->transferPool = pTransferPool;
     library->descriptorPool = pDescriptorPool;
     library->textureLibrary = textureLibrary;
+    library->renderPass = renderPass;
+    library->colorBlendStates = colorBlendStates;
+    library->extent = extent;
 
     VkPhysicalDeviceProperties properties{};
     vkGetPhysicalDeviceProperties(pDevice->getPhysicalDevice()->getHandle(), &properties);
@@ -80,4 +86,22 @@ void MaterialLibrary::pushParameters() {
             prevBuffer = materialBuffer->getBuffer();
         }
     }
+}
+
+std::shared_ptr<MasterMaterial> MaterialLibrary::createMasterMaterial(const std::shared_ptr<MasterMaterialTemplate> &masterMaterialTemplate,
+                                                                      const std::string &pName,
+                                                                      const std::shared_ptr<MaterialPropertyLayoutBuilt>
+                                                                      &materialLayout) {
+    std::shared_ptr<MaterialPropertyLayoutBuilt> materialLayout2;
+    if (materialLayout == nullptr)
+        materialLayout2 = masterMaterialTemplate->getPropertyLayout();
+    else
+        materialLayout2 = materialLayout;
+
+    auto material =  MasterMaterial::create(device, masterMaterialTemplate->getShaders(), colorBlendStates, extent,
+                                            materialLayout2,
+                                  renderPass, descriptorPool, pName);
+    material->updateImageSampler(textureLibrary);
+
+    return material;
 }

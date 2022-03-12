@@ -254,3 +254,12 @@ std::shared_ptr<MaterialPropertyLayoutBuilt> buildLayout(const MaterialPropertyL
     layoutBuilt->totalSize = totalSize;
     return layoutBuilt;
 }
+
+std::shared_ptr<MaterialPropertyLayoutBuilt> copyLayout(const std::shared_ptr<MaterialPropertyLayoutBuilt>& layout) {
+    auto layout2 = std::make_shared<MaterialPropertyLayoutBuilt>(*layout);
+
+    for (size_t i = 0; i < layout->properties.size(); i++)
+        layout2->properties[i] = new MaterialPropertyBuiltGeneric(*layout->properties[i]);
+
+    return layout2;
+}

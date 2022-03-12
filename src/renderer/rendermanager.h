@@ -80,7 +80,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<TextureLibrary> textureLibrary;
     std::shared_ptr<MeshLibrary> meshLibrary;
 
-    std::shared_ptr<MasterMaterial> defaultMaterial;
+    std::shared_ptr<MasterMaterialTemplate> defaultMaterialTemplate;
 
     // objects affected by resize
     std::shared_ptr<SwapChain> swapChain;
@@ -119,7 +119,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void createFrameBuffer();
     void createSceneObjects();
     void createPostProcessingPipelines();
-    void createDefaultMaterial();
+    void createDefaultMaterialLayout();
     void createUIObjects();
 
     void createRenderObjects();
@@ -156,7 +156,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<Device> getDevice() { return device; }
     std::shared_ptr<RenderPass> getRenderPass() { return renderPass; }
     std::shared_ptr<DescriptorPoolManager> getDescriptorManager() { return poolManager; }
-    std::shared_ptr<MasterMaterial> getDefaultMaterial() { return defaultMaterial; }
+    std::shared_ptr<MasterMaterialTemplate> getDefaultMaterialTemplate() { return defaultMaterialTemplate; }
 
     VkExtent2D getExtend() { return swapChainExtent; }
 

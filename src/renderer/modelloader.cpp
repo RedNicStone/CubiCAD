@@ -107,7 +107,12 @@ std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const st
                                                           materialLayout->properties[i]->pixelFormat);
                     break;
             }
-        }
+            if (texFile.empty())
+                materialLayout->properties[i]->input = MATERIAL_PROPERTY_INPUT_CONSTANT;
+            else
+                materialLayout->properties[i]->input = MATERIAL_PROPERTY_INPUT_TEXTURE;
+        } else
+            materialLayout->properties[i]->input = MATERIAL_PROPERTY_INPUT_CONSTANT;
     }
 
     return textures;
@@ -130,7 +135,8 @@ std::string ModelLoader::locateTexture(const std::string &textureFilename,
 }
 
 std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filename,
-                                                       const std::shared_ptr<MasterMaterial> &masterMaterial,
+                                                       const std::shared_ptr<MasterMaterialTemplate>
+                                                           &masterMaterialTemplate,
                                                        bool normalizePos) {
     if (!reader.ParseFromFile(filename, config)) {
         if (!reader.Error().empty()) {
@@ -153,14 +159,16 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
     surfaceMaterials.reserve(materials.size());
 
     for (const auto &material: materials) {
-        char *properties = new char[masterMaterial->getPropertySize()];
+        char *properties = new char[masterMaterialTemplate->getPropertySize()];
         size_t offset = 0;
-        for (const auto &property: masterMaterial->getPropertyLayout()->properties) {
+        for (const auto &property: masterMaterialTemplate->getPropertyLayout()->properties) {
             loadMaterialProperties(properties + offset, property, material);
             offset += property->getSize();
         }
-        auto textures = loadMaterialTextures(masterMaterial->getPropertyLayout(), material, textureLibrary, filename);
+        auto layout = copyLayout(masterMaterialTemplate->getPropertyLayout());
+        auto textures = loadMaterialTextures(layout, material, textureLibrary, filename);
 
+        auto masterMaterial = materialLibrary->createMasterMaterial(masterMaterialTemplate, material.name, layout);
         auto mat = materialLibrary->createMaterial(masterMaterial, properties, textures, material.name);
         surfaceMaterials.push_back(mat);
     }

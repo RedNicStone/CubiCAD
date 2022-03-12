@@ -260,11 +260,12 @@ void RenderManager::createSceneObjects() {
     poolManager = DescriptorPoolManager::create(device);
 
     textureLibrary = TextureLibrary::create(device, graphicsQueue, graphicsPool, textureQualitySettings);
-    materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, textureLibrary, {graphicsQueue});
+    materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, textureLibrary, {graphicsQueue},
+                                              renderPass, RENDER_TARGET_MAX, swapChainExtent);
     meshLibrary = MeshLibrary::create(textureLibrary, materialLibrary);
 }
 
-void RenderManager::createDefaultMaterial() {
+void RenderManager::createDefaultMaterialLayout() {
     auto vertexShader = VertexShader::create(device, "main", "resources/shaders/compiled/"
                                                                                  "PBR_basic.vert.spv");
     auto fragmentShader = FragmentShader::create(device, "main", "resources/shaders/compiled/"
@@ -282,16 +283,7 @@ void RenderManager::createDefaultMaterial() {
     MaterialPropertyLayout propertyLayout{materialProperties};
     auto layoutBuilt = buildLayout(propertyLayout);
 
-    defaultMaterial =
-        MasterMaterial::create(device,
-                               shaders,
-                               RENDER_TARGET_MAX,
-                               swapChainExtent,
-                               layoutBuilt,
-                               renderPass,
-                               poolManager,
-                               "basicMaterial");
-    defaultMaterial->updateImageSampler(textureLibrary);
+    defaultMaterialTemplate = MasterMaterialTemplate::create(shaders, layoutBuilt);
 }
 
 void RenderManager::createUIObjects() {
@@ -309,7 +301,7 @@ void RenderManager::createRenderObjects() {
     createRenderPass();
     createFrameBuffer();
     createSceneObjects();
-    createDefaultMaterial();
+    createDefaultMaterialLayout();
     createUIObjects();
     createPostProcessingPipelines();
 }
@@ -318,7 +310,7 @@ void RenderManager::recreateSwapChain(bool newImageCount) {
     createSwapChain();
     createRenderPass();
     createFrameBuffer();
-    createDefaultMaterial();
+    createDefaultMaterialLayout();
     createPostProcessingPipelines();
     camera->updateCameraModel(cameraModel, swapChainExtent);
 
@@ -550,7 +542,7 @@ void RenderManager::updateRenderData() {
 
 void RenderManager::loadMesh(const std::string &filename,
                              bool normalizePos) {
-    auto meshes = meshLibrary->createMesh(filename, defaultMaterial, normalizePos);
+    auto meshes = meshLibrary->createMesh(filename, defaultMaterialTemplate, normalizePos);
     for (const auto &mesh: meshes)
         scene->submitInstance(MeshInstance::create(mesh));
 }

@@ -46,20 +46,25 @@ class MaterialLibrary {
 
     std::map<std::shared_ptr<MasterMaterial>, std::vector<std::shared_ptr<Material>>> materials;
 
+    std::shared_ptr<RenderPass> renderPass;
+    uint32_t colorBlendStates;
+    VkExtent2D extent;
+
   public:
     static std::shared_ptr<MaterialLibrary> create(const std::shared_ptr<Device> &pDevice,
                                                    const std::shared_ptr<CommandPool> &pTransferPool,
                                                    const std::shared_ptr<DescriptorPoolManager> &pDescriptorPool,
                                                    const std::shared_ptr<TextureLibrary>& textureLibrary,
-                                                   const std::vector<std::shared_ptr<Queue>> &accessingQueues);
+                                                   const std::vector<std::shared_ptr<Queue>> &accessingQueues,
+                                                   const std::shared_ptr<RenderPass> &renderPass,
+                                                   uint32_t colorBlendStates,
+                                                   VkExtent2D extent);
 
     std::shared_ptr<MasterMaterial> createMasterMaterial(const std::shared_ptr<MasterMaterialTemplate>
-        &masterMaterialTemplate,
-                                                         uint32_t vColorBlendStates,
-                                                         VkExtent2D vExtent,
-                                                         const std::shared_ptr<MaterialPropertyLayoutBuilt> &layout,
-                                                         const std::shared_ptr<RenderPass> &pRenderPass,
-                                                         const std::string &pName);
+                                                         &masterMaterialTemplate,
+                                                         const std::string &pName,
+                                                         const std::shared_ptr<MaterialPropertyLayoutBuilt>
+                                                         &materialLayout = nullptr);
 
     std::shared_ptr<Material> createMaterial(const std::shared_ptr<MasterMaterial> &masterMaterial,
                                              void *parameters,

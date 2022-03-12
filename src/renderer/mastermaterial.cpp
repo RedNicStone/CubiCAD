@@ -47,8 +47,7 @@ void MasterMaterial::generateMaterialSetLayout() {
 
     uint32_t imageCount = 0;
     for (const auto &property: propertyLayout->properties)
-        if (property->input & MATERIAL_PROPERTY_INPUT_TEXTURE)
-            imageCount++;
+        imageCount++;
 
     layoutBindings[1].descriptorCount = imageCount;
 
@@ -120,7 +119,8 @@ void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<Descriptor
                                  bindingDescription,
                                  attributeDescription,
                                  enableDepthStencil,
-                                 0);
+                                 0,
+                                 specializationVector);
 }
 
 void MasterMaterial::updateImageSampler(const std::shared_ptr<TextureLibrary> &textureLibrary) {
