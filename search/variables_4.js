@@ -5,5 +5,5 @@ var searchData=
   ['escdown_2',['escDown',['../class_mandelbrot_app.html#a51ef2c6a2491127d8cbd06dd98b01235',1,'MandelbrotApp']]],
   ['eventbus_3',['eventBus',['../class_render_bus.html#a5a8ea09b3087ef5ae3b1cb08b0905fd2',1,'RenderBus']]],
   ['extend_4',['extend',['../class_window.html#a1172a8d661edaaae4492e22332d3280a',1,'Window']]],
-  ['extent_5',['extent',['../class_framebuffer_selector.html#ac9471e1c02b9dbeeefabb474ff0874d0',1,'FramebufferSelector::extent()'],['../class_master_material.html#a71b6081e8971e33fe40ad2257c853962',1,'MasterMaterial::extent()'],['../class_frame_buffer.html#a7a5ce24478864b3ce292e58b6c341ad3',1,'FrameBuffer::extent()'],['../class_image.html#a4f2ec794be19ebd67c34068b2b36dc17',1,'Image::extent()']]]
+  ['extent_5',['extent',['../class_framebuffer_selector.html#ac9471e1c02b9dbeeefabb474ff0874d0',1,'FramebufferSelector::extent()'],['../class_master_material.html#a71b6081e8971e33fe40ad2257c853962',1,'MasterMaterial::extent()'],['../class_material_library.html#ae98d64aac7d1437e91f1e69fe82b44d4',1,'MaterialLibrary::extent()'],['../class_frame_buffer.html#a7a5ce24478864b3ce292e58b6c341ad3',1,'FrameBuffer::extent()'],['../class_image.html#a4f2ec794be19ebd67c34068b2b36dc17',1,'Image::extent()']]]
 ];

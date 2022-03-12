@@ -37,5 +37,6 @@ var materialparameters_8h =
       [ "MATERIAL_PROPERTY_SIZE_MAX_ENUM", "materialparameters_8h.html#ae14bb1d8c0b18d35108fec4cd1c3f669af9d3eaaa86bd40e48073d257df971a29", null ]
     ] ],
     [ "buildLayout", "materialparameters_8h.html#ad19af1f50a41ceac79efdeeafc07a8ab", null ],
-    [ "buildProperty", "materialparameters_8h.html#a6d0d74203f8507f343dd66edcc0d472f", null ]
+    [ "buildProperty", "materialparameters_8h.html#a6d0d74203f8507f343dd66edcc0d472f", null ],
+    [ "copyLayout", "materialparameters_8h.html#a8076d5194686515388a59d1b4e681f13", null ]
 ];

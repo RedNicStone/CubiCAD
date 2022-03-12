@@ -62,6 +62,7 @@ var annotated_dup =
     [ "MandelbrotApp", "class_mandelbrot_app.html", "class_mandelbrot_app" ],
     [ "MandelbrotUBO", "struct_mandelbrot_u_b_o.html", "struct_mandelbrot_u_b_o" ],
     [ "MasterMaterial", "class_master_material.html", "class_master_material" ],
+    [ "MasterMaterialTemplate", "class_master_material_template.html", "class_master_material_template" ],
     [ "Material", "class_material.html", "class_material" ],
     [ "MaterialLibrary", "class_material_library.html", "class_material_library" ],
     [ "MaterialProperty", "struct_material_property.html", "struct_material_property" ],

@@ -5,7 +5,7 @@ var searchData=
   ['debug_2',['debug',['../union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#a93ba49ff05e9a02c65a0f833bf6d3e2a',1,'CCAD_OT::OtMatInfoUnion']]],
   ['debuglevel_3',['debugLevel',['../vulkan__voxel__rasterizer__3_8cpp.html#a49efd1f0915380f5061abe035382f615',1,'debugLevel():&#160;vulkan_voxel_rasterizer_3.cpp'],['../vulkan__voxel__rasterizer__2_8cpp.html#a49efd1f0915380f5061abe035382f615',1,'debugLevel():&#160;vulkan_voxel_rasterizer_2.cpp']]],
   ['debugmessenger_4',['debugMessenger',['../class_instance.html#af9259aea1fb166473a580f5ea4de5ea7',1,'Instance']]],
-  ['defaultmaterial_5',['defaultMaterial',['../class_render_manager.html#a87180d7ef45334d214570211120ad598',1,'RenderManager']]],
+  ['defaultmaterialtemplate_5',['defaultMaterialTemplate',['../class_render_manager.html#ae0994c33269a70c13d8ded306692dbd1',1,'RenderManager']]],
   ['defaulttexture_6',['defaultTexture',['../class_texture_library.html#a34e1c6ebe9bc86d77b375c1da016f6a1',1,'TextureLibrary']]],
   ['dependencies_7',['dependencies',['../class_render_pass.html#a2d86831421cd923715ab199d75bb5440',1,'RenderPass']]],
   ['depthimage_8',['depthImage',['../class_render_manager.html#a457aba3d3843d67e6bed715d514f5962',1,'RenderManager::depthImage()'],['../class_mandelbrot_app.html#a89d98461c3508ff814f247440ba529e9',1,'MandelbrotApp::depthImage()']]],

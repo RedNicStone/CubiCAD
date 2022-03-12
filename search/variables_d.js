@@ -29,7 +29,7 @@ var searchData=
   ['proj_26',['proj',['../struct_scene_data.html#a92f156e0ac3e8b65fcf58aa71056d85e',1,'SceneData']]],
   ['projection_27',['projection',['../class_camera.html#a43555a0ae83f9ec696ee257e5fd48cf2',1,'Camera']]],
   ['properties_28',['properties',['../struct_material_property_layout.html#a4098bfff9bb184ceb6e3bb516c13708b',1,'MaterialPropertyLayout::properties()'],['../struct_material_property_layout_built.html#a239fe52734c6001762be642d71ab7738',1,'MaterialPropertyLayoutBuilt::properties()']]],
-  ['propertylayout_29',['propertyLayout',['../class_master_material.html#a783a9add84388da4e0d37639d3cc6bf9',1,'MasterMaterial']]],
+  ['propertylayout_29',['propertyLayout',['../class_master_material.html#a783a9add84388da4e0d37639d3cc6bf9',1,'MasterMaterial::propertyLayout()'],['../class_master_material_template.html#acf3aa4b761decb25185f8fb203a7107c',1,'MasterMaterialTemplate::propertyLayout()']]],
   ['publicrenderbus_30',['publicRenderBus',['../eventbus_8cpp.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp'],['../eventbus_8h.html#a9f34753ecee6e5c186bd3bb741116a43',1,'publicRenderBus():&#160;eventbus.cpp']]],
   ['pushconstantranges_31',['pushConstantRanges',['../class_pipeline_layout.html#a79cb41488cc675c90d6ea5603e831d83',1,'PipelineLayout']]],
   ['pvertexbuffer_32',['pVertexBuffer',['../class_c_c_a_d___o_t_1_1_ot_geometry_compiler.html#aad3907ed731f065e0e573082eaa9a36c',1,'CCAD_OT::OtGeometryCompiler']]]

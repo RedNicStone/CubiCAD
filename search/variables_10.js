@@ -15,7 +15,7 @@ var searchData=
   ['shaded_12',['shaded',['../union_c_c_a_d___o_t_1_1_ot_mat_info_union.html#aa379da389b403df55fe033bbd40d07f2',1,'CCAD_OT::OtMatInfoUnion']]],
   ['shadercode_13',['shaderCode',['../class_shader.html#a55de2b5aa93226b8fa3118e6388d7bbd',1,'Shader']]],
   ['shadermodule_14',['shaderModule',['../class_shader.html#ad122573a5ad341dceb3d160039691a11',1,'Shader']]],
-  ['shaders_15',['shaders',['../class_master_material.html#ae713e1f2972f5a13ec432861c6c66b06',1,'MasterMaterial']]],
+  ['shaders_15',['shaders',['../class_master_material.html#ae713e1f2972f5a13ec432861c6c66b06',1,'MasterMaterial::shaders()'],['../class_master_material_template.html#aa3d58af465c5faee64cc0a3366f1baac',1,'MasterMaterialTemplate::shaders()']]],
   ['shaderstage_16',['shaderStage',['../class_shader.html#a051da1ef3b0809676e8501f5650e8395',1,'Shader']]],
   ['shadingpipeline_17',['shadingPipeline',['../class_mandelbrot_app.html#adab8e1e888115d4f892dae38787861d3',1,'MandelbrotApp']]],
   ['shadingpipelinelayout_18',['shadingPipelineLayout',['../class_mandelbrot_app.html#a1c25defc25d20c876e6e485e82207def',1,'MandelbrotApp']]],

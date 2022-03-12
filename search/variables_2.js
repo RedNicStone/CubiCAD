@@ -12,7 +12,7 @@ var searchData=
   ['clipnear_9',['clipNear',['../struct_camera_model.html#af85ad3201614b2f30633d9648ba090bb',1,'CameraModel']]],
   ['codec_10',['codec',['../class_voxel_fragment_stream_base.html#a57b4856fb79eb2158d7ea43494094ce8',1,'VoxelFragmentStreamBase']]],
   ['color_11',['color',['../struct_c_c_a_d___o_t_1_1_ot_mat_info_solid.html#a2d502121054496c875cf30aece3af9d5',1,'CCAD_OT::OtMatInfoSolid::color()'],['../struct_c_c_a_d___o_t_1_1_vertex_data_type.html#ab0bd9638ba623addcab83ae905df805b',1,'CCAD_OT::VertexDataType::color()']]],
-  ['colorblendstates_12',['colorBlendStates',['../class_master_material.html#ab9e4d1459085e13e12a7e983519bfa54',1,'MasterMaterial']]],
+  ['colorblendstates_12',['colorBlendStates',['../class_master_material.html#ab9e4d1459085e13e12a7e983519bfa54',1,'MasterMaterial::colorBlendStates()'],['../class_material_library.html#ab1cb5c8a2739cef89703117509cddf39',1,'MaterialLibrary::colorBlendStates()']]],
   ['combined_13',['combined',['../class_mesh_instance.html#a66a909a41bb3768fd89287c8910992f2',1,'MeshInstance']]],
   ['commandpool_14',['commandPool',['../class_command_buffer.html#a62589d2f01c885f6020e82b1de49be1f',1,'CommandBuffer::commandPool()'],['../class_mandelbrot_app.html#a406946c5175595d2cc9c91b83a31b46d',1,'MandelbrotApp::commandPool()']]],
   ['computepool_15',['computePool',['../class_render_manager.html#a52228363edc5fb3e003323242e6e5eb3',1,'RenderManager']]],

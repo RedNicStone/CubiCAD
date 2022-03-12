@@ -27,6 +27,7 @@ var hierarchy =
     [ "MandelbrotUBO", "struct_mandelbrot_u_b_o.html", null ],
     [ "VirtualStackAllocation::MappedPage", "struct_virtual_stack_allocation_1_1_mapped_page.html", null ],
     [ "MasterMaterial", "class_master_material.html", null ],
+    [ "MasterMaterialTemplate", "class_master_material_template.html", null ],
     [ "Material", "class_material.html", null ],
     [ "MaterialLibrary", "class_material_library.html", null ],
     [ "MaterialProperty", "struct_material_property.html", null ],

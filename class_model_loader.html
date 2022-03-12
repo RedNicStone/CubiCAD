@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_model_loader.html',''); initResi
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_model_loader-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ModelLoader Class Reference</div></div>
@@ -103,19 +104,22 @@ $(document).ready(function(){initNavTree('class_model_loader.html',''); initResi
 <div class="dynheader">
 Collaboration diagram for ModelLoader:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_model_loader__coll__graph.svg" width="182" height="191"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_model_loader__coll__graph.svg" width="178" height="191"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6a09b742ed2dfde508f46de34f44cc9e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a6a09b742ed2dfde508f46de34f44cc9e">import</a> (const std::string &amp;filename, const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;masterMaterial, bool normalizePos=false)</td></tr>
-<tr class="separator:a6a09b742ed2dfde508f46de34f44cc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c8fe494193395fa331b426dc26d7871"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a4c8fe494193395fa331b426dc26d7871">import</a> (const std::string &amp;filename, const std::shared_ptr&lt; <a class="el" href="class_master_material_template.html">MasterMaterialTemplate</a> &gt; &amp;masterMaterialTemplate, bool normalizePos=false)</td></tr>
+<tr class="separator:a4c8fe494193395fa331b426dc26d7871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a31c9aa31bf2d9778696ab75f4431a523"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_model_loader.html">ModelLoader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a31c9aa31bf2d9778696ab75f4431a523">create</a> (const std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; &amp;<a class="el" href="class_model_loader.html#a41eb8aba2cde292d577316a5dfdcb6a7">textureLibrary</a>, const std::shared_ptr&lt; <a class="el" href="class_material_library.html">MaterialLibrary</a> &gt; &amp;<a class="el" href="class_model_loader.html#a6b0aa36b64d58e359bee67d75640dcc1">materialLibrary</a>)</td></tr>
 <tr class="separator:a31c9aa31bf2d9778696ab75f4431a523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a71b4c0acf91378a4453ec415da93352d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a71b4c0acf91378a4453ec415da93352d">loadMaterialProperties</a> (char *property, const <a class="el" href="struct_material_property_built_generic.html">MaterialPropertyBuiltGeneric</a> *materialProperty, tinyobj::material_t material)</td></tr>
 <tr class="separator:a71b4c0acf91378a4453ec415da93352d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2840e9edb51fc9c8a5618e737fd90bbf"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a2840e9edb51fc9c8a5618e737fd90bbf">loadMaterialTextures</a> (const std::shared_ptr&lt; <a class="el" href="struct_material_property_layout_built.html">MaterialPropertyLayoutBuilt</a> &gt; &amp;materialLayout, const tinyobj::material_t &amp;material, const std::shared_ptr&lt; <a class="el" href="class_texture_library.html">TextureLibrary</a> &gt; &amp;<a class="el" href="class_model_loader.html#a41eb8aba2cde292d577316a5dfdcb6a7">textureLibrary</a>, const std::string &amp;modelFilename)</td></tr>
@@ -177,8 +181,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a6a09b742ed2dfde508f46de34f44cc9e" name="a6a09b742ed2dfde508f46de34f44cc9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a09b742ed2dfde508f46de34f44cc9e">&#9670;&nbsp;</a></span>import()</h2>
+<a id="a4c8fe494193395fa331b426dc26d7871" name="a4c8fe494193395fa331b426dc26d7871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c8fe494193395fa331b426dc26d7871">&#9670;&nbsp;</a></span>import()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,8 +196,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>masterMaterial</em>, </td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_master_material_template.html">MasterMaterialTemplate</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>masterMaterialTemplate</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -211,7 +215,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_model_loader_a6a09b742ed2dfde508f46de34f44cc9e_cgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_model_loader_a4c8fe494193395fa331b426dc26d7871_cgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -252,7 +256,7 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -312,7 +316,7 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -360,7 +364,7 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
