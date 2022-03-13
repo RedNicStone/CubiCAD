@@ -31,10 +31,11 @@ struct BoundingBox {
 
 struct Vertex {
     glm::vec3 pos;
+    glm::i16vec3 normal;
     glm::u16vec2 uv;
 
     bool operator==(const Vertex &other) const {
-        return pos == other.pos && uv == other.uv;
+        return pos == other.pos && uv == other.uv && normal == other.normal;
     }
 };
 
@@ -42,7 +43,9 @@ namespace std {
   template<>
   struct hash<Vertex> {
       size_t operator()(Vertex const &vertex) const {
-          return (std::hash<glm::vec3>{}(vertex.pos) ^ (std::hash<glm::vec2>{}(vertex.uv) << 1));
+          return (std::hash<glm::vec3>{}(vertex.pos) ^
+                 (std::hash<glm::i16vec3>{}(vertex.normal) << 1) ^
+                 (std::hash<glm::u16vec2>{}(vertex.uv)     << 2));
       }
   };
 }

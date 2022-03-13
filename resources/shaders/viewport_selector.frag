@@ -13,10 +13,19 @@ layout(location = 0) in vec2 frag_uv;
 
 layout(location = 0) out vec4 present_color;
 
-vec3 calculateScreenSpaceNormal(vec3 p) {
-    vec3 dx = dFdx(p);
-    vec3 dy = -dFdy(p);
-    return normalize(cross(dx, dy));
+//alogrithm from https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection
+vec2 azimuthalEAEncode(vec3 n) {
+    float p = sqrt(n.z*8+8);
+    return vec2(n.xy/p + 0.5);
+}
+vec3 azimuthalEADecode(vec2 enc) {
+    vec2 fenc = enc*4-2;
+    float f = dot(fenc,fenc);
+    float g = sqrt(1-f/4);
+    vec3 n;
+    n.xy = fenc*g;
+    n.z = 1-f/2;
+    return n;
 }
 
 void main() {
@@ -31,12 +40,7 @@ void main() {
         present_color = subpassLoad(geometry_pos);
         break;
         case 3:
-        vec4 normal = subpassLoad(geometry_normal);
-        if (normal.z == 0.0) {
-            vec3 pos = subpassLoad(geometry_pos).xyz;
-            present_color = vec4(calculateScreenSpaceNormal(pos), 1.0);
-        } else
-        present_color = normal;
+        present_color = vec4(azimuthalEADecode(subpassLoad(geometry_normal).xy), 1.0);
         break;
         case 4:
         present_color = vec4(subpassLoad(geometry_diffuse).w * frag_uv, sqrt(1 - subpassLoad(geometry_depth).x), 1.0);

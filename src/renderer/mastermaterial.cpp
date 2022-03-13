@@ -76,12 +76,13 @@ void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<Descriptor
     std::vector<VkVertexInputAttributeDescription>
         attributeDescription
         {{0, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, pos)},
-         {1, 0, VK_FORMAT_R16G16_UNORM, offsetof(Vertex, uv)},
-         {2, 1, VK_FORMAT_R32_UINT, offsetof(InstanceData, objectID)},
-         {3, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 0},
-         {4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 1},
-         {5, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 2},
-         {6, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 3}};
+         {1, 0, VK_FORMAT_R16G16B16A16_SNORM, offsetof(Vertex, normal)},
+         {2, 0, VK_FORMAT_R16G16_UNORM, offsetof(Vertex, uv)},
+         {3, 1, VK_FORMAT_R32_UINT, offsetof(InstanceData, objectID)},
+         {4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 0},
+         {5, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 1},
+         {6, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 2},
+         {7, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 3}};
 
     std::vector<VkSpecializationMapEntry> specializationMap;
     specializationMap.reserve(propertyLayout->properties.size());

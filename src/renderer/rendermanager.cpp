@@ -106,6 +106,8 @@ void RenderManager::createSwapChain() {
             imageFormat = VK_FORMAT_D32_SFLOAT;
         else if (i == RENDER_TARGET_POSITION)
             imageFormat = VK_FORMAT_R32G32B32A32_SFLOAT;
+        else if (i == RENDER_TARGET_NORMAL)
+            imageFormat = VK_FORMAT_R16G16_UNORM;
         else
             imageFormat = VK_FORMAT_R8G8B8A8_UNORM;
 

@@ -11,12 +11,14 @@ layout(set = 0, binding = 0) uniform SceneInfo {
 } scene_info;
 
 layout(location = 0) in vec3 vert_pos;
-layout(location = 1) in vec2 vert_uv;
-layout(location = 2) in uint instance_id;
-layout(location = 3) in mat4 instance_model;
+layout(location = 1) in vec3 vert_normal;
+layout(location = 2) in vec2 vert_uv;
+layout(location = 3) in uint instance_id;
+layout(location = 4) in mat4 instance_model;
 
 layout(location = 0) out uint fragment_instance_id;
-layout(location = 1) out vec2 fragment_uv;
+layout(location = 1) out vec3 fragment_normal;
+layout(location = 2) out vec2 fragment_uv;
 layout(location = 3) out vec3 fragment_pos;
 
 void main() {
@@ -24,6 +26,7 @@ void main() {
     gl_Position = scene_info.proj * scene_info.view * absPos;
 
     fragment_instance_id = instance_id;
+    fragment_normal = vert_normal;
     fragment_uv = vert_uv;
     fragment_pos = absPos.xyz;
 }

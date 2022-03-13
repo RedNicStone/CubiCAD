@@ -201,6 +201,14 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
                 Vertex vertex{};
                 vertex.pos =
                     *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data() + 3 * size_t(idx.vertex_index));
+
+                if (idx.normal_index >= 0) {
+                    vertex.normal =
+                        {attrib.normals[static_cast<uint>(3 * idx.normal_index + 0)] * INT16_MAX,
+                         attrib.normals[static_cast<uint>(3 * idx.normal_index + 1)] * INT16_MAX,
+                         attrib.normals[static_cast<uint>(3 * idx.normal_index + 2)] * INT16_MAX};
+                }
+
                 if (idx.texcoord_index >= 0) {
                     vertex.uv =
                         {(attrib.texcoords[static_cast<uint>(2 * idx.texcoord_index + 0)]) * UINT16_MAX,
