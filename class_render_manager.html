@@ -277,6 +277,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a74f1980bbae72180d84dbe73216ecf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7d1c0e2a89d1b990f15b202511f029"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_shading_pipeline.html">ShadingPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ada7d1c0e2a89d1b990f15b202511f029">viewportSelector</a></td></tr>
 <tr class="separator:ada7d1c0e2a89d1b990f15b202511f029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de366c68d7be44335fcc170a90f86e2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_s_s_a_o_pipeline.html">SSAOPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a8de366c68d7be44335fcc170a90f86e2">ssaoPipeline</a></td></tr>
+<tr class="separator:a8de366c68d7be44335fcc170a90f86e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32dedbe82c6a03e5dabcc7c3c8a45595"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_semaphore.html">Semaphore</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a32dedbe82c6a03e5dabcc7c3c8a45595">ssaoSemaphore</a></td></tr>
+<tr class="separator:a32dedbe82c6a03e5dabcc7c3c8a45595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab40089d8bb19e9b027f5788b4e731e29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ab40089d8bb19e9b027f5788b4e731e29">mouseCaptured</a> = false</td></tr>
 <tr class="separator:ab40089d8bb19e9b027f5788b4e731e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7240806f8dd9f75633581e6776efe17"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ad7240806f8dd9f75633581e6776efe17">mouseSpeed</a> = 0.001f</td></tr>
@@ -530,7 +534,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a45a6fffe5f74da37695476732b53d33b_cgraph.svg" width="100%" height="510"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_render_manager_a45a6fffe5f74da37695476732b53d33b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
@@ -2043,6 +2047,50 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">uint32_t RenderManager::shadingSubpass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8de366c68d7be44335fcc170a90f86e2" name="a8de366c68d7be44335fcc170a90f86e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de366c68d7be44335fcc170a90f86e2">&#9670;&nbsp;</a></span>ssaoPipeline</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_s_s_a_o_pipeline.html">SSAOPipeline</a>&gt; RenderManager::ssaoPipeline</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a32dedbe82c6a03e5dabcc7c3c8a45595" name="a32dedbe82c6a03e5dabcc7c3c8a45595"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32dedbe82c6a03e5dabcc7c3c8a45595">&#9670;&nbsp;</a></span>ssaoSemaphore</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_semaphore.html">Semaphore</a>&gt; RenderManager::ssaoSemaphore</td>
         </tr>
       </table>
   </td>

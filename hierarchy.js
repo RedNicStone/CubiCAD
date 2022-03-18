@@ -66,6 +66,7 @@ var hierarchy =
     ] ],
     [ "CCAD_OT::OtOctree", "class_c_c_a_d___o_t_1_1_ot_octree.html", null ],
     [ "CCAD_OT::OtSurfaceInfo", "struct_c_c_a_d___o_t_1_1_ot_surface_info.html", null ],
+    [ "SSAOPipeline::PassInfo", "struct_s_s_a_o_pipeline_1_1_pass_info.html", null ],
     [ "StackAllocator::PhysicalPage", "struct_stack_allocator_1_1_physical_page.html", null ],
     [ "DescriptorPoolManager::PoolSizes", "struct_descriptor_pool_manager_1_1_pool_sizes.html", null ],
     [ "PossibleQueueFamily", "struct_possible_queue_family.html", null ],
@@ -126,6 +127,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "ShadingPipeline", "class_shading_pipeline.html", null ],
+    [ "SSAOPipeline", "class_s_s_a_o_pipeline.html", null ],
     [ "SwapChain", "class_swap_chain.html", null ],
     [ "SwapChainSupportDetails", "struct_swap_chain_support_details.html", null ],
     [ "Texture", "class_texture.html", null ],
@@ -205,6 +207,7 @@ var hierarchy =
     ] ],
     [ "VulkanClass< VkPipeline >", "class_vulkan_class.html", [
       [ "PipelineBase", "class_pipeline_base.html", [
+        [ "ComputePipeline", "class_compute_pipeline.html", null ],
         [ "GraphicsPipeline", "class_graphics_pipeline.html", null ]
       ] ]
     ] ],

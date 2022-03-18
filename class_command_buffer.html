@@ -129,8 +129,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3f3c43ddde1476e49e9e93ec683b3123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6ba01d9fd02182683f0f677867a3ae1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ad6ba01d9fd02182683f0f677867a3ae1">endRenderPass</a> ()</td></tr>
 <tr class="separator:ad6ba01d9fd02182683f0f677867a3ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5ecd2d3ffffb04c4068a7f6bef64dd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ae5ecd2d3ffffb04c4068a7f6bef64dd6">bindPipeline</a> (const std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt; &amp;pipeline)</td></tr>
-<tr class="separator:ae5ecd2d3ffffb04c4068a7f6bef64dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedc0420b031e35427adb737b04fe57e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aedc0420b031e35427adb737b04fe57e0">bindPipeline</a> (const std::shared_ptr&lt; <a class="el" href="class_pipeline_base.html">PipelineBase</a> &gt; &amp;pipeline)</td></tr>
+<tr class="separator:aedc0420b031e35427adb737b04fe57e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45628c6e030c7e0f756c94a3973c859a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a45628c6e030c7e0f756c94a3973c859a">bindDescriptorSets</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;descriptorSets, const std::shared_ptr&lt; <a class="el" href="class_pipeline_layout.html">PipelineLayout</a> &gt; &amp;layout, VkPipelineBindPoint bindPoint, std::vector&lt; uint32_t &gt; &amp;offsets, uint32_t firstSet=0)</td></tr>
 <tr class="separator:a45628c6e030c7e0f756c94a3973c859a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc9d993ce8b35e11d60311a555ba4cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#adc9d993ce8b35e11d60311a555ba4cf4">bindDescriptorSets</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt; &amp;descriptorSets, const std::shared_ptr&lt; <a class="el" href="class_pipeline_base.html">PipelineBase</a> &gt; &amp;pipeline, std::vector&lt; uint32_t &gt; &amp;offsets, uint32_t firstSet=0)</td></tr>
@@ -151,6 +151,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a77a97a1f6ded8b413f5c74dac157f79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3932fd9ca028d0a66e775ccd0a9eee5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#ac3932fd9ca028d0a66e775ccd0a9eee5">drawIndexedIndirect</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;buffer, uint32_t drawCount, VkDeviceSize offset=0, uint32_t stride=<a class="el" href="vec__abs_8cpp.html#aa35b116656d89d82b8fb697bab52816b">sizeof</a>(VkDrawIndexedIndirectCommand))</td></tr>
 <tr class="separator:ac3932fd9ca028d0a66e775ccd0a9eee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad427c5d63610c96947890bb9e97f54c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#aad427c5d63610c96947890bb9e97f54c">dispatch</a> (uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ)</td></tr>
+<tr class="separator:aad427c5d63610c96947890bb9e97f54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60bd4e8ed325865b8b60b2ebc589abeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a60bd4e8ed325865b8b60b2ebc589abeb">copyBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;src, const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;dst, std::vector&lt; VkBufferCopy &gt; copyRegions)</td></tr>
 <tr class="separator:a60bd4e8ed325865b8b60b2ebc589abeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a219ad9dec6b0169c45cebff744678398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_buffer.html#a219ad9dec6b0169c45cebff744678398">copyBufferImage</a> (const std::shared_ptr&lt; <a class="el" href="class_buffer.html">Buffer</a> &gt; &amp;src, const std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt; &amp;dst, std::vector&lt; VkBufferImageCopy &gt; copyRegions, VkImageLayout dstLayout)</td></tr>
@@ -430,8 +432,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ae5ecd2d3ffffb04c4068a7f6bef64dd6" name="ae5ecd2d3ffffb04c4068a7f6bef64dd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5ecd2d3ffffb04c4068a7f6bef64dd6">&#9670;&nbsp;</a></span>bindPipeline()</h2>
+<a id="aedc0420b031e35427adb737b04fe57e0" name="aedc0420b031e35427adb737b04fe57e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedc0420b031e35427adb737b04fe57e0">&#9670;&nbsp;</a></span>bindPipeline()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -439,7 +441,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void CommandBuffer::bindPipeline </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_graphics_pipeline.html">GraphicsPipeline</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_pipeline_base.html">PipelineBase</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pipeline</em></td><td>)</td>
           <td></td>
         </tr>
@@ -727,6 +729,40 @@ Here is the caller graph for this function:</div>
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_command_buffer_aa00b25bc626efb68b5dc810ea91cf41b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
+
+</div>
+</div>
+<a id="aad427c5d63610c96947890bb9e97f54c" name="aad427c5d63610c96947890bb9e97f54c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad427c5d63610c96947890bb9e97f54c">&#9670;&nbsp;</a></span>dispatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandBuffer::dispatch </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>groupCountX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>groupCountY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>groupCountZ</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

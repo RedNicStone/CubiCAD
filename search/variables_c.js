@@ -9,7 +9,8 @@ var searchData=
   ['objectname_6',['objectName',['../class_object_properties.html#a4cef45ddab955cf2464a8ee01efe6809',1,'ObjectProperties']]],
   ['objectproperties_7',['objectProperties',['../class_mandelbrot_app.html#a621429a16dbf7211d92f6bfe129bf4ab',1,'MandelbrotApp::objectProperties()'],['../class_vulkan_rasterizer.html#ab642206f2aa2d3095d2337926781080f',1,'VulkanRasterizer::objectProperties()']]],
   ['objects_8',['objects',['../class_mandelbrot_app.html#a3df3cc387c42f839a2abeecdf904cad7',1,'MandelbrotApp::objects()'],['../class_vulkan_rasterizer.html#aa3cfe72fb7e24245bc0257302eed46c0',1,'VulkanRasterizer::objects()']]],
-  ['octree_5fpos_5frelation_5fmap_9',['OCTREE_POS_RELATION_MAP',['../_voxel_codec_octree_base_8h.html#a6bef932f4002130ab197d5030cc12e43',1,'VoxelCodecOctreeBase.h']]],
-  ['open_5fobj_5ffile_5fdialog_5ftitle_10',['OPEN_OBJ_FILE_DIALOG_TITLE',['../class_main_menu.html#aa2b4542044257bb15ade28a61332139b',1,'MainMenu']]],
-  ['optimalfamilies_11',['optimalFamilies',['../class_queue_family_handler.html#a4045694ee02e6b4c1eace296fa99da29',1,'QueueFamilyHandler']]]
+  ['obscurancepipeline_9',['obscurancePipeline',['../class_s_s_a_o_pipeline.html#a6ea50dd6abc31ecdfa98998ac67632f9',1,'SSAOPipeline']]],
+  ['octree_5fpos_5frelation_5fmap_10',['OCTREE_POS_RELATION_MAP',['../_voxel_codec_octree_base_8h.html#a6bef932f4002130ab197d5030cc12e43',1,'VoxelCodecOctreeBase.h']]],
+  ['open_5fobj_5ffile_5fdialog_5ftitle_11',['OPEN_OBJ_FILE_DIALOG_TITLE',['../class_main_menu.html#aa2b4542044257bb15ade28a61332139b',1,'MainMenu']]],
+  ['optimalfamilies_12',['optimalFamilies',['../class_queue_family_handler.html#a4045694ee02e6b4c1eace296fa99da29',1,'QueueFamilyHandler']]]
 ];

@@ -62,6 +62,8 @@ var class_render_manager =
     [ "scene", "class_render_manager.html#a4c4f9ca5fcd4c504b959427325acf892", null ],
     [ "sceneWriter", "class_render_manager.html#a81ad286c491eb7c12688b3f751ae8572", null ],
     [ "shadingSubpass", "class_render_manager.html#afc6d2738171f05ebda4005ae1544086f", null ],
+    [ "ssaoPipeline", "class_render_manager.html#a8de366c68d7be44335fcc170a90f86e2", null ],
+    [ "ssaoSemaphore", "class_render_manager.html#a32dedbe82c6a03e5dabcc7c3c8a45595", null ],
     [ "swapChain", "class_render_manager.html#aee49ffa2b5f861a779cd6ccf6401cf1e", null ],
     [ "swapChainExtent", "class_render_manager.html#a9109aece892081ea8f83170e087b9198", null ],
     [ "textureLibrary", "class_render_manager.html#af2ab4d99d81b2a71df8ab8a3e8f12663", null ],
