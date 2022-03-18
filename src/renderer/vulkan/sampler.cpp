@@ -5,14 +5,15 @@
 #include "sampler.h"
 
 
-std::shared_ptr<Sampler> Sampler::create(const std::shared_ptr<Device> &pDevice, float anisotropy) {
+std::shared_ptr<Sampler> Sampler::create(const std::shared_ptr<Device> &pDevice, float anisotropy,
+                                         VkFilter filter) {
     auto sampler = std::make_shared<Sampler>();
     sampler->device = pDevice;
 
     VkSamplerCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
-    createInfo.minFilter = VK_FILTER_LINEAR;
-    createInfo.magFilter = VK_FILTER_LINEAR;
+    createInfo.minFilter = filter;
+    createInfo.magFilter = filter;
     createInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT;
     createInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT;
     createInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;

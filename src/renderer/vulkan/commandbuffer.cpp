@@ -100,7 +100,7 @@ void CommandBuffer::endRenderPass() {
     vkCmdEndRenderPass(handle);
 }
 
-void CommandBuffer::bindPipeline(const std::shared_ptr<GraphicsPipeline> &pipeline) {
+void CommandBuffer::bindPipeline(const std::shared_ptr<PipelineBase> &pipeline) {
     vkCmdBindPipeline(handle, pipeline->getBindPoint(), pipeline->getHandle());
 }
 
@@ -241,4 +241,8 @@ void CommandBuffer::blitImage(const std::shared_ptr<Image> &src,
                    static_cast<uint32_t>(blitRegions.size()),
                    blitRegions.data(),
                    filter);
+}
+
+void CommandBuffer::dispatch(uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ) {
+    vkCmdDispatch(handle, groupCountX, groupCountY, groupCountZ);
 }
