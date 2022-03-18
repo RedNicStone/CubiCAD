@@ -38,10 +38,12 @@ class TextureLibrary {
                                                   const TextureQualitySettings &settings);
 
     std::shared_ptr<Texture> createTexture(const std::string &filename, VkFormat format);
+    void updateSettings(const TextureQualitySettings &textureSettings);
 
     std::shared_ptr<Device> getDevice() { return device; }
     std::shared_ptr<Sampler> getSampler() { return imageSampler; }
     std::shared_ptr<Texture> getDefaultTexture() { return defaultTexture; }
+    TextureQualitySettings getTextureSettings() { return settings; }
 };
 
 #endif //CUBICAD_TEXTURELIBRARY_H

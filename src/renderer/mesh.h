@@ -43,7 +43,7 @@ namespace std {
   template<>
   struct hash<Vertex> {
       size_t operator()(Vertex const &vertex) const {
-          return (std::hash<glm::vec3>{}(vertex.pos) ^
+          return (std::hash<glm::vec3>   {}(vertex.pos)          ^
                  (std::hash<glm::i16vec3>{}(vertex.normal) << 1) ^
                  (std::hash<glm::u16vec2>{}(vertex.uv)     << 2));
       }

@@ -21,6 +21,10 @@ std::shared_ptr<MainMenu> MainMenu::create(const std::shared_ptr<RenderManager> 
                                     menubar->logoTexture->getImageView()->getHandle(),
                                     menubar->logoTexture->getImage()->getLayout());
 
+    VkPhysicalDeviceProperties properties{};
+    vkGetPhysicalDeviceProperties(renderManager->getDevice()->getPhysicalDevice()->getHandle(), &properties);
+    menubar->maxAnisotropy = properties.limits.maxSamplerAnisotropy;
+
     return menubar;
 }
 
@@ -45,6 +49,10 @@ void MainMenu::drawUI() {
                 renderManager->getSceneWriter()->writeScene();
             }
             if (ImGui::MenuItem("Save As", "CTRL+SHIFT+S")) {}
+            ImGui::Separator();
+            if (ImGui::MenuItem("Settings", "CTRL+ALT+S")) {
+                showSettingsDialog = true;
+            }
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Instance")) {
@@ -97,6 +105,9 @@ void MainMenu::drawUI() {
         showConfirmDiscardDialog = false;
     }
 
+    if (showSettingsDialog)
+        drawSettingsWindow();
+
     openOBJFileDialog();
     confirmDiscardDialog();
 }
@@ -123,6 +134,27 @@ void MainMenu::drawAboutWindow() {
                 "- stb\n"
                 "- tinyobjloader\n"
                 "- Vulkan & Vulkan Memory Allocator\n");
+
+    ImGui::End();
+}
+
+void MainMenu::drawSettingsWindow() {
+    ImGuiWindowFlags windowFlags{};
+    if (!ImGui::Begin("Scene Settings", nullptr, windowFlags)) {
+        ImGui::End();
+        return;
+    }
+
+    TextureQualitySettings settings = renderManager->getTextureLibrary()->getTextureSettings();
+    ImGui::Text("Texture settings");
+    if (ImGui::SliderFloat("Anisotropy", &settings.anisotropy, 1.0, maxAnisotropy, "ratio = %.1f")) {
+        renderManager->registerFunctionNextFrame([=](){
+            renderManager->waitForExecution();
+            auto temp = renderManager->getTextureLibrary()->getSampler();
+            renderManager->getTextureLibrary()->updateSettings(settings);
+            renderManager->getMaterialLibrary()->updateImageSampler();
+        });
+    }
 
     ImGui::End();
 }

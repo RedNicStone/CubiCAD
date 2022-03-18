@@ -104,6 +104,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
 
     std::shared_ptr<ShadingPipeline> viewportSelector;
 
+    std::vector<std::function<void()>> frameFunctions{};
+
     // input objects
     bool mouseCaptured = false;
     const float mouseSpeed = 0.001f;
@@ -132,6 +134,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     static void keyCallback(GLFWwindow *glfwWindow, int key, int scancode, int action, int mods);
     static void mouseButtonCallback(GLFWwindow *glfwWindow, int button, int action, int mods);
 
+    void drawFrame_();
+
   public:
     static std::shared_ptr<RenderManager> create(const std::shared_ptr<Instance> &instance,
                                                  const std::shared_ptr<Window> &window,
@@ -143,6 +147,11 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void updateRenderData();
     void drawFrame();
     void processInputs();
+
+    static void invalidateFrame();
+    void waitForExecution();
+    void registerFunctionNextFrame(const std::function<void()>& function);
+    void callFunctions();
 
     void loadMesh(const std::string &filename,
                   bool normalizePos = false);

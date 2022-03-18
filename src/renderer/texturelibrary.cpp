@@ -37,3 +37,8 @@ std::shared_ptr<Texture> TextureLibrary::createTexture(const std::string &filena
     }
     return textures[filename];
 }
+
+void TextureLibrary::updateSettings(const TextureQualitySettings &textureSettings) {
+    settings = textureSettings;
+    imageSampler = Sampler::create(device, settings.anisotropy);
+}

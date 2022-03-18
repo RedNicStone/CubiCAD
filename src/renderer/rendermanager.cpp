@@ -44,6 +44,7 @@ void RenderManager::createLogicalDevice() {
 
     VkPhysicalDeviceFeatures deviceFeatures{};
     deviceFeatures.multiDrawIndirect = VK_TRUE;
+    deviceFeatures.samplerAnisotropy = VK_TRUE;
 
     auto familyHandler = physicalDevice->getQueueFamilyHandler();
 
@@ -410,7 +411,7 @@ void RenderManager::resizeSwapChain(uint32_t newImageCount) {
     recreateSwapChain(newImageCount);
 }
 
-void RenderManager::drawFrame() {
+void RenderManager::drawFrame_() {
     // acquire frame
     swapChain->acquireNextFrame();
     uint32_t index = swapChain->getCurrentImageIndex();
@@ -571,5 +572,43 @@ void RenderManager::createPostProcessingPipelines() {
 
     viewportUniform = UniformBuffer::create(device, transferQueue, sizeof(uint32_t));
     viewportDescriptor->updateUniformBuffer(viewportUniform, 0);
+}
+
+void RenderManager::invalidateFrame() {
+    std::cout << "Frame invalidated, discarding frame and redrawing";
+    throw std::runtime_error("Frame invalidated!");
+}
+
+void RenderManager::waitForExecution() {
+    graphicsQueue->waitForIdle();
+    presentQueue->waitForIdle();
+    transferQueue->waitForIdle();
+    computeQueue->waitForIdle();
+}
+
+void RenderManager::drawFrame() {
+    try {
+        drawFrame_();
+    } catch (const std::runtime_error& runtime_error) {
+        if (std::equal(std::string(runtime_error.what()).begin(), std::string(runtime_error.what()).end(), "Frame "
+                                                                                                           "invalidated!")) {
+            swapChain->getPresentFence()->resetState();
+            vkQueueSubmit(graphicsQueue->getHandle(), 0, nullptr, swapChain->getPresentFence()->getHandle());
+            drawFrame();
+        }
+    }
+}
+
+void RenderManager::registerFunctionNextFrame(const std::function<void()>& function) {
+    frameFunctions.push_back(function);
+}
+
+void RenderManager::callFunctions() {
+    auto thisFrame = frameFunctions;
+    frameFunctions.clear();
+
+    for (const auto& function : thisFrame) {
+        function();
+    }
 }
 

@@ -25,14 +25,18 @@ class MainMenu : public UIDrawable {
 
     std::vector<std::string> lastFileNames;
 
+    float maxAnisotropy;
+
     bool showAboutWindow;
     bool showOpenOBJFileDialog;
     bool showConfirmDiscardDialog;
+    bool showSettingsDialog;
 
     static const constexpr char *OPEN_OBJ_FILE_DIALOG_TITLE = "Import from OBJ";
     static const constexpr char *CONFIRM_DISCARD_DIALOG_TITLE = "Confirm to discard changes";
 
     void drawAboutWindow();
+    void drawSettingsWindow();
 
     bool openOBJFileDialog();
     void confirmDiscardDialog();
