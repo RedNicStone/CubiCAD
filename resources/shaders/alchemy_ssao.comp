@@ -1,0 +1,18 @@
+#version 450
+
+layout (local_size_x = 16, local_size_y = 16) in;
+
+layout(set = 0, binding = 0) uniform PassInfo {
+    uvec2 imageSize;
+    vec4 samples[];
+} passInfo;
+
+layout(set = 0, binding = 1) uniform sampler samp;
+layout(set = 0, binding = 2, rgba16) uniform image2D texOut;
+layout(set = 0, binding = 3) uniform texture2D normal;
+layout(set = 0, binding = 4) uniform texture2D pos;
+
+void main() {
+    uvec2 ppos = gl_GlobalInvocationID.xy;
+    imageStore(texOut, ivec2(ppos / passInfo.imageSize), texture(sampler2D(pos, samp), vec2(ppos) / passInfo.imageSize));
+}

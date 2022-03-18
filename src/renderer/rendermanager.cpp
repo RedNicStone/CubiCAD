@@ -115,12 +115,10 @@ void RenderManager::createSwapChain() {
         VkImageUsageFlags imageUsage = VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT;
         if (i == RENDER_TARGET_DEPTH)
             imageUsage |= VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+        else if (i == RENDER_TARGET_DIFFUSE)
+            imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_STORAGE_BIT;
         else
-            imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
-
-        VkImageLayout layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
-        if (i == RENDER_TARGET_DEPTH)
-            layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+            imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
 
         renderTargets[i] = Image::create(device,
                                          swapChain->getSwapExtent(),
@@ -129,7 +127,11 @@ void RenderManager::createSwapChain() {
                                          imageUsage,
                                          graphicsQueues);
 
-        renderTargets[i]->setLayout(VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+        VkImageLayout layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+        if (i == RENDER_TARGET_DIFFUSE)
+            ;//layout = VK_IMAGE_LAYOUT_GENERAL;
+
+        renderTargets[i]->setLayout(layout);
 
         VkImageAspectFlags imageAspect;
         if (i == RENDER_TARGET_DEPTH)
@@ -422,8 +424,15 @@ void RenderManager::drawFrame_() {
     std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
     std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
 
+    std::vector<std::shared_ptr<Semaphore>> ssaoSemaphores = {ssaoSemaphore};
+
     // begin recording instructions
     drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
+
+    renderTargets[RENDER_TARGET_DIFFUSE]->transitionImageLayout(drawCommandBuffer,
+                                                                VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                                                                VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
+                                                                VK_ACCESS_SHADER_WRITE_BIT);
 
     // clear and begin render pass (Geometry)
     std::vector<VkClearValue> clearColor(RENDER_TARGET_MAX + 2);
@@ -492,11 +501,35 @@ void RenderManager::drawFrame_() {
     drawCommandBuffer->endCommandBuffer();
 
     // submit the buffer for execution
-    drawCommandBuffer->submitToQueue(signalSemaphores,
+    drawCommandBuffer->submitToQueue(ssaoSemaphores,
                                      {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT},
                                      waitSemaphores,
-                                     graphicsQueue,
+                                     graphicsQueue, nullptr);
+
+    drawCommandBuffer = CommandBuffer::create(computePool);
+
+    drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
+
+    renderTargets[RENDER_TARGET_DIFFUSE]->transitionImageLayout(drawCommandBuffer,
+                                             VK_IMAGE_LAYOUT_GENERAL,
+                                             VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
+                                             VK_ACCESS_SHADER_WRITE_BIT);
+
+    ssaoPipeline->bakeGraphicsBuffer(drawCommandBuffer);
+
+    drawCommandBuffer->endCommandBuffer();
+
+    // submit the buffer for execution
+    drawCommandBuffer->submitToQueue(signalSemaphores,
+                                     {VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT},
+                                     ssaoSemaphores,
+                                     computeQueue,
                                      swapChain->getPresentFence());
+
+    renderTargets[RENDER_TARGET_DIFFUSE]->transitionImageLayout(drawCommandBuffer,
+                                             VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
+                                             VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT,
+                                             0);
 
     // present the image and advance swap chain
     swapChain->presentImage();
@@ -572,6 +605,15 @@ void RenderManager::createPostProcessingPipelines() {
 
     viewportUniform = UniformBuffer::create(device, transferQueue, sizeof(uint32_t));
     viewportDescriptor->updateUniformBuffer(viewportUniform, 0);
+
+
+    ssaoPipeline = SSAOPipeline::create(device, poolManager, transferQueue,
+                                            renderTargetViews[RENDER_TARGET_DIFFUSE],
+                                            renderTargetViews[RENDER_TARGET_NORMAL],
+                                            renderTargetViews[RENDER_TARGET_POSITION],
+                                            swapChainExtent, 16);
+
+    ssaoSemaphore = Semaphore::create(device);
 }
 
 void RenderManager::invalidateFrame() {

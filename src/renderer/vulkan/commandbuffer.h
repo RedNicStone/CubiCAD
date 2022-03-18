@@ -58,7 +58,7 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
     void nextSubpass(VkSubpassContents subpassContents = VK_SUBPASS_CONTENTS_INLINE);
     void endRenderPass();
 
-    void bindPipeline(const std::shared_ptr<GraphicsPipeline> &pipeline);
+    void bindPipeline(const std::shared_ptr<PipelineBase> &pipeline);
     void bindDescriptorSets(std::vector<std::shared_ptr<DescriptorSet>> &descriptorSets,
                             const std::shared_ptr<PipelineLayout> &layout,
                             VkPipelineBindPoint bindPoint,
@@ -91,6 +91,8 @@ class CommandBuffer : public VulkanClass<VkCommandBuffer> {
                              uint32_t drawCount,
                              VkDeviceSize offset = 0,
                              uint32_t stride = sizeof(VkDrawIndexedIndirectCommand));
+
+    void dispatch(uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ);
 
     void copyBuffer(const std::shared_ptr<Buffer> &src,
                     const std::shared_ptr<Buffer> &dst,
