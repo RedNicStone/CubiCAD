@@ -44,7 +44,7 @@ class MaterialLibrary {
     std::shared_ptr<DescriptorPoolManager> descriptorPool;
     std::shared_ptr<TextureLibrary> textureLibrary;
 
-    std::map<std::shared_ptr<MasterMaterial>, std::vector<std::shared_ptr<Material>>> materials;
+    std::vector<std::shared_ptr<Material>> materials;
 
     std::shared_ptr<RenderPass> renderPass;
     uint32_t colorBlendStates;
@@ -70,6 +70,8 @@ class MaterialLibrary {
                                              void *parameters,
                                              std::vector<std::shared_ptr<Texture>> textures = {},
                                              const std::string& name = "");
+
+    void updateImageSampler();
 
     void pushParameters();
 };

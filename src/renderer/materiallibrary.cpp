@@ -50,9 +50,9 @@ std::shared_ptr<Material> MaterialLibrary::createMaterial(const std::shared_ptr<
                                                           const std::string& name) {
     for (auto& texture : textures)
         if (texture == nullptr)
-            texture = textureLibrary->getDefaultTexture();
+            texture = textureLibrary->getDefaultTexture();  // todo: can be unbound?
     auto material = Material::create(masterMaterial, textures, parameters, name);
-    materials[masterMaterial].push_back(material);
+    materials.push_back(material);
     material->updateParameterBufferOffset(bufferSize + bufferOODSize);
     bufferOODSize += material->getMasterMaterial()->getPropertySize()
         + (alignment - (material->getMasterMaterial()->getPropertySize() % alignment)) % alignment;
@@ -64,14 +64,13 @@ void MaterialLibrary::pushParameters() {
     if (bufferOODSize > 0) {
         std::vector<char> parameterBuffer(bufferSize + bufferOODSize);
         size_t p{};
-        for (const auto &pair: materials)
-            for (const auto &material: pair.second) {
-                parameterBuffer.insert(parameterBuffer.begin() + static_cast<long>(p),
-                                       static_cast<char *>(material->getParameters()),
-                                       static_cast<char *>(material->getParameters()) + pair.first->getPropertySize());
-                p += pair.first->getPropertySize()
-                    + (alignment - (pair.first->getPropertySize() % alignment)) % alignment;
-            }
+        for (const auto &material: materials) {
+            parameterBuffer.insert(parameterBuffer.begin() + static_cast<long>(p),
+                                   static_cast<char *>(material->getParameters()),
+                                   static_cast<char *>(material->getParameters()) + material->getMasterMaterial()->getPropertySize());
+            p += material->getMasterMaterial()->getPropertySize()
+                + (alignment - (material->getMasterMaterial()->getPropertySize() % alignment)) % alignment;
+        }
 
         materialBuffer->getBufferPreserveContents(bufferSize + bufferOODSize, transferPool)
             ->transferDataStaged(parameterBuffer.data() + bufferSize, transferPool, bufferOODSize, bufferSize);
@@ -80,9 +79,8 @@ void MaterialLibrary::pushParameters() {
         bufferOODSize = 0;
 
         if (prevBuffer != materialBuffer->getBuffer()) {
-            for (const auto &pair: materials)
-                for (const auto &material: pair.second)
-                    material->updateParameterBuffer(materialBuffer->getBuffer());
+            for (const auto &material: materials)
+                material->updateParameterBuffer(materialBuffer->getBuffer());
             prevBuffer = materialBuffer->getBuffer();
         }
     }
@@ -104,4 +102,13 @@ std::shared_ptr<MasterMaterial> MaterialLibrary::createMasterMaterial(const std:
     material->updateImageSampler(textureLibrary);
 
     return material;
+}
+
+void MaterialLibrary::updateImageSampler() {
+    std::unordered_set<std::shared_ptr<MasterMaterial>> masterMaterials{};
+    for (const auto& material : materials)
+        masterMaterials.insert(material->getMasterMaterial());
+
+    for (const auto& masterMaterial : masterMaterials)
+        masterMaterial->updateImageSampler(textureLibrary);
 }

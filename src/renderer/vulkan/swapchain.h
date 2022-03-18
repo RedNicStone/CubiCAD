@@ -41,8 +41,6 @@ class SwapChain {
     std::vector<std::shared_ptr<Fence>> inFlightFences;
     std::vector<std::shared_ptr<Fence>> imagesInFlight;
 
-    dexode::EventBus::Listener listener{publicRenderBus.getBus()};
-
     std::shared_ptr<Device> device;
     std::shared_ptr<Window> window;
 
@@ -50,7 +48,6 @@ class SwapChain {
     VkPresentModeKHR chooseSwapPresentMode();
 
     void createSyncObjects();
-    void cleanupSwapChain();
 
     void recreateSwapChain();
 

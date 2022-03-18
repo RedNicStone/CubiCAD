@@ -245,10 +245,6 @@ void SwapChain::acquireNextFrame() {
     inFlightFences[currentFrame]->resetState();
 }
 
-void SwapChain::cleanupSwapChain() {
-
-}
-
 void SwapChain::createSyncObjects() {
     imageAvailableSemaphores = std::vector<std::shared_ptr<Semaphore>>();
     renderFinishedSemaphores = std::vector<std::shared_ptr<Semaphore>>();

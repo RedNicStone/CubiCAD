@@ -85,7 +85,7 @@ class VulkanRasterizer {
 
     void createRenderManager() {
         TextureQualitySettings settings{};
-        settings.anisotropy = 0.0f;
+        settings.anisotropy = 1.0f;
         settings.mipLevels = 1;
 
         CameraModel cameraModel{};
@@ -121,7 +121,7 @@ class VulkanRasterizer {
     }
 
     void loadModels() {
-        renderManager->loadMesh("/home/nic/Downloads/models/Octree_demos/living_room/living_room.obj");
+        renderManager->loadMesh("/home/nic/Downloads/living_room/living_room.obj");
         renderManager->getScene()->bakeMaterials(true);
         renderManager->getScene()->collectRenderBuffers();
     }
@@ -139,9 +139,12 @@ class VulkanRasterizer {
         while (!glfwWindowShouldClose(window->getWindow())) {
             glfwPollEvents();
 
-            renderManager->processInputs();
-            objectProperties->setObjectByID(renderManager->getScene()->getSelected());
-            renderManager->drawFrame();
+            renderManager->registerFunctionNextFrame([&](){renderManager->processInputs();});
+            renderManager->registerFunctionNextFrame([&](){
+                objectProperties->setObjectByID(renderManager->getScene()->getSelected());});
+            renderManager->registerFunctionNextFrame([&](){renderManager->drawFrame();});
+
+            renderManager->callFunctions();
         }
 
         std::cout << "exiting\n";
