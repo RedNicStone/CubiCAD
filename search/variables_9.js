@@ -9,7 +9,6 @@ var searchData=
   ['leaf_6',['leaf',['../class_voxel_codec_sparse_octree.html#af7196c899a1bf2c265c5cda9360fce76',1,'VoxelCodecSparseOctree']]],
   ['leafmask_7',['leafMask',['../struct_voxel_codec_sparse_octree_1_1_node.html#ab1403afc5a855f8baa767df340b54856',1,'VoxelCodecSparseOctree::Node']]],
   ['line_5findices_8',['line_indices',['../struct_c_c_a_d___o_t_1_1_cube.html#a33aed633b5335b9ab12a0940fd896882',1,'CCAD_OT::Cube']]],
-  ['listener_9',['listener',['../class_swap_chain.html#a19289a81bc3f7d09e85ef9ea73c1d376',1,'SwapChain']]],
-  ['logodescriptorset_10',['logoDescriptorSet',['../class_main_menu.html#a26727bd7ff18f93873c24336a36f332a',1,'MainMenu']]],
-  ['logotexture_11',['logoTexture',['../class_main_menu.html#a0a607dd40d08a3c580423a58636dda0f',1,'MainMenu']]]
+  ['logodescriptorset_9',['logoDescriptorSet',['../class_main_menu.html#a26727bd7ff18f93873c24336a36f332a',1,'MainMenu']]],
+  ['logotexture_10',['logoTexture',['../class_main_menu.html#a0a607dd40d08a3c580423a58636dda0f',1,'MainMenu']]]
 ];

@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('class_texture_library.html',''); initR
 <div class="dynheader">
 Collaboration diagram for TextureLibrary:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_texture_library__coll__graph.svg" width="164" height="375"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_texture_library__coll__graph.svg" width="164" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -111,12 +111,16 @@ Collaboration diagram for TextureLibrary:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a414fd2975f62d890de3cc711db38aa8b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a414fd2975f62d890de3cc711db38aa8b">createTexture</a> (const std::string &amp;filename, VkFormat format)</td></tr>
 <tr class="separator:a414fd2975f62d890de3cc711db38aa8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa53f50e5ec8237597ad544b58133957"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#aaa53f50e5ec8237597ad544b58133957">updateSettings</a> (const <a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a> &amp;textureSettings)</td></tr>
+<tr class="separator:aaa53f50e5ec8237597ad544b58133957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f5a7b0be372a2f028e146f93fc64af4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a4f5a7b0be372a2f028e146f93fc64af4">getDevice</a> ()</td></tr>
 <tr class="separator:a4f5a7b0be372a2f028e146f93fc64af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0f63f82fff899b6730eab332af2db24"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_sampler.html">Sampler</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#ad0f63f82fff899b6730eab332af2db24">getSampler</a> ()</td></tr>
 <tr class="separator:ad0f63f82fff899b6730eab332af2db24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b37651bf4803f4b971c4a6d588d111e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a9b37651bf4803f4b971c4a6d588d111e">getDefaultTexture</a> ()</td></tr>
 <tr class="separator:a9b37651bf4803f4b971c4a6d588d111e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d5d2c158164f504fd17496c52906c51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a4d5d2c158164f504fd17496c52906c51">getTextureSettings</a> ()</td></tr>
+<tr class="separator:a4d5d2c158164f504fd17496c52906c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -307,6 +311,55 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d5d2c158164f504fd17496c52906c51" name="a4d5d2c158164f504fd17496c52906c51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d5d2c158164f504fd17496c52906c51">&#9670;&nbsp;</a></span>getTextureSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a> TextureLibrary::getTextureSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa53f50e5ec8237597ad544b58133957" name="aaa53f50e5ec8237597ad544b58133957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa53f50e5ec8237597ad544b58133957">&#9670;&nbsp;</a></span>updateSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextureLibrary::updateSettings </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>textureSettings</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_texture_library_aaa53f50e5ec8237597ad544b58133957_cgraph.svg" width="368" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>

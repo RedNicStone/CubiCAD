@@ -5,5 +5,6 @@ var searchData=
   ['nodeinfo_2',['nodeInfo',['../struct_c_c_a_d___o_t_1_1_ot_node_primitive.html#ac90670cd1479bde2158870252473e648',1,'CCAD_OT::OtNodePrimitive::nodeInfo()'],['../struct_c_c_a_d___o_t_1_1_ot_node.html#aa48041619787206890784ff72fb1f040',1,'CCAD_OT::OtNode::nodeInfo()'],['../struct_c_c_a_d___o_t_1_1_ot_node_leaf.html#a877a2d17503e2976efe586c3b8b892a0',1,'CCAD_OT::OtNodeLeaf::nodeInfo()']]],
   ['nodepos_3',['nodePos',['../struct_voxel_codec_octree_base_1_1_node_stack_element.html#a264a56f7406ab4a7173f6224ea10e396',1,'VoxelCodecOctreeBase::NodeStackElement']]],
   ['nodeptr_4',['nodePtr',['../struct_voxel_codec_octree_base_1_1_node_stack_element.html#ae72e7b21f431bad991ad131133093f9f',1,'VoxelCodecOctreeBase::NodeStackElement']]],
-  ['nodestack_5',['nodeStack',['../class_voxel_codec_octree_base.html#acf376e3d0838abe3f6b6d2bffbe5ee88',1,'VoxelCodecOctreeBase']]]
+  ['nodestack_5',['nodeStack',['../class_voxel_codec_octree_base.html#acf376e3d0838abe3f6b6d2bffbe5ee88',1,'VoxelCodecOctreeBase']]],
+  ['normal_6',['normal',['../struct_vertex.html#a0922508164c54325988fe575aa0e6356',1,'Vertex']]]
 ];

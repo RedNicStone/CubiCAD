@@ -15,7 +15,8 @@ var searchData=
   ['framebufferresized_12',['framebufferResized',['../class_mandelbrot_app.html#a1dbec42f71e98686b30629f626800f0f',1,'MandelbrotApp']]],
   ['framebuffers_13',['frameBuffers',['../class_frame_buffer.html#a7b1719d5b4cc7de4f706f4319f0ab146',1,'FrameBuffer']]],
   ['framecount_14',['frameCount',['../struct_mandelbrot_u_b_o.html#a1920e076824f33078e189500b57e627a',1,'MandelbrotUBO']]],
-  ['frameid_15',['frameID',['../struct_mandelbrot_u_b_o.html#aaf31c8b1bac4220c566d3ca07a79c00e',1,'MandelbrotUBO']]],
-  ['frametime_16',['frameTime',['../struct_scene_data.html#a1a1dcbcdb29e9d308c4abbb5818cd0d2',1,'SceneData::frameTime()'],['../struct_mandelbrot_u_b_o.html#a020dac8b164e60955ace32b975578992',1,'MandelbrotUBO::frameTime()']]],
-  ['freepools_17',['freePools',['../class_descriptor_pool_manager.html#adfe3dedd498e3e39154a8a1550436359',1,'DescriptorPoolManager']]]
+  ['framefunctions_15',['frameFunctions',['../class_render_manager.html#a6bdd832fbe982e758ea7423a6283fc61',1,'RenderManager']]],
+  ['frameid_16',['frameID',['../struct_mandelbrot_u_b_o.html#aaf31c8b1bac4220c566d3ca07a79c00e',1,'MandelbrotUBO']]],
+  ['frametime_17',['frameTime',['../struct_scene_data.html#a1a1dcbcdb29e9d308c4abbb5818cd0d2',1,'SceneData::frameTime()'],['../struct_mandelbrot_u_b_o.html#a020dac8b164e60955ace32b975578992',1,'MandelbrotUBO::frameTime()']]],
+  ['freepools_18',['freePools',['../class_descriptor_pool_manager.html#adfe3dedd498e3e39154a8a1550436359',1,'DescriptorPoolManager']]]
 ];

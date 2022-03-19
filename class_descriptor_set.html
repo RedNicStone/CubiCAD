@@ -127,10 +127,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a28cf1e0776751aec4cbba26ffbf80b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2ef363abbd76d89aa88579ab76076ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#ad2ef363abbd76d89aa88579ab76076ae">updateImages</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &gt; &amp;imageViews, VkDescriptorType type, uint32_t binding, uint32_t arrayElement=0)</td></tr>
 <tr class="separator:ad2ef363abbd76d89aa88579ab76076ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7488a3c6d0027d681a2a2f8ae489815c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a7488a3c6d0027d681a2a2f8ae489815c">updateImages</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &gt; &amp;imageViews, VkDescriptorType type, VkImageLayout layout, uint32_t binding, uint32_t arrayElement=0)</td></tr>
+<tr class="separator:a7488a3c6d0027d681a2a2f8ae489815c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35931a8d5106020ddc7617e800a138fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a35931a8d5106020ddc7617e800a138fa">updateImage</a> (const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;imageView, uint32_t binding, uint32_t arrayElement=0)</td></tr>
 <tr class="separator:a35931a8d5106020ddc7617e800a138fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23f619098d1dfda570b9e54b7fd115fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a23f619098d1dfda570b9e54b7fd115fe">updateImage</a> (const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;imageView, VkDescriptorType type, uint32_t binding, uint32_t arrayElement=0)</td></tr>
 <tr class="separator:a23f619098d1dfda570b9e54b7fd115fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a330d4418770c62d7c3e7705480147be6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#a330d4418770c62d7c3e7705480147be6">updateImage</a> (const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;imageView, VkDescriptorType type, VkImageLayout layout, uint32_t binding, uint32_t arrayElement=0)</td></tr>
+<tr class="separator:a330d4418770c62d7c3e7705480147be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac28ec0ae578e590facfb3adc726a1265"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#ac28ec0ae578e590facfb3adc726a1265">getDevice</a> ()</td></tr>
 <tr class="separator:ac28ec0ae578e590facfb3adc726a1265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed2f0a31da88ae30b9da0a00243105e4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_pool.html">DescriptorPool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_set.html#aed2f0a31da88ae30b9da0a00243105e4">getPool</a> ()</td></tr>
@@ -384,7 +388,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a id="a35931a8d5106020ddc7617e800a138fa" name="a35931a8d5106020ddc7617e800a138fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35931a8d5106020ddc7617e800a138fa">&#9670;&nbsp;</a></span>updateImage() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a35931a8d5106020ddc7617e800a138fa">&#9670;&nbsp;</a></span>updateImage() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -430,7 +434,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a id="a23f619098d1dfda570b9e54b7fd115fe" name="a23f619098d1dfda570b9e54b7fd115fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23f619098d1dfda570b9e54b7fd115fe">&#9670;&nbsp;</a></span>updateImage() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a23f619098d1dfda570b9e54b7fd115fe">&#9670;&nbsp;</a></span>updateImage() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -469,8 +473,54 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a330d4418770c62d7c3e7705480147be6" name="a330d4418770c62d7c3e7705480147be6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a330d4418770c62d7c3e7705480147be6">&#9670;&nbsp;</a></span>updateImage() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DescriptorSet::updateImage </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>imageView</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkDescriptorType&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkImageLayout&#160;</td>
+          <td class="paramname"><em>layout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>binding</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>arrayElement</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad2ef363abbd76d89aa88579ab76076ae" name="ad2ef363abbd76d89aa88579ab76076ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2ef363abbd76d89aa88579ab76076ae">&#9670;&nbsp;</a></span>updateImages()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2ef363abbd76d89aa88579ab76076ae">&#9670;&nbsp;</a></span>updateImages() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -486,6 +536,52 @@ Here is the caller graph for this function:</div>
           <td></td>
           <td class="paramtype">VkDescriptorType&#160;</td>
           <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>binding</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>arrayElement</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7488a3c6d0027d681a2a2f8ae489815c" name="a7488a3c6d0027d681a2a2f8ae489815c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7488a3c6d0027d681a2a2f8ae489815c">&#9670;&nbsp;</a></span>updateImages() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DescriptorSet::updateImages </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>imageViews</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkDescriptorType&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkImageLayout&#160;</td>
+          <td class="paramname"><em>layout</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

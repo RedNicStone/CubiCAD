@@ -584,35 +584,37 @@
 <g id="node13" class="node">
 <title>Node13</title>
 <g id="a_node13"><a xlink:href="class_descriptor_set.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="845,-167 845,-400 968,-400 968,-167 845,-167"/>
-<text text-anchor="middle" x="906.5" y="-388" font-family="Helvetica,sans-Serif" font-size="10.00">DescriptorSet</text>
-<polyline fill="none" stroke="black" points="845,-381 968,-381 "/>
-<text text-anchor="start" x="853" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; device</text>
-<text text-anchor="start" x="853" y="-358" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; setLayout</text>
-<text text-anchor="start" x="853" y="-347" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; pool</text>
-<polyline fill="none" stroke="black" points="845,-340 968,-340 "/>
+<polygon fill="none" stroke="black" points="845,-156 845,-411 968,-411 968,-156 845,-156"/>
+<text text-anchor="middle" x="906.5" y="-399" font-family="Helvetica,sans-Serif" font-size="10.00">DescriptorSet</text>
+<polyline fill="none" stroke="black" points="845,-392 968,-392 "/>
+<text text-anchor="start" x="853" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; device</text>
+<text text-anchor="start" x="853" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; setLayout</text>
+<text text-anchor="start" x="853" y="-358" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; pool</text>
+<polyline fill="none" stroke="black" points="845,-351 968,-351 "/>
+<text text-anchor="start" x="853" y="-339" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateUniformBuffer()</text>
 <text text-anchor="start" x="853" y="-328" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateUniformBuffer()</text>
 <text text-anchor="start" x="853" y="-317" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateUniformBuffer()</text>
-<text text-anchor="start" x="853" y="-306" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateUniformBuffer()</text>
-<text text-anchor="start" x="853" y="-295" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateImageSampler()</text>
-<text text-anchor="start" x="853" y="-284" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateStorageBuffer()</text>
+<text text-anchor="start" x="853" y="-306" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateImageSampler()</text>
+<text text-anchor="start" x="853" y="-295" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateStorageBuffer()</text>
+<text text-anchor="start" x="853" y="-284" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateImages()</text>
 <text text-anchor="start" x="853" y="-273" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateImages()</text>
 <text text-anchor="start" x="853" y="-262" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateImage()</text>
 <text text-anchor="start" x="853" y="-251" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateImage()</text>
-<text text-anchor="start" x="853" y="-240" font-family="Helvetica,sans-Serif" font-size="10.00">+ getDevice()</text>
-<text text-anchor="start" x="853" y="-229" font-family="Helvetica,sans-Serif" font-size="10.00">+ getPool()</text>
-<text text-anchor="start" x="853" y="-218" font-family="Helvetica,sans-Serif" font-size="10.00">+ getLayout()</text>
-<text text-anchor="start" x="853" y="-207" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~DescriptorSet()</text>
-<text text-anchor="start" x="853" y="-196" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
+<text text-anchor="start" x="853" y="-240" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateImage()</text>
+<text text-anchor="start" x="853" y="-229" font-family="Helvetica,sans-Serif" font-size="10.00">+ getDevice()</text>
+<text text-anchor="start" x="853" y="-218" font-family="Helvetica,sans-Serif" font-size="10.00">+ getPool()</text>
+<text text-anchor="start" x="853" y="-207" font-family="Helvetica,sans-Serif" font-size="10.00">+ getLayout()</text>
+<text text-anchor="start" x="853" y="-196" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~DescriptorSet()</text>
 <text text-anchor="start" x="853" y="-185" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
 <text text-anchor="start" x="853" y="-174" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
+<text text-anchor="start" x="853" y="-163" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
 </a>
 </g>
 </g>
 <!-- Node12&#45;&gt;Node13 -->
 <g id="edge12" class="edge">
 <title>Node12&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M906.5,-477.26C906.5,-454.89 906.5,-427.34 906.5,-400.14"/>
+<path fill="none" stroke="midnightblue" d="M906.5,-477.43C906.5,-458.07 906.5,-434.81 906.5,-411.24"/>
 <polygon fill="none" stroke="midnightblue" points="903,-477.47 906.5,-487.47 910,-477.47 903,-477.47"/>
 </g>
 <!-- Node15 -->

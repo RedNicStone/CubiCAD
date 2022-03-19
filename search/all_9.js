@@ -43,8 +43,9 @@ var searchData=
   ['instancebufferdata_40',['instanceBufferData',['../class_scene.html#ab340f781e639017d5cd47c0e45e4a74d',1,'Scene']]],
   ['instancedata_41',['InstanceData',['../struct_instance_data.html',1,'']]],
   ['instances_42',['instances',['../class_scene.html#a25dfe61208f84baef0549c9986cc7bc4',1,'Scene']]],
-  ['iscomplete_43',['isComplete',['../struct_queue_family_indices.html#a15425ce6a9efb2a9f6516babef8e6391',1,'QueueFamilyIndices']]],
-  ['isleaf_44',['isLeaf',['../class_voxel_codec_octree_base.html#aecdfa7853c6e9c3571ac7566f72ed892',1,'VoxelCodecOctreeBase::isLeaf()'],['../class_voxel_codec_sparse_octree.html#a8b0c081bbbdedeb307d0b91c0999f3a6',1,'VoxelCodecSparseOctree::isLeaf()']]],
-  ['itemhovered_45',['itemHovered',['../class_object_list.html#a2dd400fd67b8865c6d51060a027b92c2',1,'ObjectList']]],
-  ['itemselected_46',['itemSelected',['../class_object_list.html#a0aa0d3206a0ad8359ea462803429fec3',1,'ObjectList']]]
+  ['invalidateframe_43',['invalidateFrame',['../class_render_manager.html#a7b1be9911df29d770b7d3005de929993',1,'RenderManager']]],
+  ['iscomplete_44',['isComplete',['../struct_queue_family_indices.html#a15425ce6a9efb2a9f6516babef8e6391',1,'QueueFamilyIndices']]],
+  ['isleaf_45',['isLeaf',['../class_voxel_codec_octree_base.html#aecdfa7853c6e9c3571ac7566f72ed892',1,'VoxelCodecOctreeBase::isLeaf()'],['../class_voxel_codec_sparse_octree.html#a8b0c081bbbdedeb307d0b91c0999f3a6',1,'VoxelCodecSparseOctree::isLeaf()']]],
+  ['itemhovered_46',['itemHovered',['../class_object_list.html#a2dd400fd67b8865c6d51060a027b92c2',1,'ObjectList']]],
+  ['itemselected_47',['itemSelected',['../class_object_list.html#a0aa0d3206a0ad8359ea462803429fec3',1,'ObjectList']]]
 ];

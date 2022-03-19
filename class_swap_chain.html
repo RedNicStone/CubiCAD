@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('class_swap_chain.html',''); initResiza
 <div class="dynheader">
 Collaboration diagram for SwapChain:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain__coll__graph.svg" width="210" height="470"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_swap_chain__coll__graph.svg" width="210" height="514"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -160,8 +160,6 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:aa1cba85a0ab83bb4ab3a2092af803e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d91946c6d165cb548a331a249e30157"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a6d91946c6d165cb548a331a249e30157">createSyncObjects</a> ()</td></tr>
 <tr class="separator:a6d91946c6d165cb548a331a249e30157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c1b739a8b245063604eba188d342556"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a1c1b739a8b245063604eba188d342556">cleanupSwapChain</a> ()</td></tr>
-<tr class="separator:a1c1b739a8b245063604eba188d342556"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6baddf7a59b17af49fac197ba9764383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a6baddf7a59b17af49fac197ba9764383">recreateSwapChain</a> ()</td></tr>
 <tr class="separator:a6baddf7a59b17af49fac197ba9764383"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -193,8 +191,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a6218e24e32fae988cb76387ee13908ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11426fe4d871903dab6293a1ca783cfc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_fence.html">Fence</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a11426fe4d871903dab6293a1ca783cfc">imagesInFlight</a></td></tr>
 <tr class="separator:a11426fe4d871903dab6293a1ca783cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19289a81bc3f7d09e85ef9ea73c1d376"><td class="memItemLeft" align="right" valign="top">dexode::EventBus::Listener&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a19289a81bc3f7d09e85ef9ea73c1d376">listener</a> {publicRenderBus.getBus()}</td></tr>
-<tr class="separator:a19289a81bc3f7d09e85ef9ea73c1d376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff10bee96f734fd784e7bf15720fae86"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#aff10bee96f734fd784e7bf15720fae86">device</a></td></tr>
 <tr class="separator:aff10bee96f734fd784e7bf15720fae86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01a9d376e6d954b7da7f4e14da2e0feb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_swap_chain.html#a01a9d376e6d954b7da7f4e14da2e0feb">window</a></td></tr>
@@ -272,31 +268,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">VkSurfaceFormatKHR SwapChain::chooseSwapSurfaceFormat </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1c1b739a8b245063604eba188d342556" name="a1c1b739a8b245063604eba188d342556"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c1b739a8b245063604eba188d342556">&#9670;&nbsp;</a></span>cleanupSwapChain()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SwapChain::cleanupSwapChain </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -992,28 +963,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_fence.html">Fence</a>&gt; &gt; SwapChain::inFlightFences</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a19289a81bc3f7d09e85ef9ea73c1d376" name="a19289a81bc3f7d09e85ef9ea73c1d376"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19289a81bc3f7d09e85ef9ea73c1d376">&#9670;&nbsp;</a></span>listener</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">dexode::EventBus::Listener SwapChain::listener {publicRenderBus.getBus()}</td>
         </tr>
       </table>
   </td>
