@@ -154,13 +154,18 @@ void RenderManager::createSwapChain() {
 }
 
 void RenderManager::createRenderPass() {
-    renderPass = RenderPass::create(device);
 
-    uint32_t swapChainAttachment = renderPass->submitSwapChainAttachment(swapChain, true);
+    ////
+    //  Geometry pass
+    ////
+
+    geometryRenderPass = RenderPass::create(device);
+
+    uint32_t geometrySwapChainAttachment = UIRenderPass->submitSwapChainAttachment(swapChain, true);
 
     uint32_t
         objectIDAttachment =
-        renderPass->submitImageAttachment(objectBufferImage->getFormat(),
+        geometryRenderPass->submitImageAttachment(objectBufferImage->getFormat(),
                                           VK_SAMPLE_COUNT_1_BIT,
                                           VK_ATTACHMENT_LOAD_OP_CLEAR,
                                           VK_ATTACHMENT_STORE_OP_STORE,
@@ -169,15 +174,14 @@ void RenderManager::createRenderPass() {
                                           VK_IMAGE_LAYOUT_UNDEFINED,
                                           VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
 
-    std::vector<uint32_t> attachments(RENDER_TARGET_MAX);
-    std::vector<VkAttachmentReference> outputAttachmentReferences(RENDER_TARGET_MAX);
-    std::vector<VkAttachmentReference> inputAttachmentReferences(RENDER_TARGET_MAX);
-    for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++) {
+    std::vector<uint32_t> geometryAttachments(geometryRenderTargets.size());
+    std::vector<VkAttachmentReference> geometryOutputAttachmentReferences(geometryRenderTargets.size());
+    for (auto i : geometryRenderTargets) {
         VkImageLayout layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
         if (i == RENDER_TARGET_DEPTH)
             layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
-        attachments[i] = (renderPass->submitImageAttachment(renderTargets[i]->getFormat(),
+        geometryAttachments[i] = (geometryRenderPass->submitImageAttachment(renderTargets[i]->getFormat(),
                                                                 VK_SAMPLE_COUNT_1_BIT,
                                                                 VK_ATTACHMENT_LOAD_OP_CLEAR,
                                                                 VK_ATTACHMENT_STORE_OP_STORE,
@@ -186,61 +190,90 @@ void RenderManager::createRenderPass() {
                                                             VK_IMAGE_LAYOUT_UNDEFINED,
                                                                 layout));
 
-        outputAttachmentReferences[i].attachment = attachments[i];
-        outputAttachmentReferences[i].layout = layout;
-
-        inputAttachmentReferences[i].attachment = attachments[i];
-        inputAttachmentReferences[i].layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+        geometryOutputAttachmentReferences[i].attachment = geometryAttachments[i];
+        geometryOutputAttachmentReferences[i].layout = layout;
     }
-
-    VkAttachmentReference swapChainAttachmentRef{};
-    swapChainAttachmentRef.attachment = swapChainAttachment;
-    swapChainAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
     VkAttachmentReference objectIDAttachmentRef{};
     objectIDAttachmentRef.attachment = objectIDAttachment;
     objectIDAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-    std::vector<VkAttachmentReference> geometryPipelineOutputReference(outputAttachmentReferences);
-    geometryPipelineOutputReference.erase(geometryPipelineOutputReference.begin() + RENDER_TARGET_DEPTH);
-    geometryPipelineOutputReference.push_back(objectIDAttachmentRef);
+    std::vector<VkAttachmentReference> geometryPipelineColorReference(geometryOutputAttachmentReferences);
+    geometryPipelineColorReference.erase(geometryPipelineColorReference.begin() + RENDER_TARGET_DEPTH);
+    geometryPipelineColorReference.push_back(objectIDAttachmentRef);
     std::vector<VkAttachmentReference> geometryPipelineInputReference = {};
     uint32_t geometrySubpass =
-        renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                  geometryPipelineOutputReference,
-                                  geometryPipelineInputReference,
-                                  &outputAttachmentReferences[RENDER_TARGET_DEPTH],
-                                  0);
+        geometryRenderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
+                                          geometryPipelineColorReference,
+                                          geometryPipelineInputReference,
+                                          &geometryOutputAttachmentReferences[RENDER_TARGET_DEPTH],
+                                          0);
+
+    geometryRenderPass->submitDependency(VK_SUBPASS_EXTERNAL, geometrySubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
+                                 VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
+    geometryRenderPass->submitDependency(geometrySubpass, VK_SUBPASS_EXTERNAL, VK_ACCESS_COLOR_ATTACHMENT_READ_BIT,
+                                 VK_ACCESS_SHADER_READ_BIT,
+                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT);
+
+    geometryRenderPass->build();
+
+    ////
+    //  UI/Shading pass
+    ////
+
+    UIRenderPass = RenderPass::create(device);
+
+    uint32_t swapChainAttachment = UIRenderPass->submitSwapChainAttachment(swapChain, true);
+
+    std::vector<uint32_t> UIAttachments(RENDER_TARGET_MAX);
+    std::vector<VkAttachmentReference> UIOutputAttachmentReferences(RENDER_TARGET_MAX);
+    std::vector<VkAttachmentReference> UIInputAttachmentReferences(RENDER_TARGET_MAX);
+    for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++) {
+        VkImageLayout layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+        if (i == RENDER_TARGET_DEPTH)
+            layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+
+        UIAttachments[i] = (geometryRenderPass->submitImageAttachment(renderTargets[i]->getFormat(),
+                                                                    VK_SAMPLE_COUNT_1_BIT,
+                                                                    VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                                                    VK_ATTACHMENT_STORE_OP_STORE,
+                                                                    VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                                                    VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                                    VK_IMAGE_LAYOUT_UNDEFINED,
+                                                                    layout));
+
+        UIInputAttachmentReferences[i].attachment = UIAttachments[i];
+        UIInputAttachmentReferences[i].layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+    }
+
+    VkAttachmentReference swapChainAttachmentRef{};
+    colorAttachmentRef.attachment = swapChainAttachment;
+    colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
     std::vector<VkAttachmentReference> shadingPipelineOutputReference = {swapChainAttachmentRef};
-    std::vector<VkAttachmentReference> shadingPipelineInputReference(inputAttachmentReferences);
+    std::vector<VkAttachmentReference> shadingPipelineInputReference(UIInputAttachmentReferences);
     shadingSubpass =
-        renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                  shadingPipelineOutputReference,
-                                  shadingPipelineInputReference,
-                                  nullptr,
-                                  0);
+        UIRenderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
+                                    shadingPipelineOutputReference,
+                                    shadingPipelineInputReference,
+                                    nullptr,
+                                    0);
 
     std::vector<VkAttachmentReference> UIPipelineColorReference = {swapChainAttachmentRef};
     std::vector<VkAttachmentReference> UIPipelineInputReference = {};
     uiSubpass =
-        renderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                  UIPipelineColorReference,
-                                  UIPipelineInputReference,
-                                  nullptr,
-                                  0);
+        UIRenderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
+                                    UIPipelineColorReference,
+                                    UIPipelineInputReference,
+                                    nullptr,
+                                    0);
 
-    renderPass->submitDependency(VK_SUBPASS_EXTERNAL, geometrySubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
-                                 VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT, VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
-    renderPass->submitDependency(geometrySubpass, shadingSubpass, VK_ACCESS_COLOR_ATTACHMENT_READ_BIT,
-                                 VK_ACCESS_SHADER_READ_BIT,
+    UIRenderPass->submitDependency(shadingSubpass, uiSubpass, 0, VK_ACCESS_SHADER_READ_BIT,
                                  VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
-    renderPass->submitDependency(shadingSubpass, uiSubpass, 0, VK_ACCESS_SHADER_READ_BIT,
-                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
-    renderPass->submitDependency(uiSubpass, VK_SUBPASS_EXTERNAL, 0, VK_ACCESS_MEMORY_READ_BIT,
+    UIRenderPass->submitDependency(uiSubpass, VK_SUBPASS_EXTERNAL, 0, VK_ACCESS_MEMORY_READ_BIT,
                                  VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT);
 
-    renderPass->build();
+    UIRenderPass->build();
 }
 
 void RenderManager::createFrameBuffer() {

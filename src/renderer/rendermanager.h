@@ -28,7 +28,8 @@ enum RenderTarget : uint32_t {
     RENDER_TARGET_POSITION      = 1,
     RENDER_TARGET_NORMAL        = 2,
     RENDER_TARGET_DEPTH         = 3,
-    RENDER_TARGET_MAX           = 4
+    RENDER_TARGET_AMBIENT       = 4,
+    RENDER_TARGET_MAX           = 5
 };
 
 enum SelectableRenderTarget : uint32_t {
@@ -88,7 +89,18 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<FrameBuffer> frameBuffer;
     VkExtent2D swapChainExtent;
 
-    std::shared_ptr<RenderPass> renderPass;
+    const std::vector<uint32_t> geometryRenderTargets = {RENDER_TARGET_DIFFUSE,
+                                                         RENDER_TARGET_POSITION,
+                                                         RENDER_TARGET_NORMAL,
+                                                         RENDER_TARGET_DEPTH};
+    const std::vector<uint32_t> UIRenderTargets = {RENDER_TARGET_DIFFUSE,
+                                                   RENDER_TARGET_POSITION,
+                                                   RENDER_TARGET_NORMAL,
+                                                   RENDER_TARGET_DEPTH,
+                                                   RENDER_TARGET_AMBIENT};
+
+    std::shared_ptr<RenderPass> geometryRenderPass;
+    std::shared_ptr<RenderPass> UIRenderPass;
 
     uint32_t shadingSubpass;
     uint32_t uiSubpass;
