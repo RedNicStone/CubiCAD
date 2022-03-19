@@ -118,6 +118,29 @@ void DescriptorSet::updateImage(const std::shared_ptr<ImageView> &imageView,
     VkDescriptorImageInfo info = {};
     info.imageView = imageView->getHandle();
     info.imageLayout = imageView->getImage()->getLayout();
+    info.sampler = nullptr;
+
+    VkWriteDescriptorSet write = {};
+    write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    write.dstSet = handle;
+    write.dstBinding = binding;
+    write.dstArrayElement = arrayElement;
+    write.descriptorType = type;
+    write.descriptorCount = 1;
+    write.pImageInfo = &info;
+
+    vkUpdateDescriptorSets(device->getHandle(), 1, &write, 0, nullptr);
+}
+
+void DescriptorSet::updateImage(const std::shared_ptr<ImageView> &imageView,
+                                VkDescriptorType type,
+                                VkImageLayout layout,
+                                uint32_t binding,
+                                uint32_t arrayElement) {
+    VkDescriptorImageInfo info = {};
+    info.imageView = imageView->getHandle();
+    info.imageLayout = layout;
+    info.sampler = nullptr;
 
     VkWriteDescriptorSet write = {};
     write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
@@ -140,6 +163,31 @@ void DescriptorSet::updateImages(const std::vector<std::shared_ptr<ImageView>> &
     for (uint32_t i = 0; i < imageViews.size(); i++) {
         descriptorImageInfo[i].imageView = imageViews[i]->getHandle();
         descriptorImageInfo[i].imageLayout = imageViews[i]->getImage()->getLayout();
+        descriptorImageInfo[i].sampler = nullptr;
+    }
+
+    VkWriteDescriptorSet write = {};
+    write.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    write.dstSet = handle;
+    write.dstBinding = binding;
+    write.dstArrayElement = arrayElement;
+    write.descriptorType = type;
+    write.descriptorCount = static_cast<uint32_t>(imageViews.size());
+    write.pImageInfo = descriptorImageInfo.data();
+
+    vkUpdateDescriptorSets(device->getHandle(), 1, &write, 0, nullptr);
+}
+
+void DescriptorSet::updateImages(const std::vector<std::shared_ptr<ImageView>> &imageViews,
+                                 VkDescriptorType type,
+                                 VkImageLayout layout,
+                                 uint32_t binding,
+                                 uint32_t arrayElement) {
+    std::vector<VkDescriptorImageInfo> descriptorImageInfo(imageViews.size());
+
+    for (uint32_t i = 0; i < imageViews.size(); i++) {
+        descriptorImageInfo[i].imageView = imageViews[i]->getHandle();
+        descriptorImageInfo[i].imageLayout = layout;
         descriptorImageInfo[i].sampler = nullptr;
     }
 

@@ -3,6 +3,8 @@ project(CubiCAD VERSION 0.2.1)
 set(CMAKE_CXX_STANDARD     17
     CXX_STANDARD_REQUIRED  YES)
 
+include(FetchContent)
+
 # configure compile options
 
 # COMPILE_FLAG_USE_UINT32_INDICES -  - accepted value ON or OFF
@@ -20,6 +22,11 @@ option(AUTO_LOCATE_VULKAN "Automatically locate vulkan using CMake" ON)
 # ON  - Try to build offline
 # OFF - Build as usual
 option(COMPILE_FLAG_OFFLINE "Configure make to build offline" OFF)
+
+# COMPILE_FLAG_DOWNLOAD_DEMOS - automatically downloads demo models to import
+# ON  - Downloads and unzips the demo models
+# OFF - Skip download
+option(COMPILE_FLAG_DOWNLOAD_DEMOS "Download demo models" OFF)
 
 if(COMPILE_FLAG_USE_UINT32_INDICES)
     add_compile_definitions(USE_UINT32_INDICES)
@@ -61,6 +68,40 @@ set_project_warnings(CubiCAD)
 # sanitizer options if supported by compiler (only debug)
 include(${CMAKE_SOURCE_DIR}/cmake/Sanitizers.cmake)
 enable_sanitizers(CubiCAD)
+
+# Download demos if enabled
+function(download_file URL DIR NAME)
+    FetchContent_Declare(download_${NAME}
+            URL ${URL}
+            DOWNLOAD_NO_EXTRACT false
+            SOURCE_DIR ${DIR}
+            )
+    FetchContent_MakeAvailable(download_${NAME})
+endfunction(download_file)
+
+if(COMPILE_FLAG_DOWNLOAD_DEMOS)
+    message(STATUS "Checking for remote content")
+
+    download_file("https://casual-effects.com/g3d/data10/research/model/breakfast_room/breakfast_room.zip"
+            "${CMAKE_SOURCE_DIR}/resources/models/demo/breakfast_room" "breakfast_room")
+    download_file("https://casual-effects.com/g3d/data10/research/model/fireplace_room/fireplace_room.zip"
+            "${CMAKE_SOURCE_DIR}/resources/models/demo/fireplace_room" "fireplace_room")
+    download_file("https://casual-effects.com/g3d/data10/research/model/lost_empire/lost-empire.zip"
+            "${CMAKE_SOURCE_DIR}/resources/models/demo/lost_empire" "lost_empire")
+    download_file("https://casual-effects.com/g3d/data10/research/model/living_room/living_room.zip"
+            "${CMAKE_SOURCE_DIR}/resources/models/demo/living_room" "living_room")
+    download_file("https://casual-effects.com/g3d/data10/research/model/San_Miguel/San_Miguel.zip"
+            "${CMAKE_SOURCE_DIR}/resources/models/demo/san_miguel" "san_miguel")
+
+    file(GLOB
+            DEMO_FILES
+            LIST_DIRECTORIES false
+            "resources/models/demo/*.zip"
+            )
+    foreach(DEMO_FILE ${DEMO_FILES})
+        file(ARCHIVE_EXTRACT INPUT DEMO_FILE)
+    endforeach()
+endif()
 
 # ImGui Library
 #[[
@@ -198,6 +239,13 @@ file(GLOB
 
 message(STATUS "Detected shaders to build: ${SHADERS_SOURCE_PATH}")
 
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(SHADER_COMPILE_ARGS "-O0;-g")
+else()
+    set(SHADER_COMPILE_ARGS "-O")
+endif()
+message(STATUS "Building shaders with following arguments: ${SHADER_COMPILE_ARGS}")
+
 foreach(SHADER_SOURCE_FILE ${SHADERS_SOURCE_PATH})
     set(SHADER_BINARY_FILE ${SHADER_SOURCE_FILE})
     string(APPEND SHADER_BINARY_FILE ".spv")
@@ -205,7 +253,7 @@ foreach(SHADER_SOURCE_FILE ${SHADERS_SOURCE_PATH})
     add_custom_command(OUTPUT ${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}
         COMMAND echo "compiling shader: ${SHADER_SOURCE_FILE}" &
             ${GLSLC_EXECUTABLE} ${SHADERS_SOURCE_DIR}/${SHADER_SOURCE_FILE}
-            -O -o ${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}
+            ${SHADER_COMPILE_ARGS} -o ${SHADERS_BUILD_DIR}/${SHADER_BINARY_FILE}
         DEPENDS ${SHADERS_SOURCE_DIR}/${SHADER_SOURCE_FILE}
     )
 endforeach()

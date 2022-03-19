@@ -71,9 +71,19 @@ class DescriptorSet : public VulkanClass<VkDescriptorSet> {
                       VkDescriptorType type,
                       uint32_t binding,
                       uint32_t arrayElement = 0);
+    void updateImages(const std::vector<std::shared_ptr<ImageView>> &imageViews,
+                      VkDescriptorType type,
+                      VkImageLayout layout,
+                      uint32_t binding,
+                      uint32_t arrayElement = 0);
     void updateImage(const std::shared_ptr<ImageView> &imageView, uint32_t binding, uint32_t arrayElement = 0);
     void updateImage(const std::shared_ptr<ImageView> &imageView,
                      VkDescriptorType type,
+                     uint32_t binding,
+                     uint32_t arrayElement = 0);
+    void updateImage(const std::shared_ptr<ImageView> &imageView,
+                     VkDescriptorType type,
+                     VkImageLayout layout,
                      uint32_t binding,
                      uint32_t arrayElement = 0);
 

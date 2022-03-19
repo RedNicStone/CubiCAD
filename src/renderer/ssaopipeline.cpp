@@ -86,9 +86,12 @@ std::shared_ptr<SSAOPipeline> SSAOPipeline::create(const std::shared_ptr<Device>
     ssaoPipeline->sampleDescriptorSet = poolManager->allocate(sampleDescriptorSetLayout[0]);
     ssaoPipeline->sampleDescriptorSet->updateUniformBuffer(ssaoPipeline->sampleUniform, 0);
     ssaoPipeline->sampleDescriptorSet->updateImageSampler(ssaoPipeline->imageSampler, 1);
-    ssaoPipeline->sampleDescriptorSet->updateImage(resultImageView, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 2);
-    ssaoPipeline->sampleDescriptorSet->updateImage(normalImageView, VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 3);
-    ssaoPipeline->sampleDescriptorSet->updateImage(posImageView, VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 4);
+    ssaoPipeline->sampleDescriptorSet->updateImage(resultImageView, VK_DESCRIPTOR_TYPE_STORAGE_IMAGE,
+                                                   VK_IMAGE_LAYOUT_GENERAL, 2);
+    ssaoPipeline->sampleDescriptorSet->updateImage(normalImageView, VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE,
+                                                   VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, 3);
+    ssaoPipeline->sampleDescriptorSet->updateImage(posImageView, VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE,
+                                                   VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, 4);
 
     return ssaoPipeline;
 }

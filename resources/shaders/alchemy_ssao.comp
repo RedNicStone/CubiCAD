@@ -8,11 +8,11 @@ layout(set = 0, binding = 0) uniform PassInfo {
 } passInfo;
 
 layout(set = 0, binding = 1) uniform sampler samp;
-layout(set = 0, binding = 2, rgba16) uniform image2D texOut;
+layout(set = 0, binding = 2, rgba8) uniform image2D texOut;
 layout(set = 0, binding = 3) uniform texture2D normal;
 layout(set = 0, binding = 4) uniform texture2D pos;
 
 void main() {
     uvec2 ppos = gl_GlobalInvocationID.xy;
-    imageStore(texOut, ivec2(ppos / passInfo.imageSize), texture(sampler2D(pos, samp), vec2(ppos) / passInfo.imageSize));
+    imageStore(texOut, ivec2(ppos), texture(sampler2D(pos, samp), vec2(ppos) / passInfo.imageSize));
 }

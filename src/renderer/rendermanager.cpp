@@ -115,7 +115,7 @@ void RenderManager::createSwapChain() {
         VkImageUsageFlags imageUsage = VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT;
         if (i == RENDER_TARGET_DEPTH)
             imageUsage |= VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
-        else if (i == RENDER_TARGET_DIFFUSE)
+        else if (i == RENDER_TARGET_DEFAULT)
             imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_STORAGE_BIT;
         else
             imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
@@ -128,8 +128,6 @@ void RenderManager::createSwapChain() {
                                          graphicsQueues);
 
         VkImageLayout layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-        if (i == RENDER_TARGET_DIFFUSE)
-            ;//layout = VK_IMAGE_LAYOUT_GENERAL;
 
         renderTargets[i]->setLayout(layout);
 
@@ -429,11 +427,6 @@ void RenderManager::drawFrame_() {
     // begin recording instructions
     drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
-    renderTargets[RENDER_TARGET_DIFFUSE]->transitionImageLayout(drawCommandBuffer,
-                                                                VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
-                                                                VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
-                                                                VK_ACCESS_SHADER_WRITE_BIT);
-
     // clear and begin render pass (Geometry)
     std::vector<VkClearValue> clearColor(RENDER_TARGET_MAX + 2);
     clearColor[0].color                                 = {{0.0f, 0.0f, 0.0f, 0.0f}};
@@ -506,16 +499,33 @@ void RenderManager::drawFrame_() {
                                      waitSemaphores,
                                      graphicsQueue, nullptr);
 
+    renderTargets[RENDER_TARGET_DEFAULT]->setLayout(VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
+    renderTargets[RENDER_TARGET_NORMAL]->setLayout(VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
+    renderTargets[RENDER_TARGET_POSITION]->setLayout(VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
+
     drawCommandBuffer = CommandBuffer::create(computePool);
 
     drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
-    renderTargets[RENDER_TARGET_DIFFUSE]->transitionImageLayout(drawCommandBuffer,
+    renderTargets[RENDER_TARGET_DEFAULT]->transitionImageLayout(drawCommandBuffer,
                                              VK_IMAGE_LAYOUT_GENERAL,
                                              VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
                                              VK_ACCESS_SHADER_WRITE_BIT);
+    renderTargets[RENDER_TARGET_NORMAL]->transitionImageLayout(drawCommandBuffer,
+                                                               VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                                                               VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
+                                                               VK_ACCESS_SHADER_READ_BIT);
+    renderTargets[RENDER_TARGET_POSITION]->transitionImageLayout(drawCommandBuffer,
+                                                                 VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                                                                 VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
+                                                                 VK_ACCESS_SHADER_READ_BIT);
 
     ssaoPipeline->bakeGraphicsBuffer(drawCommandBuffer);
+
+    renderTargets[RENDER_TARGET_DEFAULT]->transitionImageLayout(drawCommandBuffer,
+                                                                VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
+                                                                VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT,
+                                                                0);
 
     drawCommandBuffer->endCommandBuffer();
 
@@ -525,11 +535,6 @@ void RenderManager::drawFrame_() {
                                      ssaoSemaphores,
                                      computeQueue,
                                      swapChain->getPresentFence());
-
-    renderTargets[RENDER_TARGET_DIFFUSE]->transitionImageLayout(drawCommandBuffer,
-                                             VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
-                                             VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT,
-                                             0);
 
     // present the image and advance swap chain
     swapChain->presentImage();
@@ -601,14 +606,15 @@ void RenderManager::createPostProcessingPipelines() {
     viewportSelector = ShadingPipeline::create(renderPass, { viewportDescriptor }, shader, swapChainExtent,
                                                1, 1);
 
-    viewportDescriptor->updateImages(renderTargetViews, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1);
+    viewportDescriptor->updateImages(renderTargetViews, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT,
+                                     VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, 1);
 
     viewportUniform = UniformBuffer::create(device, transferQueue, sizeof(uint32_t));
     viewportDescriptor->updateUniformBuffer(viewportUniform, 0);
 
 
     ssaoPipeline = SSAOPipeline::create(device, poolManager, transferQueue,
-                                            renderTargetViews[RENDER_TARGET_DIFFUSE],
+                                            renderTargetViews[RENDER_TARGET_DEFAULT],
                                             renderTargetViews[RENDER_TARGET_NORMAL],
                                             renderTargetViews[RENDER_TARGET_POSITION],
                                             swapChainExtent, 16);
