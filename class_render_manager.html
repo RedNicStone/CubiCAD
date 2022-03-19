@@ -265,8 +265,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a90b498bf88e864e9257f17d48fea7a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9109aece892081ea8f83170e087b9198"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a9109aece892081ea8f83170e087b9198">swapChainExtent</a></td></tr>
 <tr class="separator:a9109aece892081ea8f83170e087b9198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a580674496dc4a3fec8be6a9e99b2e195"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a580674496dc4a3fec8be6a9e99b2e195">renderPass</a></td></tr>
-<tr class="separator:a580674496dc4a3fec8be6a9e99b2e195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a180fbbb32865c5871f3be0c4e297a142"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a180fbbb32865c5871f3be0c4e297a142">geometryRenderTargets</a></td></tr>
+<tr class="separator:a180fbbb32865c5871f3be0c4e297a142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b6e6b50ce41ebd9ff1a8d4469a7bcbc"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a2b6e6b50ce41ebd9ff1a8d4469a7bcbc">UIRenderTargets</a></td></tr>
+<tr class="separator:a2b6e6b50ce41ebd9ff1a8d4469a7bcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46a76fd10aabdce18fc39e3b8e8a910"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#af46a76fd10aabdce18fc39e3b8e8a910">geometryRenderPass</a></td></tr>
+<tr class="separator:af46a76fd10aabdce18fc39e3b8e8a910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0a10a489c142f84646c90533db4ae29"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_pass.html">RenderPass</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ae0a10a489c142f84646c90533db4ae29">UIRenderPass</a></td></tr>
+<tr class="separator:ae0a10a489c142f84646c90533db4ae29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc6d2738171f05ebda4005ae1544086f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#afc6d2738171f05ebda4005ae1544086f">shadingSubpass</a></td></tr>
 <tr class="separator:afc6d2738171f05ebda4005ae1544086f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59317ef113607f4c80b8082b14b2ce50"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a59317ef113607f4c80b8082b14b2ce50">uiSubpass</a></td></tr>
@@ -1750,6 +1756,58 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="af46a76fd10aabdce18fc39e3b8e8a910" name="af46a76fd10aabdce18fc39e3b8e8a910"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46a76fd10aabdce18fc39e3b8e8a910">&#9670;&nbsp;</a></span>geometryRenderPass</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_render_pass.html">RenderPass</a>&gt; RenderManager::geometryRenderPass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a180fbbb32865c5871f3be0c4e297a142" name="a180fbbb32865c5871f3be0c4e297a142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a180fbbb32865c5871f3be0c4e297a142">&#9670;&nbsp;</a></span>geometryRenderTargets</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;uint32_t&gt; RenderManager::geometryRenderTargets</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {<a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3">RENDER_TARGET_DIFFUSE</a>,</div>
+<div class="line">                                                         <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e">RENDER_TARGET_POSITION</a>,</div>
+<div class="line">                                                         <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f">RENDER_TARGET_NORMAL</a>,</div>
+<div class="line">                                                         <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2">RENDER_TARGET_DEPTH</a>}</div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2">RENDER_TARGET_DEPTH</a></div><div class="ttdeci">@ RENDER_TARGET_DEPTH</div><div class="ttdef"><b>Definition:</b> rendermanager.h:30</div></div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e">RENDER_TARGET_POSITION</a></div><div class="ttdeci">@ RENDER_TARGET_POSITION</div><div class="ttdef"><b>Definition:</b> rendermanager.h:28</div></div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f">RENDER_TARGET_NORMAL</a></div><div class="ttdeci">@ RENDER_TARGET_NORMAL</div><div class="ttdef"><b>Definition:</b> rendermanager.h:29</div></div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3">RENDER_TARGET_DIFFUSE</a></div><div class="ttdeci">@ RENDER_TARGET_DIFFUSE</div><div class="ttdef"><b>Definition:</b> rendermanager.h:27</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a5194aa9919c46814d92d335272d1ad43" name="a5194aa9919c46814d92d335272d1ad43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5194aa9919c46814d92d335272d1ad43">&#9670;&nbsp;</a></span>graphicsPool</h2>
 
@@ -2080,28 +2138,6 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a580674496dc4a3fec8be6a9e99b2e195" name="a580674496dc4a3fec8be6a9e99b2e195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a580674496dc4a3fec8be6a9e99b2e195">&#9670;&nbsp;</a></span>renderPass</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_render_pass.html">RenderPass</a>&gt; RenderManager::renderPass</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a30992f0967b4ef7f43f5a2a69cbd352b" name="a30992f0967b4ef7f43f5a2a69cbd352b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a30992f0967b4ef7f43f5a2a69cbd352b">&#9670;&nbsp;</a></span>renderTargets</h2>
 
@@ -2408,6 +2444,56 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="ae0a10a489c142f84646c90533db4ae29" name="ae0a10a489c142f84646c90533db4ae29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0a10a489c142f84646c90533db4ae29">&#9670;&nbsp;</a></span>UIRenderPass</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_render_pass.html">RenderPass</a>&gt; RenderManager::UIRenderPass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b6e6b50ce41ebd9ff1a8d4469a7bcbc" name="a2b6e6b50ce41ebd9ff1a8d4469a7bcbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b6e6b50ce41ebd9ff1a8d4469a7bcbc">&#9670;&nbsp;</a></span>UIRenderTargets</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;uint32_t&gt; RenderManager::UIRenderTargets</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {<a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3">RENDER_TARGET_DIFFUSE</a>,</div>
+<div class="line">                                                   <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e">RENDER_TARGET_POSITION</a>,</div>
+<div class="line">                                                   <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f">RENDER_TARGET_NORMAL</a>,</div>
+<div class="line">                                                   <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2">RENDER_TARGET_DEPTH</a>,</div>
+<div class="line">                                                   <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1">RENDER_TARGET_AMBIENT</a>}</div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1">RENDER_TARGET_AMBIENT</a></div><div class="ttdeci">@ RENDER_TARGET_AMBIENT</div><div class="ttdef"><b>Definition:</b> rendermanager.h:31</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a59317ef113607f4c80b8082b14b2ce50" name="a59317ef113607f4c80b8082b14b2ce50"></a>

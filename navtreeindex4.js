@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"class_voxel_codec_linear.html#af940ce0cf5aa2cf8cdd912e972539e32":[2,0,111,7],
+"class_voxel_codec_octree_base.html":[2,0,112],
+"class_voxel_codec_octree_base.html#a2723140537d4321b3e28fe80a926839e":[2,0,112,6],
 "class_voxel_codec_octree_base.html#a4862ec27f21a67dbcd26730cf2e064d7":[2,0,112,11],
 "class_voxel_codec_octree_base.html#a53a4dfe7843c6c21261951cc45521808":[2,0,112,3],
 "class_voxel_codec_octree_base.html#a79697aab6f90fc56cf92f426b8fb7807":[2,0,112,12],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "functions_vars_w.html":[2,3,2,20],
 "functions_vars_x.html":[2,3,2,21],
 "functions_vars_y.html":[2,3,2,22],
-"functions_vars_z.html":[2,3,2,23],
-"functions_w.html":[2,3,0,23],
-"functions_x.html":[2,3,0,24],
-"functions_y.html":[2,3,0,25]
+"functions_vars_z.html":[2,3,2,23]
 };

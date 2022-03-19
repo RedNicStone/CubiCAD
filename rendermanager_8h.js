@@ -8,6 +8,7 @@ var rendermanager_8h =
       [ "RENDER_TARGET_POSITION", "rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e", null ],
       [ "RENDER_TARGET_NORMAL", "rendermanager_8h.html#a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f", null ],
       [ "RENDER_TARGET_DEPTH", "rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2", null ],
+      [ "RENDER_TARGET_AMBIENT", "rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1", null ],
       [ "RENDER_TARGET_MAX", "rendermanager_8h.html#a87bd0c12389c906279fdd4132998249da04206d9b2b2e3fe8e370114a932b8db1", null ]
     ] ],
     [ "SelectableRenderTarget", "rendermanager_8h.html#a47645faa28792ea6b77925c4348ad923", [
