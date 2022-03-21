@@ -64,12 +64,13 @@ std::shared_ptr<SSAOPipeline> SSAOPipeline::create(const std::shared_ptr<Device>
         { sceneDescriptor->getLayout(),
           DescriptorSetLayout::create(pDevice, sampleDescriptorSetLayoutBinding) };
 
-
-    auto obscurancePipelineLayout = PipelineLayout::create(pDevice, sampleDescriptorSetLayout);
+    auto pipelineLayout = PipelineLayout::create(pDevice, sampleDescriptorSetLayout);
 
     auto obscuranceShader = ComputeShader::create(pDevice, "main", "resources/shaders/compiled/alchemy_ssao.comp.spv");
+    auto blurShader = ComputeShader::create(pDevice, "main", "resources/shaders/compiled/blur.comp.spv");
 
-    ssaoPipeline->obscurancePipeline = ComputePipeline::create(pDevice, obscurancePipelineLayout, obscuranceShader);
+    ssaoPipeline->obscurancePipeline = ComputePipeline::create(pDevice, pipelineLayout, obscuranceShader);
+    ssaoPipeline->blurPipeline = ComputePipeline::create(pDevice, pipelineLayout, blurShader);
 
     const auto DEG_TO_RAD = static_cast<float>(M_PI / 180);
 
@@ -86,7 +87,7 @@ std::shared_ptr<SSAOPipeline> SSAOPipeline::create(const std::shared_ptr<Device>
     for (uint32_t i = 0; i < sampleCount; i++) {
         samples[i].p = glm::normalize(glm::vec3(generator() * 2.0f - 1.0f,
                                                 generator() * 2.0f - 1.0f,
-                                                generator() * 2.0f - 1.0f));
+                                                generator()));
         float scale = (float) sampleCount / 64.0f;
         scale   = Utils::lerp(0.1f, 1.0f, scale * scale);
         samples[i].p *= scale;
@@ -142,6 +143,12 @@ void SSAOPipeline::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &grap
 
     std::vector<std::shared_ptr<DescriptorSet>> descriptorSets = { sceneDescriptorSet, sampleDescriptorSet };
     graphicsCommandBuffer->bindDescriptorSets(descriptorSets, obscurancePipeline);
+
+    graphicsCommandBuffer->dispatch((imageExtend.width - 1) / 16 + 1, (imageExtend.height - 1) / 16 + 1, 1);
+
+    graphicsCommandBuffer->bindPipeline(blurPipeline);
+
+    graphicsCommandBuffer->bindDescriptorSets(descriptorSets, blurPipeline);
 
     graphicsCommandBuffer->dispatch((imageExtend.width - 1) / 16 + 1, (imageExtend.height - 1) / 16 + 1, 1);
 }

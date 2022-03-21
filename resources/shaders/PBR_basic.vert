@@ -27,7 +27,7 @@ void main() {
 
     fragment_instance_id = instance_id;
     mat3 normalMatrix = transpose(inverse(mat3(scene_info.view * instance_model)));
-    fragment_normal = normalMatrix * -vert_normal;
+    fragment_normal = normalMatrix * vert_normal;
     fragment_uv = vert_uv;
     fragment_pos = absPos.xyz;
 }

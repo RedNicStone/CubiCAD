@@ -41,6 +41,7 @@ class SSAOPipeline {
     std::shared_ptr<Sampler> imageSampler;
 
     std::shared_ptr<ComputePipeline> obscurancePipeline;
+    std::shared_ptr<ComputePipeline> blurPipeline;
 
   public:
     static std::shared_ptr<SSAOPipeline> create(const std::shared_ptr<Device> &pDevice,

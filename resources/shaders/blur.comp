@@ -1,0 +1,31 @@
+#version 450
+
+layout (local_size_x = 16, local_size_y = 16) in;
+
+const int SAMPLE_COUNT = 64;
+
+layout(set = 1, binding = 0) uniform PassInfo {
+    uvec2 imageSize;
+    float tanFOV;
+    vec3 samples[SAMPLE_COUNT];
+} passInfo;
+
+layout(set = 1, binding = 1) uniform sampler samp;
+layout(set = 1, binding = 2, r16) uniform image2D shading_texOut;
+
+void main() {
+    const uvec2 pixel_pos = gl_GlobalInvocationID.xy;
+    const vec2 tex_size = 1.0 / vec2(passInfo.imageSize);
+    const vec2 frag_uv = vec2(pixel_pos) * tex_size;
+
+    float result = 0.0;
+    for (int x = -2; x < 2; ++x)
+    {
+        for (int y = -2; y < 2; ++y)
+        {
+            vec2 offset = vec2(float(x), float(y)) * tex_size;
+            result += imageLoad(shading_texOut, ivec2(pixel_pos + offset)).x;
+        }
+    }
+    imageStore(shading_texOut, ivec2(pixel_pos), vec4(result / (4.0 * 4.0)));
+}
