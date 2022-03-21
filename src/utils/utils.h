@@ -28,6 +28,8 @@ class Utils {
     static void remove(std::vector<type> &v);
 
     static void replaceAll(std::string& str, const std::string& from, const std::string& to);
+
+    static float lerp(float a, float b, float f);
 };
 
 template<typename L, typename R>

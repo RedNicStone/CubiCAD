@@ -49,7 +49,7 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
 
     scene->sceneBindings[0].binding = 0;
     scene->sceneBindings[0].pImmutableSamplers = nullptr;
-    scene->sceneBindings[0].stageFlags = VK_SHADER_STAGE_ALL_GRAPHICS;
+    scene->sceneBindings[0].stageFlags = VK_SHADER_STAGE_ALL;
     scene->sceneBindings[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
     scene->sceneBindings[0].descriptorCount = 1;
 

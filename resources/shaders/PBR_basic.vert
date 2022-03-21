@@ -22,11 +22,12 @@ layout(location = 2) out vec2 fragment_uv;
 layout(location = 3) out vec3 fragment_pos;
 
 void main() {
-    vec4 absPos = instance_model * vec4(vert_pos, 1.0);
-    gl_Position = scene_info.proj * scene_info.view * absPos;
+    vec4 absPos = scene_info.view * instance_model * vec4(vert_pos, 1.0);
+    gl_Position = scene_info.proj * absPos;
 
     fragment_instance_id = instance_id;
-    fragment_normal = vert_normal;
+    mat3 normalMatrix = transpose(inverse(mat3(scene_info.view * instance_model)));
+    fragment_normal = normalMatrix * -vert_normal;
     fragment_uv = vert_uv;
     fragment_pos = absPos.xyz;
 }

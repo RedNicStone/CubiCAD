@@ -94,10 +94,9 @@ class Scene {
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 
     std::shared_ptr<Camera> getCamera() { return camera; }
-
     std::vector<std::shared_ptr<MeshInstance>> getInstances() { return instances; }
-
     std::shared_ptr<MeshInstance> getInstanceByID(uint32_t objectID) { return instances[objectID - 1]; }
+    std::shared_ptr<DescriptorSet> getDescriptorSet() { return sceneDescriptorSet; }
 
     ~Scene();
 };

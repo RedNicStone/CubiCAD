@@ -8,6 +8,7 @@ layout(input_attachment_index = 0, set = 0, binding = 1) uniform subpassInput ge
 layout(input_attachment_index = 1, set = 0, binding = 2) uniform subpassInput geometry_pos;
 layout(input_attachment_index = 2, set = 0, binding = 3) uniform subpassInput geometry_normal;
 layout(input_attachment_index = 3, set = 0, binding = 4) uniform subpassInput geometry_depth;
+layout(input_attachment_index = 4, set = 0, binding = 5) uniform subpassInput shading_ao;
 
 layout(location = 0) in vec2 frag_uv;
 
@@ -44,6 +45,9 @@ void main() {
         break;
         case 4:
         present_color = vec4(subpassLoad(geometry_diffuse).w * frag_uv, sqrt(1 - subpassLoad(geometry_depth).x), 1.0);
+        break;
+        case 5:
+        present_color = vec4(subpassLoad(shading_ao).x);
         break;
         default:
         present_color = vec4(0.0, 0.0, 0.0, 1.0);

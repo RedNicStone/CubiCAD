@@ -109,14 +109,16 @@ void RenderManager::createSwapChain() {
             imageFormat = VK_FORMAT_R32G32B32A32_SFLOAT;
         else if (i == RENDER_TARGET_NORMAL)
             imageFormat = VK_FORMAT_R16G16_UNORM;
+        else if (i == RENDER_TARGET_AMBIENT)
+            imageFormat = VK_FORMAT_R16_UNORM;
         else
             imageFormat = VK_FORMAT_R8G8B8A8_UNORM;
 
         VkImageUsageFlags imageUsage = VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT;
         if (i == RENDER_TARGET_DEPTH)
             imageUsage |= VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
-        else if (i == RENDER_TARGET_DEFAULT)
-            imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_STORAGE_BIT;
+        else if (i == RENDER_TARGET_AMBIENT)
+            imageUsage |= VK_IMAGE_USAGE_STORAGE_BIT;
         else
             imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
 
@@ -161,8 +163,6 @@ void RenderManager::createRenderPass() {
 
     geometryRenderPass = RenderPass::create(device);
 
-    uint32_t geometrySwapChainAttachment = UIRenderPass->submitSwapChainAttachment(swapChain, true);
-
     uint32_t
         objectIDAttachment =
         geometryRenderPass->submitImageAttachment(objectBufferImage->getFormat(),
@@ -202,18 +202,15 @@ void RenderManager::createRenderPass() {
     geometryPipelineColorReference.erase(geometryPipelineColorReference.begin() + RENDER_TARGET_DEPTH);
     geometryPipelineColorReference.push_back(objectIDAttachmentRef);
     std::vector<VkAttachmentReference> geometryPipelineInputReference = {};
-    uint32_t geometrySubpass =
+    geometrySubpass =
         geometryRenderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
                                           geometryPipelineColorReference,
                                           geometryPipelineInputReference,
                                           &geometryOutputAttachmentReferences[RENDER_TARGET_DEPTH],
                                           0);
-
-    geometryRenderPass->submitDependency(VK_SUBPASS_EXTERNAL, geometrySubpass, 0, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
-                                 VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
-    geometryRenderPass->submitDependency(geometrySubpass, VK_SUBPASS_EXTERNAL, VK_ACCESS_COLOR_ATTACHMENT_READ_BIT,
+    geometryRenderPass->submitDependency(geometrySubpass, VK_SUBPASS_EXTERNAL, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
                                  VK_ACCESS_SHADER_READ_BIT,
-                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT);
+                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT);
 
     geometryRenderPass->build();
 
@@ -225,37 +222,41 @@ void RenderManager::createRenderPass() {
 
     uint32_t swapChainAttachment = UIRenderPass->submitSwapChainAttachment(swapChain, true);
 
-    std::vector<uint32_t> UIAttachments(RENDER_TARGET_MAX);
-    std::vector<VkAttachmentReference> UIOutputAttachmentReferences(RENDER_TARGET_MAX);
-    std::vector<VkAttachmentReference> UIInputAttachmentReferences(RENDER_TARGET_MAX);
+    std::vector<uint32_t> UIAttachments(UIRenderTargets.size());
+    std::vector<VkAttachmentReference> UIOutputAttachmentReferences(UIRenderTargets.size());
+    std::vector<VkAttachmentReference> UIInputAttachmentReferences(UIRenderTargets.size());
     for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++) {
         VkImageLayout layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
         if (i == RENDER_TARGET_DEPTH)
             layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+        else if (i == RENDER_TARGET_AMBIENT)
+            layout = VK_IMAGE_LAYOUT_GENERAL;
+        else if (i &= RENDER_TARGET_NORMAL | RENDER_TARGET_POSITION)
+            layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
-        UIAttachments[i] = (geometryRenderPass->submitImageAttachment(renderTargets[i]->getFormat(),
+        UIAttachments[i] = (UIRenderPass->submitImageAttachment(renderTargets[i]->getFormat(),
                                                                     VK_SAMPLE_COUNT_1_BIT,
-                                                                    VK_ATTACHMENT_LOAD_OP_CLEAR,
-                                                                    VK_ATTACHMENT_STORE_OP_STORE,
+                                                                    VK_ATTACHMENT_LOAD_OP_LOAD,
+                                                                    VK_ATTACHMENT_STORE_OP_DONT_CARE,
                                                                     VK_ATTACHMENT_LOAD_OP_DONT_CARE,
                                                                     VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                    VK_IMAGE_LAYOUT_UNDEFINED,
-                                                                    layout));
+                                                                layout,
+                                                                      VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL));
 
         UIInputAttachmentReferences[i].attachment = UIAttachments[i];
         UIInputAttachmentReferences[i].layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
     }
 
     VkAttachmentReference swapChainAttachmentRef{};
-    colorAttachmentRef.attachment = swapChainAttachment;
-    colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+    swapChainAttachmentRef.attachment = swapChainAttachment;
+    swapChainAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-    std::vector<VkAttachmentReference> shadingPipelineOutputReference = {swapChainAttachmentRef};
-    std::vector<VkAttachmentReference> shadingPipelineInputReference(UIInputAttachmentReferences);
-    shadingSubpass =
+    std::vector<VkAttachmentReference> selectorPipelineOutputReference = {swapChainAttachmentRef};
+    std::vector<VkAttachmentReference> selectorPipelineInputReference(UIInputAttachmentReferences);
+    selectorSubpass =
         UIRenderPass->submitSubpass(VK_PIPELINE_BIND_POINT_GRAPHICS,
-                                    shadingPipelineOutputReference,
-                                    shadingPipelineInputReference,
+                                    selectorPipelineOutputReference,
+                                    selectorPipelineInputReference,
                                     nullptr,
                                     0);
 
@@ -268,23 +269,40 @@ void RenderManager::createRenderPass() {
                                     nullptr,
                                     0);
 
-    UIRenderPass->submitDependency(shadingSubpass, uiSubpass, 0, VK_ACCESS_SHADER_READ_BIT,
+    UIRenderPass->submitDependency(VK_SUBPASS_EXTERNAL, selectorSubpass, VK_ACCESS_SHADER_WRITE_BIT,
+                                   VK_ACCESS_INPUT_ATTACHMENT_READ_BIT,
+                                 VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
+    UIRenderPass->submitDependency(selectorSubpass, uiSubpass, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT, VK_ACCESS_SHADER_WRITE_BIT,
                                  VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
-    UIRenderPass->submitDependency(uiSubpass, VK_SUBPASS_EXTERNAL, 0, VK_ACCESS_MEMORY_READ_BIT,
-                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT);
+    UIRenderPass->submitDependency(uiSubpass, VK_SUBPASS_EXTERNAL, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT, VK_ACCESS_MEMORY_READ_BIT,
+                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
 
     UIRenderPass->build();
 }
 
 void RenderManager::createFrameBuffer() {
-    std::vector<std::shared_ptr<ImageView>> frameViews(RENDER_TARGET_MAX + 1);
-    frameViews[0] = objectBufferImageView;
-    for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++)
-        frameViews[i + 1] = renderTargetViews[i];
+    std::vector<std::shared_ptr<ImageView>> geometryFrameViews(geometryRenderTargets.size() + 1);
+    geometryFrameViews[0] = objectBufferImageView;
+    uint32_t n = 1;
+    for (auto i : geometryRenderTargets) {
+        geometryFrameViews[n] = renderTargetViews[i];
+        n++;
+    }
 
-    std::vector<std::vector<std::shared_ptr<ImageView>>> imageViews(imageCount, frameViews);
+    std::vector<std::vector<std::shared_ptr<ImageView>>> geometryImageViews(imageCount, geometryFrameViews);
 
-    frameBuffer = FrameBuffer::create(device, renderPass, swapChain, imageViews);
+    geometryFrameBuffer = FrameBuffer::create(device, geometryRenderPass, swapChain->getSwapExtent(), geometryImageViews);
+
+    std::vector<std::shared_ptr<ImageView>> UIFrameViews(UIRenderTargets.size());
+    n = 0;
+    for (auto i : UIRenderTargets) {
+        UIFrameViews[n] = renderTargetViews[i];
+        n++;
+    }
+
+    std::vector<std::vector<std::shared_ptr<ImageView>>> UIImageViews(imageCount, UIFrameViews);
+
+    UIFrameBuffer = FrameBuffer::create(device, UIRenderPass, swapChain, UIImageViews);
 }
 
 void RenderManager::createSceneObjects() {
@@ -297,7 +315,8 @@ void RenderManager::createSceneObjects() {
 
     textureLibrary = TextureLibrary::create(device, graphicsQueue, graphicsPool, textureQualitySettings);
     materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, textureLibrary, {graphicsQueue},
-                                              renderPass, RENDER_TARGET_MAX, swapChainExtent);
+                                              geometryRenderPass, static_cast<uint32_t>(geometryRenderTargets.size()),
+                                              swapChainExtent);
     meshLibrary = MeshLibrary::create(textureLibrary, materialLibrary);
 }
 
@@ -323,7 +342,7 @@ void RenderManager::createDefaultMaterialLayout() {
 }
 
 void RenderManager::createUIObjects() {
-    uiRenderer = UIRenderer::create(graphicsQueue, graphicsPool, renderPass, window, imageCount, uiSubpass);
+    uiRenderer = UIRenderer::create(graphicsQueue, graphicsPool, UIRenderPass, window, imageCount, uiSubpass);
 }
 
 void RenderManager::createRenderObjects() {
@@ -389,50 +408,28 @@ void RenderManager::processMouseInputs() {
         }
 
         if (!io.WantCaptureKeyboard) {
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_0) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_1) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_DIFFUSE;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_2) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_DEPTH;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_3) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_POSITION;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_4) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_NORMAL;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_5) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_UV;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_6) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_7) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_8) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_9) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_9) == GLFW_PRESS) {
-                activePresentTarget = SELECTABLE_RENDER_TARGET_MAX;
-                memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
-            }
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_1) == GLFW_PRESS |
+                glfwGetKey(window->getWindow(), GLFW_KEY_0) == GLFW_PRESS)
+                activePresentTarget = 0;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_2) == GLFW_PRESS)
+                activePresentTarget = 1;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_3) == GLFW_PRESS)
+                activePresentTarget = 2;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_4) == GLFW_PRESS)
+                activePresentTarget = 3;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_5) == GLFW_PRESS)
+                activePresentTarget = 4;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_6) == GLFW_PRESS)
+                activePresentTarget = 5;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_7) == GLFW_PRESS)
+                activePresentTarget = 6;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_8) == GLFW_PRESS)
+                activePresentTarget = 7;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_9) == GLFW_PRESS)
+                activePresentTarget = 8;
+            else if (glfwGetKey(window->getWindow(), GLFW_KEY_9) == GLFW_PRESS)
+                activePresentTarget = 9;
+            memcpy(viewportUniform->getDataHandle(), &activePresentTarget, sizeof(uint32_t));
         }
     }
 }
@@ -456,33 +453,23 @@ void RenderManager::drawFrame_() {
     std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
 
     std::vector<std::shared_ptr<Semaphore>> ssaoSemaphores = {ssaoSemaphore};
+    std::vector<std::shared_ptr<Semaphore>> uiSemaphores = {uiSemaphore};
 
     // begin recording instructions
     drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
     // clear and begin render pass (Geometry)
-    std::vector<VkClearValue> clearColor(RENDER_TARGET_MAX + 2);
+    std::vector<VkClearValue> clearColor(geometryRenderTargets.size() + 1);
     clearColor[0].color                                 = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[1].color                                 = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_DEPTH + 2].depthStencil    = {1.0, 0};
-    clearColor[RENDER_TARGET_DIFFUSE + 2].color         = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_POSITION + 2].color        = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_NORMAL + 2].color          = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    drawCommandBuffer->beginRenderPass(renderPass, frameBuffer, clearColor, index, frameBuffer->getExtent(), {0, 0});
+    clearColor[RENDER_TARGET_DEPTH + 1].depthStencil    = {1.0, 0};
+    clearColor[RENDER_TARGET_DIFFUSE + 1].color         = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_POSITION + 1].color        = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_NORMAL + 1].color          = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    drawCommandBuffer->beginRenderPass(geometryRenderPass, geometryFrameBuffer, clearColor, index,
+                                       geometryFrameBuffer->getExtent(), {0, 0});
 
     // write all commands to draw the scene
     scene->bakeGraphicsBuffer(drawCommandBuffer);
-
-    // begin next subpass (Shading)
-    drawCommandBuffer->nextSubpass();
-
-    viewportSelector->bakeGraphicsBuffer(drawCommandBuffer);
-
-    // begin next subpass (UI)
-    drawCommandBuffer->nextSubpass();
-
-    // write all commands to draw the UI
-    uiRenderer->draw(drawCommandBuffer);
 
     // end the render pass
     drawCommandBuffer->endRenderPass();
@@ -532,7 +519,7 @@ void RenderManager::drawFrame_() {
                                      waitSemaphores,
                                      graphicsQueue, nullptr);
 
-    renderTargets[RENDER_TARGET_DEFAULT]->setLayout(VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
+    renderTargets[RENDER_TARGET_AMBIENT]->setLayout(VK_IMAGE_LAYOUT_UNDEFINED);
     renderTargets[RENDER_TARGET_NORMAL]->setLayout(VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
     renderTargets[RENDER_TARGET_POSITION]->setLayout(VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
 
@@ -540,10 +527,10 @@ void RenderManager::drawFrame_() {
 
     drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
 
-    renderTargets[RENDER_TARGET_DEFAULT]->transitionImageLayout(drawCommandBuffer,
-                                             VK_IMAGE_LAYOUT_GENERAL,
-                                             VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
-                                             VK_ACCESS_SHADER_WRITE_BIT);
+    renderTargets[RENDER_TARGET_AMBIENT]->transitionImageLayout(drawCommandBuffer,
+                                                                VK_IMAGE_LAYOUT_GENERAL,
+                                                                VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
+                                                                VK_ACCESS_SHADER_WRITE_BIT);
     renderTargets[RENDER_TARGET_NORMAL]->transitionImageLayout(drawCommandBuffer,
                                                                VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
                                                                VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
@@ -555,19 +542,51 @@ void RenderManager::drawFrame_() {
 
     ssaoPipeline->bakeGraphicsBuffer(drawCommandBuffer);
 
-    renderTargets[RENDER_TARGET_DEFAULT]->transitionImageLayout(drawCommandBuffer,
-                                                                VK_IMAGE_LAYOUT_PRESENT_SRC_KHR,
-                                                                VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT,
-                                                                0);
-
     drawCommandBuffer->endCommandBuffer();
 
     // submit the buffer for execution
-    drawCommandBuffer->submitToQueue(signalSemaphores,
+    drawCommandBuffer->submitToQueue(uiSemaphores,
                                      {VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT},
                                      ssaoSemaphores,
                                      computeQueue,
                                      swapChain->getPresentFence());
+
+    // allocate command buffer
+    drawCommandBuffer = CommandBuffer::create(graphicsPool);
+
+    // begin recording instructions
+    drawCommandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
+
+    // clear and begin render pass (Geometry)
+    clearColor = std::vector<VkClearValue>(UIRenderTargets.size() + 1);
+    clearColor[0].color                                 = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_DEPTH + 1].depthStencil    = {1.0, 0};
+    clearColor[RENDER_TARGET_DIFFUSE + 1].color         = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_POSITION + 1].color        = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_NORMAL + 1].color          = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_AMBIENT + 1].color         = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    drawCommandBuffer->beginRenderPass(UIRenderPass, UIFrameBuffer, clearColor, index,
+                                       UIFrameBuffer->getExtent(), {0, 0});
+
+    viewportSelector->bakeGraphicsBuffer(drawCommandBuffer);
+
+    // begin next subpass (UI)
+    drawCommandBuffer->nextSubpass();
+
+    // write all commands to draw the UI
+    uiRenderer->draw(drawCommandBuffer);
+
+    // end the render pass
+    drawCommandBuffer->endRenderPass();
+
+    // compile all commands [resource intensive part]
+    drawCommandBuffer->endCommandBuffer();
+
+    // submit the buffer for execution
+    drawCommandBuffer->submitToQueue(signalSemaphores,
+                                     {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT},
+                                     uiSemaphores,
+                                     graphicsQueue, nullptr);
 
     // present the image and advance swap chain
     swapChain->presentImage();
@@ -636,8 +655,8 @@ void RenderManager::createPostProcessingPipelines() {
     std::shared_ptr<DescriptorSetLayout> viewportDescriptorLayout = DescriptorSetLayout::create(device, bindings);
     viewportDescriptor = poolManager->allocate(viewportDescriptorLayout);
 
-    viewportSelector = ShadingPipeline::create(renderPass, { viewportDescriptor }, shader, swapChainExtent,
-                                               1, 1);
+    viewportSelector = ShadingPipeline::create(UIRenderPass, { viewportDescriptor }, shader, swapChainExtent,
+                                               1, selectorSubpass);
 
     viewportDescriptor->updateImages(renderTargetViews, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT,
                                      VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, 1);
@@ -646,13 +665,16 @@ void RenderManager::createPostProcessingPipelines() {
     viewportDescriptor->updateUniformBuffer(viewportUniform, 0);
 
 
-    ssaoPipeline = SSAOPipeline::create(device, poolManager, transferQueue,
-                                            renderTargetViews[RENDER_TARGET_DEFAULT],
+    ssaoPipeline = SSAOPipeline::create(device, poolManager, transferPool, computePool,
+                                            renderTargetViews[RENDER_TARGET_AMBIENT],
                                             renderTargetViews[RENDER_TARGET_NORMAL],
                                             renderTargetViews[RENDER_TARGET_POSITION],
-                                            swapChainExtent, 16);
+                                            scene->getDescriptorSet(),
+                                            static_cast<float>(cameraModel.fieldOfView),
+                                            swapChainExtent, 64);
 
     ssaoSemaphore = Semaphore::create(device);
+    uiSemaphore = Semaphore::create(device);
 }
 
 void RenderManager::invalidateFrame() {

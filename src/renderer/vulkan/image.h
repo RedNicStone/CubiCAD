@@ -84,7 +84,8 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     void transferDataStaged(void *src, const std::shared_ptr<CommandPool> &commandPool);
     void transferDataStaged(void *src,
                             const std::shared_ptr<CommandPool> &commandPool,
-                            VkDeviceSize size, [[maybe_unused]] VkDeviceSize offset = 0);
+                            VkDeviceSize size, [[maybe_unused]] VkDeviceSize offset = 0,
+                            VkPipelineStageFlags dstStage = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
 
     std::shared_ptr<ImageView> createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange);
 
@@ -109,7 +110,8 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
     void transitionImageLayout(const std::shared_ptr<CommandBuffer> &commandPool,
                                VkImageLayout dst,
                                VkPipelineStageFlags dstStage,
-                               VkAccessFlags dstMask = 0);
+                               VkAccessFlags dstMask = 0,
+                               VkImageAspectFlags imageAspect = VK_IMAGE_ASPECT_COLOR_BIT);
 
     void *map();
     void unmap();

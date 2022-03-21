@@ -23,8 +23,8 @@ std::shared_ptr<FrameBuffer> FrameBuffer::create(const std::shared_ptr<Device> &
     createInfo.height = extent.height;
     createInfo.layers = 1;
 
-    for (uint32_t i = 0; i > imageViews.size(); i++) {
-        std::vector<VkImageView> vulkanImageViews(imageViews.size());
+    for (uint32_t i = 0; i < imageViews.size(); i++) {
+        std::vector<VkImageView> vulkanImageViews{};
         for (auto &imageView: imageViews[i])
             vulkanImageViews.push_back(imageView->getHandle());
 

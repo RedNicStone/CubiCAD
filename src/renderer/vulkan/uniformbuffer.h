@@ -23,7 +23,6 @@ class UniformBuffer {
   private:
     size_t size{};
     void *data{};
-    void *dataPtr{};
 
     std::shared_ptr<Buffer> buffer;
 

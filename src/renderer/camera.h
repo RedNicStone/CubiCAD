@@ -61,6 +61,8 @@ class Camera {
     glm::mat4 getView() { return view; }
 
     glm::mat4 getProj() { return projection; }
+
+    CameraModel getCameraModel() { return model; }
 };
 
 #endif //CUBICAD_CAMERA_H

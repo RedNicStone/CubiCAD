@@ -42,3 +42,7 @@ void Utils::replaceAll(std::string& str, const std::string& from, const std::str
         start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
     }
 }
+
+float Utils::lerp(float a, float b, float f) {
+    return a + f * (b - a);
+}

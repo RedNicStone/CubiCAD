@@ -190,7 +190,8 @@ void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool> &co
 
 void Image::transferDataStaged(void *src,
                                const std::shared_ptr<CommandPool> &commandPool,
-                               VkDeviceSize size, [[maybe_unused]] VkDeviceSize offset) {
+                               VkDeviceSize size, [[maybe_unused]] VkDeviceSize offset,
+                               VkPipelineStageFlags dstStage) {
     std::vector<uint32_t> accessingQueues = {commandPool->getQueueFamily()->getQueueFamilyIndex()};
     auto stagingBuffer = Image::createHostStagingBuffer(device, allocationInfo.size, accessingQueues);
 
@@ -217,7 +218,7 @@ void Image::transferDataStaged(void *src,
     commandBuffer->copyBufferImage(stagingBuffer, shared_from_this(), {imageCopy}, currentLayout);
     transitionImageLayout(commandBuffer,
                           VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
-                          VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
+                          dstStage,
                           VK_ACCESS_SHADER_READ_BIT);
     commandBuffer->endCommandBuffer();
 
@@ -269,7 +270,8 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPoo
 void Image::transitionImageLayout(const std::shared_ptr<CommandBuffer> &commandBuffer,
                                   VkImageLayout dst,
                                   VkPipelineStageFlags dstStage,
-                                  VkAccessFlags dstMask) {
+                                  VkAccessFlags dstMask,
+                                  VkImageAspectFlags imageAspect) {
     VkImageMemoryBarrier barrier{};
     barrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
     barrier.oldLayout = currentLayout;
@@ -277,7 +279,7 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandBuffer> &commandB
     barrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
     barrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
     barrier.image = handle;
-    barrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+    barrier.subresourceRange.aspectMask = imageAspect;
     barrier.subresourceRange.baseMipLevel = 0;
     barrier.subresourceRange.levelCount = 1;
     barrier.subresourceRange.baseArrayLayer = 0;

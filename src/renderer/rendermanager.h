@@ -32,15 +32,6 @@ enum RenderTarget : uint32_t {
     RENDER_TARGET_MAX           = 5
 };
 
-enum SelectableRenderTarget : uint32_t {
-    SELECTABLE_RENDER_TARGET_DIFFUSE       = 0,
-    SELECTABLE_RENDER_TARGET_DEPTH         = 1,
-    SELECTABLE_RENDER_TARGET_POSITION      = 2,
-    SELECTABLE_RENDER_TARGET_NORMAL        = 3,
-    SELECTABLE_RENDER_TARGET_UV            = 4,
-    SELECTABLE_RENDER_TARGET_MAX           = 5
-};
-
 class RenderManager : public std::enable_shared_from_this<RenderManager> {
   private:
     // external objects
@@ -86,7 +77,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
 
     // objects affected by resize
     std::shared_ptr<SwapChain> swapChain;
-    std::shared_ptr<FrameBuffer> frameBuffer;
+    std::shared_ptr<FrameBuffer> geometryFrameBuffer;
+    std::shared_ptr<FrameBuffer> UIFrameBuffer;
     VkExtent2D swapChainExtent;
 
     const std::vector<uint32_t> geometryRenderTargets = {RENDER_TARGET_DIFFUSE,
@@ -102,7 +94,8 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<RenderPass> geometryRenderPass;
     std::shared_ptr<RenderPass> UIRenderPass;
 
-    uint32_t shadingSubpass;
+    uint32_t geometrySubpass;
+    uint32_t selectorSubpass;
     uint32_t uiSubpass;
 
     std::vector<std::shared_ptr<Image>> renderTargets;
@@ -119,6 +112,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<SSAOPipeline> ssaoPipeline;
 
     std::shared_ptr<Semaphore> ssaoSemaphore;
+    std::shared_ptr<Semaphore> uiSemaphore;
 
     std::vector<std::function<void()>> frameFunctions{};
 
@@ -126,7 +120,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     bool mouseCaptured = false;
     const float mouseSpeed = 0.001f;
 
-    SelectableRenderTarget activePresentTarget = SELECTABLE_RENDER_TARGET_DIFFUSE;
+    uint32_t activePresentTarget = 0;
 
     // creation procedures
     void pickPhysicalDevice();
@@ -179,7 +173,6 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<MeshLibrary> getMeshLibrary() { return meshLibrary; }
     std::shared_ptr<UIRenderer> getUIRenderer() { return uiRenderer; }
     std::shared_ptr<Device> getDevice() { return device; }
-    std::shared_ptr<RenderPass> getRenderPass() { return renderPass; }
     std::shared_ptr<DescriptorPoolManager> getDescriptorManager() { return poolManager; }
     std::shared_ptr<MasterMaterialTemplate> getDefaultMaterialTemplate() { return defaultMaterialTemplate; }
 
