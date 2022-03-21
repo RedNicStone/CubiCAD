@@ -121,7 +121,7 @@ class VulkanRasterizer {
     }
 
     void loadModels() {
-        renderManager->loadMesh("/home/nic/Downloads/living_room/living_room.obj");
+        renderManager->loadMesh("resources/models/demo/living_room/living_room.obj");
         renderManager->getScene()->bakeMaterials(true);
         renderManager->getScene()->collectRenderBuffers();
     }

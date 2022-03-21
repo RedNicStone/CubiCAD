@@ -2,9 +2,9 @@
 
 layout (local_size_x = 16, local_size_y = 16) in;
 
-const int SAMPLE_COUNT = 64;
+const int SAMPLE_COUNT = 16;
 const float SAMPLE_RADIUS = 0.05f;
-const float depth_bias = 0.001f;
+const float depth_bias = 0.01f;
 const float zero_guard = 0.001f;
 
 layout(set = 0, binding = 0) uniform SceneInfo {
@@ -51,7 +51,11 @@ void main() {
     const vec2 frag_uv = vec2(pixel_pos) / passInfo.imageSize;
     const vec3 frag_normal = normalize(azimuthalEADecode(texture(sampler2D(geometry_normal, samp), frag_uv).xy));
     const vec3 frag_pos = texture(sampler2D(geometry_pos, samp), frag_uv).xyz;
-    const vec3 random_vec = vec3(texture(sampler2D(tex_noise, samp), frag_uv * passInfo.imageSize / vec2(4.0f)).xy, 0.0);
+
+    const vec2 inverted_noise_size = 1.0f / vec2(4);
+    const vec2 noise_uv = frag_uv * passInfo.imageSize * inverted_noise_size;
+    //const vec3 random_vec = vec3(texture(sampler2D(tex_noise, samp), noise_uv).xy, 0.0);
+    const vec3 random_vec = normalize(vec3(1));
 
     const vec3 random_tangent = normalize(random_vec - frag_normal * dot(random_vec, frag_normal));
     const vec3 random_bitangent = cross(frag_normal, random_tangent);
@@ -61,8 +65,8 @@ void main() {
     for(int i = 0; i < SAMPLE_COUNT; ++i)
     {
         // get sample position
-        vec3 sample_pos = TBN * passInfo.samples[i]; // from tangent to view-space
-        sample_pos = frag_pos + sample_pos * SAMPLE_RADIUS;
+        vec3 sample_pos = passInfo.samples[i]; // from tangent to view-space
+        sample_pos = frag_pos + sample_pos * SAMPLE_RADIUS * frag_pos.z / passInfo.tanFOV;
 
         // project sample position (to sample texture) (to get position on screen/texture)
         vec4 offset = vec4(sample_pos, 1.0);
@@ -75,7 +79,7 @@ void main() {
 
         // range check & accumulate
         float range_check = smoothstep(0.0, 1.0, SAMPLE_RADIUS / abs(frag_pos.z - sample_depth));
-        occlusion += (sample_depth >= sample_pos.z + depth_bias ? 1.0 : 0.0) * range_check;
+        occlusion += (sample_depth >= sample_pos.z * (1 + depth_bias) ? 1.0 : 0.0) * range_check;
     }
     occlusion = 1.0 - (occlusion / SAMPLE_COUNT);
 

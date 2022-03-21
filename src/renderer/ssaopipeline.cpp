@@ -86,7 +86,7 @@ std::shared_ptr<SSAOPipeline> SSAOPipeline::create(const std::shared_ptr<Device>
     for (uint32_t i = 0; i < sampleCount; i++) {
         samples[i].p = glm::normalize(glm::vec3(generator() * 2.0f - 1.0f,
                                                 generator() * 2.0f - 1.0f,
-                                                generator()));
+                                                generator() * 2.0f - 1.0f));
         float scale = (float) sampleCount / 64.0f;
         scale   = Utils::lerp(0.1f, 1.0f, scale * scale);
         samples[i].p *= scale;
