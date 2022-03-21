@@ -121,8 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a68d173a6d09e3f25f0a3fcad0da0ed3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7a3d322d16494f20df9f2ea929026b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ab7a3d322d16494f20df9f2ea929026b6">transferDataStaged</a> (void *src, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool)</td></tr>
 <tr class="separator:ab7a3d322d16494f20df9f2ea929026b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71829125e31fdab275345e1fd8104b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a71829125e31fdab275345e1fd8104b5b">transferDataStaged</a> (void *src, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool, VkDeviceSize size, VkDeviceSize offset=0)</td></tr>
-<tr class="separator:a71829125e31fdab275345e1fd8104b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac367d6ea10ca4996f3bda1338488396d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ac367d6ea10ca4996f3bda1338488396d">transferDataStaged</a> (void *src, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool, VkDeviceSize size, VkDeviceSize offset=0, VkPipelineStageFlags dstStage=VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT)</td></tr>
+<tr class="separator:ac367d6ea10ca4996f3bda1338488396d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae43d127122beb8f05c677f5f4db19c01"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#ae43d127122beb8f05c677f5f4db19c01">createImageView</a> (VkImageViewType viewType, VkImageSubresourceRange subresourceRange)</td></tr>
 <tr class="separator:ae43d127122beb8f05c677f5f4db19c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28e8d6840b091f9c20b646d551e9eb97"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a28e8d6840b091f9c20b646d551e9eb97">getDevice</a> ()</td></tr>
@@ -143,8 +143,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a43c347e50d093b9b20c2dbf30841ccb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47982512223ea89e7ab54f535dd55995"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a47982512223ea89e7ab54f535dd55995">transitionImageLayout</a> (const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool, VkImageLayout dst)</td></tr>
 <tr class="separator:a47982512223ea89e7ab54f535dd55995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ce449d0c8e2dc5fd112c27ce2142f29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a4ce449d0c8e2dc5fd112c27ce2142f29">transitionImageLayout</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;commandPool, VkImageLayout dst, VkPipelineStageFlags dstStage, VkAccessFlags dstMask=0)</td></tr>
-<tr class="separator:a4ce449d0c8e2dc5fd112c27ce2142f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40a14fc004e04302139a52abe687ff0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a40a14fc004e04302139a52abe687ff0d">transitionImageLayout</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;commandPool, VkImageLayout dst, VkPipelineStageFlags dstStage, VkAccessFlags dstMask=0, VkImageAspectFlags imageAspect=VK_IMAGE_ASPECT_COLOR_BIT)</td></tr>
+<tr class="separator:a40a14fc004e04302139a52abe687ff0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a150c2c9a573b0d8b91050426642ebb4a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a150c2c9a573b0d8b91050426642ebb4a">map</a> ()</td></tr>
 <tr class="separator:a150c2c9a573b0d8b91050426642ebb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a630dd4d080617bfe75d184165111cf53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a630dd4d080617bfe75d184165111cf53">unmap</a> ()</td></tr>
@@ -448,7 +448,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_image_a729f597dc28bd5261b1860643ed9513f_icgraph.svg" width="100%" height="563"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_image_a729f597dc28bd5261b1860643ed9513f_icgraph.svg" width="100%" height="571"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -900,8 +900,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a71829125e31fdab275345e1fd8104b5b" name="a71829125e31fdab275345e1fd8104b5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71829125e31fdab275345e1fd8104b5b">&#9670;&nbsp;</a></span>transferDataStaged() <span class="overload">[2/2]</span></h2>
+<a id="ac367d6ea10ca4996f3bda1338488396d" name="ac367d6ea10ca4996f3bda1338488396d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac367d6ea10ca4996f3bda1338488396d">&#9670;&nbsp;</a></span>transferDataStaged() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -928,7 +928,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkDeviceSize&#160;</td>
-          <td class="paramname"><em>offset</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>offset</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPipelineStageFlags&#160;</td>
+          <td class="paramname"><em>dstStage</em> = <code>VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -940,14 +946,14 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a71829125e31fdab275345e1fd8104b5b_cgraph.svg" width="632" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_ac367d6ea10ca4996f3bda1338488396d_cgraph.svg" width="632" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a4ce449d0c8e2dc5fd112c27ce2142f29" name="a4ce449d0c8e2dc5fd112c27ce2142f29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ce449d0c8e2dc5fd112c27ce2142f29">&#9670;&nbsp;</a></span>transitionImageLayout() <span class="overload">[1/2]</span></h2>
+<a id="a40a14fc004e04302139a52abe687ff0d" name="a40a14fc004e04302139a52abe687ff0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40a14fc004e04302139a52abe687ff0d">&#9670;&nbsp;</a></span>transitionImageLayout() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -974,7 +980,13 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkAccessFlags&#160;</td>
-          <td class="paramname"><em>dstMask</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>dstMask</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkImageAspectFlags&#160;</td>
+          <td class="paramname"><em>imageAspect</em> = <code>VK_IMAGE_ASPECT_COLOR_BIT</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

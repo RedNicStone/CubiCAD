@@ -1,5 +1,11 @@
 var NAVTREEINDEX4 =
 {
+"class_voxel_codec_linear.html#a5866bd3cbe60feb82ee2a36e4718ca0f":[2,0,111,5],
+"class_voxel_codec_linear.html#a71f905634c2e2ab89e914595802f4986":[2,0,111,2],
+"class_voxel_codec_linear.html#a90b349e6082868a5179e23e6bedb8420":[2,0,111,6],
+"class_voxel_codec_linear.html#a9d7b7608dcf35a7bcf5f566167a286fa":[2,0,111,1],
+"class_voxel_codec_linear.html#aba2f7ac1420fbb7490334048ebeb6b08":[2,0,111,4],
+"class_voxel_codec_linear.html#ad72387009c28ac0398bf0f4e076bef86":[2,0,111,3],
 "class_voxel_codec_linear.html#af940ce0cf5aa2cf8cdd912e972539e32":[2,0,111,7],
 "class_voxel_codec_octree_base.html":[2,0,112],
 "class_voxel_codec_octree_base.html#a2723140537d4321b3e28fe80a926839e":[2,0,112,6],
@@ -182,8 +188,8 @@ var NAVTREEINDEX4 =
 "functions_enum.html":[2,3,4],
 "functions_eval.html":[2,3,5],
 "functions_f.html":[2,3,0,6],
-"functions_func.html":[2,3,1,0],
 "functions_func.html":[2,3,1],
+"functions_func.html":[2,3,1,0],
 "functions_func_a.html":[2,3,1,1],
 "functions_func_b.html":[2,3,1,2],
 "functions_func_c.html":[2,3,1,3],
@@ -225,8 +231,8 @@ var NAVTREEINDEX4 =
 "functions_type.html":[2,3,3],
 "functions_u.html":[2,3,0,21],
 "functions_v.html":[2,3,0,22],
-"functions_vars.html":[2,3,2],
 "functions_vars.html":[2,3,2,0],
+"functions_vars.html":[2,3,2],
 "functions_vars_b.html":[2,3,2,1],
 "functions_vars_c.html":[2,3,2,2],
 "functions_vars_d.html":[2,3,2,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX4 =
 "functions_vars_q.html":[2,3,2,14],
 "functions_vars_r.html":[2,3,2,15],
 "functions_vars_s.html":[2,3,2,16],
-"functions_vars_t.html":[2,3,2,17],
-"functions_vars_u.html":[2,3,2,18],
-"functions_vars_v.html":[2,3,2,19],
-"functions_vars_w.html":[2,3,2,20],
-"functions_vars_x.html":[2,3,2,21],
-"functions_vars_y.html":[2,3,2,22],
-"functions_vars_z.html":[2,3,2,23]
+"functions_vars_t.html":[2,3,2,17]
 };

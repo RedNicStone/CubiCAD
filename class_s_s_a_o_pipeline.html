@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('class_s_s_a_o_pipeline.html',''); init
 <div class="dynheader">
 Collaboration diagram for SSAOPipeline:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_s_a_o_pipeline__coll__graph.svg" width="166" height="162"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_s_a_o_pipeline__coll__graph.svg" width="166" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -120,17 +120,23 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a86b42b7cb08d1495260fcf5d81cb80b4"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_s_s_a_o_pipeline.html">SSAOPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a86b42b7cb08d1495260fcf5d81cb80b4">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt; &amp;poolManager, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;transferQueue, const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;resultImageView, const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;normalImageView, const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;posImageView, VkExtent2D <a class="el" href="class_s_s_a_o_pipeline.html#affa505e4114286268a83a7e2e08000d4">imageExtend</a>, uint32_t sampleCount)</td></tr>
-<tr class="separator:a86b42b7cb08d1495260fcf5d81cb80b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8900d51737f99fed09ea6b577fac2c07"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_s_s_a_o_pipeline.html">SSAOPipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a8900d51737f99fed09ea6b577fac2c07">create</a> (const std::shared_ptr&lt; <a class="el" href="class_device.html">Device</a> &gt; &amp;pDevice, const std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt; &amp;poolManager, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;transferPool, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;computePool, const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;resultImageView, const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;normalImageView, const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;posImageView, const std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &amp;sceneDescriptor, float fov, VkExtent2D <a class="el" href="class_s_s_a_o_pipeline.html#affa505e4114286268a83a7e2e08000d4">imageExtend</a>, uint32_t sampleCount)</td></tr>
+<tr class="separator:a8900d51737f99fed09ea6b577fac2c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:affa505e4114286268a83a7e2e08000d4"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#affa505e4114286268a83a7e2e08000d4">imageExtend</a></td></tr>
 <tr class="separator:affa505e4114286268a83a7e2e08000d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bdb31934baff400d058b3ec5c660ce3"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a1bdb31934baff400d058b3ec5c660ce3">sceneDescriptorSet</a></td></tr>
+<tr class="separator:a1bdb31934baff400d058b3ec5c660ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a573aa9553b7c6c740878f4e14e9668"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a2a573aa9553b7c6c740878f4e14e9668">sampleDescriptorSet</a></td></tr>
 <tr class="separator:a2a573aa9553b7c6c740878f4e14e9668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a88565d8c428e34c83e5c1a669b21f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_uniform_buffer.html">UniformBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a70a88565d8c428e34c83e5c1a669b21f">sampleUniform</a></td></tr>
 <tr class="separator:a70a88565d8c428e34c83e5c1a669b21f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8b4e2d3d38ee18ad27db1b4451cc987"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image.html">Image</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#af8b4e2d3d38ee18ad27db1b4451cc987">noiseImage</a></td></tr>
+<tr class="separator:af8b4e2d3d38ee18ad27db1b4451cc987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12872953dfa0ed29dda569a55ebbc603"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a12872953dfa0ed29dda569a55ebbc603">noiseImageView</a></td></tr>
+<tr class="separator:a12872953dfa0ed29dda569a55ebbc603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1fb53cc5f39e46472a8fade4989f918"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_sampler.html">Sampler</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#ae1fb53cc5f39e46472a8fade4989f918">imageSampler</a></td></tr>
 <tr class="separator:ae1fb53cc5f39e46472a8fade4989f918"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ea50dd6abc31ecdfa98998ac67632f9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_compute_pipeline.html">ComputePipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a6ea50dd6abc31ecdfa98998ac67632f9">obscurancePipeline</a></td></tr>
@@ -155,8 +161,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a86b42b7cb08d1495260fcf5d81cb80b4" name="a86b42b7cb08d1495260fcf5d81cb80b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86b42b7cb08d1495260fcf5d81cb80b4">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a8900d51737f99fed09ea6b577fac2c07" name="a8900d51737f99fed09ea6b577fac2c07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8900d51737f99fed09ea6b577fac2c07">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,8 +185,14 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>transferQueue</em>, </td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>transferPool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>computePool</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -199,6 +211,18 @@ Private Attributes</h2></td></tr>
           <td></td>
           <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>posImageView</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>sceneDescriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fov</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -227,13 +251,13 @@ Private Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_s_a_o_pipeline_a86b42b7cb08d1495260fcf5d81cb80b4_cgraph.svg" width="623" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_s_a_o_pipeline_a8900d51737f99fed09ea6b577fac2c07_cgraph.svg" width="623" height="408"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_s_s_a_o_pipeline_a86b42b7cb08d1495260fcf5d81cb80b4_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_s_s_a_o_pipeline_a8900d51737f99fed09ea6b577fac2c07_icgraph.svg" width="100%" height="388"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -273,6 +297,50 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_sampler.html">Sampler</a>&gt; SSAOPipeline::imageSampler</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af8b4e2d3d38ee18ad27db1b4451cc987" name="af8b4e2d3d38ee18ad27db1b4451cc987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b4e2d3d38ee18ad27db1b4451cc987">&#9670;&nbsp;</a></span>noiseImage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_image.html">Image</a>&gt; SSAOPipeline::noiseImage</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12872953dfa0ed29dda569a55ebbc603" name="a12872953dfa0ed29dda569a55ebbc603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12872953dfa0ed29dda569a55ebbc603">&#9670;&nbsp;</a></span>noiseImageView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_image_view.html">ImageView</a>&gt; SSAOPipeline::noiseImageView</td>
         </tr>
       </table>
   </td>
@@ -339,6 +407,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::shared_ptr&lt;<a class="el" href="class_uniform_buffer.html">UniformBuffer</a>&gt; SSAOPipeline::sampleUniform</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1bdb31934baff400d058b3ec5c660ce3" name="a1bdb31934baff400d058b3ec5c660ce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bdb31934baff400d058b3ec5c660ce3">&#9670;&nbsp;</a></span>sceneDescriptorSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_descriptor_set.html">DescriptorSet</a>&gt; SSAOPipeline::sceneDescriptorSet</td>
         </tr>
       </table>
   </td>

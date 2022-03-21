@@ -7,6 +7,7 @@ var class_scene =
     [ "clear", "class_scene.html#a70e5b1218abb729d70d9f41b107017f9", null ],
     [ "collectRenderBuffers", "class_scene.html#ad95b93a5f79949bb04f75133f8b476a4", null ],
     [ "getCamera", "class_scene.html#adab1af0c8f8889f64a4ef22a61df4736", null ],
+    [ "getDescriptorSet", "class_scene.html#af37a3f2affe5f4e16ce4b8451e8553ef", null ],
     [ "getHovered", "class_scene.html#a404d3746108c6405b48b35e6104d8f6f", null ],
     [ "getInstanceByID", "class_scene.html#adffab8839bc9108c2ba4a545978170a7", null ],
     [ "getInstances", "class_scene.html#abf72dd5cc7457fe086003d8115be295b", null ],

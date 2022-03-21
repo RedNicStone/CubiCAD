@@ -150,8 +150,7 @@ var menudata={children:[
 {text:"c",url:"globals_eval.html#index_c"},
 {text:"m",url:"globals_eval.html#index_m"},
 {text:"o",url:"globals_eval.html#index_o"},
-{text:"r",url:"globals_eval.html#index_r"},
-{text:"s",url:"globals_eval.html#index_s"}]},
+{text:"r",url:"globals_eval.html#index_r"}]},
 {text:"Macros",url:"globals_defs.html",children:[
 {text:"c",url:"globals_defs.html#index_c"},
 {text:"f",url:"globals_defs.html#index_f"},

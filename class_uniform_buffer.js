@@ -8,7 +8,6 @@ var class_uniform_buffer =
     [ "getTransferQueue", "class_uniform_buffer.html#af1ff014053bed624c7ffec3819bf54d5", null ],
     [ "buffer", "class_uniform_buffer.html#a0f325d5e2ae5e9e64fd2c7771d2208ec", null ],
     [ "data", "class_uniform_buffer.html#a80e78684ab4989709bc18918dd4b52de", null ],
-    [ "dataPtr", "class_uniform_buffer.html#acbeb49be0b57d0b14aca6437f93401dc", null ],
     [ "device", "class_uniform_buffer.html#a2cad39af570bab8e21fca3e0e6fd032f", null ],
     [ "size", "class_uniform_buffer.html#acdd716d788116af119cfe8c94dfb0ac4", null ],
     [ "transferQueue", "class_uniform_buffer.html#a2df439166764766b4197bd2177ffbbab", null ]

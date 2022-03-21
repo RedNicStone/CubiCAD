@@ -1,6 +1,7 @@
 var class_camera =
 [
     [ "face", "class_camera.html#af93aee612da906dd50052ee2843a563e", null ],
+    [ "getCameraModel", "class_camera.html#ae689fbc6f22398c32ddef72cd2fbd21a", null ],
     [ "getPosition", "class_camera.html#a520c5a7413b3e704f2f442288db17bcf", null ],
     [ "getProj", "class_camera.html#a9825b8479b94c3ced71f3e4810b66268", null ],
     [ "getRotation", "class_camera.html#afb383989c8c6a4481e59edabfa0a2244", null ],
