@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"physicaldevice_8h.html#afd4d9bd44ede072889fd04e3ad70cfb6":[3,0,0,1,1,31,1],
 "physicaldevice_8h_source.html":[3,0,0,1,1,31],
 "pipelinebase_8cpp.html":[3,0,0,1,1,32],
 "pipelinebase_8h.html":[3,0,0,1,1,33],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "struct_pre_render_update_buffers_event.html":[2,0,73],
 "struct_queue_family_indices.html":[2,0,78],
 "struct_queue_family_indices.html#a15425ce6a9efb2a9f6516babef8e6391":[2,0,78,1],
-"struct_queue_family_indices.html#a36cf12e04588ae1e8060df3c8d809cb1":[2,0,78,2],
-"struct_queue_family_indices.html#a49d58fc9a4711c034057f6d4fde814b9":[2,0,78,3]
+"struct_queue_family_indices.html#a36cf12e04588ae1e8060df3c8d809cb1":[2,0,78,2]
 };

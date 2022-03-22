@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"struct_queue_family_indices.html#a49d58fc9a4711c034057f6d4fde814b9":[2,0,78,3],
 "struct_queue_family_indices.html#aa4f0d219980a4dea476a3fafde146ac7":[2,0,78,4],
 "struct_queue_family_indices.html#ac242cb8b229bdb4b61a04b5dd2c546aa":[2,0,78,0],
 "struct_render_event.html":[2,0,81],
