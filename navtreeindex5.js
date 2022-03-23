@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"functions_vars_s.html":[2,3,2,16],
 "functions_vars_t.html":[2,3,2,17],
 "functions_vars_u.html":[2,3,2,18],
 "functions_vars_v.html":[2,3,2,19],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "octrees_8cpp.html":[3,0,0,2,1],
 "octrees_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[3,0,0,2,1,0],
 "pages.html":[],
-"physicaldevice_8cpp.html":[3,0,0,1,1,30],
-"physicaldevice_8h.html":[3,0,0,1,1,31]
+"physicaldevice_8cpp.html":[3,0,0,1,1,30]
 };

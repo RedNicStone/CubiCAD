@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"class_voxel_codec_linear.html":[2,0,111],
 "class_voxel_codec_linear.html#a1f4fed7e3b5cc9a813bb7aaf85b223bc":[2,0,111,0],
 "class_voxel_codec_linear.html#a5866bd3cbe60feb82ee2a36e4718ca0f":[2,0,111,5],
 "class_voxel_codec_linear.html#a71f905634c2e2ab89e914595802f4986":[2,0,111,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "functions_vars_o.html":[2,3,2,12],
 "functions_vars_p.html":[2,3,2,13],
 "functions_vars_q.html":[2,3,2,14],
-"functions_vars_r.html":[2,3,2,15],
-"functions_vars_s.html":[2,3,2,16]
+"functions_vars_r.html":[2,3,2,15]
 };
