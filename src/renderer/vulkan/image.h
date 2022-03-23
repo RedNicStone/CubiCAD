@@ -87,6 +87,8 @@ class Image : public VulkanClass<VkImage>, public std::enable_shared_from_this<I
                             VkDeviceSize size, [[maybe_unused]] VkDeviceSize offset = 0,
                             VkPipelineStageFlags dstStage = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
 
+    void generateMipmaps(const std::shared_ptr<CommandPool> &commandPool);
+
     std::shared_ptr<ImageView> createImageView(VkImageViewType viewType, VkImageSubresourceRange subresourceRange);
 
     std::shared_ptr<Device> getDevice() { return device; }

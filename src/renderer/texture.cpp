@@ -37,6 +37,8 @@ std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device> &pDevice,
         static_cast<uint>(texWidth * texHeight * 4)));
     delete[] data;
 
+    texture->image->generateMipmaps(transferPool);
+
     texture->imageView =
         texture->image
             ->createImageView(VK_IMAGE_VIEW_TYPE_2D, {VK_IMAGE_ASPECT_COLOR_BIT, 0, textureSettings.mipLevels, 0, 1});
