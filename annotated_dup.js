@@ -107,6 +107,7 @@ var annotated_dup =
     [ "RenderEvent", "struct_render_event.html", "struct_render_event" ],
     [ "RenderManager", "class_render_manager.html", "class_render_manager" ],
     [ "RenderPass", "class_render_pass.html", "class_render_pass" ],
+    [ "RenderQualityOptions", "struct_render_quality_options.html", "struct_render_quality_options" ],
     [ "RenderSubmitQueueEvent", "struct_render_submit_queue_event.html", null ],
     [ "Sampler", "class_sampler.html", "class_sampler" ],
     [ "Scene", "class_scene.html", "class_scene" ],

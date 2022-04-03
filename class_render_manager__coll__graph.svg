@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 408;
+var viewWidth = 522;
 var viewHeight = 622;
 var sectionId = 'dynsection-1';
 </script>
@@ -58,50 +58,50 @@ var sectionId = 'dynsection-1';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="123.5,-0.5 123.5,-475.5 287.5,-475.5 287.5,-0.5 123.5,-0.5"/>
-<text text-anchor="middle" x="205.5" y="-463.5" font-family="Helvetica,sans-Serif" font-size="10.00">RenderManager</text>
-<polyline fill="none" stroke="black" points="123.5,-456.5 287.5,-456.5 "/>
-<text text-anchor="start" x="131.5" y="-444.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; instance</text>
-<text text-anchor="start" x="131.5" y="-433.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; window</text>
-<text text-anchor="start" x="131.5" y="-422.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; imageCount</text>
-<text text-anchor="start" x="131.5" y="-411.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; physicalDevice</text>
-<text text-anchor="start" x="131.5" y="-400.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; device</text>
-<text text-anchor="start" x="131.5" y="-389.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; graphicsQueue</text>
-<text text-anchor="start" x="131.5" y="-378.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; transferQueue</text>
-<text text-anchor="start" x="131.5" y="-367.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; computeQueue</text>
-<text text-anchor="start" x="131.5" y="-356.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; presentQueue</text>
-<text text-anchor="start" x="131.5" y="-345.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; graphicsPool</text>
-<text text-anchor="start" x="131.5" y="-334.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 41 more...</text>
-<polyline fill="none" stroke="black" points="123.5,-327.5 287.5,-327.5 "/>
-<text text-anchor="start" x="131.5" y="-315.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ resizeSwapChain()</text>
-<text text-anchor="start" x="131.5" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateRenderData()</text>
-<text text-anchor="start" x="131.5" y="-293.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ drawFrame()</text>
-<text text-anchor="start" x="131.5" y="-282.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ processInputs()</text>
-<text text-anchor="start" x="131.5" y="-271.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ waitForExecution()</text>
-<text text-anchor="start" x="131.5" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ registerFunctionNextFrame()</text>
-<text text-anchor="start" x="131.5" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ callFunctions()</text>
-<text text-anchor="start" x="131.5" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ loadMesh()</text>
-<text text-anchor="start" x="131.5" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getScene()</text>
-<text text-anchor="start" x="131.5" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getSceneWriter()</text>
-<text text-anchor="start" x="131.5" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 9 more...</text>
-<text text-anchor="start" x="131.5" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
-<text text-anchor="start" x="131.5" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ invalidateFrame()</text>
-<text text-anchor="start" x="131.5" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; pickPhysicalDevice()</text>
-<text text-anchor="start" x="131.5" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createLogicalDevice()</text>
-<text text-anchor="start" x="131.5" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createCommandPools()</text>
-<text text-anchor="start" x="131.5" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createSwapChain()</text>
-<text text-anchor="start" x="131.5" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createRenderPass()</text>
-<text text-anchor="start" x="131.5" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createFrameBuffer()</text>
-<text text-anchor="start" x="131.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createSceneObjects()</text>
-<text text-anchor="start" x="131.5" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createPostProcessingPipelines()</text>
-<text text-anchor="start" x="131.5" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createDefaultMaterialLayout()</text>
-<text text-anchor="start" x="131.5" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createUIObjects()</text>
-<text text-anchor="start" x="131.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createRenderObjects()</text>
-<text text-anchor="start" x="131.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; recreateSwapChain()</text>
-<text text-anchor="start" x="131.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processMouseInputs()</text>
-<text text-anchor="start" x="131.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; drawFrame_()</text>
-<text text-anchor="start" x="131.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; keyCallback()</text>
-<text text-anchor="start" x="131.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; mouseButtonCallback()</text>
+<polygon fill="#bfbfbf" stroke="black" points="181.5,-0.5 181.5,-475.5 345.5,-475.5 345.5,-0.5 181.5,-0.5"/>
+<text text-anchor="middle" x="263.5" y="-463.5" font-family="Helvetica,sans-Serif" font-size="10.00">RenderManager</text>
+<polyline fill="none" stroke="black" points="181.5,-456.5 345.5,-456.5 "/>
+<text text-anchor="start" x="189.5" y="-444.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; instance</text>
+<text text-anchor="start" x="189.5" y="-433.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; window</text>
+<text text-anchor="start" x="189.5" y="-422.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; imageCount</text>
+<text text-anchor="start" x="189.5" y="-411.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; physicalDevice</text>
+<text text-anchor="start" x="189.5" y="-400.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; device</text>
+<text text-anchor="start" x="189.5" y="-389.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; graphicsQueue</text>
+<text text-anchor="start" x="189.5" y="-378.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; transferQueue</text>
+<text text-anchor="start" x="189.5" y="-367.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; computeQueue</text>
+<text text-anchor="start" x="189.5" y="-356.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; presentQueue</text>
+<text text-anchor="start" x="189.5" y="-345.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; graphicsPool</text>
+<text text-anchor="start" x="189.5" y="-334.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 41 more...</text>
+<polyline fill="none" stroke="black" points="181.5,-327.5 345.5,-327.5 "/>
+<text text-anchor="start" x="189.5" y="-315.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ resizeSwapChain()</text>
+<text text-anchor="start" x="189.5" y="-304.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ updateRenderData()</text>
+<text text-anchor="start" x="189.5" y="-293.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ drawFrame()</text>
+<text text-anchor="start" x="189.5" y="-282.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ processInputs()</text>
+<text text-anchor="start" x="189.5" y="-271.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ waitForExecution()</text>
+<text text-anchor="start" x="189.5" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ registerFunctionNextFrame()</text>
+<text text-anchor="start" x="189.5" y="-249.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ callFunctions()</text>
+<text text-anchor="start" x="189.5" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ loadMesh()</text>
+<text text-anchor="start" x="189.5" y="-227.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getScene()</text>
+<text text-anchor="start" x="189.5" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getSceneWriter()</text>
+<text text-anchor="start" x="189.5" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">and 9 more...</text>
+<text text-anchor="start" x="189.5" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ create()</text>
+<text text-anchor="start" x="189.5" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ invalidateFrame()</text>
+<text text-anchor="start" x="189.5" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; pickPhysicalDevice()</text>
+<text text-anchor="start" x="189.5" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createLogicalDevice()</text>
+<text text-anchor="start" x="189.5" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createCommandPools()</text>
+<text text-anchor="start" x="189.5" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createSwapChain()</text>
+<text text-anchor="start" x="189.5" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createRenderPass()</text>
+<text text-anchor="start" x="189.5" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createFrameBuffer()</text>
+<text text-anchor="start" x="189.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createSceneObjects()</text>
+<text text-anchor="start" x="189.5" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createPostProcessingPipelines()</text>
+<text text-anchor="start" x="189.5" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createDefaultMaterialLayout()</text>
+<text text-anchor="start" x="189.5" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createUIObjects()</text>
+<text text-anchor="start" x="189.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; createRenderObjects()</text>
+<text text-anchor="start" x="189.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; recreateSwapChain()</text>
+<text text-anchor="start" x="189.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; processMouseInputs()</text>
+<text text-anchor="start" x="189.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; drawFrame_()</text>
+<text text-anchor="start" x="189.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; keyCallback()</text>
+<text text-anchor="start" x="189.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; mouseButtonCallback()</text>
 </a>
 </g>
 </g>
@@ -122,8 +122,8 @@ var sectionId = 'dynsection-1';
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M90.53,-525.12C99.43,-502.96 111.06,-474.03 123.49,-443.1"/>
-<polygon fill="none" stroke="midnightblue" points="87.24,-523.91 86.76,-534.5 93.74,-526.52 87.24,-523.91"/>
+<path fill="none" stroke="midnightblue" d="M97.75,-525.58C118.98,-488.86 151.11,-433.31 181.45,-380.86"/>
+<polygon fill="none" stroke="midnightblue" points="94.56,-524.09 92.59,-534.5 100.62,-527.59 94.56,-524.09"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
@@ -144,9 +144,9 @@ var sectionId = 'dynsection-1';
 <!-- Node3&#45;&gt;Node1 -->
 <g id="edge2" class="edge">
 <title>Node3&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M205.5,-523.2C205.5,-512.67 205.5,-500.7 205.5,-487.77"/>
-<polygon fill="none" stroke="#404040" points="205.5,-487.64 201.5,-481.64 205.5,-475.64 209.5,-481.64 205.5,-487.64"/>
-<text text-anchor="middle" x="237.5" y="-497" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;cameraModel</text>
+<path fill="none" stroke="#404040" d="M213.32,-523.2C215.18,-512.67 217.29,-500.7 219.58,-487.77"/>
+<polygon fill="none" stroke="#404040" points="219.63,-487.46 216.74,-480.85 221.72,-475.64 224.61,-482.24 219.63,-487.46"/>
+<text text-anchor="middle" x="249.5" y="-497" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;cameraModel</text>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
@@ -165,9 +165,31 @@ var sectionId = 'dynsection-1';
 <!-- Node4&#45;&gt;Node1 -->
 <g id="edge3" class="edge">
 <title>Node4&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M309.85,-534.5C304.88,-520.42 298.61,-502.67 291.62,-482.88"/>
-<polygon fill="none" stroke="#404040" points="291.54,-482.67 285.77,-478.34 287.55,-471.35 293.32,-475.68 291.54,-482.67"/>
-<text text-anchor="middle" x="349" y="-497" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;textureQualitySettings</text>
+<path fill="none" stroke="#404040" d="M315.67,-534.5C313.39,-521.55 310.55,-505.49 307.39,-487.6"/>
+<polygon fill="none" stroke="#404040" points="307.36,-487.41 302.38,-482.2 305.27,-475.59 310.26,-480.81 307.36,-487.41"/>
+<text text-anchor="middle" x="360" y="-497" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;textureQualitySettings</text>
+</g>
+<!-- Node5 -->
+<g id="node5" class="node">
+<title>Node5</title>
+<g id="a_node5"><a xlink:href="struct_render_quality_options.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="397.5,-529 397.5,-608 513.5,-608 513.5,-529 397.5,-529"/>
+<text text-anchor="middle" x="455.5" y="-596" font-family="Helvetica,sans-Serif" font-size="10.00">RenderQualityOptions</text>
+<polyline fill="none" stroke="black" points="397.5,-589 513.5,-589 "/>
+<text text-anchor="start" x="405.5" y="-577" font-family="Helvetica,sans-Serif" font-size="10.00">+ enableSSAO</text>
+<text text-anchor="start" x="405.5" y="-566" font-family="Helvetica,sans-Serif" font-size="10.00">+ SSAOSampleCount</text>
+<text text-anchor="start" x="405.5" y="-555" font-family="Helvetica,sans-Serif" font-size="10.00">+ SSAOSampleRadius</text>
+<polyline fill="none" stroke="black" points="397.5,-548 513.5,-548 "/>
+<text text-anchor="middle" x="455.5" y="-536" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node1 -->
+<g id="edge4" class="edge">
+<title>Node5&#45;&gt;Node1</title>
+<path fill="none" stroke="#404040" d="M434.19,-528.87C427.91,-517.59 420.98,-505.27 414.5,-494 394.52,-459.24 372.7,-422 352.03,-387.03"/>
+<polygon fill="none" stroke="#404040" points="351.76,-386.58 345.27,-383.45 345.65,-376.25 352.15,-379.38 351.76,-386.58"/>
+<text text-anchor="middle" x="451" y="-497" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;renderQuality</text>
 </g>
 </g>
 </svg>

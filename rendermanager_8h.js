@@ -1,5 +1,6 @@
 var rendermanager_8h =
 [
+    [ "RenderQualityOptions", "struct_render_quality_options.html", "struct_render_quality_options" ],
     [ "RenderManager", "class_render_manager.html", "class_render_manager" ],
     [ "CUBICAD_RENDERMANAGER_H", "rendermanager_8h.html#a594e0456aa9a7a8b6f29d50c3cb452bf", null ],
     [ "RenderTarget", "rendermanager_8h.html#a87bd0c12389c906279fdd4132998249d", [

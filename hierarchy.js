@@ -81,6 +81,7 @@ var hierarchy =
       [ "PreRenderUpdateBuffersEvent", "struct_pre_render_update_buffers_event.html", null ],
       [ "RenderSubmitQueueEvent", "struct_render_submit_queue_event.html", null ]
     ] ],
+    [ "RenderQualityOptions", "struct_render_quality_options.html", null ],
     [ "Scene", "class_scene.html", null ],
     [ "SceneData", "struct_scene_data.html", null ],
     [ "SceneWriter", "class_scene_writer.html", null ],

@@ -63,6 +63,7 @@ var class_render_manager =
     [ "poolManager", "class_render_manager.html#a8244ab8feed65769e1d3bd78ab547d96", null ],
     [ "presentPool", "class_render_manager.html#aed3ac72fede8ad352e44a95ec3fcb39a", null ],
     [ "presentQueue", "class_render_manager.html#aff81a325918d06f9fe022c0ba3fde5f8", null ],
+    [ "renderQuality", "class_render_manager.html#a141312eaea051c186545efc2b42ff75e", null ],
     [ "renderTargets", "class_render_manager.html#a30992f0967b4ef7f43f5a2a69cbd352b", null ],
     [ "renderTargetViews", "class_render_manager.html#a36c2cfe54e14bb7210c9b14d8b28eb5e", null ],
     [ "scene", "class_render_manager.html#a4c4f9ca5fcd4c504b959427325acf892", null ],
