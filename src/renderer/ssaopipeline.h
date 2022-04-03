@@ -57,7 +57,8 @@ class SSAOPipeline {
                                                 const std::shared_ptr<DescriptorSet>& sceneDescriptor,
                                                 float fov,
                                                 VkExtent2D imageExtend,
-                                                uint32_t sampleCount);
+                                                uint32_t sampleCount,
+                                                float sampleRadius);
 
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 

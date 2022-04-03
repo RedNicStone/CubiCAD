@@ -55,7 +55,7 @@ void ObjectProperties::drawUI() {
                                      ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
                     object->setName(objectName);
 
-                float speed = 0.1f;
+                float speed = 0.01f;
                 if (ImGui::DragFloat3("Position", &pos.x, speed))
                     object->setPosition(pos);
                 if (ImGui::DragFloat3("Rotation", &rot.x, speed))

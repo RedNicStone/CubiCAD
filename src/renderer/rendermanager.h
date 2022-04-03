@@ -32,6 +32,12 @@ enum RenderTarget : uint32_t {
     RENDER_TARGET_MAX           = 5
 };
 
+struct RenderQualityOptions {
+    bool enableSSAO = false;
+    uint32_t SSAOSampleCount = 16;
+    float SSAOSampleRadius = 0.04f;
+};
+
 class RenderManager : public std::enable_shared_from_this<RenderManager> {
   private:
     // external objects
@@ -68,6 +74,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
 
     std::shared_ptr<DescriptorPoolManager> poolManager;
     TextureQualitySettings textureQualitySettings;
+    RenderQualityOptions renderQuality;
 
     std::shared_ptr<MaterialLibrary> materialLibrary;
     std::shared_ptr<TextureLibrary> textureLibrary;

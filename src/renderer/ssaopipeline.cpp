@@ -18,7 +18,8 @@ std::shared_ptr<SSAOPipeline> SSAOPipeline::create(const std::shared_ptr<Device>
                                                    const std::shared_ptr<DescriptorSet>& sceneDescriptor,
                                                    float fov,
                                                    VkExtent2D imageExtend,
-                                                   uint32_t sampleCount) {
+                                                   uint32_t sampleCount,
+                                                   float sampleRadius) {
     auto ssaoPipeline = std::make_shared<SSAOPipeline>();
     ssaoPipeline->imageExtend = imageExtend;
     ssaoPipeline->sceneDescriptorSet = sceneDescriptor;
@@ -68,6 +69,21 @@ std::shared_ptr<SSAOPipeline> SSAOPipeline::create(const std::shared_ptr<Device>
 
     auto obscuranceShader = ComputeShader::create(pDevice, "main", "resources/shaders/compiled/alchemy_ssao.comp.spv");
     auto blurShader = ComputeShader::create(pDevice, "main", "resources/shaders/compiled/blur.comp.spv");
+
+    std::vector<VkSpecializationMapEntry> specializationMap{ { 0, 0, sizeof(uint32_t) },
+                                                             { 0, sizeof(uint32_t), sizeof(float) } };
+
+    std::vector<uint32_t> specializationData(sizeof(uint32_t) + sizeof(float));
+    specializationData[0] = sampleCount;
+    specializationData[1] = (uint32_t) sampleRadius;
+
+    VkSpecializationInfo specialization{};
+    specialization.mapEntryCount = static_cast<uint32_t>(specializationMap.size());
+    specialization.pMapEntries = specializationMap.data();
+    specialization.dataSize = specializationData.size();
+    specialization.pData = specializationData.data();
+
+    std::vector<VkSpecializationInfo*> specializationVector{ &specialization };
 
     ssaoPipeline->obscurancePipeline = ComputePipeline::create(pDevice, pipelineLayout, obscuranceShader);
     ssaoPipeline->blurPipeline = ComputePipeline::create(pDevice, pipelineLayout, blurShader);

@@ -408,7 +408,7 @@ void RenderManager::processMouseInputs() {
         }
 
         if (!io.WantCaptureKeyboard) {
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_1) == GLFW_PRESS |
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_1) == GLFW_PRESS ||
                 glfwGetKey(window->getWindow(), GLFW_KEY_0) == GLFW_PRESS)
                 activePresentTarget = 0;
             else if (glfwGetKey(window->getWindow(), GLFW_KEY_2) == GLFW_PRESS)
@@ -540,7 +540,8 @@ void RenderManager::drawFrame_() {
                                                                  VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
                                                                  VK_ACCESS_SHADER_READ_BIT);
 
-    ssaoPipeline->bakeGraphicsBuffer(drawCommandBuffer);
+    if (renderQuality.enableSSAO)
+        ssaoPipeline->bakeGraphicsBuffer(drawCommandBuffer);
 
     drawCommandBuffer->endCommandBuffer();
 
@@ -671,14 +672,15 @@ void RenderManager::createPostProcessingPipelines() {
                                             renderTargetViews[RENDER_TARGET_POSITION],
                                             scene->getDescriptorSet(),
                                             static_cast<float>(cameraModel.fieldOfView),
-                                            swapChainExtent, 64);
+                                            swapChainExtent, renderQuality.SSAOSampleCount,
+                                            renderQuality.SSAOSampleRadius);
 
     ssaoSemaphore = Semaphore::create(device);
     uiSemaphore = Semaphore::create(device);
 }
 
 void RenderManager::invalidateFrame() {
-    std::cout << "Frame invalidated, discarding frame and redrawing";
+    std::cout << "Frame invalidated, discarding frame and redrawing" << std::endl;
     throw std::runtime_error("Frame invalidated!");
 }
 
@@ -697,7 +699,6 @@ void RenderManager::drawFrame() {
                                                                                                            "invalidated!")) {
             swapChain->getPresentFence()->resetState();
             vkQueueSubmit(graphicsQueue->getHandle(), 0, nullptr, swapChain->getPresentFence()->getHandle());
-            drawFrame();
         }
     }
 }

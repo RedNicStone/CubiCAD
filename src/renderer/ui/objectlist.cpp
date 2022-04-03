@@ -37,7 +37,12 @@ void ObjectList::drawUI() {
         ImGuiTreeNodeFlags
             base_flags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_Bullet;
 
-        if (ImGui::TreeNode(mesh.first->getName().c_str())) {
+        bool meshSelected = false;
+        if (scene->getSelected() != 0)
+            meshSelected = scene->getInstanceByID(scene->getSelected())->getMesh() == mesh.first;
+
+        if (ImGui::TreeNodeEx(mesh.first.get(), ImGuiTreeNodeFlags_Selected * meshSelected, "%s",
+                              mesh.first->getName().c_str())) {
             for (const auto &instance: mesh.second) {
                 ImGuiTreeNodeFlags node_flags = base_flags;
                 if (scene->getSelected() == instance->getID())

@@ -21,21 +21,21 @@
 
 
 struct SceneData {
-    glm::mat4 view{};  // view matrix
-    glm::mat4 proj{};  // projection matrix
+    glm::mat4 view{};       // view matrix
+    glm::mat4 proj{};       // projection matrix
 
-    glm::uint nFrame{};  // frame ID
+    glm::uint nFrame{};     // frame ID
     glm::uint frameTime{};  // frame time in ns
-    glm::uint selectedID{};
-    glm::uint hoveredID{};
+    glm::uint selectedID{}; // ID of the currently selected object
+    glm::uint hoveredID{};  // ID of the currently hovered object
 };
 
 class Scene {
   public:
     struct IndirectDrawCall {
-        std::shared_ptr<Material> material;
-        uint32_t drawCallOffset{};
-        uint32_t drawCallLength{};
+        std::shared_ptr<Material> material; // material drawn with
+        uint32_t drawCallOffset{};          // offset of first drawCallCmd in array
+        uint32_t drawCallLength{};          // number of drawCallCmd to draw
     };
 
   private:

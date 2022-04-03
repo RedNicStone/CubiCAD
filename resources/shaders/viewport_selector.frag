@@ -50,6 +50,6 @@ void main() {
         present_color = vec4(subpassLoad(shading_ao).x);
         break;
         default:
-        present_color = vec4(0.0, 0.0, 0.0, 1.0);
+        present_color = vec4(1.0, 1.0, 1.0, 1.0);
     }
 }

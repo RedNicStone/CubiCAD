@@ -2,10 +2,10 @@
 
 layout (local_size_x = 16, local_size_y = 16) in;
 
-const int SAMPLE_COUNT = 64;
-const float SAMPLE_RADIUS = 0.04f;
-const float depth_bias = 0.025f;
-const float zero_guard = 0.001f;
+layout (constant_id = 0) const uint SAMPLE_COUNT = 16;
+layout (constant_id = 1) const float SAMPLE_RADIUS = 0.04f;
+
+#define DEPTH_BIAS 0.025f
 
 layout(set = 0, binding = 0) uniform SceneInfo {
     mat4 view;// view matrix
@@ -47,7 +47,7 @@ vec3 azimuthalEADecode(vec2 enc) {
 void main() {
     const uvec2 pixel_pos = gl_GlobalInvocationID.xy;
 
-    const vec2 frag_uv = vec2(pixel_pos) / passInfo.imageSize;
+    const vec2 frag_uv = (vec2(pixel_pos) + vec2(0.5)) / passInfo.imageSize;
     const vec3 frag_normal = normalize(azimuthalEADecode(texture(sampler2D(geometry_normal, samp), frag_uv).xy));
     const vec3 frag_pos = texture(sampler2D(geometry_pos, samp), frag_uv).xyz;
 
@@ -77,7 +77,7 @@ void main() {
 
         // range check & accumulate
         float range_check = smoothstep(0.0, 1.0, SAMPLE_RADIUS / abs(frag_pos.z - sample_depth));
-        occlusion += (sample_depth >= sample_pos.z + depth_bias ? 1.0 : 0.0) * range_check;
+        occlusion += (sample_depth >= sample_pos.z + DEPTH_BIAS ? 1.0 : 0.0) * range_check;
     }
     occlusion = 1.0 - (occlusion / SAMPLE_COUNT);
 

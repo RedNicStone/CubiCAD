@@ -10,7 +10,8 @@ std::shared_ptr<MainMenu> MainMenu::create(const std::shared_ptr<RenderManager> 
 
     auto menubar = std::make_shared<MainMenu>();
     menubar->renderManager = renderManager;
-    menubar->lastFileNames = {""};
+    menubar->lastImports = {""};
+    menubar->lastFiles = {""};
 
     menubar->logoTexture =
         renderManager->getTextureLibrary()
@@ -39,16 +40,31 @@ void MainMenu::drawUI() {
             }
             ImGui::Separator();
             if (ImGui::MenuItem("Open", "CTRL+O")) {
-                renderManager->getSceneWriter()->readScene();
+                showOpenSaveFileDialog = true;
             }
             if (ImGui::BeginMenu("Open Recent")) {
+                for (size_t i = 0; i < lastFiles.size() && i < 20; i++) {
+                    if (!lastFiles[lastFiles.size() - i - 1].empty()) {
+                        auto meshFile = std::filesystem::path(lastFiles[lastFiles.size() - i - 1]);
+                        if (ImGui::MenuItem(meshFile.filename().c_str())) {
+                            if (i != 0)
+                                lastFiles.push_back(lastFiles[lastFiles.size() - i - 1]);
+                            showOpenSaveFileDialog = true;
+                        }
+                    }
+                }
                 ImGui::EndMenu();
             }
             ImGui::Separator();
             if (ImGui::MenuItem("Save", "CTRL+S")) {
-                renderManager->getSceneWriter()->writeScene();
+                if (lastFiles.back().empty())
+                    showSelectSaveFileDialog = true;
+                else
+                    renderManager->getSceneWriter()->writeScene();
             }
-            if (ImGui::MenuItem("Save As", "CTRL+SHIFT+S")) {}
+            if (ImGui::MenuItem("Save As", "CTRL+SHIFT+S")) {
+                showSelectSaveFileDialog = true;
+            }
             ImGui::Separator();
             if (ImGui::MenuItem("Settings", "CTRL+ALT+S")) {
                 showSettingsDialog = true;
@@ -59,12 +75,12 @@ void MainMenu::drawUI() {
             if (ImGui::MenuItem(OPEN_OBJ_FILE_DIALOG_TITLE, "CTRL+I"))
                 showOpenOBJFileDialog = true;
             if (ImGui::BeginMenu("Import recent")) {
-                for (size_t i = 0; i < lastFileNames.size() && i < 20; i++) {
-                    if (!lastFileNames[lastFileNames.size() - i - 1].empty()) {
-                        auto meshFile = std::filesystem::path(lastFileNames[lastFileNames.size() - i - 1]);
+                for (size_t i = 0; i < lastImports.size() && i < 20; i++) {
+                    if (!lastImports[lastImports.size() - i - 1].empty()) {
+                        auto meshFile = std::filesystem::path(lastImports[lastImports.size() - i - 1]);
                         if (ImGui::MenuItem(meshFile.filename().c_str())) {
                             if (i != 0)
-                                lastFileNames.push_back(lastFileNames[lastFileNames.size() - i - 1]);
+                                lastImports.push_back(lastImports[lastImports.size() - i - 1]);
                             showOpenOBJFileDialog = true;
                         }
                     }
@@ -100,6 +116,16 @@ void MainMenu::drawUI() {
         showOpenOBJFileDialog = false;
     }
 
+    if (showOpenSaveFileDialog) {
+        ImGui::OpenPopup(OPEN_SAVE_FILE_DIALOG_TITLE);
+        showOpenSaveFileDialog = false;
+    }
+
+    if (showSelectSaveFileDialog) {
+        ImGui::OpenPopup(SELECT_SAVE_FILE_DIALOG_TITLE);
+        showSelectSaveFileDialog = false;
+    }
+
     if (showConfirmDiscardDialog) {
         ImGui::OpenPopup(CONFIRM_DISCARD_DIALOG_TITLE);
         showConfirmDiscardDialog = false;
@@ -109,6 +135,8 @@ void MainMenu::drawUI() {
         drawSettingsWindow();
 
     openOBJFileDialog();
+    openSaveFileDialog();
+    selectSaveFileDialog();
     confirmDiscardDialog();
 }
 
@@ -164,23 +192,91 @@ bool MainMenu::openOBJFileDialog() {
     if (ImGui::BeginPopupModal(OPEN_OBJ_FILE_DIALOG_TITLE,
                                nullptr,
                                ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove)) {
-        ImGui::InputText("##filename", &(lastFileNames.back()));
+        ImGui::InputText("##filename", &(lastImports.back()));
         ImGui::SameLine();
         if (ImGui::Button(ICON_FK_FOLDER_OPEN)) {
             nfdchar_t *outPath;
-            nfdfilteritem_t filterItem[1] = {{"Wavefront files", "obj"}};
-            nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 1, nullptr);
+            nfdfilteritem_t filterItem[1] = {{"Wavefront files", ".obj"}};
+            const char *defaultPath = lastImports[0].c_str();
+            nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 1, defaultPath);
 
             if (result == NFD_OKAY) {
-                if (lastFileNames.back() != outPath)
-                    lastFileNames.emplace_back(outPath);
+                if (lastImports.back() != outPath)
+                    lastImports.emplace_back(outPath);
                 NFD_FreePath(outPath);
             }
         }
         if (ImGui::Button("Load object")) {
-            renderManager->loadMesh(lastFileNames.back());
+            renderManager->loadMesh(lastImports.back());
             renderManager->getScene()->bakeMaterials(true);
             renderManager->getScene()->collectRenderBuffers();
+            ImGui::CloseCurrentPopup();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel"))
+            ImGui::CloseCurrentPopup();
+
+        ImGui::EndPopup();
+    }
+}
+
+bool MainMenu::openSaveFileDialog() {
+    ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(), ImGuiCond_Always, {0.5f, 0.5f});
+    if (ImGui::BeginPopupModal(OPEN_SAVE_FILE_DIALOG_TITLE,
+                               nullptr,
+                               ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove)) {
+        ImGui::InputText("##filename", &(lastFiles.back()));
+        ImGui::SameLine();
+        if (ImGui::Button(ICON_FK_FOLDER_OPEN)) {
+            nfdchar_t *outPath;
+            nfdfilteritem_t filterItem[2] = {{"CubiCAD saves", ".ccs"},
+                                             {"Compressed CubiCAD saves", ".ccs.lz4"}};
+            const char *defaultPath = lastFiles[0].c_str();
+            nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 2, defaultPath);
+
+            if (result == NFD_OKAY) {
+                if (lastFiles.back() != outPath)
+                    lastFiles.emplace_back(outPath);
+                NFD_FreePath(outPath);
+            }
+        }
+        if (ImGui::Button("Load file")) {
+            renderManager->getSceneWriter()->setFilename(lastFiles.back());
+            renderManager->getScene()->clear();
+            renderManager->getSceneWriter()->readScene();
+            ImGui::CloseCurrentPopup();
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel"))
+            ImGui::CloseCurrentPopup();
+
+        ImGui::EndPopup();
+    }
+}
+
+bool MainMenu::selectSaveFileDialog() {
+    ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(), ImGuiCond_Always, {0.5f, 0.5f});
+    if (ImGui::BeginPopupModal(SELECT_SAVE_FILE_DIALOG_TITLE,
+                               nullptr,
+                               ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove)) {
+        ImGui::InputText("##filename", &(lastFiles.back()));
+        ImGui::SameLine();
+        if (ImGui::Button(ICON_FK_FOLDER_OPEN)) {
+            nfdchar_t *outPath;
+            nfdfilteritem_t filterItem[2] = {{"CubiCAD saves", ".ccs"},
+                                             {"Compressed CubiCAD saves", ".ccs.lz4"}};
+            const char *defaultPath = lastFiles[0].c_str();
+            nfdresult_t result = NFD_SaveDialog(&outPath, filterItem, 2, defaultPath, "");
+
+            if (result == NFD_OKAY) {
+                if (lastFiles.back() != outPath)
+                    lastFiles.emplace_back(outPath);
+                NFD_FreePath(outPath);
+            }
+        }
+        if (ImGui::Button("Load file")) {
+            renderManager->getSceneWriter()->setFilename(lastFiles.back());
+            renderManager->getSceneWriter()->writeScene();
             ImGui::CloseCurrentPopup();
         }
         ImGui::SameLine();
