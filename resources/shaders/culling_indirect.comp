@@ -1,0 +1,60 @@
+#version 450
+
+layout (local_size_x = 16) in;
+
+layout(set = 0, binding = 0) uniform SceneInfo {
+    mat4 view;// view matrix
+    mat4 proj;// projection matrix
+
+    uint nFrame;// frame ID
+    uint frameTime;// frame time in ns
+    uint selectedID;// currently selected object
+    uint hoveredID;// currently hovered object
+} scene_info;
+
+layout(set = 1, binding = 0) uniform CullInfo {
+    uint cullCount;
+} cullInfo;
+
+struct InstanceBufferData {
+    uint objectID;
+    uint batchID;
+    mat4 model;
+};
+
+layout(set = 1, binding = 1) readonly buffer InstanceBuffer {
+    InstanceBufferData instances[];
+} instanceBuffer;
+
+struct IndirectDrawBufferType {
+    uint    indexCount;
+    uint    instanceCount;
+    uint    firstIndex;
+    int     vertexOffset;
+    uint    firstInstance;
+    uint objectID;
+    uint batchID;
+};
+
+layout(set = 1, binding = 2) buffer IndirectDrawBuffer {
+    IndirectDrawBufferType draws[];
+} indirectDrawBuffer;
+
+layout(set = 1, binding = 3) buffer IndirectDrawBuffer {
+    uint indexes[];
+} indirectDrawBuffer;
+
+void main() {
+    uint instanceID = gl_GlobalInvocationID.x;
+
+    if (instanceID < cullInfo.cullCount) {
+
+        if (true) {
+            uint batchID = instanceBuffer.instances[instanceID].batchID;
+
+            uint countIndex = atomicAdd(indirectDrawBuffer.draws[batchID].indexCount, 1);
+
+            uint finalInstanceID = indirectDrawBuffer.draws[batchID].firstInstance + countIndex;
+        }
+    }
+}

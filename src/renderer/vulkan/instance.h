@@ -4,7 +4,7 @@
 
 #pragma once
 
-#ifndef CUBICAD_OBJECTINSTANCE_H
+#ifndef CUBICAD_MESHINSTANCE_H
 #define CUBICAD_INSTANCE_H
 
 #include <vulkan/vulkan.h>
@@ -66,4 +66,4 @@ class Instance : public VulkanClass<VkInstance>, public std::enable_shared_from_
     [[nodiscard]] std::vector<const char *> getExtensions() const { return getRequiredExtensions(enableValidationLayers); }
 };
 
-#endif //CUBICAD_OBJECTINSTANCE_H
+#endif //CUBICAD_MESHINSTANCE_H

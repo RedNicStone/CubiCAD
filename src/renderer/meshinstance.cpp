@@ -2,7 +2,7 @@
 // Created by nic on 09/01/2022.
 //
 
-#include "objectinstance.h"
+#include "meshinstance.h"
 
 #include <utility>
 
@@ -15,6 +15,8 @@ std::shared_ptr<MeshInstance> MeshInstance::create(const std::shared_ptr<Mesh> &
     } else {
         meshInstance->name = pName;
     }
+
+    meshInstance->pos = masterMesh->getMean();
 
     return meshInstance;
 }
@@ -33,7 +35,7 @@ InstanceData MeshInstance::getInstanceData() const {
 
 void MeshInstance::setPosition(glm::vec3 position) {
     pos = position;
-    matPos = glm::translate(pos - mesh->getMean());
+    matPos = glm::translate(pos);
     combineMatrices();
 }
 

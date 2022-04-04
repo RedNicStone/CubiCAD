@@ -14,7 +14,7 @@
 #include <unordered_set>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "objectinstance.h"
+#include "meshinstance.h"
 #include "descriptorpoolmanager.h"
 #include "dynamicbuffer.h"
 #include "camera.h"

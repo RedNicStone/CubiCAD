@@ -8,6 +8,7 @@
 std::shared_ptr<RenderManager> RenderManager::create(const std::shared_ptr<Instance> &instance,
                                                      const std::shared_ptr<Window> &window,
                                                      const TextureQualitySettings &textureQuality,
+                                                     const RenderQualityOptions &renderQuality,
                                                      const CameraModel &cameraModel) {
     auto renderManager = std::make_shared<RenderManager>();
 
@@ -16,6 +17,7 @@ std::shared_ptr<RenderManager> RenderManager::create(const std::shared_ptr<Insta
     renderManager->instance = instance;
     renderManager->window = window;
     renderManager->textureQualitySettings = textureQuality;
+    renderManager->renderQuality = renderQuality;
     renderManager->cameraModel = cameraModel;
 
     renderManager->createRenderObjects();

@@ -4,8 +4,8 @@
 
 #pragma once
 
-#ifndef CUBICAD_OBJECTINSTANCE_H
-#define CUBICAD_OBJECTINSTANCE_H
+#ifndef CUBICAD_MESHINSTANCE_H
+#define CUBICAD_MESHINSTANCE_H
 
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #define GLM_FORCE_RADIANS
@@ -21,6 +21,7 @@ class Mesh;
 
 struct InstanceData {
     glm::uint objectID;
+    glm::uint batchID;
     glm::mat4 model;
 };
 
@@ -71,4 +72,4 @@ class MeshInstance {
     [[nodiscard]] uint32_t getID() const { return objectID; }
 };
 
-#endif //CUBICAD_OBJECTINSTANCE_H
+#endif //CUBICAD_MESHINSTANCE_H

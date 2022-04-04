@@ -88,12 +88,16 @@ class VulkanRasterizer {
         settings.anisotropy = 1.0f;
         settings.mipLevels = 1;
 
+        RenderQualityOptions options{};
+        options.SSAOSampleCount = 16;
+        options.enableSSAO = false;
+
         CameraModel cameraModel{};
         cameraModel.fieldOfView = 75.0;
         cameraModel.cameraMode = CAMERA_MODE_PERSPECTIVE_INFINITE;
         cameraModel.clipNear = 0.1;
 
-        renderManager = RenderManager::create(instance, window, settings, cameraModel);
+        renderManager = RenderManager::create(instance, window, settings, options, cameraModel);
     }
 
     void init() {
@@ -121,7 +125,7 @@ class VulkanRasterizer {
     }
 
     void loadModels() {
-        renderManager->loadMesh("resources/models/demo/living_room/living_room.obj");
+        renderManager->loadMesh("resources/models/demo/living_room/living_room.obj", true);
         renderManager->getScene()->bakeMaterials(true);
         renderManager->getScene()->collectRenderBuffers();
     }

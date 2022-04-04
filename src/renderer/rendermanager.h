@@ -157,6 +157,7 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     static std::shared_ptr<RenderManager> create(const std::shared_ptr<Instance> &instance,
                                                  const std::shared_ptr<Window> &window,
                                                  const TextureQualitySettings &textureQuality,
+                                                 const RenderQualityOptions &renderQuality,
                                                  const CameraModel &cameraModel);
 
     void resizeSwapChain(uint32_t newImageCount = 0);

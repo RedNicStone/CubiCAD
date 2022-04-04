@@ -10,7 +10,7 @@
 #include "vulkan/graphicspipeline.h"
 #include "material.h"
 #include "mesh.h"
-#include "objectinstance.h"
+#include "meshinstance.h"
 #include "materialparameters.h"
 
 #include <utility>

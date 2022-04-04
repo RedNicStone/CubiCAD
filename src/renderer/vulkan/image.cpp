@@ -386,6 +386,8 @@ void Image::generateMipmaps(const std::shared_ptr<CommandPool> &commandPool) {
                          0, nullptr,
                          1, &barrier);
 
+    currentLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
     transitionImageLayout(commandBuffer,
                               VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
                           VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
