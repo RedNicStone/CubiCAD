@@ -72,7 +72,7 @@ var NAVTREEINDEX =
 "class_voxel_codec_base.html#aa9823d739f141f866cb8638fd9cc3671",
 "functions_vars_m.html",
 "octreecompiler_8h.html#aa53e0967978ad7a8792f6961156ec968",
-"struct_post_render_submit_queue_event.html"
+"struct_post_render_recreate_event.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
