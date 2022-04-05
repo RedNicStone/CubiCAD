@@ -35,6 +35,7 @@ var annotated_dup =
     [ "CommandPool", "class_command_pool.html", "class_command_pool" ],
     [ "ComputePipeline", "class_compute_pipeline.html", "class_compute_pipeline" ],
     [ "ComputeShader", "class_compute_shader.html", null ],
+    [ "CullInfo", "struct_cull_info.html", "struct_cull_info" ],
     [ "DescriptorPool", "class_descriptor_pool.html", "class_descriptor_pool" ],
     [ "DescriptorPoolManager", "class_descriptor_pool_manager.html", "class_descriptor_pool_manager" ],
     [ "DescriptorSet", "class_descriptor_set.html", "class_descriptor_set" ],

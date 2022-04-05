@@ -173,21 +173,22 @@ var sectionId = 'dynsection-1';
 <g id="node5" class="node">
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="struct_render_quality_options.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="397.5,-529 397.5,-608 513.5,-608 513.5,-529 397.5,-529"/>
-<text text-anchor="middle" x="455.5" y="-596" font-family="Helvetica,sans-Serif" font-size="10.00">RenderQualityOptions</text>
-<polyline fill="none" stroke="black" points="397.5,-589 513.5,-589 "/>
-<text text-anchor="start" x="405.5" y="-577" font-family="Helvetica,sans-Serif" font-size="10.00">+ enableSSAO</text>
-<text text-anchor="start" x="405.5" y="-566" font-family="Helvetica,sans-Serif" font-size="10.00">+ SSAOSampleCount</text>
-<text text-anchor="start" x="405.5" y="-555" font-family="Helvetica,sans-Serif" font-size="10.00">+ SSAOSampleRadius</text>
-<polyline fill="none" stroke="black" points="397.5,-548 513.5,-548 "/>
-<text text-anchor="middle" x="455.5" y="-536" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polygon fill="none" stroke="black" points="397.5,-523.5 397.5,-613.5 513.5,-613.5 513.5,-523.5 397.5,-523.5"/>
+<text text-anchor="middle" x="455.5" y="-601.5" font-family="Helvetica,sans-Serif" font-size="10.00">RenderQualityOptions</text>
+<polyline fill="none" stroke="black" points="397.5,-594.5 513.5,-594.5 "/>
+<text text-anchor="start" x="405.5" y="-582.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ enableSSAO</text>
+<text text-anchor="start" x="405.5" y="-571.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SSAOSampleCount</text>
+<text text-anchor="start" x="405.5" y="-560.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ SSAOSampleRadius</text>
+<text text-anchor="start" x="405.5" y="-549.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bufferCount</text>
+<polyline fill="none" stroke="black" points="397.5,-542.5 513.5,-542.5 "/>
+<text text-anchor="middle" x="455.5" y="-530.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
 </g>
 <!-- Node5&#45;&gt;Node1 -->
 <g id="edge4" class="edge">
 <title>Node5&#45;&gt;Node1</title>
-<path fill="none" stroke="#404040" d="M434.19,-528.87C427.91,-517.59 420.98,-505.27 414.5,-494 394.52,-459.24 372.7,-422 352.03,-387.03"/>
+<path fill="none" stroke="#404040" d="M431.19,-523.48C425.74,-513.74 419.96,-503.5 414.5,-494 394.52,-459.24 372.7,-422 352.03,-387.03"/>
 <polygon fill="none" stroke="#404040" points="351.76,-386.58 345.27,-383.45 345.65,-376.25 352.15,-379.38 351.76,-386.58"/>
 <text text-anchor="middle" x="451" y="-497" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;renderQuality</text>
 </g>

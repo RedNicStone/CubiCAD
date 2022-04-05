@@ -2,6 +2,7 @@ var class_descriptor_pool_manager =
 [
     [ "PoolSizes", "struct_descriptor_pool_manager_1_1_pool_sizes.html", "struct_descriptor_pool_manager_1_1_pool_sizes" ],
     [ "allocate", "class_descriptor_pool_manager.html#acf0baf8860dc5eb90f19b2b35a42ce50", null ],
+    [ "getDevice", "class_descriptor_pool_manager.html#adaece31d61213a044039fef30b5b079c", null ],
     [ "grabPool", "class_descriptor_pool_manager.html#a1b63c77b3534248db0e83263d5d31b3c", null ],
     [ "resetPools", "class_descriptor_pool_manager.html#a431fea02150aa7225867fcb7fe3d2643", null ],
     [ "currentPool", "class_descriptor_pool_manager.html#a03990b836cee56904278e8234e52736f", null ],

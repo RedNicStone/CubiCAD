@@ -18,13 +18,14 @@ var searchData=
   ['buffer_15',['Buffer',['../class_buffer.html',1,'']]],
   ['buffer_2ecpp_16',['buffer.cpp',['../buffer_8cpp.html',1,'']]],
   ['buffer_2eh_17',['buffer.h',['../buffer_8h.html',1,'']]],
-  ['bufferoodsize_18',['bufferOODSize',['../class_material_library.html#a961419073c62e9b2780b8c1c29e9c91f',1,'MaterialLibrary']]],
-  ['buffersize_19',['bufferSize',['../class_material_library.html#a5d527a50faf6579285ab9c6b96fa97ee',1,'MaterialLibrary']]],
-  ['bufferusage_20',['bufferUsage',['../class_dynamic_buffer.html#af3c118919fb648f782449c3a16c85fe2',1,'DynamicBuffer']]],
-  ['bufferview_21',['BufferView',['../class_buffer_view.html',1,'']]],
-  ['bufferview_2ecpp_22',['bufferview.cpp',['../bufferview_8cpp.html',1,'']]],
-  ['bufferview_2eh_23',['bufferview.h',['../bufferview_8h.html',1,'']]],
-  ['build_24',['build',['../class_render_pass.html#a7c316af3042678e68ae4a14a253c4136',1,'RenderPass']]],
-  ['buildlayout_25',['buildLayout',['../materialparameters_8cpp.html#ad19af1f50a41ceac79efdeeafc07a8ab',1,'buildLayout(const MaterialPropertyLayout &amp;layout):&#160;materialparameters.cpp'],['../materialparameters_8h.html#ad19af1f50a41ceac79efdeeafc07a8ab',1,'buildLayout(const MaterialPropertyLayout &amp;layout):&#160;materialparameters.cpp']]],
-  ['buildproperty_26',['buildProperty',['../materialparameters_8cpp.html#a6d0d74203f8507f343dd66edcc0d472f',1,'buildProperty(const MaterialProperty &amp;property):&#160;materialparameters.cpp'],['../materialparameters_8h.html#a6d0d74203f8507f343dd66edcc0d472f',1,'buildProperty(const MaterialProperty &amp;property):&#160;materialparameters.cpp']]]
+  ['buffercount_18',['bufferCount',['../struct_render_quality_options.html#addbc7d39e0060ddc7ec354f0f3ec228f',1,'RenderQualityOptions']]],
+  ['bufferoodsize_19',['bufferOODSize',['../class_material_library.html#a961419073c62e9b2780b8c1c29e9c91f',1,'MaterialLibrary']]],
+  ['buffersize_20',['bufferSize',['../class_material_library.html#a5d527a50faf6579285ab9c6b96fa97ee',1,'MaterialLibrary']]],
+  ['bufferusage_21',['bufferUsage',['../class_dynamic_buffer.html#af3c118919fb648f782449c3a16c85fe2',1,'DynamicBuffer']]],
+  ['bufferview_22',['BufferView',['../class_buffer_view.html',1,'']]],
+  ['bufferview_2ecpp_23',['bufferview.cpp',['../bufferview_8cpp.html',1,'']]],
+  ['bufferview_2eh_24',['bufferview.h',['../bufferview_8h.html',1,'']]],
+  ['build_25',['build',['../class_render_pass.html#a7c316af3042678e68ae4a14a253c4136',1,'RenderPass']]],
+  ['buildlayout_26',['buildLayout',['../materialparameters_8cpp.html#ad19af1f50a41ceac79efdeeafc07a8ab',1,'buildLayout(const MaterialPropertyLayout &amp;layout):&#160;materialparameters.cpp'],['../materialparameters_8h.html#ad19af1f50a41ceac79efdeeafc07a8ab',1,'buildLayout(const MaterialPropertyLayout &amp;layout):&#160;materialparameters.cpp']]],
+  ['buildproperty_27',['buildProperty',['../materialparameters_8cpp.html#a6d0d74203f8507f343dd66edcc0d472f',1,'buildProperty(const MaterialProperty &amp;property):&#160;materialparameters.cpp'],['../materialparameters_8h.html#a6d0d74203f8507f343dd66edcc0d472f',1,'buildProperty(const MaterialProperty &amp;property):&#160;materialparameters.cpp']]]
 ];

@@ -7,6 +7,7 @@ var hierarchy =
     [ "Camera", "class_camera.html", null ],
     [ "CameraModel", "struct_camera_model.html", null ],
     [ "CCAD_OT::Cube", "struct_c_c_a_d___o_t_1_1_cube.html", null ],
+    [ "CullInfo", "struct_cull_info.html", null ],
     [ "DescriptorPoolManager", "class_descriptor_pool_manager.html", null ],
     [ "DynamicBuffer", "class_dynamic_buffer.html", null ],
     [ "std::enable_shared_from_this", null, [
