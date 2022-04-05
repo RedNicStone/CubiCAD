@@ -18,6 +18,7 @@
 #include "descriptorpoolmanager.h"
 #include "dynamicbuffer.h"
 #include "camera.h"
+#include "vulkan/computepipeline.h"
 
 
 struct SceneData {
@@ -28,6 +29,10 @@ struct SceneData {
     glm::uint frameTime{};  // frame time in ns
     glm::uint selectedID{}; // ID of the currently selected object
     glm::uint hoveredID{};  // ID of the currently hovered object
+};
+
+struct CullInfo {
+    glm::uint cullCount{};    // number of objects to test for culling
 };
 
 class Scene {
@@ -43,11 +48,13 @@ class Scene {
     std::shared_ptr<Device> device;
 
     std::shared_ptr<CommandPool> transferCommandPool;
+    std::shared_ptr<CommandPool> computeCommandPool;
 
     std::vector<std::shared_ptr<MeshInstance>> instances{};
 
     std::vector<IndirectDrawCall> indirectDrawCalls{};
-    std::shared_ptr<DynamicBuffer> instanceBuffer;  // the instance buffer
+    std::shared_ptr<DynamicBuffer> instanceDataBuffer;  // the instance buffer
+    std::shared_ptr<DynamicBuffer> instanceIndexBuffer;
     std::shared_ptr<DynamicBuffer> indirectCommandBuffer;  // the indirect command buffer
     void **instanceBufferData{};
     void **indirectCommandBufferData{};
@@ -63,15 +70,30 @@ class Scene {
     std::shared_ptr<DescriptorPoolManager> descriptorPool;
     std::shared_ptr<DescriptorSet> sceneDescriptorSet;
 
+    std::shared_ptr<UniformBuffer> cullInfoBuffer;
+    std::shared_ptr<DescriptorSet> cullDescriptorSet;
+    std::shared_ptr<Semaphore> cullSemaphore;
+    std::shared_ptr<ComputeShader> cullShader;
+    std::shared_ptr<ComputePipeline> cullPipeline;
+
     uint32_t selectedID{};
     uint32_t hoveredID{};
 
     void transferRenderData();
 
+    void cullObjects();
+
   public:
-    static std::shared_ptr<Scene> create(const std::shared_ptr<Device> &pDevice,
-                                         const std::shared_ptr<Queue> &pTransferQueue,
+    /// Constructor for handle to scene
+    /// \param pDevice Device to operate on
+    /// \param pTransferQueue Transfer queue to use for data transfers
+    /// \param pGraphicsQueue Graphics queue to use for
+    /// \param pCamera
+    /// \return
+    static std::shared_ptr<Scene> create(const std::shared_ptr<DescriptorPoolManager> &pPoolManager,
                                          const std::shared_ptr<Queue> &pGraphicsQueue,
+                                         const std::shared_ptr<CommandPool> &pTransferPool,
+                                         const std::shared_ptr<CommandPool> &pComputePool,
                                          const std::shared_ptr<Camera> &pCamera);
 
     void setCamera(const std::shared_ptr<Camera> &pCamera);
@@ -97,6 +119,8 @@ class Scene {
     std::vector<std::shared_ptr<MeshInstance>> getInstances() { return instances; }
     std::shared_ptr<MeshInstance> getInstanceByID(uint32_t objectID) { return instances[objectID - 1]; }
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return sceneDescriptorSet; }
+
+    std::shared_ptr<Semaphore> getWaitSemaphore() { return cullSemaphore; }
 
     ~Scene();
 };

@@ -93,7 +93,7 @@ void RenderManager::createSwapChain() {
 
     std::vector<uint32_t> graphicsQueues = {graphicsQueue->getQueueFamilyIndex()};
 
-    swapChain = SwapChain::create(device, window, presentQueue, 3, renderPassQueues);
+    swapChain = SwapChain::create(device, window, presentQueue, renderQuality.bufferCount, renderPassQueues);
 
     imageCount = swapChain->getImageCount();
     VkExtent2D extent = swapChain->getSwapExtent();
@@ -308,12 +308,12 @@ void RenderManager::createFrameBuffer() {
 }
 
 void RenderManager::createSceneObjects() {
+    poolManager = DescriptorPoolManager::create(device);
+
     camera = Camera::create(cameraModel, swapChainExtent);
-    scene = Scene::create(device, transferQueue, graphicsQueue, camera);
+    scene = Scene::create(poolManager, graphicsQueue, computePool, transferPool, camera);
     auto currentDir = std::string(get_current_dir_name());
     sceneWriter = SceneWriter::create(shared_from_this(), currentDir);
-
-    poolManager = DescriptorPoolManager::create(device);
 
     textureLibrary = TextureLibrary::create(device, graphicsQueue, graphicsPool, textureQualitySettings);
     materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, textureLibrary, {graphicsQueue},
@@ -453,6 +453,7 @@ void RenderManager::drawFrame_() {
 
     std::vector<std::shared_ptr<Semaphore>> signalSemaphores = swapChain->getRenderSignalSemaphores();
     std::vector<std::shared_ptr<Semaphore>> waitSemaphores = swapChain->getRenderWaitSemaphores();
+    waitSemaphores.push_back(scene->getWaitSemaphore());
 
     std::vector<std::shared_ptr<Semaphore>> ssaoSemaphores = {ssaoSemaphore};
     std::vector<std::shared_ptr<Semaphore>> uiSemaphores = {uiSemaphore};
@@ -517,7 +518,8 @@ void RenderManager::drawFrame_() {
 
     // submit the buffer for execution
     drawCommandBuffer->submitToQueue(ssaoSemaphores,
-                                     {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT},
+                                     {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
+                                      VK_PIPELINE_STAGE_VERTEX_INPUT_BIT},
                                      waitSemaphores,
                                      graphicsQueue, nullptr);
 

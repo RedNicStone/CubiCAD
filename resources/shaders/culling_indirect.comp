@@ -27,11 +27,11 @@ layout(set = 1, binding = 1) readonly buffer InstanceBuffer {
 } instanceBuffer;
 
 struct IndirectDrawBufferType {
-    uint    indexCount;
-    uint    instanceCount;
-    uint    firstIndex;
-    int     vertexOffset;
-    uint    firstInstance;
+    uint indexCount;
+    uint instanceCount;
+    uint firstIndex;
+    int  vertexOffset;
+    uint firstInstance;
     uint objectID;
     uint batchID;
 };
@@ -40,9 +40,9 @@ layout(set = 1, binding = 2) buffer IndirectDrawBuffer {
     IndirectDrawBufferType draws[];
 } indirectDrawBuffer;
 
-layout(set = 1, binding = 3) buffer IndirectDrawBuffer {
+layout(set = 1, binding = 3) buffer InstanceIndexBuffer {
     uint indexes[];
-} indirectDrawBuffer;
+} instanceIndexBuffer;
 
 void main() {
     uint instanceID = gl_GlobalInvocationID.x;
@@ -55,6 +55,7 @@ void main() {
             uint countIndex = atomicAdd(indirectDrawBuffer.draws[batchID].indexCount, 1);
 
             uint finalInstanceID = indirectDrawBuffer.draws[batchID].firstInstance + countIndex;
+            instanceIndexBuffer.indexes[finalInstanceID] = instanceID;
         }
     }
 }

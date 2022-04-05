@@ -36,6 +36,8 @@ struct RenderQualityOptions {
     bool enableSSAO = false;
     uint32_t SSAOSampleCount = 16;
     float SSAOSampleRadius = 0.04f;
+
+    uint32_t bufferCount = 1;
 };
 
 class RenderManager : public std::enable_shared_from_this<RenderManager> {

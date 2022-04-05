@@ -110,10 +110,6 @@ class VulkanRasterizer {
     }
 
     void createUI() {
-        TextureQualitySettings settings{};
-        settings.mipLevels = 1;
-        settings.anisotropy = 0;
-
         objectProperties = ObjectProperties::create(renderManager->getScene());
         renderManager->getUIRenderer()->submitDrawable(objectProperties);
         objectList = ObjectList::create(renderManager->getScene());

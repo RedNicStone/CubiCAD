@@ -39,6 +39,8 @@ class DescriptorPoolManager {
 
     void resetPools();
     std::shared_ptr<DescriptorSet> allocate(std::shared_ptr<DescriptorSetLayout> layout);
+
+    std::shared_ptr<Device> getDevice() { return device; };
 };
 
 #endif //CUBICAD_DESCRIPTORPOOLMANAGER_H

@@ -5,45 +5,44 @@
 #include "scene.h"
 
 
-std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
-                                     const std::shared_ptr<Queue> &pTransferQueue,
+std::shared_ptr<Scene> Scene::create(const std::shared_ptr<DescriptorPoolManager> &pPoolManager,
                                      const std::shared_ptr<Queue> &pGraphicsQueue,
+                                     const std::shared_ptr<CommandPool> &pTransferPool,
+                                     const std::shared_ptr<CommandPool> &pComputePool,
                                      const std::shared_ptr<Camera> &pCamera) {
     auto scene = std::make_shared<Scene>();
-    scene->device = pDevice;
+    scene->device = pPoolManager->getDevice();
 
-    scene->transferCommandPool =
-        CommandPool::create(pDevice, pTransferQueue, VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
+    scene->transferCommandPool = pTransferPool;
+    scene->computeCommandPool = pComputePool;
 
-    std::vector<uint32_t> accessingQueues{pTransferQueue->getQueueFamilyIndex(), pGraphicsQueue->getQueueFamilyIndex()};
+    std::vector<uint32_t> accessingQueues{ pTransferPool->getQueue()->getQueueFamilyIndex(),
+                                           pComputePool->getQueue()->getQueueFamilyIndex(),
+                                           pGraphicsQueue->getQueueFamilyIndex()};
+    Utils::remove(accessingQueues);
 
-    auto end = accessingQueues.end();
-    for (auto it = accessingQueues.begin(); it != end; ++it) {
-        end = std::remove(it + 1, end, *it);
-    }
-    accessingQueues.erase(end, accessingQueues.end());
-
-    scene->instanceBuffer =
-        DynamicBuffer::create(pDevice,
+    scene->instanceDataBuffer =
+        DynamicBuffer::create(scene->device,
                               accessingQueues,
                               VMA_MEMORY_USAGE_GPU_ONLY,
-                              VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
+                              VK_BUFFER_USAGE_VERTEX_BUFFER_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT,
                               VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
                               VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
     scene->indirectCommandBuffer =
-        DynamicBuffer::create(pDevice,
+        DynamicBuffer::create(scene->device,
                               accessingQueues,
                               VMA_MEMORY_USAGE_GPU_ONLY,
-                              VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT,
+                              VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT |
+                              VK_BUFFER_USAGE_STORAGE_BUFFER_BIT,
                               VK_MEMORY_PROPERTY_HOST_CACHED_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,
                               VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
 
     scene->vertexBuffer =
-        DynamicBuffer::create(pDevice, accessingQueues, VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_VERTEX_BUFFER_BIT);
+        DynamicBuffer::create(scene->device, accessingQueues, VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_VERTEX_BUFFER_BIT);
     scene->indexBuffer =
-        DynamicBuffer::create(pDevice, accessingQueues, VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_INDEX_BUFFER_BIT);
+        DynamicBuffer::create(scene->device, accessingQueues, VMA_MEMORY_USAGE_GPU_ONLY, VK_BUFFER_USAGE_INDEX_BUFFER_BIT);
 
-    scene->descriptorPool = DescriptorPoolManager::create(pDevice);
+    scene->descriptorPool = DescriptorPoolManager::create(scene->device);
 
     scene->sceneBindings = std::vector<VkDescriptorSetLayoutBinding>(1);
 
@@ -53,19 +52,70 @@ std::shared_ptr<Scene> Scene::create(const std::shared_ptr<Device> &pDevice,
     scene->sceneBindings[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
     scene->sceneBindings[0].descriptorCount = 1;
 
-    scene->sceneInfoSetLayout = DescriptorSetLayout::create(pDevice, scene->sceneBindings);
+    scene->sceneInfoSetLayout = DescriptorSetLayout::create(scene->device, scene->sceneBindings);
     scene->sceneDescriptorSet = scene->descriptorPool->allocate(scene->sceneInfoSetLayout);
 
-    scene->sceneInfoBuffer = UniformBuffer::create(pDevice, pTransferQueue, sizeof(SceneData));
+    scene->sceneInfoBuffer = UniformBuffer::create(scene->device, pTransferPool->getQueue(), sizeof(SceneData));
     scene->sceneDescriptorSet->updateUniformBuffer(scene->sceneInfoBuffer, 0);
 
-    scene->instanceBufferData = scene->instanceBuffer->map();
+    scene->instanceBufferData = scene->instanceDataBuffer->map();
     scene->indirectCommandBufferData = scene->indirectCommandBuffer->map();
 
     auto *data = static_cast<SceneData *>(scene->sceneInfoBuffer->getDataHandle());
     data->view = glm::lookAt(glm::vec3(2, 2, 2), glm::vec3(0, 0, 0), glm::vec3(0, 0, 1));
 
     scene->camera = pCamera;
+
+    std::vector<VkDescriptorSetLayoutBinding> cullBindings(4);
+    cullBindings[0].binding = 0;
+    cullBindings[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    cullBindings[0].descriptorCount = 1;
+    cullBindings[0].stageFlags = VK_SHADER_STAGE_COMPUTE_BIT;
+    cullBindings[0].pImmutableSamplers = nullptr;
+
+    cullBindings[1].binding = 1;
+    cullBindings[1].descriptorType = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER;
+    cullBindings[1].descriptorCount = 1;
+    cullBindings[1].stageFlags = VK_SHADER_STAGE_COMPUTE_BIT;
+    cullBindings[1].pImmutableSamplers = nullptr;
+
+    cullBindings[2].binding = 2;
+    cullBindings[2].descriptorType = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER;
+    cullBindings[2].descriptorCount = 1;
+    cullBindings[2].stageFlags = VK_SHADER_STAGE_COMPUTE_BIT;
+    cullBindings[2].pImmutableSamplers = nullptr;
+
+    cullBindings[3].binding = 3;
+    cullBindings[3].descriptorType = VK_DESCRIPTOR_TYPE_STORAGE_BUFFER;
+    cullBindings[3].descriptorCount = 1;
+    cullBindings[3].stageFlags = VK_SHADER_STAGE_COMPUTE_BIT;
+    cullBindings[3].pImmutableSamplers = nullptr;
+
+    auto cullLayout = DescriptorSetLayout::create(scene->device, cullBindings);
+    std::vector<std::shared_ptr<DescriptorSetLayout>> cullLayouts = { scene->sceneInfoSetLayout, cullLayout };
+
+    auto pipelineLayout = PipelineLayout::create(scene->device, cullLayouts);
+    scene->cullShader = ComputeShader::create(scene->device, "main", "resources/shaders/compiled/culling_indirect.comp.spv");
+    scene->cullPipeline = ComputePipeline::create(scene->device, pipelineLayout, scene->cullShader);
+
+    scene->cullInfoBuffer = UniformBuffer::create(scene->device, pTransferPool->getQueue(), sizeof(CullInfo));
+
+    accessingQueues = { pComputePool->getQueue()->getQueueFamilyIndex(),
+                        pGraphicsQueue->getQueueFamilyIndex() };
+    Utils::remove(accessingQueues);
+    scene->instanceIndexBuffer = DynamicBuffer::create(scene->device,
+                                                       accessingQueues,
+                                                       VMA_MEMORY_USAGE_GPU_ONLY,
+                                                       VK_BUFFER_USAGE_STORAGE_BUFFER_BIT,
+                                                       VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+
+    scene->cullDescriptorSet = scene->descriptorPool->allocate(cullLayout);
+    scene->cullDescriptorSet->updateUniformBuffer(scene->cullInfoBuffer, 0);
+    scene->cullDescriptorSet->updateStorageBuffer(scene->instanceDataBuffer->getBuffer(), 1);
+    scene->cullDescriptorSet->updateStorageBuffer(scene->indirectCommandBuffer->getBuffer(), 2);
+    scene->cullDescriptorSet->updateStorageBuffer(scene->instanceIndexBuffer->getBuffer(), 3);
+
+    scene->cullSemaphore = Semaphore::create(scene->device);
 
     return scene;
 }
@@ -127,12 +177,14 @@ void Scene::transferRenderData() {
             for (const auto &meshletCall: materialCall.second) {
                 VkDrawIndexedIndirectCommand drawCommand = meshletCall.second.front()->getMesh()->getDrawCommand();
                 drawCommand.firstInstance = static_cast<uint32_t>(instanceData.size());
-                drawCommand.instanceCount = static_cast<uint32_t>(meshletCall.second.size());
-                indirectDrawData.push_back(drawCommand);
+                drawCommand.instanceCount = static_cast<uint32_t>(0);//meshletCall.second.size());
 
                 for (const auto &instanceCall: meshletCall.second) {
                     instanceData.push_back(instanceCall->getInstanceData());
+                    instanceData.back().batchID = static_cast<uint32_t>(indirectDrawData.size());
                 }
+
+                indirectDrawData.push_back(drawCommand);
             }
 
             indirectDrawCall.drawCallLength =
@@ -141,13 +193,15 @@ void Scene::transferRenderData() {
         }
     }
 
-    instanceBuffer->getBuffer(instanceData.size() * sizeof(InstanceData));
+    instanceDataBuffer->getBuffer(instanceData.size() * sizeof(InstanceData));
     indirectCommandBuffer->getBuffer(indirectDrawData.size() * sizeof(VkDrawIndexedIndirectCommand));
 
     memcpy(*instanceBufferData, instanceData.data(), instanceData.size() * sizeof(InstanceData));
     memcpy(*indirectCommandBufferData,
            indirectDrawData.data(),
            indirectDrawData.size() * sizeof(VkDrawIndexedIndirectCommand));
+
+    cullObjects();
 }
 
 void Scene::submitInstance(const std::shared_ptr<MeshInstance> &meshInstance) {
@@ -205,7 +259,7 @@ void Scene::bakeMaterials(bool enableDepthStencil) {
 void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer) {
     transferRenderData();
 
-    std::vector<std::shared_ptr<Buffer>> vertexBuffers = {vertexBuffer->getBuffer(), instanceBuffer->getBuffer()};
+    std::vector<std::shared_ptr<Buffer>> vertexBuffers = {vertexBuffer->getBuffer(), instanceDataBuffer->getBuffer()};
     graphicsCommandBuffer->bindVertexBuffers(vertexBuffers, 0);
     graphicsCommandBuffer->bindIndexBuffer(indexBuffer->getBuffer(), VK_INDEX_TYPE_UINT32);
 
@@ -232,6 +286,30 @@ void Scene::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCom
 }
 
 Scene::~Scene() {
-    instanceBuffer->unmap();
+    instanceDataBuffer->unmap();
     indirectCommandBuffer->unmap();
+}
+
+void Scene::cullObjects() {
+    auto computeBuffer = CommandBuffer::create(computeCommandPool);
+    computeBuffer->beginCommandBuffer();
+
+    computeBuffer->bindPipeline(cullPipeline);
+
+    std::vector<std::shared_ptr<DescriptorSet>> descriptorSets = { sceneDescriptorSet,
+                                                                   cullDescriptorSet   };
+    computeBuffer->bindDescriptorSets(descriptorSets, cullPipeline);
+
+    ((CullInfo*)cullInfoBuffer->getDataHandle())->cullCount = static_cast<uint32_t>(instances.size());
+    computeBuffer->dispatch(static_cast<uint32_t>(instances.size() - 1) / 16 + 1, 1, 1);
+
+    computeBuffer->endCommandBuffer();
+
+    std::vector<std::shared_ptr<Semaphore>> signalSemaphores = {cullSemaphore};
+    std::vector<std::shared_ptr<Semaphore>> waitSemaphores = {};
+    computeBuffer->submitToQueue(signalSemaphores,
+                                 {},
+                                 waitSemaphores,
+                                 computeCommandPool->getQueue(),
+                                 nullptr);
 }
