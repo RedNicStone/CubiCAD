@@ -12,6 +12,7 @@
 #include "camera.h"
 #include "../utils/utils.h"
 
+
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
@@ -41,20 +42,18 @@ class SSAOPipeline {
     std::shared_ptr<Sampler> imageSampler;
 
     std::shared_ptr<ComputePipeline> obscurancePipeline;
-    std::shared_ptr<ComputePipeline> blurPipeline;
+    std::shared_ptr<ComputePipeline> blurPipelineX;
+    std::shared_ptr<ComputePipeline> blurPipelineY;
 
   public:
     static std::shared_ptr<SSAOPipeline> create(const std::shared_ptr<Device> &pDevice,
                                                 const std::shared_ptr<DescriptorPoolManager> &poolManager,
                                                 const std::shared_ptr<CommandPool> &transferPool,
                                                 const std::shared_ptr<CommandPool> &computePool,
-                                                const std::shared_ptr<ImageView>
-                                                &resultImageView,
-                                                const std::shared_ptr<ImageView>
-                                                &normalImageView,
-                                                const std::shared_ptr<ImageView>
-                                                &posImageView,
-                                                const std::shared_ptr<DescriptorSet>& sceneDescriptor,
+                                                const std::shared_ptr<ImageView> &resultImageView,
+                                                const std::shared_ptr<ImageView> &normalImageView,
+                                                const std::shared_ptr<ImageView> &posImageView,
+                                                const std::shared_ptr<DescriptorSet> &sceneDescriptor,
                                                 float fov,
                                                 VkExtent2D imageExtend,
                                                 uint32_t sampleCount,

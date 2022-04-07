@@ -36,7 +36,7 @@ vec2 azimuthalEAEncode(vec3 n) {
 }
 vec3 azimuthalEADecode(vec2 enc) {
     vec2 fenc = enc*4-2;
-    float f = dot(fenc,fenc);
+    float f = dot(fenc, fenc);
     float g = sqrt(1-f/4);
     vec3 n;
     n.xy = fenc*g;
@@ -51,7 +51,7 @@ void main() {
     const vec3 frag_normal = normalize(azimuthalEADecode(texture(sampler2D(geometry_normal, samp), frag_uv).xy));
     const vec3 frag_pos = texture(sampler2D(geometry_pos, samp), frag_uv).xyz;
 
-    const vec2 inverted_noise_size = 1.0f / vec2(4);
+    const vec2 inverted_noise_size = 1.0f / vec2(16);
     const vec2 noise_uv = frag_uv * passInfo.imageSize * inverted_noise_size;
     const vec3 random_vec = vec3(texture(sampler2D(tex_noise, samp), noise_uv).xy, 0.0);
 
@@ -59,25 +59,30 @@ void main() {
     const vec3 random_bitangent = cross(frag_normal, random_tangent);
     const mat3 TBN = mat3(random_tangent, random_bitangent, frag_normal);
 
+    int sample_count = 0;
     float occlusion = 0.0f;
-    for(int i = 0; i < SAMPLE_COUNT; ++i)
+    for (int i = 0; i < SAMPLE_COUNT; ++i)
     {
         // get sample position
-        vec3 sample_pos = TBN * passInfo.samples[i]; // from tangent to view-space
+        vec3 sample_pos = TBN * passInfo.samples[i];// from tangent to view-space
         sample_pos = frag_pos + sample_pos * SAMPLE_RADIUS;
+
+        //if (dot(normalize(sample_pos), frag_normal) < 0.15)
+        //continue;
 
         // project sample position (to sample texture) (to get position on screen/texture)
         vec4 offset = vec4(sample_pos, 1.0);
-        offset = scene_info.proj * offset; // from view to clip-space
-        offset.xyz /= offset.w; // perspective divide
-        offset.xyz = offset.xyz * 0.5 + 0.5; // transform to range 0.0 - 1.0
+        offset = scene_info.proj * offset;// from view to clip-space
+        offset.xyz /= offset.w;// perspective divide
+        offset.xyz = offset.xyz * 0.5 + 0.5;// transform to range 0.0 - 1.0
 
         // get sample depth
-        float sample_depth = texture(sampler2D(geometry_pos, samp), offset.xy).z; // get depth value of kernel sample
+        float sample_depth = texture(sampler2D(geometry_pos, samp), offset.xy).z;// get depth value of kernel sample
 
         // range check & accumulate
         float range_check = smoothstep(0.0, 1.0, SAMPLE_RADIUS / abs(frag_pos.z - sample_depth));
         occlusion += (sample_depth >= sample_pos.z + DEPTH_BIAS ? 1.0 : 0.0) * range_check;
+        sample_count++;
     }
     occlusion = 1.0 - (occlusion / SAMPLE_COUNT);
 

@@ -26,12 +26,16 @@ std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device> &pDevice,
 
     std::vector<uint32_t> accessingQueues{renderQueue->getQueueFamilyIndex()};
 
+    auto
+        levels =
+        std::min(static_cast<uint32_t>(floor(log2(std::max(texWidth, texHeight))) + 1), textureSettings.mipLevels);
+
     texture->image =
         Image::create(pDevice,
                       {static_cast<uint32_t>(texWidth), static_cast<uint32_t>(texHeight)},
-                      textureSettings.mipLevels,
+                      levels,
                       format,
-                      VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT,
+                      VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_SRC_BIT,
                       accessingQueues);
     texture->image->transferDataStaged(data, transferPool, static_cast<VkDeviceSize>(
         static_cast<uint>(texWidth * texHeight * 4)));
@@ -40,8 +44,7 @@ std::shared_ptr<Texture> Texture::create(const std::shared_ptr<Device> &pDevice,
     texture->image->generateMipmaps(transferPool);
 
     texture->imageView =
-        texture->image
-            ->createImageView(VK_IMAGE_VIEW_TYPE_2D, {VK_IMAGE_ASPECT_COLOR_BIT, 0, textureSettings.mipLevels, 0, 1});
+        texture->image->createImageView(VK_IMAGE_VIEW_TYPE_2D, {VK_IMAGE_ASPECT_COLOR_BIT, 0, levels, 0, 1});
 
     return texture;
 }

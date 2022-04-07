@@ -17,9 +17,11 @@ layout(set = 1, binding = 0) uniform CullInfo {
 } cullInfo;
 
 struct InstanceBufferData {
-    uint objectID;
-    uint batchID;
     mat4 model;
+    vec3 bbox1;
+    uint objectID;
+    vec3 bbox2;
+    uint batchID;
 };
 
 layout(set = 1, binding = 1) readonly buffer InstanceBuffer {
@@ -32,8 +34,6 @@ struct IndirectDrawBufferType {
     uint firstIndex;
     int  vertexOffset;
     uint firstInstance;
-    uint objectID;
-    uint batchID;
 };
 
 layout(set = 1, binding = 2) buffer IndirectDrawBuffer {
@@ -44,15 +44,71 @@ layout(set = 1, binding = 3) buffer InstanceIndexBuffer {
     uint indexes[];
 } instanceIndexBuffer;
 
+struct CullingFrustum
+{
+    float near_right;
+    float near_top;
+    float near_plane;
+    float far_plane;
+};
+
+struct AABB
+{
+    vec3 min;
+    vec3 max;
+};
+
+struct OBB
+{
+    vec3 center;
+    vec3 extents;
+    vec3 axes[3];
+};
+
+bool test_using_separating_axis_theorem(CullingFrustum frustum, mat4 vs_transform, AABB aabb) {
+    vs_transform[1][1] = -vs_transform[1][1];
+    vs_transform[1][3] = -vs_transform[1][3];
+
+    vec4 corners[8] = {
+    { aabb.min.x, aabb.min.y, aabb.min.z, 1.0 }, // x y z
+    { aabb.max.x, aabb.min.y, aabb.min.z, 1.0 }, // X y z
+    { aabb.min.x, aabb.max.y, aabb.min.z, 1.0 }, // x Y z
+    { aabb.max.x, aabb.max.y, aabb.min.z, 1.0 }, // X Y z
+
+    { aabb.min.x, aabb.min.y, aabb.max.z, 1.0 }, // x y Z
+    { aabb.max.x, aabb.min.y, aabb.max.z, 1.0 }, // X y Z
+    { aabb.min.x, aabb.max.y, aabb.max.z, 1.0 }, // x Y Z
+    { aabb.max.x, aabb.max.y, aabb.max.z, 1.0 }, // X Y Z
+    };
+
+    bool inside = false;
+
+    for (uint corner_idx = 0; corner_idx < 8; corner_idx++) {
+        // Transform vertex
+        vec4 corner = vs_transform * corners[corner_idx];
+        // Check vertex against clip space bounds
+        inside = inside ||
+        abs(corner.x) < corner.w &&
+        abs(corner.y) < corner.w &&
+        0.0f < corner.z && corner.z < corner.w;
+    }
+    return inside;
+}
+
 void main() {
     uint instanceID = gl_GlobalInvocationID.x;
 
-    if (instanceID < cullInfo.cullCount) {
+    if (instanceID <= cullInfo.cullCount) {
+
+        CullingFrustum frustrum = CullingFrustum(1.0f, 1.0f, 0.01f, 1000.0f);
+        AABB aabb = AABB(instanceBuffer.instances[instanceID].bbox1, instanceBuffer.instances[instanceID].bbox2);
+        mat4 transform = instanceBuffer.instances[instanceID].model * scene_info.view * scene_info.proj;
+        bool visible = test_using_separating_axis_theorem(frustrum, transform, aabb);
 
         if (true) {
             uint batchID = instanceBuffer.instances[instanceID].batchID;
 
-            uint countIndex = atomicAdd(indirectDrawBuffer.draws[batchID].indexCount, 1);
+            uint countIndex = atomicAdd(indirectDrawBuffer.draws[batchID].instanceCount, 1);
 
             uint finalInstanceID = indirectDrawBuffer.draws[batchID].firstInstance + countIndex;
             instanceIndexBuffer.indexes[finalInstanceID] = instanceID;

@@ -44,67 +44,62 @@ void ModelLoader::loadMaterialProperties(char *property,
                 break;
             case "sheen"_hash:memcpy(property, &material.sheen, materialProperty->getSize());
                 break;
-            case "clear_coat_thickness"_hash:memcpy(property, &material.clearcoat_thickness, materialProperty->getSize());
+            case "clear_coat_thickness"_hash: memcpy(property,
+                                                     &material.clearcoat_thickness,
+                                                     materialProperty->getSize());
                 break;
-            case "clear_coat_roughness"_hash:memcpy(property, &material.clearcoat_roughness, materialProperty->getSize());
+            case "clear_coat_roughness"_hash: memcpy(property,
+                                                     &material.clearcoat_roughness,
+                                                     materialProperty->getSize());
                 break;
             case "anisotropy"_hash:memcpy(property, &material.anisotropy, materialProperty->getSize());
                 break;
-            case "anisotropy_rotation"_hash:memcpy(property, &material.anisotropy_rotation, materialProperty->getSize());
+            case "anisotropy_rotation"_hash: memcpy(property,
+                                                    &material.anisotropy_rotation,
+                                                    materialProperty->getSize());
                 break;
         }
 }
 
-std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const std::shared_ptr<MaterialPropertyLayoutBuilt> &materialLayout,
+std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const std::shared_ptr<
+    MaterialPropertyLayoutBuilt> &materialLayout,
                                                                         const tinyobj::material_t &material,
                                                                         const std::shared_ptr<TextureLibrary> &textureLibrary,
-                                                                        const std::string& modelFilename) {
+                                                                        const std::string &modelFilename) {
     auto textures = std::vector<std::shared_ptr<Texture>>(materialLayout->properties.size(), nullptr);
     for (size_t i = 0; i < materialLayout->properties.size(); i++) {
         if (materialLayout->properties[i]->input & MATERIAL_PROPERTY_INPUT_TEXTURE) {
             std::string texFile;
             switch (hash(materialLayout->properties[i]->attributeName)) {
-                case "diffuse"_hash:
-                    texFile = locateTexture(material.diffuse_texname, modelFilename);
+                case "diffuse"_hash:texFile = locateTexture(material.diffuse_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
-                            textureLibrary->createTexture(texFile,
-                                                          materialLayout->properties[i]->pixelFormat);
+                            textureLibrary->createTexture(texFile, materialLayout->properties[i]->pixelFormat);
                     break;
-                case "emission"_hash:
-                    texFile = locateTexture(material.emissive_texname, modelFilename);
+                case "emission"_hash:texFile = locateTexture(material.emissive_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
-                            textureLibrary->createTexture(texFile,
-                                                          materialLayout->properties[i]->pixelFormat);
+                            textureLibrary->createTexture(texFile, materialLayout->properties[i]->pixelFormat);
                     break;
-                case "specular"_hash:
-                    texFile = locateTexture(material.specular_texname, modelFilename);
+                case "specular"_hash:texFile = locateTexture(material.specular_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
-                            textureLibrary->createTexture(texFile,
-                                                          materialLayout->properties[i]->pixelFormat);
+                            textureLibrary->createTexture(texFile, materialLayout->properties[i]->pixelFormat);
                     break;
-                case "roughness"_hash:
-                    texFile = locateTexture(material.roughness_texname, modelFilename);
+                case "roughness"_hash:texFile = locateTexture(material.roughness_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
-                            textureLibrary->createTexture(texFile,
-                                                          materialLayout->properties[i]->pixelFormat);
+                            textureLibrary->createTexture(texFile, materialLayout->properties[i]->pixelFormat);
                     break;
-                case "metallic"_hash:
-                    texFile = locateTexture(material.metallic_texname, modelFilename);
+                case "metallic"_hash:texFile = locateTexture(material.metallic_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
-                            textureLibrary->createTexture(texFile,
-                                                          materialLayout->properties[i]->pixelFormat);
+                            textureLibrary->createTexture(texFile, materialLayout->properties[i]->pixelFormat);
                     break;
-                case "sheen"_hash:
-                    texFile = locateTexture(material.sheen_texname, modelFilename);
+                case "sheen"_hash:texFile = locateTexture(material.sheen_texname, modelFilename);
                     if (!texFile.empty())
                         textures[i] =
-                            textureLibrary->createTexture(texFile,
-                                                          materialLayout->properties[i]->pixelFormat);
+                            textureLibrary->createTexture(texFile, materialLayout->properties[i]->pixelFormat);
                     break;
             }
             if (texFile.empty())
@@ -118,8 +113,7 @@ std::vector<std::shared_ptr<Texture>> ModelLoader::loadMaterialTextures(const st
     return textures;
 }
 
-std::string ModelLoader::locateTexture(const std::string &textureFilename,
-                                       const std::string &modelFilename) {
+std::string ModelLoader::locateTexture(const std::string &textureFilename, const std::string &modelFilename) {
     if (textureFilename.empty())
         return "";
     auto textureFilenameV = textureFilename;
@@ -135,8 +129,7 @@ std::string ModelLoader::locateTexture(const std::string &textureFilename,
 }
 
 std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filename,
-                                                       const std::shared_ptr<MasterMaterialTemplate>
-                                                           &masterMaterialTemplate,
+                                                       const std::shared_ptr<MasterMaterialTemplate> &masterMaterialTemplate,
                                                        bool normalizePos) {
     if (!reader.ParseFromFile(filename, config)) {
         if (!reader.Error().empty()) {
@@ -178,8 +171,8 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
         std::unordered_map<int, std::shared_ptr<Meshlet>> meshlets;
 
         BoundingBox bbox{};
-        bbox.pos1 = *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data());
-        bbox.pos2 = *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data());
+        bbox.min = *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data());
+        bbox.max = *reinterpret_cast<const glm::vec3 *>(attrib.vertices.data());
 
         std::unordered_map<Vertex, uint32_t> uniqueVertices{};
         uint32_t vertexIndex = 0;
@@ -221,8 +214,8 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
                                                                   vertexIndex));
                     vertexIndex++;
 
-                    bbox.pos1 = glm::min(bbox.pos1, vertex.pos);
-                    bbox.pos2 = glm::max(bbox.pos1, vertex.pos);
+                    bbox.min = glm::min(bbox.min, vertex.pos);
+                    bbox.max = glm::max(bbox.max, vertex.pos);
                 } else
                     meshlets[materialID]->indexData.push_back(uniqueVertices[vertex]);
             }
@@ -230,13 +223,13 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
 
         std::vector<std::shared_ptr<Meshlet>> meshletVector;
         meshletVector.reserve(meshlets.size());
-        for (const auto& kv : meshlets) {
+        for (const auto &kv: meshlets) {
             meshletVector.push_back(kv.second);
         }
 
         std::vector<Vertex> vertexVector;
         vertexVector.resize(uniqueVertices.size());
-        for (const auto& kv : uniqueVertices) {
+        for (const auto &kv: uniqueVertices) {
             vertexVector[kv.second] = kv.first;
         }
 

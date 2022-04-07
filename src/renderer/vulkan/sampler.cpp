@@ -5,7 +5,9 @@
 #include "sampler.h"
 
 
-std::shared_ptr<Sampler> Sampler::create(const std::shared_ptr<Device> &pDevice, float anisotropy,
+std::shared_ptr<Sampler> Sampler::create(const std::shared_ptr<Device> &pDevice,
+                                         float anisotropy,
+                                         uint32_t mipLevels,
                                          VkFilter filter) {
     auto sampler = std::make_shared<Sampler>();
     sampler->device = pDevice;
@@ -26,7 +28,7 @@ std::shared_ptr<Sampler> Sampler::create(const std::shared_ptr<Device> &pDevice,
     createInfo.mipmapMode = VK_SAMPLER_MIPMAP_MODE_LINEAR;
     createInfo.mipLodBias = 0.0f;
     createInfo.minLod = 0.0f;
-    createInfo.maxLod = 0.0f;
+    createInfo.maxLod = static_cast<float>(mipLevels);
 
     if (vkCreateSampler(pDevice->getHandle(), &createInfo, nullptr, &sampler->handle) != VK_SUCCESS) {
         throw std::runtime_error("could not create sampler!");

@@ -10,14 +10,14 @@ std::shared_ptr<TextureLibrary> TextureLibrary::create(const std::shared_ptr<Dev
                                                        const std::shared_ptr<CommandPool> &transferPool,
                                                        const TextureQualitySettings &settings) {
     auto textureLibrary = std::make_shared<TextureLibrary>();
-    textureLibrary->imageSampler = Sampler::create(pDevice, settings.anisotropy);
+    textureLibrary->imageSampler = Sampler::create(pDevice, settings.anisotropy, settings.mipLevels);
     textureLibrary->renderQueue = renderQueue;
     textureLibrary->transferPool = transferPool;
     textureLibrary->device = pDevice;
     textureLibrary->settings = settings;
 
-    textureLibrary->defaultTexture = textureLibrary->createTexture("resources/textures/default_4096x4096.png",
-                                                                  VK_FORMAT_R8G8B8A8_UNORM);
+    textureLibrary->defaultTexture =
+        textureLibrary->createTexture("resources/textures/default_4096x4096.png", VK_FORMAT_R8G8B8A8_UNORM);
 
     return textureLibrary;
 }
@@ -28,8 +28,11 @@ std::shared_ptr<Texture> TextureLibrary::createTexture(const std::string &filena
         try {
             tex = Texture::create(device, renderQueue, transferPool, filename, settings, format);
         } catch (const std::runtime_error &error) {
-            std::cerr << "Unable to load texture at address: '" << filename << "'. Texture loader threw:\n"
-                      << error.what();
+            std::cerr
+                << "Unable to load texture at address: '"
+                << filename
+                << "'. Texture loader threw:\n"
+                << error.what();
             tex = defaultTexture;
         }
         textures[filename] = tex;
@@ -40,5 +43,5 @@ std::shared_ptr<Texture> TextureLibrary::createTexture(const std::string &filena
 
 void TextureLibrary::updateSettings(const TextureQualitySettings &textureSettings) {
     settings = textureSettings;
-    imageSampler = Sampler::create(device, settings.anisotropy);
+    imageSampler = Sampler::create(device, settings.anisotropy, settings.mipLevels);
 }

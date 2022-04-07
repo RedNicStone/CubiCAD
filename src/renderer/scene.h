@@ -19,7 +19,10 @@
 #include "dynamicbuffer.h"
 #include "camera.h"
 #include "vulkan/computepipeline.h"
+#include "rendermanager.h"
 
+
+class RenderManager;
 
 struct SceneData {
     glm::mat4 view{};       // view matrix
@@ -76,12 +79,14 @@ class Scene {
     std::shared_ptr<ComputeShader> cullShader;
     std::shared_ptr<ComputePipeline> cullPipeline;
 
+    std::shared_ptr<RenderManager> renderManager;
+
     uint32_t selectedID{};
     uint32_t hoveredID{};
 
     void transferRenderData();
 
-    void cullObjects();
+    void cullObjects(uint32_t meshCount);
 
   public:
     /// Constructor for handle to scene
@@ -90,7 +95,8 @@ class Scene {
     /// \param pGraphicsQueue Graphics queue to use for
     /// \param pCamera
     /// \return
-    static std::shared_ptr<Scene> create(const std::shared_ptr<DescriptorPoolManager> &pPoolManager,
+    static std::shared_ptr<Scene> create(const std::shared_ptr<RenderManager> &renderManager,
+                                         const std::shared_ptr<DescriptorPoolManager> &pPoolManager,
                                          const std::shared_ptr<Queue> &pGraphicsQueue,
                                          const std::shared_ptr<CommandPool> &pTransferPool,
                                          const std::shared_ptr<CommandPool> &pComputePool,
@@ -116,8 +122,11 @@ class Scene {
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 
     std::shared_ptr<Camera> getCamera() { return camera; }
+
     std::vector<std::shared_ptr<MeshInstance>> getInstances() { return instances; }
+
     std::shared_ptr<MeshInstance> getInstanceByID(uint32_t objectID) { return instances[objectID - 1]; }
+
     std::shared_ptr<DescriptorSet> getDescriptorSet() { return sceneDescriptorSet; }
 
     std::shared_ptr<Semaphore> getWaitSemaphore() { return cullSemaphore; }

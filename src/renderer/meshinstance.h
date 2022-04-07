@@ -20,9 +20,11 @@
 class Mesh;
 
 struct InstanceData {
-    glm::uint objectID;
-    glm::uint batchID;
     glm::mat4 model;
+    glm::vec3 bbox1;
+    glm::uint objectID;
+    glm::vec3 bbox2;
+    glm::uint batchID;
 };
 
 class MeshInstance {

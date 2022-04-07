@@ -71,29 +71,23 @@ void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<Descriptor
 
     std::vector<VkVertexInputBindingDescription>
         bindingDescription
-        {{0, sizeof(Vertex), VK_VERTEX_INPUT_RATE_VERTEX},
-         {1, sizeof(InstanceData), VK_VERTEX_INPUT_RATE_INSTANCE}};
+        {{0, sizeof(Vertex), VK_VERTEX_INPUT_RATE_VERTEX}, {1, sizeof(uint32_t), VK_VERTEX_INPUT_RATE_INSTANCE}};
     std::vector<VkVertexInputAttributeDescription>
         attributeDescription
         {{0, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, pos)},
          {1, 0, VK_FORMAT_R16G16B16A16_SNORM, offsetof(Vertex, normal)},
-         {2, 0, VK_FORMAT_R16G16_UNORM, offsetof(Vertex, uv)},
-         {3, 1, VK_FORMAT_R32_UINT, offsetof(InstanceData, objectID)},
-         {4, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 0},
-         {5, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 1},
-         {6, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 2},
-         {7, 1, VK_FORMAT_R32G32B32A32_SFLOAT, offsetof(InstanceData, model) + sizeof(glm::vec4) * 3}};
+         {2, 0, VK_FORMAT_R16G16_UNORM, offsetof(Vertex, uv)}, {3, 1, VK_FORMAT_R32_UINT, 0}};
 
     std::vector<VkSpecializationMapEntry> specializationMap;
     specializationMap.reserve(propertyLayout->properties.size());
     for (size_t i = 0; i < propertyLayout->properties.size(); i++) {
-        specializationMap.push_back(
-            { static_cast<uint32_t>(i), static_cast<uint32_t>(i * sizeof(uint32_t)), sizeof(uint32_t) });
+        specializationMap.push_back({static_cast<uint32_t>(i), static_cast<uint32_t>(i * sizeof(uint32_t)),
+                                     sizeof(uint32_t)});
     }
 
     std::vector<uint32_t> specializationData;
     specializationData.reserve(propertyLayout->properties.size());
-    for (const auto& layout : propertyLayout->properties)
+    for (const auto &layout: propertyLayout->properties)
         specializationData.push_back(layout->input);
 
     VkSpecializationInfo specialization{};
@@ -102,7 +96,7 @@ void MasterMaterial::updateDescriptorSetLayouts(const std::shared_ptr<Descriptor
     specialization.dataSize = specializationData.size() * sizeof(uint32_t);
     specialization.pData = specializationData.data();
 
-    std::vector<VkSpecializationInfo*> specializationVector(shaders.size(), nullptr);
+    std::vector<VkSpecializationInfo *> specializationVector(shaders.size(), nullptr);
     for (size_t i = 0; i < specializationVector.size(); i++)
         if (shaders[i]->pipelineStageInfo().stage == VK_SHADER_STAGE_FRAGMENT_BIT)
             specializationVector[i] = &specialization;

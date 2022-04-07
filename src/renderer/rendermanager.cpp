@@ -26,7 +26,7 @@ std::shared_ptr<RenderManager> RenderManager::create(const std::shared_ptr<Insta
 }
 
 void RenderManager::pickPhysicalDevice() {
-    for (const auto& possiblePhysicalDevice : instance->getPhysicalDevices()) {
+    for (const auto &possiblePhysicalDevice: instance->getPhysicalDevices()) {
         VkPhysicalDeviceProperties deviceProperties;
         vkGetPhysicalDeviceProperties(possiblePhysicalDevice->getHandle(), &deviceProperties);
 
@@ -124,12 +124,8 @@ void RenderManager::createSwapChain() {
         else
             imageUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
 
-        renderTargets[i] = Image::create(device,
-                                         swapChain->getSwapExtent(),
-                                         1,
-                                         imageFormat,
-                                         imageUsage,
-                                         graphicsQueues);
+        renderTargets[i] =
+            Image::create(device, swapChain->getSwapExtent(), 1, imageFormat, imageUsage, graphicsQueues);
 
         VkImageLayout layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
@@ -168,29 +164,30 @@ void RenderManager::createRenderPass() {
     uint32_t
         objectIDAttachment =
         geometryRenderPass->submitImageAttachment(objectBufferImage->getFormat(),
-                                          VK_SAMPLE_COUNT_1_BIT,
-                                          VK_ATTACHMENT_LOAD_OP_CLEAR,
-                                          VK_ATTACHMENT_STORE_OP_STORE,
-                                          VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                                          VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                          VK_IMAGE_LAYOUT_UNDEFINED,
-                                          VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
+                                                  VK_SAMPLE_COUNT_1_BIT,
+                                                  VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                                  VK_ATTACHMENT_STORE_OP_STORE,
+                                                  VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                                  VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                  VK_IMAGE_LAYOUT_UNDEFINED,
+                                                  VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL);
 
     std::vector<uint32_t> geometryAttachments(geometryRenderTargets.size());
     std::vector<VkAttachmentReference> geometryOutputAttachmentReferences(geometryRenderTargets.size());
-    for (auto i : geometryRenderTargets) {
+    for (auto i: geometryRenderTargets) {
         VkImageLayout layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
         if (i == RENDER_TARGET_DEPTH)
             layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
-        geometryAttachments[i] = (geometryRenderPass->submitImageAttachment(renderTargets[i]->getFormat(),
-                                                                VK_SAMPLE_COUNT_1_BIT,
-                                                                VK_ATTACHMENT_LOAD_OP_CLEAR,
-                                                                VK_ATTACHMENT_STORE_OP_STORE,
-                                                                VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                                                                VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                            VK_IMAGE_LAYOUT_UNDEFINED,
-                                                                layout));
+        geometryAttachments[i] =
+            (geometryRenderPass->submitImageAttachment(renderTargets[i]->getFormat(),
+                                                       VK_SAMPLE_COUNT_1_BIT,
+                                                       VK_ATTACHMENT_LOAD_OP_CLEAR,
+                                                       VK_ATTACHMENT_STORE_OP_STORE,
+                                                       VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                                       VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                       VK_IMAGE_LAYOUT_UNDEFINED,
+                                                       layout));
 
         geometryOutputAttachmentReferences[i].attachment = geometryAttachments[i];
         geometryOutputAttachmentReferences[i].layout = layout;
@@ -210,9 +207,12 @@ void RenderManager::createRenderPass() {
                                           geometryPipelineInputReference,
                                           &geometryOutputAttachmentReferences[RENDER_TARGET_DEPTH],
                                           0);
-    geometryRenderPass->submitDependency(geometrySubpass, VK_SUBPASS_EXTERNAL, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
-                                 VK_ACCESS_SHADER_READ_BIT,
-                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT);
+    geometryRenderPass->submitDependency(geometrySubpass,
+                                         VK_SUBPASS_EXTERNAL,
+                                         VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
+                                         VK_ACCESS_SHADER_READ_BIT,
+                                         VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
+                                         VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT);
 
     geometryRenderPass->build();
 
@@ -236,14 +236,15 @@ void RenderManager::createRenderPass() {
         else if (i &= RENDER_TARGET_NORMAL | RENDER_TARGET_POSITION)
             layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
-        UIAttachments[i] = (UIRenderPass->submitImageAttachment(renderTargets[i]->getFormat(),
-                                                                    VK_SAMPLE_COUNT_1_BIT,
-                                                                    VK_ATTACHMENT_LOAD_OP_LOAD,
-                                                                    VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                    VK_ATTACHMENT_LOAD_OP_DONT_CARE,
-                                                                    VK_ATTACHMENT_STORE_OP_DONT_CARE,
-                                                                layout,
-                                                                      VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL));
+        UIAttachments[i] =
+            (UIRenderPass->submitImageAttachment(renderTargets[i]->getFormat(),
+                                                 VK_SAMPLE_COUNT_1_BIT,
+                                                 VK_ATTACHMENT_LOAD_OP_LOAD,
+                                                 VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                 VK_ATTACHMENT_LOAD_OP_DONT_CARE,
+                                                 VK_ATTACHMENT_STORE_OP_DONT_CARE,
+                                                 layout,
+                                                 VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL));
 
         UIInputAttachmentReferences[i].attachment = UIAttachments[i];
         UIInputAttachmentReferences[i].layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
@@ -271,13 +272,24 @@ void RenderManager::createRenderPass() {
                                     nullptr,
                                     0);
 
-    UIRenderPass->submitDependency(VK_SUBPASS_EXTERNAL, selectorSubpass, VK_ACCESS_SHADER_WRITE_BIT,
+    UIRenderPass->submitDependency(VK_SUBPASS_EXTERNAL,
+                                   selectorSubpass,
+                                   VK_ACCESS_SHADER_WRITE_BIT,
                                    VK_ACCESS_INPUT_ATTACHMENT_READ_BIT,
-                                 VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
-    UIRenderPass->submitDependency(selectorSubpass, uiSubpass, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT, VK_ACCESS_SHADER_WRITE_BIT,
-                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
-    UIRenderPass->submitDependency(uiSubpass, VK_SUBPASS_EXTERNAL, VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT, VK_ACCESS_MEMORY_READ_BIT,
-                                 VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
+                                   VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT,
+                                   VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
+    UIRenderPass->submitDependency(selectorSubpass,
+                                   uiSubpass,
+                                   VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
+                                   VK_ACCESS_SHADER_WRITE_BIT,
+                                   VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
+                                   VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT);
+    UIRenderPass->submitDependency(uiSubpass,
+                                   VK_SUBPASS_EXTERNAL,
+                                   VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT,
+                                   VK_ACCESS_MEMORY_READ_BIT,
+                                   VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
+                                   VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT);
 
     UIRenderPass->build();
 }
@@ -286,18 +298,19 @@ void RenderManager::createFrameBuffer() {
     std::vector<std::shared_ptr<ImageView>> geometryFrameViews(geometryRenderTargets.size() + 1);
     geometryFrameViews[0] = objectBufferImageView;
     uint32_t n = 1;
-    for (auto i : geometryRenderTargets) {
+    for (auto i: geometryRenderTargets) {
         geometryFrameViews[n] = renderTargetViews[i];
         n++;
     }
 
     std::vector<std::vector<std::shared_ptr<ImageView>>> geometryImageViews(imageCount, geometryFrameViews);
 
-    geometryFrameBuffer = FrameBuffer::create(device, geometryRenderPass, swapChain->getSwapExtent(), geometryImageViews);
+    geometryFrameBuffer =
+        FrameBuffer::create(device, geometryRenderPass, swapChain->getSwapExtent(), geometryImageViews);
 
     std::vector<std::shared_ptr<ImageView>> UIFrameViews(UIRenderTargets.size());
     n = 0;
-    for (auto i : UIRenderTargets) {
+    for (auto i: UIRenderTargets) {
         UIFrameViews[n] = renderTargetViews[i];
         n++;
     }
@@ -311,22 +324,28 @@ void RenderManager::createSceneObjects() {
     poolManager = DescriptorPoolManager::create(device);
 
     camera = Camera::create(cameraModel, swapChainExtent);
-    scene = Scene::create(poolManager, graphicsQueue, computePool, transferPool, camera);
+    scene = Scene::create(shared_from_this(), poolManager, graphicsQueue, transferPool, computePool, camera);
     auto currentDir = std::string(get_current_dir_name());
     sceneWriter = SceneWriter::create(shared_from_this(), currentDir);
 
     textureLibrary = TextureLibrary::create(device, graphicsQueue, graphicsPool, textureQualitySettings);
-    materialLibrary = MaterialLibrary::create(device, transferPool, poolManager, textureLibrary, {graphicsQueue},
-                                              geometryRenderPass, static_cast<uint32_t>(geometryRenderTargets.size()),
-                                              swapChainExtent);
+    materialLibrary =
+        MaterialLibrary::create(device,
+                                transferPool,
+                                poolManager,
+                                textureLibrary,
+                                {graphicsQueue},
+                                geometryRenderPass,
+                                static_cast<uint32_t>(geometryRenderTargets.size()),
+                                swapChainExtent);
     meshLibrary = MeshLibrary::create(textureLibrary, materialLibrary);
 }
 
 void RenderManager::createDefaultMaterialLayout() {
     auto vertexShader = VertexShader::create(device, "main", "resources/shaders/compiled/"
-                                                                                 "PBR_basic.vert.spv");
+                                                             "PBR_basic.vert.spv");
     auto fragmentShader = FragmentShader::create(device, "main", "resources/shaders/compiled/"
-                                                                                     "PBR_basic.frag.spv");
+                                                                 "PBR_basic.frag.spv");
     std::vector<std::shared_ptr<GraphicsShader>> shaders{vertexShader, fragmentShader};
 
     std::vector<MaterialProperty> materialProperties(1);
@@ -410,8 +429,8 @@ void RenderManager::processMouseInputs() {
         }
 
         if (!io.WantCaptureKeyboard) {
-            if (glfwGetKey(window->getWindow(), GLFW_KEY_1) == GLFW_PRESS ||
-                glfwGetKey(window->getWindow(), GLFW_KEY_0) == GLFW_PRESS)
+            if (glfwGetKey(window->getWindow(), GLFW_KEY_1) == GLFW_PRESS
+                || glfwGetKey(window->getWindow(), GLFW_KEY_0) == GLFW_PRESS)
                 activePresentTarget = 0;
             else if (glfwGetKey(window->getWindow(), GLFW_KEY_2) == GLFW_PRESS)
                 activePresentTarget = 1;
@@ -463,13 +482,17 @@ void RenderManager::drawFrame_() {
 
     // clear and begin render pass (Geometry)
     std::vector<VkClearValue> clearColor(geometryRenderTargets.size() + 1);
-    clearColor[0].color                                 = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_DEPTH + 1].depthStencil    = {1.0, 0};
-    clearColor[RENDER_TARGET_DIFFUSE + 1].color         = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_POSITION + 1].color        = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_NORMAL + 1].color          = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    drawCommandBuffer->beginRenderPass(geometryRenderPass, geometryFrameBuffer, clearColor, index,
-                                       geometryFrameBuffer->getExtent(), {0, 0});
+    clearColor[0].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_DEPTH + 1].depthStencil = {1.0, 0};
+    clearColor[RENDER_TARGET_DIFFUSE + 1].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_POSITION + 1].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_NORMAL + 1].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    drawCommandBuffer->beginRenderPass(geometryRenderPass,
+                                       geometryFrameBuffer,
+                                       clearColor,
+                                       index,
+                                       geometryFrameBuffer->getExtent(),
+                                       {0, 0});
 
     // write all commands to draw the scene
     scene->bakeGraphicsBuffer(drawCommandBuffer);
@@ -521,7 +544,8 @@ void RenderManager::drawFrame_() {
                                      {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
                                       VK_PIPELINE_STAGE_VERTEX_INPUT_BIT},
                                      waitSemaphores,
-                                     graphicsQueue, nullptr);
+                                     graphicsQueue,
+                                     nullptr);
 
     renderTargets[RENDER_TARGET_AMBIENT]->setLayout(VK_IMAGE_LAYOUT_UNDEFINED);
     renderTargets[RENDER_TARGET_NORMAL]->setLayout(VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL);
@@ -564,14 +588,18 @@ void RenderManager::drawFrame_() {
 
     // clear and begin render pass (Geometry)
     clearColor = std::vector<VkClearValue>(UIRenderTargets.size() + 1);
-    clearColor[0].color                                 = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_DEPTH + 1].depthStencil    = {1.0, 0};
-    clearColor[RENDER_TARGET_DIFFUSE + 1].color         = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_POSITION + 1].color        = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_NORMAL + 1].color          = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    clearColor[RENDER_TARGET_AMBIENT + 1].color         = {{0.0f, 0.0f, 0.0f, 0.0f}};
-    drawCommandBuffer->beginRenderPass(UIRenderPass, UIFrameBuffer, clearColor, index,
-                                       UIFrameBuffer->getExtent(), {0, 0});
+    clearColor[0].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_DEPTH + 1].depthStencil = {1.0, 0};
+    clearColor[RENDER_TARGET_DIFFUSE + 1].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_POSITION + 1].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_NORMAL + 1].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    clearColor[RENDER_TARGET_AMBIENT + 1].color = {{0.0f, 0.0f, 0.0f, 0.0f}};
+    drawCommandBuffer->beginRenderPass(UIRenderPass,
+                                       UIFrameBuffer,
+                                       clearColor,
+                                       index,
+                                       UIFrameBuffer->getExtent(),
+                                       {0, 0});
 
     viewportSelector->bakeGraphicsBuffer(drawCommandBuffer);
 
@@ -591,7 +619,8 @@ void RenderManager::drawFrame_() {
     drawCommandBuffer->submitToQueue(signalSemaphores,
                                      {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT},
                                      uiSemaphores,
-                                     graphicsQueue, nullptr);
+                                     graphicsQueue,
+                                     nullptr);
 
     // present the image and advance swap chain
     swapChain->presentImage();
@@ -638,8 +667,7 @@ void RenderManager::updateRenderData() {
     scene->bakeMaterials(true);
 }
 
-void RenderManager::loadMesh(const std::string &filename,
-                             bool normalizePos) {
+void RenderManager::loadMesh(const std::string &filename, bool normalizePos) {
     auto meshes = meshLibrary->createMesh(filename, defaultMaterialTemplate, normalizePos);
     for (const auto &mesh: meshes)
         scene->submitInstance(MeshInstance::create(mesh));
@@ -648,36 +676,42 @@ void RenderManager::loadMesh(const std::string &filename,
 void RenderManager::createPostProcessingPipelines() {
     auto shader = FragmentShader::create(device, "main", "resources/shaders/compiled/viewport_selector.frag.spv");
 
-    std::vector<VkDescriptorSetLayoutBinding> bindings = {
-        {0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr},
-    };
+    std::vector<VkDescriptorSetLayoutBinding>
+        bindings = {{0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr},};
     bindings.reserve(RENDER_TARGET_MAX + 1);
     for (uint32_t i = 0; i < RENDER_TARGET_MAX; i++) {
-        bindings.push_back({i + 1, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1, VK_SHADER_STAGE_FRAGMENT_BIT,
-                            nullptr});
+        bindings.push_back({i + 1, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1, VK_SHADER_STAGE_FRAGMENT_BIT, nullptr});
     }
 
     std::shared_ptr<DescriptorSetLayout> viewportDescriptorLayout = DescriptorSetLayout::create(device, bindings);
     viewportDescriptor = poolManager->allocate(viewportDescriptorLayout);
 
-    viewportSelector = ShadingPipeline::create(UIRenderPass, { viewportDescriptor }, shader, swapChainExtent,
-                                               1, selectorSubpass);
+    viewportSelector =
+        ShadingPipeline::create(UIRenderPass, {viewportDescriptor}, shader, swapChainExtent, 1, selectorSubpass);
 
-    viewportDescriptor->updateImages(renderTargetViews, VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT,
-                                     VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, 1);
+    viewportDescriptor->updateImages(renderTargetViews,
+                                     VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT,
+                                     VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                                     1);
 
-    viewportUniform = UniformBuffer::create(device, transferQueue, sizeof(uint32_t));
+    viewportUniform = UniformBuffer::create(device, transferQueue, sizeof(uint32_t) + sizeof(glm::bvec1));
+    auto ssaoEnabled = glm::bvec1(renderQuality.enableSSAO);
+    memcpy((char *) viewportUniform->getDataHandle() + sizeof(uint32_t), &ssaoEnabled, sizeof(glm::bvec1));
     viewportDescriptor->updateUniformBuffer(viewportUniform, 0);
 
-
-    ssaoPipeline = SSAOPipeline::create(device, poolManager, transferPool, computePool,
-                                            renderTargetViews[RENDER_TARGET_AMBIENT],
-                                            renderTargetViews[RENDER_TARGET_NORMAL],
-                                            renderTargetViews[RENDER_TARGET_POSITION],
-                                            scene->getDescriptorSet(),
-                                            static_cast<float>(cameraModel.fieldOfView),
-                                            swapChainExtent, renderQuality.SSAOSampleCount,
-                                            renderQuality.SSAOSampleRadius);
+    ssaoPipeline =
+        SSAOPipeline::create(device,
+                             poolManager,
+                             transferPool,
+                             computePool,
+                             renderTargetViews[RENDER_TARGET_AMBIENT],
+                             renderTargetViews[RENDER_TARGET_NORMAL],
+                             renderTargetViews[RENDER_TARGET_POSITION],
+                             scene->getDescriptorSet(),
+                             static_cast<float>(cameraModel.fieldOfView),
+                             swapChainExtent,
+                             renderQuality.SSAOSampleCount,
+                             renderQuality.SSAOSampleRadius);
 
     ssaoSemaphore = Semaphore::create(device);
     uiSemaphore = Semaphore::create(device);
@@ -698,7 +732,7 @@ void RenderManager::waitForExecution() {
 void RenderManager::drawFrame() {
     try {
         drawFrame_();
-    } catch (const std::runtime_error& runtime_error) {
+    } catch (const std::runtime_error &runtime_error) {
         if (std::equal(std::string(runtime_error.what()).begin(), std::string(runtime_error.what()).end(), "Frame "
                                                                                                            "invalidated!")) {
             swapChain->getPresentFence()->resetState();
@@ -707,7 +741,7 @@ void RenderManager::drawFrame() {
     }
 }
 
-void RenderManager::registerFunctionNextFrame(const std::function<void()>& function) {
+void RenderManager::registerFunctionNextFrame(const std::function<void()> &function) {
     frameFunctions.push_back(function);
 }
 
@@ -715,7 +749,7 @@ void RenderManager::callFunctions() {
     auto thisFrame = frameFunctions;
     frameFunctions.clear();
 
-    for (const auto& function : thisFrame) {
+    for (const auto &function: thisFrame) {
         function();
     }
 }

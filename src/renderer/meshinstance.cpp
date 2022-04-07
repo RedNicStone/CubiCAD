@@ -16,8 +16,6 @@ std::shared_ptr<MeshInstance> MeshInstance::create(const std::shared_ptr<Mesh> &
         meshInstance->name = pName;
     }
 
-    meshInstance->pos = masterMesh->getMean();
-
     return meshInstance;
 }
 
@@ -29,6 +27,8 @@ InstanceData MeshInstance::getInstanceData() const {
     InstanceData data{};
     data.objectID = objectID;
     data.model = combined;
+    data.bbox1 = mesh->getBoundingBox().min;
+    data.bbox2 = mesh->getBoundingBox().max;
 
     return data;
 }

@@ -25,8 +25,8 @@ class Material;
 struct PBRMaterialParameters;
 
 struct BoundingBox {
-    glm::vec3 pos1;
-    glm::vec3 pos2;
+    glm::vec3 min;
+    glm::vec3 max;
 };
 
 struct Vertex {
@@ -43,9 +43,8 @@ namespace std {
   template<>
   struct hash<Vertex> {
       size_t operator()(Vertex const &vertex) const {
-          return (std::hash<glm::vec3>   {}(vertex.pos)          ^
-                 (std::hash<glm::i16vec3>{}(vertex.normal) << 1) ^
-                 (std::hash<glm::u16vec2>{}(vertex.uv)     << 2));
+          return ((std::hash<glm::vec3>{}(vertex.pos) ^ (std::hash<glm::i16vec3>{}(vertex.normal) << 1)) >> 1)
+              ^ (std::hash<glm::u16vec2>{}(vertex.uv) << 1);
       }
   };
 }
@@ -72,14 +71,14 @@ class Mesh {
 
   public:
     static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
-                                        const std::vector<Vertex>& vertexData,
+                                        const std::vector<Vertex> &vertexData,
                                         const BoundingBox &bbox,
                                         const std::string &pName = "",
                                         bool normalizePos = false);
 
     void setName(const std::string &pName) { name = pName; }
 
-    const std::vector<Vertex>& getVertexData() { return vertexData; }
+    const std::vector<Vertex> &getVertexData() { return vertexData; }
 
     [[nodiscard]] uint32_t getIndexCount() const { return indexCount; }
 

@@ -86,16 +86,18 @@ class VulkanRasterizer {
     void createRenderManager() {
         TextureQualitySettings settings{};
         settings.anisotropy = 1.0f;
-        settings.mipLevels = 1;
+        settings.mipLevels = 16;
 
         RenderQualityOptions options{};
-        options.SSAOSampleCount = 16;
-        options.enableSSAO = false;
+        options.SSAOSampleCount = 32;
+        options.SSAOSampleRadius = 0.05f;
+        options.enableSSAO = true;
 
         CameraModel cameraModel{};
         cameraModel.fieldOfView = 75.0;
-        cameraModel.cameraMode = CAMERA_MODE_PERSPECTIVE_INFINITE;
+        cameraModel.cameraMode = CAMERA_MODE_PERSPECTIVE_FINITE;
         cameraModel.clipNear = 0.1;
+        cameraModel.clipFar = 1000;
 
         renderManager = RenderManager::create(instance, window, settings, options, cameraModel);
     }
@@ -139,10 +141,11 @@ class VulkanRasterizer {
         while (!glfwWindowShouldClose(window->getWindow())) {
             glfwPollEvents();
 
-            renderManager->registerFunctionNextFrame([&](){renderManager->processInputs();});
-            renderManager->registerFunctionNextFrame([&](){
-                objectProperties->setObjectByID(renderManager->getScene()->getSelected());});
-            renderManager->registerFunctionNextFrame([&](){renderManager->drawFrame();});
+            renderManager->registerFunctionNextFrame([&]() { renderManager->processInputs(); });
+            renderManager->registerFunctionNextFrame([&]() {
+              objectProperties->setObjectByID(renderManager->getScene()->getSelected());
+            });
+            renderManager->registerFunctionNextFrame([&]() { renderManager->drawFrame(); });
 
             renderManager->callFunctions();
         }

@@ -190,7 +190,8 @@ void Image::transferDataStaged(void *src, const std::shared_ptr<CommandPool> &co
 
 void Image::transferDataStaged(void *src,
                                const std::shared_ptr<CommandPool> &commandPool,
-                               VkDeviceSize size, [[maybe_unused]] VkDeviceSize offset,
+                               VkDeviceSize size,
+                               [[maybe_unused]] VkDeviceSize offset,
                                VkPipelineStageFlags dstStage) {
     std::vector<uint32_t> accessingQueues = {commandPool->getQueueFamily()->getQueueFamilyIndex()};
     auto stagingBuffer = Image::createHostStagingBuffer(device, allocationInfo.size, accessingQueues);
@@ -231,7 +232,11 @@ std::shared_ptr<ImageView> Image::createImageView(VkImageViewType viewType, VkIm
     return ImageView::create(shared_from_this(), viewType, subresourceRange);
 }
 
-void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPool, VkImageLayout dst) {
+void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPool,
+                                  VkImageLayout dst,
+                                  VkPipelineStageFlags dstStage,
+                                  VkAccessFlags dstMask,
+                                  VkImageAspectFlags imageAspect) {
     std::vector<uint32_t> accessingQueues = {commandPool->getQueueFamily()->getQueueFamilyIndex()};
 
     VkImageMemoryBarrier barrier{};
@@ -246,12 +251,14 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPoo
     barrier.subresourceRange.levelCount = 1;
     barrier.subresourceRange.baseArrayLayer = 0;
     barrier.subresourceRange.layerCount = 1;
-    barrier.srcAccessMask = 0;
-    barrier.dstAccessMask = 0;
+    barrier.srcAccessMask = currentAccessFlags;
+    barrier.dstAccessMask = dstMask;
+
+    currentAccessFlags = dstMask;
 
     auto commandBuffer = CommandBuffer::create(commandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY);
     commandBuffer->beginCommandBuffer(VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT);
-    vkCmdPipelineBarrier(commandBuffer->getHandle(), 0, 0, 0, 0, nullptr, 0, nullptr, 1, &barrier);
+    vkCmdPipelineBarrier(commandBuffer->getHandle(), currentStage, dstStage, 0, 0, nullptr, 0, nullptr, 1, &barrier);
     commandBuffer->endCommandBuffer();
 
     VkSubmitInfo submitInfo{};
@@ -261,6 +268,9 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandPool> &commandPoo
 
     commandPool->getQueue()->submitCommandBuffer({submitInfo});
     commandPool->getQueue()->waitForIdle();
+
+    currentStage = dstStage;
+    currentLayout = dst;
 }
 
 void Image::transitionImageLayout(const std::shared_ptr<CommandBuffer> &commandBuffer,
@@ -277,7 +287,7 @@ void Image::transitionImageLayout(const std::shared_ptr<CommandBuffer> &commandB
     barrier.image = handle;
     barrier.subresourceRange.aspectMask = imageAspect;
     barrier.subresourceRange.baseMipLevel = 0;
-    barrier.subresourceRange.levelCount = 1;
+    barrier.subresourceRange.levelCount = mipLevels;
     barrier.subresourceRange.baseArrayLayer = 0;
     barrier.subresourceRange.layerCount = 1;
     barrier.srcAccessMask = currentAccessFlags;
@@ -334,10 +344,15 @@ void Image::generateMipmaps(const std::shared_ptr<CommandPool> &commandPool) {
         barrier.dstAccessMask = VK_ACCESS_TRANSFER_READ_BIT;
 
         vkCmdPipelineBarrier(commandBuffer->getHandle(),
-                             VK_PIPELINE_STAGE_TRANSFER_BIT, VK_PIPELINE_STAGE_TRANSFER_BIT, 0,
-                             0, nullptr,
-                             0, nullptr,
-                             1, &barrier);
+                             VK_PIPELINE_STAGE_TRANSFER_BIT,
+                             VK_PIPELINE_STAGE_TRANSFER_BIT,
+                             0,
+                             0,
+                             nullptr,
+                             0,
+                             nullptr,
+                             1,
+                             &barrier);
 
         VkImageBlit blit{};
         blit.srcOffsets[0] = {0, 0, 0};
@@ -347,16 +362,19 @@ void Image::generateMipmaps(const std::shared_ptr<CommandPool> &commandPool) {
         blit.srcSubresource.baseArrayLayer = 0;
         blit.srcSubresource.layerCount = 1;
         blit.dstOffsets[0] = {0, 0, 0};
-        blit.dstOffsets[1] = { mipWidth > 1 ? mipWidth / 2 : 1, mipHeight > 1 ? mipHeight / 2 : 1, 1 };
+        blit.dstOffsets[1] = {mipWidth > 1 ? mipWidth / 2 : 1, mipHeight > 1 ? mipHeight / 2 : 1, 1};
         blit.dstSubresource.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
         blit.dstSubresource.mipLevel = i;
         blit.dstSubresource.baseArrayLayer = 0;
         blit.dstSubresource.layerCount = 1;
 
         vkCmdBlitImage(commandBuffer->getHandle(),
-                       handle, VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
-                       handle, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
-                       1, &blit,
+                       handle,
+                       VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL,
+                       handle,
+                       VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
+                       1,
+                       &blit,
                        VK_FILTER_LINEAR);
 
         barrier.oldLayout = VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL;
@@ -365,10 +383,15 @@ void Image::generateMipmaps(const std::shared_ptr<CommandPool> &commandPool) {
         barrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
 
         vkCmdPipelineBarrier(commandBuffer->getHandle(),
-                             VK_PIPELINE_STAGE_TRANSFER_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT, 0,
-                             0, nullptr,
-                             0, nullptr,
-                             1, &barrier);
+                             VK_PIPELINE_STAGE_TRANSFER_BIT,
+                             VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
+                             0,
+                             0,
+                             nullptr,
+                             0,
+                             nullptr,
+                             1,
+                             &barrier);
 
         if (mipWidth > 1) mipWidth /= 2;
         if (mipHeight > 1) mipHeight /= 2;
@@ -381,17 +404,22 @@ void Image::generateMipmaps(const std::shared_ptr<CommandPool> &commandPool) {
     barrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
 
     vkCmdPipelineBarrier(commandBuffer->getHandle(),
-                         VK_PIPELINE_STAGE_TRANSFER_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT, 0,
-                         0, nullptr,
-                         0, nullptr,
-                         1, &barrier);
+                         VK_PIPELINE_STAGE_TRANSFER_BIT,
+                         VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
+                         0,
+                         0,
+                         nullptr,
+                         0,
+                         nullptr,
+                         1,
+                         &barrier);
 
     currentLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
     transitionImageLayout(commandBuffer,
-                              VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
+                          VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
                           VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
-                              VK_ACCESS_SHADER_READ_BIT);
+                          VK_ACCESS_SHADER_READ_BIT);
 
     commandBuffer->endCommandBuffer();
 

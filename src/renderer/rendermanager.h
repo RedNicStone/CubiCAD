@@ -22,14 +22,16 @@
 
 class SceneWriter;
 
+class Scene;
+
 enum RenderTarget : uint32_t {
-    RENDER_TARGET_DEFAULT       = 0,
-    RENDER_TARGET_DIFFUSE       = 0,
-    RENDER_TARGET_POSITION      = 1,
-    RENDER_TARGET_NORMAL        = 2,
-    RENDER_TARGET_DEPTH         = 3,
-    RENDER_TARGET_AMBIENT       = 4,
-    RENDER_TARGET_MAX           = 5
+    RENDER_TARGET_DEFAULT = 0,
+    RENDER_TARGET_DIFFUSE = 0,
+    RENDER_TARGET_POSITION = 1,
+    RENDER_TARGET_NORMAL = 2,
+    RENDER_TARGET_DEPTH = 3,
+    RENDER_TARGET_AMBIENT = 4,
+    RENDER_TARGET_MAX = 5
 };
 
 struct RenderQualityOptions {
@@ -90,15 +92,13 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     std::shared_ptr<FrameBuffer> UIFrameBuffer;
     VkExtent2D swapChainExtent;
 
-    const std::vector<uint32_t> geometryRenderTargets = {RENDER_TARGET_DIFFUSE,
-                                                         RENDER_TARGET_POSITION,
-                                                         RENDER_TARGET_NORMAL,
-                                                         RENDER_TARGET_DEPTH};
-    const std::vector<uint32_t> UIRenderTargets = {RENDER_TARGET_DIFFUSE,
-                                                   RENDER_TARGET_POSITION,
-                                                   RENDER_TARGET_NORMAL,
-                                                   RENDER_TARGET_DEPTH,
-                                                   RENDER_TARGET_AMBIENT};
+    const std::vector<uint32_t>
+        geometryRenderTargets =
+        {RENDER_TARGET_DIFFUSE, RENDER_TARGET_POSITION, RENDER_TARGET_NORMAL, RENDER_TARGET_DEPTH};
+    const std::vector<uint32_t>
+        UIRenderTargets =
+        {RENDER_TARGET_DIFFUSE, RENDER_TARGET_POSITION, RENDER_TARGET_NORMAL, RENDER_TARGET_DEPTH,
+         RENDER_TARGET_AMBIENT};
 
     std::shared_ptr<RenderPass> geometryRenderPass;
     std::shared_ptr<RenderPass> UIRenderPass;
@@ -170,20 +170,27 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
 
     static void invalidateFrame();
     void waitForExecution();
-    void registerFunctionNextFrame(const std::function<void()>& function);
+    void registerFunctionNextFrame(const std::function<void()> &function);
     void callFunctions();
 
-    void loadMesh(const std::string &filename,
-                  bool normalizePos = false);
+    void loadMesh(const std::string &filename, bool normalizePos = false);
 
     std::shared_ptr<Scene> getScene() { return scene; }
+
     std::shared_ptr<SceneWriter> getSceneWriter() { return sceneWriter; }
+
     std::shared_ptr<MaterialLibrary> getMaterialLibrary() { return materialLibrary; }
+
     std::shared_ptr<TextureLibrary> getTextureLibrary() { return textureLibrary; }
+
     std::shared_ptr<MeshLibrary> getMeshLibrary() { return meshLibrary; }
+
     std::shared_ptr<UIRenderer> getUIRenderer() { return uiRenderer; }
+
     std::shared_ptr<Device> getDevice() { return device; }
+
     std::shared_ptr<DescriptorPoolManager> getDescriptorManager() { return poolManager; }
+
     std::shared_ptr<MasterMaterialTemplate> getDefaultMaterialTemplate() { return defaultMaterialTemplate; }
 
     VkExtent2D getExtend() { return swapChainExtent; }

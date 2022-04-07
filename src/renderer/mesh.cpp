@@ -6,7 +6,7 @@
 
 
 std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
-                                   const std::vector<Vertex>& vertexData,
+                                   const std::vector<Vertex> &vertexData,
                                    const BoundingBox &bbox,
                                    const std::string &pName,
                                    bool normalizePos) {
@@ -15,9 +15,7 @@ std::shared_ptr<Mesh> Mesh::create(const std::vector<std::shared_ptr<Meshlet>> &
 
     mesh->boundingBox = bbox;
     if (normalizePos) {
-        glm::vec3 mean = (bbox.pos1 + bbox.pos2) / glm::vec3(2);
-        mesh->boundingBox.pos1 -= mean;
-        mesh->boundingBox.pos2 -= mean;
+        glm::vec3 mean = (bbox.min + bbox.max) / glm::vec3(2);
         mesh->mean = mean;
     }
     mesh->vertexData = vertexData;

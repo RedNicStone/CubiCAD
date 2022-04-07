@@ -2,6 +2,7 @@
 
 layout(set = 0, binding = 0)  uniform SelectorInfo {
     uint selected_channel;// currently selected channel
+    bool enableSSAO;// mix with ssao?
 } selector_info;
 
 layout(input_attachment_index = 0, set = 0, binding = 1) uniform subpassInput geometry_diffuse;
@@ -21,7 +22,7 @@ vec2 azimuthalEAEncode(vec3 n) {
 }
 vec3 azimuthalEADecode(vec2 enc) {
     vec2 fenc = enc*4-2;
-    float f = dot(fenc,fenc);
+    float f = dot(fenc, fenc);
     float g = sqrt(1-f/4);
     vec3 n;
     n.xy = fenc*g;
@@ -33,6 +34,7 @@ void main() {
     switch (selector_info.selected_channel) {
         case 0:
         present_color = subpassLoad(geometry_diffuse);
+        present_color *= float(!selector_info.enableSSAO) + float(selector_info.enableSSAO) * subpassLoad(shading_ao).x;
         break;
         case 1:
         present_color = vec4(subpassLoad(geometry_depth).x);
@@ -49,7 +51,7 @@ void main() {
         case 5:
         present_color = vec4(subpassLoad(shading_ao).x);
         break;
-        default:
+        default :
         present_color = vec4(1.0, 1.0, 1.0, 1.0);
     }
 }

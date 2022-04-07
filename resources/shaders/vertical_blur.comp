@@ -1,0 +1,31 @@
+#version 450
+
+layout (local_size_x = 16, local_size_y = 16) in;
+
+#define BLUR_KERNEL_SIZE 8
+
+const int SAMPLE_COUNT = 64;
+
+layout(set = 1, binding = 0) uniform PassInfo {
+    uvec2 imageSize;
+    float tanFOV;
+    vec3 samples[SAMPLE_COUNT];
+} passInfo;
+
+layout(set = 1, binding = 1) uniform sampler samp;
+layout(set = 1, binding = 2, r16) uniform image2D shading_texOut;
+
+void main() {
+    const uvec2 pixel_pos = gl_GlobalInvocationID.xy;
+    const vec2 frag_uv = (vec2(pixel_pos) + vec2(0.5)) / passInfo.imageSize;
+
+    int samples = 0;
+    float result = 0.0;
+    for (int x = -BLUR_KERNEL_SIZE; x < BLUR_KERNEL_SIZE; ++x)
+    {
+        vec2 offset = vec2(0, float(x)) / passInfo.imageSize;
+        result += imageLoad(shading_texOut, ivec2(pixel_pos + offset)).x * abs(x);
+        samples += abs(x);
+    }
+    imageStore(shading_texOut, ivec2(pixel_pos), vec4(result / (samples)));
+}
