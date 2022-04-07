@@ -1,5 +1,5 @@
 var struct_bounding_box =
 [
-    [ "pos1", "struct_bounding_box.html#af3ddb2fde10cf9afe2de2b3d6b0f9437", null ],
-    [ "pos2", "struct_bounding_box.html#a6c1f87c4ab5f5bba7af3ef145ec5e5c9", null ]
+    [ "max", "struct_bounding_box.html#ae409e066fc1f88d05be7c891237afb53", null ],
+    [ "min", "struct_bounding_box.html#a583cf7b69f46b2dc9796be1d78f0af82", null ]
 ];

@@ -143,8 +143,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a09403651ff6bb22f5fe25c12e80ee945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43c347e50d093b9b20c2dbf30841ccb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a43c347e50d093b9b20c2dbf30841ccb2">setLayout</a> (VkImageLayout layout)</td></tr>
 <tr class="separator:a43c347e50d093b9b20c2dbf30841ccb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47982512223ea89e7ab54f535dd55995"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a47982512223ea89e7ab54f535dd55995">transitionImageLayout</a> (const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool, VkImageLayout dst)</td></tr>
-<tr class="separator:a47982512223ea89e7ab54f535dd55995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3badd6d3802afabfcec0b13d1a9c8984"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a3badd6d3802afabfcec0b13d1a9c8984">transitionImageLayout</a> (const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;commandPool, VkImageLayout dst, VkPipelineStageFlags dstStage, VkAccessFlags dstMask=0, VkImageAspectFlags imageAspect=VK_IMAGE_ASPECT_COLOR_BIT)</td></tr>
+<tr class="separator:a3badd6d3802afabfcec0b13d1a9c8984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40a14fc004e04302139a52abe687ff0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a40a14fc004e04302139a52abe687ff0d">transitionImageLayout</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;commandPool, VkImageLayout dst, VkPipelineStageFlags dstStage, VkAccessFlags dstMask=0, VkImageAspectFlags imageAspect=VK_IMAGE_ASPECT_COLOR_BIT)</td></tr>
 <tr class="separator:a40a14fc004e04302139a52abe687ff0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a150c2c9a573b0d8b91050426642ebb4a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_image.html#a150c2c9a573b0d8b91050426642ebb4a">map</a> ()</td></tr>
@@ -1024,8 +1024,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a47982512223ea89e7ab54f535dd55995" name="a47982512223ea89e7ab54f535dd55995"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47982512223ea89e7ab54f535dd55995">&#9670;&nbsp;</a></span>transitionImageLayout() <span class="overload">[2/2]</span></h2>
+<a id="a3badd6d3802afabfcec0b13d1a9c8984" name="a3badd6d3802afabfcec0b13d1a9c8984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3badd6d3802afabfcec0b13d1a9c8984">&#9670;&nbsp;</a></span>transitionImageLayout() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1040,7 +1040,25 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkImageLayout&#160;</td>
-          <td class="paramname"><em>dst</em>&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkPipelineStageFlags&#160;</td>
+          <td class="paramname"><em>dstStage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkAccessFlags&#160;</td>
+          <td class="paramname"><em>dstMask</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkImageAspectFlags&#160;</td>
+          <td class="paramname"><em>imageAspect</em> = <code>VK_IMAGE_ASPECT_COLOR_BIT</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1052,13 +1070,13 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a47982512223ea89e7ab54f535dd55995_cgraph.svg" width="408" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a3badd6d3802afabfcec0b13d1a9c8984_cgraph.svg" width="408" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a47982512223ea89e7ab54f535dd55995_icgraph.svg" width="427" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_image_a3badd6d3802afabfcec0b13d1a9c8984_icgraph.svg" width="427" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 

@@ -17,7 +17,7 @@ var class_image =
     [ "transferDataStaged", "class_image.html#ab7a3d322d16494f20df9f2ea929026b6", null ],
     [ "transferDataStaged", "class_image.html#ac367d6ea10ca4996f3bda1338488396d", null ],
     [ "transitionImageLayout", "class_image.html#a40a14fc004e04302139a52abe687ff0d", null ],
-    [ "transitionImageLayout", "class_image.html#a47982512223ea89e7ab54f535dd55995", null ],
+    [ "transitionImageLayout", "class_image.html#a3badd6d3802afabfcec0b13d1a9c8984", null ],
     [ "unmap", "class_image.html#a630dd4d080617bfe75d184165111cf53", null ],
     [ "allocation", "class_image.html#ad2db4d1a5acdcf6bfa9226f6f3a43b71", null ],
     [ "allocationInfo", "class_image.html#a88a91372a01454c08f5ffbb5fd8b5200", null ],

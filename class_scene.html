@@ -153,15 +153,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2e32b0655e606d26ef9180345ed8ee08"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2e32b0655e606d26ef9180345ed8ee08">create</a> (const std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt; &amp;pPoolManager, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pGraphicsQueue, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;pTransferPool, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;pComputePool, const std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; &amp;pCamera)</td></tr>
-<tr class="separator:a2e32b0655e606d26ef9180345ed8ee08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab589832ffb9eb66dea1848b5756f606d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ab589832ffb9eb66dea1848b5756f606d">create</a> (const std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt; &amp;<a class="el" href="class_scene.html#a58e531f0463e6afa913ad01a382839f7">renderManager</a>, const std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt; &amp;pPoolManager, const std::shared_ptr&lt; <a class="el" href="class_queue.html">Queue</a> &gt; &amp;pGraphicsQueue, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;pTransferPool, const std::shared_ptr&lt; <a class="el" href="class_command_pool.html">CommandPool</a> &gt; &amp;pComputePool, const std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; &amp;pCamera)</td></tr>
+<tr class="separator:ab589832ffb9eb66dea1848b5756f606d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ae74c7fe2b71459224585f31c5f61ffb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae74c7fe2b71459224585f31c5f61ffb2">transferRenderData</a> ()</td></tr>
 <tr class="separator:ae74c7fe2b71459224585f31c5f61ffb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed545a16d30724c286be1db89f5ecc5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aed545a16d30724c286be1db89f5ecc5a">cullObjects</a> ()</td></tr>
-<tr class="separator:aed545a16d30724c286be1db89f5ecc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a499ff2241001c5469a7dcc4fc399d573"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a499ff2241001c5469a7dcc4fc399d573">cullObjects</a> (uint32_t meshCount)</td></tr>
+<tr class="separator:a499ff2241001c5469a7dcc4fc399d573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -213,6 +213,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:add9a20433c999db63011def2bb93ade3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4375688f129edd31b1ef7a99f97c7c92"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_compute_pipeline.html">ComputePipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a4375688f129edd31b1ef7a99f97c7c92">cullPipeline</a></td></tr>
 <tr class="separator:a4375688f129edd31b1ef7a99f97c7c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e531f0463e6afa913ad01a382839f7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a58e531f0463e6afa913ad01a382839f7">renderManager</a></td></tr>
+<tr class="separator:a58e531f0463e6afa913ad01a382839f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e3630a031b4a55407e0702a984dcd9c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2e3630a031b4a55407e0702a984dcd9c">selectedID</a> {}</td></tr>
 <tr class="separator:a2e3630a031b4a55407e0702a984dcd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff6cef93c768423c1509afae9107319c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aff6cef93c768423c1509afae9107319c">hoveredID</a> {}</td></tr>
@@ -313,8 +315,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a2e32b0655e606d26ef9180345ed8ee08" name="a2e32b0655e606d26ef9180345ed8ee08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e32b0655e606d26ef9180345ed8ee08">&#9670;&nbsp;</a></span>create()</h2>
+<a id="ab589832ffb9eb66dea1848b5756f606d" name="ab589832ffb9eb66dea1848b5756f606d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab589832ffb9eb66dea1848b5756f606d">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,6 +327,12 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="class_scene.html">Scene</a> &gt; Scene::create </td>
           <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>renderManager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_descriptor_pool_manager.html">DescriptorPoolManager</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>pPoolManager</em>, </td>
         </tr>
@@ -377,20 +385,20 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_a2e32b0655e606d26ef9180345ed8ee08_cgraph.svg" width="578" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_ab589832ffb9eb66dea1848b5756f606d_cgraph.svg" width="578" height="475"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_a2e32b0655e606d26ef9180345ed8ee08_icgraph.svg" width="596" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_ab589832ffb9eb66dea1848b5756f606d_icgraph.svg" width="596" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="aed545a16d30724c286be1db89f5ecc5a" name="aed545a16d30724c286be1db89f5ecc5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed545a16d30724c286be1db89f5ecc5a">&#9670;&nbsp;</a></span>cullObjects()</h2>
+<a id="a499ff2241001c5469a7dcc4fc399d573" name="a499ff2241001c5469a7dcc4fc399d573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a499ff2241001c5469a7dcc4fc399d573">&#9670;&nbsp;</a></span>cullObjects()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -401,7 +409,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Scene::cullObjects </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>meshCount</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -414,13 +423,13 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_aed545a16d30724c286be1db89f5ecc5a_cgraph.svg" width="347" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_a499ff2241001c5469a7dcc4fc399d573_cgraph.svg" width="347" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_aed545a16d30724c286be1db89f5ecc5a_icgraph.svg" width="594" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_scene_a499ff2241001c5469a7dcc4fc399d573_icgraph.svg" width="594" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -1152,6 +1161,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">std::chrono::time_point&lt;std::chrono::high_resolution_clock, std::chrono::duration&lt;double&gt; &gt; Scene::lastFrameTime {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58e531f0463e6afa913ad01a382839f7" name="a58e531f0463e6afa913ad01a382839f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e531f0463e6afa913ad01a382839f7">&#9670;&nbsp;</a></span>renderManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_render_manager.html">RenderManager</a>&gt; Scene::renderManager</td>
         </tr>
       </table>
   </td>

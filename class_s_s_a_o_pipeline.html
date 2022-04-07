@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('class_s_s_a_o_pipeline.html',''); init
 <div class="dynheader">
 Collaboration diagram for SSAOPipeline:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_s_a_o_pipeline__coll__graph.svg" width="166" height="220"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_s_s_a_o_pipeline__coll__graph.svg" width="166" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
@@ -141,8 +141,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae1fb53cc5f39e46472a8fade4989f918"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ea50dd6abc31ecdfa98998ac67632f9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_compute_pipeline.html">ComputePipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a6ea50dd6abc31ecdfa98998ac67632f9">obscurancePipeline</a></td></tr>
 <tr class="separator:a6ea50dd6abc31ecdfa98998ac67632f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8293d4d57688159ddc5c3be1312657fb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_compute_pipeline.html">ComputePipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a8293d4d57688159ddc5c3be1312657fb">blurPipeline</a></td></tr>
-<tr class="separator:a8293d4d57688159ddc5c3be1312657fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f69f74a586f0d998105f6f189a4d43d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_compute_pipeline.html">ComputePipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a8f69f74a586f0d998105f6f189a4d43d">blurPipelineX</a></td></tr>
+<tr class="separator:a8f69f74a586f0d998105f6f189a4d43d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a3423042f4a78d03a7c77ef4fa4ec25"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_compute_pipeline.html">ComputePipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a0a3423042f4a78d03a7c77ef4fa4ec25">blurPipelineY</a></td></tr>
+<tr class="separator:a0a3423042f4a78d03a7c77ef4fa4ec25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab69de281cb7851d903668b07e63461b9" name="ab69de281cb7851d903668b07e63461b9"></a>
@@ -272,8 +274,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8293d4d57688159ddc5c3be1312657fb" name="a8293d4d57688159ddc5c3be1312657fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8293d4d57688159ddc5c3be1312657fb">&#9670;&nbsp;</a></span>blurPipeline</h2>
+<a id="a8f69f74a586f0d998105f6f189a4d43d" name="a8f69f74a586f0d998105f6f189a4d43d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f69f74a586f0d998105f6f189a4d43d">&#9670;&nbsp;</a></span>blurPipelineX</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +284,29 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_compute_pipeline.html">ComputePipeline</a>&gt; SSAOPipeline::blurPipeline</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_compute_pipeline.html">ComputePipeline</a>&gt; SSAOPipeline::blurPipelineX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a3423042f4a78d03a7c77ef4fa4ec25" name="a0a3423042f4a78d03a7c77ef4fa4ec25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a3423042f4a78d03a7c77ef4fa4ec25">&#9670;&nbsp;</a></span>blurPipelineY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_compute_pipeline.html">ComputePipeline</a>&gt; SSAOPipeline::blurPipelineY</td>
         </tr>
       </table>
   </td>
