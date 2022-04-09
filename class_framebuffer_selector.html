@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_framebuffer_selector.html',''); 
 </div><!--header-->
 <div class="contents">
 
+<p>Class that handles back-buffering for selecting objects with the mouse.  
+ <a href="class_framebuffer_selector.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="framebufferselector_8h_source.html">framebufferselector.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for FramebufferSelector:</div>
@@ -138,7 +141,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ab11fd743d592957dd54086f17a877d86"><td class="memItemLeft" align="right" valign="top">VkSubresourceLayout&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_framebuffer_selector.html#ab11fd743d592957dd54086f17a877d86">imageLayout</a></td></tr>
 <tr class="separator:ab11fd743d592957dd54086f17a877d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Class that handles back-buffering for selecting objects with the mouse. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab6823c6a2bd8a1b66351962aed6697db" name="ab6823c6a2bd8a1b66351962aed6697db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab6823c6a2bd8a1b66351962aed6697db">&#9670;&nbsp;</a></span>~FramebufferSelector()</h2>
 
@@ -196,6 +201,15 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new framebuffer selector </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td><a class="el" href="class_device.html">Device</a> the selector should be created on </td></tr>
+    <tr><td class="paramname">renderQueue</td><td>Render queue the selector is used in </td></tr>
+    <tr><td class="paramname">extent</td><td>Render extend of the buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid handle to the <a class="el" href="class_framebuffer_selector.html" title="Class that handles back-buffering for selecting objects with the mouse.">FramebufferSelector</a> </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -226,6 +240,13 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Get object ID of object at pixel position </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Pixel position </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ID of the object </dd></dl>
 
 </div>
 </div>
@@ -276,6 +297,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Get CPU handle to the buffer data </p><dl class="section return"><dt>Returns</dt><dd>Void handle to buffer data </dd></dl>
 
 </div>
 </div>
@@ -294,6 +316,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Transfer the buffer into a CPU readable one </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commandBuffer</td><td>Command buffer to write commands to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -312,6 +340,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Transfer the buffer into a GPU writeable one </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commandBuffer</td><td>Command buffer to write commands to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

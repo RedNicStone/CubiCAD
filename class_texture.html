@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_texture.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
+<p>A texture object that loads images from storage and uploads them to the GPU.  
+ <a href="class_texture.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="texture_8h_source.html">texture.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Texture:</div>
@@ -126,7 +129,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ac3a61b5d63ffdcccc4f4d45de1fb2eae"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_image_view.html">ImageView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ac3a61b5d63ffdcccc4f4d45de1fb2eae">imageView</a></td></tr>
 <tr class="separator:ac3a61b5d63ffdcccc4f4d45de1fb2eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A texture object that loads images from storage and uploads them to the GPU. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aed7e97402f249a0016f311b9253b7e41" name="aed7e97402f249a0016f311b9253b7e41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed7e97402f249a0016f311b9253b7e41">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -184,6 +189,18 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create and upload a new texture to the GPU </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDevice</td><td><a class="el" href="class_device.html">Device</a> handle where the texture are created </td></tr>
+    <tr><td class="paramname">renderQueue</td><td><a class="el" href="class_queue.html">Queue</a> that will access the texture </td></tr>
+    <tr><td class="paramname">transferPool</td><td><a class="el" href="class_queue.html">Queue</a> to transfer the texture with </td></tr>
+    <tr><td class="paramname">filename</td><td>Filename from which to load images from </td></tr>
+    <tr><td class="paramname">textureSettings</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> quality settings </td></tr>
+    <tr><td class="paramname">format</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle to the texture object </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

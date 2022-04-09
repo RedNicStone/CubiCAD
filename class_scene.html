@@ -101,6 +101,9 @@ $(document).ready(function(){initNavTree('class_scene.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_scene.html" title="Scene class that stores all objects in a scene and manages rendering them.">Scene</a> class that stores all objects in a scene and manages rendering them.  
+ <a href="class_scene.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="scene_8h_source.html">scene.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Scene:</div>
@@ -112,6 +115,7 @@ Collaboration diagram for Scene:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_scene_1_1_indirect_draw_call.html">IndirectDrawCall</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure storing information regarding each draw call.  <a href="struct_scene_1_1_indirect_draw_call.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -119,6 +123,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae32c730b9796344b0c7f59897657d60c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae32c730b9796344b0c7f59897657d60c">setCamera</a> (const std::shared_ptr&lt; <a class="el" href="class_camera.html">Camera</a> &gt; &amp;pCamera)</td></tr>
 <tr class="separator:ae32c730b9796344b0c7f59897657d60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad267fb74ba045d85bbc38bafee0fc862"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ad267fb74ba045d85bbc38bafee0fc862">updateUBO</a> ()</td></tr>
+<tr class="memdesc:ad267fb74ba045d85bbc38bafee0fc862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update scene data on the GPU side.  <a href="class_scene.html#ad267fb74ba045d85bbc38bafee0fc862">More...</a><br /></td></tr>
 <tr class="separator:ad267fb74ba045d85bbc38bafee0fc862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a655aa071845e02fd6c6d6ea6ee5176ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a655aa071845e02fd6c6d6ea6ee5176ec">setSelected</a> (uint32_t objectID)</td></tr>
 <tr class="separator:a655aa071845e02fd6c6d6ea6ee5176ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,8 +136,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abb83e5cf158a38e7db0d42f4127676b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#abb83e5cf158a38e7db0d42f4127676b7">submitInstance</a> (const std::shared_ptr&lt; <a class="el" href="class_mesh_instance.html">MeshInstance</a> &gt; &amp;meshInstance)</td></tr>
 <tr class="separator:abb83e5cf158a38e7db0d42f4127676b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e5b1218abb729d70d9f41b107017f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a70e5b1218abb729d70d9f41b107017f9">clear</a> ()</td></tr>
+<tr class="memdesc:a70e5b1218abb729d70d9f41b107017f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the scene and remove all objects.  <a href="class_scene.html#a70e5b1218abb729d70d9f41b107017f9">More...</a><br /></td></tr>
 <tr class="separator:a70e5b1218abb729d70d9f41b107017f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad95b93a5f79949bb04f75133f8b476a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ad95b93a5f79949bb04f75133f8b476a4">collectRenderBuffers</a> ()</td></tr>
+<tr class="memdesc:ad95b93a5f79949bb04f75133f8b476a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect buffers needed for rendering.  <a href="class_scene.html#ad95b93a5f79949bb04f75133f8b476a4">More...</a><br /></td></tr>
 <tr class="separator:ad95b93a5f79949bb04f75133f8b476a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55c89f3cb667c2ccce9bf2f0ed63815e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a55c89f3cb667c2ccce9bf2f0ed63815e">bakeMaterials</a> (bool enableDepthStencil=false)</td></tr>
 <tr class="separator:a55c89f3cb667c2ccce9bf2f0ed63815e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,7 +227,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aff6cef93c768423c1509afae9107319c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#aff6cef93c768423c1509afae9107319c">hoveredID</a> {}</td></tr>
 <tr class="separator:aff6cef93c768423c1509afae9107319c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p ><a class="el" href="class_scene.html" title="Scene class that stores all objects in a scene and manages rendering them.">Scene</a> class that stores all objects in a scene and manages rendering them. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3b8cec2e32546713915f8c6303c951f1" name="a3b8cec2e32546713915f8c6303c951f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b8cec2e32546713915f8c6303c951f1">&#9670;&nbsp;</a></span>~Scene()</h2>
 
@@ -254,6 +263,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Bake all buffer required for rendering </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graphicsCommandBuffer</td><td><a class="el" href="class_buffer.html">Buffer</a> to bake into </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -278,6 +293,12 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Bake all currently used materials </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enableDepthStencil</td><td>Enable depth stencil testing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -296,6 +317,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Clear the scene and remove all objects. </p>
+
 </div>
 </div>
 <a id="ad95b93a5f79949bb04f75133f8b476a4" name="ad95b93a5f79949bb04f75133f8b476a4"></a>
@@ -312,6 +335,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Collect buffers needed for rendering. </p>
 
 </div>
 </div>
@@ -372,16 +397,18 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Constructor for handle to scene </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Constructor creating a valid scene handle </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pDevice</td><td><a class="el" href="class_device.html">Device</a> to operate on </td></tr>
-    <tr><td class="paramname">pTransferQueue</td><td>Transfer queue to use for data transfers </td></tr>
-    <tr><td class="paramname">pGraphicsQueue</td><td>Graphics queue to use for </td></tr>
-    <tr><td class="paramname">pCamera</td><td></td></tr>
+    <tr><td class="paramname">renderManager</td><td><a class="el" href="class_render_manager.html" title="Main class used for all rendering actions.">RenderManager</a> instance to use for rendering </td></tr>
+    <tr><td class="paramname">pPoolManager</td><td>PoolManager object for allocating descriptor sets </td></tr>
+    <tr><td class="paramname">pGraphicsQueue</td><td>Graphics queue to use for all rendering commands </td></tr>
+    <tr><td class="paramname">pTransferPool</td><td>Transfer pool for transferring data </td></tr>
+    <tr><td class="paramname">pComputePool</td><td>Compute pool to run the cull shader </td></tr>
+    <tr><td class="paramname">pCamera</td><td><a class="el" href="class_camera.html">Camera</a> to use for rendering the scene </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid scene handle </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -626,6 +653,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Sets a new camera as active camera </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pCamera</td><td>Handle to camera to be used </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -652,6 +685,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Set what objects is currently being hovered </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objectID</td><td>ID of the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -678,6 +717,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Set what object is currently selected </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objectID</td><td>ID of the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -696,6 +741,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Submit a new instance to the scene </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">meshInstance</td><td>The handle to the instance </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -750,6 +801,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Update scene data on the GPU side. </p>
 
 </div>
 </div>

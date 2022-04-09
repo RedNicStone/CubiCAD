@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_shading_pipeline.html',''); init
 </div><!--header-->
 <div class="contents">
 
+<p>Shading pipeline used to apply shading effects.  
+ <a href="class_shading_pipeline.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="shadingpipeline_8h_source.html">shadingpipeline.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for ShadingPipeline:</div>
@@ -124,7 +127,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a9ff2ce0f2a05a02ed801c362bd6b87a7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shading_pipeline.html#a9ff2ce0f2a05a02ed801c362bd6b87a7">descriptorSets</a></td></tr>
 <tr class="separator:a9ff2ce0f2a05a02ed801c362bd6b87a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Shading pipeline used to apply shading effects. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae508f91fb36dffcc44e83012f1c26bf5" name="ae508f91fb36dffcc44e83012f1c26bf5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae508f91fb36dffcc44e83012f1c26bf5">&#9670;&nbsp;</a></span>bakeGraphicsBuffer()</h2>
 
@@ -140,6 +145,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Bake all draw command to command buffer </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graphicsCommandBuffer</td><td><a class="el" href="class_buffer.html">Buffer</a> to bake into </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -200,6 +211,18 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new shading pipeline </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderPass</td><td><a class="el" href="class_render_pass.html">RenderPass</a> where the pipeline should operate in </td></tr>
+    <tr><td class="paramname">descriptorSets</td><td>Descriptor sets the shader has access to </td></tr>
+    <tr><td class="paramname">shader</td><td><a class="el" href="class_shader.html">Shader</a> to be used for the shading effects </td></tr>
+    <tr><td class="paramname">extend</td><td>Extend of the render surface </td></tr>
+    <tr><td class="paramname">colorBlendStates</td><td>Number of color blend states in the render pass </td></tr>
+    <tr><td class="paramname">subpass</td><td>What subpass the effect is applied in </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid handle to <a class="el" href="class_shading_pipeline.html" title="Shading pipeline used to apply shading effects.">ShadingPipeline</a> object </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

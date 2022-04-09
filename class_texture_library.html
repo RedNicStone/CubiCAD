@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_texture_library.html',''); initR
 </div><!--header-->
 <div class="contents">
 
+<p>Library that manages texture objects.  
+ <a href="class_texture_library.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="texturelibrary_8h_source.html">texturelibrary.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for TextureLibrary:</div>
@@ -144,7 +147,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a04fb27614d94097125e4a9bb0a1e3cbf"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_library.html#a04fb27614d94097125e4a9bb0a1e3cbf">textures</a> {}</td></tr>
 <tr class="separator:a04fb27614d94097125e4a9bb0a1e3cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Library that manages texture objects. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa8905251fa5e575eff741fa978eae401" name="aa8905251fa5e575eff741fa978eae401"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8905251fa5e575eff741fa978eae401">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -190,6 +195,16 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new texture library </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDevice</td><td><a class="el" href="class_device.html">Device</a> to allocate textures on </td></tr>
+    <tr><td class="paramname">renderQueue</td><td>Render queue from which the textures will be accessed </td></tr>
+    <tr><td class="paramname">transferPool</td><td>Transfer pool to use for transferring the image data </td></tr>
+    <tr><td class="paramname">settings</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> quality settings for all textures </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid handle to texture library object </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -230,6 +245,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Find or create texture given the filename and format </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Filename from which to load the texture from </td></tr>
+    <tr><td class="paramname">format</td><td>Format for the texture image </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle to texture object </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -354,6 +377,12 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Update texture settings </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textureSettings</td><td>Settings to apply </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

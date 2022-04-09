@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_mesh.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_mesh.html" title="Mesh class storing mesh data.">Mesh</a> class storing mesh data.  
+ <a href="class_mesh.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mesh_8h_source.html">mesh.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Mesh:</div>
@@ -154,7 +157,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ac687e9dcfc7cc60b046fc2ec634200be"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ac687e9dcfc7cc60b046fc2ec634200be">name</a></td></tr>
 <tr class="separator:ac687e9dcfc7cc60b046fc2ec634200be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p ><a class="el" href="class_mesh.html" title="Mesh class storing mesh data.">Mesh</a> class storing mesh data. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5124d8c24ba9d31caffe59116a4f111e" name="a5124d8c24ba9d31caffe59116a4f111e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5124d8c24ba9d31caffe59116a4f111e">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -206,6 +211,17 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new mesh </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">meshlets</td><td>Vector of meshlets the mesh is made up of </td></tr>
+    <tr><td class="paramname">vertexData</td><td>Vector of vertices that the mesh is made up of </td></tr>
+    <tr><td class="paramname">bbox</td><td>Bounding box of the mesh </td></tr>
+    <tr><td class="paramname">pName</td><td>Name of the mesh </td></tr>
+    <tr><td class="paramname">normalizePos</td><td>If true, the mesh position will be normalized </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle to tthe mesh </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -254,6 +270,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Generate a draw command which will draw the mesh </p><dl class="section return"><dt>Returns</dt><dd>Vulkan draw command </dd></dl>
 
 </div>
 </div>

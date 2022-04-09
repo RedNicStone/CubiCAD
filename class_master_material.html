@@ -100,6 +100,9 @@ $(document).ready(function(){initNavTree('class_master_material.html',''); initR
 </div><!--header-->
 <div class="contents">
 
+<p>Master material class that stores a render pipeline for rendering meshlets.  
+ <a href="class_master_material.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="mastermaterial_8h_source.html">mastermaterial.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for MasterMaterial:</div>
@@ -147,6 +150,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a0994f648f9a890366d6785bc645859ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a0994f648f9a890366d6785bc645859ae">generateMaterialSetLayout</a> ()</td></tr>
+<tr class="memdesc:a0994f648f9a890366d6785bc645859ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the descriptor set layout for this material.  <a href="class_master_material.html#a0994f648f9a890366d6785bc645859ae">More...</a><br /></td></tr>
 <tr class="separator:a0994f648f9a890366d6785bc645859ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -180,7 +184,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a92207660e1c1c0598f503639e3fb5204"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_master_material.html#a92207660e1c1c0598f503639e3fb5204">subMaterials</a></td></tr>
 <tr class="separator:a92207660e1c1c0598f503639e3fb5204"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Master material class that stores a render pipeline for rendering meshlets. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adf377fb68b93fc139eb5301ecf265792" name="adf377fb68b93fc139eb5301ecf265792"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf377fb68b93fc139eb5301ecf265792">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -250,6 +256,20 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new master material </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDevice</td><td><a class="el" href="class_device.html">Device</a> the master material is used on </td></tr>
+    <tr><td class="paramname">vShaders</td><td><a class="el" href="class_shader.html">Shader</a> the material will use </td></tr>
+    <tr><td class="paramname">vColorBlendStates</td><td>Number of color blend states in the pipeline </td></tr>
+    <tr><td class="paramname">vExtent</td><td>Render extend of the pipeline </td></tr>
+    <tr><td class="paramname">layout</td><td>Input parameter layout of the shaders </td></tr>
+    <tr><td class="paramname">pRenderPass</td><td>Render pass this master material is used in </td></tr>
+    <tr><td class="paramname">descriptorManager</td><td>Handle to descriptor pool manager for creating descriptor sets </td></tr>
+    <tr><td class="paramname">pName</td><td>Name of the master material </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid handle to the master material </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -298,6 +318,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Generate the descriptor set layout for this material. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -608,6 +630,13 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Update the scene descriptor set </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sceneLayout</td><td><a class="el" href="class_scene.html" title="Scene class that stores all objects in a scene and manages rendering them.">Scene</a> descriptor set </td></tr>
+    <tr><td class="paramname">enableDepthStencil</td><td>Flag to enable depth stencil testing </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -632,6 +661,12 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Update the image sampler used </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textureLibrary</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> library to pull the sampler from </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

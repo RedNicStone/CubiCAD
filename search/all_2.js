@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['bakegraphicsbuffer_0',['bakeGraphicsBuffer',['../class_scene.html#a18d9b02ed3e1d23471ddfb3c62b759b2',1,'Scene::bakeGraphicsBuffer()'],['../class_shading_pipeline.html#ae508f91fb36dffcc44e83012f1c26bf5',1,'ShadingPipeline::bakeGraphicsBuffer()'],['../class_s_s_a_o_pipeline.html#ab69de281cb7851d903668b07e63461b9',1,'SSAOPipeline::bakeGraphicsBuffer()']]],
+  ['bakegraphicsbuffer_0',['bakeGraphicsBuffer',['../class_scene.html#a18d9b02ed3e1d23471ddfb3c62b759b2',1,'Scene::bakeGraphicsBuffer()'],['../class_shading_pipeline.html#ae508f91fb36dffcc44e83012f1c26bf5',1,'ShadingPipeline::bakeGraphicsBuffer()'],['../class_s_s_a_o_pipeline.html#ac715ddcafd64ca13d9281667654d9d93',1,'SSAOPipeline::bakeGraphicsBuffer()']]],
   ['bakematerials_1',['bakeMaterials',['../class_scene.html#a55c89f3cb667c2ccce9bf2f0ed63815e',1,'Scene']]],
   ['batchid_2',['batchID',['../struct_instance_data.html#ab9129c33cc817818d41848ab6e12e6bd',1,'InstanceData']]],
   ['bbox1_3',['bbox1',['../struct_instance_data.html#ac8f34bb4d0c0dcaac8c2f591a88c998d',1,'InstanceData']]],

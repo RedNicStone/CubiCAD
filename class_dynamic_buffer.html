@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_dynamic_buffer.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
+<p>Class that is used to maintain dynamic buffers that are resized automatically.  
+ <a href="class_dynamic_buffer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="dynamicbuffer_8h_source.html">dynamicbuffer.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for DynamicBuffer:</div>
@@ -116,6 +119,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab21b00292d7f53b2626de714141f8b3e"><td class="memItemLeft" align="right" valign="top">void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dynamic_buffer.html#ab21b00292d7f53b2626de714141f8b3e">map</a> ()</td></tr>
 <tr class="separator:ab21b00292d7f53b2626de714141f8b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8d3ee7193752312deddf498f96c11ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dynamic_buffer.html#ab8d3ee7193752312deddf498f96c11ff">unmap</a> ()</td></tr>
+<tr class="memdesc:ab8d3ee7193752312deddf498f96c11ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unmap the buffer from the CPU.  <a href="class_dynamic_buffer.html#ab8d3ee7193752312deddf498f96c11ff">More...</a><br /></td></tr>
 <tr class="separator:ab8d3ee7193752312deddf498f96c11ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -144,7 +148,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a494e6d54597be286531736f6fb85a38b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dynamic_buffer.html#a494e6d54597be286531736f6fb85a38b">data</a></td></tr>
 <tr class="separator:a494e6d54597be286531736f6fb85a38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Class that is used to maintain dynamic buffers that are resized automatically. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a81621a760b2a80c68fd5c9e94ac37da6" name="a81621a760b2a80c68fd5c9e94ac37da6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a81621a760b2a80c68fd5c9e94ac37da6">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -202,6 +208,18 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new dynamic buffer </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDevice</td><td><a class="el" href="class_device.html">Device</a> to create the buffer on </td></tr>
+    <tr><td class="paramname">vAccessingQueues</td><td>Vector of queue that will access this buffer </td></tr>
+    <tr><td class="paramname">vMemoryUsage</td><td>Where the buffer will be used </td></tr>
+    <tr><td class="paramname">vBufferUsage</td><td>What this buffer will be used for </td></tr>
+    <tr><td class="paramname">vPreferredFlags</td><td>Flags that will be preferred during buffer creation </td></tr>
+    <tr><td class="paramname">vRequiredFlags</td><td>Flags that are required during buffer creation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid handle to the newly created buffer </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -226,6 +244,13 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Get the active buffer handle </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Minimum required size. If the buffer is smaller than this it will be resized </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Active buffer handle </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -260,6 +285,13 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Get the active buffer handle but preserving the current buffer contents </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Minimum required size. If the buffer is smaller than this it will be resized </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Active buffer handle </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -283,6 +315,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Map the buffer to the CPU and get a writable handle (If allowed) </p><dl class="section return"><dt>Returns</dt><dd>CPU writable handle </dd></dl>
 
 </div>
 </div>
@@ -300,6 +333,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Unmap the buffer from the CPU. </p>
 
 </div>
 </div>

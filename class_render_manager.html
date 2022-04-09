@@ -101,6 +101,9 @@ $(document).ready(function(){initNavTree('class_render_manager.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
+<p>Main class used for all rendering actions.  
+ <a href="class_render_manager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="rendermanager_8h_source.html">rendermanager.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for RenderManager:</div>
@@ -120,16 +123,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab087dc4ee1c6e377ca52ee44d1591c29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ab087dc4ee1c6e377ca52ee44d1591c29">resizeSwapChain</a> (uint32_t newImageCount=0)</td></tr>
 <tr class="separator:ab087dc4ee1c6e377ca52ee44d1591c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46bda20725ceb8e5ab8031a6ac812310"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a46bda20725ceb8e5ab8031a6ac812310">updateRenderData</a> ()</td></tr>
+<tr class="memdesc:a46bda20725ceb8e5ab8031a6ac812310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update all data needed to render the scene.  <a href="class_render_manager.html#a46bda20725ceb8e5ab8031a6ac812310">More...</a><br /></td></tr>
 <tr class="separator:a46bda20725ceb8e5ab8031a6ac812310"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c50623b736ac72b1d019df1267c08c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a3c50623b736ac72b1d019df1267c08c4">drawFrame</a> ()</td></tr>
+<tr class="memdesc:a3c50623b736ac72b1d019df1267c08c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the frame.  <a href="class_render_manager.html#a3c50623b736ac72b1d019df1267c08c4">More...</a><br /></td></tr>
 <tr class="separator:a3c50623b736ac72b1d019df1267c08c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ad73ebab2e62c49c839e88800197195"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a6ad73ebab2e62c49c839e88800197195">processInputs</a> ()</td></tr>
+<tr class="memdesc:a6ad73ebab2e62c49c839e88800197195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process mouse and keyboard inputs.  <a href="class_render_manager.html#a6ad73ebab2e62c49c839e88800197195">More...</a><br /></td></tr>
 <tr class="separator:a6ad73ebab2e62c49c839e88800197195"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6ccf3885367de6d626d94a2bbe21be9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ad6ccf3885367de6d626d94a2bbe21be9">waitForExecution</a> ()</td></tr>
+<tr class="memdesc:ad6ccf3885367de6d626d94a2bbe21be9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for all actions to finish execution.  <a href="class_render_manager.html#ad6ccf3885367de6d626d94a2bbe21be9">More...</a><br /></td></tr>
 <tr class="separator:ad6ccf3885367de6d626d94a2bbe21be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ada440f9ccf7371a725ea966689c6e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a0ada440f9ccf7371a725ea966689c6e5">registerFunctionNextFrame</a> (const std::function&lt; void()&gt; &amp;function)</td></tr>
+<tr class="memdesc:a0ada440f9ccf7371a725ea966689c6e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a function to be called next frame.  <a href="class_render_manager.html#a0ada440f9ccf7371a725ea966689c6e5">More...</a><br /></td></tr>
 <tr class="separator:a0ada440f9ccf7371a725ea966689c6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b0a444cfea4ca5647ea6b8c5976a971"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a3b0a444cfea4ca5647ea6b8c5976a971">callFunctions</a> ()</td></tr>
+<tr class="memdesc:a3b0a444cfea4ca5647ea6b8c5976a971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call all functions that have been registered.  <a href="class_render_manager.html#a3b0a444cfea4ca5647ea6b8c5976a971">More...</a><br /></td></tr>
 <tr class="separator:a3b0a444cfea4ca5647ea6b8c5976a971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89d9d35d5998785893c6096e3a862ac1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a89d9d35d5998785893c6096e3a862ac1">loadMesh</a> (const std::string &amp;filename, bool normalizePos=false)</td></tr>
 <tr class="separator:a89d9d35d5998785893c6096e3a862ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,6 +170,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a61842a0a310ba0514a4e4f5ab67d577f"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_render_manager.html">RenderManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a61842a0a310ba0514a4e4f5ab67d577f">create</a> (const std::shared_ptr&lt; <a class="el" href="class_instance.html">Instance</a> &gt; &amp;<a class="el" href="class_render_manager.html#aa4e816ffa4ebfc84ab912c9bfd485612">instance</a>, const std::shared_ptr&lt; <a class="el" href="class_window.html">Window</a> &gt; &amp;<a class="el" href="class_render_manager.html#adfd809d2332b0d68ad36ef6d08ffa15b">window</a>, const <a class="el" href="struct_texture_quality_settings.html">TextureQualitySettings</a> &amp;textureQuality, const <a class="el" href="struct_render_quality_options.html">RenderQualityOptions</a> &amp;<a class="el" href="class_render_manager.html#a141312eaea051c186545efc2b42ff75e">renderQuality</a>, const <a class="el" href="struct_camera_model.html">CameraModel</a> &amp;<a class="el" href="class_render_manager.html#a9cf2ce738775ad5bff54f8d02501d621">cameraModel</a>)</td></tr>
 <tr class="separator:a61842a0a310ba0514a4e4f5ab67d577f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b1be9911df29d770b7d3005de929993"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#a7b1be9911df29d770b7d3005de929993">invalidateFrame</a> ()</td></tr>
+<tr class="memdesc:a7b1be9911df29d770b7d3005de929993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invalidate current frame and draw a new one.  <a href="class_render_manager.html#a7b1be9911df29d770b7d3005de929993">More...</a><br /></td></tr>
 <tr class="separator:a7b1be9911df29d770b7d3005de929993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -312,7 +322,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ad68afcc8f6c8467bf0f93cbb391418b9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_render_manager.html#ad68afcc8f6c8467bf0f93cbb391418b9">activePresentTarget</a> = 0</td></tr>
 <tr class="separator:ad68afcc8f6c8467bf0f93cbb391418b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Main class used for all rendering actions. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a221c4de19c04ad31cc1e729b9eb60c3b" name="a221c4de19c04ad31cc1e729b9eb60c3b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a221c4de19c04ad31cc1e729b9eb60c3b">&#9670;&nbsp;</a></span>~RenderManager()</h2>
 
@@ -345,6 +357,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Call all functions that have been registered. </p>
 
 </div>
 </div>
@@ -399,6 +413,17 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Creates new <a class="el" href="class_render_manager.html" title="Main class used for all rendering actions.">RenderManager</a> instance </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instance</td><td>Vulkan instance to be used for rendering </td></tr>
+    <tr><td class="paramname">window</td><td><a class="el" href="class_window.html" title="class that handles window creation, resizing and destruction">Window</a> to present to </td></tr>
+    <tr><td class="paramname">textureQuality</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> quality settings </td></tr>
+    <tr><td class="paramname">renderQuality</td><td>Render quality settings </td></tr>
+    <tr><td class="paramname">cameraModel</td><td><a class="el" href="class_camera.html">Camera</a> model to use for active camera </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle to the new <a class="el" href="class_render_manager.html" title="Main class used for all rendering actions.">RenderManager</a> instance </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -786,6 +811,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Draw the frame. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1105,6 +1132,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Invalidate current frame and draw a new one. </p>
+
 </div>
 </div>
 <a id="a0f7540f079654ada7762f7368deca060" name="a0f7540f079654ada7762f7368deca060"></a>
@@ -1198,6 +1227,13 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Load a mesh from a given file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The filename of the mesh file </td></tr>
+    <tr><td class="paramname">normalizePos</td><td>If the mesh position should be normalized </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1312,6 +1348,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Process mouse and keyboard inputs. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1412,6 +1450,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Register a function to be called next frame. </p>
+
 </div>
 </div>
 <a id="ab087dc4ee1c6e377ca52ee44d1591c29" name="ab087dc4ee1c6e377ca52ee44d1591c29"></a>
@@ -1429,6 +1469,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Resize the swapChain to fit the new dimensions of the window </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newImageCount</td><td>Number of new swapChain images to use for buffering </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1453,6 +1499,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Update all data needed to render the scene. </p>
+
 </div>
 </div>
 <a id="ad6ccf3885367de6d626d94a2bbe21be9" name="ad6ccf3885367de6d626d94a2bbe21be9"></a>
@@ -1469,6 +1517,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Wait for all actions to finish execution. </p>
 
 </div>
 </div>
@@ -1780,10 +1830,10 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">        {<a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3">RENDER_TARGET_DIFFUSE</a>, <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e">RENDER_TARGET_POSITION</a>, <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f">RENDER_TARGET_NORMAL</a>, <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2">RENDER_TARGET_DEPTH</a>}</div>
-<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2">RENDER_TARGET_DEPTH</a></div><div class="ttdeci">@ RENDER_TARGET_DEPTH</div><div class="ttdef"><b>Definition:</b> rendermanager.h:32</div></div>
-<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e">RENDER_TARGET_POSITION</a></div><div class="ttdeci">@ RENDER_TARGET_POSITION</div><div class="ttdef"><b>Definition:</b> rendermanager.h:30</div></div>
-<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f">RENDER_TARGET_NORMAL</a></div><div class="ttdeci">@ RENDER_TARGET_NORMAL</div><div class="ttdef"><b>Definition:</b> rendermanager.h:31</div></div>
-<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3">RENDER_TARGET_DIFFUSE</a></div><div class="ttdeci">@ RENDER_TARGET_DIFFUSE</div><div class="ttdef"><b>Definition:</b> rendermanager.h:29</div></div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2">RENDER_TARGET_DEPTH</a></div><div class="ttdeci">@ RENDER_TARGET_DEPTH</div><div class="ttdef"><b>Definition:</b> rendermanager.h:33</div></div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e">RENDER_TARGET_POSITION</a></div><div class="ttdeci">@ RENDER_TARGET_POSITION</div><div class="ttdef"><b>Definition:</b> rendermanager.h:31</div></div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f">RENDER_TARGET_NORMAL</a></div><div class="ttdeci">@ RENDER_TARGET_NORMAL</div><div class="ttdef"><b>Definition:</b> rendermanager.h:32</div></div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3">RENDER_TARGET_DIFFUSE</a></div><div class="ttdeci">@ RENDER_TARGET_DIFFUSE</div><div class="ttdef"><b>Definition:</b> rendermanager.h:30</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2535,7 +2585,7 @@ Here is the call graph for this function:</div>
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">        {<a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dacea624af60215020909aa1f89c0841e3">RENDER_TARGET_DIFFUSE</a>, <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dac8cdb211f356d660fcdb6a72c8e1810e">RENDER_TARGET_POSITION</a>, <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249daca4aa22ac387503d7e76e99d0dfc707f">RENDER_TARGET_NORMAL</a>, <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dab0945ed0befc0bffc105d774b2ed66e2">RENDER_TARGET_DEPTH</a>,</div>
 <div class="line">         <a class="code hl_enumvalue" href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1">RENDER_TARGET_AMBIENT</a>}</div>
-<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1">RENDER_TARGET_AMBIENT</a></div><div class="ttdeci">@ RENDER_TARGET_AMBIENT</div><div class="ttdef"><b>Definition:</b> rendermanager.h:33</div></div>
+<div class="ttc" id="arendermanager_8h_html_a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1"><div class="ttname"><a href="rendermanager_8h.html#a87bd0c12389c906279fdd4132998249dabf1b64af200fd28cde2578755940bfa1">RENDER_TARGET_AMBIENT</a></div><div class="ttdeci">@ RENDER_TARGET_AMBIENT</div><div class="ttdef"><b>Definition:</b> rendermanager.h:34</div></div>
 </div><!-- fragment -->
 </div>
 </div>

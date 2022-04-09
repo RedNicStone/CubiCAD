@@ -1,7 +1,7 @@
 var class_s_s_a_o_pipeline =
 [
     [ "PassInfo", "struct_s_s_a_o_pipeline_1_1_pass_info.html", "struct_s_s_a_o_pipeline_1_1_pass_info" ],
-    [ "bakeGraphicsBuffer", "class_s_s_a_o_pipeline.html#ab69de281cb7851d903668b07e63461b9", null ],
+    [ "bakeGraphicsBuffer", "class_s_s_a_o_pipeline.html#ac715ddcafd64ca13d9281667654d9d93", null ],
     [ "blurPipelineX", "class_s_s_a_o_pipeline.html#a8f69f74a586f0d998105f6f189a4d43d", null ],
     [ "blurPipelineY", "class_s_s_a_o_pipeline.html#a0a3423042f4a78d03a7c77ef4fa4ec25", null ],
     [ "imageExtend", "class_s_s_a_o_pipeline.html#affa505e4114286268a83a7e2e08000d4", null ],

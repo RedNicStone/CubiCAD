@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_material.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_material.html" title="Material class that can be used in a mesh for drawing.">Material</a> class that can be used in a mesh for drawing.  
+ <a href="class_material.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="material_8h_source.html">material.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Material:</div>
@@ -144,7 +147,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:affe06990f884293d0fe2f39110f71730"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material.html#affe06990f884293d0fe2f39110f71730">name</a></td></tr>
 <tr class="separator:affe06990f884293d0fe2f39110f71730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p ><a class="el" href="class_material.html" title="Material class that can be used in a mesh for drawing.">Material</a> class that can be used in a mesh for drawing. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2c19452d71f54075df8f5405b03129f4" name="a2c19452d71f54075df8f5405b03129f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c19452d71f54075df8f5405b03129f4">&#9670;&nbsp;</a></span>~Material()</h2>
 
@@ -208,6 +213,16 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new material </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pMasterMaterial</td><td>Master material to use </td></tr>
+    <tr><td class="paramname">textures</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> inputs to use </td></tr>
+    <tr><td class="paramname">parameters</td><td><a class="el" href="class_material.html" title="Material class that can be used in a mesh for drawing.">Material</a> input parameters to use </td></tr>
+    <tr><td class="paramname">pName</td><td><a class="el" href="class_material.html" title="Material class that can be used in a mesh for drawing.">Material</a> name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid handle to the new material </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -358,6 +373,12 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Update the parameter buffer with material information </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td><a class="el" href="class_buffer.html">Buffer</a> to update </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -384,6 +405,12 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Update the offset in the material parameter buffer </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset</td><td>Offset to use </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

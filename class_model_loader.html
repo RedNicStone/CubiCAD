@@ -100,6 +100,9 @@ $(document).ready(function(){initNavTree('class_model_loader.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
+<p>Class that handles loading objects form file.  
+ <a href="class_model_loader.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="modelloader_8h_source.html">modelloader.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for ModelLoader:</div>
@@ -138,7 +141,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a6b0aa36b64d58e359bee67d75640dcc1"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_material_library.html">MaterialLibrary</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_loader.html#a6b0aa36b64d58e359bee67d75640dcc1">materialLibrary</a></td></tr>
 <tr class="separator:a6b0aa36b64d58e359bee67d75640dcc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Class that handles loading objects form file. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a31c9aa31bf2d9778696ab75f4431a523" name="a31c9aa31bf2d9778696ab75f4431a523"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a31c9aa31bf2d9778696ab75f4431a523">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -172,6 +177,14 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new <a class="el" href="class_model_loader.html" title="Class that handles loading objects form file.">ModelLoader</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textureLibrary</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> library for creating textures </td></tr>
+    <tr><td class="paramname">materialLibrary</td><td><a class="el" href="class_material.html" title="Material class that can be used in a mesh for drawing.">Material</a> library for allocating materials </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid <a class="el" href="class_model_loader.html" title="Class that handles loading objects form file.">ModelLoader</a> handle </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -212,6 +225,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Import a model from a given file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Location of the file to load from </td></tr>
+    <tr><td class="paramname">masterMaterialTemplate</td><td>Template for materials that will be created when loading the model </td></tr>
+    <tr><td class="paramname">normalizePos</td><td>Bool flag that normalizes the model position to the origin </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of newly created meshes from the given file </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -260,6 +282,14 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Load materials properties from a tinyOBJ material struct </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">property</td><td>Name of the property to load </td></tr>
+    <tr><td class="paramname">materialProperty</td><td>Pointer to the property </td></tr>
+    <tr><td class="paramname">material</td><td>TinyOBJ material </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -320,6 +350,16 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Load material texture from a tinyOBJ material struct </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">materialLayout</td><td>Layout of the material to load for </td></tr>
+    <tr><td class="paramname">material</td><td>TinyOBJ material </td></tr>
+    <tr><td class="paramname">textureLibrary</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> library handle to create new textures </td></tr>
+    <tr><td class="paramname">modelFilename</td><td>File name of the model (for locating the textures) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of texture handles </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -368,6 +408,14 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Locates a texture given the model location and texture path </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textureFilename</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> path (relative or absolute) </td></tr>
+    <tr><td class="paramname">modelFilename</td><td>Model path (absolute) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Location of the texture file if it exists </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

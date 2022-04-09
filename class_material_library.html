@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_material_library.html',''); init
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_material.html" title="Material class that can be used in a mesh for drawing.">Material</a> library storing and maintaining materials.  
+ <a href="class_material_library.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="materiallibrary_8h_source.html">materiallibrary.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for MaterialLibrary:</div>
@@ -114,8 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c531c5c5e6c44562bdc3c14269f948e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_material.html">Material</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a1c531c5c5e6c44562bdc3c14269f948e">createMaterial</a> (const std::shared_ptr&lt; <a class="el" href="class_master_material.html">MasterMaterial</a> &gt; &amp;masterMaterial, void *parameters, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_texture.html">Texture</a> &gt; &gt; textures={}, const std::string &amp;name=&quot;&quot;)</td></tr>
 <tr class="separator:a1c531c5c5e6c44562bdc3c14269f948e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9fb891338ea135de236dff0acbfabf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#ac9fb891338ea135de236dff0acbfabf5">updateImageSampler</a> ()</td></tr>
+<tr class="memdesc:ac9fb891338ea135de236dff0acbfabf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update all image samplers.  <a href="class_material_library.html#ac9fb891338ea135de236dff0acbfabf5">More...</a><br /></td></tr>
 <tr class="separator:ac9fb891338ea135de236dff0acbfabf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a926b79a4183235c9efa6b6ae075c1054"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#a926b79a4183235c9efa6b6ae075c1054">pushParameters</a> ()</td></tr>
+<tr class="memdesc:a926b79a4183235c9efa6b6ae075c1054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push all material parameters to the GPU.  <a href="class_material_library.html#a926b79a4183235c9efa6b6ae075c1054">More...</a><br /></td></tr>
 <tr class="separator:a926b79a4183235c9efa6b6ae075c1054"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -152,7 +157,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ae98d64aac7d1437e91f1e69fe82b44d4"><td class="memItemLeft" align="right" valign="top">VkExtent2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_material_library.html#ae98d64aac7d1437e91f1e69fe82b44d4">extent</a></td></tr>
 <tr class="separator:ae98d64aac7d1437e91f1e69fe82b44d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p ><a class="el" href="class_material.html" title="Material class that can be used in a mesh for drawing.">Material</a> library storing and maintaining materials. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af1db0656993d6ae1da4e183d0862be61" name="af1db0656993d6ae1da4e183d0862be61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1db0656993d6ae1da4e183d0862be61">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -222,6 +229,20 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new material library </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDevice</td><td><a class="el" href="class_device.html">Device</a> to store the materials on </td></tr>
+    <tr><td class="paramname">pTransferPool</td><td>Transfer pool for carrying out memory transfers </td></tr>
+    <tr><td class="paramname">pDescriptorPool</td><td>Descriptor pool for allocating descriptor sets </td></tr>
+    <tr><td class="paramname">textureLibrary</td><td><a class="el" href="class_texture.html" title="A texture object that loads images from storage and uploads them to the GPU.">Texture</a> library for getting default textures </td></tr>
+    <tr><td class="paramname">accessingQueues</td><td>Queues accessing the materials </td></tr>
+    <tr><td class="paramname">renderPass</td><td>Render pass the materials are used in </td></tr>
+    <tr><td class="paramname">colorBlendStates</td><td>Number of blend states in the render pass </td></tr>
+    <tr><td class="paramname">extent</td><td>Surface extend </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle to a material library </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -268,6 +289,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Create new master material </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">masterMaterialTemplate</td><td>Master template for material creation </td></tr>
+    <tr><td class="paramname">pName</td><td>Name of the material </td></tr>
+    <tr><td class="paramname">materialLayout</td><td>Input layout of material </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle to new master material </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -314,6 +344,16 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Create new material </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">masterMaterial</td><td>Master material to use </td></tr>
+    <tr><td class="paramname">parameters</td><td>Input parameters </td></tr>
+    <tr><td class="paramname">textures</td><td>Input textures </td></tr>
+    <tr><td class="paramname">name</td><td>Name of the material </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle to the new material </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -338,6 +378,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Push all material parameters to the GPU. </p>
+
 </div>
 </div>
 <a id="ac9fb891338ea135de236dff0acbfabf5" name="ac9fb891338ea135de236dff0acbfabf5"></a>
@@ -354,6 +396,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Update all image samplers. </p>
 
 </div>
 </div>

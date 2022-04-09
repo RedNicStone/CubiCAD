@@ -101,6 +101,9 @@ $(document).ready(function(){initNavTree('class_descriptor_pool_manager.html',''
 </div><!--header-->
 <div class="contents">
 
+<p>Descriptor pool manager that eases in descriptor set creation.  
+ <a href="class_descriptor_pool_manager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="descriptorpoolmanager_8h_source.html">descriptorpoolmanager.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for DescriptorPoolManager:</div>
@@ -112,11 +115,13 @@ Collaboration diagram for DescriptorPoolManager:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_descriptor_pool_manager_1_1_pool_sizes.html">PoolSizes</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct storing pool sizes for each descriptor type.  <a href="struct_descriptor_pool_manager_1_1_pool_sizes.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a431fea02150aa7225867fcb7fe3d2643"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_pool_manager.html#a431fea02150aa7225867fcb7fe3d2643">resetPools</a> ()</td></tr>
+<tr class="memdesc:a431fea02150aa7225867fcb7fe3d2643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the pool and invalidate all created descriptor set handles.  <a href="class_descriptor_pool_manager.html#a431fea02150aa7225867fcb7fe3d2643">More...</a><br /></td></tr>
 <tr class="separator:a431fea02150aa7225867fcb7fe3d2643"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf0baf8860dc5eb90f19b2b35a42ce50"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_descriptor_set.html">DescriptorSet</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_pool_manager.html#acf0baf8860dc5eb90f19b2b35a42ce50">allocate</a> (std::shared_ptr&lt; <a class="el" href="class_descriptor_set_layout.html">DescriptorSetLayout</a> &gt; layout)</td></tr>
 <tr class="separator:acf0baf8860dc5eb90f19b2b35a42ce50"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,7 +151,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:adfe3dedd498e3e39154a8a1550436359"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_descriptor_pool.html">DescriptorPool</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_descriptor_pool_manager.html#adfe3dedd498e3e39154a8a1550436359">freePools</a></td></tr>
 <tr class="separator:adfe3dedd498e3e39154a8a1550436359"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Descriptor pool manager that eases in descriptor set creation. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="acf0baf8860dc5eb90f19b2b35a42ce50" name="acf0baf8860dc5eb90f19b2b35a42ce50"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf0baf8860dc5eb90f19b2b35a42ce50">&#9670;&nbsp;</a></span>allocate()</h2>
 
@@ -162,6 +169,13 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Allocate a new descriptor set </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layout</td><td>Layout of the new set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle the the new descriptor set </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -194,6 +208,13 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new descriptor pool manager </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDevice</td><td><a class="el" href="class_device.html">Device</a> to create this object on </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid handle to the descriptor pool manager </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -279,6 +300,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Clear the pool and invalidate all created descriptor set handles. </p>
 
 </div>
 </div>

@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('struct_file_stream.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
+<p>File steam structure used to ease in creation of buffered file steams.  
+ <a href="struct_file_stream.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="scenewriter_8h_source.html">scenewriter.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for FileStream:</div>
@@ -111,6 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8af9a5c2a5982c6dd19dde23a6d455e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_stream.html#ae8af9a5c2a5982c6dd19dde23a6d455e">Put</a> (char c)</td></tr>
 <tr class="separator:ae8af9a5c2a5982c6dd19dde23a6d455e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1258c8c83aec85987ab5866f222bafd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_stream.html#aa1258c8c83aec85987ab5866f222bafd">Flush</a> ()</td></tr>
+<tr class="memdesc:aa1258c8c83aec85987ab5866f222bafd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush all character to file.  <a href="struct_file_stream.html#aa1258c8c83aec85987ab5866f222bafd">More...</a><br /></td></tr>
 <tr class="separator:aa1258c8c83aec85987ab5866f222bafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -118,7 +122,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a401f74ae2ff337981cd6f2e263ba2af5"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_file_stream.html#a401f74ae2ff337981cd6f2e263ba2af5">charStream</a></td></tr>
 <tr class="separator:a401f74ae2ff337981cd6f2e263ba2af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >File steam structure used to ease in creation of buffered file steams. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa1258c8c83aec85987ab5866f222bafd" name="aa1258c8c83aec85987ab5866f222bafd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1258c8c83aec85987ab5866f222bafd">&#9670;&nbsp;</a></span>Flush()</h2>
 
@@ -141,6 +147,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Flush all character to file. </p>
 
 </div>
 </div>
@@ -167,6 +175,12 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Append a new character to the steam </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>Character to append </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

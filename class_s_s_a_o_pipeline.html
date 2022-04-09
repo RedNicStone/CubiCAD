@@ -100,6 +100,9 @@ $(document).ready(function(){initNavTree('class_s_s_a_o_pipeline.html',''); init
 </div><!--header-->
 <div class="contents">
 
+<p>The Screen Space Ambient Occlusion pipeline.  
+ <a href="class_s_s_a_o_pipeline.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ssaopipeline_8h_source.html">ssaopipeline.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for SSAOPipeline:</div>
@@ -111,12 +114,13 @@ Collaboration diagram for SSAOPipeline:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s_s_a_o_pipeline_1_1_pass_info.html">PassInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct that is shared with the GPU containing information about the pass.  <a href="struct_s_s_a_o_pipeline_1_1_pass_info.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab69de281cb7851d903668b07e63461b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#ab69de281cb7851d903668b07e63461b9">bakeGraphicsBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;graphicsCommandBuffer)</td></tr>
-<tr class="separator:ab69de281cb7851d903668b07e63461b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac715ddcafd64ca13d9281667654d9d93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#ac715ddcafd64ca13d9281667654d9d93">bakeGraphicsBuffer</a> (const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;computeCommandBuffer)</td></tr>
+<tr class="separator:ac715ddcafd64ca13d9281667654d9d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -146,9 +150,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a0a3423042f4a78d03a7c77ef4fa4ec25"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_compute_pipeline.html">ComputePipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_s_a_o_pipeline.html#a0a3423042f4a78d03a7c77ef4fa4ec25">blurPipelineY</a></td></tr>
 <tr class="separator:a0a3423042f4a78d03a7c77ef4fa4ec25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab69de281cb7851d903668b07e63461b9" name="ab69de281cb7851d903668b07e63461b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab69de281cb7851d903668b07e63461b9">&#9670;&nbsp;</a></span>bakeGraphicsBuffer()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The Screen Space Ambient Occlusion pipeline. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac715ddcafd64ca13d9281667654d9d93" name="ac715ddcafd64ca13d9281667654d9d93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac715ddcafd64ca13d9281667654d9d93">&#9670;&nbsp;</a></span>bakeGraphicsBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,11 +163,17 @@ Private Attributes</h2></td></tr>
           <td class="memname">void SSAOPipeline::bakeGraphicsBuffer </td>
           <td>(</td>
           <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_command_buffer.html">CommandBuffer</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>graphicsCommandBuffer</em></td><td>)</td>
+          <td class="paramname"><em>computeCommandBuffer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Bake draw commands to command buffer </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">computeCommandBuffer</td><td><a class="el" href="class_buffer.html">Buffer</a> to bake to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -258,6 +270,24 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructor for <a class="el" href="class_s_s_a_o_pipeline.html" title="The Screen Space Ambient Occlusion pipeline.">SSAOPipeline</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDevice</td><td><a class="el" href="class_device.html">Device</a> to use for rendering </td></tr>
+    <tr><td class="paramname">poolManager</td><td>PoolManager to use to allocating descriptor sets </td></tr>
+    <tr><td class="paramname">transferPool</td><td><a class="el" href="class_command_pool.html">CommandPool</a> for transfer operations </td></tr>
+    <tr><td class="paramname">computePool</td><td><a class="el" href="class_command_pool.html">CommandPool</a> for compute operations </td></tr>
+    <tr><td class="paramname">resultImageView</td><td><a class="el" href="class_image_view.html">ImageView</a> of the AO image </td></tr>
+    <tr><td class="paramname">normalImageView</td><td><a class="el" href="class_image_view.html">ImageView</a> of the normal inputs </td></tr>
+    <tr><td class="paramname">posImageView</td><td><a class="el" href="class_image_view.html">ImageView</a> of the position data input </td></tr>
+    <tr><td class="paramname">sceneDescriptor</td><td>Descriptor set to use for acquiring scene information </td></tr>
+    <tr><td class="paramname">fov</td><td>Field of view property to use for shading </td></tr>
+    <tr><td class="paramname">imageExtend</td><td>Extend of the rendered area </td></tr>
+    <tr><td class="paramname">sampleCount</td><td>Number of SSAO samples </td></tr>
+    <tr><td class="paramname">sampleRadius</td><td>Sample distance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle to the SSAO instance </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

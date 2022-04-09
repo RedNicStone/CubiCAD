@@ -99,6 +99,9 @@ $(document).ready(function(){initNavTree('class_mesh_library.html',''); initResi
 </div><!--header-->
 <div class="contents">
 
+<p>Library for handing mesh creation.  
+ <a href="class_mesh_library.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="meshlibrary_8h_source.html">meshlibrary.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for MeshLibrary:</div>
@@ -126,7 +129,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a67aa1bdac523541b67df3908f58cf408"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_mesh.html">Mesh</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_library.html#a67aa1bdac523541b67df3908f58cf408">meshes</a></td></tr>
 <tr class="separator:a67aa1bdac523541b67df3908f58cf408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Library for handing mesh creation. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae3c816d442454c82fa75b37698ee7f5d" name="ae3c816d442454c82fa75b37698ee7f5d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3c816d442454c82fa75b37698ee7f5d">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -160,6 +165,14 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Create a new mesh library </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textureLibrary</td><td>Handle to the texture library to use </td></tr>
+    <tr><td class="paramname">materialLibrary</td><td>Handle to the material library to use </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Valid <a class="el" href="class_mesh_library.html" title="Library for handing mesh creation.">MeshLibrary</a> handle </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -206,6 +219,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Import a model from a given file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Location of the file to load from </td></tr>
+    <tr><td class="paramname">masterMaterialTemplate</td><td>Template for materials that will be created when loading the model </td></tr>
+    <tr><td class="paramname">normalizePos</td><td>Bool flag that normalizes the model position to the origin </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of newly created meshes from the given file </dd></dl>
 
 </div>
 </div>
