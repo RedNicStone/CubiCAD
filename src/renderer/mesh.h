@@ -24,16 +24,21 @@ class Material;
 
 struct PBRMaterialParameters;
 
+/// Bounding box object storing a meshes bounding box
 struct BoundingBox {
-    glm::vec3 min;
-    glm::vec3 max;
+    glm::vec3 min;  //< First bounding box vertex
+    glm::vec3 max;  //< Second bounding box vertex
 };
 
+/// Vertex object for storing a vertex
 struct Vertex {
-    glm::vec3 pos;
-    glm::i16vec3 normal;
-    glm::u16vec2 uv;
+    glm::vec3 pos;          //< Position of the vertex
+    glm::i16vec3 normal;    //< Per-vertex normal
+    glm::u16vec2 uv;        //< UV coord
 
+    /// Comparison operator for sorting
+    /// \param other Other vertex
+    /// \return True if the vertex is the same
     bool operator==(const Vertex &other) const {
         return pos == other.pos && uv == other.uv && normal == other.normal;
     }
@@ -42,6 +47,9 @@ struct Vertex {
 namespace std {
   template<>
   struct hash<Vertex> {
+      /// Hash operation for vertices
+      /// \param vertex Vertex to hash
+      /// \return 64 bit hash of the vertex
       size_t operator()(Vertex const &vertex) const {
           return ((std::hash<glm::vec3>{}(vertex.pos) ^ (std::hash<glm::i16vec3>{}(vertex.normal) << 1)) >> 1)
               ^ (std::hash<glm::u16vec2>{}(vertex.uv) << 1);
@@ -49,11 +57,13 @@ namespace std {
   };
 }
 
+/// Structure to store meshlet data
 struct Meshlet {
-    std::vector<uint32_t> indexData{};
-    std::shared_ptr<Material> material;
+    std::vector<uint32_t> indexData{};  //< Index data
+    std::shared_ptr<Material> material; //< Handle to material used in meshlet
 };
 
+/// Mesh class storing mesh data
 class Mesh {
   private:
     std::vector<std::shared_ptr<Meshlet>> subMeshes{};
@@ -70,6 +80,13 @@ class Mesh {
     std::string name;
 
   public:
+    /// Create a new mesh
+    /// \param meshlets Vector of meshlets the mesh is made up of
+    /// \param vertexData Vector of vertices that the mesh is made up of
+    /// \param bbox Bounding box of the mesh
+    /// \param pName Name of the mesh
+    /// \param normalizePos If true, the mesh position will be normalized
+    /// \return Handle to tthe mesh
     static std::shared_ptr<Mesh> create(const std::vector<std::shared_ptr<Meshlet>> &meshlets,
                                         const std::vector<Vertex> &vertexData,
                                         const BoundingBox &bbox,
@@ -92,6 +109,8 @@ class Mesh {
 
     std::vector<std::shared_ptr<Meshlet>> &getMeshlets() { return subMeshes; }
 
+    /// Generate a draw command which will draw the mesh
+    /// \return Vulkan draw command
     [[nodiscard]] VkDrawIndexedIndirectCommand getDrawCommand() const;
     void setOffsets(uint32_t vFirstIndex, uint32_t vFirstVertex);
 };

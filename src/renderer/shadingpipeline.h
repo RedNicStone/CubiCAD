@@ -9,6 +9,7 @@
 
 #include "vulkan/graphicspipeline.h"
 
+/// Shading pipeline used to apply shading effects
 class ShadingPipeline {
   private:
     std::shared_ptr<GraphicsPipeline> pipeline;
@@ -16,6 +17,14 @@ class ShadingPipeline {
     std::vector<std::shared_ptr<DescriptorSet>> descriptorSets;
 
   public:
+    /// Create a new shading pipeline
+    /// \param renderPass RenderPass where the pipeline should operate in
+    /// \param descriptorSets Descriptor sets the shader has access to
+    /// \param shader Shader to be used for the shading effects
+    /// \param extend Extend of the render surface
+    /// \param colorBlendStates Number of color blend states in the render pass
+    /// \param subpass What subpass the effect is applied in
+    /// \return Valid handle to ShadingPipeline object
     static std::shared_ptr<ShadingPipeline> create(const std::shared_ptr<RenderPass>& renderPass,
                                                    const std::vector<std::shared_ptr<DescriptorSet>>&
                                                    descriptorSets,
@@ -24,6 +33,8 @@ class ShadingPipeline {
                                                    uint32_t colorBlendStates,
                                                    uint32_t subpass = 0);
 
+    /// Bake all draw command to command buffer
+    /// \param graphicsCommandBuffer Buffer to bake into
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 };
 

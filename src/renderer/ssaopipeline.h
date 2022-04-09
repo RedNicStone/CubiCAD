@@ -23,8 +23,10 @@
 
 class ComputePipeline;
 
+/// The Screen Space Ambient Occlusion pipeline
 class SSAOPipeline {
   private:
+    /// Struct that is shared with the GPU containing information about the pass
     struct PassInfo {
         alignas(8) glm::uvec2 imageSize{};
         alignas(4) float tanFOV{};
@@ -46,6 +48,20 @@ class SSAOPipeline {
     std::shared_ptr<ComputePipeline> blurPipelineY;
 
   public:
+    /// Constructor for SSAOPipeline
+    /// \param pDevice Device to use for rendering
+    /// \param poolManager PoolManager to use to allocating descriptor sets
+    /// \param transferPool CommandPool for transfer operations
+    /// \param computePool CommandPool for compute operations
+    /// \param resultImageView ImageView of the AO image
+    /// \param normalImageView ImageView of the normal inputs
+    /// \param posImageView ImageView of the position data input
+    /// \param sceneDescriptor Descriptor set to use for acquiring scene information
+    /// \param fov Field of view property to use for shading
+    /// \param imageExtend Extend of the rendered area
+    /// \param sampleCount Number of SSAO samples
+    /// \param sampleRadius Sample distance
+    /// \return Handle to the SSAO instance
     static std::shared_ptr<SSAOPipeline> create(const std::shared_ptr<Device> &pDevice,
                                                 const std::shared_ptr<DescriptorPoolManager> &poolManager,
                                                 const std::shared_ptr<CommandPool> &transferPool,
@@ -59,7 +75,9 @@ class SSAOPipeline {
                                                 uint32_t sampleCount,
                                                 float sampleRadius);
 
-    void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
+    /// Bake draw commands to command buffer
+    /// \param computeCommandBuffer Buffer to bake to
+    void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &computeCommandBuffer);
 
 };
 

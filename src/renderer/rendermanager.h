@@ -24,6 +24,7 @@ class SceneWriter;
 
 class Scene;
 
+/// Enum of available render targets
 enum RenderTarget : uint32_t {
     RENDER_TARGET_DEFAULT = 0,
     RENDER_TARGET_DIFFUSE = 0,
@@ -34,6 +35,7 @@ enum RenderTarget : uint32_t {
     RENDER_TARGET_MAX = 5
 };
 
+/// Structure to store render configs
 struct RenderQualityOptions {
     bool enableSSAO = false;
     uint32_t SSAOSampleCount = 16;
@@ -42,6 +44,7 @@ struct RenderQualityOptions {
     uint32_t bufferCount = 1;
 };
 
+/// Main class used for all rendering actions
 class RenderManager : public std::enable_shared_from_this<RenderManager> {
   private:
     // external objects
@@ -156,23 +159,42 @@ class RenderManager : public std::enable_shared_from_this<RenderManager> {
     void drawFrame_();
 
   public:
+    /// Creates new RenderManager instance
+    /// \param instance Vulkan instance to be used for rendering
+    /// \param window Window to present to
+    /// \param textureQuality Texture quality settings
+    /// \param renderQuality Render quality settings
+    /// \param cameraModel Camera model to use for active camera
+    /// \return Handle to the new RenderManager instance
     static std::shared_ptr<RenderManager> create(const std::shared_ptr<Instance> &instance,
                                                  const std::shared_ptr<Window> &window,
                                                  const TextureQualitySettings &textureQuality,
                                                  const RenderQualityOptions &renderQuality,
                                                  const CameraModel &cameraModel);
 
+    /// Resize the swapChain to fit the new dimensions of the window
+    /// \param newImageCount Number of new swapChain images to use for buffering
     void resizeSwapChain(uint32_t newImageCount = 0);
 
+    /// Update all data needed to render the scene
     void updateRenderData();
+    /// Draw the frame
     void drawFrame();
+    /// Process mouse and keyboard inputs
     void processInputs();
 
+    /// Invalidate current frame and draw a new one
     static void invalidateFrame();
+    /// Wait for all actions to finish execution
     void waitForExecution();
+    /// Register a function to be called next frame
     void registerFunctionNextFrame(const std::function<void()> &function);
+    /// Call all functions that have been registered
     void callFunctions();
 
+    /// Load a mesh from a given file
+    /// \param filename The filename of the mesh file
+    /// \param normalizePos If the mesh position should be normalized
     void loadMesh(const std::string &filename, bool normalizePos = false);
 
     std::shared_ptr<Scene> getScene() { return scene; }

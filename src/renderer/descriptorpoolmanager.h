@@ -11,8 +11,10 @@
 #include "vulkan/descriptorset.h"
 
 
+/// Descriptor pool manager that eases in descriptor set creation
 class DescriptorPoolManager {
   public:
+    /// Struct storing pool sizes for each descriptor type
     struct PoolSizes {
         std::vector<std::pair<VkDescriptorType, float>>
             sizes =
@@ -35,9 +37,16 @@ class DescriptorPoolManager {
     std::shared_ptr<DescriptorPool> grabPool();
 
   public:
+    /// Create a new descriptor pool manager
+    /// \param pDevice Device to create this object on
+    /// \return Valid handle to the descriptor pool manager
     static std::shared_ptr<DescriptorPoolManager> create(std::shared_ptr<Device> pDevice);
 
+    /// Clear the pool and invalidate all created descriptor set handles
     void resetPools();
+    /// Allocate a new descriptor set
+    /// \param layout Layout of the new set
+    /// \return Handle the the new descriptor set
     std::shared_ptr<DescriptorSet> allocate(std::shared_ptr<DescriptorSetLayout> layout);
 
     std::shared_ptr<Device> getDevice() { return device; };

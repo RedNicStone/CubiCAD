@@ -24,6 +24,7 @@ class TextureLibrary;
 
 class DescriptorPoolManager;
 
+/// Master material class that stores a render pipeline for rendering meshlets
 class MasterMaterial {
   private:
     std::shared_ptr<Device> device;
@@ -46,9 +47,20 @@ class MasterMaterial {
     std::string name;
     uint32_t subMaterials;
 
+    /// Generate the descriptor set layout for this material
     void generateMaterialSetLayout();
 
   public:
+    /// Create a new master material
+    /// \param pDevice Device the master material is used on
+    /// \param vShaders Shader the material will use
+    /// \param vColorBlendStates Number of color blend states in the pipeline
+    /// \param vExtent Render extend of the pipeline
+    /// \param layout Input parameter layout of the shaders
+    /// \param pRenderPass Render pass this master material is used in
+    /// \param descriptorManager Handle to descriptor pool manager for creating descriptor sets
+    /// \param pName Name of the master material
+    /// \return Valid handle to the master material
     static std::shared_ptr<MasterMaterial> create(const std::shared_ptr<Device> &pDevice,
                                                   const std::vector<std::shared_ptr<GraphicsShader>> &vShaders,
                                                   uint32_t vColorBlendStates,
@@ -59,8 +71,13 @@ class MasterMaterial {
                                                   const std::string &pName);
 
     void setName(const std::string &pName) { name = pName; }
+    /// Update the scene descriptor set
+    /// \param sceneLayout Scene descriptor set
+    /// \param enableDepthStencil Flag to enable depth stencil testing
     void updateDescriptorSetLayouts(const std::shared_ptr<DescriptorSetLayout> &sceneLayout,
                                     bool enableDepthStencil = false);
+    /// Update the image sampler used
+    /// \param textureLibrary Texture library to pull the sampler from
     void updateImageSampler(const std::shared_ptr<TextureLibrary> &textureLibrary);
     [[nodiscard]] size_t getPropertySize() const { return propertyLayout->totalSize; }
     std::shared_ptr<MaterialPropertyLayoutBuilt> getPropertyLayout() { return propertyLayout; }

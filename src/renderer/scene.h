@@ -24,26 +24,30 @@
 
 class RenderManager;
 
+/// Structure that is shared with the GPU which stores data regarding the current scene
 struct SceneData {
-    glm::mat4 view{};       // view matrix
-    glm::mat4 proj{};       // projection matrix
+    glm::mat4 view{};       //< view matrix
+    glm::mat4 proj{};       //< projection matrix
 
-    glm::uint nFrame{};     // frame ID
-    glm::uint frameTime{};  // frame time in ns
-    glm::uint selectedID{}; // ID of the currently selected object
-    glm::uint hoveredID{};  // ID of the currently hovered object
+    glm::uint nFrame{};     //< frame ID
+    glm::uint frameTime{};  //< frame time in ns
+    glm::uint selectedID{}; //< ID of the currently selected object
+    glm::uint hoveredID{};  //< ID of the currently hovered object
 };
 
+/// Structure shared with the GPU side during culling
 struct CullInfo {
-    glm::uint cullCount{};    // number of objects to test for culling
+    glm::uint cullCount{};    //< number of objects to test for culling
 };
 
+/// Scene class that stores all objects in a scene and manages rendering them
 class Scene {
   public:
+    /// Structure storing information regarding each draw call
     struct IndirectDrawCall {
-        std::shared_ptr<Material> material; // material drawn with
-        uint32_t drawCallOffset{};          // offset of first drawCallCmd in array
-        uint32_t drawCallLength{};          // number of drawCallCmd to draw
+        std::shared_ptr<Material> material; //< material drawn with
+        uint32_t drawCallOffset{};          //< offset of first drawCallCmd in array
+        uint32_t drawCallLength{};          //< number of drawCallCmd to draw
     };
 
   private:
@@ -56,9 +60,9 @@ class Scene {
     std::vector<std::shared_ptr<MeshInstance>> instances{};
 
     std::vector<IndirectDrawCall> indirectDrawCalls{};
-    std::shared_ptr<DynamicBuffer> instanceDataBuffer;  // the instance buffer
+    std::shared_ptr<DynamicBuffer> instanceDataBuffer;
     std::shared_ptr<DynamicBuffer> instanceIndexBuffer;
-    std::shared_ptr<DynamicBuffer> indirectCommandBuffer;  // the indirect command buffer
+    std::shared_ptr<DynamicBuffer> indirectCommandBuffer;
     void **instanceBufferData{};
     void **indirectCommandBufferData{};
 
@@ -89,12 +93,14 @@ class Scene {
     void cullObjects(uint32_t meshCount);
 
   public:
-    /// Constructor for handle to scene
-    /// \param pDevice Device to operate on
-    /// \param pTransferQueue Transfer queue to use for data transfers
-    /// \param pGraphicsQueue Graphics queue to use for
-    /// \param pCamera
-    /// \return
+    /// Constructor creating a valid scene handle
+    /// \param renderManager RenderManager instance to use for rendering
+    /// \param pPoolManager PoolManager object for allocating descriptor sets
+    /// \param pGraphicsQueue Graphics queue to use for all rendering commands
+    /// \param pTransferPool Transfer pool for transferring data
+    /// \param pComputePool Compute pool to run the cull shader
+    /// \param pCamera Camera to use for rendering the scene
+    /// \return Valid scene handle
     static std::shared_ptr<Scene> create(const std::shared_ptr<RenderManager> &renderManager,
                                          const std::shared_ptr<DescriptorPoolManager> &pPoolManager,
                                          const std::shared_ptr<Queue> &pGraphicsQueue,
@@ -102,23 +108,37 @@ class Scene {
                                          const std::shared_ptr<CommandPool> &pComputePool,
                                          const std::shared_ptr<Camera> &pCamera);
 
+    /// Sets a new camera as active camera
+    /// \param pCamera Handle to camera to be used
     void setCamera(const std::shared_ptr<Camera> &pCamera);
+    /// Update scene data on the GPU side
     void updateUBO();
 
+    /// Set what object is currently selected
+    /// \param objectID ID of the object
     void setSelected(uint32_t objectID) { selectedID = objectID; }
-
+    /// Set what objects is currently being hovered
+    /// \param objectID ID of the object
     void setHovered(uint32_t objectID) { hoveredID = objectID; }
 
     [[nodiscard]] uint32_t getSelected() const { return selectedID; }
 
     [[nodiscard]] uint32_t getHovered() const { return hoveredID; }
 
+    /// Submit a new instance to the scene
+    /// \param meshInstance The handle to the instance
     void submitInstance(const std::shared_ptr<MeshInstance> &meshInstance);
+    /// Clear the scene and remove all objects
     void clear();
 
+    /// Collect buffers needed for rendering
     void collectRenderBuffers();
+    /// Bake all currently used materials
+    /// \param enableDepthStencil Enable depth stencil testing
     void bakeMaterials(bool enableDepthStencil = false);
 
+    /// Bake all buffer required for rendering
+    /// \param graphicsCommandBuffer Buffer to bake into
     void bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer);
 
     std::shared_ptr<Camera> getCamera() { return camera; }

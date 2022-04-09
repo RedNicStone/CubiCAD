@@ -17,6 +17,7 @@
 #include <vulkan/vulkan_core.h>
 
 
+/// Enumeration storing possible camera configurations
 enum CameraMode : uint8_t {
     CAMERA_MODE_PERSPECTIVE_INFINITE = 1,
     CAMERA_MODE_PERSPECTIVE_FINITE = 2,
@@ -24,11 +25,12 @@ enum CameraMode : uint8_t {
     CAMERA_MODE_ORTHOGRAPHIC_FINITE = 4
 };
 
+/// Struct storing a camera model
 struct CameraModel {
-    CameraMode cameraMode;
-    double fieldOfView;
-    double clipNear;
-    double clipFar;
+    CameraMode cameraMode;  //< Camera mode
+    double fieldOfView;     //< Field of view factor
+    double clipNear;        //< Near clipping distance
+    double clipFar;         //< Far clipping distance
 };
 
 class Camera {
@@ -42,9 +44,17 @@ class Camera {
     CameraModel model{};
 
   public:
+    /// Create a new camera
+    /// \param cameraModel Camera model the camera should use
+    /// \param window Window the camera should operator on
+    /// \return Handle to the new camera
     static std::shared_ptr<Camera> create(CameraModel cameraModel, VkExtent2D window);
 
+    /// Update the camera model
+    /// \param cameraModel Camera model to use
+    /// \param window Window to operate on
     void updateCameraModel(CameraModel cameraModel, VkExtent2D window);
+    /// Update all camera data
     void update();
 
     void rotate(float angle, glm::vec3 axis);

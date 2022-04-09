@@ -19,14 +19,16 @@
 
 class Mesh;
 
+/// Struct to hold instance data that is shared with the GPU
 struct InstanceData {
-    glm::mat4 model;
-    glm::vec3 bbox1;
-    glm::uint objectID;
-    glm::vec3 bbox2;
-    glm::uint batchID;
+    glm::mat4 model;    //< Model transformation matrix
+    glm::vec3 bbox1;    //< Bounding box corner 1
+    glm::uint objectID; //< ID of the instance
+    glm::vec3 bbox2;    //< Bounding box corner 2
+    glm::uint batchID;  //< ID of the draw call this instance is drawn in
 };
 
+/// Class that represents a drawable instance of a mesh
 class MeshInstance {
   private:
     std::shared_ptr<Mesh> mesh;
@@ -44,9 +46,14 @@ class MeshInstance {
 
     std::string name;
 
+    /// Combine all separate transformation matrices into one
     void combineMatrices();
 
   public:
+    /// Create a new mesh instance
+    /// \param masterMesh Mesh to instantiate
+    /// \param pName Name of the new instance
+    /// \return Valid handle to MeshInstance
     static std::shared_ptr<MeshInstance> create(const std::shared_ptr<Mesh> &masterMesh, const std::string &pName = "");
 
     std::shared_ptr<Mesh> getMesh() { return mesh; }

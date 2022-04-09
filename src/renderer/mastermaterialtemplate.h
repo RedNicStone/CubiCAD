@@ -10,12 +10,17 @@
 #include "vulkan/graphicspipeline.h"
 #include "materialparameters.h"
 
+/// Class for storing information to create a master material
 class MasterMaterialTemplate {
   private:
     std::vector<std::shared_ptr<GraphicsShader>> shaders;
     std::shared_ptr<MaterialPropertyLayoutBuilt> propertyLayout;
 
   public:
+    /// Create a new master material template
+    /// \param shaders Shader to use for subsequent master materials
+    /// \param propertyLayout Input layout
+    /// \return Handle to master material template
     static std::shared_ptr<MasterMaterialTemplate> create(const std::vector<std::shared_ptr<GraphicsShader>>& shaders,
                                                    const std::shared_ptr<MaterialPropertyLayoutBuilt>& propertyLayout);
 

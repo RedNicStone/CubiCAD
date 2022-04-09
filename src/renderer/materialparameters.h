@@ -12,6 +12,7 @@
 #include <memory>
 
 
+/// Enumeration for shader input types
 enum MaterialPropertyInput : uint32_t {
     MATERIAL_PROPERTY_INPUT_CONSTANT = 1,
     MATERIAL_PROPERTY_INPUT_TEXTURE = 2,
@@ -19,6 +20,7 @@ enum MaterialPropertyInput : uint32_t {
 
 typedef uint32_t MaterialPropertyInputFlag;
 
+/// Enumeration for shader input formats
 enum MaterialPropertyFormat {
     MATERIAL_PROPERTY_FORMAT_UINT = 0,
     MATERIAL_PROPERTY_FORMAT_SINT = 1,
@@ -32,6 +34,7 @@ enum MaterialPropertyFormat {
     MATERIAL_PROPERTY_FORMAT_MAX_ENUM = 9,
 };
 
+/// Enumeration for shader input sizes
 enum MaterialPropertySize {
     MATERIAL_PROPERTY_SIZE_8 = 0,
     MATERIAL_PROPERTY_SIZE_16 = 1,
@@ -40,6 +43,7 @@ enum MaterialPropertySize {
     MATERIAL_PROPERTY_SIZE_MAX_ENUM = 4,
 };
 
+/// Enumeration for shader input length
 enum MaterialPropertyCount {
     MATERIAL_PROPERTY_COUNT_1 = 0,
     MATERIAL_PROPERTY_COUNT_2 = 1,
@@ -48,6 +52,7 @@ enum MaterialPropertyCount {
     MATERIAL_PROPERTY_COUNT_MAX_ENUM = 4,
 };
 
+/// Structure storing a singular shader input
 struct MaterialProperty {
     MaterialPropertyInputFlag input;
     MaterialPropertyFormat format;
@@ -57,10 +62,12 @@ struct MaterialProperty {
     std::string attributeName;
 };
 
+/// Structure storing a layout of multiple shader inputs
 struct MaterialPropertyLayout {
     std::vector<MaterialProperty> properties{};
 };
 
+/// Built version of MaterialProperty that has no type associated
 struct MaterialPropertyBuiltGeneric {
     MaterialPropertyInputFlag input{};
     VkFormat pixelFormat{};
@@ -77,6 +84,7 @@ struct MaterialPropertyBuiltGeneric {
     virtual ~MaterialPropertyBuiltGeneric() = default;
 };
 
+/// Built version of MaterialProperty that has a type associated
 template<typename T>
 struct MaterialPropertyBuilt : public MaterialPropertyBuiltGeneric {
     MaterialPropertyBuilt() {
@@ -88,6 +96,7 @@ struct MaterialPropertyBuilt : public MaterialPropertyBuiltGeneric {
     void *cast(void *obj) const override { return static_cast<T *>(obj); }
 };
 
+/// Built version of MaterialPropertyLayout which contains a list of built shader properties
 struct MaterialPropertyLayoutBuilt {
     size_t totalSize;
     std::vector<MaterialPropertyBuiltGeneric *> properties{};
@@ -98,9 +107,18 @@ struct MaterialPropertyLayoutBuilt {
     }
 };
 
+/// Build a property
+/// \param property Property to build
+/// \return Generified cast of build material with type associated
 MaterialPropertyBuiltGeneric *buildProperty(const MaterialProperty& property);
+/// Build whole property layout
+/// \param layout Layout to build
+/// \return Build layout
 std::shared_ptr<MaterialPropertyLayoutBuilt> buildLayout(const MaterialPropertyLayout &layout);
 
+/// Copy a built layout
+/// \param layout Original layout
+/// \return Independent copy
 std::shared_ptr<MaterialPropertyLayoutBuilt> copyLayout(const std::shared_ptr<MaterialPropertyLayoutBuilt>& layout);
 
 #endif //CUBICAD_MATERIALPARAMETERS_H

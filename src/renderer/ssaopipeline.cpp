@@ -164,21 +164,21 @@ std::shared_ptr<SSAOPipeline> SSAOPipeline::create(const std::shared_ptr<Device>
     return ssaoPipeline;
 }
 
-void SSAOPipeline::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &graphicsCommandBuffer) {
-    graphicsCommandBuffer->bindPipeline(obscurancePipeline);
+void SSAOPipeline::bakeGraphicsBuffer(const std::shared_ptr<CommandBuffer> &computeCommandBuffer) {
+    computeCommandBuffer->bindPipeline(obscurancePipeline);
 
     std::vector<std::shared_ptr<DescriptorSet>> descriptorSets = {sceneDescriptorSet, sampleDescriptorSet};
-    graphicsCommandBuffer->bindDescriptorSets(descriptorSets, obscurancePipeline);
+    computeCommandBuffer->bindDescriptorSets(descriptorSets, obscurancePipeline);
 
-    graphicsCommandBuffer->dispatch((imageExtend.width - 1) / 16 + 1, (imageExtend.height - 1) / 16 + 1, 1);
+    computeCommandBuffer->dispatch((imageExtend.width - 1) / 16 + 1, (imageExtend.height - 1) / 16 + 1, 1);
 
-    graphicsCommandBuffer->bindPipeline(blurPipelineX);
-    graphicsCommandBuffer->bindDescriptorSets(descriptorSets, blurPipelineX);
+    computeCommandBuffer->bindPipeline(blurPipelineX);
+    computeCommandBuffer->bindDescriptorSets(descriptorSets, blurPipelineX);
 
-    graphicsCommandBuffer->dispatch((imageExtend.width - 1) / 16 + 1, (imageExtend.height - 1) / 16 + 1, 1);
+    computeCommandBuffer->dispatch((imageExtend.width - 1) / 16 + 1, (imageExtend.height - 1) / 16 + 1, 1);
 
-    graphicsCommandBuffer->bindPipeline(blurPipelineY);
-    graphicsCommandBuffer->bindDescriptorSets(descriptorSets, blurPipelineY);
+    computeCommandBuffer->bindPipeline(blurPipelineY);
+    computeCommandBuffer->bindDescriptorSets(descriptorSets, blurPipelineY);
 
-    graphicsCommandBuffer->dispatch((imageExtend.width - 1) / 16 + 1, (imageExtend.height - 1) / 16 + 1, 1);
+    computeCommandBuffer->dispatch((imageExtend.width - 1) / 16 + 1, (imageExtend.height - 1) / 16 + 1, 1);
 }
