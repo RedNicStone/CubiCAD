@@ -14,11 +14,11 @@ option(COMPILE_FLAG_USE_UINT32_INDICES "Compile using 32 bit integers for indexi
                                         Limits the map size and detail. Default is 64 bit" OFF)
 
 # AUTO_LOCATE_VULKAN - accepted value ON or OFF
-# ON  - Use CMake to auto locate the Vulkan SDK.
+# ON  - Use CMake to auto locate the Vulkan SDK.-
 # OFF - Vulkan SDK path can be specified manually. This is helpful to test the build on various Vulkan version.
 option(AUTO_LOCATE_VULKAN "Automatically locate vulkan using CMake" ON)
 
-# COMPILE_FLAG_OFFLINE - configure make to build offline
+# COMPILE_FLAG_OFFLINE - configure make to build offline1
 # ON  - Try to build offline
 # OFF - Build as usual
 option(COMPILE_FLAG_OFFLINE "Configure make to build offline" OFF)
@@ -239,7 +239,7 @@ file(GLOB
 
 message(STATUS "Detected shaders to build: ${SHADERS_SOURCE_PATH}")
 
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+if(CMAKE_BUILD_TYPE STREQUAL "Debugn")
     set(SHADER_COMPILE_ARGS "-O0;-g")
 else()
     set(SHADER_COMPILE_ARGS "-O")

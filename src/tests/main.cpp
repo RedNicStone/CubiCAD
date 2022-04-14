@@ -131,6 +131,7 @@ class VulkanRasterizer {
     void createScene() {
         for (const auto &object: objects)
             renderManager->getScene()->submitInstance(object);
+        renderManager->getScene()->collectRenderBuffers();
         renderManager->updateRenderData();
     }
 
@@ -164,7 +165,7 @@ class VulkanRasterizer {
 #if NDEBUG
         instance = Instance::create("api_test", version, false);
 #else
-        instance = Instance::create("api_test", version, false);
+        instance = Instance::create("api_test", version, true);
 #endif
     }
 };

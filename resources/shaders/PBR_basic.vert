@@ -34,6 +34,7 @@ layout(location = 3) out vec3 fragment_pos;
 
 void main() {
     mat4 instance_model = instanceBuffer.instances[instance_id].model;
+    mat4 model = instance_model * scene_info.proj;
     vec4 absPos = scene_info.view * instance_model * vec4(vert_pos, 1.0);
     gl_Position = scene_info.proj * absPos;
 

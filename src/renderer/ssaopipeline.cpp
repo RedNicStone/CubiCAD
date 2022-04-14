@@ -102,7 +102,8 @@ std::shared_ptr<SSAOPipeline> SSAOPipeline::create(const std::shared_ptr<Device>
 
     auto samples = std::vector<sample>(sampleCount);
     for (uint32_t i = 0; i < sampleCount; i++) {
-        samples[i].p = glm::normalize(glm::vec3(generator() * 1.8f - 0.9f, generator() * 1.8f - 0.9f, generator()));
+        samples[i].p = glm::normalize(glm::vec3(generator() * 2.0f - 1.0f, generator() * 2.0f - 1.0f,
+                                                generator() * 0.9f + 0.1f));
         float scale = (float) sampleCount / 64.0f;
         scale = Utils::lerp(0.1f, 1.0f, scale * scale);
         samples[i].p *= scale;

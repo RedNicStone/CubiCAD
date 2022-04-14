@@ -196,7 +196,7 @@ bool MainMenu::openOBJFileDialog() {
         ImGui::SameLine();
         if (ImGui::Button(ICON_FK_FOLDER_OPEN)) {
             nfdchar_t *outPath;
-            nfdfilteritem_t filterItem[1] = {{"Wavefront files", ".obj"}};
+            nfdfilteritem_t filterItem[1] = {{"Wavefront files", "obj"}};
             const char *defaultPath = lastImports[0].c_str();
             nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 1, defaultPath);
 
@@ -207,9 +207,13 @@ bool MainMenu::openOBJFileDialog() {
             }
         }
         if (ImGui::Button("Load object")) {
-            renderManager->loadMesh(lastImports.back());
-            renderManager->getScene()->bakeMaterials(true);
-            renderManager->getScene()->collectRenderBuffers();
+            renderManager->registerFunctionNextFrame([=](){
+              renderManager->waitForExecution();
+              renderManager->loadMesh(lastImports.back());
+              renderManager->getScene()->bakeMaterials(true);
+              renderManager->getScene()->collectRenderBuffers();
+              renderManager->updateRenderData();
+            });
             ImGui::CloseCurrentPopup();
         }
         ImGui::SameLine();
@@ -229,8 +233,8 @@ bool MainMenu::openSaveFileDialog() {
         ImGui::SameLine();
         if (ImGui::Button(ICON_FK_FOLDER_OPEN)) {
             nfdchar_t *outPath;
-            nfdfilteritem_t filterItem[2] = {{"CubiCAD saves", ".ccs"},
-                                             {"Compressed CubiCAD saves", ".ccs.lz4"}};
+            nfdfilteritem_t filterItem[2] = {{"CubiCAD saves", "ccs"},
+                                             {"Compressed CubiCAD saves", "ccs.lz4"}};
             const char *defaultPath = lastFiles[0].c_str();
             nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 2, defaultPath);
 
@@ -241,9 +245,15 @@ bool MainMenu::openSaveFileDialog() {
             }
         }
         if (ImGui::Button("Load file")) {
-            renderManager->getSceneWriter()->setFilename(lastFiles.back());
-            renderManager->getScene()->clear();
-            renderManager->getSceneWriter()->readScene();
+            renderManager->registerFunctionNextFrame([=](){
+              renderManager->waitForExecution();
+              renderManager->getSceneWriter()->setFilename(lastFiles.back());
+              renderManager->getScene()->clear();
+              renderManager->getSceneWriter()->readScene();
+              renderManager->getScene()->bakeMaterials(true);
+              renderManager->getScene()->collectRenderBuffers();
+              renderManager->updateRenderData();
+            });
             ImGui::CloseCurrentPopup();
         }
         ImGui::SameLine();

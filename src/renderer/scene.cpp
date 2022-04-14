@@ -201,23 +201,21 @@ void Scene::transferRenderData() {
                     //abs(corner.y) < corner.w &&
                     (0.0f < corner.z && corner.z < corner.w);
 
-                corner /= corner.w;
-
                 min = glm::min(min, corner);
                 max = glm::max(max, corner);
             }
         }
     }*/
 
-    auto
+    /*auto
         vs_transform =
-        static_cast<SceneData *>(sceneInfoBuffer->getDataHandle())->view
-            * static_cast<SceneData *>(sceneInfoBuffer->getDataHandle())->proj
+        camera->getView()
+            * camera->getProj()
             * glm::mat4(1.0f);
 
     max = vs_transform * glm::vec4(1, 1, 1, 1.0);
-    max /= max.w;
     min = max;
+    max /= max.w;
 
     std::cout
         << min.x
@@ -235,7 +233,7 @@ void Scene::transferRenderData() {
         << max.z
         << ", "
         << max.w
-        << std::endl;
+        << std::endl;*/
 
     auto instanceDataTempBuffer = instanceDataBuffer->getBuffer();
     auto indirectCommandTempBuffer = indirectCommandBuffer->getBuffer();
@@ -270,7 +268,7 @@ void Scene::transferRenderData() {
             for (const auto &meshletCall: materialCall.second) {
                 VkDrawIndexedIndirectCommand drawCommand = meshletCall.second.front()->getMesh()->getDrawCommand();
                 drawCommand.firstInstance = static_cast<uint32_t>(instanceData.size());
-                drawCommand.instanceCount = static_cast<uint32_t>(0);//meshletCall.second.size());
+                drawCommand.instanceCount = static_cast<uint32_t>(meshletCall.second.size());
 
                 for (const auto &instanceCall: meshletCall.second) {
                     instanceData.push_back(instanceCall->getInstanceData());
@@ -399,13 +397,15 @@ void Scene::cullObjects(uint32_t meshCount) {
     auto computeBuffer = CommandBuffer::create(computeCommandPool);
     computeBuffer->beginCommandBuffer();
 
-    computeBuffer->bindPipeline(cullPipeline);
+    if (!instances.empty()) {
+        computeBuffer->bindPipeline(cullPipeline);
 
-    std::vector<std::shared_ptr<DescriptorSet>> descriptorSets = {sceneDescriptorSet, cullDescriptorSet};
-    computeBuffer->bindDescriptorSets(descriptorSets, cullPipeline);
+        std::vector<std::shared_ptr<DescriptorSet>> descriptorSets = {sceneDescriptorSet, cullDescriptorSet};
+        computeBuffer->bindDescriptorSets(descriptorSets, cullPipeline);
 
-    ((CullInfo *) cullInfoBuffer->getDataHandle())->cullCount = meshCount;
-    computeBuffer->dispatch(static_cast<uint32_t>(instances.size() - 1) / 16 + 1, 1, 1);
+        ((CullInfo *) cullInfoBuffer->getDataHandle())->cullCount = meshCount;
+        computeBuffer->dispatch(static_cast<uint32_t>(instances.size() - 1) / 16 + 1, 1, 1);
+    }
 
     computeBuffer->endCommandBuffer();
 
