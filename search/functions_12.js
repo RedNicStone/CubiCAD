@@ -25,7 +25,7 @@ var searchData=
   ['resize_22',['resize',['../class_virtual_allocation.html#a31398d1ddf3665a6da6cd91aa29f989c',1,'VirtualAllocation::resize()'],['../class_virtual_stack_allocation.html#a29393b6e8c029a513a5073d29319b2da',1,'VirtualStackAllocation::resize()']]],
   ['resizeswapchain_23',['resizeSwapChain',['../class_render_manager.html#ab087dc4ee1c6e377ca52ee44d1591c29',1,'RenderManager']]],
   ['rotate_24',['rotate',['../class_camera.html#a25423f6fbeab3064b2a6185ee5727ad7',1,'Camera']]],
-  ['run_25',['run',['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()'],['../class_vulkan_rasterizer.html#add1cfb13a3ae242ca9eef6c1e9e42751',1,'VulkanRasterizer::run()']]],
+  ['run_25',['run',['../class_vulkan_rasterizer.html#add1cfb13a3ae242ca9eef6c1e9e42751',1,'VulkanRasterizer::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()'],['../class_mandelbrot_app.html#a2cd742dc1400d3cf3e4ed782976fda5f',1,'MandelbrotApp::run()'],['../class_vulkan_rasterizer.html#add1cfb13a3ae242ca9eef6c1e9e42751',1,'VulkanRasterizer::run()']]],
   ['runrenderloop_26',['runRenderLoop',['../class_render_bus.html#a5c1fc166a1821a7c67a536a100d3b09f',1,'RenderBus']]],
   ['runrenderloop_5f_27',['runRenderLoop_',['../class_render_bus.html#a0c6c79cea328c4475de527b874ce517a',1,'RenderBus']]]
 ];

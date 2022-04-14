@@ -70,9 +70,9 @@ var NAVTREEINDEX =
 "class_master_material_template.html#aa3d58af465c5faee64cc0a3366f1baac",
 "class_render_manager.html#aa95a1ffa430c1b3cefe7af5ab760d2ed",
 "class_voxel_codec_base.html",
-"functions_v.html",
-"octree_8h.html#a80a3c44052e9878035bae01bb1cbc3b9a56b338eb5ccba9f841952da63af65d27",
-"struct_material_property_built_generic.html#ad4b11d9c95392de6cf1bd966ed7f7155"
+"functions_n.html",
+"octree_8h.html#a53a28821f06868f78656b043694f47bea41a3b6e6fef8f529b1ad6c92183f9a14",
+"struct_mandelbrot_u_b_o.html#aaf31c8b1bac4220c566d3ca07a79c00e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
