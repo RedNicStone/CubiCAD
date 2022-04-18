@@ -61,6 +61,7 @@ namespace std {
 struct Meshlet {
     std::vector<uint32_t> indexData{};  //< Index data
     std::shared_ptr<Material> material; //< Handle to material used in meshlet
+    uint32_t firstIndex{};
 };
 
 /// Mesh class storing mesh data

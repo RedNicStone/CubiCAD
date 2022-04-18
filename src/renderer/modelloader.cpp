@@ -223,7 +223,10 @@ std::vector<std::shared_ptr<Mesh>> ModelLoader::import(const std::string &filena
 
         std::vector<std::shared_ptr<Meshlet>> meshletVector;
         meshletVector.reserve(meshlets.size());
+        uint32_t firstIndex = 0;
         for (const auto &kv: meshlets) {
+            kv.second->firstIndex = firstIndex;
+            firstIndex += kv.second->indexData.size();
             meshletVector.push_back(kv.second);
         }
 

@@ -267,6 +267,8 @@ void Scene::transferRenderData() {
 
             for (const auto &meshletCall: materialCall.second) {
                 VkDrawIndexedIndirectCommand drawCommand = meshletCall.second.front()->getMesh()->getDrawCommand();
+                drawCommand.firstIndex += meshletCall.first->firstIndex;
+                drawCommand.indexCount = static_cast<uint32_t>(meshletCall.first->indexData.size());
                 drawCommand.firstInstance = static_cast<uint32_t>(instanceData.size());
                 drawCommand.instanceCount = static_cast<uint32_t>(meshletCall.second.size());
 
